@@ -47,20 +47,20 @@ const PuzzleLoanBasics = () => {
 
   // Loan terms (left side) - 5 items
   const terms = [
-    { id: 1, name: "Principal", emoji: "💵", hint: "Original borrowed amount" },
-    { id: 2, name: "Interest", emoji: "💰", hint: "Cost of borrowing" },
-    { id: 3, name: "Loan Term", emoji: "📅", hint: "Repayment duration" },
-    { id: 4, name: "EMI", emoji: "📊", hint: "Monthly payment" },
-    { id: 5, name: "Default", emoji: "⚠️", hint: "Failed repayment" }
+    { id: 1, name: "Principal", emoji: "💵",  },
+    { id: 2, name: "Interest", emoji: "💰",  },
+    { id: 3, name: "Loan Term", emoji: "📅",  },
+    { id: 4, name: "EMI", emoji: "📊",  },
+    { id: 5, name: "Default", emoji: "⚠️",  }
   ];
 
   // Loan concepts (right side) - 5 items
   const concepts = [
-    { id: 6, name: "Original Amount", emoji: "📝", description: "Initial borrowed sum" },
-    { id: 7, name: "Extra Cost", emoji: "➕", description: "Borrowing charges" },
-    { id: 8, name: "Time Period", emoji: "⏱️", description: "Loan duration" },
-    { id: 9, name: "Regular Payment", emoji: "💳", description: "Scheduled installments" },
-    { id: 10, name: "Missed Payments", emoji: "🚫", description: "Repayment failure" }
+    { id: 6, name: "Original Amount", emoji: "📝",  },
+    { id: 7, name: "Extra Cost", emoji: "➕",  },
+    { id: 8, name: "Time Period", emoji: "⏱️",  },
+    { id: 9, name: "Regular Payment", emoji: "💳",  },
+    { id: 10, name: "Missed Payments", emoji: "🚫",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

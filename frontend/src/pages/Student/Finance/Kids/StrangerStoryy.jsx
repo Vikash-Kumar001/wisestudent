@@ -31,21 +31,19 @@ const StrangerStoryy = () => {
           id: "refuse", 
           text: "Refuse", 
           emoji: "❌", 
-          description: "Say no and walk away",
+          
           isCorrect: true
         },
         { 
           id: "accept", 
           text: "Accept", 
           emoji: "🎁", 
-          description: "Take the offer",
           isCorrect: false
         },
         { 
           id: "delay", 
           text: "Delay Decision", 
           emoji: "⏰", 
-          description: "Wait and think later",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const StrangerStoryy = () => {
           id: "give", 
           text: "Give Info", 
           emoji: "💳", 
-          description: "Share your details",
           isCorrect: false
         },
         { 
           id: "partial", 
           text: "Give Partial Info", 
           emoji: "🤷", 
-          description: "Share some details only",
           isCorrect: false
         },
         {
           id: "no",
           text: "Say No",
           emoji: "🚫",
-          description: "Refuse to share",
           isCorrect: true
         },
       ]
@@ -85,21 +80,18 @@ const StrangerStoryy = () => {
           id: "walk", 
           text: "Walk Away", 
           emoji: "🚶", 
-          description: "Leave immediately",
           isCorrect: true
         },
         { 
           id: "engage", 
           text: "Engage", 
           emoji: "💬", 
-          description: "Talk to them",
           isCorrect: false
         },
         { 
           id: "wait", 
           text: "Wait & See", 
           emoji: "⏳", 
-          description: "Wait to see what happens",
           isCorrect: false
         }
       ]
@@ -112,21 +104,18 @@ const StrangerStoryy = () => {
           id: "tell", 
           text: "Tell Adult", 
           emoji: "👨‍👩‍👧", 
-          description: "Inform an adult",
           isCorrect: true
         },
         { 
           id: "quiet", 
           text: "Stay Quiet", 
           emoji: "🤫", 
-          description: "Don't tell anyone",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore It", 
           emoji: "🙈", 
-          description: "Pretend you didn't see it",
           isCorrect: false
         }
       ]
@@ -139,21 +128,18 @@ const StrangerStoryy = () => {
           id: "reply", 
           text: "Reply", 
           emoji: "💬", 
-          description: "Reply to the message",
           isCorrect: false
         },
         {
           id: "ignore",
           text: "Ignore",
           emoji: "🚫",
-          description: "Ignore the message",
           isCorrect: true
         },
         { 
           id: "forward", 
           text: "Forward to Friends", 
           emoji: "📤", 
-          description: "Share with friends first",
           isCorrect: false
         }
       ]

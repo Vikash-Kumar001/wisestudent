@@ -22,20 +22,20 @@ const HygieneMatchPuzzle = () => {
   
   // Hygiene Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Dental Floss", emoji: "🧵", hint: "Thin thread for cleaning between teeth" },
-    { id: 2, name: "Comb", emoji: "💇‍♀️", hint: "Tool for arranging hair" },
-    { id: 3, name: "Nail Clippers", emoji: "✂️", hint: "Cutting tool for trimming nails" },
-    { id: 4, name: "Deodorant", emoji: "🧴", hint: "Product for reducing body odor" },
-    { id: 5, name: "Towel", emoji: "🧖‍♀️", hint: "Cloth for drying body" }
+    { id: 1, name: "Dental Floss", emoji: "🧵",  },
+    { id: 2, name: "Comb", emoji: "💇‍♀️",  },
+    { id: 3, name: "Nail Clippers", emoji: "✂️",  },
+    { id: 4, name: "Deodorant", emoji: "🧴",  },
+    { id: 5, name: "Towel", emoji: "🧖‍♀️",  }
   ];
   
   // Benefits (right side) - 5 items (shuffled order)
   const benefits = [
-    { id: 2, text: "Keeps hair neat and tangle-free", hint: "Organizes strands smoothly" },
-    { id: 4, text: "Eliminates unpleasant body smells", hint: "Blocks odor-causing bacteria" },
-    { id: 1, text: "Removes food stuck between teeth", hint: "Cleans tight spaces brushes miss" },
-    { id: 5, text: "Dries skin after bathing", hint: "Absorbs moisture effectively" },
-    { id: 3, text: "Maintains clean, short nails", hint: "Prevents dirt accumulation" }
+    { id: 2, text: "Keeps hair neat and tangle-free",  },
+    { id: 4, text: "Eliminates unpleasant body smells",  },
+    { id: 1, text: "Removes food stuck between teeth",  },
+    { id: 5, text: "Dries skin after bathing",  },
+    { id: 3, text: "Maintains clean, short nails",  }
   ];
   
   // Correct matches

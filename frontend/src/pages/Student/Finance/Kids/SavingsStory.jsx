@@ -32,21 +32,20 @@ const SavingsStory = () => {
           id: "home",
           text: "Keep at Home",
           emoji: "🏠",
-          description: "Hide it under your mattress",
+          
           isCorrect: false
         },
         {
           id: "bank",
           text: "Open a Bank Account",
           emoji: "🏦",
-          description: "Deposit in a savings account",
+          
           isCorrect: true
         },
         {
           id: "wallet",
           text: "Carry in Wallet",
           emoji: "👛",
-          description: "Keep it with you at all times",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const SavingsStory = () => {
           id: "split",
           text: "Split 50/50",
           emoji: "💵",
-          description: "Save half, spend half",
           isCorrect: true
         },
         {
           id: "spend",
           text: "Buy Latest Gadgets",
           emoji: "📱",
-          description: "Purchase new electronics",
           isCorrect: false
         },
         {
           id: "spend_all",
           text: "Spend All Now",
           emoji: "💸",
-          description: "Buy everything you want today",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const SavingsStory = () => {
           id: "treats",
           text: "Buy Snacks",
           emoji: "🍫",
-          description: "Spend on candy and treats",
           isCorrect: false
         },
         {
           id: "save_half",
           text: "Save 50%",
           emoji: "💲",
-          description: "Save half, spend the rest",
           isCorrect: true
         },
         {
           id: "save_all",
           text: "Save Everything",
           emoji: "💰",
-          description: "Don't spend anything",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const SavingsStory = () => {
           id: "piggy",
           text: "Piggy Bank",
           emoji: "🐷",
-          description: "Keep it in a jar at home",
           isCorrect: false
         },
         {
           id: "pocket",
           text: "Your Pocket",
           emoji: "👖",
-          description: "Carry it with you",
           isCorrect: false
         },
         {
           id: "bank",
           text: "Savings Account",
           emoji: "🏦",
-          description: "Deposit in the bank to earn interest",
           isCorrect: true
         }
       ]
@@ -140,21 +130,18 @@ const SavingsStory = () => {
           id: "save",
           text: "High-Interest Account",
           emoji: "💹",
-          description: "Earn interest in a savings account",
           isCorrect: true
         },
         {
           id: "invest",
           text: "Invest in Stocks",
           emoji: "📊",
-          description: "Buy company shares",
           isCorrect: false
         },
         {
           id: "spend",
           text: "Buy Collectibles",
           emoji: "🏀",
-          description: "Purchase items that might increase in value",
           isCorrect: false
         }
       ]

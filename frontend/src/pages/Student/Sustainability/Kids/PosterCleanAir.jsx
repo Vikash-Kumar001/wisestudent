@@ -28,21 +28,20 @@ const PosterCleanAir = () => {
         {
           id: 1,
           title: "Pollute More",
-          description: "A poster encouraging pollution",
+          
           emoji: "🏭",
           isCorrect: false
         },
         {
           id: 2,
           title: "Breathe Clean Air",
-          description: "A poster showing clean air and healthy lungs",
+          
           emoji: "🫁",
           isCorrect: true
         },
         {
           id: 3,
           title: "Ignore Air Quality",
-          description: "A poster suggesting we don't worry about air",
           emoji: "😷",
           isCorrect: false
         }
@@ -56,7 +55,6 @@ const PosterCleanAir = () => {
         {
           id: 1,
           title: "Drive More Cars",
-          description: "A poster encouraging driving everywhere",
           emoji: "🚗",
           isCorrect: false
         },
@@ -64,14 +62,12 @@ const PosterCleanAir = () => {
         {
           id: 3,
           title: "Use More Gas",
-          description: "A poster encouraging fuel consumption",
           emoji: "⛽",
           isCorrect: false
         },
          {
           id: 2,
           title: "Walk, Bike, or Bus",
-          description: "A poster showing sustainable transportation",
           emoji: "🚌",
           isCorrect: true
         },
@@ -85,14 +81,12 @@ const PosterCleanAir = () => {
         {
           id: 2,
           title: "Plant and Protect Trees",
-          description: "A poster showing trees cleaning the air",
           emoji: "🌿",
           isCorrect: true
         },
         {
           id: 1,
           title: "Cut Down All Trees",
-          description: "A poster encouraging deforestation",
           emoji: "🪚",
           isCorrect: false
         },
@@ -100,7 +94,6 @@ const PosterCleanAir = () => {
         {
           id: 3,
           title: "Ignore Forests",
-          description: "A poster showing disregard for trees",
           emoji: "🌲",
           isCorrect: false
         }
@@ -114,21 +107,18 @@ const PosterCleanAir = () => {
         {
           id: 1,
           title: "Use More Coal",
-          description: "A poster encouraging coal usage",
           emoji: "🏭",
           isCorrect: false
         },
         {
           id: 2,
           title: "Solar and Wind Power",
-          description: "A poster showing renewable energy sources",
           emoji: "☀️",
           isCorrect: true
         },
         {
           id: 3,
           title: "Burn More Fossil Fuels",
-          description: "A poster encouraging fossil fuel use",
           emoji: "⛽",
           isCorrect: false
         }
@@ -142,7 +132,6 @@ const PosterCleanAir = () => {
         {
           id: 1,
           title: "Breathe Polluted Air",
-          description: "A poster encouraging exposure to pollution",
           emoji: "😷",
           isCorrect: false
         },
@@ -150,14 +139,12 @@ const PosterCleanAir = () => {
         {
           id: 3,
           title: "Ignore Air Quality",
-          description: "A poster showing disregard for air health",
           emoji: "😶",
           isCorrect: false
         },
         {
           id: 2,
           title: "Clean Air for Healthy Lungs",
-          description: "A poster showing the importance of clean air",
           emoji: "💨",
           isCorrect: true
         },

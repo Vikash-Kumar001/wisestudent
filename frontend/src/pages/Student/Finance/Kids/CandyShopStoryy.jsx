@@ -32,21 +32,20 @@ const CandyShopStoryy = () => {
           id: "yes", 
           text: "Yes, I check the bill", 
           emoji: "📜", 
-          description: "Review the bill carefully",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, I just pay", 
           emoji: "💸", 
-          description: "Pay without checking",
+          
           isCorrect: false
         },
         { 
           id: "friend", 
           text: "Ask a friend to check", 
           emoji: "👥", 
-          description: "Let someone else check",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const CandyShopStoryy = () => {
           id: "25", 
           text: "₹25", 
           emoji: "💸", 
-          description: "50 - 25 = 25",
           isCorrect: false
         },
         { 
           id: "40", 
           text: "₹40", 
           emoji: "💵", 
-          description: "50 - 10 = 40",
           isCorrect: false
         },
         {
           id: "35",
           text: "₹35",
           emoji: "💰",
-          description: "50 - 15 = 35",
           isCorrect: true
         },
       ]
@@ -86,21 +82,18 @@ const CandyShopStoryy = () => {
           id: "ask", 
           text: "Politely ask for the correct change", 
           emoji: "🗣️", 
-          description: "Request the right amount",
           isCorrect: true
         },
         { 
           id: "take", 
           text: "Take the ₹30 and leave", 
           emoji: "🚶", 
-          description: "Accept the wrong amount",
           isCorrect: false
         },
         { 
           id: "buy", 
           text: "Buy more candy", 
           emoji: "🍬", 
-          description: "Spend the change on candy",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const CandyShopStoryy = () => {
           id: "yes", 
           text: "Yes, I have enough", 
           emoji: "😊", 
-          description: "Think you have enough",
           isCorrect: false
         },
         {
           id: "no",
           text: "No, I need ₹20",
           emoji: "💰",
-          description: "Need 20 rupees total",
           isCorrect: true
         },
         { 
           id: "discount", 
           text: "Ask for a discount", 
           emoji: "🎟️", 
-          description: "Try to get lower price",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const CandyShopStoryy = () => {
           id: "everything", 
           text: "Buy everything you see", 
           emoji: "🛒", 
-          description: "Purchase all items",
           isCorrect: false
         },
         {
           id: "check",
           text: "Check prices and bills carefully",
           emoji: "🧾",
-          description: "Review everything before paying",
           isCorrect: true
         },
         { 
           id: "friends", 
           text: "Only shop with friends", 
           emoji: "👨‍👩‍👧", 
-          description: "Shop in groups only",
           isCorrect: false
         }
       ]

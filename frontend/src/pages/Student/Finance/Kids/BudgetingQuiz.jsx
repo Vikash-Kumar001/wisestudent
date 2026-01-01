@@ -35,21 +35,19 @@ const BudgetingQuiz = () => {
           id: "list", 
           text: "A shopping list", 
           emoji: "📝", 
-          description: "Just a list of things to buy",
+          
           isCorrect: false
         },
         { 
           id: "plan", 
           text: "A spending plan", 
           emoji: "📊", 
-          description: "A plan for how to use your money",
           isCorrect: true
         },
         { 
           id: "free", 
           text: "Free money", 
           emoji: "💰", 
-          description: "Money you can spend freely",
           isCorrect: false
         }
       ]
@@ -63,21 +61,18 @@ const BudgetingQuiz = () => {
           id: "track", 
           text: "Track expenses and save", 
           emoji: "💾", 
-          description: "Know where your money goes and save more",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend all money fast", 
           emoji: "🛍️", 
-          description: "Use up all your money quickly",
           isCorrect: false
         },
         { 
           id: "fun", 
           text: "Just for fun", 
           emoji: "🎮", 
-          description: "Something to do for entertainment",
           isCorrect: false
         }
       ]
@@ -92,21 +87,18 @@ const BudgetingQuiz = () => {
           id: "save", 
           text: "You save ₹20", 
           emoji: "💰", 
-          description: "You put away extra money",
           isCorrect: false
         },
         { 
           id: "prize", 
           text: "You win a prize", 
           emoji: "🏆", 
-          description: "Something good happens",
           isCorrect: false
         },
          { 
           id: "debt", 
           text: "You go into debt", 
           emoji: "📉", 
-          description: "You owe money you don't have",
           isCorrect: true
         },
       ]
@@ -121,21 +113,18 @@ const BudgetingQuiz = () => {
           id: "guess", 
           text: "Guess and spend randomly", 
           emoji: "🎲", 
-          description: "Just spend without thinking",
           isCorrect: false
         },
         { 
           id: "plan", 
           text: "List expenses and plan", 
           emoji: "📋", 
-          description: "Write down what you'll spend and stick to it",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore spending", 
           emoji: "🙈", 
-          description: "Don't think about what you spend",
           isCorrect: false
         }
       ]
@@ -149,21 +138,18 @@ const BudgetingQuiz = () => {
           id: "goals", 
           text: "Achieve goals stress-free", 
           emoji: "🎯", 
-          description: "Reach your money goals without worry",
           isCorrect: true
         },
         { 
           id: "unnecessary", 
           text: "Buy unnecessary things", 
           emoji: "🛒", 
-          description: "Spend on things you don't need",
           isCorrect: false
         },
         { 
           id: "lose", 
           text: "Lose track of money", 
           emoji: "💸", 
-          description: "Not know where your money went",
           isCorrect: false
         }
       ]

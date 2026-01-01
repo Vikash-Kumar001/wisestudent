@@ -29,20 +29,20 @@ const RelaxingPuzzle = () => {
 
   // Left side - relaxing activities
   const leftItems = [
-    { id: 1, name: "Yoga", emoji: "🧘", description: "Yoga practice" },
-    { id: 2, name: "Music", emoji: "🎵", description: "Listening to music" },
-    { id: 3, name: "Deep Breathing", emoji: "💨", description: "Breathing exercises" },
-    { id: 4, name: "Nature Walk", emoji: "🌳", description: "Walking in nature" },
-    { id: 5, name: "Reading", emoji: "📖", description: "Reading a book" }
+    { id: 1, name: "Yoga", emoji: "🧘",  },
+    { id: 2, name: "Music", emoji: "🎵",  },
+    { id: 3, name: "Deep Breathing", emoji: "💨",  },
+    { id: 4, name: "Nature Walk", emoji: "🌳",  },
+    { id: 5, name: "Reading", emoji: "📖",  }
   ];
 
   // Right side - relaxation effects
   const rightItems = [
-    { id: 1, name: "Calm", emoji: "😌", description: "Feeling calm" },
-    { id: 2, name: "Relax", emoji: "😊", description: "Feeling relaxed" },
-    { id: 3, name: "Peace", emoji: "🕊️", description: "Feeling peaceful" },
-    { id: 4, name: "Tranquil", emoji: "🌿", description: "Feeling tranquil" },
-    { id: 5, name: "Serene", emoji: "✨", description: "Feeling serene" }
+    { id: 1, name: "Calm", emoji: "😌",  },
+    { id: 2, name: "Relax", emoji: "😊",  },
+    { id: 3, name: "Peace", emoji: "🕊️",  },
+    { id: 4, name: "Tranquil", emoji: "🌿",  },
+    { id: 5, name: "Serene", emoji: "✨",  }
   ];
 
   // Correct matches

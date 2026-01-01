@@ -35,21 +35,19 @@ const CalmnessQuiz = () => {
           id: "a", 
           text: "Deep breathing", 
           emoji: "🌬️", 
-          description: "Deep breathing helps calm the mind",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Shouting", 
           emoji: "😡", 
-          description: "Shouting increases stress",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Worrying", 
           emoji: "😰", 
-          description: "Worrying increases stress",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const CalmnessQuiz = () => {
           id: "b", 
           text: "Getting very angry", 
           emoji: "😡", 
-          description: "Anger doesn't help calmness",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Taking slow, deep breaths", 
           emoji: "🧘", 
-          description: "Breathing exercises promote calmness",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Panicking about everything", 
           emoji: "😰", 
-          description: "Panic increases stress",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const CalmnessQuiz = () => {
           id: "b", 
           text: "Working non-stop without rest", 
           emoji: "⚡", 
-          description: "This can increase stress",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Worrying constantly", 
           emoji: "😰", 
-          description: "Worrying increases stress",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Taking a break and breathing deeply", 
           emoji: "⏸️", 
-          description: "Breaks and breathing reduce stress",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const CalmnessQuiz = () => {
           id: "a", 
           text: "Practice deep breathing and stay organized", 
           emoji: "🧘", 
-          description: "Breathing and organization help",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Get very upset and shout", 
           emoji: "😡", 
-          description: "This doesn't help calmness",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Panic about everything", 
           emoji: "😰", 
-          description: "Panic doesn't help",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const CalmnessQuiz = () => {
           id: "b", 
           text: "Shouting at everyone", 
           emoji: "😡", 
-          description: "Shouting increases stress",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Deep breathing exercises and taking breaks", 
           emoji: "🌬️", 
-          description: "Breathing and breaks reduce stress",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Worrying all the time", 
           emoji: "😰", 
-          description: "Worrying increases stress",
           isCorrect: false
         }
       ]

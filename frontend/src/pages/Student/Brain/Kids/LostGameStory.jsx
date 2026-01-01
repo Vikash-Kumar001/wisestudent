@@ -35,21 +35,19 @@ const LostGameStory = () => {
           id: "congratulate", 
           text: "Congratulate others", 
           emoji: "👏", 
-          description: "Be happy for the winners",
+          
           isCorrect: true
         },
         { 
           id: "mad", 
           text: "Be mad", 
           emoji: "😠", 
-          description: "Get angry about losing",
           isCorrect: false
         },
         { 
           id: "quit", 
           text: "Quit game", 
           emoji: "🚪", 
-          description: "Stop playing",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const LostGameStory = () => {
           id: "run", 
           text: "Run away", 
           emoji: "🏃", 
-          description: "Leave the race area",
           isCorrect: false
         },
         { 
           id: "cheer", 
           text: "Cheer for winner", 
           emoji: "🎉", 
-          description: "Support the winner",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame track", 
           emoji: "👆", 
-          description: "Make excuses",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const LostGameStory = () => {
           id: "argue", 
           text: "Argue", 
           emoji: "😤", 
-          description: "Dispute the results",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore everyone", 
           emoji: "😑", 
-          description: "Don't talk to anyone",
           isCorrect: false
         },
         { 
           id: "congratulate", 
           text: "Say good job to winner", 
           emoji: "👍", 
-          description: "Acknowledge the winner's success",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const LostGameStory = () => {
           id: "smile", 
           text: "Smile and clap", 
           emoji: "😊👏", 
-          description: "Show good sportsmanship",
           isCorrect: true
         },
         { 
           id: "throw", 
           text: "Throw pieces", 
           emoji: "💥", 
-          description: "Get upset and throw things",
           isCorrect: false
         },
         { 
           id: "leave", 
           text: "Leave table", 
           emoji: "🚶", 
-          description: "Walk away angrily",
           isCorrect: false
         }
       ]

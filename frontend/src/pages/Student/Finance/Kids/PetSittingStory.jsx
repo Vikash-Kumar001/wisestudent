@@ -32,21 +32,20 @@ const PetSittingStory = () => {
           id: "yes", 
           text: "Yes, it's work", 
           emoji: "🐶", 
-          description: "Caring for pets is work",
+          
           isCorrect: true
         },
         { 
           id: "fun", 
           text: "No, it's just fun", 
           emoji: "😺", 
-          description: "It's only for enjoyment",
+          
           isCorrect: false
         },
         { 
           id: "favor", 
           text: "It's a favor", 
           emoji: "🎁", 
-          description: "Just helping out",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const PetSittingStory = () => {
           id: "candy", 
           text: "Spend all on candy", 
           emoji: "🍬", 
-          description: "Buy candy with all",
           isCorrect: false
         },
         {
           id: "save",
           text: "Save half for supplies",
           emoji: "💰",
-          description: "Keep some for future needs",
           isCorrect: true
         },
         { 
           id: "give", 
           text: "Give it away", 
           emoji: "🎉", 
-          description: "Give money to others",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const PetSittingStory = () => {
           id: "tell", 
           text: "Tell the owner honestly", 
           emoji: "🗣️", 
-          description: "Be honest about the mistake",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hide it", 
           emoji: "🤫", 
-          description: "Keep it a secret",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame someone else", 
           emoji: "🙈", 
-          description: "Make someone else responsible",
           isCorrect: false
         }
       ]
@@ -113,21 +106,19 @@ const PetSittingStory = () => {
           id: "keep", 
           text: "Keep it quietly", 
           emoji: "😶", 
-          description: "Don't mention it",
           isCorrect: false
         },
         { 
           id: "toys", 
           text: "Spend it on toys", 
           emoji: "🧸", 
-          description: "Use it for toys",
           isCorrect: false
         },
         {
           id: "return",
           text: "Return the extra ₹10",
           emoji: "💸",
-          description: "Give back the extra money",
+          
           isCorrect: true
         },
       ]
@@ -140,21 +131,18 @@ const PetSittingStory = () => {
           id: "responsibility", 
           text: "Teaches responsibility", 
           emoji: "🐾", 
-          description: "Learn to be responsible",
           isCorrect: true
         },
         { 
           id: "pets", 
           text: "Gets you more pets", 
           emoji: "🐱", 
-          description: "Receive more pets",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "Makes you spend more", 
           emoji: "🛍️", 
-          description: "Encourages spending",
           isCorrect: false
         }
       ]

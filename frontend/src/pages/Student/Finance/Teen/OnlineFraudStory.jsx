@@ -35,21 +35,19 @@ const OnlineFraudStory = () => {
           id: "no", 
           text: "No, never share PIN", 
           emoji: "🚫", 
-          description: "Protect your account", 
+           
           isCorrect: true 
         },
         { 
           id: "yes", 
           text: "Yes, share it", 
           emoji: "🔓", 
-          description: "Very dangerous", 
           isCorrect: false 
         },
         { 
           id: "maybe", 
           text: "Maybe, if they seem nice", 
           emoji: "🤔", 
-          description: "Still unsafe", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const OnlineFraudStory = () => {
           id: "share", 
           text: "Share the OTP", 
           emoji: "📢", 
-          description: "Never share OTP", 
           isCorrect: false 
         },
         { 
           id: "refuse", 
           text: "Refuse and hang up", 
           emoji: "📞", 
-          description: "Banks never ask for OTP", 
           isCorrect: true 
         },
         { 
           id: "verify", 
           text: "Verify first then share", 
           emoji: "🔍", 
-          description: "Still risky", 
           isCorrect: false 
         }
       ]
@@ -89,7 +84,6 @@ const OnlineFraudStory = () => {
           id: "click", 
           text: "Click the link", 
           emoji: "🔗", 
-          description: "Could be phishing", 
           isCorrect: false 
         },
         
@@ -97,14 +91,12 @@ const OnlineFraudStory = () => {
           id: "forward", 
           text: "Forward to friends", 
           emoji: "📤", 
-          description: "Spreads risk", 
           isCorrect: false 
         },
         { 
           id: "ignore", 
           text: "Ignore and delete", 
           emoji: "🗑️", 
-          description: "Safe approach", 
           isCorrect: true 
         },
       ]
@@ -117,21 +109,18 @@ const OnlineFraudStory = () => {
           id: "safe", 
           text: "Yes, it's safe", 
           emoji: "✅", 
-          description: "Legitimate sites may ask", 
           isCorrect: false 
         },
         { 
           id: "unsafe", 
           text: "No, never share CVV", 
           emoji: "🛡️", 
-          description: "Protect your card", 
           isCorrect: true 
         },
         { 
           id: "sometimes", 
           text: "Sometimes it's okay", 
           emoji: "🤷", 
-          description: "Still risky", 
           isCorrect: false 
         }
       ]
@@ -144,14 +133,12 @@ const OnlineFraudStory = () => {
           id: "ignore", 
           text: "Ignore it - it's a scam", 
           emoji: "🚫", 
-          description: "Legitimate prizes are free", 
           isCorrect: true 
         },
         { 
           id: "pay", 
           text: "Pay the fee", 
           emoji: "💸", 
-          description: "Likely a scam", 
           isCorrect: false 
         },
         
@@ -159,7 +146,6 @@ const OnlineFraudStory = () => {
           id: "check", 
           text: "Check with friends first", 
           emoji: "👥", 
-          description: "Still risky", 
           isCorrect: false 
         }
       ]

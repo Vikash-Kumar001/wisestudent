@@ -35,21 +35,20 @@ const SharingStory = () => {
           id: "tell", 
           text: "Tell teacher/parent", 
           emoji: "👨‍🏫", 
-          description: "Share feelings with trusted adults",
+          
           isCorrect: true
         },
         { 
           id: "yell", 
           text: "Yell at others", 
           emoji: "😡", 
-          description: "Express anger by shouting",
+          
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hide feelings", 
           emoji: "😶", 
-          description: "Keep emotions inside",
           isCorrect: false
         }
       ]
@@ -62,21 +61,18 @@ const SharingStory = () => {
           id: "silent", 
           text: "Stay silent", 
           emoji: "🤐", 
-          description: "Don't talk about it",
           isCorrect: false
         },
         { 
           id: "talk", 
           text: "Talk to friend", 
           emoji: "💬", 
-          description: "Share feelings with a friend",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Point fingers at others",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const SharingStory = () => {
           id: "ignore", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Pretend nothing is wrong",
           isCorrect: false
         },
         { 
           id: "stay", 
           text: "Stay scared", 
           emoji: "😰", 
-          description: "Just be afraid",
           isCorrect: false
         },
         { 
           id: "tell", 
           text: "Tell parent", 
           emoji: "👨‍👩‍👧", 
-          description: "Share your fear with parents",
           isCorrect: true
         }
       ]
@@ -116,21 +109,18 @@ const SharingStory = () => {
           id: "share", 
           text: "Share feelings", 
           emoji: "💭", 
-          description: "Talk about your feelings",
           isCorrect: true
         },
         { 
           id: "take", 
           text: "Take toy", 
           emoji: "🤲", 
-          description: "Take the toy from friend",
           isCorrect: false
         },
         { 
           id: "mad", 
           text: "Be mad", 
           emoji: "😠", 
-          description: "Get angry about it",
           isCorrect: false
         }
       ]
@@ -143,21 +133,19 @@ const SharingStory = () => {
           id: "secret", 
           text: "Keep it secret", 
           emoji: "🤫", 
-          description: "Don't tell anyone",
           isCorrect: false
         },
         { 
           id: "act", 
           text: "Act out", 
           emoji: "🎭", 
-          description: "Express through actions only",
+          
           isCorrect: false
         },
         { 
           id: "tell", 
           text: "Tell someone", 
           emoji: "🗣️", 
-          description: "Share your mixed feelings",
           isCorrect: true
         }
       ]

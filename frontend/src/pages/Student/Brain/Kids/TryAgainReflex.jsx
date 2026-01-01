@@ -43,28 +43,25 @@ const TryAgainReflex = () => {
           id: "retry", 
           text: "Retry", 
           emoji: "🔄", 
-          description: "A resilient action",
+          
           isCorrect: true
         },
         { 
           id: "quit", 
           text: "Quit", 
           emoji: "🏳️", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "give-up", 
           text: "Give Up", 
           emoji: "😞", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "stop", 
           text: "Stop", 
           emoji: "🛑", 
-          description: "Not a resilient action",
           isCorrect: false
         }
       ]
@@ -78,28 +75,24 @@ const TryAgainReflex = () => {
           id: "give-up", 
           text: "Give Up", 
           emoji: "😞", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "try-again", 
           text: "Try Again", 
           emoji: "💪", 
-          description: "A resilient action",
           isCorrect: true
         },
         { 
           id: "walk-away", 
           text: "Walk Away", 
           emoji: "🚶", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "avoid", 
           text: "Avoid", 
           emoji: "🚫", 
-          description: "Not a resilient action",
           isCorrect: false
         }
       ]
@@ -113,28 +106,24 @@ const TryAgainReflex = () => {
           id: "surrender", 
           text: "Surrender", 
           emoji: "🏳️", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "stop-trying", 
           text: "Stop Trying", 
           emoji: "✋", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "give-in", 
           text: "Give In", 
           emoji: "😔", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "keep-going", 
           text: "Keep Going", 
           emoji: "🚀", 
-          description: "A resilient action",
           isCorrect: true
         },
       ]
@@ -148,28 +137,24 @@ const TryAgainReflex = () => {
           id: "quit-now", 
           text: "Quit Now", 
           emoji: "❌", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "fail", 
           text: "Fail", 
           emoji: "💥", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "persist", 
           text: "Persist", 
           emoji: "🔥", 
-          description: "A resilient action",
           isCorrect: true
         },
         { 
           id: "abandon", 
           text: "Abandon", 
           emoji: "⛵", 
-          description: "Not a resilient action",
           isCorrect: false
         }
       ]
@@ -182,28 +167,24 @@ const TryAgainReflex = () => {
           id: "never-give-up", 
           text: "Never Give Up", 
           emoji: "🌟", 
-          description: "A resilient action",
           isCorrect: true
         },
         { 
           id: "give-up", 
           text: "Give Up", 
           emoji: "😔", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "retreat", 
           text: "Retreat", 
           emoji: "🔙", 
-          description: "Not a resilient action",
           isCorrect: false
         },
         { 
           id: "run-away", 
           text: "Run Away", 
           emoji: "🏃", 
-          description: "Not a resilient action",
           isCorrect: false
         }
       ]

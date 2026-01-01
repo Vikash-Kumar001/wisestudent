@@ -34,22 +34,22 @@ const StartupIdeaStory = () => {
         { 
           id: "yes", 
           text: "Yes, it's entrepreneurship", 
-          emoji: "✅", 
-          description: "Creating and selling products is business",
+          emoji: "🙂", 
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it's just selling", 
-          emoji: "❌", 
-          description: "Not a real business",
+          emoji: "👎", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Need more information",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const StartupIdeaStory = () => {
           id: "spends", 
           text: "Only spends money", 
           emoji: "💸", 
-          description: "Just uses money",
           isCorrect: false
         },
         { 
           id: "creates", 
           text: "Creates new business", 
           emoji: "💡", 
-          description: "Starts and runs a business",
           isCorrect: true
         },
         { 
           id: "nothing", 
           text: "Does nothing", 
           emoji: "😴", 
-          description: "No action taken",
           isCorrect: false
         }
       ]
@@ -89,21 +86,18 @@ const StartupIdeaStory = () => {
           id: "no2", 
           text: "No, only adults", 
           emoji: "🚫", 
-          description: "Must be 18 or older",
           isCorrect: false
         },
         { 
           id: "maybe2", 
           text: "Maybe, with permission", 
           emoji: "🤷", 
-          description: "Only with adult help",
           isCorrect: false
         },
         { 
           id: "yes2", 
           text: "Yes, age doesn't matter", 
-          emoji: "✅", 
-          description: "Anyone can start a business",
+          emoji: "👍", 
           isCorrect: true
         }
       ]
@@ -116,21 +110,18 @@ const StartupIdeaStory = () => {
           id: "money", 
           text: "Lots of money only", 
           emoji: "💰", 
-          description: "Just need capital",
           isCorrect: false
         },
         { 
           id: "idea", 
           text: "Good idea and effort", 
           emoji: "💡", 
-          description: "Creative idea and hard work",
           isCorrect: true
         },
         { 
           id: "luck", 
           text: "Just luck", 
           emoji: "🍀", 
-          description: "Pure chance",
           isCorrect: false
         }
       ]
@@ -142,22 +133,19 @@ const StartupIdeaStory = () => {
         { 
           id: "no3", 
           text: "No, not real business", 
-          emoji: "❌", 
-          description: "Only offline counts",
+          emoji: "👎", 
           isCorrect: false
         },
         { 
           id: "yes3", 
           text: "Yes, it's a business", 
-          emoji: "✅", 
-          description: "Online business is real entrepreneurship",
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: "maybe3", 
           text: "Maybe, if profitable", 
           emoji: "🤔", 
-          description: "Only if making money",
           isCorrect: false
         }
       ]

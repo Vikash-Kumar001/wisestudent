@@ -35,21 +35,21 @@ const EthicsQuiz = () => {
           id: "yes", 
           text: "Yes, if needed", 
           emoji: "💰", 
-          description: "Sometimes necessary",
+          
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's wrong", 
           emoji: "❌", 
-          description: "Unethical behavior",
+          
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Situational",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const EthicsQuiz = () => {
           id: "unfair", 
           text: "It's unfair and dishonest", 
           emoji: "⚖️", 
-          description: "Violates ethics",
           isCorrect: true
         },
         { 
           id: "nothing", 
           text: "Nothing wrong", 
           emoji: "😊", 
-          description: "It's fine",
           isCorrect: false
         },
         { 
           id: "expensive", 
           text: "Too expensive", 
           emoji: "💸", 
-          description: "Costs money",
           isCorrect: false
         }
       ]
@@ -89,21 +86,18 @@ const EthicsQuiz = () => {
           id: "study", 
           text: "Study and work hard", 
           emoji: "📚", 
-          description: "Honest effort",
           isCorrect: true
         },
         { 
           id: "bribe", 
           text: "Pay for marks", 
           emoji: "💳", 
-          description: "Buy results",
           isCorrect: false
         },
         { 
           id: "cheat", 
           text: "Cheat in exams", 
           emoji: "📋", 
-          description: "Copy answers",
           isCorrect: false
         }
       ]
@@ -116,21 +110,18 @@ const EthicsQuiz = () => {
           id: "no-consequences", 
           text: "No consequences", 
           emoji: "😊", 
-          description: "Nothing happens",
           isCorrect: false
         },
         { 
           id: "lose-trust", 
           text: "Lose trust and face punishment", 
           emoji: "🚫", 
-          description: "Serious consequences",
           isCorrect: true
         },
         { 
           id: "get-reward", 
           text: "Get rewarded", 
           emoji: "🎁", 
-          description: "Positive outcome",
           isCorrect: false
         }
       ]
@@ -142,22 +133,19 @@ const EthicsQuiz = () => {
         { 
           id: "honest-effort", 
           text: "Honest effort and integrity", 
-          emoji: "✅", 
-          description: "Work with ethics",
+          emoji: "🙂‍↔️", 
           isCorrect: true
         },
         { 
           id: "shortcuts", 
           text: "Take shortcuts", 
           emoji: "⚡", 
-          description: "Quick methods",
           isCorrect: false
         },
         { 
           id: "cheat-way", 
           text: "Cheat your way", 
           emoji: "😈", 
-          description: "Unfair means",
           isCorrect: false
         }
       ]

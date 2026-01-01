@@ -35,21 +35,19 @@ const HomeworkStories = () => {
           id: "homework", 
           text: "Do homework first", 
           emoji: "📚", 
-          description: "Complete tasks before fun",
+          
           isCorrect: true
         },
         { 
           id: "watch", 
           text: "Watch more", 
           emoji: "📺", 
-          description: "Keep watching cartoons",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip homework", 
           emoji: "🚫", 
-          description: "Avoid homework completely",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const HomeworkStories = () => {
           id: "watch", 
           text: "Play longer", 
           emoji: "🎮", 
-          description: "Keep playing games",
           isCorrect: false
         },
         { 
           id: "homework", 
           text: "Finish math first", 
           emoji: "📐", 
-          description: "Complete homework before playing",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "No math", 
           emoji: "❌", 
-          description: "Skip math homework",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const HomeworkStories = () => {
           id: "skip", 
           text: "No reading", 
           emoji: "❌", 
-          description: "Skip reading completely",
           isCorrect: false
         },
         { 
           id: "scroll", 
           text: "Scroll more", 
           emoji: "📱", 
-          description: "Keep scrolling on phone",
           isCorrect: false
         },
         { 
           id: "read", 
           text: "Read first", 
           emoji: "📖", 
-          description: "Complete reading before phone",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const HomeworkStories = () => {
           id: "project", 
           text: "Work on project", 
           emoji: "📝", 
-          description: "Focus on project first",
           isCorrect: true
         },
         { 
           id: "videos", 
           text: "Watch videos", 
           emoji: "📹", 
-          description: "Keep watching videos",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip project", 
           emoji: "🚫", 
-          description: "Avoid the project",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const HomeworkStories = () => {
           id: "chat", 
           text: "Chat more", 
           emoji: "💬", 
-          description: "Keep chatting online",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "No study", 
           emoji: "❌", 
-          description: "Skip studying",
           isCorrect: false
         },
         { 
           id: "study", 
           text: "Study first", 
           emoji: "📖", 
-          description: "Complete study before chatting",
           isCorrect: true
         }
       ]

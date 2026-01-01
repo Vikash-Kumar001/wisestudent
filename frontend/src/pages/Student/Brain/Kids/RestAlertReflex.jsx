@@ -43,28 +43,25 @@ const RestAlertReflex = () => {
           id: "sleep-early", 
           text: "Sleep Early", 
           emoji: "🌙", 
-          description: "A good rest habit",
+          
           isCorrect: true
         },
         { 
           id: "sleep-late", 
           text: "Sleep Late", 
           emoji: "⏰", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "all-night-tv", 
           text: "All-night TV", 
           emoji: "📺", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "stay-up-late", 
           text: "Stay up late", 
           emoji: "😵", 
-          description: "A bad rest habit",
           isCorrect: false
         }
       ]
@@ -77,28 +74,24 @@ const RestAlertReflex = () => {
           id: "bed-by-9", 
           text: "Bed by 9", 
           emoji: "🛏️", 
-          description: "A good rest habit",
           isCorrect: true
         },
         { 
           id: "watch-midnight", 
           text: "Watch shows until midnight", 
           emoji: "📺", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "late-phone", 
           text: "Use phone until late", 
           emoji: "📱", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "gaming-late", 
           text: "Gaming all night", 
           emoji: "🎮", 
-          description: "A bad rest habit",
           isCorrect: false
         }
       ]
@@ -111,28 +104,24 @@ const RestAlertReflex = () => {
           id: "rest-now", 
           text: "Rest Now", 
           emoji: "😴", 
-          description: "A good rest habit",
           isCorrect: true
         },
         { 
           id: "energy-drinks", 
           text: "Drink energy drinks", 
           emoji: "🥤", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "loud-music", 
           text: "Listen to loud music", 
           emoji: "🔊", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "bright-lights", 
           text: "Keep bright lights on", 
           emoji: "💡", 
-          description: "A bad rest habit",
           isCorrect: false
         }
       ]
@@ -145,28 +134,24 @@ const RestAlertReflex = () => {
           id: "quiet-time", 
           text: "Have quiet time before bed", 
           emoji: "🧘", 
-          description: "A good rest habit",
           isCorrect: true
         },
         { 
           id: "exercise-late", 
           text: "Exercise right before bed", 
           emoji: "🏃", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "caffeine-before", 
           text: "Drink caffeine before bed", 
           emoji: "☕", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "screen-time", 
           text: "Screen time before bed", 
           emoji: "📱", 
-          description: "A bad rest habit",
           isCorrect: false
         }
       ]
@@ -179,28 +164,24 @@ const RestAlertReflex = () => {
           id: "regular-schedule", 
           text: "Follow a regular sleep schedule", 
           emoji: "📅", 
-          description: "A good rest habit",
           isCorrect: true
         },
         { 
           id: "irregular-sleep", 
           text: "Sleep at random times", 
           emoji: "🔄", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "skip-sleep", 
           text: "Skip sleep to study", 
           emoji: "📚", 
-          description: "A bad rest habit",
           isCorrect: false
         },
         { 
           id: "nap-all-day", 
           text: "Nap all day", 
           emoji: "😴", 
-          description: "A bad rest habit",
           isCorrect: false
         }
       ]

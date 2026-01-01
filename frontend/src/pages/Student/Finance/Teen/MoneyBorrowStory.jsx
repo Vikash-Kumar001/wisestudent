@@ -35,21 +35,19 @@ const MoneyBorrowStory = () => {
           id: "wrong", 
           text: "Wrong - Always repay", 
           emoji: "❌", 
-          description: "Repaying builds trust", 
+          
           isCorrect: true 
         },
         { 
           id: "okay", 
           text: "Okay to forget", 
           emoji: "😴", 
-          description: "Damages friendship", 
           isCorrect: false 
         },
         { 
           id: "maybe", 
           text: "Maybe later", 
           emoji: "🤔", 
-          description: "Unreliable behavior", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const MoneyBorrowStory = () => {
           id: "never", 
           text: "Never repay", 
           emoji: "🚫", 
-          description: "Very wrong", 
           isCorrect: false 
         },
         { 
           id: "on-time", 
           text: "On time as promised", 
-          emoji: "✅", 
-          description: "Shows responsibility", 
+          emoji: "🙂‍↔️", 
           isCorrect: true 
         },
         { 
           id: "whenever", 
           text: "Whenever you feel like", 
           emoji: "😊", 
-          description: "Unreliable", 
           isCorrect: false 
         }
       ]
@@ -89,21 +84,18 @@ const MoneyBorrowStory = () => {
           id: "lend", 
           text: "Lend if you can afford", 
           emoji: "💰", 
-          description: "Smart decision", 
           isCorrect: true 
         },
         { 
           id: "always", 
           text: "Always lend everything", 
           emoji: "💸", 
-          description: "Risky approach", 
           isCorrect: false 
         },
         { 
           id: "never", 
           text: "Never lend to anyone", 
           emoji: "🔒", 
-          description: "Too strict", 
           isCorrect: false 
         }
       ]
@@ -116,21 +108,18 @@ const MoneyBorrowStory = () => {
           id: "hide", 
           text: "Hide and avoid friend", 
           emoji: "🙈", 
-          description: "Damages relationship", 
           isCorrect: false 
         },
         { 
           id: "communicate", 
           text: "Communicate and explain", 
           emoji: "💬", 
-          description: "Shows honesty", 
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Ignore the debt", 
           emoji: "😴", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]
@@ -143,21 +132,18 @@ const MoneyBorrowStory = () => {
           id: "borrow-often", 
           text: "Borrow often from friends", 
           emoji: "🔄", 
-          description: "Creates dependency", 
           isCorrect: false 
         },
         { 
           id: "borrow-wisely", 
           text: "Borrow only when necessary and repay promptly", 
-          emoji: "✅", 
-          description: "Responsible behavior", 
+          emoji: "🙂", 
           isCorrect: true 
         },
         { 
           id: "never-repay", 
           text: "Borrow but never repay", 
           emoji: "🚫", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]

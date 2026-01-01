@@ -35,21 +35,19 @@ const AllowanceStory = () => {
           id: "save", 
           text: "Keep for books", 
           emoji: "📚", 
-          description: "Save the money for important educational expenses",
+          
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend all on clothes", 
           emoji: "👕", 
-          description: "Use the entire amount for new clothes",
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Waste it all", 
           emoji: "💸", 
-          description: "Spend on unnecessary things",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const AllowanceStory = () => {
           id: "spend", 
           text: "Buy the game", 
           emoji: "🎮", 
-          description: "Buy the game because you really want it",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Buy supplies first", 
           emoji: "✏️", 
-          description: "Prioritize necessary school supplies over entertainment",
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Buy both on credit", 
           emoji: "💳", 
-          description: "Use credit to buy both items",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const AllowanceStory = () => {
           id: "spend", 
           text: "Buy expensive snacks", 
           emoji: "🍕", 
-          description: "Buy the same expensive snacks to fit in",
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Borrow money", 
           emoji: "💸", 
-          description: "Borrow money to buy expensive snacks",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Bring homemade snacks", 
           emoji: "🍱", 
-          description: "Prepare your own snacks to save money",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const AllowanceStory = () => {
           id: "save", 
           text: "Wait and save more", 
           emoji: "⏳", 
-          description: "Wait until you have enough money to buy it without credit",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Buy with partial payment", 
           emoji: "💳", 
-          description: "Buy it now and pay the remaining amount later with interest",
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Ignore savings", 
           emoji: "🚫", 
-          description: "Don't think about saving more",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const AllowanceStory = () => {
           id: "waste", 
           text: "Waste it", 
           emoji: "💸", 
-          description: "Spend on unnecessary things",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Add to savings", 
           emoji: "🏦", 
-          description: "Put the bonus money into your savings account",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend on treats", 
           emoji: "🍭", 
-          description: "Use the bonus money for immediate pleasures",
           isCorrect: false
         }
       ]

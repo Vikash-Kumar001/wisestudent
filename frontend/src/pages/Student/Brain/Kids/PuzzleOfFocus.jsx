@@ -30,20 +30,20 @@ const PuzzleOfFocus = () => {
 
   // Focus concepts (left side)
   const leftItems = [
-    { id: 1, name: "Meditation", emoji: "🧘", description: "Calm your mind" },
-    { id: 2, name: "Quiet Room", emoji: "🔇", description: "Peaceful environment" },
-    { id: 3, name: "Listening", emoji: "👂", description: "Pay attention" },
-    { id: 4, name: "Concentration", emoji: "🎯", description: "Focus deeply" },
-    { id: 5, name: "Noise", emoji: "🔊", description: "Loud sounds" }
+    { id: 1, name: "Meditation", emoji: "🧘",  },
+    { id: 2, name: "Quiet Room", emoji: "🔇",  },
+    { id: 3, name: "Listening", emoji: "👂",  },
+    { id: 4, name: "Concentration", emoji: "🎯",  },
+    { id: 5, name: "Noise", emoji: "🔊",  }
   ];
 
   // Effects (right side)
   const rightItems = [
-    { id: 1, name: "Calm Mind", emoji: "🧠", description: "Meditation helps create a calm, focused mind" },
-    { id: 2, name: "Better Focus", emoji: "✨", description: "A quiet environment helps you concentrate" },
-    { id: 3, name: "Learn Better", emoji: "📚", description: "Good listening skills improve learning" },
-    { id: 4, name: "Sharp Thinking", emoji: "⚡", description: "Concentration leads to better thinking" },
-    { id: 5, name: "Distraction", emoji: "😵", description: "Noise can break your concentration" }
+    { id: 1, name: "Calm Mind", emoji: "🧠",  },
+    { id: 2, name: "Better Focus", emoji: "✨",  },
+    { id: 3, name: "Learn Better", emoji: "📚",  },
+    { id: 4, name: "Sharp Thinking", emoji: "⚡",  },
+    { id: 5, name: "Distraction", emoji: "😵",  }
   ];
 
   // Correct matches

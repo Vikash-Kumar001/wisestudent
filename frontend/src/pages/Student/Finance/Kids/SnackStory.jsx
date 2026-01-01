@@ -32,21 +32,21 @@ const SnackStory = () => {
           id: "chips",
           text: "Just Chips",
           emoji: "🍟",
-          description: "Eat only chips for lunch",
+          
           isCorrect: false
         },
         {
           id: "lunch",
           text: "Balanced Lunch",
           emoji: "🍱",
-          description: "Choose a healthy lunch with protein and veggies",
+          
           isCorrect: true
         },
         {
           id: "sweets",
           text: "Dessert Only",
           emoji: "🍰",
-          description: "Eat cake and cookies for lunch",
+          
           isCorrect: false
         }
       ]
@@ -59,21 +59,19 @@ const SnackStory = () => {
           id: "healthy",
           text: "Nutritious Snack",
           emoji: "🥗",
-          description: "Choose a balanced snack with protein and fiber",
+          
           isCorrect: true
         },
         {
           id: "candy",
           text: "Candy Bar",
           emoji: "🍫",
-          description: "Eat a chocolate bar",
           isCorrect: false
         },
         {
           id: "chips",
           text: "Potato Chips",
           emoji: "🥔",
-          description: "Eat a bag of salty chips",
           isCorrect: false
         }
       ]
@@ -86,21 +84,18 @@ const SnackStory = () => {
           id: "soda",
           text: "Soda",
           emoji: "🥤",
-          description: "Drink fizzy soda",
           isCorrect: false
         },
         {
           id: "water",
           text: "Water",
           emoji: "💧",
-          description: "Drink water to stay hydrated",
           isCorrect: true
         },
         {
           id: "juice",
           text: "Flavoured Juice",
           emoji: "🧃",
-          description: "Drink 100% flavoured juice",
           isCorrect: false
         }
       ]
@@ -113,21 +108,18 @@ const SnackStory = () => {
           id: "cookies",
           text: "Packaged Cookies",
           emoji: "🍪",
-          description: "Eat processed cookies",
           isCorrect: false
         },
         {
           id: "candy",
           text: "Gummy Bears",
           emoji: "🐻",
-          description: "Eat chewy candy",
           isCorrect: false
         },
         {
           id: "fruit",
           text: "Fresh Fruit",
           emoji: "🍎",
-          description: "Eat an apple or banana",
           isCorrect: true
         },
       ]
@@ -140,21 +132,18 @@ const SnackStory = () => {
           id: "balanced",
           text: "Complete Meal",
           emoji: "🍽️",
-          description: "Get a balanced meal with all food groups",
           isCorrect: true
         },
         {
           id: "icecream",
           text: "Ice Cream Only",
           emoji: "🍦",
-          description: "Spend all on ice cream",
           isCorrect: false
         },
         {
           id: "sweets",
           text: "Candy and Soda",
           emoji: "🍭",
-          description: "Buy only candy and soda",
           isCorrect: false
         }
       ]

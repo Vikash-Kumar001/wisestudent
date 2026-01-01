@@ -35,21 +35,19 @@ const ResilienceQuiz = () => {
           id: "giving", 
           text: "Giving up", 
           emoji: "🏳️", 
-          description: "Stopping when things get hard",
+          
           isCorrect: false
         },
         { 
           id: "bouncing", 
           text: "Bouncing back", 
           emoji: "⚡", 
-          description: "Recovering and trying again",
           isCorrect: true
         },
         { 
           id: "complaining", 
           text: "Complaining", 
           emoji: "😤", 
-          description: "Whining about problems",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const ResilienceQuiz = () => {
           id: "quit", 
           text: "Quit when things are hard", 
           emoji: "🚶", 
-          description: "Give up easily",
           isCorrect: false
         },
         { 
           id: "persist", 
           text: "Keep trying after setbacks", 
           emoji: "💪", 
-          description: "Don't give up",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Point fingers",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const ResilienceQuiz = () => {
           id: "cry", 
           text: "Cry and give up", 
           emoji: "😢", 
-          description: "Get upset and quit",
           isCorrect: false
         },
         { 
           id: "learn", 
           text: "Learn from it and try again", 
           emoji: "📚", 
-          description: "Use it as a lesson",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😑", 
-          description: "Pretend it didn't happen",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const ResilienceQuiz = () => {
           id: "try", 
           text: "Trying again after falling", 
           emoji: "🔄", 
-          description: "Not giving up",
           isCorrect: true
         },
         { 
           id: "avoid", 
           text: "Avoiding challenges", 
           emoji: "🙈", 
-          description: "Staying away from hard things",
           isCorrect: false
         },
         { 
           id: "panic", 
           text: "Panicking at problems", 
           emoji: "😰", 
-          description: "Getting overwhelmed",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const ResilienceQuiz = () => {
           id: "practice", 
           text: "Facing challenges and learning from mistakes", 
           emoji: "🎯", 
-          description: "Practice and grow",
           isCorrect: true
         },
         { 
           id: "avoid2", 
           text: "Avoiding all difficulties", 
           emoji: "🚫", 
-          description: "Never facing problems",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Giving up quickly", 
           emoji: "😞", 
-          description: "Quitting fast",
           isCorrect: false
         }
       ]

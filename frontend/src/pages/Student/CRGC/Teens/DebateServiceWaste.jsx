@@ -22,9 +22,9 @@ const DebateServiceWaste = () => {
       id: 1,
       text: "Is community service a waste of time?",
       options: [
-        { id: "a", text: "Yes, it takes away from personal activities" },
-        { id: "b", text: "No, it builds society and develops skills" },
-        { id: "c", text: "Only if you don't enjoy it" }
+        { id: "a", text: "Yes, it takes away from personal activities", emoji: "⏰" },
+        { id: "b", text: "No, it builds society and develops skills", emoji: "🏗️" },
+        { id: "c", text: "Only if you don't enjoy it", emoji: "😊" }
       ],
       correctAnswer: "b",
       explanation: "Community service contributes to building stronger communities and helps individuals develop valuable life skills like leadership, empathy, and teamwork."
@@ -33,9 +33,9 @@ const DebateServiceWaste = () => {
       id: 2,
       text: "What is a key benefit of volunteering for teens?",
       options: [
-        { id: "a", text: "It guarantees college admission" },
-        { id: "b", text: "It builds character and social awareness" },
-        { id: "c", text: "It provides free meals" }
+        { id: "b", text: "It builds character and social awareness", emoji: "👤" },
+        { id: "a", text: "It guarantees college admission", emoji: "🎓" },
+        { id: "c", text: "It provides free meals", emoji: "🍔" }
       ],
       correctAnswer: "b",
       explanation: "Volunteering helps teens develop character, gain real-world experience, and become more socially aware and responsible citizens."
@@ -44,9 +44,9 @@ const DebateServiceWaste = () => {
       id: 3,
       text: "How does community service impact the volunteer?",
       options: [
-        { id: "a", text: "It creates a sense of purpose and fulfillment" },
-        { id: "b", text: "It reduces time for studying" },
-        { id: "c", text: "It guarantees financial rewards" }
+        { id: "a", text: "It creates a sense of purpose and fulfillment", emoji: "🎯" },
+        { id: "b", text: "It reduces time for studying", emoji: "📚" },
+        { id: "c", text: "It guarantees financial rewards", emoji: "💰" }
       ],
       correctAnswer: "a",
       explanation: "Community service often creates a sense of purpose and fulfillment by allowing individuals to make a positive impact and connect with their community."
@@ -55,9 +55,9 @@ const DebateServiceWaste = () => {
       id: 4,
       text: "What is the broader impact of widespread community service?",
       options: [
-        { id: "a", text: "It creates dependency on volunteers" },
-        { id: "b", text: "It strengthens communities and addresses needs" },
-        { id: "c", text: "It replaces government responsibilities" }
+        { id: "a", text: "It creates dependency on volunteers", emoji: "🤝" },
+        { id: "c", text: "It replaces government responsibilities", emoji: "🏛️" },
+        { id: "b", text: "It strengthens communities and addresses needs", emoji: "💪" },
       ],
       correctAnswer: "b",
       explanation: "Widespread community service strengthens communities by addressing local needs, fostering connections, and creating positive social change."
@@ -66,9 +66,9 @@ const DebateServiceWaste = () => {
       id: 5,
       text: "Why should schools encourage community service?",
       options: [
-        { id: "a", text: "To reduce school operational costs" },
-        { id: "b", text: "To develop well-rounded, socially responsible students" },
-        { id: "c", text: "To replace academic subjects" }
+        { id: "a", text: "To reduce school operational costs", emoji: "💸" },
+        { id: "b", text: "To develop well-rounded, socially responsible students", emoji: "🎓" },
+        { id: "c", text: "To replace academic subjects", emoji: "✏️" }
       ],
       correctAnswer: "b",
       explanation: "Schools should encourage community service to help develop well-rounded students who are socially responsible and understand their role in society."
@@ -192,12 +192,7 @@ const DebateServiceWaste = () => {
               const showCorrect = showFeedback && isCorrect;
               const showIncorrect = showFeedback && isSelected && !isCorrect;
               
-              // Add emojis for each option like in the reference game
-              const optionEmojis = {
-                a: "✅",
-                b: "❌",
-                c: "⚠️"
-              };
+
               
               return (
                 <button
@@ -209,7 +204,7 @@ const DebateServiceWaste = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <div className="text-2xl mr-4">{optionEmojis[option.id] || '❓'}</div>
+                    <div className="text-2xl mr-4">{option.emoji || '❓'}</div>
                     <div>
                       <h3 className="font-bold text-xl mb-1">{option.text}</h3>
                     </div>

@@ -35,21 +35,19 @@ const ExamStoryy = () => {
           id: "practice", 
           text: "Practice + calm breathing", 
           emoji: "🧘", 
-          description: "Helps reduce anxiety and focus",
+          
           isCorrect: true
         },
         { 
           id: "worry", 
           text: "Worry more", 
           emoji: "😰", 
-          description: "Increases stress and anxiety",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip test", 
           emoji: "🏃", 
-          description: "Avoiding doesn't solve the problem",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const ExamStoryy = () => {
           id: "avoid", 
           text: "Avoid it", 
           emoji: "🙈", 
-          description: "Avoiding makes fear worse",
           isCorrect: false
         },
         { 
           id: "rehearse", 
           text: "Rehearse and relax", 
           emoji: "🎤", 
-          description: "Practice builds confidence",
           isCorrect: true
         },
         { 
           id: "panic", 
           text: "Panic", 
           emoji: "😱", 
-          description: "Panic makes it harder to perform",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const ExamStoryy = () => {
           id: "failure", 
           text: "Think failure", 
           emoji: "💔", 
-          description: "Negative thoughts increase anxiety",
           isCorrect: false
         },
         { 
           id: "quit", 
           text: "Quit", 
           emoji: "🚪", 
-          description: "Giving up doesn't help you grow",
           isCorrect: false
         },
         { 
           id: "visualize", 
           text: "Visualize success + breathe", 
           emoji: "✨", 
-          description: "Positive thinking and breathing help",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const ExamStoryy = () => {
           id: "talk", 
           text: "Talk about fears + breathe deep", 
           emoji: "💬", 
-          description: "Sharing helps reduce worry",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hide", 
           emoji: "🫥", 
-          description: "Hiding doesn't solve the problem",
           isCorrect: false
         },
         { 
           id: "cry", 
           text: "Cry", 
           emoji: "😢", 
-          description: "Crying alone doesn't help",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const ExamStoryy = () => {
           id: "alone", 
           text: "Stay alone", 
           emoji: "🚶", 
-          description: "Isolation increases worry",
           isCorrect: false
         },
         { 
           id: "friends", 
           text: "Make friends + stay calm", 
           emoji: "👥", 
-          description: "Connecting with others helps",
           isCorrect: true
         },
         { 
           id: "complain", 
           text: "Complain", 
           emoji: "😤", 
-          description: "Complaining doesn't help",
           isCorrect: false
         }
       ]

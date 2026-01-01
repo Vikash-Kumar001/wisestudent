@@ -35,21 +35,20 @@ const ArtStory = () => {
           id: "yes", 
           text: "Yes", 
           emoji: "🖼️", 
-          description: "Making something new is creative",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "🥱", 
-          description: "Not creative",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Sometimes",
           isCorrect: false
         }
       ]
@@ -62,21 +61,18 @@ const ArtStory = () => {
           id: "no2", 
           text: "No", 
           emoji: "😒", 
-          description: "Not creative",
           isCorrect: false
         },
         { 
           id: "yes2", 
           text: "Yes", 
           emoji: "🎨", 
-          description: "Creating art is creative",
           isCorrect: true
         },
         { 
           id: "maybe2", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Depends",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const ArtStory = () => {
           id: "maybe3", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Sometimes",
           isCorrect: false
         },
         { 
           id: "no3", 
           text: "No", 
           emoji: "😔", 
-          description: "Not creative",
           isCorrect: false
         },
         { 
           id: "yes3", 
           text: "Yes", 
           emoji: "🆕", 
-          description: "Building something new is creative",
           isCorrect: true
         }
       ]
@@ -116,21 +109,18 @@ const ArtStory = () => {
           id: "yes4", 
           text: "Yes", 
           emoji: "✍️", 
-          description: "Writing original stories is creative",
           isCorrect: true
         },
         { 
           id: "maybe4", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Only sometimes",
           isCorrect: false
         },
         { 
           id: "no4", 
           text: "No", 
           emoji: "😲", 
-          description: "Not creative",
           isCorrect: false
         }
       ]
@@ -143,21 +133,18 @@ const ArtStory = () => {
           id: "maybe5", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Depends",
           isCorrect: false
         },
         { 
           id: "no5", 
           text: "No", 
           emoji: "😔", 
-          description: "Not creative",
           isCorrect: false
         },
         { 
           id: "yes5", 
           text: "Yes", 
           emoji: "🎵", 
-          description: "Using objects creatively is creative",
           isCorrect: true
         }
       ]

@@ -35,7 +35,7 @@ const BadgeSmartSpenderTeen = () => {
         },
         { 
           text: "Wait and save money over time while considering if you really need it", 
-          emoji: "✅", 
+          emoji: "💰", 
           isCorrect: true
         },
         { 

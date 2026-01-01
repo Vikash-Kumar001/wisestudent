@@ -60,7 +60,7 @@ const StayCoolPoster = () => {
           id: "stay-calm", 
           text: "Stay Calm", 
           emoji: "🧘", 
-          description: "Breathe and listen to calm music",
+          
           icon: <Wind className="w-6 h-6" />,
           isCorrect: true
         },
@@ -68,7 +68,6 @@ const StayCoolPoster = () => {
           id: "relax-now", 
           text: "Relax Now", 
           emoji: "🌸", 
-          description: "Meditate with ocean sounds",
           icon: <Flower className="w-6 h-6" />,
           isCorrect: false
         },
@@ -76,7 +75,6 @@ const StayCoolPoster = () => {
           id: "stress-out", 
           text: "Stress Out", 
           emoji: "😰", 
-          description: "Worry and panic",
           icon: <Music className="w-6 h-6" />,
           isCorrect: false
         }
@@ -90,7 +88,6 @@ const StayCoolPoster = () => {
           id: "peaceful-mind", 
           text: "Peaceful Mind", 
           emoji: "🎵", 
-          description: "Calm music and relaxation",
           icon: <Music className="w-6 h-6" />,
           isCorrect: false
         },
@@ -98,7 +95,6 @@ const StayCoolPoster = () => {
           id: "cool-pressure", 
           text: "Cool Under Pressure", 
           emoji: "🌊", 
-          description: "Deep breath and yoga",
           icon: <Waves className="w-6 h-6" />,
           isCorrect: true
         },
@@ -106,7 +102,6 @@ const StayCoolPoster = () => {
           id: "panic-mode", 
           text: "Panic Mode", 
           emoji: "😱", 
-          description: "Rush and worry",
           icon: <Wind className="w-6 h-6" />,
           isCorrect: false
         }
@@ -120,7 +115,6 @@ const StayCoolPoster = () => {
           id: "be-calm", 
           text: "Be Calm", 
           emoji: "💨", 
-          description: "Inhale and exhale with tunes",
           icon: <Wind className="w-6 h-6" />,
           isCorrect: false
         },
@@ -128,7 +122,6 @@ const StayCoolPoster = () => {
           id: "anxious-poster", 
           text: "Anxious Poster", 
           emoji: "😟", 
-          description: "Worry and stress",
           icon: <Flower className="w-6 h-6" />,
           isCorrect: false
         },
@@ -136,7 +129,6 @@ const StayCoolPoster = () => {
           id: "stay-cool", 
           text: "Stay Cool", 
           emoji: "🌺", 
-          description: "Garden and waves",
           icon: <Flower className="w-6 h-6" />,
           isCorrect: true
         }
@@ -150,7 +142,6 @@ const StayCoolPoster = () => {
           id: "calm-vibes", 
           text: "Calm Vibes", 
           emoji: "🌿", 
-          description: "Breath work and flowers",
           icon: <Flower className="w-6 h-6" />,
           isCorrect: true
         },
@@ -158,7 +149,6 @@ const StayCoolPoster = () => {
           id: "relax-zone", 
           text: "Relax Zone", 
           emoji: "🌊", 
-          description: "Melody and sea sounds",
           icon: <Waves className="w-6 h-6" />,
           isCorrect: false
         },
@@ -166,7 +156,6 @@ const StayCoolPoster = () => {
           id: "chaos-poster", 
           text: "Chaos Poster", 
           emoji: "🌀", 
-          description: "Noise and confusion",
           icon: <Music className="w-6 h-6" />,
           isCorrect: false
         }
@@ -180,7 +169,6 @@ const StayCoolPoster = () => {
           id: "cool-calm", 
           text: "Cool Calm", 
           emoji: "🌸", 
-          description: "Bloom and flow",
           icon: <Flower className="w-6 h-6" />,
           isCorrect: false
         },
@@ -188,7 +176,6 @@ const StayCoolPoster = () => {
           id: "peace-poster", 
           text: "Peace Poster", 
           emoji: "💨", 
-          description: "Air and sound",
           icon: <Wind className="w-6 h-6" />,
           isCorrect: true
         },
@@ -196,7 +183,6 @@ const StayCoolPoster = () => {
           id: "tension-poster", 
           text: "Tension Poster", 
           emoji: "😤", 
-          description: "Stress and pressure",
           icon: <Waves className="w-6 h-6" />,
           isCorrect: false
         }

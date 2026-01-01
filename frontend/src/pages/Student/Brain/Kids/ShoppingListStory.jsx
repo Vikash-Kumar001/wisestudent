@@ -35,22 +35,22 @@ const ShoppingListStory = () => {
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
-          description: "This is not good memory",
+          emoji: "👍", 
+          
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "Forgetting items shows poor memory",
+          emoji: "👎", 
+          
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Memory can be improved",
+          
           isCorrect: false
         }
       ]
@@ -63,21 +63,19 @@ const ShoppingListStory = () => {
           id: "repeat", 
           text: "Repeat the items in your mind", 
           emoji: "🔁", 
-          description: "Repeating helps memory",
+          
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore the list", 
           emoji: "😴", 
-          description: "This won't help",
           isCorrect: false
         },
         { 
           id: "guess", 
           text: "Guess what to buy", 
           emoji: "🎲", 
-          description: "Guessing isn't reliable",
           isCorrect: false
         }
       ]
@@ -91,21 +89,18 @@ const ShoppingListStory = () => {
           id: "stress", 
           text: "Being stressed all the time", 
           emoji: "😰", 
-          description: "Stress hurts memory",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skipping meals", 
           emoji: "🍽️", 
-          description: "Nutrition is important for memory",
           isCorrect: false
         },
         { 
           id: "sleep", 
           text: "Getting enough sleep", 
           emoji: "😴", 
-          description: "Sleep helps memory formation",
           isCorrect: true
         },
       ]
@@ -119,21 +114,18 @@ const ShoppingListStory = () => {
           id: "forget", 
           text: "Try to remember without help", 
           emoji: "🧠", 
-          description: "Using tools is better",
           isCorrect: false
         },
         { 
           id: "write", 
           text: "Write them down or make a list", 
           emoji: "📝", 
-          description: "Writing helps you remember",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore them completely", 
           emoji: "🙈", 
-          description: "This won't help",
           isCorrect: false
         }
       ]
@@ -145,22 +137,19 @@ const ShoppingListStory = () => {
         { 
           id: "true", 
           text: "True", 
-          emoji: "✅", 
-          description: "Practice improves memory",
+          emoji: "🙂", 
           isCorrect: true
         },
         { 
           id: "false", 
           text: "False", 
-          emoji: "❌", 
-          description: "Practice does help",
+          emoji: "🙃", 
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Practice definitely helps",
           isCorrect: false
         }
       ]

@@ -35,21 +35,21 @@ const FallStory = () => {
           id: "try", 
           text: "Try again", 
           emoji: "🚴", 
-          description: "Get back up and practice",
+          
           isCorrect: true
         },
         { 
           id: "quit", 
           text: "Quit", 
           emoji: "🏳️", 
-          description: "Give up completely",
+          
           isCorrect: false
         },
         { 
           id: "cry", 
           text: "Cry and stop", 
           emoji: "😢", 
-          description: "Get upset and quit",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,20 @@ const FallStory = () => {
           id: "stop", 
           text: "Stop drawing forever", 
           emoji: "🛑", 
-          description: "Never try again",
+          
           isCorrect: false
         },
         { 
           id: "practice", 
           text: "Practice and try again", 
           emoji: "✏️", 
-          description: "Keep learning",
+          
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame the paper", 
           emoji: "👆", 
-          description: "Make excuses",
           isCorrect: false
         }
       ]
@@ -89,21 +88,18 @@ const FallStory = () => {
           id: "give", 
           text: "Give up", 
           emoji: "😞", 
-          description: "Stop trying",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask for help and try again", 
           emoji: "🙋", 
-          description: "Learn and practice",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😑", 
-          description: "Pretend it doesn't exist",
           isCorrect: false
         }
       ]
@@ -116,21 +112,18 @@ const FallStory = () => {
           id: "learn", 
           text: "Learn from it and try again", 
           emoji: "🎮", 
-          description: "Practice more",
           isCorrect: true
         },
         { 
           id: "angry", 
           text: "Get angry and quit", 
           emoji: "😠", 
-          description: "Stop playing",
           isCorrect: false
         },
         { 
           id: "blame4", 
           text: "Blame the game", 
           emoji: "👆", 
-          description: "Make excuses",
           isCorrect: false
         }
       ]
@@ -143,21 +136,18 @@ const FallStory = () => {
           id: "fix", 
           text: "Fix it and keep creating", 
           emoji: "🎨", 
-          description: "Learn and improve",
           isCorrect: true
         },
         { 
           id: "throw", 
           text: "Throw it away", 
           emoji: "🗑️", 
-          description: "Give up",
           isCorrect: false
         },
         { 
           id: "cry5", 
           text: "Cry and stop", 
           emoji: "😭", 
-          description: "Get upset",
           isCorrect: false
         }
       ]

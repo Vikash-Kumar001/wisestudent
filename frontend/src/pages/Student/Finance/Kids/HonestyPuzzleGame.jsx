@@ -47,41 +47,31 @@ const HonestyPuzzleGame = () => {
 
   // Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Return Money", emoji: "💰", hint: "When you find extra money" },
-    { id: 2, name: "Keep Extra Change", emoji: "🪙", hint: "When someone gives too much change" },
-    { id: 3, name: "Tell Truth About Spending", emoji: "🗣️", hint: "When asked about purchases" },
-    { id: 4, name: "Borrow Without Asking", emoji: "🤝", hint: "When you take something without permission" },
-    { id: 5, name: "Save Honestly for Goals", emoji: "💰", hint: "When saving money for planned purchases" },
-  ];
+  { id: 1, name: "Return Lost Money", emoji: "💸" },
+  { id: 2, name: "Keep Extra Change", emoji: "🪙" },
+  { id: 3, name: "Tell the Truth About Spending", emoji: "🗣️" },
+  { id: 4, name: "Borrow Without Asking", emoji: "❌" },
+  { id: 5, name: "Save Money Honestly", emoji: "🏦" },
+];
+
 
   // Categories (right side) - 5 items
   const categories = [
-    { id: 6, name: "Good", emoji: "😊", description: "Honest behavior" },
-    { id: 7, name: "Wrong", emoji: "😞", description: "Dishonest behavior" },
-    { id: 8, name: "Wrong", emoji: "😞", description: "Unethical choice" },
-    { id: 9, name: "Good", emoji: "😊", description: "Ethical choice" },
-    { id: 10, name: "Good", emoji: "😊", description: "Trustworthy action" },
-  ];
+    { id: 7, name: "Dishonest Choice", emoji: "⚠️" },
+    { id: 8, name: "Trust Building", emoji: "🤝" },
+    { id: 9, name: "Breaks Rules", emoji: "🚫" },
+    { id: 10, name: "Responsible Habit", emoji: "😊" },
+    { id: 6, name: "Honest Action", emoji: "🌟" },
+];
 
-  // Manually rearrange positions to prevent positional matching
-  // Original order was [6,7,8,9,10], rearranged to [8,6,7,10,9]
-  const rearrangedCategories = [
-    categories[2], // Wrong (id: 8)
-    categories[0], // Good (id: 6)
-    categories[1], // Wrong (id: 7)
-    categories[4], // Good (id: 10)
-    categories[3]  // Good (id: 9)
-  ];
+const correctMatches = [
+  { itemId: 1, categoryId: 6 },  // Return Lost Money → Honest Action
+  { itemId: 2, categoryId: 7 },  // Keep Extra Change → Dishonest Choice
+  { itemId: 3, categoryId: 8 },  // Tell the Truth → Trust Building
+  { itemId: 4, categoryId: 9 },  // Borrow Without Asking → Breaks Rules
+  { itemId: 5, categoryId: 10 }, // Save Money Honestly → Responsible Habit
+];
 
-  // Correct matches using proper IDs, not positional order
-  // Each item has a unique correct match for true one-to-one mapping
-  const correctMatches = [
-    { itemId: 1, categoryId: 6 }, // Return Money → Good
-    { itemId: 2, categoryId: 7 }, // Keep Extra Change → Wrong
-    { itemId: 3, categoryId: 9 }, // Tell Truth About Spending → Good
-    { itemId: 4, categoryId: 8 }, // Borrow Without Asking → Wrong
-    { itemId: 5, categoryId: 10 }  // Save Honestly for Goals → Good
-  ];
 
   const handleItemSelect = (item) => {
     if (gameFinished) return;
@@ -194,7 +184,7 @@ const HonestyPuzzleGame = () => {
                       <div className="text-2xl mr-3">{item.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{item.name}</h4>
-                        <p className="text-white/80 text-sm">Hint: {item.hint}</p>
+                        {/* <p className="text-white/80 text-sm">Select to match</p> */}
                       </div>
                     </div>
                   </button>
@@ -232,7 +222,7 @@ const HonestyPuzzleGame = () => {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <h3 className="text-xl font-bold text-white mb-4 text-center">Emotional Responses</h3>
               <div className="space-y-4">
-                {rearrangedCategories.map(category => (
+                {categories.map(category => (
                   <button
                     key={category.id}
                     onClick={() => handleCategorySelect(category)}
@@ -249,7 +239,7 @@ const HonestyPuzzleGame = () => {
                       <div className="text-2xl mr-3">{category.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{category.name}</h4>
-                        <p className="text-white/80 text-sm">{category.description}</p>
+                        {/* <p className="text-white/80 text-sm">Match with scenario</p> */}
                       </div>
                     </div>
                   </button>

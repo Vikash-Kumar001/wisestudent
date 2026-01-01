@@ -44,28 +44,26 @@ const HappyThoughtsReflex = () => {
           id: "smile", 
           text: "Smile", 
           emoji: "😊", 
-          description: "A positive, happy thought",
+          
           isCorrect: true
         },
         { 
           id: "complain", 
           text: "Complain", 
           emoji: "😤", 
-          description: "A negative thought",
+          
           isCorrect: false
         },
         { 
           id: "worry", 
           text: "Worry", 
           emoji: "😰", 
-          description: "A negative, anxious thought",
           isCorrect: false
         },
         { 
           id: "doubt", 
           text: "Doubt", 
           emoji: "🤔", 
-          description: "Not a positive thought",
           isCorrect: false
         }
       ]
@@ -78,28 +76,24 @@ const HappyThoughtsReflex = () => {
           id: "give-up", 
           text: "Give up", 
           emoji: "😔", 
-          description: "A negative thought",
           isCorrect: false
         },
         { 
           id: "hope", 
           text: "Hope", 
           emoji: "🌟", 
-          description: "A positive, optimistic thought",
-          isCorrect: true
+          isCorrect: true 
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "A negative thought",
           isCorrect: false
         },
         { 
           id: "fear", 
           text: "Fear", 
           emoji: "😨", 
-          description: "A negative, worried thought",
           isCorrect: false
         }
       ]
@@ -112,28 +106,24 @@ const HappyThoughtsReflex = () => {
           id: "anger", 
           text: "Anger", 
           emoji: "😠", 
-          description: "A negative emotion",
           isCorrect: false
         },
         { 
           id: "sadness", 
           text: "Sadness", 
           emoji: "😢", 
-          description: "A negative feeling",
           isCorrect: false
         },
         { 
           id: "thanks", 
           text: "Thanks", 
           emoji: "🙏", 
-          description: "A positive, grateful thought",
           isCorrect: true
         },
         { 
           id: "hate", 
           text: "Hate", 
           emoji: "💔", 
-          description: "A negative thought",
           isCorrect: false
         }
       ]
@@ -146,28 +136,24 @@ const HappyThoughtsReflex = () => {
           id: "gratitude", 
           text: "Gratitude", 
           emoji: "🙏", 
-          description: "A positive, thankful thought",
           isCorrect: true
         },
         { 
           id: "envy", 
           text: "Envy", 
           emoji: "😒", 
-          description: "A negative feeling",
           isCorrect: false
         },
         { 
           id: "jealousy", 
           text: "Jealousy", 
           emoji: "😤", 
-          description: "A negative emotion",
           isCorrect: false
         },
         { 
           id: "resentment", 
           text: "Resentment", 
           emoji: "😠", 
-          description: "A negative thought",
           isCorrect: false
         }
       ]
@@ -180,28 +166,24 @@ const HappyThoughtsReflex = () => {
           id: "pessimism", 
           text: "Pessimism", 
           emoji: "😞", 
-          description: "A negative outlook",
           isCorrect: false
         },
         { 
           id: "defeat", 
           text: "Defeat", 
           emoji: "😔", 
-          description: "A negative feeling",
           isCorrect: false
         },
         { 
           id: "failure", 
           text: "Failure", 
           emoji: "😢", 
-          description: "A negative thought",
           isCorrect: false
         },
         { 
           id: "optimism", 
           text: "Optimism", 
           emoji: "✨", 
-          description: "A positive, hopeful thought",
           isCorrect: true
         }
       ]

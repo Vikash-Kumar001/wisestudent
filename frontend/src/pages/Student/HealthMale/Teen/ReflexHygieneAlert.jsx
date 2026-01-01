@@ -117,7 +117,7 @@ const ReflexHygieneAlert = () => {
     }, 1000);
   }, []);
 
-  // Timer effect - countdown from 5 seconds for each question
+  // Timer effect - countdown from 10 seconds for each question
   useEffect(() => {
     if (gameState !== "playing") {
       if (timerRef.current) {
@@ -138,6 +138,9 @@ const ReflexHygieneAlert = () => {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
+
+    // Reset and start countdown timer for current round
+    setTimeLeft(ROUND_TIME);
 
     // Start countdown timer
     timerRef.current = setInterval(() => {
@@ -162,7 +165,7 @@ const ReflexHygieneAlert = () => {
         timerRef.current = null;
       }
     };
-  }, [gameState, handleTimeUp]);
+  }, [gameState, currentRound, handleTimeUp]);
 
   const startGame = () => {
     setGameState("playing");

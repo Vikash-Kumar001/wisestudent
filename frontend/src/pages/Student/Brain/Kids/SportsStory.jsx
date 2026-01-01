@@ -69,21 +69,21 @@ const SportsStory = () => {
           id: "try-again", 
           text: "Try again calmly", 
           emoji: "🧘", 
-          description: "Stay calm and practice more",
+          
           isCorrect: true
         },
         { 
           id: "yell", 
           text: "Yell and get more angry", 
           emoji: "😡", 
-          description: "Getting angry makes it worse",
+          
           isCorrect: false
         },
         { 
           id: "quit", 
           text: "Quit playing forever", 
           emoji: "🚪", 
-          description: "Giving up doesn't help",
+          
           isCorrect: false
         }
       ]
@@ -96,21 +96,18 @@ const SportsStory = () => {
           id: "practice", 
           text: "Practice and learn from mistakes", 
           emoji: "📚", 
-          description: "Learning helps you get better",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Blaming doesn't help you improve",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore the loss", 
           emoji: "🙈", 
-          description: "Ignoring doesn't help you learn",
           isCorrect: false
         }
       ]
@@ -124,21 +121,18 @@ const SportsStory = () => {
           id: "scream", 
           text: "Scream and throw things", 
           emoji: "😱", 
-          description: "This makes you more upset",
           isCorrect: false
         },
         { 
           id: "breathe", 
           text: "Take deep breaths and calm down", 
           emoji: "🌬️", 
-          description: "Calming down helps you think clearly",
           isCorrect: true
         },
         { 
           id: "cry", 
           text: "Cry and give up", 
           emoji: "😢", 
-          description: "Giving up doesn't help",
           isCorrect: false
         }
       ]
@@ -152,21 +146,18 @@ const SportsStory = () => {
           id: "forget", 
           text: "Forget about it completely", 
           emoji: "🧠", 
-          description: "You miss learning opportunities",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain to everyone", 
           emoji: "😤", 
-          description: "Complaining doesn't help",
           isCorrect: false
         },
         { 
           id: "learn", 
           text: "Learn from it and try again", 
           emoji: "💪", 
-          description: "Every loss teaches you something",
           isCorrect: true
         },
       ]
@@ -179,21 +170,18 @@ const SportsStory = () => {
           id: "positive", 
           text: "Think positive and keep trying", 
           emoji: "✨", 
-          description: "Positive thinking helps you improve",
           isCorrect: true
         },
         { 
           id: "negative", 
           text: "Think you'll always lose", 
           emoji: "💔", 
-          description: "Negative thoughts make it worse",
           isCorrect: false
         },
         { 
           id: "avoid", 
           text: "Avoid playing again", 
           emoji: "🏃", 
-          description: "Avoiding doesn't help you grow",
           isCorrect: false
         }
       ]

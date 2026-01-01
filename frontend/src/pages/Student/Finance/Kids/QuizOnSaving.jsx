@@ -32,21 +32,21 @@ const QuizOnSaving = () => {
           id: "a", 
           text: "Someone who spends all their money", 
           emoji: "💸", 
-          description: "Uses all money immediately",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Someone who wastes money", 
           emoji: "🗑️", 
-          description: "Throws money away",
+          
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Someone who saves part of their money", 
           emoji: "💰", 
-          description: "Saves some and spends some",
+          
           isCorrect: true
         }
       ]
@@ -59,21 +59,20 @@ const QuizOnSaving = () => {
           id: "a", 
           text: "Spend it all immediately", 
           emoji: "🛍️", 
-          description: "Use all money right away",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Save some and spend some", 
           emoji: "⚖️", 
-          description: "Balance saving and spending",
+          
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Hide it and never use it", 
           emoji: "🙈", 
-          description: "Never spend any money",
           isCorrect: false
         }
       ]
@@ -86,21 +85,18 @@ const QuizOnSaving = () => {
           id: "a", 
           text: "So you can buy things you need later", 
           emoji: "🎯", 
-          description: "Helps you buy important things",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "So you can show off to friends", 
           emoji: "😎", 
-          description: "Impress others",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "It's not important at all", 
           emoji: "❌", 
-          description: "Doesn't matter",
           isCorrect: false
         }
       ]
@@ -113,21 +109,18 @@ const QuizOnSaving = () => {
           id: "a", 
           text: "Keeping toys", 
           emoji: "🧸", 
-          description: "Store toys",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Saving money", 
           emoji: "🏦", 
-          description: "Store and save money",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Storing food", 
           emoji: "🍕", 
-          description: "Keep food",
           isCorrect: false
         }
       ]
@@ -140,21 +133,18 @@ const QuizOnSaving = () => {
           id: "a", 
           text: "₹20", 
           emoji: "💰", 
-          description: "10 + 10 = 20",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "₹30", 
           emoji: "💵", 
-          description: "10 × 3 = 30",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "₹40", 
           emoji: "💴", 
-          description: "10 × 4 = 40",
           isCorrect: true
         }
       ]

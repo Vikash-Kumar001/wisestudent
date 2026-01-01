@@ -35,21 +35,19 @@ const PositivityQuiz = () => {
           id: "complaining", 
           text: "Complaining", 
           emoji: "😤", 
-          description: "Focusing on problems",
+          
           isCorrect: false
         },
         { 
           id: "goodside", 
           text: "Looking for good side", 
           emoji: "😊", 
-          description: "Finding the positive in situations",
           isCorrect: true
         },
         { 
           id: "givingup", 
           text: "Giving up", 
           emoji: "😔", 
-          description: "Quitting when things get hard",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const PositivityQuiz = () => {
           id: "brightside", 
           text: "See the bright side", 
           emoji: "☀️", 
-          description: "Focusing on positive aspects",
           isCorrect: true
         },
         { 
           id: "alwayssad", 
           text: "Always sad", 
           emoji: "😢", 
-          description: "Feeling down all the time",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore problems", 
           emoji: "🙈", 
-          description: "Pretending problems don't exist",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const PositivityQuiz = () => {
           id: "forgetting", 
           text: "Forgetting", 
           emoji: "🤷", 
-          description: "Not remembering things",
           isCorrect: false
         },
         { 
           id: "complaining2", 
           text: "Complaining", 
           emoji: "😤", 
-          description: "Focusing on what's wrong",
           isCorrect: false
         },
         { 
           id: "thanks", 
           text: "Saying thanks", 
           emoji: "🙏", 
-          description: "Being thankful for what you have",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const PositivityQuiz = () => {
           id: "hoping", 
           text: "Hoping for best", 
           emoji: "🌟", 
-          description: "Believing good things will happen",
           isCorrect: true
         },
         { 
           id: "worst", 
           text: "Expecting worst", 
           emoji: "😰", 
-          description: "Thinking bad things will happen",
           isCorrect: false
         },
         { 
           id: "nothing", 
           text: "Doing nothing", 
           emoji: "😴", 
-          description: "Not taking any action",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const PositivityQuiz = () => {
           id: "worse", 
           text: "Feel worse", 
           emoji: "😢", 
-          description: "Makes you feel bad",
           isCorrect: false
         },
         { 
           id: "nochange", 
           text: "No change", 
           emoji: "😑", 
-          description: "Doesn't make a difference",
           isCorrect: false
         },
         { 
           id: "better", 
           text: "Feel better", 
           emoji: "😊", 
-          description: "Improves your mood and outlook",
           isCorrect: true
         }
       ]

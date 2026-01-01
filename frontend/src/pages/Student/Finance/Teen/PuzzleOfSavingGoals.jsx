@@ -47,20 +47,20 @@ const PuzzleOfSavingGoals = () => {
 
   // Saving goals (left side) - 5 items
   const goals = [
-    { id: 1, name: "Education", emoji: "📚", hint: "Future learning expenses" },
-    { id: 2, name: "Emergency Fund", emoji: "🚑", hint: "Unexpected situations" },
-    { id: 3, name: "Car", emoji: "🚗", hint: "Transportation needs" },
-    { id: 4, name: "House", emoji: "🏠", hint: "Permanent shelter" },
-    { id: 5, name: "Retirement", emoji: "🌅", hint: "Post-working years" }
+    { id: 1, name: "Education", emoji: "📚",  },
+    { id: 2, name: "Emergency Fund", emoji: "🚑",  },
+    { id: 3, name: "Car", emoji: "🚗",  },
+    { id: 4, name: "House", emoji: "🏠",  },
+    { id: 5, name: "Retirement", emoji: "🌅",  }
   ];
 
   // Saving purposes (right side) - 5 items
   const purposes = [
-    { id: 6, name: "Future Growth", emoji: "📈", description: "Long-term financial benefits" },
-    { id: 7, name: "Safety Net", emoji: "🛡️", description: "Protection against surprises" },
-    { id: 8, name: "Mobility", emoji: "🛣️", description: "Freedom to travel" },
-    { id: 9, name: "Stability", emoji: "🏛️", description: "Secure living space" },
-    { id: 10, name: "Peace of Mind", emoji: "🧘", description: "Worry-free golden years" }
+    { id: 6, name: "Future Growth", emoji: "📈",  },
+    { id: 7, name: "Safety Net", emoji: "🛡️",  },
+    { id: 8, name: "Mobility", emoji: "🛣️",  },
+    { id: 9, name: "Stability", emoji: "🏛️",  },
+    { id: 10, name: "Peace of Mind", emoji: "🧘",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

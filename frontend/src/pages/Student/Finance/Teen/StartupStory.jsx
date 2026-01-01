@@ -34,22 +34,20 @@ const StartupStory = () => {
         { 
           id: "yes", 
           text: "Yes, good return", 
-          emoji: "✅", 
-          description: "50% profit is smart",
+          emoji: "👍", 
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, too risky", 
-          emoji: "❌", 
-          description: "Small business is risky",
+          emoji: "👎", 
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Need more info",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const StartupStory = () => {
           id: "research", 
           text: "Research and planning", 
           emoji: "🔍", 
-          description: "Understand the business first",
           isCorrect: true
         },
         { 
           id: "luck", 
           text: "Pure luck", 
           emoji: "🍀", 
-          description: "Just hope it works",
           isCorrect: false
         },
         { 
           id: "quick", 
           text: "Quick decision", 
           emoji: "⚡", 
-          description: "Decide without thinking",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const StartupStory = () => {
           id: "all", 
           text: "Yes, go all in", 
           emoji: "🎯", 
-          description: "Put everything in one",
           isCorrect: false
         },
         { 
           id: "diversify", 
           text: "No, diversify", 
           emoji: "📊", 
-          description: "Spread across multiple",
           isCorrect: true
         },
         { 
           id: "avoid", 
           text: "Avoid startups", 
           emoji: "🚫", 
-          description: "Never invest in startups",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const StartupStory = () => {
           id: "high", 
           text: "High return potential", 
           emoji: "📈", 
-          description: "Can earn more than safe options",
           isCorrect: true
         },
         { 
           id: "guaranteed", 
           text: "Guaranteed return", 
           emoji: "🛡️", 
-          description: "Must be 100% safe",
           isCorrect: false
         },
         { 
           id: "low", 
           text: "Low return only", 
           emoji: "📉", 
-          description: "Expect small profits",
           isCorrect: false
         }
       ]
@@ -142,22 +131,19 @@ const StartupStory = () => {
         { 
           id: "never", 
           text: "Never", 
-          emoji: "❌", 
-          description: "Always avoid startups",
+          emoji: "🤦", 
           isCorrect: false
         },
         { 
           id: "planned", 
           text: "When well-planned", 
           emoji: "📋", 
-          description: "Good business plan and research",
           isCorrect: true
         },
         { 
           id: "always", 
           text: "Always", 
-          emoji: "✅", 
-          description: "Invest in any startup",
+          emoji: "🙂", 
           isCorrect: false
         }
       ]

@@ -31,21 +31,19 @@ const ShopStory = () => {
           id: "save", 
           text: "Save for Toy", 
           emoji: "🏦", 
-          description: "Keep saving for the ₹50 toy you want",
+          
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Buy Candy", 
           emoji: "🍬", 
-          description: "Spend ₹10 on candy now",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore Decision", 
           emoji: "😴", 
-          description: "Don't make a choice",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const ShopStory = () => {
           id: "spend", 
           text: "Buy sticker book", 
           emoji: "📚", 
-          description: "Buy the sticker book now",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Continue saving", 
           emoji: "🎯", 
-          description: "Keep saving for your bigger goal",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Borrow Money", 
           emoji: "🤲", 
-          description: "Borrow to buy both",
           isCorrect: false
         }
       ]
@@ -85,21 +80,18 @@ const ShopStory = () => {
           id: "spend", 
           text: "Join friends", 
           emoji: "🍟", 
-          description: "Buy snacks to join your friends",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give Up Saving", 
           emoji: "😞", 
-          description: "Stop saving completely",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Stick to your goal", 
           emoji: "🔬", 
-          description: "Keep saving for the science kit",
           isCorrect: true
         }
       ]
@@ -112,21 +104,18 @@ const ShopStory = () => {
           id: "save", 
           text: "Focus on bicycle", 
           emoji: "🚲", 
-          description: "Continue saving for your bicycle goal",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Buy sale toy", 
           emoji: "🧸", 
-          description: "Take advantage of the sale",
           isCorrect: false
         },
         { 
           id: "delay", 
           text: "Delay Decision", 
           emoji: "⏰", 
-          description: "Wait and think later",
           isCorrect: false
         }
       ]
@@ -139,21 +128,18 @@ const ShopStory = () => {
           id: "spend", 
           text: "Buy candy", 
           emoji: "🍬", 
-          description: "Buy candy and delay your goal",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Complete your goal", 
           emoji: "🎉", 
-          description: "Save that ₹5 to reach your ₹50 goal",
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste Money", 
           emoji: "💸", 
-          description: "Spend on something useless",
           isCorrect: false
         }
       ]

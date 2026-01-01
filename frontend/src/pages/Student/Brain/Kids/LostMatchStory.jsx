@@ -65,21 +65,19 @@ const LostMatchStory = () => {
           id: "improve", 
           text: "Next time we'll improve!", 
           emoji: "📈", 
-          description: "Focus on getting better",
+          
           isCorrect: true
         },
         { 
           id: "losers", 
           text: "We're losers", 
           emoji: "😢", 
-          description: "Think negatively about yourself",
           isCorrect: false
         },
         { 
           id: "giveup", 
           text: "Give up", 
           emoji: "😔", 
-          description: "Stop trying",
           isCorrect: false
         }
       ]
@@ -92,21 +90,18 @@ const LostMatchStory = () => {
           id: "dumb", 
           text: "I'm dumb", 
           emoji: "😞", 
-          description: "Think negatively about yourself",
           isCorrect: false
         },
         { 
           id: "study", 
           text: "Study more next time!", 
-          emoji: "📚", 
-          description: "Focus on improvement",
+          emoji: "📚",  
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip school", 
           emoji: "🚶", 
-          description: "Avoid the problem",
           isCorrect: false
         }
       ]
@@ -119,21 +114,18 @@ const LostMatchStory = () => {
           id: "never", 
           text: "Never ride again", 
           emoji: "🚫", 
-          description: "Give up completely",
           isCorrect: false
         },
         { 
           id: "hate", 
           text: "Hate bike", 
           emoji: "😠", 
-          description: "Get angry and blame",
           isCorrect: false
         },
         { 
           id: "practice", 
           text: "Practice makes perfect!", 
           emoji: "🚴", 
-          description: "Keep trying and improving",
           isCorrect: true
         }
       ]
@@ -146,21 +138,18 @@ const LostMatchStory = () => {
           id: "newideas", 
           text: "Try new ideas next!", 
           emoji: "🎨", 
-          description: "Focus on improvement",
           isCorrect: true
         },
         { 
           id: "bad", 
           text: "I'm bad at art", 
           emoji: "😞", 
-          description: "Think negatively",
           isCorrect: false
         },
         { 
           id: "stop", 
           text: "Stop drawing", 
           emoji: "✋", 
-          description: "Give up",
           isCorrect: false
         }
       ]
@@ -173,21 +162,18 @@ const LostMatchStory = () => {
           id: "terrible", 
           text: "I'm terrible", 
           emoji: "😞", 
-          description: "Think negatively",
           isCorrect: false
         },
         { 
           id: "quit", 
           text: "Quit team", 
           emoji: "🚪", 
-          description: "Give up",
           isCorrect: false
         },
         { 
           id: "practice2", 
           text: "Keep practicing!", 
           emoji: "⚽", 
-          description: "Focus on improvement",
           isCorrect: true
         }
       ]

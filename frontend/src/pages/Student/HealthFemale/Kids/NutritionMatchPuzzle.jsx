@@ -22,20 +22,20 @@ const NutritionMatchPuzzle = () => {
   
   // Nutrients (left side) - 5 items
   const nutrients = [
-    { id: 1, name: "Calcium", emoji: "🥛", hint: "Mineral found in dairy products" },
-    { id: 2, name: "Carbohydrates", emoji: "🍚", hint: "Energy-providing compounds" },
-    { id: 3, name: "Vitamins", emoji: "🍊", hint: "Organic compounds needed in small amounts" },
-    { id: 4, name: "Protein", emoji: "🍗", hint: "Building blocks for body tissues" },
-    { id: 5, name: "Vitamin A", emoji: "🥕", hint: "Important for vision health" }
+    { id: 1, name: "Calcium", emoji: "🥛",  },
+    { id: 2, name: "Carbohydrates", emoji: "🍚",  },
+    { id: 3, name: "Vitamins", emoji: "🍊",  },
+    { id: 4, name: "Protein", emoji: "🍗",  },
+    { id: 5, name: "Vitamin A", emoji: "🥕",  }
   ];
   
   // Functions (right side) - 5 items (shuffled order)
   const functions = [
-    { id: 4, text: "Builds and repairs body tissues", hint: "Essential for muscle development" },
-    { id: 1, text: "Strengthens bones and teeth", hint: "Critical for skeletal health" },
-    { id: 5, text: "Supports healthy vision", hint: "Important for eye health" },
-    { id: 2, text: "Provides primary energy source", hint: "Fuel for daily activities" },
-    { id: 3, text: "Boosts immune system function", hint: "Helps fight off infections" }
+    { id: 4, text: "Builds and repairs body tissues",  },
+    { id: 1, text: "Strengthens bones and teeth",  },
+    { id: 5, text: "Supports healthy vision",  },
+    { id: 2, text: "Provides primary energy source",  },
+    { id: 3, text: "Boosts immune system function",  }
   ];
   
   // Correct matches

@@ -72,28 +72,27 @@ const ReflexQuickCalm = () => {
           id: "smile", 
           text: "Smile", 
           emoji: "😊", 
-          description: "A positive, calm action",
+          
           isCorrect: true
         },
         { 
           id: "yell", 
           text: "Yell", 
           emoji: "😡", 
-          description: "Not a calm action",
+          
           isCorrect: false
         },
         { 
           id: "panic", 
           text: "Panic", 
           emoji: "😱", 
-          description: "Increases stress and anxiety",
+          
           isCorrect: false
         },
         { 
           id: "rush", 
           text: "Rush around", 
           emoji: "🏃", 
-          description: "Makes stress worse",
           isCorrect: false
         }
       ]
@@ -106,28 +105,24 @@ const ReflexQuickCalm = () => {
           id: "worry", 
           text: "Worry more", 
           emoji: "😰", 
-          description: "Increases anxiety",
           isCorrect: false
         },
         { 
           id: "breathe", 
           text: "Breathe deeply", 
           emoji: "🌬️", 
-          description: "A calming action",
           isCorrect: true
         },
         { 
           id: "scream", 
           text: "Scream", 
           emoji: "😱", 
-          description: "Makes you more upset",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Doesn't help you relax",
           isCorrect: false
         }
       ]
@@ -140,28 +135,24 @@ const ReflexQuickCalm = () => {
           id: "hit", 
           text: "Hit something", 
           emoji: "👊", 
-          description: "Not a healthy way to handle anger",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Doesn't help you calm down",
           isCorrect: false
         },
         { 
           id: "count", 
           text: "Count to 10", 
           emoji: "🔢", 
-          description: "Helps you calm down",
           isCorrect: true
         },
         { 
           id: "cry", 
           text: "Cry and give up", 
           emoji: "😢", 
-          description: "Doesn't solve the problem",
           isCorrect: false
         }
       ]
@@ -174,28 +165,24 @@ const ReflexQuickCalm = () => {
           id: "argue", 
           text: "Argue", 
           emoji: "😤", 
-          description: "Creates tension",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain", 
           emoji: "😒", 
-          description: "Doesn't help you feel better",
           isCorrect: false
         },
         { 
           id: "stress", 
           text: "Stress out", 
           emoji: "😓", 
-          description: "Increases worry",
           isCorrect: false
         },
         { 
           id: "relax", 
           text: "Relax and rest", 
           emoji: "🧘", 
-          description: "A positive, calm action",
           isCorrect: true
         }
       ]
@@ -208,28 +195,24 @@ const ReflexQuickCalm = () => {
           id: "negative", 
           text: "Think negative thoughts", 
           emoji: "💔", 
-          description: "Makes you more upset",
           isCorrect: false
         },
         { 
           id: "positive", 
           text: "Think positive thoughts", 
           emoji: "✨", 
-          description: "Helps maintain calm",
           isCorrect: true
         },
         { 
           id: "avoid", 
           text: "Avoid the problem", 
           emoji: "🏃", 
-          description: "Doesn't help you stay calm",
           isCorrect: false
         },
         { 
           id: "overthink", 
           text: "Overthink everything", 
           emoji: "🤯", 
-          description: "Increases stress",
           isCorrect: false
         }
       ]

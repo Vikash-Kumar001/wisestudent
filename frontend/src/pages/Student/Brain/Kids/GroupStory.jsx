@@ -35,21 +35,21 @@ const GroupStory = () => {
           id: "together", 
           text: "Work together & fix", 
           emoji: "🤝", 
-          description: "Collaborate to solve it",
+          
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame each other", 
           emoji: "👆", 
-          description: "Point fingers",
+          
           isCorrect: false
         },
         { 
           id: "quit", 
           text: "Give up", 
           emoji: "🏳️", 
-          description: "Stop trying",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const GroupStory = () => {
           id: "ignore", 
           text: "Ignore them", 
           emoji: "😑", 
-          description: "Pretend they're not there",
           isCorrect: false
         },
         { 
           id: "talk", 
           text: "Talk & work together", 
           emoji: "💬", 
-          description: "Communicate and help",
           isCorrect: true
         },
         { 
           id: "yell", 
           text: "Yell at them", 
           emoji: "😠", 
-          description: "Get angry",
           isCorrect: false
         }
       ]
@@ -89,21 +86,18 @@ const GroupStory = () => {
           id: "fight", 
           text: "Fight about it", 
           emoji: "👊", 
-          description: "Argue",
           isCorrect: false
         },
         { 
           id: "discuss", 
           text: "Discuss & find middle ground", 
           emoji: "🗣️", 
-          description: "Talk and compromise",
           isCorrect: true
         },
         { 
           id: "split", 
           text: "Split up", 
           emoji: "🚶", 
-          description: "Go separate ways",
           isCorrect: false
         }
       ]
@@ -116,21 +110,18 @@ const GroupStory = () => {
           id: "share", 
           text: "Share work equally", 
           emoji: "⚖️", 
-          description: "Divide tasks fairly",
           isCorrect: true
         },
         { 
           id: "let", 
           text: "Let them do everything", 
           emoji: "😴", 
-          description: "Stay lazy",
           isCorrect: false
         },
         { 
           id: "take", 
           text: "Take all credit", 
           emoji: "👑", 
-          description: "Claim it's yours",
           isCorrect: false
         }
       ]
@@ -143,21 +134,18 @@ const GroupStory = () => {
           id: "panic", 
           text: "Panic and stress", 
           emoji: "😰", 
-          description: "Get overwhelmed",
           isCorrect: false
         },
         { 
           id: "plan", 
           text: "Plan together & finish", 
           emoji: "📋", 
-          description: "Organize and complete",
           isCorrect: true
         },
         { 
           id: "delay", 
           text: "Ask to delay", 
           emoji: "⏰", 
-          description: "Put it off",
           isCorrect: false
         }
       ]

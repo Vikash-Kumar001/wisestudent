@@ -36,21 +36,20 @@ const DebtQuiz = () => {
           id: "principal", 
           text: "Principal", 
           emoji: "💵", 
-          description: "Original amount borrowed", 
+           
           isCorrect: false 
         },
         { 
           id: "fee", 
           text: "Fee", 
           emoji: "💸", 
-          description: "Different from interest", 
+          
           isCorrect: false 
         },
          { 
           id: "interest", 
           text: "Interest", 
           emoji: "💰", 
-          description: "Cost of borrowing", 
           isCorrect: true 
         },
       ]
@@ -63,21 +62,18 @@ const DebtQuiz = () => {
           id: "nothing", 
           text: "Nothing happens", 
           emoji: "😊", 
-          description: "Incorrect", 
           isCorrect: false 
         },
         { 
           id: "penalty", 
           text: "Penalty fees and interest increase", 
           emoji: "⚠️", 
-          description: "Debt grows larger", 
           isCorrect: true 
         },
         { 
           id: "free", 
           text: "Debt becomes free", 
           emoji: "🎁", 
-          description: "Never happens", 
           isCorrect: false 
         }
       ]
@@ -90,14 +86,12 @@ const DebtQuiz = () => {
           id: "interest", 
           text: "Interest", 
           emoji: "💰", 
-          description: "Extra cost", 
           isCorrect: false 
         },
         { 
           id: "principal", 
           text: "Principal", 
           emoji: "💵", 
-          description: "Original borrowed amount", 
           isCorrect: true 
         },
         
@@ -105,7 +99,6 @@ const DebtQuiz = () => {
           id: "total", 
           text: "Total debt", 
           emoji: "📊", 
-          description: "Principal + interest", 
           isCorrect: false 
         }
       ]
@@ -118,14 +111,12 @@ const DebtQuiz = () => {
           id: "plan", 
           text: "Plan how to repay", 
           emoji: "📋", 
-          description: "Responsible approach", 
           isCorrect: true 
         },
         { 
           id: "borrow-first", 
           text: "Borrow first, think later", 
           emoji: "💸", 
-          description: "Risky approach", 
           isCorrect: false 
         },
        
@@ -133,7 +124,6 @@ const DebtQuiz = () => {
           id: "ignore", 
           text: "Ignore repayment", 
           emoji: "😴", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]
@@ -146,21 +136,18 @@ const DebtQuiz = () => {
           id: "borrow-more", 
           text: "Borrow more to pay old debt", 
           emoji: "🔄", 
-          description: "Creates more problems", 
           isCorrect: false 
         },
         { 
           id: "avoid", 
           text: "Avoid unnecessary borrowing and repay on time", 
-          emoji: "✅", 
-          description: "Smart financial practice", 
+          emoji: "👍", 
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Ignore all debts", 
           emoji: "🚫", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]

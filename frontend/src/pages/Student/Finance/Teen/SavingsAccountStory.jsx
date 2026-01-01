@@ -35,21 +35,19 @@ const SavingsAccountStory = () => {
           id: "interest", 
           text: "Interest", 
           emoji: "💰", 
-          description: "Bank pays you extra money for keeping your money",
+          
           isCorrect: true
         },
         { 
           id: "magic", 
           text: "Magic", 
           emoji: "✨", 
-          description: "Money grows by itself",
           isCorrect: false
         },
         { 
           id: "error", 
           text: "Bank error", 
           emoji: "❌", 
-          description: "The bank made a mistake",
           isCorrect: false
         }
       ]
@@ -62,21 +60,19 @@ const SavingsAccountStory = () => {
           id: "loses", 
           text: "It loses value", 
           emoji: "📉", 
-          description: "Money decreases over time",
+          
           isCorrect: false
         },
         { 
           id: "grows", 
           text: "It grows with interest", 
           emoji: "📈", 
-          description: "Bank pays interest, money increases",
           isCorrect: true
         },
         { 
           id: "stays", 
           text: "It stays the same", 
           emoji: "➡️", 
-          description: "No change in amount",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const SavingsAccountStory = () => {
           id: "use", 
           text: "They use your money to lend", 
           emoji: "🏦", 
-          description: "Banks lend your money and share profit",
           isCorrect: true
         },
         { 
           id: "gift", 
           text: "It's a gift", 
           emoji: "🎁", 
-          description: "Free money from bank",
           isCorrect: false
         },
         { 
           id: "rule", 
           text: "Government rule", 
           emoji: "📜", 
-          description: "They have to by law",
           isCorrect: false
         }
       ]
@@ -116,21 +109,18 @@ const SavingsAccountStory = () => {
           id: "safe", 
           text: "Safe and earns interest", 
           emoji: "🛡️", 
-          description: "Your money is safe and grows",
           isCorrect: true
         },
         { 
           id: "quick", 
           text: "Quick access only", 
           emoji: "⚡", 
-          description: "Just for easy access",
           isCorrect: false
         },
         { 
           id: "free", 
           text: "Free money", 
           emoji: "💸", 
-          description: "You get free cash",
           isCorrect: false
         }
       ]
@@ -143,21 +133,18 @@ const SavingsAccountStory = () => {
           id: "bonus", 
           text: "Bonus payment", 
           emoji: "🎁", 
-          description: "Special gift from bank",
           isCorrect: false
         },
         { 
           id: "interest2", 
           text: "Interest earned", 
           emoji: "💵", 
-          description: "Money earned from interest",
           isCorrect: true
         },
         { 
           id: "fee", 
           text: "Bank fee", 
           emoji: "💳", 
-          description: "Charge for service",
           isCorrect: false
         }
       ]

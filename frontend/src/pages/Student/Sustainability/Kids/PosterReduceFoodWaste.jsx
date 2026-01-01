@@ -28,26 +28,26 @@ const PosterReduceFoodWaste = () => {
         {
           id: 1,
           title: "Waste More Food",
-          description: "A poster encouraging food waste",
+          
           emoji: "🍽️",
           isCorrect: false
         },
         {
           id: 2,
-          title: "Eat All You Take",
-          description: "A poster showing proper portion sizes",
+          title: "Eat All You Can Take",
+          
           emoji: "🍽️",
           isCorrect: true
         },
         {
           id: 3,
           title: "Buy Extra Food",
-          description: "A poster encouraging overbuying",
+        
           emoji: "🛒",
           isCorrect: false
         }
       ],
-      correctFeedback: "Eat All You Take is the best message for reducing food waste!",
+      correctFeedback: "Eat All You Can Take is the best message for reducing food waste!",
       explanation: "This poster reminds us to take only what we can eat!"
     },
     {
@@ -56,7 +56,7 @@ const PosterReduceFoodWaste = () => {
         {
           id: 1,
           title: "Cook Too Much",
-          description: "A poster encouraging cooking extra",
+          
           emoji: "🍳",
           isCorrect: false
         },
@@ -64,14 +64,14 @@ const PosterReduceFoodWaste = () => {
         {
           id: 3,
           title: "Buy Randomly",
-          description: "A poster showing unplanned shopping",
+          
           emoji: "🤷",
           isCorrect: false
         },
          {
           id: 2,
           title: "Plan Before You Shop",
-          description: "A poster showing meal planning",
+          
           emoji: "📋",
           isCorrect: true
         },
@@ -85,21 +85,19 @@ const PosterReduceFoodWaste = () => {
         {
           id: 1,
           title: "Leave Food Out",
-          description: "A poster showing food left out",
+          
           emoji: "🌡️",
           isCorrect: false
         },
         {
           id: 2,
           title: "Store Food Properly",
-          description: "A poster showing food storage",
           emoji: "📦",
           isCorrect: true
         },
         {
           id: 3,
           title: "Waste Food",
-          description: "A poster encouraging waste",
           emoji: "🍽️",
           isCorrect: false
         }
@@ -113,14 +111,12 @@ const PosterReduceFoodWaste = () => {
         {
           id: 2,
           title: "Compost Food Scraps",
-          description: "A poster showing composting",
           emoji: "🌿",
           isCorrect: true
         },
         {
           id: 1,
           title: "Throw All Away",
-          description: "A poster encouraging waste",
           emoji: "🗑️",
           isCorrect: false
         },
@@ -128,7 +124,7 @@ const PosterReduceFoodWaste = () => {
         {
           id: 3,
           title: "Ignore Composting",
-          description: "A poster showing disregard for composting",
+          
           emoji: "🤷",
           isCorrect: false
         }
@@ -142,7 +138,7 @@ const PosterReduceFoodWaste = () => {
         {
           id: 1,
           title: "Waste Food",
-          description: "A poster encouraging food waste",
+        
           emoji: "🍽️",
           isCorrect: false
         },
@@ -150,14 +146,14 @@ const PosterReduceFoodWaste = () => {
         {
           id: 3,
           title: "Ignore Waste",
-          description: "A poster suggesting we don't worry about waste",
+          
           emoji: "🙈",
           isCorrect: false
         },
         {
           id: 2,
           title: "Reduce Food Waste",
-          description: "A poster showing food waste reduction",
+          
           emoji: "🌍",
           isCorrect: true
         },

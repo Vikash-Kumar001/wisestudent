@@ -35,21 +35,19 @@ const HolidayStory = () => {
           id: "no", 
           text: "No, it's not good", 
           emoji: "📛", 
-          description: "Rest helps you feel better",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "👍", 
-          description: "Playing all night is fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the activity",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const HolidayStory = () => {
           id: "yes", 
           text: "Yes, it's smart", 
           emoji: "😎", 
-          description: "Holidays are for staying up",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the holiday",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not smart", 
           emoji: "👎", 
-          description: "Sleep is important even on holidays",
           isCorrect: true
         }
       ]
@@ -89,21 +84,18 @@ const HolidayStory = () => {
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the game",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not good", 
           emoji: "👎", 
-          description: "Rest helps you enjoy breaks more",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "🤓", 
-          description: "Gaming all night is fine",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const HolidayStory = () => {
           id: "no", 
           text: "No, it's not wise", 
           emoji: "😕", 
-          description: "Sleep helps you feel refreshed",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's wise", 
           emoji: "🦉", 
-          description: "Movies are worth staying up",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the movie",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const HolidayStory = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "💬", 
-          description: "Chatting is always fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on who you chat with",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not good", 
           emoji: "😴", 
-          description: "Sleep helps you stay alert",
           isCorrect: true
         }
       ]

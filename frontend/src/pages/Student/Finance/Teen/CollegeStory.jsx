@@ -30,21 +30,21 @@ const CollegeStory = () => {
           id: "spend", 
           text: "Spend all on outings", 
           emoji: "🎉", 
-          description: "Use all money for entertainment and fun", 
+           
           isCorrect: false 
         },
         { 
           id: "budget", 
           text: "Budget for needs first", 
           emoji: "📚", 
-          description: "Prioritize essential expenses like books and fees", 
+          
           isCorrect: true 
         },
         { 
           id: "save", 
           text: "Save everything", 
           emoji: "🏦", 
-          description: "Don't spend anything at all", 
+           
           isCorrect: false 
         }
       ]
@@ -57,21 +57,19 @@ const CollegeStory = () => {
           id: "books", 
           text: "Buy books first", 
           emoji: "📖", 
-          description: "Prioritize education essentials", 
+           
           isCorrect: true 
         },
         { 
           id: "snacks", 
           text: "Buy snacks first", 
           emoji: "🍫", 
-          description: "Get snacks because they're more fun", 
           isCorrect: false 
         },
         { 
           id: "both", 
           text: "Buy both equally", 
           emoji: "⚖️", 
-          description: "Split money equally between both", 
           isCorrect: false 
         }
       ]
@@ -84,21 +82,18 @@ const CollegeStory = () => {
           id: "clothes", 
           text: "Buy new clothes", 
           emoji: "👗", 
-          description: "Spend on fashionable items", 
           isCorrect: false 
         },
         { 
           id: "party", 
           text: "Spend on party", 
           emoji: "🎊", 
-          description: "Use it all for entertainment", 
           isCorrect: false 
         },
         { 
           id: "save", 
           text: "Save for emergencies", 
           emoji: "🏦", 
-          description: "Put money aside for unexpected expenses", 
           isCorrect: true 
         }
       ]
@@ -111,21 +106,18 @@ const CollegeStory = () => {
           id: "fees", 
           text: "Pay fees first", 
           emoji: "💳", 
-          description: "Prioritize essential college expenses", 
           isCorrect: true 
         },
         { 
           id: "phone", 
           text: "Buy the phone", 
           emoji: "📱", 
-          description: "Get the phone you want", 
           isCorrect: false 
         },
         { 
           id: "both", 
           text: "Buy both on credit", 
           emoji: "💳", 
-          description: "Use credit card for both", 
           isCorrect: false 
         }
       ]
@@ -138,21 +130,19 @@ const CollegeStory = () => {
           id: "spend", 
           text: "Spend all immediately", 
           emoji: "🛍️", 
-          description: "Use all earnings for current wants", 
           isCorrect: false 
         },
         { 
           id: "save", 
           text: "Save everything", 
           emoji: "🏦", 
-          description: "Don't spend any of it", 
           isCorrect: false 
         },
         { 
           id: "budget", 
           text: "Budget for needs and savings", 
           emoji: "💰", 
-          description: "Plan for expenses and save a portion", 
+          
           isCorrect: true 
         }
       ]

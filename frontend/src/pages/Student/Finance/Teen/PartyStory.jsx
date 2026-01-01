@@ -30,21 +30,21 @@ const PartyStory = () => {
           id: "a", 
           text: "Allocate ₹1000 for venue, ₹500 for food, ₹300 for decorations, ₹200 for contingencies", 
           emoji: "📋", 
-          description: "Balanced approach with contingency fund",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Spend all ₹2000 on decorations", 
           emoji: "🎨", 
-          description: "Ignores other important costs",
+          
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ask parents to cover extra costs", 
           emoji: "💸", 
-          description: "Doesn't teach financial responsibility",
+          
           isCorrect: false
         }
       ]
@@ -57,21 +57,18 @@ const PartyStory = () => {
           id: "a", 
           text: "Spend it all immediately", 
           emoji: "🛍️", 
-          description: "Misses opportunity to build savings",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Split it: save 60% (₹900) and spend 40% (₹600)", 
           emoji: "💰", 
-          description: "Balances enjoyment with savings",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Give it all to friends", 
           emoji: "👥", 
-          description: "Doesn't help learn money management",
           isCorrect: false
         }
       ]
@@ -84,21 +81,18 @@ const PartyStory = () => {
           id: "a", 
           text: "Ignore it since it was special", 
           emoji: "🙈", 
-          description: "Doesn't help improve financial habits",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Review what caused overspending and adjust future budgets", 
           emoji: "📊", 
-          description: "Helps learn from mistakes",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Cancel your next social event", 
           emoji: "🚫", 
-          description: "Extreme reaction not helpful",
           isCorrect: false
         }
       ]
@@ -111,21 +105,18 @@ const PartyStory = () => {
           id: "a", 
           text: "Host a small gathering within your budget (₹750)", 
           emoji: "🎉", 
-          description: "Shows financial responsibility",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Host a big party anyway", 
           emoji: "💸", 
-          description: "Ignores financial limits",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ask parents to sponsor it", 
           emoji: "👨‍👩‍👧‍👦", 
-          description: "Relies on others instead of managing",
           isCorrect: false
         }
       ]
@@ -139,21 +130,18 @@ const PartyStory = () => {
           id: "b", 
           text: "Focus only on having fun", 
           emoji: "🎉", 
-          description: "Doesn't consider long-term goals",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Host the biggest party to impress", 
           emoji: "💎", 
-          description: "Focuses on external validation",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Compare the joy of hosting with alternative uses of ₹1000", 
           emoji: "⚖️", 
-          description: "Considers opportunity cost",
           isCorrect: true
         },
       ]

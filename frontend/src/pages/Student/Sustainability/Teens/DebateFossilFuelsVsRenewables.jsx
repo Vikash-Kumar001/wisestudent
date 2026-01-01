@@ -60,122 +60,126 @@ const DebateFossilFuelsVsRenewables = () => {
   }, [gameFinished, score, gameId, nextGamePath, nextGameId]);
 
   const questions = [
-    {
-      id: 1,
-      text: "Should we transition from fossil fuels to renewable energy?",
-      options: [
-        {
-          id: "a",
-          text: "Yes, immediately",
-          emoji: "✅"
-        },
-        {
-          id: "b",
-          text: "Gradually over time",
-          emoji: "⏳"
-        },
-        {
-          id: "c",
-          text: "No, keep fossil fuels",
-          emoji: "❌"
-        }
-      ],
-      correctAnswer: "b",
-      explanation: "Gradually over time. Urgent action needed for climate, but balance is important. Fossil fuels harm the environment."
-    },
-    {
-      id: 2,
-      text: "What's the main advantage of renewable energy?",
-      options: [
-        {
-          id: "a",
-          text: "Always cheaper",
-          emoji: "💰"
-        },
-        {
-          id: "b",
-          text: "Clean and sustainable",
-          emoji: "🌱"
-        },
-        {
-          id: "c",
-          text: "Always available",
-          emoji: "⚡"
-        }
-      ],
-      correctAnswer: "c",
-      explanation: "Always available. Costs vary, and depends on conditions. Reduces pollution."
-    },
-    {
-      id: 3,
-      text: "What's a challenge with renewable energy?",
-      options: [
-        {
-          id: "a",
-          text: "Too expensive",
-          emoji: "💸"
-        },
-        {
-          id: "b",
-          text: "Doesn't work",
-          emoji: "❌"
-        },
-        {
-          id: "c",
-          text: "Energy storage",
-          emoji: "🔋"
-        }
-      ],
-      correctAnswer: "a",
-      explanation: "Too expensive. Costs are decreasing, but still a challenge. Renewable energy is effective. Need better battery technology."
-    },
-    {
-      id: 4,
-      text: "Which energy source produces the most carbon emissions?",
-      options: [
-        {
-          id: "a",
-          text: "Solar power",
-          emoji: "☀️"
-        },
-        {
-          id: "b",
-          text: "Wind power",
-          emoji: "🌬️"
-        },
-        {
-          id: "c",
-          text: "Coal power",
-          emoji: "🏭"
-        }
-      ],
-      correctAnswer: "c",
-      explanation: "Coal power. Clean energy source, but highest carbon emissions."
-    },
-    {
-      id: 5,
-      text: "What's the best approach for energy transition?",
-      options: [
-        {
-          id: "a",
-          text: "Immediate shift",
-          emoji: "⚡"
-        },
-        {
-          id: "b",
-          text: "Government investment",
-          emoji: "🏛️"
-        },
-        {
-          id: "c",
-          text: "Individual action",
-          emoji: "👤"
-        }
-      ],
-      correctAnswer: "b",
-      explanation: "Government investment. May cause disruptions, but supports innovation. Individual action is important but not sufficient."
-    }
-  ];
+  {
+    id: 1,
+    text: "Should we transition from fossil fuels to renewable energy?",
+    options: [
+      {
+        id: "a",
+        text: "Yes, immediately",
+        emoji: "👍"
+      },
+      {
+        id: "b",
+        text: "Gradually over time",
+        emoji: "⏳"
+      },
+      {
+        id: "c",
+        text: "No, keep fossil fuels",
+        emoji: "👎"
+      }
+    ],
+    correctAnswer: "b",
+    explanation: "Gradual transition balances urgent climate action with economic and energy needs."
+  },
+  {
+    id: 2,
+    text: "What's the main advantage of renewable energy?",
+    options: [
+      {
+        id: "a",
+        text: "Always cheaper",
+        emoji: "💰"
+      },
+      
+      {
+        id: "c",
+        text: "Always available",
+        emoji: "⚡"
+      },
+      {
+        id: "b",
+        text: "Clean and sustainable",
+        emoji: "🌱"
+      },
+    ],
+    correctAnswer: "b",
+    explanation: "Renewable energy is clean and sustainable, reducing pollution and protecting the environment."
+  },
+  {
+    id: 3,
+    text: "What's a challenge with renewable energy?",
+    options: [
+      {
+        id: "c",
+        text: "Energy storage",
+        emoji: "🔋"
+      },
+      {
+        id: "a",
+        text: "Too expensive",
+        emoji: "💸"
+      },
+      {
+        id: "b",
+        text: "Doesn't work",
+        emoji: "❌"
+      },
+      
+    ],
+    correctAnswer: "c",
+    explanation: "Storing renewable energy efficiently is a challenge due to weather and supply variations."
+  },
+  {
+    id: 4,
+    text: "Which energy source produces the most carbon emissions?",
+    options: [
+      {
+        id: "a",
+        text: "Solar power",
+        emoji: "☀️"
+      },
+      {
+        id: "b",
+        text: "Wind power",
+        emoji: "🌬️"
+      },
+      {
+        id: "c",
+        text: "Coal power",
+        emoji: "🏭"
+      }
+    ],
+    correctAnswer: "c",
+    explanation: "Coal power produces the highest carbon emissions among energy sources."
+  },
+  {
+    id: 5,
+    text: "What's the best approach for energy transition?",
+    options: [
+      {
+        id: "a",
+        text: "Immediate shift",
+        emoji: "⚡"
+      },
+      {
+        id: "c",
+        text: "Collective individual actions",
+        emoji: "🤝"
+      },
+      {
+        id: "b",
+        text: "Government investment",
+        emoji: "🏛️"
+      },
+      
+    ],
+    correctAnswer: "c",
+    explanation: "When individuals act together, their collective actions create meaningful energy change."
+  }
+];
+
 
   const handleOptionSelect = (optionId) => {
     const currentQuestion = questions[currentQuestionIndex];

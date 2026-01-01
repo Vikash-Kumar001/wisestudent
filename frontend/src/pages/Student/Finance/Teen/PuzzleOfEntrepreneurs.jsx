@@ -47,20 +47,20 @@ const PuzzleOfEntrepreneurs = () => {
 
   // Entrepreneurs (left side) - 5 items
   const items = [
-    { id: 1, name: "Ratan Tata", emoji: "👔", hint: "Business leader" },
-    { id: 2, name: "Elon Musk", emoji: "🚀", hint: "Tech innovator" },
-    { id: 3, name: "Narayana Murthy", emoji: "💻", hint: "IT pioneer" },
-    { id: 4, name: "Kiran Mazumdar", emoji: "🔬", hint: "Biotech leader" },
-    { id: 5, name: "Falguni Nayar", emoji: "💄", hint: "Beauty entrepreneur" }
+    { id: 1, name: "Ratan Tata", emoji: "👔",  },
+    { id: 2, name: "Elon Musk", emoji: "🚀",  },
+    { id: 3, name: "Narayana Murthy", emoji: "💻",  },
+    { id: 4, name: "Kiran Mazumdar", emoji: "🔬",  },
+    { id: 5, name: "Falguni Nayar", emoji: "💄",  }
   ];
 
   // Fields (right side) - 5 items
   const fields = [
-    { id: 6, name: "Industry", emoji: "🏭", description: "Diversified business" },
-    { id: 7, name: "Innovation", emoji: "💡", description: "Revolutionary tech" },
-    { id: 8, name: "IT", emoji: "💻", description: "Technology services" },
-    { id: 9, name: "Biotech", emoji: "🧬", description: "Biology research" },
-    { id: 10, name: "E-commerce", emoji: "🛒", description: "Online retail" }
+    { id: 6, name: "Industry", emoji: "🏭",  },
+    { id: 7, name: "Innovation", emoji: "💡",  },
+    { id: 8, name: "IT", emoji: "💻",  },
+    { id: 9, name: "Biotech", emoji: "🧬",  },
+    { id: 10, name: "E-commerce", emoji: "🛒",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

@@ -53,21 +53,21 @@ const PosterUpcycleIdeas = () => {
         {
           id: 1,
           title: "Throw Everything Away",
-          description: "A poster showing waste disposal",
+          
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 2,
           title: "Old Things, New Uses",
-          description: "A poster showing creative reuse of items",
+          
           emoji: "🎨",
           isCorrect: true
         },
         {
           id: 3,
           title: "Buy More Stuff",
-          description: "A poster encouraging consumption",
+          // description: "A poster encouraging consumption",
           emoji: "🛒",
           isCorrect: false
         }
@@ -81,7 +81,7 @@ const PosterUpcycleIdeas = () => {
         {
           id: 1,
           title: "Waste Everything",
-          description: "A poster showing throwing away items",
+          // description: "A poster showing throwing away items",
           emoji: "❌",
           isCorrect: false
         },
@@ -89,14 +89,14 @@ const PosterUpcycleIdeas = () => {
         {
           id: 3,
           title: "Ignore Reuse",
-          description: "A poster showing neglecting reuse",
+          // description: "A poster showing neglecting reuse",
           emoji: "😴",
           isCorrect: false
         },
          {
           id: 2,
           title: "Reuse and Renew",
-          description: "A poster showing items being reused",
+          // description: "A poster showing items being reused",
           emoji: "🔄",
           isCorrect: true
         },
@@ -110,21 +110,21 @@ const PosterUpcycleIdeas = () => {
         {
           id: 1,
           title: "Throw Away Old Items",
-          description: "A poster showing disposal of items",
+          // description: "A poster showing disposal of items",
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 2,
           title: "Create Something New",
-          description: "A poster showing transformation of old items",
+          // description: "A poster showing transformation of old items",
           emoji: "🔄",
           isCorrect: true
         },
         {
           id: 3,
           title: "Buy New Things",
-          description: "A poster encouraging purchasing new items",
+          // description: "A poster encouraging purchasing new items",
           emoji: "🛒",
           isCorrect: false
         }
@@ -138,14 +138,14 @@ const PosterUpcycleIdeas = () => {
          {
           id: 2,
           title: "Transform Before You Trash",
-          description: "A poster showing upcycling concepts",
+          // description: "A poster showing upcycling concepts",
           emoji: "✨",
           isCorrect: true
         },
         {
           id: 1,
           title: "Dispose of Everything",
-          description: "A poster showing waste disposal",
+          // description: "A poster showing waste disposal",
           emoji: "🗑️",
           isCorrect: false
         },
@@ -153,7 +153,7 @@ const PosterUpcycleIdeas = () => {
         {
           id: 3,
           title: "Buy More Often",
-          description: "A poster showing consumption habits",
+          // description: "A poster showing consumption habits",
           emoji: "💰",
           isCorrect: false
         }
@@ -167,21 +167,21 @@ const PosterUpcycleIdeas = () => {
         {
           id: 1,
           title: "Use Once and Toss",
-          description: "A poster showing single-use mentality",
+          // description: "A poster showing single-use mentality",
           emoji: "❌",
           isCorrect: false
         },
         {
           id: 2,
           title: "Reuse, Repurpose, Renew",
-          description: "A poster showing multiple ways to conserve",
+          // description: "A poster showing multiple ways to conserve",
           emoji: "✨",
           isCorrect: true
         },
         {
           id: 3,
           title: "Dispose Quickly",
-          description: "A poster showing waste disposal",
+          // description: "A poster showing waste disposal",
           emoji: "🗑️",
           isCorrect: false
         }

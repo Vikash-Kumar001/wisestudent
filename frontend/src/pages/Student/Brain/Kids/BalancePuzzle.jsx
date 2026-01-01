@@ -30,20 +30,20 @@ const BalancePuzzle = () => {
 
   // Left side - screen time amounts
   const leftItems = [
-    { id: 1, name: "1 hr Game", emoji: "🎮", description: "Short gaming time" },
-    { id: 2, name: "5 hrs Screen", emoji: "📱", description: "Long screen time" },
-    { id: 3, name: "2 hrs Tablet", emoji: "💻", description: "Moderate screen time" },
-    { id: 4, name: "30 min Phone", emoji: "📞", description: "Very short screen time" },
-    { id: 5, name: "6 hrs Gaming", emoji: "🎮", description: "Very long gaming time" }
+    { id: 1, name: "1 hr Game", emoji: "🎮",  },
+    { id: 2, name: "5 hrs Screen", emoji: "📱",  },
+    { id: 3, name: "2 hrs Tablet", emoji: "💻",  },
+    { id: 4, name: "30 min Phone", emoji: "📞",  },
+    { id: 5, name: "6 hrs Gaming", emoji: "🎮",  }
   ];
 
   // Right side - effects
   const rightItems = [
-    { id: 1, name: "Fun", emoji: "😊", description: "Enjoyable and healthy" },
-    { id: 2, name: "Harm", emoji: "😞", description: "Harmful and unhealthy" },
-    { id: 3, name: "Balance", emoji: "⚖️", description: "Moderate and okay" },
-    { id: 4, name: "Good", emoji: "✅", description: "Healthy choice" },
-    { id: 5, name: "Bad", emoji: "❌", description: "Unhealthy choice" }
+    { id: 1, name: "Fun", emoji: "😊",  },
+    { id: 2, name: "Harm", emoji: "😞",  },
+    { id: 3, name: "Balance", emoji: "⚖️",  },
+    { id: 4, name: "Good", emoji: "✅",  },
+    { id: 5, name: "Bad", emoji: "❌",  }
   ];
 
   // Correct matches

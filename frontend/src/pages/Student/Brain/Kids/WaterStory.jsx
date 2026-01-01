@@ -35,21 +35,21 @@ const WaterStory = () => {
           id: "yes", 
           text: "Yes", 
           emoji: "💧", 
-          description: "Follow the teacher's advice and drink water",
+          
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe later", 
           emoji: "🤔", 
-          description: "Think about it later",
+          
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "❌", 
-          description: "Ignore the advice",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,19 @@ const WaterStory = () => {
           id: "wait", 
           text: "Wait until break", 
           emoji: "⏰", 
-          description: "Wait for the break time",
+         
           isCorrect: false
         },
         { 
           id: "drink", 
           text: "Drink water", 
           emoji: "💧", 
-          description: "Drink water to stay hydrated",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore thirst", 
           emoji: "😴", 
-          description: "Ignore the feeling of thirst",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const WaterStory = () => {
           id: "agree", 
           text: "Agree - soda is better", 
           emoji: "🥤", 
-          description: "Agree that soda is more interesting",
           isCorrect: false
         },
         { 
           id: "say-nothing", 
           text: "Say nothing", 
           emoji: "🤐", 
-          description: "Don't respond",
           isCorrect: false
         },
         { 
           id: "explain", 
           text: "Explain water helps brain", 
           emoji: "🧠", 
-          description: "Explain why water is good for the brain",
           isCorrect: true
         }
       ]
@@ -116,21 +111,18 @@ const WaterStory = () => {
           id: "enough", 
           text: "Enough to stay hydrated", 
           emoji: "💧", 
-          description: "Drink enough water to stay properly hydrated",
           isCorrect: true
         },
         { 
           id: "little", 
           text: "A little is enough", 
           emoji: "💧", 
-          description: "Just a small amount",
           isCorrect: false
         },
         { 
           id: "none", 
           text: "None needed", 
           emoji: "🚫", 
-          description: "Don't need to drink water",
           isCorrect: false
         }
       ]
@@ -143,21 +135,18 @@ const WaterStory = () => {
           id: "during", 
           text: "Only during meals", 
           emoji: "🍽️", 
-          description: "Drink water only when eating",
           isCorrect: false
         },
         { 
           id: "throughout", 
           text: "Throughout the day", 
           emoji: "⏰", 
-          description: "Drink water regularly all day long",
           isCorrect: true
         },
         { 
           id: "evening", 
           text: "Only in evening", 
           emoji: "🌙", 
-          description: "Drink water only in the evening",
           isCorrect: false
         }
       ]

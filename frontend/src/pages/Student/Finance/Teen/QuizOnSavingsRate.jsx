@@ -36,21 +36,19 @@ const QuizOnSavingsRate = () => {
           id: "a", 
           text: "10%", 
           emoji: "🔢", 
-          description: "10% of ₹1000 is ₹100",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "20%", 
           emoji: "📈", 
-          description: "20% of ₹1000 is ₹200",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "25%", 
           emoji: "📊", 
-          description: "25% of ₹1000 is ₹250",
           isCorrect: false
         }
       ]
@@ -63,21 +61,18 @@ const QuizOnSavingsRate = () => {
           id: "a", 
           text: "₹300", 
           emoji: "🏦", 
-          description: "15% of ₹2000 is ₹300",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "₹200", 
           emoji: "💰", 
-          description: "10% of ₹2000 is ₹200",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "₹400", 
           emoji: "💵", 
-          description: "20% of ₹2000 is ₹400",
           isCorrect: false
         }
       ]
@@ -90,21 +85,18 @@ const QuizOnSavingsRate = () => {
           id: "a", 
           text: "10%", 
           emoji: "📉", 
-          description: "You saved ₹1000 out of ₹5000, which is 20%",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "25%", 
           emoji: "🎯", 
-          description: "You saved ₹1000 out of ₹5000, which is 20%",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "20%", 
-          emoji: "✅", 
-          description: "You saved ₹1000 out of ₹5000, which is 20%",
+          emoji: "😓", 
           isCorrect: true
         }
       ]
@@ -117,21 +109,18 @@ const QuizOnSavingsRate = () => {
           id: "a", 
           text: "₹2000", 
           emoji: "🧮", 
-          description: "25% of ₹2000 is ₹500",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "₹1000", 
           emoji: "🧮", 
-          description: "25% of ₹1000 is ₹250, not ₹500",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "₹2500", 
           emoji: "🧮", 
-          description: "25% of ₹2500 is ₹625, not ₹500",
           isCorrect: false
         }
       ]
@@ -144,21 +133,19 @@ const QuizOnSavingsRate = () => {
           id: "a", 
           text: "5%", 
           emoji: "🐌", 
-          description: "Too low for building substantial savings",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "50%", 
           emoji: "⚠️", 
-          description: "Too high, may affect your current quality of life",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "20%", 
           emoji: "⚖️", 
-          description: "A balanced rate that allows for both current needs and future savings",
           isCorrect: true
         }
       ]

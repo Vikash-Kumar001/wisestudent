@@ -47,20 +47,20 @@ const BudgetItemsPuzzle = () => {
 
   // Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Food", emoji: "🍎", hint: "Essential for life" },
-    { id: 2, name: "Toys", emoji: "🧸", hint: "Fun to play with" },
-    { id: 3, name: "Books", emoji: "📚", hint: "For learning" },
-    { id: 4, name: "Games", emoji: "🎮", hint: "Entertainment" },
-    { id: 5, name: "Clothing", emoji: "👕", hint: "For protection" },
+    { id: 1, name: "Food", emoji: "🍎",  },
+    { id: 2, name: "Toys", emoji: "🧸",  },
+    { id: 3, name: "Books", emoji: "📚",  },
+    { id: 4, name: "Games", emoji: "🎮",  },
+    { id: 5, name: "Clothing", emoji: "👕",  },
   ];
 
   // Categories (right side) - 5 items
   const categories = [
-    { id: 6, name: "Need", emoji: "✅", description: "Must have to live" },
-    { id: 7, name: "Want", emoji: "✨", description: "Nice to have" },
-    { id: 8, name: "Essential", emoji: "⚡", description: "Absolutely necessary" },
-    { id: 9, name: "Luxury", emoji: "💎", description: "Special treats" },
-    { id: 10, name: "Optional", emoji: "🎯", description: "Not required" },
+    { id: 6, name: "Need", emoji: "😊",  },
+    { id: 7, name: "Want", emoji: "✨",  },
+    { id: 8, name: "Essential", emoji: "⚡",  },
+    { id: 9, name: "Luxury", emoji: "💎",  },
+    { id: 10, name: "Optional", emoji: "🎯",  },
   ];
 
   // Manually rearrange positions to prevent positional matching

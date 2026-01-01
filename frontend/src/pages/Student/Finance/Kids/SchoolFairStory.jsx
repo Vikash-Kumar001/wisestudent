@@ -32,21 +32,20 @@ const SchoolFairStory = () => {
           id: "toys",
           text: "Spend on Toys",
           emoji: "🧸",
-          description: "Buy toys only, forget about food",
+          
           isCorrect: false
         },
         {
           id: "plan",
           text: "Plan for Both",
           emoji: "🎯",
-          description: "Budget for snacks and games together",
+          
           isCorrect: true
         },
         {
           id: "food",
           text: "Buy Only Food",
           emoji: "🍔",
-          description: "Spend all on food, no games",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const SchoolFairStory = () => {
           id: "games",
           text: "Buy Games",
           emoji: "🎮",
-          description: "Spend all on games",
           isCorrect: false
         },
         {
           id: "snacks",
           text: "Buy Only Snacks",
           emoji: "🍿",
-          description: "Spend all on snacks",
           isCorrect: false
         },
         {
           id: "budget",
           text: "Budget Food",
           emoji: "🍕",
-          description: "Plan money for food first, then games",
           isCorrect: true
         }
       ]
@@ -86,21 +82,18 @@ const SchoolFairStory = () => {
           id: "save",
           text: "Save Some",
           emoji: "💰",
-          description: "Keep some money aside",
           isCorrect: true
         },
         {
           id: "spend",
           text: "Spend All",
           emoji: "🛍️",
-          description: "Use all the money immediately",
           isCorrect: false
         },
         {
           id: "gamble",
           text: "Gamble It",
           emoji: "🎲",
-          description: "Try to double the money with games",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const SchoolFairStory = () => {
           id: "keep",
           text: "Keep All",
           emoji: "👤",
-          description: "Use all money for yourself",
           isCorrect: false
         },
         {
           id: "share",
           text: "Share with Friend",
           emoji: "🤝",
-          description: "Help your friend enjoy the fair",
           isCorrect: true
         },
         {
           id: "lend",
           text: "Lend Money",
           emoji: "💸",
-          description: "Let your friend borrow money",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const SchoolFairStory = () => {
           id: "many",
           text: "Buy Many",
           emoji: "🛒",
-          description: "Buy multiple toys at once",
           isCorrect: false
         },
         {
           id: "none",
           text: "Buy None",
           emoji: "❌",
-          description: "Don't buy any toys",
           isCorrect: false
         },
         {
           id: "one",
           text: "Buy One Toy",
           emoji: "🎁",
-          description: "Choose one favorite toy",
           isCorrect: true
         }
       ]

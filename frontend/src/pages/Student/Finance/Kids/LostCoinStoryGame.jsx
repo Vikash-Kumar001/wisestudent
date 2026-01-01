@@ -32,21 +32,20 @@ const LostCoinStoryGame = () => {
           id: "keep", 
           text: "Keep it", 
           emoji: "🤫", 
-          description: "Keep the money",
+          
           isCorrect: false
         },
         {
           id: "teacher",
           text: "Give to teacher",
           emoji: "🧑‍🏫",
-          description: "Turn it in to teacher",
+          
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Spend it on candy", 
           emoji: "🍬", 
-          description: "Buy treats",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const LostCoinStoryGame = () => {
           id: "return", 
           text: "Return it to the owner", 
           emoji: "📚", 
-          description: "Find and return it",
           isCorrect: true
         },
         { 
           id: "snacks", 
           text: "Buy snacks", 
           emoji: "🍟", 
-          description: "Spend on food",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hide it in your bag", 
           emoji: "🎒", 
-          description: "Keep it secret",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const LostCoinStoryGame = () => {
           id: "return", 
           text: "Return the extra change", 
           emoji: "💸", 
-          description: "Give back the extra",
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep it quietly", 
           emoji: "😶", 
-          description: "Don't mention it",
           isCorrect: false
         },
         { 
           id: "toys", 
           text: "Spend it on toys", 
           emoji: "🧸", 
-          description: "Buy toys with it",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const LostCoinStoryGame = () => {
           id: "home", 
           text: "Take it home", 
           emoji: "💰", 
-          description: "Keep the money",
           isCorrect: false
         },
         { 
           id: "icecream", 
           text: "Buy ice cream", 
           emoji: "🍦", 
-          description: "Spend immediately",
           isCorrect: false
         },
         {
           id: "find",
           text: "Ask around to find the owner",
           emoji: "🕵️",
-          description: "Try to locate owner",
           isCorrect: true
         },
       ]
@@ -140,21 +130,18 @@ const LostCoinStoryGame = () => {
           id: "money", 
           text: "Gets you more money", 
           emoji: "💰", 
-          description: "Receive more cash",
           isCorrect: false
         },
         {
           id: "trust",
           text: "Builds trust and respect",
           emoji: "😊",
-          description: "Creates positive relationships",
           isCorrect: true
         },
         { 
           id: "things", 
           text: "Lets you buy more things", 
           emoji: "🛍️", 
-          description: "Have more to spend",
           isCorrect: false
         }
       ]

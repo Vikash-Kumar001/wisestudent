@@ -29,20 +29,20 @@ const PositiveWordsPuzzle = () => {
 
   // Left side - positive words
   const leftItems = [
-    { id: 1, name: "Hope", emoji: "🌟", description: "Believing in good things" },
-    { id: 2, name: "Gratitude", emoji: "🙏", description: "Being thankful" },
-    { id: 3, name: "Optimism", emoji: "☀️", description: "Positive outlook" },
-    { id: 4, name: "Kindness", emoji: "❤️", description: "Being nice to others" },
-    { id: 5, name: "Joy", emoji: "😊", description: "Feeling happy" }
+    { id: 1, name: "Hope", emoji: "🌟",  },
+    { id: 2, name: "Gratitude", emoji: "🙏",  },
+    { id: 3, name: "Optimism", emoji: "☀️",  },
+    { id: 4, name: "Kindness", emoji: "❤️",  },
+    { id: 5, name: "Joy", emoji: "😊",  }
   ];
 
   // Right side - meanings/definitions
   const rightItems = [
-    { id: 1, name: "Future", emoji: "🔮", description: "Looking ahead with hope" },
-    { id: 2, name: "Thanks", emoji: "🙏", description: "Expressing gratitude" },
-    { id: 3, name: "Bright Side", emoji: "☀️", description: "Seeing the positive" },
-    { id: 4, name: "Care", emoji: "💝", description: "Showing kindness" },
-    { id: 5, name: "Happiness", emoji: "😊", description: "Feeling joyful" }
+    { id: 1, name: "Future", emoji: "🔮",  },
+    { id: 2, name: "Thanks", emoji: "🙏",  },
+    { id: 3, name: "Bright Side", emoji: "☀️",  },
+    { id: 4, name: "Care", emoji: "💝",  },
+    { id: 5, name: "Happiness", emoji: "😊",  }
   ];
 
   // Correct matches

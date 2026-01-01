@@ -26,12 +26,7 @@ const QuizPubertyHealthTeen = () => {
     id: 1,
     text: "Why does the teen body sometimes grow faster than coordination skills?",
     options: [
-      {
-        id: "a",
-        text: "Muscles grow before the brain adapts",
-        emoji: "🧠",
-        isCorrect: true
-      },
+      
       {
         id: "b",
         text: "Bones forget signals",
@@ -43,24 +38,31 @@ const QuizPubertyHealthTeen = () => {
         text: "Nerves stop working",
         emoji: "⚡",
         isCorrect: false
-      }
+      },
+      {
+        id: "a",
+        text: "Muscles grow before the brain adapts",
+        emoji: "🧠",
+        isCorrect: true
+      },
     ]
   },
   {
     id: 2,
     text: "Why do teens often feel hungry more frequently during puberty?",
     options: [
-      {
-        id: "a",
-        text: "Growth increases energy demand",
-        emoji: "🔋",
-        isCorrect: true
-      },
+     
       {
         id: "b",
         text: "Hormones cause boredom eating",
         emoji: "🍿",
         isCorrect: false
+      },
+       {
+        id: "a",
+        text: "Growth increases energy demand",
+        emoji: "🔋",
+        isCorrect: true
       },
       {
         id: "c",
@@ -98,12 +100,7 @@ const QuizPubertyHealthTeen = () => {
     id: 4,
     text: "Why is skipping meals harmful during puberty?",
     options: [
-      {
-        id: "a",
-        text: "It can slow growth and affect focus",
-        emoji: "📉",
-        isCorrect: true
-      },
+      
       {
         id: "b",
         text: "It only affects mood",
@@ -115,7 +112,13 @@ const QuizPubertyHealthTeen = () => {
         text: "It causes instant weight gain",
         emoji: "⚖️",
         isCorrect: false
-      }
+      },
+      {
+        id: "a",
+        text: "It can slow growth and affect focus",
+        emoji: "📉",
+        isCorrect: true
+      },
     ]
   },
   {

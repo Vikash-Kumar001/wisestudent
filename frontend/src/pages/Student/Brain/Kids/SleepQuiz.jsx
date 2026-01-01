@@ -35,21 +35,19 @@ const SleepQuiz = () => {
           id: "b", 
           text: " 8–10 hours", 
           emoji: "😴", 
-          description: "The recommended amount for kids",
+          
           isCorrect: true
         },
         { 
           id: "a", 
           text: " 4 hours", 
           emoji: "😴", 
-          description: "Too little sleep",
           isCorrect: false
         },
         { 
           id: "c", 
           text: " 12+ hours", 
           emoji: "😴", 
-          description: "Too much sleep",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const SleepQuiz = () => {
           id: "a", 
           text: " Midnight", 
           emoji: "🌙", 
-          description: "Too late for kids",
           isCorrect: false
         },
         { 
           id: "b", 
           text: " 9–10 PM", 
           emoji: "🌙", 
-          description: "Good bedtime for kids",
           isCorrect: true
         },
         { 
           id: "c", 
           text: " 2 AM", 
           emoji: "🌙", 
-          description: "Very late, not good",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const SleepQuiz = () => {
           id: "c", 
           text: " Loud music", 
           emoji: "🔊", 
-          description: "Too noisy for sleep",
           isCorrect: false
         },
         { 
           id: "a", 
           text: " Screen time", 
           emoji: "📱", 
-          description: "Screens keep you awake",
           isCorrect: false
         },
         { 
           id: "b", 
           text: " Quiet routine", 
           emoji: "🧘", 
-          description: "Calm activities help sleep",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const SleepQuiz = () => {
           id: "b", 
           text: " Warm milk", 
           emoji: "🥛", 
-          description: "Helps you relax and sleep",
           isCorrect: true
         },
         { 
           id: "a", 
           text: " Caffeine", 
           emoji: "☕", 
-          description: "Keeps you awake",
           isCorrect: false
         },
         { 
           id: "c", 
           text: " Gaming", 
           emoji: "🎮", 
-          description: "Too exciting before bed",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const SleepQuiz = () => {
           id: "c", 
           text: " Stress", 
           emoji: "😰", 
-          description: "Sleep reduces stress",
           isCorrect: false
         },
         { 
           id: "a", 
           text: " Focus", 
           emoji: "🎯", 
-          description: "Good sleep improves focus",
           isCorrect: true
         },
         { 
           id: "b", 
           text: " Tiredness", 
           emoji: "😴", 
-          description: "Sleep reduces tiredness",
           isCorrect: false
         }
       ]

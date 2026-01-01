@@ -22,9 +22,9 @@ const DebateEquality = () => {
       id: 1,
       text: "Should all students be treated equally regardless of their background?",
       options: [
-        { id: "b", text: "No, some students deserve more privileges" },
-        { id: "a", text: "Yes, equality is a fundamental right" },
-        { id: "c", text: "Only students from certain backgrounds should be treated equally" }
+        { id: "b", text: "No, some students deserve more privileges", emoji: "🚫" },
+        { id: "a", text: "Yes, equality is a fundamental right", emoji: "⚖️" },
+        { id: "c", text: "Only students from certain backgrounds should be treated equally", emoji: "👥" }
       ],
       correctAnswer: "a",
       explanation: "All students deserve equal treatment regardless of their background, race, religion, or socioeconomic status. Equality is a fundamental human right."
@@ -33,9 +33,9 @@ const DebateEquality = () => {
       id: 2,
       text: "Which approach best promotes equality in schools?",
       options: [
-        { id: "a", text: "Providing the same resources to all students" },
-        { id: "b", text: "Ignoring students' different needs" },
-        { id: "c", text: "Treating all students exactly the same without considering individual circumstances" }
+        { id: "a", text: "Providing the same resources to all students", emoji: "📚" },
+        { id: "b", text: "Ignoring students' different needs", emoji: "🙈" },
+        { id: "c", text: "Treating all students exactly the same without considering individual circumstances", emoji: "🎯" }
       ],
       correctAnswer: "a",
       explanation: "True equality in education means providing all students with the resources they need to succeed, which may sometimes require different approaches for different students."
@@ -44,9 +44,9 @@ const DebateEquality = () => {
       id: 3,
       text: "Why is equality important in society?",
       options: [
-        { id: "a", text: "It creates division and conflict" },
-        { id: "b", text: "It ensures fairness and justice for all" },
-        { id: "c", text: "It only benefits certain groups" }
+        { id: "a", text: "It creates division and conflict", emoji: "⚔️" },
+        { id: "b", text: "It ensures fairness and justice for all", emoji: "🤝" },
+        { id: "c", text: "It only benefits certain groups", emoji: "👑" }
       ],
       correctAnswer: "b",
       explanation: "Equality ensures that everyone has the same opportunities and rights, which creates a fair and just society where all people can thrive."
@@ -55,9 +55,9 @@ const DebateEquality = () => {
       id: 4,
       text: "What is the difference between equality and equity?",
       options: [
-        { id: "a", text: "Equality means giving everyone the same resources, while equity means giving everyone what they need to succeed" },
-        { id: "b", text: "Equality and equity mean the same thing" },
-        { id: "c", text: "Equality means giving more to some people, while equity means treating everyone the same" }
+        { id: "a", text: "Equality means giving everyone the same resources, while equity means giving everyone what they need to succeed", emoji: "⚖️" },
+        { id: "b", text: "Equality and equity mean the same thing", emoji: "🔄" },
+        { id: "c", text: "Equality means giving more to some people, while equity means treating everyone the same", emoji: "🤝" }
       ],
       correctAnswer: "a",
       explanation: "Equality means providing the same resources to everyone, while equity means providing each person with what they need to succeed, which may differ based on individual circumstances."
@@ -66,9 +66,9 @@ const DebateEquality = () => {
       id: 5,
       text: "How can we promote equality in our daily lives?",
       options: [
-        { id: "b", text: "By ignoring inequality when we see it" },
-        { id: "c", text: "By only helping people who are similar to us" },
-        { id: "a", text: "By standing up against discrimination and treating everyone with respect" },
+        { id: "b", text: "By ignoring inequality when we see it", emoji: "😑" },
+        { id: "c", text: "By only helping people who are similar to us", emoji: "🤝" },
+        { id: "a", text: "By standing up against discrimination and treating everyone with respect", emoji: "💪" },
       ],
       correctAnswer: "a",
       explanation: "We can promote equality by treating everyone with respect, standing up against discrimination, and advocating for fair treatment for all people regardless of their differences."
@@ -151,12 +151,7 @@ const DebateEquality = () => {
               const showCorrect = showFeedback && isCorrect;
               const showIncorrect = showFeedback && isSelected && !isCorrect;
               
-              // Add emojis for each option like in the reference game
-              const optionEmojis = {
-                a: "✅",
-                b: "❌",
-                c: "⚠️"
-              };
+
               
               return (
                 <button
@@ -168,7 +163,7 @@ const DebateEquality = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <div className="text-2xl mr-4">{optionEmojis[option.id] || '❓'}</div>
+                    <div className="text-2xl mr-4">{option.emoji || '❓'}</div>
                     <div>
                       <h3 className="font-bold text-xl mb-1">{option.text}</h3>
                     </div>

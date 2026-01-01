@@ -32,21 +32,20 @@ const QuizOnHonesty = () => {
           id: "cheat", 
           text: "Cheats customer", 
           emoji: "😈", 
-          description: "Tricks customers",
+          
           isCorrect: false
         },
         {
           id: "change",
           text: "Gives correct change",
           emoji: "💰",
-          description: "Returns the right amount",
+          
           isCorrect: true
         },
         { 
           id: "lies", 
           text: "Lies", 
           emoji: "🙊", 
-          description: "Tells untruths",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const QuizOnHonesty = () => {
           id: "fair", 
           text: "Charges fair prices", 
           emoji: "⚖️", 
-          description: "Sets reasonable prices",
           isCorrect: true
         },
         { 
           id: "overcharge", 
           text: "Overcharges", 
           emoji: "💸", 
-          description: "Charges too much",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hides products", 
           emoji: "🫥", 
-          description: "Hides items from customers",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const QuizOnHonesty = () => {
           id: "free", 
           text: "Gets you free items", 
           emoji: "🎁", 
-          description: "Gets free products",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "Makes you spend more", 
           emoji: "🛍️", 
-          description: "Encourages more spending",
           isCorrect: false
         },
         {
           id: "trust",
           text: "Builds trust",
           emoji: "🤝",
-          description: "Creates trust between buyer and seller",
           isCorrect: true
         },
       ]
@@ -113,21 +106,18 @@ const QuizOnHonesty = () => {
           id: "return", 
           text: "Return on time", 
           emoji: "⏰", 
-          description: "Give back when promised",
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep it forever", 
           emoji: "🙈", 
-          description: "Never return it",
           isCorrect: false
         },
         { 
           id: "more", 
           text: "Borrow more", 
           emoji: "📈", 
-          description: "Ask for even more",
           isCorrect: false
         }
       ]
@@ -140,21 +130,19 @@ const QuizOnHonesty = () => {
           id: "toys", 
           text: "It gets you toys", 
           emoji: "🧸", 
-          description: "Gets you free toys",
           isCorrect: false
         },
         { 
           id: "famous", 
           text: "It makes you famous", 
           emoji: "⭐", 
-          description: "Makes you well-known",
           isCorrect: false
         },
         {
           id: "trust",
           text: "It earns trust",
           emoji: "🤝",
-          description: "Builds trust with others",
+          
           isCorrect: true
         },
       ]

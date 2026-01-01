@@ -22,20 +22,20 @@ const HealthyVsHarmfulPuzzle = () => {
   
   // Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Fresh Fruit", emoji: "🍎", hint: "Natural food with vitamins" },
-    { id: 2, name: "Alcohol", emoji: "🍺", hint: "Contains ethanol and additives" },
-    { id: 3, name: "Vegetables", emoji: "🥦", hint: "Edible plants with nutrients" },
-    { id: 4, name: "Rotten Food", emoji: "🤢", hint: "Decomposed organic matter" },
-    { id: 5, name: "Water", emoji: "💧", hint: "Clear liquid essential for life" }
+    { id: 1, name: "Fresh Fruit", emoji: "🍎",  },
+    { id: 2, name: "Alcohol", emoji: "🍺",  },
+    { id: 3, name: "Vegetables", emoji: "🥦",  },
+    { id: 4, name: "Rotten Food", emoji: "🤢",  },
+    { id: 5, name: "Water", emoji: "💧",  }
   ];
   
   // Categories (right side) - 5 items (shuffled order)
   const categories = [
-    { id: 2, text: "Harmful to Body", hint: "Can damage your health" },
-    { id: 4, text: "Causes Illness", hint: "Leads to sickness or disease" },
-    { id: 1, text: "Healthy Choice", hint: "Good for your body and mind" },
-    { id: 5, text: "Essential for Life", hint: "Needed for survival" },
-    { id: 3, text: "Promotes Growth", hint: "Helps your body develop" }
+    { id: 2, text: "Harmful to Body",  },
+    { id: 4, text: "Causes Illness",  },
+    { id: 1, text: "Healthy Choice",  },
+    { id: 5, text: "Essential for Life",  },
+    { id: 3, text: "Promotes Growth",  }
   ];
   
   // Correct matches

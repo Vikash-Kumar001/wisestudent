@@ -22,20 +22,20 @@ const HygieneMatch = () => {
 
   // Hygiene Items (left side) - 5 items
   const hygieneItems = [
-    { id: 1, name: "Toothbrush", emoji: "🪥", hint: "Used for cleaning teeth" },
-    { id: 2, name: "Soap", emoji: "🧼", hint: "Used for washing body" },
-    { id: 3, name: "Comb", emoji: "🪖", hint: "Used for styling hair" },
-    { id: 4, name: "Towel", emoji: "🧺", hint: "Used for drying off" },
-    { id: 5, name: "Nail Clippers", emoji: "✂️", hint: "Used for trimming nails" }
+    { id: 1, name: "Toothbrush", emoji: "🪥",  },
+    { id: 2, name: "Soap", emoji: "🧼",  },
+    { id: 3, name: "Comb", emoji: "🪖",  },
+    { id: 4, name: "Towel", emoji: "🧺",  },
+    { id: 5, name: "Nail Clippers", emoji: "✂️",  }
   ];
 
   // Purposes (right side) - 5 items (shuffled order)
   const purposes = [
-    { id: 3, text: "Styling and organizing hair", hint: "For neat and tidy hairstyle" },
-    { id: 5, text: "Trimming fingernails and toenails", hint: "To keep nails at proper length" },
-    { id: 1, text: "Cleaning teeth and gums", hint: "To remove plaque and food particles" },
-    { id: 4, text: "Drying body and hands", hint: "To remove moisture after bathing" },
-    { id: 2, text: "Removing dirt and germs from skin", hint: "Creates lather to wash away impurities" }
+    { id: 3, text: "Styling and organizing hair",  },
+    { id: 5, text: "Trimming fingernails and toenails",  },
+    { id: 1, text: "Cleaning teeth and gums",  },
+    { id: 4, text: "Drying body and hands",  },
+    { id: 2, text: "Removing dirt and germs from skin",  }
   ];
 
   // Correct matches

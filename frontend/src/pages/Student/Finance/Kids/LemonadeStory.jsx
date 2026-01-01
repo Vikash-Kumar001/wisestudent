@@ -32,21 +32,19 @@ const LemonadeStory = () => {
           id: "toys", 
           text: "Spend all on toys", 
           emoji: "🧸", 
-          description: "Buy toys immediately",
+          
           isCorrect: false
         },
         { 
           id: "snacks", 
           text: "Buy snacks", 
           emoji: "🍟", 
-          description: "Spend on food",
           isCorrect: false
         },
         {
           id: "save",
           text: "Save half for supplies",
           emoji: "🍋",
-          description: "Keep some money for next time",
           isCorrect: true
         },
       ]
@@ -59,21 +57,18 @@ const LemonadeStory = () => {
           id: "save", 
           text: "Save ₹5 more", 
           emoji: "💰", 
-          description: "Wait and save to afford lemons",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Borrow ₹5", 
           emoji: "🙈", 
-          description: "Ask someone to lend you",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip buying lemons", 
           emoji: "🍋", 
-          description: "Don't buy lemons",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const LemonadeStory = () => {
           id: "keep", 
           text: "Keep the ₹10", 
           emoji: "💸", 
-          description: "Keep all the money",
           isCorrect: false
         },
         {
           id: "return",
           text: "Return extra ₹5",
           emoji: "🤝",
-          description: "Give back the extra money",
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Spend it on candy", 
           emoji: "🍬", 
-          description: "Use it for candy",
           isCorrect: false
         }
       ]
@@ -113,21 +105,18 @@ const LemonadeStory = () => {
           id: "no", 
           text: "No, save for next stand", 
           emoji: "✅", 
-          description: "Plan for future stands",
           isCorrect: true
         },
         { 
           id: "games", 
           text: "Yes, buy games", 
           emoji: "🎮", 
-          description: "Spend on games",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give it away", 
           emoji: "🎁", 
-          description: "Give money to others",
           isCorrect: false
         }
       ]
@@ -140,21 +129,18 @@ const LemonadeStory = () => {
           id: "spend", 
           text: "Lets you spend more", 
           emoji: "🛍️", 
-          description: "Have more to spend",
           isCorrect: false
         },
         {
           id: "running",
           text: "Keeps your stand running",
           emoji: "🍋",
-          description: "Helps continue your business",
           isCorrect: true
         },
         { 
           id: "customers", 
           text: "Gets you more customers", 
           emoji: "👥", 
-          description: "Brings more people",
           isCorrect: false
         }
       ]

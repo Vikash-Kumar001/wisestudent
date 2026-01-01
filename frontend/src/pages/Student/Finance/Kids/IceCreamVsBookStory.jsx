@@ -32,21 +32,21 @@ const IceCreamVsBookStory = () => {
           id: "icecream", 
           text: "Buy ice cream", 
           emoji: "🍦", 
-          description: "Treat yourself with ice cream",
+          
           isCorrect: false
         },
         { 
           id: "book", 
           text: "Buy a book", 
           emoji: "📚", 
-          description: "Get a book you need for class",
+          
           isCorrect: true
         },
         { 
           id: "toys", 
           text: "Spend on toys", 
           emoji: "🧸", 
-          description: "Buy toys instead",
+          
           isCorrect: false
         }
       ]
@@ -59,21 +59,18 @@ const IceCreamVsBookStory = () => {
           id: "save", 
           text: "Save ₹3 more for the book", 
           emoji: "💰", 
-          description: "Wait and save to buy the book",
           isCorrect: true
         },
         { 
           id: "icecream", 
           text: "Buy ice cream now", 
           emoji: "🍦", 
-          description: "Buy ice cream immediately",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow ₹3", 
           emoji: "🙈", 
-          description: "Ask someone to lend you money",
           isCorrect: false
         }
       ]
@@ -86,21 +83,18 @@ const IceCreamVsBookStory = () => {
           id: "no", 
           text: "No, need ₹2 more", 
           emoji: "📉", 
-          description: "You don't have enough",
           isCorrect: false
         },
         { 
           id: "icecream", 
           text: "Buy ice cream instead", 
           emoji: "🍦", 
-          description: "Change your mind and buy ice cream",
           isCorrect: false
         },
         {
           id: "yes",
           text: "Yes, and have ₹2 left",
           emoji: "📚",
-          description: "You can buy the book and save money",
           isCorrect: true
         },
       ]
@@ -113,21 +107,18 @@ const IceCreamVsBookStory = () => {
           id: "stick", 
           text: "Stick to buying the book", 
           emoji: "✅", 
-          description: "Prioritize your need",
           isCorrect: true
         },
         { 
           id: "split", 
           text: "Split money for ice cream", 
           emoji: "🎉", 
-          description: "Use money for both",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give money to friend", 
           emoji: "🎁", 
-          description: "Let friend buy ice cream",
           isCorrect: false
         }
       ]
@@ -140,21 +131,18 @@ const IceCreamVsBookStory = () => {
           id: "taste", 
           text: "Tastes better than ice cream", 
           emoji: "🍦", 
-          description: "More enjoyable",
           isCorrect: false
         },
         {
           id: "learn",
           text: "Helps you learn and grow",
           emoji: "🧠",
-          description: "Books help you improve",
           isCorrect: true
         },
         { 
           id: "friends", 
           text: "Gets you more friends", 
           emoji: "👥", 
-          description: "Makes you popular",
           isCorrect: false
         }
       ]

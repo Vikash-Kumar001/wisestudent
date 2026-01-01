@@ -29,20 +29,20 @@ const SolutionsPuzzle = () => {
 
   // Left side - problems
   const leftItems = [
-    { id: 1, name: "Broken Pencil", emoji: "✏️", description: "Pencil breaks" },
-    { id: 2, name: "Spilled Water", emoji: "💧", description: "Water spills" },
-    { id: 3, name: "Lost Eraser", emoji: "🧹", description: "Eraser is lost" },
-    { id: 4, name: "Torn Paper", emoji: "📄", description: "Paper tears" },
-    { id: 5, name: "Missing Book", emoji: "📚", description: "Book is missing" }
+    { id: 1, name: "Broken Pencil", emoji: "✏️",  },
+    { id: 2, name: "Spilled Water", emoji: "💧",  },
+    { id: 3, name: "Lost Eraser", emoji: "🧹",  },
+    { id: 4, name: "Torn Paper", emoji: "📄",  },
+    { id: 5, name: "Missing Book", emoji: "📚",  }
   ];
 
   // Right side - solutions
   const rightItems = [
-    { id: 1, name: "Borrow", emoji: "🤝", description: "Ask to borrow one" },
-    { id: 2, name: "Clean", emoji: "🧽", description: "Wipe it up" },
-    { id: 3, name: "Search", emoji: "🔍", description: "Look for it" },
-    { id: 4, name: "Tape", emoji: "📎", description: "Fix with tape" },
-    { id: 5, name: "Ask", emoji: "🙋", description: "Ask teacher" }
+    { id: 1, name: "Borrow", emoji: "🤝",  },
+    { id: 2, name: "Clean", emoji: "🧽",  },
+    { id: 3, name: "Search", emoji: "🔍",  },
+    { id: 4, name: "Tape", emoji: "📎",  },
+    { id: 5, name: "Ask", emoji: "🙋",  }
   ];
 
   // Correct matches

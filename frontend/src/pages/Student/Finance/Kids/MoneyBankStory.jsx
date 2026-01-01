@@ -32,21 +32,20 @@ const MoneyBankStory = () => {
           id: "spend", 
           text: "Spend All", 
           emoji: "🛍️", 
-          description: "Buy toys and treats right now",
+          
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save ₹5", 
           emoji: "💰", 
-          description: "Put ₹5 in your money bank for later",
+          
           isCorrect: true
         },
         { 
           id: "save-all", 
           text: "Save All ₹10", 
           emoji: "🏦", 
-          description: "Save the entire ₹10 for future",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const MoneyBankStory = () => {
           id: "save", 
           text: "Save for Later", 
           emoji: "🏦", 
-          description: "Keep saving for something bigger",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Go to Movies", 
           emoji: "🎬", 
-          description: "Spend ₹15 on the movie",
           isCorrect: false
         },
         { 
           id: "split", 
           text: "Split the Cost", 
           emoji: "🤝", 
-          description: "Ask friend to share the cost",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const MoneyBankStory = () => {
           id: "spend", 
           text: "Buy Candy", 
           emoji: "🍬", 
-          description: "Buy sweets from the shop",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give to Parents", 
           emoji: "👨‍👩‍👧", 
-          description: "Give the money to your parents",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save It", 
           emoji: "🫙", 
-          description: "Add it to your savings",
           isCorrect: true
         }
       ]
@@ -113,21 +106,18 @@ const MoneyBankStory = () => {
           id: "save", 
           text: "Save More", 
           emoji: "📈", 
-          description: "Keep saving ₹50 each month",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Buy Now", 
           emoji: "🛒", 
-          description: "Ask parents to buy it now",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow Money", 
           emoji: "💳", 
-          description: "Borrow ₹300 from parents",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const MoneyBankStory = () => {
           id: "spend", 
           text: "Buy the Toy", 
           emoji: "🧸", 
-          description: "Buy the toy you want now",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save for Bigger", 
           emoji: "🎯", 
-          description: "Save for something more expensive",
           isCorrect: true
         },
         { 
           id: "wait", 
           text: "Wait for Sale", 
           emoji: "⏰", 
-          description: "Wait for the toy to go on sale",
           isCorrect: false
         }
       ]

@@ -22,20 +22,20 @@ const GrowthHelpersPuzzle = () => {
   
   // Helpers (left side) - 5 items
   const helpers = [
-    { id: 1, name: "Doctor", emoji: "👩‍⚕️", hint: "Checks your height and weight" },
-    { id: 2, name: "Parent", emoji: "👨‍👩‍👧", hint: "Buys clothes that fit you" },
-    { id: 3, name: "Teacher", emoji: "👩‍🏫", hint: "Teaches you about healthy habits" },
-    { id: 4, name: "Nutritionist", emoji: "🥗", hint: "Helps plan healthy meals" },
-    { id: 5, name: "Coach", emoji: "🏃", hint: "Guides you in physical activities" }
+    { id: 1, name: "Doctor", emoji: "👩‍⚕️",  },
+    { id: 2, name: "Parent", emoji: "👨‍👩‍👧",  },
+    { id: 3, name: "Teacher", emoji: "👩‍🏫",  },
+    { id: 4, name: "Nutritionist", emoji: "🥗",  },
+    { id: 5, name: "Coach", emoji: "🏃",  }
   ];
   
   // Roles/Functions (right side) - 5 items (shuffled order)
   const roles = [
-    { id: 4, text: "Plans healthy meals for growth", hint: "Makes sure you eat nutritious foods" },
-    { id: 1, text: "Measures height and weight", hint: "Tracks your physical development" },
-    { id: 5, text: "Guides in sports and exercise", hint: "Helps develop physical strength" },
-    { id: 2, text: "Buys properly fitting clothes", hint: "Ensures comfort and proper fit" },
-    { id: 3, text: "Teaches about body care", hint: "Provides knowledge on staying healthy" }
+    { id: 4, text: "Plans healthy meals for growth",  },
+    { id: 1, text: "Measures height and weight",  },
+    { id: 5, text: "Guides in sports and exercise",  },
+    { id: 2, text: "Buys properly fitting clothes",  },
+    { id: 3, text: "Teaches about body care",  }
   ];
   
   // Correct matches

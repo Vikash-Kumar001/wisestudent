@@ -78,8 +78,8 @@ const PaperStory = () => {
           isCorrect: false
         },
         { 
-          id: "don't recycle it", 
-          text: "don't Recycle it", 
+          id: "recycle it", 
+          text: "Recycle it", 
           emoji: "♻️", 
           isCorrect: true
         },

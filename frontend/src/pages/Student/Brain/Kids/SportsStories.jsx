@@ -35,21 +35,20 @@ const SportsStories = () => {
           id: "practice", 
           text: "No, practice harder", 
           emoji: "⚽", 
-          description: "Keep trying and improve",
+          
           isCorrect: true
         },
         { 
           id: "quit", 
           text: "Yes, stop playing", 
           emoji: "🏳️", 
-          description: "Give up completely",
+          
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame teammates", 
           emoji: "👆", 
-          description: "Point fingers",
           isCorrect: false
         }
       ]
@@ -62,21 +61,18 @@ const SportsStories = () => {
           id: "give", 
           text: "Give up soccer", 
           emoji: "😞", 
-          description: "Stop playing",
           isCorrect: false
         },
         { 
           id: "practice2", 
           text: "Practice more and try again", 
           emoji: "⚽", 
-          description: "Keep improving",
           isCorrect: true
         },
         { 
           id: "cry", 
           text: "Cry and quit", 
           emoji: "😢", 
-          description: "Get upset",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const SportsStories = () => {
           id: "learn", 
           text: "Learn from loss and practice", 
           emoji: "🏀", 
-          description: "Use it as a lesson",
           isCorrect: true
         },
         { 
           id: "stop", 
           text: "Stop playing basketball", 
           emoji: "🚫", 
-          description: "Quit the sport",
           isCorrect: false
         },
         { 
           id: "angry", 
           text: "Get angry at coach", 
           emoji: "😠", 
-          description: "Blame others",
           isCorrect: false
         }
       ]
@@ -117,21 +110,18 @@ const SportsStories = () => {
           id: "stay", 
           text: "Stay down and quit", 
           emoji: "😞", 
-          description: "Give up",
           isCorrect: false
         },
         { 
           id: "blame4", 
           text: "Blame the track", 
           emoji: "👆", 
-          description: "Make excuses",
           isCorrect: false
         },
          { 
           id: "get", 
           text: "Get up and finish", 
           emoji: "🏃", 
-          description: "Don't give up",
           isCorrect: true
         },
       ]
@@ -145,21 +135,18 @@ const SportsStories = () => {
           id: "quit5", 
           text: "Quit the team", 
           emoji: "🚶", 
-          description: "Leave the team",
           isCorrect: false
         },
         { 
           id: "train", 
           text: "Train harder for next time", 
           emoji: "💪", 
-          description: "Keep improving",
           isCorrect: true
         },
         { 
           id: "complain", 
           text: "Complain about it", 
           emoji: "😤", 
-          description: "Whine",
           isCorrect: false
         }
       ]

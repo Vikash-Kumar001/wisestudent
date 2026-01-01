@@ -35,21 +35,19 @@ const QuizOnBrainFood = () => {
           id: "a", 
           text: "Fruits", 
           emoji: "🍎", 
-          description: "Fruits contain vitamins and antioxidants",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Chips", 
           emoji: "🍟", 
-          description: "Chips are processed snacks",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Cola", 
           emoji: "🥤", 
-          description: "Cola has lots of sugar",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const QuizOnBrainFood = () => {
           id: "a", 
           text: "Sugar", 
           emoji: "🍬", 
-          description: "Sugar provides quick energy",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Protein", 
           emoji: "🥩", 
-          description: "Protein builds and repairs brain cells",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Salt", 
           emoji: "🧂", 
-          description: "Salt is needed in small amounts",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const QuizOnBrainFood = () => {
           id: "a", 
           text: "Soda", 
           emoji: "🥤", 
-          description: "Soda has lots of sugar",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Energy drinks", 
           emoji: "⚡", 
-          description: "Energy drinks have caffeine",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Water", 
           emoji: "💧", 
-          description: "Water keeps your brain hydrated",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const QuizOnBrainFood = () => {
           id: "a", 
           text: "Fish with omega-3", 
           emoji: "🐟", 
-          description: "Omega-3 fatty acids support brain function",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Candy", 
           emoji: "🍭", 
-          description: "Candy has lots of sugar",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Chips", 
           emoji: "🍟", 
-          description: "Chips are processed snacks",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const QuizOnBrainFood = () => {
           id: "a", 
           text: "They taste bad", 
           emoji: "😖", 
-          description: "Some vegetables might not taste good",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "They have vitamins and minerals", 
           emoji: "🥬", 
-          description: "Vitamins and minerals help your brain work properly",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "They are expensive", 
           emoji: "💰", 
-          description: "Some vegetables can be costly",
           isCorrect: false
         }
       ]

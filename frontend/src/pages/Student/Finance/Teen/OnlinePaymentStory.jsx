@@ -35,21 +35,19 @@ const OnlinePaymentStory = () => {
           id: "upi", 
           text: "Choose UPI safely", 
           emoji: "📱", 
-          description: "Secure digital payment", 
+           
           isCorrect: true 
         },
         { 
           id: "cash", 
           text: "Pay with cash", 
           emoji: "💸", 
-          description: "Risky for online purchases", 
           isCorrect: false 
         },
         { 
           id: "both", 
           text: "Use both methods", 
           emoji: "⚖️", 
-          description: "Mix payment methods", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const OnlinePaymentStory = () => {
           id: "cash", 
           text: "Cash on delivery", 
           emoji: "💵", 
-          description: "Less secure option", 
           isCorrect: false 
         },
         { 
           id: "debit", 
           text: "Use debit card", 
           emoji: "💳", 
-          description: "Safe with OTP verification", 
           isCorrect: true 
         },
         { 
           id: "skip", 
           text: "Skip payment", 
           emoji: "🚫", 
-          description: "Not a valid option", 
           isCorrect: false 
         }
       ]
@@ -89,21 +84,18 @@ const OnlinePaymentStory = () => {
           id: "bank", 
           text: "Bank transfer", 
           emoji: "🏦", 
-          description: "Risky sharing bank details", 
           isCorrect: false 
         },
         { 
           id: "upi", 
           text: "Pay via UPI", 
           emoji: "📱", 
-          description: "Fast and secure payment", 
           isCorrect: true 
         },
         { 
           id: "cash", 
           text: "Send cash by mail", 
           emoji: "✉️", 
-          description: "Very unsafe method", 
           isCorrect: false 
         }
       ]
@@ -116,21 +108,18 @@ const OnlinePaymentStory = () => {
           id: "credit", 
           text: "Use credit card", 
           emoji: "💳", 
-          description: "Protected payment method", 
           isCorrect: true 
         },
         { 
           id: "cash", 
           text: "Pay with cash", 
           emoji: "💵", 
-          description: "Not suitable for online", 
           isCorrect: false 
         },
         { 
           id: "check", 
           text: "Send a check", 
           emoji: "📄", 
-          description: "Outdated method", 
           isCorrect: false 
         }
       ]
@@ -143,21 +132,18 @@ const OnlinePaymentStory = () => {
           id: "pin", 
           text: "Share PIN", 
           emoji: "🔓", 
-          description: "Never share PIN", 
           isCorrect: false 
         },
         { 
           id: "upi", 
           text: "Use UPI with OTP", 
           emoji: "🔒", 
-          description: "Safe and verified payment", 
           isCorrect: true 
         },
         { 
           id: "skip", 
           text: "Skip verification", 
           emoji: "⚠️", 
-          description: "Unsafe practice", 
           isCorrect: false 
         }
       ]

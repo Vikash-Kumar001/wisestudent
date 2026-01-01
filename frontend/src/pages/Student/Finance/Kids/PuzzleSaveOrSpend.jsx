@@ -47,20 +47,20 @@ const PuzzleSaveOrSpend = () => {
 
   // Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Money Bank", emoji: "💰", hint: "Future security" },
-    { id: 2, name: "Ice Cream", emoji: "🍦", hint: "Sweet treat" },
-    { id: 3, name: "New Bicycle", emoji: "🚲", hint: "Transportation" },
-    { id: 4, name: "Candy", emoji: "🍬", hint: "Quick snack" },
-    { id: 5, name: "School Books", emoji: "📚", hint: "Learning tools" }
+    { id: 1, name: "Money Bank", emoji: "💰",  },
+    { id: 2, name: "Ice Cream", emoji: "🍦",  },
+    { id: 3, name: "New Bicycle", emoji: "🚲",  },
+    { id: 4, name: "Candy", emoji: "🍬",  },
+    { id: 5, name: "School Books", emoji: "📚",  }
   ];
 
   // Actions (right side) - 5 items
   const actions = [
-    { id: 6, name: "Save", emoji: "📥", description: "Keep for later" },
-    { id: 7, name: "Spend", emoji: "📤", description: "Use now" },
-    { id: 8, name: "Invest", emoji: "📈", description: "Grow money" },
-    { id: 9, name: "Donate", emoji: "❤️", description: "Help others" },
-    { id: 10, name: "Budget", emoji: "📋", description: "Plan usage" }
+    { id: 6, name: "Save", emoji: "📥",  },
+    { id: 7, name: "Spend", emoji: "📤",  },
+    { id: 8, name: "Invest", emoji: "📈",  },
+    { id: 9, name: "Donate", emoji: "❤️",  },
+    { id: 10, name: "Budget", emoji: "📋",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

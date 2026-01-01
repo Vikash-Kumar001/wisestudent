@@ -44,28 +44,25 @@ const QuickEmotionReflex = () => {
           id: "joy", 
           text: "Joy", 
           emoji: "😊", 
-          description: "A feeling of happiness",
+          
           isCorrect: true
         },
         { 
           id: "desk", 
           text: "Desk", 
           emoji: "🪑", 
-          description: "A piece of furniture",
           isCorrect: false
         },
         { 
           id: "phone", 
           text: "Phone", 
           emoji: "📱", 
-          description: "An electronic device",
           isCorrect: false
         },
         { 
           id: "book", 
           text: "Book", 
           emoji: "📚", 
-          description: "Something you read",
           isCorrect: false
         }
       ]
@@ -78,28 +75,24 @@ const QuickEmotionReflex = () => {
           id: "table", 
           text: "Table", 
           emoji: "🪑", 
-          description: "A piece of furniture",
           isCorrect: false
         },
         { 
           id: "love", 
           text: "Love", 
           emoji: "❤️", 
-          description: "A strong feeling of affection",
           isCorrect: true
         },
         { 
           id: "chair", 
           text: "Chair", 
           emoji: "🪑", 
-          description: "Something you sit on",
           isCorrect: false
         },
         { 
           id: "lamp", 
           text: "Lamp", 
           emoji: "💡", 
-          description: "A light source",
           isCorrect: false
         }
       ]
@@ -112,28 +105,24 @@ const QuickEmotionReflex = () => {
           id: "window", 
           text: "Window", 
           emoji: "🪟", 
-          description: "An opening in a wall",
           isCorrect: false
         },
         { 
           id: "door", 
           text: "Door", 
           emoji: "🚪", 
-          description: "An entrance",
           isCorrect: false
         },
         { 
           id: "excitement", 
           text: "Excitement", 
           emoji: "🎉", 
-          description: "A feeling of great enthusiasm",
           isCorrect: true
         },
         { 
           id: "bike", 
           text: "Bike", 
           emoji: "🚲", 
-          description: "A bicycle",
           isCorrect: false
         }
       ]
@@ -146,28 +135,24 @@ const QuickEmotionReflex = () => {
           id: "fear", 
           text: "Fear", 
           emoji: "😨", 
-          description: "A feeling of being afraid",
           isCorrect: true
         },
         { 
           id: "car", 
           text: "Car", 
           emoji: "🚗", 
-          description: "A vehicle",
           isCorrect: false
         },
         { 
           id: "tree", 
           text: "Tree", 
           emoji: "🌳", 
-          description: "A plant",
           isCorrect: false
         },
         { 
           id: "ball", 
           text: "Ball", 
           emoji: "⚽", 
-          description: "A toy for playing",
           isCorrect: false
         }
       ]
@@ -180,28 +165,24 @@ const QuickEmotionReflex = () => {
           id: "cup", 
           text: "Cup", 
           emoji: "☕", 
-          description: "A container for drinks",
           isCorrect: false
         },
         { 
           id: "sun", 
           text: "Sun", 
           emoji: "☀️", 
-          description: "A star in the sky",
           isCorrect: false
         },
         { 
           id: "pencil", 
           text: "Pencil", 
           emoji: "✏️", 
-          description: "A writing tool",
           isCorrect: false
         },
         { 
           id: "anger", 
           text: "Anger", 
           emoji: "😡", 
-          description: "A feeling of strong displeasure",
           isCorrect: true
         }
       ]

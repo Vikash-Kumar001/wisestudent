@@ -31,21 +31,20 @@ const DebateSaveVsSpend = () => {
           id: "spend", 
           text: "Spend all", 
           emoji: "🛍️", 
-          description: "Spending brings immediate happiness and satisfaction",
+          
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save money", 
           emoji: "💰", 
-          description: "Saving provides financial security and helps achieve future goals",
+          
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste it", 
           emoji: "💸", 
-          description: "Spend on unnecessary things",
           isCorrect: false
         }
       ]
@@ -58,21 +57,18 @@ const DebateSaveVsSpend = () => {
           id: "save", 
           text: "Focus on saving", 
           emoji: "🏦", 
-          description: "Building saving habits early leads to financial success later",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Enjoy now", 
           emoji: "🎉", 
-          description: "You're young, so enjoy your money while you can",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Don't think about it", 
           emoji: "🙈", 
-          description: "Don't worry about money management",
           isCorrect: false
         }
       ]
@@ -85,21 +81,18 @@ const DebateSaveVsSpend = () => {
           id: "spend", 
           text: "Spend it all", 
           emoji: "💸", 
-          description: "Treat yourself since you didn't expect the extra money",
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Waste it", 
           emoji: "🗑️", 
-          description: "Spend on things you don't need",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save most of it", 
           emoji: "📈", 
-          description: "Save the majority and use a small portion for rewards",
           isCorrect: true
         }
       ]
@@ -112,21 +105,18 @@ const DebateSaveVsSpend = () => {
           id: "spend", 
           text: "Buy branded items", 
           emoji: "💎", 
-          description: "Branded items show status and are usually better quality",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Choose quality over brand", 
           emoji: "🎯", 
-          description: "Focus on value and quality rather than brand names",
           isCorrect: true
         },
         { 
           id: "cheap", 
           text: "Buy cheapest", 
           emoji: "💵", 
-          description: "Always buy the cheapest option available",
           isCorrect: false
         }
       ]
@@ -139,21 +129,18 @@ const DebateSaveVsSpend = () => {
           id: "spend", 
           text: "Yes, use credit", 
           emoji: "💳", 
-          description: "Credit cards allow you to buy what you want now",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow money", 
           emoji: "🤲", 
-          description: "Borrow from friends or family",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "No, avoid debt", 
           emoji: "🛡️", 
-          description: "Only buy what you can afford to pay for immediately",
           isCorrect: true
         }
       ]

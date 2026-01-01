@@ -159,28 +159,25 @@ const ReflexCalm = () => {
           id: "a", 
           text: "Panic and yell", 
           emoji: "😰", 
-          description: "Panic increases stress",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Run around frantically", 
           emoji: "🏃", 
-          description: "This increases anxiety",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Breathe slowly and deeply", 
           emoji: "🌬️", 
-          description: "Deep breathing helps calm down",
           isCorrect: true
         },
         { 
           id: "d", 
           text: "Shout loudly", 
           emoji: "😱", 
-          description: "This increases stress",
           isCorrect: false
         }
       ]
@@ -193,28 +190,24 @@ const ReflexCalm = () => {
           id: "a", 
           text: "Getting very angry", 
           emoji: "😡", 
-          description: "Anger doesn't help calmness",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Count to 10 slowly", 
           emoji: "🔢", 
-          description: "Counting helps you relax",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Worry about everything", 
           emoji: "😟", 
-          description: "Worrying increases stress",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "Scream out loud", 
           emoji: "😱", 
-          description: "This increases stress",
           isCorrect: false
         }
       ]
@@ -227,28 +220,24 @@ const ReflexCalm = () => {
           id: "a", 
           text: "Shout at others", 
           emoji: "😠", 
-          description: "Shouting increases tension",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Think about worst scenarios", 
           emoji: "😰", 
-          description: "This increases anxiety",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Take a break and relax", 
           emoji: "🧘", 
-          description: "Taking breaks helps calm down",
           isCorrect: true
         },
         { 
           id: "d", 
           text: "Cry loudly", 
           emoji: "😢", 
-          description: "This increases stress",
           isCorrect: false
         }
       ]
@@ -261,28 +250,24 @@ const ReflexCalm = () => {
           id: "a", 
           text: "Practice deep breathing", 
           emoji: "💨", 
-          description: "Breathing exercises reduce stress",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Panic immediately", 
           emoji: "😱", 
-          description: "Panic makes things worse",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ignore the problem", 
           emoji: "🙈", 
-          description: "Ignoring doesn't help",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "Hit something", 
           emoji: "🤬", 
-          description: "This increases stress",
           isCorrect: false
         }
       ]
@@ -295,28 +280,24 @@ const ReflexCalm = () => {
           id: "a", 
           text: "Reacting immediately with anger", 
           emoji: "😡", 
-          description: "Anger doesn't help",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Staying calm and thinking clearly", 
           emoji: "😌", 
-          description: "Staying calm helps solve problems",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Worrying constantly", 
           emoji: "😟", 
-          description: "Worrying increases stress",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "Running away", 
           emoji: "🏃", 
-          description: "This doesn't solve problems",
           isCorrect: false
         }
       ]

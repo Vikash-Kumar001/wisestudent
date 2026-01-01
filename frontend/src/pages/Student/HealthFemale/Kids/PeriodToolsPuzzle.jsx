@@ -22,20 +22,20 @@ const PeriodToolsPuzzle = () => {
     
     // Period Items (left side) - 5 items
     const items = [
-        { id: 1, name: "Menstrual Pad", emoji: "🩸", hint: "Absorbent product for menstrual flow" },
-        { id: 2, name: "Heating Pad", emoji: "🔥", hint: "Warm compress for pain relief" },
-        { id: 3, name: "Calendar", emoji: "📅", hint: "Tracking tool for cycle dates" },
-        { id: 4, name: "Wet Wipes", emoji: "🧻", hint: "Moistened cloths for cleaning" },
-        { id: 5, name: "Pain Reliever", emoji: "💊", hint: "Medication for discomfort" }
+        { id: 1, name: "Menstrual Pad", emoji: "🩸",  },
+        { id: 2, name: "Heating Pad", emoji: "🔥",  },
+        { id: 3, name: "Calendar", emoji: "📅",  },
+        { id: 4, name: "Wet Wipes", emoji: "🧻",  },
+        { id: 5, name: "Pain Reliever", emoji: "💊",  }
     ];
     
     // Purposes (right side) - 5 items (shuffled order)
     const purposes = [
-        { id: 4, text: "Gentle cleansing without water", hint: "For freshening up during periods" },
-        { id: 1, text: "Absorbs menstrual blood flow", hint: "Worn externally during menstruation" },
-        { id: 5, text: "Reduces menstrual cramps and pain", hint: "Over-the-counter medication" },
-        { id: 2, text: "Eases abdominal and back pain", hint: "Provides soothing heat therapy" },
-        { id: 3, text: "Tracks menstrual cycle dates", hint: "Helps predict next period" }
+        { id: 4, text: "Gentle cleansing without water",  },
+        { id: 1, text: "Absorbs menstrual blood flow",  },
+        { id: 5, text: "Reduces menstrual cramps and pain",  },
+        { id: 2, text: "Eases abdominal and back pain",  },
+        { id: 3, text: "Tracks menstrual cycle dates",  }
     ];
     
     // Correct matches

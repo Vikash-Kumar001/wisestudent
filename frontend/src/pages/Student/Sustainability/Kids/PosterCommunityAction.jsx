@@ -57,21 +57,19 @@ const PosterCommunityAction = () => {
         {
           id: 1,
           title: "Together We Can",
-          description: "Community action for a better planet",
+          
           emoji: "🌍",
           isCorrect: true
         },
         {
           id: 2,
           title: "Me First",
-          description: "Looking out for myself only",
           emoji: "👤",
           isCorrect: false
         },
         {
           id: 3,
           title: "Ignore Others",
-          description: "Not caring about the community",
           emoji: "🚫",
           isCorrect: false
         }
@@ -86,21 +84,21 @@ const PosterCommunityAction = () => {
         {
           id: 2,
           title: "Go It Alone",
-          description: "A poster showing individual effort",
+          
           emoji: "🚶",
           isCorrect: false
         },
         {
           id: 3,
           title: "Work Alone",
-          description: "A poster showing isolation",
+          
           emoji: "👤",
           isCorrect: false
         },
          {
           id: 1,
           title: "Teamwork Makes the Dream Work",
-          description: "A poster showing people collaborating",
+          
           emoji: "🤝",
           isCorrect: true
         },
@@ -115,21 +113,21 @@ const PosterCommunityAction = () => {
         {
           id: 2,
           title: "Self-Reliance Only",
-          description: "A poster suggesting no help needed",
+          
           emoji: "💪",
           isCorrect: false
         },
         {
           id: 1,
           title: "Helping Hands",
-          description: "A poster showing mutual support",
+          
           emoji: "🤝",
           isCorrect: true
         },
         {
           id: 3,
           title: "Refuse Help",
-          description: "A poster showing rejection of support",
+          
           emoji: "❌",
           isCorrect: false
         }
@@ -143,21 +141,21 @@ const PosterCommunityAction = () => {
         {
           id: 1,
           title: "Join the Movement",
-          description: "A poster encouraging participation",
+          // description: "A poster encouraging participation",
           emoji: "🏃",
           isCorrect: true
         },
         {
           id: 2,
           title: "Stay on the Sidelines",
-          description: "A poster showing disengagement",
+          // description: "A poster showing disengagement",
           emoji: "🚶‍♂️",
           isCorrect: false
         },
         {
           id: 3,
           title: "Stay Disengaged",
-          description: "A poster promoting passive behavior",
+          // description: "A poster promoting passive behavior",
           emoji: "😴",
           isCorrect: false
         }
@@ -172,21 +170,21 @@ const PosterCommunityAction = () => {
         {
           id: 2,
           title: "Individual Focus",
-          description: "A poster focusing on personal goals",
+          // description: "A poster focusing on personal goals",
           emoji: "👤",
           isCorrect: false
         },
         {
           id: 3,
           title: "Work Alone",
-          description: "A poster showing individual effort",
+          // description: "A poster showing individual effort",
           emoji: "👤",
           isCorrect: false
         },
          {
           id: 1,
           title: "Community Action Matters",
-          description: "A poster highlighting collective effort",
+          // description: "A poster highlighting collective effort",
           emoji: "🌍",
           isCorrect: true
         },

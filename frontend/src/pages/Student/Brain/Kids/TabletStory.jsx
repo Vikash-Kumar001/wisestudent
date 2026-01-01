@@ -35,21 +35,19 @@ const TabletStory = () => {
           id: "no", 
           text: "No, it's not healthy", 
           emoji: "👎", 
-          description: "Balance screen time with other activities",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's healthy", 
           emoji: "👍", 
-          description: "Tablets are always fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the game",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const TabletStory = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "🎮", 
-          description: "Gaming is always good",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the game",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not good", 
           emoji: "🏸", 
-          description: "Balance screen time with outdoor play",
           isCorrect: true
         }
       ]
@@ -89,21 +84,18 @@ const TabletStory = () => {
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the videos",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not smart", 
           emoji: "📚", 
-          description: "Balance screen time with reading",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's smart", 
           emoji: "🤓", 
-          description: "Videos are always fine",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const TabletStory = () => {
           id: "no", 
           text: "No, it's not healthy", 
           emoji: "👎", 
-          description: "Balance screen time with responsibilities",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's healthy", 
           emoji: "👍", 
-          description: "Social media is always fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the platform",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const TabletStory = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "👍", 
-          description: "Gaming late is always fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔  ", 
-          description: "It depends on the game",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not good", 
           emoji: "😴", 
-          description: "Balance screen time with sleep",
           isCorrect: true
         }
       ]

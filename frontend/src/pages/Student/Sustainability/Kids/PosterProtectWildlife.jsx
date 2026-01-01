@@ -53,21 +53,21 @@ const PosterProtectWildlife = () => {
         {
           id: 1,
           title: "Harm Wildlife",
-          description: "A poster showing harming animals",
+          // description: "A poster showing harming animals",
           emoji: "🏹",
           isCorrect: false
         },
         {
           id: 2,
           title: "Animals Need Our Help",
-          description: "A poster showing care and protection for animals",
+          // description: "A poster showing care and protection for animals",
           emoji: "🐾",
           isCorrect: true
         },
         {
           id: 3,
           title: "Ignore Wildlife",
-          description: "A poster showing ignoring animals",
+          // description: "A poster showing ignoring animals",
           emoji: "😴",
           isCorrect: false
         }
@@ -81,14 +81,14 @@ const PosterProtectWildlife = () => {
          {
           id: 2,
           title: "Respect Animal Homes",
-          description: "A poster showing protection of animal habitats",
+          // description: "A poster showing protection of animal habitats",
           emoji: "🏠",
           isCorrect: true
         },
         {
           id: 1,
           title: "Destroy Nests",
-          description: "A poster showing destroying animal homes",
+          // description: "A poster showing destroying animal homes",
           emoji: "💣",
           isCorrect: false
         },
@@ -96,7 +96,7 @@ const PosterProtectWildlife = () => {
         {
           id: 3,
           title: "Ignore Habitats",
-          description: "A poster suggesting to ignore animal homes",
+          // description: "A poster suggesting to ignore animal homes",
           emoji: "🙈",
           isCorrect: false
         }
@@ -110,21 +110,21 @@ const PosterProtectWildlife = () => {
         {
           id: 1,
           title: "Leave Injured Animals",
-          description: "A poster showing abandoning hurt animals",
+          // description: "A poster showing abandoning hurt animals",
           emoji: "🚶",
           isCorrect: false
         },
         {
           id: 2,
           title: "Help Injured Wildlife",
-          description: "A poster showing care for hurt animals",
+          // description: "A poster showing care for hurt animals",
           emoji: "🐾",
           isCorrect: true
         },
         {
           id: 3,
           title: "Avoid Wildlife",
-          description: "A poster showing avoiding all animals",
+          // description: "A poster showing avoiding all animals",
           emoji: "🚫",
           isCorrect: false
         }
@@ -138,7 +138,7 @@ const PosterProtectWildlife = () => {
         {
           id: 1,
           title: "Hunt Wildlife",
-          description: "A poster showing hunting animals",
+          // description: "A poster showing hunting animals",
           emoji: "🔫",
           isCorrect: false
         },
@@ -146,14 +146,14 @@ const PosterProtectWildlife = () => {
         {
           id: 3,
           title: "Capture Wildlife",
-          description: "A poster showing capturing animals",
+          // description: "A poster showing capturing animals",
           emoji: "📷",
           isCorrect: false
         },
          {
           id: 2,
           title: "Protect Endangered Species",
-          description: "A poster showing conservation efforts",
+          // description: "A poster showing conservation efforts",
           emoji: "🌍",
           isCorrect: true
         },
@@ -167,14 +167,14 @@ const PosterProtectWildlife = () => {
         {
           id: 2,
           title: "Live in Harmony with Nature",
-          description: "A poster showing peaceful coexistence with animals",
+          // description: "A poster showing peaceful coexistence with animals",
           emoji: "🌿",
           isCorrect: true
         },
         {
           id: 1,
           title: "Compete with Wildlife",
-          description: "A poster showing conflict with animals",
+          // description: "A poster showing conflict with animals",
           emoji: "⚔️",
           isCorrect: false
         },
@@ -182,7 +182,7 @@ const PosterProtectWildlife = () => {
         {
           id: 3,
           title: "Dominate Nature",
-          description: "A poster showing human dominance over animals",
+          // description: "A poster showing human dominance over animals",
           emoji: "👑",
           isCorrect: false
         }

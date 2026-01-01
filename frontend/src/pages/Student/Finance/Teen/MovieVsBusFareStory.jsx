@@ -35,21 +35,21 @@ const MovieVsBusFareStory = () => {
           id: "bus", 
           text: "Save for bus pass", 
           emoji: "🚌", 
-          description: "Prioritize essential transport needs", 
+          
           isCorrect: true 
         },
         { 
           id: "movie", 
           text: "Spend on movie", 
           emoji: "🎬", 
-          description: "Fun entertainment but not essential", 
+         
           isCorrect: false 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for movie, some for bus", 
+           
           isCorrect: false 
         }
       ]
@@ -62,21 +62,18 @@ const MovieVsBusFareStory = () => {
           id: "snack", 
           text: "Buy a snack", 
           emoji: "🍟", 
-          description: "Quick treat for immediate satisfaction", 
           isCorrect: false 
         },
         { 
           id: "bus", 
           text: "Add to bus fare savings", 
           emoji: "🚌", 
-          description: "Smart choice for essential commuting", 
           isCorrect: true 
         },
         { 
           id: "save", 
           text: "Save everything", 
           emoji: "💰", 
-          description: "Don't spend anything at all", 
           isCorrect: false 
         }
       ]
@@ -89,21 +86,18 @@ const MovieVsBusFareStory = () => {
           id: "movie", 
           text: "Movie night", 
           emoji: "🎥", 
-          description: "Fun entertainment activity", 
           isCorrect: false 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for movie, some for bus", 
           isCorrect: false 
         },
         { 
           id: "bus", 
           text: "Weekly bus pass", 
           emoji: "🚌", 
-          description: "Ensures reliable transportation", 
           isCorrect: true 
         }
       ]
@@ -116,21 +110,18 @@ const MovieVsBusFareStory = () => {
           id: "bus", 
           text: "Bus ticket", 
           emoji: "🚌", 
-          description: "Practical choice for essential travel", 
           isCorrect: true 
         },
         { 
           id: "popcorn", 
           text: "Popcorn at movies", 
           emoji: "🍿", 
-          description: "Tempting treat but not necessary", 
           isCorrect: false 
         },
         { 
           id: "save", 
           text: "Save all of it", 
           emoji: "💰", 
-          description: "Don't spend anything", 
           isCorrect: false 
         }
       ]
@@ -143,21 +134,18 @@ const MovieVsBusFareStory = () => {
           id: "cinema", 
           text: "Cinema tickets", 
           emoji: "🎬", 
-          description: "Short-term entertainment", 
           isCorrect: false 
         },
         { 
           id: "bus", 
           text: "Monthly bus pass", 
           emoji: "🚌", 
-          description: "Long-term reliable transportation", 
           isCorrect: true 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for cinema, some for bus", 
           isCorrect: false 
         }
       ]

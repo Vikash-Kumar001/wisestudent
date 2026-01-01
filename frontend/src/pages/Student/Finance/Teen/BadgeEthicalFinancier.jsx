@@ -35,7 +35,7 @@ const BadgeEthicalFinancier = () => {
       options: [
         { 
           text: "Return to owner", 
-          emoji: "✅", 
+          emoji: "🤗", 
           isCorrect: true
         },
         { 

@@ -32,21 +32,20 @@ const QuizOnSpending = () => {
           id: "a", 
           text: "Buy without thinking", 
           emoji: "💸", 
-          description: "Purchase things immediately when you want them",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Compare and choose", 
           emoji: "🤔", 
-          description: "Look at different options and choose the best one",
+          
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Borrow for fun", 
           emoji: "💳", 
-          description: "Use credit to buy things you want",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const QuizOnSpending = () => {
           id: "a",
           text: "Budget first",
           emoji: "📋",
-          description: "Plan what you'll spend before buying",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Spend all at once", 
           emoji: "🛍️", 
-          description: "Use all your money on one big purchase",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Buy what's popular", 
           emoji: "🔥", 
-          description: "Buy things just because others have them",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const QuizOnSpending = () => {
           id: "a", 
           text: "Buy on credit", 
           emoji: "💳", 
-          description: "Use a credit card even if you can't pay immediately",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Ask friends", 
           emoji: "👥", 
-          description: "Buy what your friends think you should buy",
           isCorrect: false
         },
         {
           id: "c",
           text: "Save up first",
           emoji: "🏦",
-          description: "Set aside money over time for the purchase",
           isCorrect: true
         },
       ]
@@ -113,21 +106,18 @@ const QuizOnSpending = () => {
           id: "a", 
           text: "Spend on wants", 
           emoji: "🎯", 
-          description: "Buy things you want right now",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Save for needs", 
           emoji: "💰", 
-          description: "Set money aside for important future needs",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Buy expensive items", 
           emoji: "💎", 
-          description: "Always choose the most expensive options",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const QuizOnSpending = () => {
           id: "a",
           text: "Make a list",
           emoji: "📝",
-          description: "Plan what you need before going shopping",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Impulse buying", 
           emoji: "⚡", 
-          description: "Buy things immediately when you see them",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Follow trends", 
           emoji: "📈", 
-          description: "Buy what's currently popular",
           isCorrect: false
         }
       ]

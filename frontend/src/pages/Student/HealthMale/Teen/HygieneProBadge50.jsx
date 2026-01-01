@@ -69,20 +69,19 @@ const HygieneProBadge50 = () => {
     }
   },
   {
-    id: 4,
-    title: "Clothing Hygiene",
-    text: "Which habit prevents body odor the most?",
-    options: [
-      
-      { text: "Use perfume only", emoji: "🌸", isCorrect: false },
-      { text: "Change underwear daily", emoji: "🫥", isCorrect: true },
-      { text: "Wear same socks 2 days", emoji: "🧦", isCorrect: false },
-      { text: "Layer clothes without washing", emoji: "🧥", isCorrect: false }
-    ],
-    feedback: {
-      correct: "Right! Daily changes of underwear and socks prevent odor and infections.",
-      wrong: "Perfume masks smell but does not prevent bacteria buildup."
-    }
+  id: 4,
+  title: "Clothing Hygiene",
+  text: "Which habit helps prevent body odor the most?",
+  options: [
+    { text: "Spray perfume without bathing", emoji: "🌸", isCorrect: false },
+    { text: "Wear clean clothes every day", emoji: "👕", isCorrect: true },
+    { text: "Wear sweaty clothes again", emoji: "💦", isCorrect: false },
+    { text: "Skip changing clothes after play", emoji: "⚽", isCorrect: false }
+  ],
+  feedback: {
+    correct: "Correct! Wearing clean clothes every day keeps your body fresh and healthy.",
+    wrong: "Perfume only hides smell. Clean clothes and hygiene stop bad odor."
+  }
   },
   {
     id: 5,

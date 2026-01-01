@@ -35,21 +35,19 @@ const Homework = () => {
           id: "step", 
           text: "Do one step at a time", 
           emoji: "📝", 
-          description: "Break it into smaller tasks",
+          
           isCorrect: true
         },
         { 
           id: "panic", 
           text: "Panic and give up", 
           emoji: "😰", 
-          description: "This makes stress worse",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore all homework", 
           emoji: "🙈", 
-          description: "This doesn't solve the problem",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const Homework = () => {
           id: "rush", 
           text: "Rush through everything at once", 
           emoji: "⚡", 
-          description: "This can increase stress",
           isCorrect: false
         },
         { 
           id: "break", 
           text: "Take breaks and do it step by step", 
           emoji: "⏸️", 
-          description: "Breaking it down helps reduce stress",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip everything", 
           emoji: "⏭️", 
-          description: "This doesn't help",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const Homework = () => {
           id: "worry", 
           text: "Worry about everything", 
           emoji: "😰", 
-          description: "Worrying increases stress",
           isCorrect: false
         },
         { 
           id: "shout", 
           text: "Shout and get angry", 
           emoji: "😡", 
-          description: "This doesn't help",
           isCorrect: false
         },
         { 
           id: "breathe", 
           text: "Take deep breaths and organize tasks", 
           emoji: "🌬️", 
-          description: "Breathing and planning reduce stress",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const Homework = () => {
           id: "plan", 
           text: "Plan your time and do tasks one by one", 
           emoji: "📋", 
-          description: "Planning helps manage stress",
           isCorrect: true
         },
         { 
           id: "procrastinate", 
           text: "Wait until the last minute", 
           emoji: "⏰", 
-          description: "This increases stress",
           isCorrect: false
         },
         { 
           id: "avoid", 
           text: "Avoid all homework", 
           emoji: "🚫", 
-          description: "This doesn't solve the problem",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const Homework = () => {
           id: "panic", 
           text: "Panic about everything", 
           emoji: "😰", 
-          description: "Panic increases stress",
           isCorrect: false
         },
         { 
           id: "organize", 
           text: "Organize and tackle one task at a time", 
-          emoji: "✅", 
-          description: "Organization reduces stress",
+          emoji: "📝", 
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it completely", 
           emoji: "😴", 
-          description: "This doesn't help",
           isCorrect: false
         }
       ]

@@ -28,14 +28,14 @@ const QuizOnPeriodBasics = () => {
                 {
                     id: "a",
                     text: "True",
-                    emoji: "✅",
+                    emoji: "👍",
                     // description: "Everyone is different.",
                     isCorrect: false
                 },
                 {
                     id: "b",
                     text: "False",
-                    emoji: "❌",
+                    emoji: "👎",
                     // description: "Correct! Bodies grow at different speeds.",
                     isCorrect: true
                 },

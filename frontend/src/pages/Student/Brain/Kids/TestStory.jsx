@@ -36,21 +36,19 @@ const TestStory = () => {
           id: "give", 
           text: "Give up on spelling", 
           emoji: "🏳️", 
-          description: "Stop trying",
+          
           isCorrect: false
         },
         { 
           id: "study", 
           text: "Study and try again", 
           emoji: "📚", 
-          description: "Learn and practice more",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame the test", 
           emoji: "👆", 
-          description: "Make excuses",
           isCorrect: false
         }
       ]
@@ -64,21 +62,18 @@ const TestStory = () => {
           id: "quit", 
           text: "Quit math class", 
           emoji: "🚶", 
-          description: "Stop learning",
           isCorrect: false
         },
         { 
           id: "cry", 
           text: "Cry and give up", 
           emoji: "😢", 
-          description: "Get upset",
           isCorrect: false
         },
          { 
           id: "practice", 
           text: "Practice more and retake", 
           emoji: "✏️", 
-          description: "Work harder",
           isCorrect: true
         },
       ]
@@ -92,21 +87,18 @@ const TestStory = () => {
           id: "ignore", 
           text: "Ignore the result", 
           emoji: "😑", 
-          description: "Pretend it didn't happen",
           isCorrect: false
         },
         { 
           id: "review", 
           text: "Review mistakes and study", 
           emoji: "🔬", 
-          description: "Learn from errors",
           isCorrect: true
         },
         { 
           id: "angry", 
           text: "Get angry at teacher", 
           emoji: "😠", 
-          description: "Blame others",
           isCorrect: false
         }
       ]
@@ -120,21 +112,18 @@ const TestStory = () => {
           id: "stop", 
           text: "Stop reading", 
           emoji: "🚫", 
-          description: "Give up",
           isCorrect: false
         },
         { 
           id: "blame4", 
           text: "Blame the book", 
           emoji: "📚", 
-          description: "Make excuses",
           isCorrect: false
         },
         { 
           id: "read", 
           text: "Read more and practice", 
           emoji: "📖", 
-          description: "Improve skills",
           isCorrect: true
         },
       ]
@@ -147,21 +136,18 @@ const TestStory = () => {
           id: "learn", 
           text: "Study harder and retake", 
           emoji: "📜", 
-          description: "Keep learning",
           isCorrect: true
         },
         { 
           id: "avoid", 
           text: "Avoid history class", 
           emoji: "🙈", 
-          description: "Run away",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain about it", 
           emoji: "😤", 
-          description: "Whine",
           isCorrect: false
         }
       ]

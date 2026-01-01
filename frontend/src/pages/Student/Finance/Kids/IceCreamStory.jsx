@@ -32,21 +32,20 @@ const IceCreamStory = () => {
           id: "save", 
           text: "Save for toy", 
           emoji: "🧸", 
-          description: "Save your money for the toy you really want",
+          
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Buy ice cream", 
           emoji: "🍦", 
-          description: "Spend money on ice cream right now",
+          
           isCorrect: false
         },
         { 
           id: "split", 
           text: "Save half, spend half", 
           emoji: "⚖️", 
-          description: "Save ₹5 for toy and spend ₹5 on ice cream",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const IceCreamStory = () => {
           id: "spend", 
           text: "Buy small treat", 
           emoji: "🍭", 
-          description: "Buy a small treat for yourself",
           isCorrect: false
         },
         {
           id: "save",
           text: "Save for bigger goal",
           emoji: "🎯",
-          description: "Keep saving for something more important",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Ask to share friend's", 
           emoji: "🤝", 
-          description: "Ask your friend if you can share their ice cream",
           isCorrect: false
         },
       ]
@@ -86,21 +82,18 @@ const IceCreamStory = () => {
           id: "save", 
           text: "Stick to savings plan", 
           emoji: "📚", 
-          description: "Continue saving for your book",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Take the offer", 
           emoji: "🍦", 
-          description: "Buy ice cream because it's a good deal",
           isCorrect: false
         },
         { 
           id: "delay", 
           text: "Buy later if extra money", 
           emoji: "⏰", 
-          description: "Wait to see if you get extra money later",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const IceCreamStory = () => {
           id: "spend", 
           text: "Share treat", 
           emoji: "🍦", 
-          description: "Spend ₹10 to share ice cream with sibling",
           isCorrect: false
         },
         {
           id: "save",
           text: "Focus on bicycle",
           emoji: "🚲",
-          description: "Keep working toward your bicycle goal",
           isCorrect: true
         },
         { 
           id: "negotiate", 
           text: "Promise to help later", 
           emoji: "🤝", 
-          description: "Offer to help your sibling with chores instead",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const IceCreamStory = () => {
           id: "save", 
           text: "Save for later", 
           emoji: "💰", 
-          description: "Save your money for something more important",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Cool off now", 
           emoji: "🍦", 
-          description: "Buy ice cream to cool off from the heat",
           isCorrect: false
         },
         { 
           id: "alternative", 
           text: "Find free way to cool off", 
           emoji: "🌳", 
-          description: "Sit under a tree or drink water to cool off",
           isCorrect: false
         }
       ]

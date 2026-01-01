@@ -22,20 +22,20 @@ const PeerChoicesPuzzle = () => {
   
   // Social Situations (left side) - 5 items
   const situations = [
-    { id: 1, name: "Peer Pressure to Skip Class", emoji: "📚", hint: "Friends encourage skipping school" },
-    { id: 2, name: "Someone Teasing You", emoji: "💬", hint: "Classmate making fun of you" },
-    { id: 3, name: "Excluded from Group Activity", emoji: "👥", hint: "Others won't let you join" },
-    { id: 4, name: "Asked to Cheat on Test", emoji: "📝", hint: "Classmate wants to copy answers" },
-    { id: 5, name: "Bullied for Your Looks", emoji: "😔", hint: "Made fun of appearance" }
+    { id: 1, name: "Peer Pressure to Skip Class", emoji: "📚",  },
+    { id: 2, name: "Someone Teasing You", emoji: "💬",  },
+    { id: 3, name: "Excluded from Group Activity", emoji: "👥",  },
+    { id: 4, name: "Asked to Cheat on Test", emoji: "📝",  },
+    { id: 5, name: "Bullied for Your Looks", emoji: "😔",  }
   ];
   
   // Appropriate Responses (right side) - 5 items (shuffled order)
   const responses = [
-    { id: 3, text: "Politely decline and suggest a different activity", hint: "Stay inclusive and kind" },
-    { id: 5, text: "Tell a trusted adult about the situation", hint: "Seek help from authority figure" },
-    { id: 1, text: "Firmly say 'No' and walk away", hint: "Stand up for yourself confidently" },
-    { id: 4, text: "Ignore the teasing and talk to a friend", hint: "Don't engage with negativity" },
-    { id: 2, text: "Refuse and explain why it's wrong", hint: "Maintain your integrity" }
+    { id: 3, text: "Politely decline and suggest a different activity",  },
+    { id: 5, text: "Tell a trusted adult about the situation",  },
+    { id: 1, text: "Firmly say 'No' and walk away",  },
+    { id: 4, text: "Ignore the teasing and talk to a friend",  },
+    { id: 2, text: "Refuse and explain why it's wrong",  }
   ];
   
   // Correct matches

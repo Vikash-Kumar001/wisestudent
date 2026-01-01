@@ -47,20 +47,20 @@ const PuzzlePriorities = () => {
 
   // Expenses (left side) - 5 items
   const items = [
-    { id: 1, name: "School Fees", emoji: "🎓", hint: "Education costs" },
-    { id: 2, name: "Groceries", emoji: "🛒", hint: "Food shopping" },
-    { id: 3, name: "Rent", emoji: "🏠", hint: "Housing payment" },
-    { id: 4, name: "Medicine", emoji: "💊", hint: "Health needs" },
-    { id: 5, name: "Electricity", emoji: "💡", hint: "Utility bills" }
+    { id: 1, name: "School Fees", emoji: "🎓",  },
+    { id: 2, name: "Groceries", emoji: "🛒",  },
+    { id: 3, name: "Rent", emoji: "🏠",  },
+    { id: 4, name: "Medicine", emoji: "💊",  },
+    { id: 5, name: "Electricity", emoji: "💡",  }
   ];
 
   // Priorities (right side) - 5 items
   const priorities = [
-    { id: 6, name: "Need", emoji: "✅", description: "Essential for life" },
-    { id: 7, name: "Want", emoji: "🎁", description: "Nice to have" },
-    { id: 8, name: "Save", emoji: "💰", description: "Money for future" },
-    { id: 9, name: "Invest", emoji: "📈", description: "Grow money" },
-    { id: 10, name: "Share", emoji: "🤲", description: "Help others" }
+    { id: 6, name: "Need", emoji: "✅",  },
+    { id: 7, name: "Want", emoji: "🎁",  },
+    { id: 8, name: "Save", emoji: "💰",  },
+    { id: 9, name: "Invest", emoji: "📈",  },
+    { id: 10, name: "Share", emoji: "🤲",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

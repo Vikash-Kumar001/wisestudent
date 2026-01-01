@@ -28,7 +28,7 @@ const PosterSaveEnergy = () => {
         {
           id: 1,
           title: "Waste More Energy",
-          description: "A poster encouraging energy waste",
+          // description: "A poster encouraging energy waste",
           emoji: "⚡",
           isCorrect: false
         },
@@ -36,14 +36,14 @@ const PosterSaveEnergy = () => {
         {
           id: 3,
           title: "Use More Power",
-          description: "A poster encouraging more energy usage",
+          // description: "A poster encouraging more energy usage",
           emoji: "🪫",
           isCorrect: false
         },
         {
           id: 2,
           title: "Energy Smart, Earth Smart",
-          description: "A poster showing energy conservation",
+          // description: "A poster showing energy conservation",
           emoji: "🌍",
           isCorrect: true
         },
@@ -57,21 +57,21 @@ const PosterSaveEnergy = () => {
         {
           id: 1,
           title: "Keep All Lights On",
-          description: "A poster encouraging leaving lights on",
+          // description: "A poster encouraging leaving lights on",
           emoji: "💡",
           isCorrect: false
         },
         {
           id: 2,
           title: "Turn Off When Not Needed",
-          description: "A poster showing light conservation",
+          // description: "A poster showing light conservation",
           emoji: "💡",
           isCorrect: true
         },
         {
           id: 3,
           title: "Use More Light",
-          description: "A poster encouraging more lighting",
+          // description: "A poster encouraging more lighting",
           emoji: "💡",
           isCorrect: false
         }
@@ -85,14 +85,14 @@ const PosterSaveEnergy = () => {
         {
           id: 2,
           title: "Unplug When Not in Use",
-          description: "A poster showing device conservation",
+          // description: "A poster showing device conservation",
           emoji: "🔌",
           isCorrect: true
         },
         {
           id: 1,
           title: "Leave Everything Plugged",
-          description: "A poster showing devices staying plugged",
+          // description: "A poster showing devices staying plugged",
           emoji: "🔌",
           isCorrect: false
         },
@@ -100,7 +100,7 @@ const PosterSaveEnergy = () => {
         {
           id: 3,
           title: "Plug Everything In",
-          description: "A poster encouraging more plugging",
+          // description: "A poster encouraging more plugging",
           emoji: "🔌",
           isCorrect: false
         }
@@ -114,21 +114,21 @@ const PosterSaveEnergy = () => {
         {
           id: 1,
           title: "Use More Energy",
-          description: "A poster encouraging energy waste",
+          // description: "A poster encouraging energy waste",
           emoji: "⚡",
           isCorrect: false
         },
         {
           id: 2,
           title: "Conserve Energy Daily",
-          description: "A poster showing daily conservation",
+          // description: "A poster showing daily conservation",
           emoji: "💡",
           isCorrect: true
         },
         {
           id: 3,
           title: "Ignore Energy Use",
-          description: "A poster suggesting we don't worry about energy",
+          // description: "A poster suggesting we don't worry about energy",
           emoji: "🤷",
           isCorrect: false
         }
@@ -142,7 +142,7 @@ const PosterSaveEnergy = () => {
         {
           id: 1,
           title: "Pollute More",
-          description: "A poster encouraging environmental damage",
+          // description: "A poster encouraging environmental damage",
           emoji: "🏭",
           isCorrect: false
         },
@@ -150,14 +150,14 @@ const PosterSaveEnergy = () => {
         {
           id: 3,
           title: "Ignore Environmental Issues",
-          description: "A poster suggesting we don't worry about the environment",
+          // description: "A poster suggesting we don't worry about the environment",
           emoji: "🙈",
           isCorrect: false
         },
         {
           id: 2,
           title: "Energy Wise, Earth Wise",
-          description: "A poster showing energy wisdom for Earth",
+          // description: "A poster showing energy wisdom for Earth",
           emoji: "🌍",
           isCorrect: true
         },

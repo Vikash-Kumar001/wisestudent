@@ -29,20 +29,20 @@ const MatchFeelingsPuzzle = () => {
 
   // Left side - expressions/actions
   const leftItems = [
-    { id: 1, name: "Smile",  description: "Happy expression" },
-    { id: 2, name: "Tears",  description: "Sad expression" },
-    { id: 3, name: "Frown",  description: "Angry expression" },
-    { id: 4, name: "Jump",  description: "Excited action" },
-    { id: 5, name: "Shake",  description: "Scared action" }
+    { id: 1, name: "Smile",   },
+    { id: 2, name: "Tears",  },
+    { id: 3, name: "Frown",   },
+    { id: 4, name: "Jump",   },
+    { id: 5, name: "Shake",   },
   ];
 
   // Right side - emotions
   const rightItems = [
-    { id: 1, name: "Happy", description: "Feeling joyful" },
-    { id: 2, name: "Sad",  description: "Feeling down" },
-    { id: 3, name: "Angry",  description: "Feeling mad" },
-    { id: 4, name: "Excited",  description: "Feeling thrilled" },
-    { id: 5, name: "Scared",  description: "Feeling afraid" }
+    { id: 1, name: "Happy",   },
+    { id: 2, name: "Sad",   },
+    { id: 3, name: "Angry",   },
+    { id: 4, name: "Excited",   },
+    { id: 5, name: "Scared",   },
   ];
 
   // Correct matches

@@ -36,21 +36,19 @@ const ClassroomStory = () => {
           id: "doodle", 
           text: "Doodle in notebook", 
           emoji: "✏️", 
-          description: "Draw pictures instead of listening",
+          
           isCorrect: false
         },
         { 
           id: "chat", 
           text: "Chat with friends", 
           emoji: "💬", 
-          description: "Talk to classmates during lesson",
           isCorrect: false
         },
          { 
           id: "listen", 
           text: "Listen carefully", 
           emoji: "👂", 
-          description: "Pay attention to the teacher",
           isCorrect: true
         },
       ]
@@ -63,21 +61,18 @@ const ClassroomStory = () => {
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😴", 
-          description: "Hope to figure it out later",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask the teacher to explain", 
           emoji: "🙋", 
-          description: "Raise your hand and ask questions",
           isCorrect: true
         },
         { 
           id: "copy", 
           text: "Copy from friend", 
           emoji: "👀", 
-          description: "Look at neighbor's work",
           isCorrect: false
         }
       ]
@@ -90,21 +85,18 @@ const ClassroomStory = () => {
           id: "focus", 
           text: "Stay focused on the task", 
           emoji: "🎯", 
-          description: "Complete the group work first",
           isCorrect: true
         },
         { 
           id: "chat", 
           text: "Chat about games", 
           emoji: "🎮", 
-          description: "Talk about games instead",
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Do both at same time", 
           emoji: "🤹", 
-          description: "Try to chat and work together",
           isCorrect: false
         }
       ]
@@ -118,21 +110,18 @@ const ClassroomStory = () => {
           id: "disturb", 
           text: "Disturb others who are still working", 
           emoji: "😈", 
-          description: "Make noise and distract classmates",
           isCorrect: false
         },
         { 
           id: "help", 
           text: "Help classmates who need assistance", 
           emoji: "🤝", 
-          description: "Assist others who are still working",
           isCorrect: true
         },
         { 
           id: "play", 
           text: "Play on phone", 
           emoji: "📱", 
-          description: "Use your phone while others work",
           isCorrect: false
         }
       ]
@@ -146,21 +135,19 @@ const ClassroomStory = () => {
           id: "giveup", 
           text: "Give up and stop trying", 
           emoji: "😔", 
-          description: "Quit when it gets hard",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame the teacher", 
           emoji: "👎", 
-          description: "Say the teacher is bad",
           isCorrect: false
         },
         { 
           id: "persist", 
           text: "Keep trying and ask for help if needed", 
           emoji: "💪", 
-          description: "Stay determined and seek assistance",
+          
           isCorrect: true
         },
       ]

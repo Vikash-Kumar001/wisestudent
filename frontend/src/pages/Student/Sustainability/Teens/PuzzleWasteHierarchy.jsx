@@ -52,20 +52,20 @@ const PuzzleWasteHierarchy = () => {
 
   // Waste Management Strategies (left side) - 5 items
   const strategies = [
-    { id: 1, name: "Reduce", emoji: "📉", description: "Minimize creation" },
-    { id: 2, name: "Reuse", emoji: "♻️", description: "Extend lifespan" },
-    { id: 3, name: "Recycle", emoji: "🔄", description: "Transform materials" },
-    { id: 4, name: "Recover", emoji: "🔋", description: "Extract energy" },
-    { id: 5, name: "Dispose", emoji: "🗑️", description: "Final destination" }
+    { id: 2, name: "Reuse", emoji: "♻️",  },
+    { id: 4, name: "Recover", emoji: "🔋",  },
+    { id: 5, name: "Dispose", emoji: "🗑️",  },
+    { id: 3, name: "Recycle", emoji: "🔄",  },
+    { id: 1, name: "Reduce", emoji: "📉",  },
   ];
 
   // Priority Levels (right side) - 5 items
   const levels = [
-    { id: 3, name: "Third Priority", emoji: "3️⃣", description: "Processing stage" },
-    { id: 5, name: "Fifth Priority", emoji: "5️⃣", description: "Last resort" },
-    { id: 1, name: "First Priority", emoji: "1️⃣", description: "Most effective" },
-    { id: 4, name: "Fourth Priority", emoji: "4️⃣", description: "Energy extraction" },
-    { id: 2, name: "Second Priority", emoji: "2️⃣", description: "Secondary use" }
+    { id: 3, name: "Third Priority", emoji: "3️⃣",  },
+    { id: 5, name: "Fifth Priority", emoji: "5️⃣",  },
+    { id: 1, name: "First Priority", emoji: "1️⃣",  },
+    { id: 4, name: "Fourth Priority", emoji: "4️⃣",  },
+    { id: 2, name: "Second Priority", emoji: "2️⃣",  }
   ];
 
   // Correct matches

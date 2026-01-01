@@ -32,21 +32,20 @@ const MoneyHonestyQuizGame = () => {
           id: "keep", 
           text: "Keep it quietly", 
           emoji: "🤫", 
-          description: "Keep the money",
+          
           isCorrect: false
         },
         { 
           id: "snacks", 
           text: "Spend it on snacks", 
           emoji: "🍟", 
-          description: "Buy food with it",
+          
           isCorrect: false
         },
         {
           id: "return",
           text: "Return it to the owner",
           emoji: "🤝",
-          description: "Find and return it",
           isCorrect: true
         },
       ]
@@ -59,21 +58,18 @@ const MoneyHonestyQuizGame = () => {
           id: "give", 
           text: "Give back the extra", 
           emoji: "💸", 
-          description: "Return the extra money",
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Buy candy", 
           emoji: "🍬", 
-          description: "Spend on treats",
           isCorrect: false
         },
         { 
           id: "nothing", 
           text: "Say nothing", 
           emoji: "😶", 
-          description: "Don't mention it",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const MoneyHonestyQuizGame = () => {
           id: "never", 
           text: "Never repay", 
           emoji: "😞", 
-          description: "Don't pay it back",
           isCorrect: false
         },
         {
           id: "repay",
           text: "Repay it on time",
           emoji: "✅",
-          description: "Pay back when promised",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend more instead", 
           emoji: "🛍️", 
-          description: "Spend even more",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const MoneyHonestyQuizGame = () => {
           id: "tell", 
           text: "Tell and offer to pay", 
           emoji: "🗣️", 
-          description: "Be honest and pay",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hide it", 
           emoji: "🧸", 
-          description: "Hide the broken toy",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame someone else", 
           emoji: "🙈", 
-          description: "Say someone else did it",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const MoneyHonestyQuizGame = () => {
           id: "trust", 
           text: "It earns trust", 
           emoji: "😊", 
-          description: "Builds trust with others",
           isCorrect: true
         },
         { 
           id: "money", 
           text: "It gets you more money", 
           emoji: "💰", 
-          description: "Receive more cash",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "It lets you spend more", 
           emoji: "🛒", 
-          description: "Have more to spend",
           isCorrect: false
         }
       ]

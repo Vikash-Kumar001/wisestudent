@@ -32,21 +32,21 @@ const PocketMoneyStory = () => {
           id: "save", 
           text: "Save 20% (₹100)", 
           emoji: "💰", 
-          description: "Put aside ₹100 for future needs and spend the rest wisely",
+          
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend all", 
           emoji: "🛍️", 
-          description: "Use the entire ₹500 for entertainment and treats",
+          
           isCorrect: false
         },
         { 
           id: "save50", 
           text: "Save 50% (₹250)", 
           emoji: "💵", 
-          description: "Save half of your pocket money and spend the rest",
+          
           isCorrect: false
         }
       ]
@@ -59,21 +59,18 @@ const PocketMoneyStory = () => {
           id: "borrow", 
           text: "Borrow from friends", 
           emoji: "🤝", 
-          description: "Ask friends to lend you the money to buy it now",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "Buy on credit", 
           emoji: "💳", 
-          description: "Use a credit card to buy it now and pay later",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save monthly", 
           emoji: "📅", 
-          description: "Save ₹500 each month for 4 months to buy it",
           isCorrect: true
         }
       ]
@@ -86,21 +83,18 @@ const PocketMoneyStory = () => {
           id: "save", 
           text: "Stick to your plan", 
           emoji: "📝", 
-          description: "Continue with your saving plan regardless of peer pressure",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend like them", 
           emoji: "👥", 
-          description: "Spend all your money to fit in with your friends",
           isCorrect: false
         },
         { 
           id: "compromise", 
           text: "Spend half to fit in", 
           emoji: "⚖️", 
-          description: "Spend half your money to balance saving and fitting in",
           isCorrect: false
         }
       ]
@@ -113,21 +107,18 @@ const PocketMoneyStory = () => {
           id: "spend", 
           text: "Buy with partial payment", 
           emoji: "🛒", 
-          description: "Pay ₹1000 now and ₹500 later with interest",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Wait and save more", 
           emoji: "⏳", 
-          description: "Wait until you have enough money to buy it without credit",
           isCorrect: true
         },
         { 
           id: "impulse", 
           text: "Buy something cheaper", 
           emoji: "🛍️", 
-          description: "Buy a similar but cheaper item right away with your savings",
           isCorrect: false
         }
       ]
@@ -140,21 +131,18 @@ const PocketMoneyStory = () => {
           id: "spend", 
           text: "Buy now with credit", 
           emoji: "💸", 
-          description: "Buy the phone now and pay the remaining ₹200 with interest",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow ₹200", 
           emoji: "💳", 
-          description: "Borrow ₹200 from family to buy it immediately",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save ₹200 more", 
           emoji: "🎯", 
-          description: "Save the remaining ₹200 before making the purchase",
           isCorrect: true
         }
       ]

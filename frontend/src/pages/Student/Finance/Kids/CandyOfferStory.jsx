@@ -32,21 +32,20 @@ const CandyOfferStory = () => {
           id: "want", 
           text: "Buy anyway", 
           emoji: "🙋", 
-          description: "Buy because it's a good deal",
+          
           isCorrect: false
         },
         {
           id: "need",
           text: "Don't buy",
           emoji: "🙅",
-          description: "Don't buy because you don't need extra candy",
+          
           isCorrect: true
         },
         { 
           id: "share", 
           text: "Buy and share", 
           emoji: "🤝", 
-          description: "Buy and share with friends or family",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const CandyOfferStory = () => {
           id: "need", 
           text: "Skip the offer", 
           emoji: "⏭️", 
-          description: "Don't buy because you have enough toys",
           isCorrect: true
         },
         { 
           id: "want", 
           text: "Take the deal", 
           emoji: "🛒", 
-          description: "Buy because you're getting a free item",
           isCorrect: false
         },
         { 
           id: "gift", 
           text: "Buy as gifts", 
           emoji: "🎁", 
-          description: "Buy to give as gifts to others",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const CandyOfferStory = () => {
           id: "want", 
           text: "Buy now", 
           emoji: "😋", 
-          description: "Buy because it's a savings opportunity",
           isCorrect: false
         },
         { 
           id: "donate", 
           text: "Buy for donation", 
           emoji: "💝", 
-          description: "Buy to donate to those in need",
           isCorrect: false
         },
         {
           id: "need",
           text: "Wait until needed",
           emoji: "⏳",
-          description: "Wait until you need more snacks",
           isCorrect: true
         },
       ]
@@ -113,21 +106,18 @@ const CandyOfferStory = () => {
           id: "want", 
           text: "Buy two", 
           emoji: "📖", 
-          description: "Buy two to get the discount",
           isCorrect: false
         },
         {
           id: "need",
           text: "Buy just one",
           emoji: "📚",
-          description: "Buy only the book you need",
           isCorrect: true
         },
         { 
           id: "library", 
           text: "Check library first", 
           emoji: "🏛️", 
-          description: "See if you can borrow one from the library",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const CandyOfferStory = () => {
           id: "want", 
           text: "Take advantage", 
           emoji: "👗", 
-          description: "Buy because it's a big discount",
           isCorrect: false
         },
         { 
           id: "charity", 
           text: "Buy for charity", 
           emoji: "🤲", 
-          description: "Buy to donate to a charity drive",
           isCorrect: false
         },
         {
           id: "need",
           text: "Pass on deal",
           emoji: "🚫",
-          description: "Don't buy because you don't need more clothes",
           isCorrect: true
         },
       ]

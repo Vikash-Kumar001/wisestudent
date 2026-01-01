@@ -34,7 +34,7 @@ const ReflexEthicsGame = () => {
       question: "What should you always be with money?",
       correctAnswer: "Truth",
       options: [
-        { text: "Truth", isCorrect: true, emoji: "✅" },
+        { text: "Truth", isCorrect: true, emoji: "🗣️" },
         { text: "Cheat", isCorrect: false, emoji: "🚫" },
         { text: "Lie", isCorrect: false, emoji: "🤥" },
         { text: "Deceive", isCorrect: false, emoji: "😈" }

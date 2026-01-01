@@ -35,21 +35,19 @@ const FakeOnlineOfferStory = () => {
           id: "refuse", 
           text: "Refuse, it's a scam", 
           emoji: "🚫", 
-          description: "Too good to be true",
+          
           isCorrect: true
         },
         { 
           id: "pay", 
           text: "Pay ₹100", 
           emoji: "💳", 
-          description: "It's a good deal",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, check first", 
           emoji: "🤔", 
-          description: "Need to verify",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const FakeOnlineOfferStory = () => {
           id: "normal", 
           text: "Normal prices", 
           emoji: "💰", 
-          description: "Regular pricing",
           isCorrect: false
         },
         { 
           id: "too-good", 
           text: "Too good to be true", 
           emoji: "⚠️", 
-          description: "Unrealistic offers",
           isCorrect: true
         },
         { 
           id: "expensive", 
           text: "Very expensive", 
           emoji: "💎", 
-          description: "High prices",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const FakeOnlineOfferStory = () => {
           id: "try", 
           text: "Try it anyway", 
           emoji: "🎲", 
-          description: "Take the risk",
           isCorrect: false
         },
         { 
           id: "share", 
           text: "Share with friends", 
           emoji: "📢", 
-          description: "Tell others",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore and report", 
           emoji: "🚫", 
-          description: "Don't engage",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const FakeOnlineOfferStory = () => {
           id: "trick", 
           text: "They trick you to pay", 
           emoji: "🎭", 
-          description: "Hidden costs or fraud",
           isCorrect: true
         },
         { 
           id: "real", 
           text: "They're always real", 
           emoji: "✅", 
-          description: "Free means free",
           isCorrect: false
         },
         { 
           id: "maybe2", 
           text: "Sometimes real", 
           emoji: "🤷", 
-          description: "50-50 chance",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const FakeOnlineOfferStory = () => {
           id: "pay-fast", 
           text: "Pay quickly", 
           emoji: "⚡", 
-          description: "Act fast",
           isCorrect: false
         },
         { 
           id: "verify", 
           text: "Verify before paying", 
           emoji: "🔍", 
-          description: "Check authenticity first",
           isCorrect: true
         },
         { 
           id: "ignore-all", 
           text: "Ignore all offers", 
           emoji: "😴", 
-          description: "Never buy online",
           isCorrect: false
         }
       ]

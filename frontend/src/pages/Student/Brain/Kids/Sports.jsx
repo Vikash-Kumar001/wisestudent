@@ -36,21 +36,19 @@ const Sports = () => {
           id: "quit", 
           text: "Quit the team", 
           emoji: "🏳️", 
-          description: "Give up completely",
+          
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Point fingers at teammates",
           isCorrect: false
         },
         { 
           id: "calm", 
           text: "Try again calmly", 
           emoji: "😊", 
-          description: "Stay calm and try again",
           isCorrect: true
         },
       ]
@@ -64,21 +62,18 @@ const Sports = () => {
           id: "throw", 
           text: "Throw the ball", 
           emoji: "😠", 
-          description: "Show anger",
           isCorrect: false
         },
         { 
           id: "practice", 
           text: "Practice more and try again", 
           emoji: "⚽", 
-          description: "Keep improving",
           isCorrect: true
         },
         { 
           id: "cry", 
           text: "Cry and give up", 
           emoji: "😢", 
-          description: "Stop playing",
           isCorrect: false
         }
       ]
@@ -91,21 +86,18 @@ const Sports = () => {
           id: "learn", 
           text: "Learn from it calmly", 
           emoji: "📚", 
-          description: "Use it as a lesson",
           isCorrect: true
         },
         { 
           id: "argue", 
           text: "Argue with each other", 
           emoji: "😠", 
-          description: "Fight with teammates",
           isCorrect: false
         },
         { 
           id: "quit2", 
           text: "Give up completely", 
           emoji: "🚶", 
-          description: "Stop playing sports",
           isCorrect: false
         }
       ]
@@ -119,21 +111,18 @@ const Sports = () => {
           id: "ignore", 
           text: "Ignore the pain and continue", 
           emoji: "🤕", 
-          description: "Play despite injury",
           isCorrect: false
         },
         { 
           id: "yell", 
           text: "Yell at the coach", 
           emoji: "😡", 
-          description: "Show anger at others",
           isCorrect: false
         },
         { 
           id: "rest", 
           text: "Rest and stay calm", 
           emoji: "🏥", 
-          description: "Take care of the injury",
           isCorrect: true
         },
       ]
@@ -147,21 +136,18 @@ const Sports = () => {
           id: "protest", 
           text: "Protest loudly", 
           emoji: "🗣️", 
-          description: "Argue with referee",
           isCorrect: false
         },
         { 
           id: "accept", 
           text: "Accept and focus calmly", 
-          emoji: "✅", 
-          description: "Stay calm and continue",
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: "leave", 
           text: "Leave the game", 
           emoji: "🏃", 
-          description: "Walk off the field",
           isCorrect: false
         }
       ]

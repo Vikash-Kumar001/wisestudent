@@ -31,21 +31,19 @@ const ShopStoryGame = () => {
           id: "return", 
           text: "Return Extra Change", 
           emoji: "💸", 
-          description: "Give back the extra money",
+          
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep It Quietly", 
           emoji: "🤫", 
-          description: "Keep the extra money",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "Spend Immediately", 
           emoji: "🛍️", 
-          description: "Use it right away",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const ShopStoryGame = () => {
           id: "lie", 
           text: "Lie About Price", 
           emoji: "🙊", 
-          description: "Say it costs more",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore It", 
           emoji: "🙈", 
-          description: "Don't say anything",
           isCorrect: false
         },
         {
           id: "honest",
           text: "Be Honest",
-          emoji: "✅",
-          description: "Tell the shopkeeper",
+          emoji: "🤗",
           isCorrect: true
         },
       ]
@@ -85,21 +80,18 @@ const ShopStoryGame = () => {
           id: "bargain", 
           text: "Bargain Unfairly", 
           emoji: "😈", 
-          description: "Try to pay less unfairly",
           isCorrect: false
         },
         { 
           id: "refuse", 
           text: "Refuse to Pay", 
           emoji: "🚫", 
-          description: "Don't pay at all",
           isCorrect: false
         },
         {
           id: "pay",
           text: "Pay Fairly",
           emoji: "⚖️",
-          description: "Pay the fair price",
           isCorrect: true
         },
       ]
@@ -112,21 +104,18 @@ const ShopStoryGame = () => {
           id: "check", 
           text: "Check Receipt", 
           emoji: "🧾", 
-          description: "Review the receipt",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore Bill", 
           emoji: "🙈", 
-          description: "Don't check the bill",
           isCorrect: false
         },
         { 
           id: "throw", 
           text: "Throw Away", 
           emoji: "🗑️", 
-          description: "Discard it immediately",
           isCorrect: false
         }
       ]
@@ -139,21 +128,18 @@ const ShopStoryGame = () => {
           id: "silent", 
           text: "Stay Silent", 
           emoji: "😶", 
-          description: "Don't say anything",
           isCorrect: false
         },
         {
           id: "report",
           text: "Report Error",
           emoji: "🗣️",
-          description: "Tell the shopkeeper",
           isCorrect: true
         },
         { 
           id: "accept", 
           text: "Accept It", 
           emoji: "😔", 
-          description: "Just accept the overcharge",
           isCorrect: false
         }
       ]

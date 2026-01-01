@@ -32,21 +32,19 @@ const QuizOnEarning = () => {
           id: "working", 
           text: "By working", 
           emoji: "💼", 
-          description: "Doing work or jobs",
+          
           isCorrect: true
         },
         { 
           id: "wasting", 
           text: "By wasting", 
           emoji: "💸", 
-          description: "Wasting time or resources",
           isCorrect: false
         },
         { 
           id: "sleeping", 
           text: "By sleeping", 
           emoji: "😴", 
-          description: "Sleeping all day",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const QuizOnEarning = () => {
           id: "games", 
           text: "Playing games", 
           emoji: "🎮", 
-          description: "Playing video games",
           isCorrect: false
         },
         {
           id: "crops",
           text: "Selling crops",
           emoji: "🌾",
-          description: "Selling grown crops",
           isCorrect: true
         },
         { 
           id: "give", 
           text: "Giving away food", 
           emoji: "🎁", 
-          description: "Giving food for free",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const QuizOnEarning = () => {
           id: "toymaker", 
           text: "Toy maker", 
           emoji: "🧸", 
-          description: "Makes toys",
           isCorrect: false
         },
         { 
           id: "candy", 
           text: "Candy seller", 
           emoji: "🍬", 
-          description: "Sells candy",
           isCorrect: false
         },
         {
           id: "teacher",
           text: "Teacher",
           emoji: "👨‍🏫",
-          description: "Teaches students",
           isCorrect: true
         },
       ]
@@ -113,21 +105,18 @@ const QuizOnEarning = () => {
           id: "chores", 
           text: "Doing chores", 
           emoji: "🧹", 
-          description: "Helping at home",
           isCorrect: true
         },
         { 
           id: "tv", 
           text: "Watching TV", 
           emoji: "📺", 
-          description: "Watching television",
           isCorrect: false
         },
         { 
           id: "snacks", 
           text: "Eating snacks", 
           emoji: "🍪", 
-          description: "Eating food",
           isCorrect: false
         }
       ]
@@ -140,21 +129,18 @@ const QuizOnEarning = () => {
           id: "toys", 
           text: "Gets you free toys", 
           emoji: "🧸", 
-          description: "Free toys",
           isCorrect: false
         },
         {
           id: "needs",
           text: "Meets your needs",
-          emoji: "✅",
-          description: "Helps you get what you need",
+          emoji: "😊",
           isCorrect: true
         },
         { 
           id: "sleep", 
           text: "Makes you sleep better", 
           emoji: "😴", 
-          description: "Better sleep",
           isCorrect: false
         }
       ]

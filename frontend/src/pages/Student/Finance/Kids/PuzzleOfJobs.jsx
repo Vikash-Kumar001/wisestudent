@@ -47,20 +47,20 @@ const PuzzleOfJobs = () => {
 
   // Jobs (left side) - 5 items
   const jobs = [
-    { id: 1, name: "Farmer", emoji: "🌾", hint: "Grows crops" },
-    { id: 2, name: "Teacher", emoji: "📚", hint: "Educates students" },
-    { id: 3, name: "Doctor", emoji: "🩺", hint: "Heals people" },
-    { id: 4, name: "Chef", emoji: "👩‍🍳", hint: "Prepares meals" },
-    { id: 5, name: "Engineer", emoji: "🔧", hint: "Builds structures" }
+    { id: 1, name: "Farmer", emoji: "🌾",  },
+    { id: 2, name: "Teacher", emoji: "📚",  },
+    { id: 3, name: "Doctor", emoji: "🩺",  },
+    { id: 4, name: "Chef", emoji: "👩‍🍳",  },
+    { id: 5, name: "Engineer", emoji: "🔧",  }
   ];
 
   // What they provide (right side) - 5 items
   const provided = [
-    { id: 6, name: "Food", emoji: "🍎", description: "Nutrition for health" },
-    { id: 7, name: "Education", emoji: "📖", description: "Knowledge and skills" },
-    { id: 8, name: "Healthcare", emoji: "💊", description: "Medical treatment" },
-    { id: 9, name: "Meals", emoji: "🍽️", description: "Prepared dishes" },
-    { id: 10, name: "Infrastructure", emoji: "🏗️", description: "Built environments" }
+    { id: 6, name: "Food", emoji: "🍎",  },
+    { id: 7, name: "Education", emoji: "📖",  },
+    { id: 8, name: "Healthcare", emoji: "💊",  },
+    { id: 9, name: "Meals", emoji: "🍽️",  },
+    { id: 10, name: "Infrastructure", emoji: "🏗️",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

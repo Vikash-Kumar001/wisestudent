@@ -22,9 +22,9 @@ const DebateApology = () => {
       id: 1,
       text: "Is saying sorry a weakness or strength?",
       options: [
-        { id: "a", text: "Weakness - It shows you were wrong" },
-        { id: "b", text: "Strength - It shows emotional maturity and accountability" },
-        { id: "c", text: "Neither - It's just a social convention" }
+        { id: "a", text: "Weakness - It shows you were wrong", emoji: "💪" },
+        { id: "b", text: "Strength - It shows emotional maturity and accountability", emoji: "🧠" },
+        { id: "c", text: "Neither - It's just a social convention", emoji: "🤝" }
       ],
       correctAnswer: "b",
       explanation: "Saying sorry requires courage and emotional maturity. It shows you can take responsibility for your actions and prioritize relationships over ego."
@@ -33,9 +33,9 @@ const DebateApology = () => {
       id: 2,
       text: "What is the primary benefit of a sincere apology?",
       options: [
-        { id: "b", text: "Repairing relationships and promoting healing" },
-        { id: "a", text: "Avoiding consequences for your actions" },
-        { id: "c", text: "Making others feel guilty for their part in the conflict" }
+        { id: "b", text: "Repairing relationships and promoting healing", emoji: "❤️" },
+        { id: "a", text: "Avoiding consequences for your actions", emoji: "🏃" },
+        { id: "c", text: "Making others feel guilty for their part in the conflict", emoji: "⚖️" }
       ],
       correctAnswer: "b",
       explanation: "A sincere apology focuses on repairing relationships and promoting healing for all parties involved. It's about taking responsibility and making amends."
@@ -44,9 +44,9 @@ const DebateApology = () => {
       id: 3,
       text: "When is the best time to apologize?",
       options: [
-        { id: "a", text: "Only when you're completely wrong" },
-        { id: "c", text: "Never - Apologies show weakness" },
-        { id: "b", text: "As soon as you recognize your contribution to a conflict" },
+        { id: "a", text: "Only when you're completely wrong", emoji: "⏰" },
+        { id: "c", text: "Never - Apologies show weakness", emoji: "🚫" },
+        { id: "b", text: "As soon as you recognize your contribution to a conflict", emoji: "⚡" },
       ],
       correctAnswer: "b",
       explanation: "Apologizing as soon as you recognize your role in a conflict shows emotional intelligence and helps prevent escalation. It doesn't require admitting complete fault."
@@ -55,9 +55,9 @@ const DebateApology = () => {
       id: 4,
       text: "What should a good apology include?",
       options: [
-        { id: "b", text: "Acknowledgment of impact, responsibility, and commitment to change" },
-        { id: "a", text: "Just saying 'I'm sorry' without explanation" },
-        { id: "c", text: "An explanation of why you did it to justify your actions" }
+        { id: "b", text: "Acknowledgment of impact, responsibility, and commitment to change", emoji: "🙂" },
+        { id: "a", text: "Just saying 'I'm sorry' without explanation", emoji: "🤐" },
+        { id: "c", text: "An explanation of why you did it to justify your actions", emoji: "🎭" }
       ],
       correctAnswer: "b",
       explanation: "Effective apologies acknowledge the impact of our actions, take responsibility, and show commitment to change. This approach promotes healing and trust."
@@ -66,9 +66,9 @@ const DebateApology = () => {
       id: 5,
       text: "How does apologizing affect personal growth?",
       options: [
-        { id: "a", text: "It prevents learning from mistakes" },
-        { id: "c", text: "It makes you more likely to repeat mistakes" },
-        { id: "b", text: "It promotes self-awareness and emotional development" },
+        { id: "a", text: "It prevents learning from mistakes", emoji: "🛑" },
+        { id: "c", text: "It makes you more likely to repeat mistakes", emoji: "🔄" },
+        { id: "b", text: "It promotes self-awareness and emotional development", emoji: "🌱" },
       ],
       correctAnswer: "b",
       explanation: "Apologizing requires self-reflection and acknowledgment of our impact on others. This process promotes self-awareness and emotional development, leading to personal growth."
@@ -151,12 +151,7 @@ const DebateApology = () => {
               const showCorrect = showFeedback && isCorrect;
               const showIncorrect = showFeedback && isSelected && !isCorrect;
               
-              // Add emojis for each option like in the reference game
-              const optionEmojis = {
-                a: "✅",
-                b: "❌",
-                c: "⚠️"
-              };
+
               
               return (
                 <button
@@ -168,7 +163,7 @@ const DebateApology = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <div className="text-2xl mr-4">{optionEmojis[option.id] || '❓'}</div>
+                    <div className="text-2xl mr-4">{option.emoji || '❓'}</div>
                     <div>
                       <h3 className="font-bold text-xl mb-1">{option.text}</h3>
                     </div>

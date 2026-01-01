@@ -47,20 +47,20 @@ const PuzzleHonestVsFraud = () => {
 
   // Shop types (left side) - 5 items
   const items = [
-    { id: 1, name: "Fair Shop", emoji: "🏪", hint: "Honest business" },
-    { id: 2, name: "Cheat Shop", emoji: "🍬", hint: "Dishonest seller" },
-    { id: 3, name: "Honest Seller", emoji: "🙋", hint: "Truthful vendor" },
-    { id: 4, name: "Fraud Shop", emoji: "🎭", hint: "Deceptive store" },
-    { id: 5, name: "Local Market", emoji: "🛍️", hint: "Community trading" }
+    { id: 1, name: "Fair Shop", emoji: "🏪",  },
+    { id: 2, name: "Cheat Shop", emoji: "🍬",  },
+    { id: 3, name: "Honest Seller", emoji: "🙋",  },
+    { id: 4, name: "Fraud Shop", emoji: "🎭",  },
+    { id: 5, name: "Local Market", emoji: "🛍️",  }
   ];
 
   // Outcomes (right side) - 5 items
   const outcomes = [
-    { id: 6, name: "Trust", emoji: "🤝", description: "Builds confidence" },
-    { id: 7, name: "Loss", emoji: "😞", description: "Financial setback" },
-    { id: 8, name: "Gain", emoji: "💰", description: "Positive outcome" },
-    { id: 9, name: "Scam", emoji: "🚨", description: "Fraudulent activity" },
-    { id: 10, name: "Savings", emoji: "💸", description: "Money preserved" }
+    { id: 6, name: "Trust", emoji: "🤝",  },
+    { id: 7, name: "Loss", emoji: "😞",  },
+    { id: 8, name: "Gain", emoji: "💰",  },
+    { id: 9, name: "Scam", emoji: "🚨",  },
+    { id: 10, name: "Savings", emoji: "💸",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

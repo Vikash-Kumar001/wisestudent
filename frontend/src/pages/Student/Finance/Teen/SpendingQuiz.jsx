@@ -30,21 +30,19 @@ const SpendingQuiz = () => {
           id: "a", 
           text: "Comparing price + quality", 
           emoji: "🔍", 
-          description: "Researching and choosing the best value for money",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Buying branded shoes always", 
           emoji: "👟", 
-          description: "Always choosing branded items regardless of need or price",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Buying whatever is cheap", 
           emoji: "💰", 
-          description: "Choosing only the cheapest option without considering quality",
           isCorrect: false
         }
       ]
@@ -57,21 +55,18 @@ const SpendingQuiz = () => {
           id: "a", 
           text: "Buy immediately", 
           emoji: "🛒", 
-          description: "Purchase right away to avoid missing out",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Research and compare", 
           emoji: "📚", 
-          description: "Research options, compare prices, and read reviews",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Ask friends only", 
           emoji: "👥", 
-          description: "Only ask friends for advice without researching yourself",
           isCorrect: false
         }
       ]
@@ -84,21 +79,18 @@ const SpendingQuiz = () => {
           id: "a", 
           text: "Impulse buying", 
           emoji: "⚡", 
-          description: "Making spontaneous purchases without planning",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Keeping up with trends", 
           emoji: "📈", 
-          description: "Buying what's popular to fit in with others",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Budgeting first", 
           emoji: "📋", 
-          description: "Creating a budget and sticking to it before spending",
           isCorrect: true
         }
       ]
@@ -110,22 +102,19 @@ const SpendingQuiz = () => {
         { 
           id: "a", 
           text: "Stick to the list", 
-          emoji: "✅", 
-          description: "Follow your planned list to avoid unnecessary purchases",
+          emoji: "🛒", 
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Buy what looks good", 
           emoji: "👀", 
-          description: "Purchase items that catch your eye even if not planned",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Forget the list", 
           emoji: "🗑️", 
-          description: "Ignore your shopping list and buy whatever you want",
           isCorrect: false
         }
       ]
@@ -138,21 +127,18 @@ const SpendingQuiz = () => {
           id: "a", 
           text: "Buy everything on sale", 
           emoji: "🎉", 
-          description: "Purchase all discounted items even if you don't need them",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Ignore all sales", 
           emoji: "🚫", 
-          description: "Never take advantage of sales or discounts",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Buy only needed items", 
           emoji: "🎯", 
-          description: "Purchase discounted items only if you actually need them",
           isCorrect: true
         }
       ]

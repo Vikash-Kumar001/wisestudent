@@ -29,20 +29,20 @@ const ResiliencePuzzle = () => {
 
   // Left side - setbacks
   const leftItems = [
-    { id: 1, name: "Fall", emoji: "⬇️", description: "Fall down" },
-    { id: 2, name: "Fail", emoji: "❌", description: "Fail at something" },
-    { id: 3, name: "Mistake", emoji: "⚠️", description: "Make a mistake" },
-    { id: 4, name: "Lose", emoji: "😞", description: "Lose a game" },
-    { id: 5, name: "Error", emoji: "🔴", description: "Make an error" }
+    { id: 1, name: "Fall", emoji: "⬇️",  },
+    { id: 2, name: "Fail", emoji: "❌",  },
+    { id: 3, name: "Mistake", emoji: "⚠️",  },
+    { id: 4, name: "Lose", emoji: "😞",  },
+    { id: 5, name: "Error", emoji: "🔴",  }
   ];
 
   // Right side - resilient responses
   const rightItems = [
-    { id: 1, name: "Rise", emoji: "⬆️", description: "Get back up" },
-    { id: 2, name: "Try Again", emoji: "🔄", description: "Try once more" },
-    { id: 3, name: "Learn", emoji: "📚", description: "Learn from it" },
-    { id: 4, name: "Practice", emoji: "💪", description: "Practice more" },
-    { id: 5, name: "Fix", emoji: "🔧", description: "Correct it" }
+    { id: 1, name: "Rise", emoji: "⬆️",  },
+    { id: 2, name: "Try Again", emoji: "🔄",  },
+    { id: 3, name: "Learn", emoji: "📚",  },
+    { id: 4, name: "Practice", emoji: "💪",  },
+    { id: 5, name: "Fix", emoji: "🔧",  }
   ];
 
   // Correct matches

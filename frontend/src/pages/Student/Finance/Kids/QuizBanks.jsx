@@ -32,21 +32,20 @@ const QuizBanks = () => {
           id: "toy", 
           text: "Toy shop", 
           emoji: "🧸", 
-          description: "A place to buy toys",
+          
           isCorrect: false
         },
         { 
           id: "safe", 
           text: "Place to keep money safe", 
           emoji: "🏦", 
-          description: "A safe place to store your money",
+         
           isCorrect: true
         },
         { 
           id: "icecream", 
           text: "Ice cream shop", 
           emoji: "🍦", 
-          description: "A place to buy ice cream",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const QuizBanks = () => {
           id: "toys", 
           text: "Gives you toys", 
           emoji: "🧸", 
-          description: "Provides free toys",
           isCorrect: false
         },
         { 
           id: "food", 
           text: "Sells food", 
           emoji: "🍕", 
-          description: "Sells food items",
           isCorrect: false
         },
         {
           id: "grows",
           text: "Grows your money",
           emoji: "📈",
-          description: "Helps your money increase over time",
           isCorrect: true
         },
       ]
@@ -86,21 +82,18 @@ const QuizBanks = () => {
           id: "clothes", 
           text: "Buy clothes", 
           emoji: "👕", 
-          description: "Purchase clothing",
           isCorrect: false
         },
         { 
           id: "withdraw", 
           text: "Withdraw money", 
           emoji: "💰", 
-          description: "Take out your money",
           isCorrect: true
         },
         { 
           id: "games", 
           text: "Play games", 
           emoji: "🎮", 
-          description: "Play video games",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const QuizBanks = () => {
           id: "borrow", 
           text: "To help you borrow money", 
           emoji: "💳", 
-          description: "Lend money when you need it",
           isCorrect: true
         },
         { 
           id: "free", 
           text: "To give free money", 
           emoji: "🎁", 
-          description: "Give money for free",
           isCorrect: false
         },
         { 
           id: "toys", 
           text: "To sell toys", 
           emoji: "🧸", 
-          description: "Sell toy items",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const QuizBanks = () => {
           id: "candy", 
           text: "They give you candy", 
           emoji: "🍬", 
-          description: "Provide free candy",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "They hide money", 
           emoji: "🫥", 
-          description: "Hide your money away",
           isCorrect: false
         },
         {
           id: "protect",
           text: "They protect your savings",
           emoji: "🛡️",
-          description: "Keep your money secure",
           isCorrect: true
         },
       ]

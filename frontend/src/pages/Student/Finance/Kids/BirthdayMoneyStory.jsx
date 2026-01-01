@@ -32,21 +32,19 @@ const BirthdayMoneyStory = () => {
           id: "save", 
           text: "Save Some", 
           emoji: "🏦", 
-          description: "Put ₹30 in savings for something bigger later",
+          
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend All", 
           emoji: "🛍️", 
-          description: "Buy toys and treats right now with all ₹50",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give to Parents", 
           emoji: "👨‍👩‍👧", 
-          description: "Give all the money to your parents",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const BirthdayMoneyStory = () => {
           id: "spend", 
           text: "Go to Movie", 
           emoji: "🎬", 
-          description: "Spend ₹25 on the movie ticket",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Keep Saving", 
           emoji: "💰", 
-          description: "Continue saving for something bigger",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Ask for More", 
           emoji: "💳", 
-          description: "Ask parents for extra money",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const BirthdayMoneyStory = () => {
           id: "spend", 
           text: "Buy the Toy", 
           emoji: "🧸", 
-          description: "Buy the toy you want now",
           isCorrect: false
         },
         { 
           id: "split", 
           text: "Buy Half", 
           emoji: "🤝", 
-          description: "Spend ₹40 and save the rest",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save More", 
           emoji: "📈", 
-          description: "Keep saving for something more important",
           isCorrect: true
         }
       ]
@@ -113,21 +105,18 @@ const BirthdayMoneyStory = () => {
           id: "save", 
           text: "Keep Your Savings", 
           emoji: "🔒", 
-          description: "Politely say no and keep your savings safe",
           isCorrect: true
         },
         { 
           id: "lend", 
           text: "Lend the Money", 
           emoji: "🤲", 
-          description: "Give your friend the ₹20",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask Parents", 
           emoji: "👨‍👩‍👧", 
-          description: "Ask your parents what to do",
           isCorrect: false
         }
       ]
@@ -140,21 +129,18 @@ const BirthdayMoneyStory = () => {
           id: "spend", 
           text: "Spend Now", 
           emoji: "🛒", 
-          description: "Spend the ₹100 right away",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Keep Saving", 
           emoji: "🎯", 
-          description: "Continue saving to get the match",
           isCorrect: true
         },
         { 
           id: "half", 
           text: "Spend Half", 
           emoji: "⚖️", 
-          description: "Spend ₹50 and save ₹50",
           isCorrect: false
         }
       ]

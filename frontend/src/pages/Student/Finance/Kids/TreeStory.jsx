@@ -31,21 +31,19 @@ const TreeStory = () => {
           id: "save", 
           text: "Save", 
           emoji: "🌱", 
-          description: "Save money like planting a seed",
+          
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste", 
           emoji: "💸", 
-          description: "Spend all your money",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore", 
           emoji: "😴", 
-          description: "Don't think about it",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const TreeStory = () => {
           id: "spend", 
           text: "Spend Fast", 
           emoji: "⚡", 
-          description: "Use it quickly",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hide It", 
           emoji: "🙈", 
-          description: "Keep it hidden",
           isCorrect: false
         },
         {
           id: "grow",
           text: "Grow Money",
           emoji: "📈",
-          description: "Invest and let it grow",
           isCorrect: true
         },
       ]
@@ -85,21 +80,18 @@ const TreeStory = () => {
           id: "invest", 
           text: "Invest", 
           emoji: "💰", 
-          description: "Put money to work",
           isCorrect: true
         },
         { 
           id: "lose", 
           text: "Lose", 
           emoji: "📉", 
-          description: "Lose the opportunity",
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget About It", 
           emoji: "🤷", 
-          description: "Don't do anything",
           isCorrect: false
         }
       ]
@@ -112,21 +104,18 @@ const TreeStory = () => {
           id: "spend", 
           text: "Spend All", 
           emoji: "🛍️", 
-          description: "Use everything now",
           isCorrect: false
         },
         { 
           id: "wait", 
           text: "Wait Forever", 
           emoji: "⏳", 
-          description: "Do nothing and wait",
           isCorrect: false
         },
         {
           id: "build",
           text: "Build Wealth",
           emoji: "🏗️",
-          description: "Grow wealth over time",
           isCorrect: true
         },
       ]
@@ -139,21 +128,18 @@ const TreeStory = () => {
           id: "burn", 
           text: "Burn Cash", 
           emoji: "🔥", 
-          description: "Waste your savings",
           isCorrect: false
         },
         {
           id: "plant",
           text: "Plant Savings",
           emoji: "🌳",
-          description: "Let savings grow like a tree",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore Savings", 
           emoji: "😑", 
-          description: "Don't care about savings",
           isCorrect: false
         }
       ]

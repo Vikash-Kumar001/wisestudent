@@ -35,21 +35,19 @@ const CreativityQuiz = () => {
           id: "crying", 
           text: "Crying", 
           emoji: "😢", 
-          description: "Getting upset",
+          
           isCorrect: false
         },
         { 
           id: "finding", 
           text: "Finding another way", 
           emoji: "💡", 
-          description: "Thinking creatively",
           isCorrect: true
         },
         { 
           id: "giving", 
           text: "Giving up", 
           emoji: "😞", 
-          description: "Stopping trying",
           isCorrect: false
         }
       ]
@@ -62,7 +60,6 @@ const CreativityQuiz = () => {
           id: "copy", 
           text: "Copying others", 
           emoji: "📋", 
-          description: "Doing the same thing",
           isCorrect: false
         },
         
@@ -70,14 +67,12 @@ const CreativityQuiz = () => {
           id: "avoid", 
           text: "Avoiding problems", 
           emoji: "🚶", 
-          description: "Running away",
           isCorrect: false
         },
         { 
           id: "new", 
           text: "Coming up with new ideas", 
           emoji: "✨", 
-          description: "Thinking differently",
           isCorrect: true
         },
       ]
@@ -90,21 +85,18 @@ const CreativityQuiz = () => {
           id: "same", 
           text: "Do the same thing again", 
           emoji: "🔄", 
-          description: "Repeat old methods",
           isCorrect: false
         },
         { 
           id: "think", 
           text: "Think of different solutions", 
           emoji: "🧠", 
-          description: "Brainstorm ideas",
           isCorrect: true
         },
         { 
           id: "wait", 
           text: "Wait for someone else", 
           emoji: "⏳", 
-          description: "Let others solve it",
           isCorrect: false
         }
       ]
@@ -117,14 +109,12 @@ const CreativityQuiz = () => {
           id: "experiment", 
           text: "Trying new things", 
           emoji: "🔬", 
-          description: "Experimenting",
           isCorrect: true
         },
         { 
           id: "fear", 
           text: "Being afraid to try", 
           emoji: "😨", 
-          description: "Avoiding new things",
           isCorrect: false
         },
        
@@ -132,7 +122,6 @@ const CreativityQuiz = () => {
           id: "stay", 
           text: "Staying in comfort zone", 
           emoji: "🛋️", 
-          description: "Never changing",
           isCorrect: false
         }
       ]
@@ -145,21 +134,18 @@ const CreativityQuiz = () => {
           id: "quit", 
           text: "Give up immediately", 
           emoji: "🏳️", 
-          description: "Stop trying",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame others", 
           emoji: "👆", 
-          description: "Point fingers",
           isCorrect: false
         },
         { 
           id: "solve", 
           text: "Think and find solutions", 
           emoji: "🔧", 
-          description: "Work on solving it",
           isCorrect: true
         }
       ]

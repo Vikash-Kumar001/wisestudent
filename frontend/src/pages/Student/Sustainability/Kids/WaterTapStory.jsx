@@ -102,7 +102,7 @@ const WaterTapStory = () => {
       text: "What should you do after using the tap?",
       options: [
         { id: "run", text: "Leave it running", emoji: "💧", isCorrect: false },
-        { id: "check", text: "Check it's fully closed", emoji: "✅", isCorrect: true },
+        { id: "check", text: "Check it's fully closed", emoji: "😓", isCorrect: true },
         { id: "play", text: "Play with the water", emoji: "💦", isCorrect: false }
       ]
     },
@@ -111,8 +111,8 @@ const WaterTapStory = () => {
       text: "What happens if we waste water?",
       options: [
         { id: "plenty", text: "There's always plenty", emoji: "♾️", isCorrect: false },
+        { id: "free", text: "It's free anyway", emoji: "💰", isCorrect: false },
         { id: "scarce", text: "It becomes scarce", emoji: "⚠️", isCorrect: true },
-        { id: "free", text: "It's free anyway", emoji: "💰", isCorrect: false }
       ]
     }
   ];

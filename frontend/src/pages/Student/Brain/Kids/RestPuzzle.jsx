@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
-import { Moon, Battery, Tv, Frown } from 'lucide-react';
+
 
 const RestPuzzle = () => {
   const location = useLocation();
@@ -30,20 +30,20 @@ const RestPuzzle = () => {
 
   // Left side - rest activities
   const leftItems = [
-    { id: 1, name: "Nap", emoji: "😴", description: "Short sleep", icon: Moon },
-    { id: 2, name: "All-night TV", emoji: "📺", description: "Watching all night", icon: Tv },
-    { id: 3, name: "Early Sleep", emoji: "🌙", description: "Sleeping early", icon: Moon },
-    { id: 4, name: "Late Gaming", emoji: "🎮", description: "Playing late", icon: Tv },
-    { id: 5, name: "Quiet Time", emoji: "🧘", description: "Peaceful rest", icon: Battery }
+    { id: 1, name: "Nap", emoji: "😴",   },
+    { id: 2, name: "All-night TV", emoji: "📺",   },
+    { id: 3, name: "Early Sleep", emoji: "🌙",   },
+    { id: 4, name: "Late Gaming", emoji: "🎮",   },
+    { id: 5, name: "Quiet Time", emoji: "🧘",   }
   ];
 
   // Right side - effects
   const rightItems = [
-    { id: 1, name: "Energy", emoji: "⚡", description: "Feeling refreshed" },
-    { id: 2, name: "Tired", emoji: "😴", description: "Feeling exhausted" },
-    { id: 3, name: "Restored", emoji: "😊", description: "Feeling better" },
-    { id: 4, name: "Exhausted", emoji: "😞", description: "Feeling drained" },
-    { id: 5, name: "Calm", emoji: "🧘", description: "Feeling peaceful" }
+    { id: 1, name: "Energy", emoji: "⚡",   },
+    { id: 2, name: "Tired", emoji: "😴",   },
+    { id: 3, name: "Restored", emoji: "😊",   },
+    { id: 4, name: "Exhausted", emoji: "😞",   },
+    { id: 5, name: "Calm", emoji: "🧘",   }
   ];
 
   // Correct matches
@@ -151,7 +151,6 @@ const RestPuzzle = () => {
                 <div className="space-y-3">
                   <h3 className="text-white font-bold text-center mb-4">Rest Activities</h3>
                   {leftItems.map((item) => {
-                    const Icon = item.icon;
                     const matched = matches.some(m => m.leftId === item.id && m.isCorrect);
                     return (
                       <button
@@ -167,12 +166,10 @@ const RestPuzzle = () => {
                         } ${matched ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
                       >
                         <div className="flex items-center gap-3">
-                          <Icon className="w-6 h-6 text-white" />
+                          <div className="text-2xl">{item.emoji}</div>
                           <div className="text-left flex-1">
                             <div className="text-white font-bold">{item.name}</div>
-                            <div className="text-white/70 text-sm">{item.description}</div>
                           </div>
-                          <div className="text-2xl">{item.emoji}</div>
                         </div>
                       </button>
                     );
@@ -213,7 +210,6 @@ const RestPuzzle = () => {
                           <div className="text-2xl">{item.emoji}</div>
                           <div className="text-left flex-1">
                             <div className="text-white font-bold">{item.name}</div>
-                            <div className="text-white/70 text-sm">{item.description}</div>
                           </div>
                         </div>
                       </button>

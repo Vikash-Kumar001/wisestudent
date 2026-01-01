@@ -34,22 +34,22 @@ const DebateMoneyAndMorals = () => {
         { 
           id: "yes", 
           text: "Yes, ethics matter more", 
-          emoji: "✅", 
-          description: "Character is important",
+          emoji: "🙂", 
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, money doesn't matter", 
-          emoji: "❌", 
-          description: "Money is irrelevant",
+          emoji: "🤷", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Situational",
+         
           isCorrect: false
         }
       ]
@@ -62,21 +62,21 @@ const DebateMoneyAndMorals = () => {
           id: "sometimes", 
           text: "Sometimes okay", 
           emoji: "🤷", 
-          description: "Flexible ethics",
+          
           isCorrect: false
         },
         { 
           id: "never", 
           text: "Never compromise", 
           emoji: "🛡️", 
-          description: "Ethics first",
+          
           isCorrect: true
         },
         { 
           id: "always", 
           text: "Money is priority", 
           emoji: "💰", 
-          description: "Money matters most",
+          
           isCorrect: false
         }
       ]
@@ -89,21 +89,21 @@ const DebateMoneyAndMorals = () => {
           id: "wealth", 
           text: "Wealth", 
           emoji: "💵", 
-          description: "Money is key",
+          
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Both equally", 
           emoji: "⚖️", 
-          description: "Balance needed",
+          
           isCorrect: false
         },
         { 
           id: "integrity", 
           text: "Integrity", 
           emoji: "💎", 
-          description: "Character matters",
+          
           isCorrect: true
         }
       ]
@@ -116,21 +116,19 @@ const DebateMoneyAndMorals = () => {
           id: "yes2", 
           text: "Yes, absolutely", 
           emoji: "✨", 
-          description: "Ethics and wealth",
+          
           isCorrect: true
         },
         { 
           id: "no2", 
           text: "No, impossible", 
           emoji: "🚫", 
-          description: "Can't have both",
           isCorrect: false
         },
         { 
           id: "rarely", 
           text: "Rarely possible", 
           emoji: "😕", 
-          description: "Very difficult",
           isCorrect: false
         }
       ]
@@ -143,21 +141,18 @@ const DebateMoneyAndMorals = () => {
           id: "shortcuts", 
           text: "Shortcuts and tricks", 
           emoji: "⚡", 
-          description: "Quick gains",
           isCorrect: false
         },
         { 
           id: "ethics", 
           text: "Ethics and honesty", 
           emoji: "🏆", 
-          description: "Long-term success",
           isCorrect: true
         },
         { 
           id: "luck", 
           text: "Luck only", 
           emoji: "🍀", 
-          description: "Chance matters",
           isCorrect: false
         }
       ]

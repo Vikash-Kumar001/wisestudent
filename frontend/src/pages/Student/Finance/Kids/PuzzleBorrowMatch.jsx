@@ -47,20 +47,20 @@ const PuzzleBorrowMatch = () => {
 
   // Borrowed Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Book", emoji: "📚", hint: "For reading" },
-    { id: 2, name: "Toy", emoji: "🧸", hint: "For playing" },
-    { id: 3, name: "Pencil", emoji: "✏️", hint: "For writing" },
-    { id: 4, name: "Money", emoji: "💵", hint: "For buying" },
-    { id: 5, name: "Lunch", emoji: "🍱", hint: "For eating" }
+    { id: 1, name: "Book", emoji: "📚",  },
+    { id: 2, name: "Toy", emoji: "🧸",  },
+    { id: 3, name: "Pencil", emoji: "✏️",  },
+    { id: 4, name: "Money", emoji: "💵",  },
+    { id: 5, name: "Lunch", emoji: "🍱",  }
   ];
 
   // Actions (right side) - 5 items
   const actions = [
-    { id: 6, name: "Return", emoji: "↩️", description: "Give back" },
-    { id: 7, name: "Share", emoji: "🤝", description: "Divide with others" },
-    { id: 8, name: "Repay", emoji: "💳", description: "Pay back" },
-    { id: 9, name: "Thank", emoji: "🙏", description: "Show gratitude" },
-    { id: 10, name: "Lend", emoji: "🤝", description: "Give temporarily" }
+    { id: 6, name: "Return", emoji: "↩️",  },
+    { id: 7, name: "Share", emoji: "🤝",  },
+    { id: 8, name: "Repay", emoji: "💳",  },
+    { id: 9, name: "Thank", emoji: "🙏",  },
+    { id: 10, name: "Lend", emoji: "🤝",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

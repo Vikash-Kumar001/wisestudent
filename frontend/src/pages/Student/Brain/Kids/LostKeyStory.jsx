@@ -35,21 +35,19 @@ const LostKeyStory = () => {
           id: "tell", 
           text: "Tell teacher & find solution", 
           emoji: "👨‍🏫", 
-          description: "Ask for help and work together",
+          
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hide and don't tell anyone", 
           emoji: "🙈", 
-          description: "Keep it a secret",
           isCorrect: false
         },
         { 
           id: "panic", 
           text: "Panic and cry", 
           emoji: "😰", 
-          description: "Get very upset",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const LostKeyStory = () => {
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😑", 
-          description: "Pretend it didn't happen",
           isCorrect: false
         },
         { 
           id: "tell2", 
           text: "Tell teacher & ask for help", 
           emoji: "🙋", 
-          description: "Communicate and find solution",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame someone else", 
           emoji: "👆", 
-          description: "Point fingers",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const LostKeyStory = () => {
           id: "skip", 
           text: "Skip lunch", 
           emoji: "😞", 
-          description: "Go without eating",
           isCorrect: false
         },
         { 
           id: "steal", 
           text: "Take from someone", 
           emoji: "👀", 
-          description: "Take without asking",
           isCorrect: false
         },
         { 
           id: "ask3", 
           text: "Tell teacher & find solution", 
           emoji: "💬", 
-          description: "Ask for help",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const LostKeyStory = () => {
           id: "tell4", 
           text: "Tell librarian & search together", 
           emoji: "📚", 
-          description: "Work together to find it",
           isCorrect: true
         },
         { 
           id: "lie", 
           text: "Lie about it", 
           emoji: "🤥", 
-          description: "Make up a story",
           isCorrect: false
         },
         { 
           id: "avoid", 
           text: "Avoid the library", 
           emoji: "🚶", 
-          description: "Stay away",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const LostKeyStory = () => {
           id: "deny", 
           text: "Deny it", 
           emoji: "🙅", 
-          description: "Say you didn't take it",
           isCorrect: false
         },
         { 
           id: "tell5", 
           text: "Tell friend & find solution", 
           emoji: "🤝", 
-          description: "Be honest and fix it",
           isCorrect: true
         },
         { 
           id: "ignore5", 
           text: "Ignore it", 
           emoji: "😐", 
-          description: "Pretend nothing happened",
           isCorrect: false
         }
       ]

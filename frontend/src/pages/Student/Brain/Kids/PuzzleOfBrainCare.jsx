@@ -29,20 +29,20 @@ const PuzzleOfBrainCare = () => {
 
   // Brain care activities (left side)
   const leftItems = [
-    { id: 1, name: "Sleep", emoji: "😴", description: "Rest for brain recovery" },
-    { id: 2, name: "Reading", emoji: "📚", description: "Learn and think better" },
-    { id: 3, name: "Exercise", emoji: "💪", description: "Physical activity for brain" },
-    { id: 4, name: "Healthy Food", emoji: "🍎", description: "Nutritious meals" },
-    { id: 5, name: "Water", emoji: "💧", description: "Stay hydrated" }
+    { id: 1, name: "Sleep", emoji: "😴",  },
+    { id: 2, name: "Reading", emoji: "📚",  },
+    { id: 3, name: "Exercise", emoji: "💪",  },
+    { id: 4, name: "Healthy Food", emoji: "🍎",  },
+    { id: 5, name: "Water", emoji: "💧",  }
   ];
 
   // Benefits (right side)
   const rightItems = [
-    { id: 1, name: "Rest & Memory", emoji: "🧠", description: "Helps brain recover and form memories" },
-    { id: 2, name: "Sharp Mind", emoji: "✨", description: "Improves vocabulary and thinking skills" },
-    { id: 3, name: "Strong Brain", emoji: "💪", description: "Increases blood flow to the brain" },
-    { id: 4, name: "Smart Fuel", emoji: "⚡", description: "Provides nutrients for brain function" },
-    { id: 5, name: "Stay Hydrated", emoji: "💧", description: "Keeps brain functioning well" }
+    { id: 1, name: "Rest & Memory", emoji: "🧠",  },
+    { id: 2, name: "Sharp Mind", emoji: "✨",  },
+    { id: 3, name: "Strong Brain", emoji: "💪",  },
+    { id: 4, name: "Smart Fuel", emoji: "⚡",  },
+    { id: 5, name: "Stay Hydrated", emoji: "💧",  }
   ];
 
   // Correct matches

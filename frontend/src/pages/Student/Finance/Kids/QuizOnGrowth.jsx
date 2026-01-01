@@ -32,21 +32,19 @@ const QuizOnGrowth = () => {
           id: "spend", 
           text: "Spending all", 
           emoji: "💸", 
-          description: "Spend everything",
+          
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Wasting", 
           emoji: "🗑️", 
-          description: "Waste money",
           isCorrect: false
         },
         {
           id: "savings",
           text: "Savings + Interest",
           emoji: "📈",
-          description: "Save and earn interest",
           isCorrect: true
         },
       ]
@@ -59,21 +57,18 @@ const QuizOnGrowth = () => {
           id: "toys", 
           text: "Gives toys", 
           emoji: "🧸", 
-          description: "Provides free toys",
           isCorrect: false
         },
         {
           id: "interest",
           text: "Pays interest",
           emoji: "💰",
-          description: "Gives you interest on savings",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hides money", 
           emoji: "🫥", 
-          description: "Hides your money",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const QuizOnGrowth = () => {
           id: "candy", 
           text: "Buy candy", 
           emoji: "🍬", 
-          description: "Purchase candy",
           isCorrect: false
         },
         { 
           id: "home", 
           text: "Keep cash at home", 
           emoji: "🏠", 
-          description: "Store at home",
           isCorrect: false
         },
         {
           id: "bank",
           text: "Bank savings account",
           emoji: "🏦",
-          description: "Save in a bank",
           isCorrect: true
         },
       ]
@@ -113,21 +105,18 @@ const QuizOnGrowth = () => {
           id: "grows", 
           text: "Grows your money", 
           emoji: "📊", 
-          description: "Increases your money",
           isCorrect: true
         },
         { 
           id: "spends", 
           text: "Spends your money", 
           emoji: "💸", 
-          description: "Uses your money",
           isCorrect: false
         },
         { 
           id: "loses", 
           text: "Loses your money", 
           emoji: "📉", 
-          description: "Causes loss",
           isCorrect: false
         }
       ]
@@ -140,21 +129,18 @@ const QuizOnGrowth = () => {
           id: "toys", 
           text: "It buys toys", 
           emoji: "🧸", 
-          description: "Use it for toys",
           isCorrect: false
         },
         {
           id: "interest",
           text: "It grows with interest",
           emoji: "💹",
-          description: "Money increases over time",
           isCorrect: true
         },
         { 
           id: "fun", 
           text: "It's fun to save", 
           emoji: "😊", 
-          description: "Enjoy saving",
           isCorrect: false
         }
       ]

@@ -36,21 +36,20 @@ const QuizOnMemory = () => {
           id: "b", 
           text: "Skipping food", 
           emoji: "🍽️", 
-          description: "Nutrition is important for memory",
+          
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Sleep", 
           emoji: "😴", 
-          description: "Sleep helps memory formation",
+          
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Stress", 
           emoji: "😰", 
-          description: "Stress hurts memory",
           isCorrect: false
         }
       ]
@@ -63,21 +62,18 @@ const QuizOnMemory = () => {
           id: "a", 
           text: "Practicing and repeating", 
           emoji: "🔁", 
-          description: "Practice strengthens memory",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Never practicing", 
           emoji: "🚫", 
-          description: "Practice is important",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Forgetting everything", 
           emoji: "😵", 
-          description: "This doesn't help",
           isCorrect: false
         }
       ]
@@ -90,21 +86,18 @@ const QuizOnMemory = () => {
           id: "a", 
           text: "Junk food only", 
           emoji: "🍟", 
-          description: "Junk food isn't good for brain",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Healthy food like fruits and vegetables", 
           emoji: "🍎", 
-          description: "Healthy food supports brain function",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "No food at all", 
           emoji: "🚫", 
-          description: "Nutrition is essential",
           isCorrect: false
         }
       ]
@@ -118,21 +111,18 @@ const QuizOnMemory = () => {
           id: "b", 
           text: "Never write anything", 
           emoji: "🙈", 
-          description: "Writing helps memory",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ignore everything", 
           emoji: "😴", 
-          description: "This won't help",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Write them down and review", 
           emoji: "📝", 
-          description: "Writing and reviewing helps",
           isCorrect: true
         },
       ]
@@ -146,21 +136,18 @@ const QuizOnMemory = () => {
           id: "b", 
           text: "No, exercise doesn't help", 
           emoji: "❌", 
-          description: "Exercise does help",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Yes, exercise improves brain function", 
           emoji: "💪", 
-          description: "Exercise benefits memory",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Maybe sometimes", 
           emoji: "🤔", 
-          description: "Exercise consistently helps",
           isCorrect: false
         }
       ]

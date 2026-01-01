@@ -36,21 +36,20 @@ const SavingsSaga = () => {
           id: "70-20-10", 
           text: "70% needs, 20% wants, 10% savings", 
           emoji: "📈", 
-          description: "Prioritize needs with modest savings allocation",
+          
           isCorrect: false
         },
         { 
           id: "equal", 
           text: "Equal parts: 33% each", 
           emoji: "⚖️", 
-          description: "Simple approach: divide equally among all three categories",
+          
           isCorrect: false
         },
          { 
           id: "50-30-20", 
           text: "50% needs, 30% wants, 20% savings", 
           emoji: "💰", 
-          description: "Follow the proven 50/30/20 rule for balanced budgeting",
           isCorrect: true
         },
       ]
@@ -64,21 +63,18 @@ const SavingsSaga = () => {
           id: "12000", 
           text: "Exactly ₹12,000", 
           emoji: "💵", 
-          description: "Only the principal amount without interest",
           isCorrect: false
         },
         { 
           id: "12600", 
           text: "Approx. ₹12,600", 
           emoji: "🏦", 
-          description: "Includes both principal (₹12,000) and compound interest",
           isCorrect: true
         },
         { 
           id: "13000", 
           text: "Around ₹13,000", 
           emoji: "📈", 
-          description: "Overestimates the compound interest effect",
           isCorrect: false
         }
       ]
@@ -92,21 +88,18 @@ const SavingsSaga = () => {
           id: "fd", 
           text: "Put in fixed deposit earning 7% annually", 
           emoji: "🏦", 
-          description: "Safe but loses value to inflation",
           isCorrect: false
         },
         { 
           id: "cash", 
           text: "Keep as cash at home", 
           emoji: "💵", 
-          description: "Zero return, significant loss to inflation",
           isCorrect: false
         },
         { 
           id: "invest", 
           text: "Invest in instrument earning 9% annually", 
           emoji: "💹", 
-          description: "Returns beat inflation, preserving purchasing power",
           isCorrect: true
         },
       ]
@@ -119,21 +112,18 @@ const SavingsSaga = () => {
           id: "1300", 
           text: "Approx. ₹1,300 per month", 
           emoji: "🎯", 
-          description: "Realistic savings target considering compound interest",
           isCorrect: true
         },
         { 
           id: "1100", 
           text: "About ₹1,100 per month", 
           emoji: "📉", 
-          description: "Underestimates required savings, will fall short",
           isCorrect: false
         },
         { 
           id: "1500", 
           text: "Around ₹1,500 per month", 
           emoji: "📈", 
-          description: "Overestimates required amount, saves unnecessarily",
           isCorrect: false
         }
       ]
@@ -147,21 +137,18 @@ const SavingsSaga = () => {
           id: "allstocks", 
           text: "Invest all in high-risk stocks", 
           emoji: "🚀", 
-          description: "Maximum growth potential but extremely risky",
           isCorrect: false
         },
          { 
           id: "emergency", 
           text: "30% emergency fund, 50% FD, 20% stocks", 
           emoji: "🛡️", 
-          description: "Balanced approach with safety, growth, and liquidity",
           isCorrect: true
         },
         { 
           id: "allfd", 
           text: "Put all in fixed deposits", 
           emoji: "🏦", 
-          description: "Safe but minimal returns, poor long-term strategy",
           isCorrect: false
         }
       ]

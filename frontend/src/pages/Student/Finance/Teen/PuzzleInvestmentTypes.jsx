@@ -47,20 +47,20 @@ const PuzzleInvestmentTypes = () => {
 
   // Investments (left side) - 5 items
   const investments = [
-    { id: 1, name: "Fixed Deposit", emoji: "🏦", hint: "Bank savings" },
-    { id: 2, name: "Stocks", emoji: "📊", hint: "Company shares" },
-    { id: 3, name: "Mutual Fund", emoji: "💼", hint: "Pooled investment" },
-    { id: 4, name: "Bonds", emoji: "📝", hint: "Loan certificates" },
-    { id: 5, name: "Real Estate", emoji: "🏠", hint: "Property assets" }
+    { id: 1, name: "Fixed Deposit", emoji: "🏦",  },
+    { id: 2, name: "Stocks", emoji: "📊",  },
+    { id: 3, name: "Mutual Fund", emoji: "💼",  },
+    { id: 4, name: "Bonds", emoji: "📝",  },
+    { id: 5, name: "Real Estate", emoji: "🏠",  }
   ];
 
   // Characteristics (right side) - 5 items
   const characteristics = [
-    { id: 6, name: "Safe", emoji: "🛡️", description: "Low risk investment" },
-    { id: 7, name: "Risky", emoji: "⚠️", description: "High volatility" },
-    { id: 8, name: "Diversified", emoji: "🔄", description: "Spread across assets" },
-    { id: 9, name: "Stable", emoji: "⚖️", description: "Consistent returns" },
-    { id: 10, name: "Long-term", emoji: "📅", description: "Multi-year holding" }
+    { id: 6, name: "Safe", emoji: "🛡️",  },
+    { id: 7, name: "Risky", emoji: "⚠️",  },
+    { id: 8, name: "Diversified", emoji: "🔄",  },
+    { id: 9, name: "Stable", emoji: "⚖️",  },
+    { id: 10, name: "Long-term", emoji: "📅",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

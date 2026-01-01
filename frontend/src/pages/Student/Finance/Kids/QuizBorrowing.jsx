@@ -32,21 +32,20 @@ const QuizBorrowing = () => {
           id: "without", 
           text: "Taking without asking", 
           emoji: "🙈", 
-          description: "Taking something secretly",
+          
           isCorrect: false
         },
         { 
           id: "return", 
           text: "Using and returning", 
           emoji: "🔄", 
-          description: "Use something and give it back",
+          
           isCorrect: true
         },
         { 
           id: "steal", 
           text: "Stealing", 
           emoji: "😈", 
-          description: "Taking without permission",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const QuizBorrowing = () => {
           id: "return",
           text: "Return it",
           emoji: "↩️",
-          description: "Give it back to owner",
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep it forever", 
           emoji: "📚", 
-          description: "Never return it",
           isCorrect: false
         },
         { 
           id: "sell", 
           text: "Sell it", 
           emoji: "💰", 
-          description: "Sell for money",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const QuizBorrowing = () => {
           id: "repay", 
           text: "You repay with interest", 
           emoji: "💳", 
-          description: "Pay back with extra",
           isCorrect: true
         },
         { 
           id: "free", 
           text: "It's free money", 
           emoji: "🎁", 
-          description: "Get money for free",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "You don't repay", 
           emoji: "🙊", 
-          description: "Never pay back",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const QuizBorrowing = () => {
           id: "more", 
           text: "You get more items", 
           emoji: "🎁", 
-          description: "Receive more things",
           isCorrect: false
         },
         { 
           id: "rewards", 
           text: "You get rewards", 
           emoji: "🏆", 
-          description: "Get prizes",
           isCorrect: false
         },
         {
           id: "trust",
           text: "You lose trust",
           emoji: "😞",
-          description: "People won't trust you",
           isCorrect: true
         },
       ]
@@ -140,21 +130,18 @@ const QuizBorrowing = () => {
           id: "toys", 
           text: "Gets you more toys", 
           emoji: "🧸", 
-          description: "Receive more toys",
           isCorrect: false
         },
         {
           id: "trust",
           text: "Builds trust with others",
           emoji: "🤝",
-          description: "Creates trust",
           isCorrect: true
         },
         { 
           id: "fun", 
           text: "Makes borrowing fun", 
           emoji: "😊", 
-          description: "Enjoyable activity",
           isCorrect: false
         }
       ]

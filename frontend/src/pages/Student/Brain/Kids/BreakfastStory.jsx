@@ -35,21 +35,21 @@ const BreakfastStory = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "It might be okay sometimes",
+          
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "Breakfast fuels your brain for the day",
+          emoji: "👎", 
+         
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
-          description: "Skipping breakfast is fine",
+          emoji: "👍", 
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,19 @@ const BreakfastStory = () => {
           id: "cereal", 
           text: "Whole grain cereal with milk", 
           emoji: "🥣", 
-          description: "Whole grains and protein help your brain work well",
+          
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Candy bar", 
           emoji: "🍫", 
-          description: "Candy has lots of sugar",
           isCorrect: false
         },
         { 
           id: "nothing", 
           text: "Nothing", 
           emoji: "🚫", 
-          description: "Skip breakfast completely",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const BreakfastStory = () => {
           id: "expensive", 
           text: "It's the most expensive meal", 
           emoji: "💰", 
-          description: "Breakfast costs more money",
           isCorrect: false
         },
         { 
           id: "first", 
           text: "It's the first meal after sleeping", 
           emoji: "🌅", 
-          description: "After fasting overnight, your brain needs fuel",
           isCorrect: true
         },
         { 
           id: "biggest", 
           text: "It's the biggest meal", 
           emoji: "🍽️", 
-          description: "Breakfast is the largest meal of the day",
           isCorrect: false
         }
       ]
@@ -116,21 +111,18 @@ const BreakfastStory = () => {
           id: "focus", 
           text: "Helps you focus and learn better", 
           emoji: "🎯", 
-          description: "A good breakfast improves concentration and memory",
           isCorrect: true
         },
         { 
           id: "sleepy", 
           text: "Makes you sleepy in class", 
           emoji: "😴", 
-          description: "Breakfast makes you tired",
           isCorrect: false
         },
         { 
           id: "nothing", 
           text: "Does nothing", 
           emoji: "🚫", 
-          description: "Breakfast has no effect",
           isCorrect: false
         }
       ]
@@ -143,21 +135,21 @@ const BreakfastStory = () => {
           id: "skip", 
           text: "Skip breakfast completely", 
           emoji: "⏰", 
-          description: "Don't eat anything",
+          
           isCorrect: false
         },
         { 
           id: "wait", 
           text: "Wait and eat later", 
           emoji: "⏳", 
-          description: "Eat breakfast after school",
+          
           isCorrect: false
         },
         { 
           id: "quick", 
           text: "Grab a quick healthy snack", 
           emoji: "🍎", 
-          description: "A piece of fruit or yogurt is better than skipping",
+          
           isCorrect: true
         }
       ]

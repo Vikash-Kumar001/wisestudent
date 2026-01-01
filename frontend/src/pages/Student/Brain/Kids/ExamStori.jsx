@@ -66,21 +66,21 @@ const ExamStori = () => {
           id: "no", 
           text: "No, it's not smart", 
           emoji: "👎", 
-          description: "Sleep is important for learning",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's smart", 
           emoji: "🤓", 
-          description: "Studying late is always good",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the situation",
+          
           isCorrect: false
         }
       ]
@@ -93,21 +93,19 @@ const ExamStori = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "👍", 
-          description: "Gaming helps before tests",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the game",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not good", 
           emoji: "👎", 
-          description: "Rest helps you perform better",
           isCorrect: true
         }
       ]
@@ -120,21 +118,18 @@ const ExamStori = () => {
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the show",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not wise", 
           emoji: "👎", 
-          description: "Sleep helps focus in school",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's wise", 
           emoji: "🤓", 
-          description: "TV is always okay",
           isCorrect: false
         }
       ]
@@ -147,21 +142,18 @@ const ExamStori = () => {
           id: "no", 
           text: "No, it's not smart", 
           emoji: "👎", 
-          description: "Sleep helps you learn better",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it's smart", 
           emoji: "😎", 
-          description: "Texting is always fine",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the friend",
           isCorrect: false
         }
       ]
@@ -174,21 +166,19 @@ const ExamStori = () => {
           id: "yes", 
           text: "Yes, it's a good idea", 
           emoji: "💡", 
-          description: "Projects are more important",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "It depends on the project",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, it's not a good idea", 
           emoji: "👎", 
-          description: "Sleep helps you work better",
           isCorrect: true
         }
       ]

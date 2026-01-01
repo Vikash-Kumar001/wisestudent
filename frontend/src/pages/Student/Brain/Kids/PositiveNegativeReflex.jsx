@@ -44,28 +44,25 @@ const PositiveNegativeReflex = () => {
           id: "hope", 
           text: "Hope", 
           emoji: "🌟", 
-          description: "A positive, optimistic feeling",
+          
           isCorrect: true
         },
         { 
           id: "hopeless", 
           text: "Hopeless", 
           emoji: "😔", 
-          description: "A negative, despairing feeling",
           isCorrect: false
         },
         { 
           id: "failure", 
           text: "Failure", 
           emoji: "😞", 
-          description: "A negative outcome",
           isCorrect: false
         },
         { 
           id: "defeat", 
           text: "Defeat", 
           emoji: "😢", 
-          description: "A negative experience",
           isCorrect: false
         }
       ]
@@ -78,28 +75,24 @@ const PositiveNegativeReflex = () => {
           id: "angry", 
           text: "Angry", 
           emoji: "😠", 
-          description: "A negative emotion",
           isCorrect: false
         },
         { 
           id: "grateful", 
           text: "Grateful", 
           emoji: "🙏", 
-          description: "A positive, thankful feeling",
           isCorrect: true
         },
         { 
           id: "sad", 
           text: "Sad", 
           emoji: "😢", 
-          description: "A negative feeling",
           isCorrect: false
         },
         { 
           id: "fear", 
           text: "Fear", 
           emoji: "😨", 
-          description: "A negative emotion",
           isCorrect: false
         }
       ]
@@ -112,28 +105,24 @@ const PositiveNegativeReflex = () => {
           id: "worry", 
           text: "Worry", 
           emoji: "😰", 
-          description: "A negative, anxious feeling",
           isCorrect: false
         },
         { 
           id: "doubt", 
           text: "Doubt", 
           emoji: "🤔", 
-          description: "A negative uncertainty",
           isCorrect: false
         },
         { 
           id: "success", 
           text: "Success", 
           emoji: "🎉", 
-          description: "A positive achievement",
           isCorrect: true
         },
         { 
           id: "regret", 
           text: "Regret", 
           emoji: "😞", 
-          description: "A negative feeling",
           isCorrect: false
         }
       ]
@@ -146,28 +135,24 @@ const PositiveNegativeReflex = () => {
           id: "joy", 
           text: "Joy", 
           emoji: "😊", 
-          description: "A positive, happy feeling",
           isCorrect: true
         },
         { 
           id: "sorrow", 
           text: "Sorrow", 
           emoji: "😢", 
-          description: "A negative, sad feeling",
           isCorrect: false
         },
         { 
           id: "hate", 
           text: "Hate", 
           emoji: "😠", 
-          description: "A negative emotion",
           isCorrect: false
         },
         { 
           id: "despair", 
           text: "Despair", 
           emoji: "😞", 
-          description: "A negative, hopeless feeling",
           isCorrect: false
         }
       ]
@@ -180,28 +165,24 @@ const PositiveNegativeReflex = () => {
           id: "pessimism", 
           text: "Pessimism", 
           emoji: "😞", 
-          description: "A negative outlook",
           isCorrect: false
         },
         { 
           id: "envy", 
           text: "Envy", 
           emoji: "😒", 
-          description: "A negative feeling",
           isCorrect: false
         },
         { 
           id: "resentment", 
           text: "Resentment", 
           emoji: "😠", 
-          description: "A negative emotion",
           isCorrect: false
         },
         { 
           id: "optimism", 
           text: "Optimism", 
           emoji: "✨", 
-          description: "A positive, hopeful outlook",
           isCorrect: true
         }
       ]

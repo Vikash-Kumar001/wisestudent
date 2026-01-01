@@ -65,21 +65,21 @@ const Homeworkk = () => {
           id: "step", 
           text: "I can learn step by step", 
           emoji: "📚", 
-          description: "Break it down and learn gradually",
+          
           isCorrect: true
         },
         { 
           id: "never", 
           text: "I'll never get it", 
           emoji: "😞", 
-          description: "Give up before trying",
+          
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip it", 
           emoji: "🚫", 
-          description: "Avoid the challenge",
+          
           isCorrect: false
         }
       ]
@@ -92,21 +92,18 @@ const Homeworkk = () => {
           id: "hate", 
           text: "I hate math", 
           emoji: "😠", 
-          description: "Get frustrated and give up",
           isCorrect: false
         },
         { 
           id: "different", 
           text: "Try different way!", 
           emoji: "💡", 
-          description: "Find another approach",
           isCorrect: true
         },
         { 
           id: "giveup", 
           text: "Give up", 
           emoji: "😔", 
-          description: "Stop trying",
           isCorrect: false
         }
       ]
@@ -119,21 +116,18 @@ const Homeworkk = () => {
           id: "boring", 
           text: "Boring book", 
           emoji: "😑", 
-          description: "Blame the book",
           isCorrect: false
         },
         { 
           id: "stop", 
           text: "Stop reading", 
           emoji: "🚫", 
-          description: "Quit the activity",
           isCorrect: false
         },
         { 
           id: "slowly", 
           text: "Read slowly and enjoy!", 
           emoji: "📖", 
-          description: "Take your time and find joy",
           isCorrect: true
         }
       ]
@@ -146,21 +140,18 @@ const Homeworkk = () => {
           id: "help", 
           text: "Ask for help and learn!", 
           emoji: "🤝", 
-          description: "Seek support and grow",
           isCorrect: true
         },
         { 
           id: "bad", 
           text: "I'm bad at science", 
           emoji: "😞", 
-          description: "Think negatively about yourself",
           isCorrect: false
         },
         { 
           id: "dont", 
           text: "Don't do it", 
           emoji: "🚫", 
-          description: "Avoid the challenge",
           isCorrect: false
         }
       ]
@@ -173,21 +164,18 @@ const Homeworkk = () => {
           id: "cant", 
           text: "I can't write", 
           emoji: "😞", 
-          description: "Think you're incapable",
           isCorrect: false
         },
         { 
           id: "copy", 
           text: "Copy from friend", 
           emoji: "📋", 
-          description: "Take the easy way out",
           isCorrect: false
         },
         { 
           id: "sentence", 
           text: "Write one sentence at a time!", 
           emoji: "✍️", 
-          description: "Break it into small steps",
           isCorrect: true
         }
       ]

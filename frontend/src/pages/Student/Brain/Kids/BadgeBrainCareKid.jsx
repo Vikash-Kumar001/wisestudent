@@ -35,7 +35,7 @@ const BadgeBrainCareKid = () => {
       options: [
         { 
           text: "Eat healthy, exercise, and sleep well", 
-          emoji: "✅", 
+          emoji: "🙂‍↔️", 
           isCorrect: true
         },
         { 

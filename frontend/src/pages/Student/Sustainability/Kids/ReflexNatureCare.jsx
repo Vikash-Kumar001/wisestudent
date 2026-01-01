@@ -23,8 +23,8 @@ const questions = [
     id: 2,
     text: "What helps wildlife?",
     options: [
-      { id: 'a', text: " Create Habitats", emoji: "🌿", isCorrect: false },
-      { id: 'b', text: " Feed Birds", emoji: "🐦", isCorrect: true },
+      { id: 'b', text: " Feed Birds", emoji: "🐦", isCorrect: false },
+      { id: 'a', text: " Create Habitats", emoji: "🌿", isCorrect: true },
       { id: 'c', text: " Make Loud Noise", emoji: "🔊", isCorrect: false },
       { id: 'd', text: " Drive Through Trails", emoji: "🚗", isCorrect: false }
     ]

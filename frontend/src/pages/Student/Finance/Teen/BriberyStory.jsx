@@ -35,21 +35,21 @@ const BriberyStory = () => {
           id: "pay", 
           text: "Pay bribe", 
           emoji: "💸", 
-          description: "Unethical choice",
+          
           isCorrect: false
         },
         { 
           id: "refuse", 
           text: "Refuse", 
           emoji: "🚫", 
-          description: "Stay ethical",
+          
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Consider options",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const BriberyStory = () => {
           id: "refuse2", 
           text: "Refuse", 
           emoji: "🛑", 
-          description: "Maintain integrity",
           isCorrect: true
         },
         { 
           id: "pay2", 
           text: "Pay ₹500", 
           emoji: "💳", 
-          description: "Wrong move",
           isCorrect: false
         },
         { 
           id: "negotiate", 
           text: "Negotiate", 
           emoji: "💬", 
-          description: "Try to reduce",
           isCorrect: false
         }
       ]
@@ -89,21 +86,18 @@ const BriberyStory = () => {
           id: "pay3", 
           text: "Pay bribe", 
           emoji: "📜", 
-          description: "Unethical",
           isCorrect: false
         },
         { 
           id: "wait", 
           text: "Wait", 
           emoji: "⏳", 
-          description: "Delay decision",
           isCorrect: false
         },
         { 
           id: "refuse3", 
           text: "Refuse", 
           emoji: "🙅", 
-          description: "Stay honest",
           isCorrect: true
         }
       ]
@@ -116,21 +110,18 @@ const BriberyStory = () => {
           id: "refuse4", 
           text: "Refuse", 
           emoji: "❌", 
-          description: "Ethical choice",
           isCorrect: true
         },
         { 
           id: "pay4", 
           text: "Pay fee", 
           emoji: "💰", 
-          description: "Wrong path",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain later", 
           emoji: "📢", 
-          description: "Report after paying",
           isCorrect: false
         }
       ]
@@ -143,21 +134,18 @@ const BriberyStory = () => {
           id: "pay5", 
           text: "Pay ₹1000", 
           emoji: "📝", 
-          description: "Illegal choice",
           isCorrect: false
         },
         { 
           id: "refuse5", 
           text: "Refuse", 
           emoji: "🚨", 
-          description: "Stay lawful",
           isCorrect: true
         },
         { 
           id: "partial", 
           text: "Pay partial", 
           emoji: "💵", 
-          description: "Pay less amount",
           isCorrect: false
         }
       ]

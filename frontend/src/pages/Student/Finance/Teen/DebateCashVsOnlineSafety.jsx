@@ -35,21 +35,21 @@ const DebateCashVsOnlineSafety = () => {
           id: "online-riskier", 
           text: "Online is riskier", 
           emoji: "💻", 
-          description: "More fraud online",
+          
           isCorrect: false
         },
         { 
           id: "both-safe", 
           text: "Both need safety", 
           emoji: "🛡️", 
-          description: "Both require caution",
+          
           isCorrect: true
         },
         { 
           id: "cash-riskier", 
           text: "Cash is riskier", 
           emoji: "💵", 
-          description: "Can be stolen",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const DebateCashVsOnlineSafety = () => {
           id: "both-safe2", 
           text: "Both with precautions", 
           emoji: "🔒", 
-          description: "Safety depends on use",
           isCorrect: true
         },
         { 
           id: "only-cash", 
           text: "Only cash", 
           emoji: "💰", 
-          description: "Physical is safer",
           isCorrect: false
         },
         { 
           id: "only-online", 
           text: "Only online", 
           emoji: "📱", 
-          description: "Digital is safer",
           isCorrect: false
         }
       ]
@@ -89,22 +86,19 @@ const DebateCashVsOnlineSafety = () => {
         { 
           id: "no-risk", 
           text: "No risks", 
-          emoji: "✅", 
-          description: "Completely safe",
+          emoji: "😓", 
           isCorrect: false
         },
         { 
           id: "too-easy", 
           text: "Too easy to use", 
           emoji: "😊", 
-          description: "Convenience issue",
           isCorrect: false
         },
          { 
           id: "hacking", 
           text: "Hacking and fraud", 
           emoji: "👾", 
-          description: "Cyber attacks",
           isCorrect: true
         },
       ]
@@ -117,21 +111,18 @@ const DebateCashVsOnlineSafety = () => {
           id: "strong-password", 
           text: "Strong passwords and OTP", 
           emoji: "🔐", 
-          description: "Use security features",
           isCorrect: true
         },
         { 
           id: "no-protection", 
           text: "No protection needed", 
           emoji: "😴", 
-          description: "It's safe anyway",
           isCorrect: false
         },
         { 
           id: "share-details", 
           text: "Share details freely", 
           emoji: "📢", 
-          description: "Tell everyone",
           isCorrect: false
         }
       ]
@@ -145,21 +136,18 @@ const DebateCashVsOnlineSafety = () => {
           id: "only-one", 
           text: "Use only one method", 
           emoji: "🎯", 
-          description: "Pick one",
           isCorrect: false
         },
          { 
           id: "balance", 
           text: "Balance both safely", 
           emoji: "⚖️", 
-          description: "Use both with caution",
           isCorrect: true
         },
         { 
           id: "avoid-all", 
           text: "Avoid all money", 
           emoji: "🚫", 
-          description: "Don't use money",
           isCorrect: false
         }
       ]

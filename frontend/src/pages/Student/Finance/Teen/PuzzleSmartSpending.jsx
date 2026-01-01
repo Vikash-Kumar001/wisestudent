@@ -47,20 +47,20 @@ const PuzzleSmartSpending = () => {
 
   // Spending concepts (left side) - 5 items
   const concepts = [
-    { id: 1, name: "Budget", emoji: "📋", hint: "Money allocation plan" },
-    { id: 2, name: "Waste", emoji: "🗑️", hint: "Unnecessary expenditure" },
-    { id: 3, name: "Needs", emoji: "🎯", hint: "Essential requirements" },
-    { id: 4, name: "Wants", emoji: "🎁", hint: "Desired luxuries" },
-    { id: 5, name: "Emergency Fund", emoji: "🛡️", hint: "Unexpected expense reserve" }
+    { id: 1, name: "Budget", emoji: "📋",  },
+    { id: 2, name: "Waste", emoji: "🗑️",  },
+    { id: 3, name: "Needs", emoji: "🎯",  },
+    { id: 4, name: "Wants", emoji: "🎁",  },
+    { id: 5, name: "Emergency Fund", emoji: "🛡️",  }
   ];
 
   // Financial meanings (right side) - 5 items
   const meanings = [
-    { id: 6, name: "Financial Planning", emoji: "📝", description: "Organizing money for goals" },
-    { id: 7, name: "Resource Misuse", emoji: "⚠️", description: "Inefficient money usage" },
-    { id: 8, name: "Essential Priorities", emoji: "⭐", description: "Basic necessity focus" },
-    { id: 9, name: "Discretionary Spending", emoji: "💎", description: "Optional purchase choices" },
-    { id: 10, name: "Risk Protection", emoji: "🔒", description: "Safety against uncertainties" }
+    { id: 6, name: "Financial Planning", emoji: "📝",  },
+    { id: 7, name: "Resource Misuse", emoji: "⚠️",  },
+    { id: 8, name: "Essential Priorities", emoji: "⭐",  },
+    { id: 9, name: "Discretionary Spending", emoji: "💎",  },
+    { id: 10, name: "Risk Protection", emoji: "🔒",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

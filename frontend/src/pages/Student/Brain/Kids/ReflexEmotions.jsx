@@ -72,28 +72,25 @@ const ReflexEmotions = () => {
           id: "happy", 
           text: "Happy", 
           emoji: "😊", 
-          description: "A feeling of joy",
+          
           isCorrect: true
         },
         { 
           id: "book", 
           text: "Book", 
           emoji: "📚", 
-          description: "An object you read",
           isCorrect: false
         },
         { 
           id: "table", 
           text: "Table", 
           emoji: "🪑", 
-          description: "A piece of furniture",
           isCorrect: false
         },
         { 
           id: "pencil", 
           text: "Pencil", 
           emoji: "✏️", 
-          description: "A writing tool",
           isCorrect: false
         }
       ]
@@ -106,28 +103,24 @@ const ReflexEmotions = () => {
           id: "car", 
           text: "Car", 
           emoji: "🚗", 
-          description: "A vehicle",
           isCorrect: false
         },
         { 
           id: "sad", 
           text: "Sad", 
           emoji: "😢", 
-          description: "A feeling of unhappiness",
           isCorrect: true
         },
         { 
           id: "ball", 
           text: "Ball", 
           emoji: "⚽", 
-          description: "A toy for playing",
           isCorrect: false
         },
         { 
           id: "chair", 
           text: "Chair", 
           emoji: "🪑", 
-          description: "Something you sit on",
           isCorrect: false
         }
       ]
@@ -140,28 +133,24 @@ const ReflexEmotions = () => {
           id: "tree", 
           text: "Tree", 
           emoji: "🌳", 
-          description: "A plant",
           isCorrect: false
         },
         { 
           id: "sun", 
           text: "Sun", 
           emoji: "☀️", 
-          description: "A star in the sky",
           isCorrect: false
         },
         { 
           id: "angry", 
           text: "Angry", 
           emoji: "😡", 
-          description: "A feeling of being mad",
           isCorrect: true
         },
         { 
           id: "cup", 
           text: "Cup", 
           emoji: "☕", 
-          description: "Something you drink from",
           isCorrect: false
         }
       ]
@@ -174,28 +163,24 @@ const ReflexEmotions = () => {
           id: "excited", 
           text: "Excited", 
           emoji: "🎉", 
-          description: "A feeling of enthusiasm",
           isCorrect: true
         },
         { 
           id: "phone", 
           text: "Phone", 
           emoji: "📱", 
-          description: "A device for calling",
           isCorrect: false
         },
         { 
           id: "door", 
           text: "Door", 
           emoji: "🚪", 
-          description: "An entrance",
           isCorrect: false
         },
         { 
           id: "lamp", 
           text: "Lamp", 
           emoji: "💡", 
-          description: "Gives light",
           isCorrect: false
         }
       ]
@@ -208,28 +193,24 @@ const ReflexEmotions = () => {
           id: "scared", 
           text: "Scared", 
           emoji: "😨", 
-          description: "A feeling of fear",
           isCorrect: true
         },
         { 
           id: "window", 
           text: "Window", 
           emoji: "🪟", 
-          description: "Glass in a wall",
           isCorrect: false
         },
         { 
           id: "bike", 
           text: "Bike", 
           emoji: "🚲", 
-          description: "A two-wheeled vehicle",
           isCorrect: false
         },
         { 
           id: "clock", 
           text: "Clock", 
           emoji: "🕐", 
-          description: "Shows time",
           isCorrect: false
         }
       ]

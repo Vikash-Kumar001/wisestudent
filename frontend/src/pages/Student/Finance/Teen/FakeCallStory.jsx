@@ -35,21 +35,20 @@ const FakeCallStory = () => {
           id: "share", 
           text: "Share details", 
           emoji: "💳", 
-          description: "Trust the caller",
+          
           isCorrect: false
         },
         { 
           id: "refuse", 
           text: "Refuse, never share", 
           emoji: "🚫", 
-          description: "Protect your information",
+         
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe, if they sound official", 
           emoji: "🤔", 
-          description: "Verify first",
           isCorrect: false
         }
       ]
@@ -62,21 +61,18 @@ const FakeCallStory = () => {
           id: "urgent", 
           text: "Urgent pressure to act", 
           emoji: "⚠️", 
-          description: "Rushing you to decide",
           isCorrect: true
         },
         { 
           id: "polite", 
           text: "Polite and patient", 
           emoji: "😊", 
-          description: "Professional behavior",
           isCorrect: false
         },
         { 
           id: "normal", 
           text: "Normal conversation", 
           emoji: "💬", 
-          description: "Regular call",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const FakeCallStory = () => {
           id: "give", 
           text: "Give OTP", 
           emoji: "🔢", 
-          description: "Share the code",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Never share OTP", 
           emoji: "🔒", 
-          description: "Keep it secret",
           isCorrect: true
         },
         { 
           id: "maybe2", 
           text: "Share if they ask nicely", 
           emoji: "🤷", 
-          description: "If they're polite",
           isCorrect: false
         }
       ]
@@ -116,21 +109,18 @@ const FakeCallStory = () => {
           id: "call-back", 
           text: "Call bank directly", 
           emoji: "📞", 
-          description: "Use official number",
           isCorrect: true
         },
         { 
           id: "trust", 
           text: "Trust the caller", 
           emoji: "😊", 
-          description: "Believe them",
           isCorrect: false
         },
         { 
           id: "ignore-all", 
           text: "Ignore all calls", 
           emoji: "😴", 
-          description: "Never answer",
           isCorrect: false
         }
       ]
@@ -143,21 +133,18 @@ const FakeCallStory = () => {
           id: "hang-up", 
           text: "Hang up and report", 
           emoji: "📞", 
-          description: "End call safely",
           isCorrect: true
         },
         { 
           id: "engage", 
           text: "Keep talking", 
           emoji: "💬", 
-          description: "Continue conversation",
           isCorrect: false
         },
         { 
           id: "share-info", 
           text: "Share some info", 
           emoji: "📝", 
-          description: "Give partial details",
           isCorrect: false
         }
       ]

@@ -36,21 +36,21 @@ const BorrowingStory = () => {
           id: "free", 
           text: "Free money", 
           emoji: "🎁", 
-          description: "Never happens", 
+          
           isCorrect: false 
         },
         { 
           id: "debt", 
           text: "Debt", 
           emoji: "⚠️", 
-          description: "Leads to financial trouble", 
+           
           isCorrect: true 
         },
         { 
           id: "nothing", 
           text: "Nothing happens", 
           emoji: "😊", 
-          description: "Incorrect", 
+           
           isCorrect: false 
         }
       ]
@@ -64,21 +64,18 @@ const BorrowingStory = () => {
           id: "forgiven", 
           text: "Debt is forgiven", 
           emoji: "✨", 
-          description: "Unlikely", 
           isCorrect: false 
         },
         { 
           id: "ignored", 
           text: "Can be ignored", 
           emoji: "😴", 
-          description: "Wrong approach", 
           isCorrect: false 
         },
         { 
           id: "interest", 
           text: "Interest and penalties increase", 
           emoji: "📈", 
-          description: "Debt grows larger", 
           isCorrect: true 
         },
       ]
@@ -91,14 +88,12 @@ const BorrowingStory = () => {
           id: "plan", 
           text: "Plan how to repay first", 
           emoji: "📋", 
-          description: "Responsible approach", 
           isCorrect: true 
         },
         { 
           id: "borrow-first", 
           text: "Borrow first, think later", 
           emoji: "💸", 
-          description: "Risky approach", 
           isCorrect: false 
         },
         
@@ -106,7 +101,6 @@ const BorrowingStory = () => {
           id: "ignore", 
           text: "Ignore repayment plan", 
           emoji: "🚫", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]
@@ -119,7 +113,6 @@ const BorrowingStory = () => {
           id: "success", 
           text: "Financial success", 
           emoji: "🎉", 
-          description: "Unlikely", 
           isCorrect: false 
         },
         
@@ -127,14 +120,12 @@ const BorrowingStory = () => {
           id: "freedom", 
           text: "Financial freedom", 
           emoji: "🕊️", 
-          description: "Opposite happens", 
           isCorrect: false 
         },
         { 
           id: "debt", 
           text: "Debt problems", 
           emoji: "⚠️", 
-          description: "Common consequence", 
           isCorrect: true 
         },
       ]
@@ -147,21 +138,18 @@ const BorrowingStory = () => {
           id: "borrow-often", 
           text: "Borrow often for wants", 
           emoji: "🔄", 
-          description: "Creates debt cycle", 
           isCorrect: false 
         },
         { 
           id: "borrow-wisely", 
           text: "Borrow only when necessary and plan repayment", 
-          emoji: "✅", 
-          description: "Responsible borrowing", 
+          emoji: "🤔", 
           isCorrect: true 
         },
         { 
           id: "never-repay", 
           text: "Borrow but never repay", 
           emoji: "🚫", 
-          description: "Very wrong", 
           isCorrect: false 
         }
       ]

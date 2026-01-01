@@ -22,20 +22,20 @@ const HealthyMatchesPuzzle = () => {
   
   // Healthy Habits (left side) - 5 items
   const habits = [
-    { id: 1, name: "Eat Fruits & Veggies", emoji: "🍎", hint: "Consuming colorful natural foods" },
-    { id: 2, name: "Regular Exercise", emoji: "🏃", hint: "Moving your body daily" },
-    { id: 3, name: "Brush Teeth", emoji: "🦷", hint: "Cleaning your mouth twice a day" },
-    { id: 4, name: "Get Enough Sleep", emoji: "😴", hint: "Resting for 8-10 hours nightly" },
-    { id: 5, name: "Wash Hands", emoji: "🧼", hint: "Cleaning with soap and water" }
+    { id: 1, name: "Eat Fruits & Veggies", emoji: "🍎",  },
+    { id: 2, name: "Regular Exercise", emoji: "🏃",  },
+    { id: 3, name: "Brush Teeth", emoji: "🦷",  },
+    { id: 4, name: "Get Enough Sleep", emoji: "😴",  },
+    { id: 5, name: "Wash Hands", emoji: "🧼",  }
   ];
   
   // Health Benefits (right side) - 5 items (shuffled order)
   const benefits = [
-    { id: 4, text: "More Energy Throughout Day", hint: "Feeling active and alert" },
-    { id: 1, text: "Strong, Healthy Body", hint: "Building muscles and bones" },
-    { id: 5, text: "Remove Germs Effectively", hint: "Preventing illness spread" },
-    { id: 2, text: "Strong Heart and Muscles", hint: "Improving cardiovascular health" },
-    { id: 3, text: "No Cavities and Fresh Breath", hint: "Maintaining oral hygiene" }
+    { id: 4, text: "More Energy Throughout Day",  },
+    { id: 1, text: "Strong, Healthy Body",  },
+    { id: 5, text: "Remove Germs Effectively",  },
+    { id: 2, text: "Strong Heart and Muscles",  },
+    { id: 3, text: "No Cavities and Fresh Breath",  }
   ];
   
   // Correct matches

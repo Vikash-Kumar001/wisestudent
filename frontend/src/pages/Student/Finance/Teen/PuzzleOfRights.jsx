@@ -47,20 +47,20 @@ const PuzzleOfRights = () => {
 
   // Consumer rights (left side) - 5 items
   const rights = [
-    { id: 1, name: "Right to Safety", emoji: "🛡️", hint: "Protection from harm" },
-    { id: 2, name: "Right to Information", emoji: "📋", hint: "Know product details" },
-    { id: 3, name: "Right to Choose", emoji: "✅", hint: "Select from options" },
-    { id: 4, name: "Right to Redress", emoji: "⚖️", hint: "Get compensation" },
-    { id: 5, name: "Right to Consumer Education", emoji: "📚", hint: "Learn about rights" }
+    { id: 1, name: "Right to Safety", emoji: "🛡️",  },
+    { id: 2, name: "Right to Information", emoji: "📋",  },
+    { id: 3, name: "Right to Choose", emoji: "✅",  },
+    { id: 4, name: "Right to Redress", emoji: "⚖️",  },
+    { id: 5, name: "Right to Consumer Education", emoji: "📚",  }
   ];
 
   // Meanings (right side) - 5 items
   const meanings = [
-    { id: 6, name: "Safe Products", emoji: "✅", description: "Goods that don't cause harm" },
-    { id: 7, name: "Truthful Info", emoji: "📝", description: "Accurate product details" },
-    { id: 8, name: "Variety of Choices", emoji: "🛒", description: "Multiple product options" },
-    { id: 9, name: "Remedy for Issues", emoji: "💰", description: "Compensation for problems" },
-    { id: 10, name: "Awareness Building", emoji: "🎓", description: "Understanding your rights" }
+    { id: 6, name: "Safe Products", emoji: "🛒",  },
+    { id: 7, name: "Truthful Info", emoji: "📝",  },
+    { id: 8, name: "Variety of Choices", emoji: "🛒",  },
+    { id: 9, name: "Remedy for Issues", emoji: "💰",  },
+    { id: 10, name: "Awareness Building", emoji: "🎓",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

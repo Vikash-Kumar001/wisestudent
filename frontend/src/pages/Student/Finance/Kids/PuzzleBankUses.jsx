@@ -47,20 +47,20 @@ const PuzzleBankUses = () => {
 
   // Banking items (left side) - 5 items
   const items = [
-    { id: 1, name: "Savings Account", emoji: "💰", hint: "Store money safely" },
-    { id: 2, name: "Loan", emoji: "📝", hint: "Borrow money" },
-    { id: 3, name: "ATM", emoji: "🏧", hint: "Cash machine" },
-    { id: 4, name: "Interest", emoji: "📈", hint: "Money growth" },
-    { id: 5, name: "Financial Education", emoji: "📚", hint: "Learn money skills" }
+    { id: 1, name: "Savings Account", emoji: "💰",  },
+    { id: 2, name: "Loan", emoji: "📝",  },
+    { id: 3, name: "ATM", emoji: "🏧",  },
+    { id: 4, name: "Interest", emoji: "📈",  },
+    { id: 5, name: "Financial Education", emoji: "📚",  }
   ];
 
   // Banking uses (right side) - 5 items
   const uses = [
-    { id: 6, name: "Store Money", emoji: "🔒", description: "Keep funds secure" },
-    { id: 7, name: "Borrow Funds", emoji: "💸", description: "Get temporary cash" },
-    { id: 8, name: "Access Cash", emoji: "💵", description: "Withdraw anytime" },
-    { id: 9, name: "Earn Returns", emoji: "🪙", description: "Grow your money" },
-    { id: 10, name: "Build Knowledge", emoji: "🧠", description: "Learn finance" }
+    { id: 6, name: "Store Money", emoji: "🔒",  },
+    { id: 7, name: "Borrow Funds", emoji: "💸",  },
+    { id: 8, name: "Access Cash", emoji: "💵",  },
+    { id: 9, name: "Earn Returns", emoji: "🪙",  },
+    { id: 10, name: "Build Knowledge", emoji: "🧠",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

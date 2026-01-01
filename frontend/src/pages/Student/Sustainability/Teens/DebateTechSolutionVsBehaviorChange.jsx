@@ -27,57 +27,53 @@ const DebateTechSolutionVsBehaviorChange = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const questions = [
-    {
-      id: 1,
-      text: "Which approach has broader environmental impact?",
-      options: [
-        { id: 'a', text: "Technology solutions at scale", emoji: "⚙️", isCorrect: true },
-        { id: 'b', text: "Individual behavior changes", emoji: "👤", isCorrect: false },
-        { id: 'c', text: "Both equally", emoji: "⚖️", isCorrect: false },
-        { id: 'd', text: "Neither approach", emoji: "❌", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      text: "What's more effective for rapid climate action?",
-      options: [
-        { id: 'b', text: "Changing individual habits", emoji: "🔄", isCorrect: false },
-        { id: 'a', text: "Technological innovations", emoji: "💡", isCorrect: true },
-        { id: 'c', text: "Policy changes only", emoji: "📜", isCorrect: false },
-        { id: 'd', text: "Education alone", emoji: "📚", isCorrect: false }
-      ]
-    },
-    {
-      id: 3,
-      text: "Which approach requires less individual effort?",
-      options: [
-        { id: 'b', text: "Behavioral changes", emoji: "💪", isCorrect: false },
-        { id: 'c', text: "Both require same effort", emoji: "👥", isCorrect: false },
-        { id: 'a', text: "Technology solutions", emoji: "🤖", isCorrect: true },
-        { id: 'd', text: "Neither requires effort", emoji: "😴", isCorrect: false }
-      ]
-    },
-    {
-      id: 4,
-      text: "Which is more sustainable long-term?",
-      options: [
-        { id: 'b', text: "Individual behavioral changes", emoji: "👤", isCorrect: false },
-        { id: 'c', text: "Technology alone", emoji: "⚙️", isCorrect: false },
-        { id: 'd', text: "Behavior alone", emoji: "🔄", isCorrect: false },
-        { id: 'a', text: "Technology that supports sustainable living", emoji: "🌱", isCorrect: true },
-      ]
-    },
-    {
-      id: 5,
-      text: "Which approach is more scalable?",
-      options: [
-        { id: 'a', text: "Technology solutions", emoji: "📈", isCorrect: true },
-        { id: 'b', text: "Individual behavior changes", emoji: "👤", isCorrect: false },
-        { id: 'c', text: "Policy enforcement", emoji: "📜", isCorrect: false },
-        { id: 'd', text: "Education campaigns", emoji: "📢", isCorrect: false }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Which approach creates the strongest environmental impact?",
+    options: [
+      { id: 'a', text: "Only technology solutions", emoji: "⚙️", isCorrect: false },
+      { id: 'b', text: "Only behavior changes", emoji: "👤", isCorrect: false },
+      { id: 'c', text: "Both technology and behavior change together", emoji: "🤝", isCorrect: true }
+    ]
+  },
+  {
+    id: 2,
+    text: "What is most effective for solving climate problems?",
+    options: [
+      { id: 'c', text: "Technology supported by behavior change", emoji: "🌍", isCorrect: true },
+      { id: 'a', text: "New technologies alone", emoji: "💡", isCorrect: false },
+      { id: 'b', text: "Changing habits alone", emoji: "🔄", isCorrect: false },
+    ]
+  },
+  {
+    id: 3,
+    text: "Which approach works best in the long run?",
+    options: [
+      { id: 'a', text: "Technology without behavior change", emoji: "🤖", isCorrect: false },
+      { id: 'c', text: "Both support each other", emoji: "🔗", isCorrect: true },
+      { id: 'b', text: "Behavior change without technology", emoji: "💪", isCorrect: false },
+    ]
+  },
+  {
+    id: 4,
+    text: "What helps sustainability last over time?",
+    options: [
+      { id: 'c', text: "Technology that encourages sustainable behavior", emoji: "🌱", isCorrect: true },
+      { id: 'a', text: "Technology alone", emoji: "⚙️", isCorrect: false },
+      { id: 'b', text: "Behavior change alone", emoji: "👤", isCorrect: false },
+    ]
+  },
+  {
+    id: 5,
+    text: "Which approach leads to real-world environmental change?",
+    options: [
+      { id: 'a', text: "Large-scale technology only", emoji: "📈", isCorrect: false },
+      { id: 'b', text: "Individual actions only", emoji: "👤", isCorrect: false },
+      { id: 'c', text: "Technology combined with responsible behavior", emoji: "🌍", isCorrect: true }
+    ]
+  }
+];
+
 
   const handleAnswer = (optionId) => {
     if (answered) return;
@@ -143,7 +139,7 @@ const DebateTechSolutionVsBehaviorChange = () => {
                 {currentQuestionData.text}
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {currentQuestionData.options.map((option) => (
                   <button
                     key={option.id}

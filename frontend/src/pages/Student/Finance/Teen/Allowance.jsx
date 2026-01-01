@@ -29,8 +29,8 @@ const Allowance = () => {
       id: 1,
       text: "You get ₹500 monthly allowance. How should you manage it?",
       options: [
-        { id: "divide", text: "Divide into needs, wants, savings", emoji: "💰", description: "Smart budgeting", isCorrect: true },
-        { id: "spend", text: "Spend all on games", emoji: "🎮", description: "No savings left", isCorrect: false }
+        { id: "divide", text: "Divide into needs, wants, savings", emoji: "💰",  isCorrect: true },
+        { id: "spend", text: "Spend all on games", emoji: "🎮", isCorrect: false }
       ],
       reward: 5
     },
@@ -38,8 +38,8 @@ const Allowance = () => {
       id: 2,
       text: "You get ₹200 bonus. What’s the best choice?",
       options: [
-        { id: "save", text: "Save for future goals", emoji: "🏦", description: "Builds wealth", isCorrect: true },
-        { id: "spend", text: "Buy snacks now", emoji: "🍕", description: "Short-term fun", isCorrect: false }
+        { id: "save", text: "Save for future goals", emoji: "🏦",  isCorrect: true },
+        { id: "spend", text: "Buy snacks now", emoji: "🍕", isCorrect: false }
       ],
       reward: 4
     },
@@ -47,8 +47,8 @@ const Allowance = () => {
       id: 3,
       text: "You want a ₹600 item but have ₹400. What do you do?",
       options: [
-        { id: "wait", text: "Save more to buy it", emoji: "⏳", description: "Avoid debt", isCorrect: true },
-        { id: "borrow", text: "Borrow money", emoji: "💳", description: "Risky choice", isCorrect: false }
+        { id: "wait", text: "Save more to buy it", emoji: "⏳",  isCorrect: true },
+        { id: "borrow", text: "Borrow money", emoji: "💳",  isCorrect: false }
       ],
       reward: 6
     },
@@ -56,8 +56,8 @@ const Allowance = () => {
       id: 4,
       text: "Friends want to eat out daily. What’s smarter?",
       options: [
-        { id: "homemade", text: "Bring homemade food", emoji: "🍱", description: "Saves money", isCorrect: true },
-        { id: "eatout", text: "Eat out with them", emoji: "🍔", description: "Drains funds", isCorrect: false }
+        { id: "homemade", text: "Bring homemade food", emoji: "🍱",  isCorrect: true },
+        { id: "eatout", text: "Eat out with them", emoji: "🍔", isCorrect: false }
       ],
       reward: 5
     },
@@ -65,8 +65,8 @@ const Allowance = () => {
       id: 5,
       text: "You earn ₹300 from chores. What’s the best plan?",
       options: [
-        { id: "save", text: "Add to savings", emoji: "🏦", description: "Future security", isCorrect: true },
-        { id: "spend", text: "Buy new shoes", emoji: "👟", description: "Quick spend", isCorrect: false }
+        { id: "save", text: "Add to savings", emoji: "🏦",  isCorrect: true },
+        { id: "spend", text: "Buy new shoes", emoji: "👟", isCorrect: false }
       ],
       reward: 5
     }

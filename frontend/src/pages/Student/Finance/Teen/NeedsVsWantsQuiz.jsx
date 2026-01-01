@@ -31,45 +31,45 @@ const NeedsVsWantsQuiz = () => {
       id: 1,
       text: "Which is a want?",
       options: [
-        { id: "watch", text: "Luxury watch", emoji: "⌚", description: "Nice but not needed", isCorrect: true },
-        { id: "medicine", text: "Medicine", emoji: "💊", description: "Essential for health", isCorrect: false },
-        { id: "clothes", text: "School clothes", emoji: "👕", description: "Required for school", isCorrect: false }
+        { id: "watch", text: "Luxury watch", emoji: "⌚",  isCorrect: true },
+        { id: "medicine", text: "Medicine", emoji: "💊",  isCorrect: false },
+        { id: "clothes", text: "School clothes", emoji: "👕",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which is a need?",
       options: [
-        { id: "game", text: "Video game", emoji: "🎮", description: "Fun but optional", isCorrect: false },
-        { id: "food", text: "Groceries", emoji: "🍎", description: "Essential for survival", isCorrect: true },
-        { id: "phone", text: "New smartphone", emoji: "📱", description: "Not essential", isCorrect: false }
+        { id: "game", text: "Video game", emoji: "🎮",  isCorrect: false },
+        { id: "food", text: "Groceries", emoji: "🍎",  isCorrect: true },
+        { id: "phone", text: "New smartphone", emoji: "📱",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "Which is a want?",
       options: [
-        { id: "rent", text: "Rent", emoji: "🏠", description: "Needed for shelter", isCorrect: false },
-        { id: "books", text: "Textbooks", emoji: "📚", description: "Needed for school", isCorrect: false },
-        { id: "concert", text: "Concert ticket", emoji: "🎤", description: "Entertainment", isCorrect: true }
+        { id: "rent", text: "Rent", emoji: "🏠",  isCorrect: false },
+        { id: "books", text: "Textbooks", emoji: "📚",  isCorrect: false },
+        { id: "concert", text: "Concert ticket", emoji: "🎤",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which is a need?",
       options: [
-        { id: "water", text: "Water bill", emoji: "💧", description: "Essential utility", isCorrect: true },
-        { id: "shoes", text: "Designer shoes", emoji: "👟", description: "Luxury item", isCorrect: false },
-        { id: "party", text: "Party supplies", emoji: "🎉", description: "Not essential", isCorrect: false }
+        { id: "water", text: "Water bill", emoji: "💧",  isCorrect: true },
+        { id: "shoes", text: "Designer shoes", emoji: "👟",  isCorrect: false },
+        { id: "party", text: "Party supplies", emoji: "🎉",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "Which is a want?",
       options: [
-        { id: "internet", text: "Internet bill", emoji: "🌐", description: "Needed for school", isCorrect: false },
-        { id: "headphones", text: "Wireless headphones", emoji: "🎧", description: "Optional luxury", isCorrect: true },
-        { id: "transport", text: "Bus pass", emoji: "🚌", description: "Essential for travel", isCorrect: false }
+        { id: "internet", text: "Internet bill", emoji: "🌐",  isCorrect: false },
+        { id: "headphones", text: "Wireless headphones", emoji: "🎧",  isCorrect: true },
+        { id: "transport", text: "Bus pass", emoji: "🚌",  isCorrect: false }
       ]
     }
   ];

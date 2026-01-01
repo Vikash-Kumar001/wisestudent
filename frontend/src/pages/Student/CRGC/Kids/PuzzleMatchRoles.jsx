@@ -19,31 +19,34 @@ const PuzzleMatchRoles = () => {
 
   // Roles (left side) - 5 items
   const roles = [
-    { id: 1, name: "Doctor", emoji: "👩‍⚕️", description: "Medical professional who treats patients" },
-    { id: 2, name: "Pilot", emoji: "👨‍✈️", description: "Professional who flies aircraft" },
-    { id: 3, name: "Teacher", emoji: "👩‍🏫", description: "Educator who teaches students" },
-    { id: 4, name: "Engineer", emoji: "👷", description: "Professional who designs and builds structures" },
-    { id: 5, name: "Chef", emoji: "👩‍🍳", description: "Professional who cooks food" }
-  ];
+  { id: 1, name: "Doctor", emoji: "🩺",  },
+  { id: 2, name: "Pilot", emoji: "✈️",  },
+  { id: 3, name: "Teacher", emoji: "📚",  },
+  { id: 4, name: "Engineer", emoji: "🛠️",  },
+  { id: 5, name: "Chef", emoji: "🍳", }
+];
+
 
   // People (right side) - 5 items
   const people = [
-    { id: 2, name: "Man", emoji: "👨", description: "Adult male person" },
-    { id: 3, name: "Both", emoji: "👥", description: "Either gender can do this role" },
-    { id: 1, name: "Woman", emoji: "👩", description: "Adult female person" },
-    { id: 5, name: "Specialist", emoji: "🤓", description: "Person with specific skills or training" },
-    { id: 4, name: "Anyone", emoji: "🧑", description: "Any person regardless of characteristics" },
-  ];
+    { id: 2, name: "Focused Person", emoji: "🎯",  },
+    { id: 1, name: "Caring Person", emoji: "❤️",  },
+  { id: 3, name: "Creative Person", emoji: "😊", },
+  { id: 5, name: "Learner", emoji: "🌱",  },
+  { id: 4, name: "Problem Solver", emoji: "🧩",  },
+];
+
 
   // Correct matches
   "io"
-  const correctMatches = [
-  { roleId: 1, personId: 5 }, // Doctor → Specialist 🤓
-  { roleId: 2, personId: 2 }, // Pilot → Man 👨
-  { roleId: 3, personId: 1 }, // Teacher → Woman 👩
-  { roleId: 4, personId: 4 }, // Engineer → Anyone 🧑
-  { roleId: 5, personId: 3 }  // Chef → Both 👥
+ const correctMatches = [
+  { roleId: 1, personId: 1 }, // Doctor → Caring Person 
+  { roleId: 2, personId: 2 }, // Pilot → Focused Person 
+  { roleId: 3, personId: 5 }, // Teacher → Learner 
+  { roleId: 4, personId: 4 }, // Engineer → Problem Solver 
+  { roleId: 5, personId: 3 }  // Chef → Creative Person 
 ];
+
 
 
   const handleRoleSelect = (role) => {

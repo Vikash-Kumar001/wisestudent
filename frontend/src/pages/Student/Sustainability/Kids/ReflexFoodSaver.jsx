@@ -11,52 +11,52 @@ const ROUND_TIME = 10;
 const questions = [
   {
     id: 1,
-    text: "Tap for 'Save Food,' avoid 'Waste Food'",
+    text: "Tap to save food. Avoid wasting food.",
     options: [
-        { id: 'b', text: " Throw Food Away", emoji: "🗑️", isCorrect: false },
-        { id: 'c', text: " Cook Too Much", emoji: "🍳", isCorrect: false },
-        { id: 'a', text: " Eat Leftovers", emoji: "🍽️", isCorrect: true },
-      { id: 'd', text: " Buy Extra", emoji: "🛒", isCorrect: false }
+      { id: 'b', text: "Throw Food Away", emoji: "🗑️", isCorrect: false },
+      { id: 'c', text: "Cook Too Much", emoji: "🍳", isCorrect: false },
+      { id: 'a', text: "Eat Leftovers", emoji: "🍽️", isCorrect: true },
+      { id: 'd', text: "Buy Extra", emoji: "🛒", isCorrect: false }
     ]
   },
   {
     id: 2,
-    text: "Which food-saving action should you choose?",
+    text: "Which action helps save food?",
     options: [
-      { id: 'a', text: " Plan Meals", emoji: "📋", isCorrect: true },
-      { id: 'b', text: " Overbuy Food", emoji: "🛒", isCorrect: false },
-      { id: 'c', text: " Waste Food", emoji: "❌", isCorrect: false },
-      { id: 'd', text: " Ignore Portions", emoji: "🍽️", isCorrect: false }
+      { id: 'a', text: "Plan Meals", emoji: "📋", isCorrect: true },
+      { id: 'b', text: "Overbuy Food", emoji: "🛒", isCorrect: false },
+      { id: 'c', text: "Waste Food", emoji: "😓", isCorrect: false },
+      { id: 'd', text: "Ignore Portions", emoji: "🍽️", isCorrect: false }
     ]
   },
   {
     id: 3,
-    text: "What's the best way to save food?",
+    text: "What is the best way to save food?",
     options: [
-        { id: 'b', text: " Leave Out", emoji: "🌡️", isCorrect: false },
-        { id: 'c', text: " Don't Store", emoji: "❌", isCorrect: false },
-        { id: 'd', text: " Waste It", emoji: "🗑️", isCorrect: false },
-        { id: 'a', text: " Store Properly", emoji: "📦", isCorrect: true },
+      { id: 'b', text: "Leave Food Out", emoji: "🌡️", isCorrect: false },
+      { id: 'c', text: "Do Not Store", emoji: "😲", isCorrect: false },
+      { id: 'd', text: "Waste It", emoji: "🗑️", isCorrect: false },
+      { id: 'a', text: "Store Properly", emoji: "📦", isCorrect: true },
     ]
   },
   {
     id: 4,
-    text: "Which action helps reduce food waste?",
+    text: "Which action reduces food waste?",
     options: [
-        { id: 'b', text: " Take Too Much", emoji: "😋", isCorrect: false },
-        { id: 'a', text: " Take Reasonable Portions", emoji: "🍽️", isCorrect: true },
-      { id: 'c', text: " Waste Leftovers", emoji: "❌", isCorrect: false },
-      { id: 'd', text: " Cook Extra", emoji: "🍳", isCorrect: false }
+      { id: 'b', text: "Take Too Much", emoji: "😋", isCorrect: false },
+      { id: 'a', text: "Take Reasonable Portions", emoji: "🍽️", isCorrect: true },
+      { id: 'c', text: "Waste Leftovers", emoji: "❌", isCorrect: false },
+      { id: 'd', text: "Cook Extra Food", emoji: "🍳", isCorrect: false }
     ]
   },
   {
     id: 5,
-    text: "What's the best food conservation practice?",
+    text: "What is the best food-saving habit?",
     options: [
-        { id: 'b', text: " Throw Away", emoji: "🗑️", isCorrect: false },
-        { id: 'c', text: " Waste Food", emoji: "❌", isCorrect: false },
-        { id: 'd', text: " Ignore Waste", emoji: "🤷", isCorrect: false },
-        { id: 'a', text: " Use Leftovers Creatively", emoji: "✨", isCorrect: true },
+      { id: 'b', text: "Throw Food Away", emoji: "🗑️", isCorrect: false },
+      { id: 'c', text: "Waste Food", emoji: "😓", isCorrect: false },
+      { id: 'd', text: "Ignore Food Waste", emoji: "🤷", isCorrect: false },
+      { id: 'a', text: "Use Leftovers Creatively", emoji: "✨", isCorrect: true },
     ]
   }
 ];

@@ -35,21 +35,21 @@ const InvestmentQuiz = () => {
           id: "fd", 
           text: "Fixed Deposit", 
           emoji: "🏦", 
-          description: "Safe, low return", 
+           
           isCorrect: false 
         },
         { 
           id: "stocks", 
           text: "Stock Market", 
           emoji: "📈", 
-          description: "Risky, high return", 
+           
           isCorrect: true 
         },
         { 
           id: "savings", 
           text: "Savings Account", 
           emoji: "💰", 
-          description: "Very safe, low return", 
+           
           isCorrect: false 
         }
       ]
@@ -62,14 +62,12 @@ const InvestmentQuiz = () => {
           id: "fd2", 
           text: "Fixed Deposit", 
           emoji: "🛡️", 
-          description: "Guaranteed return", 
           isCorrect: true 
         },
         { 
           id: "stocks2", 
           text: "Stocks", 
           emoji: "📊", 
-          description: "Can go up or down", 
           isCorrect: false 
         },
         
@@ -77,7 +75,6 @@ const InvestmentQuiz = () => {
           id: "crypto", 
           text: "Cryptocurrency", 
           emoji: "₿", 
-          description: "Very volatile", 
           isCorrect: false 
         }
       ]
@@ -90,7 +87,6 @@ const InvestmentQuiz = () => {
           id: "one", 
           text: "Put all in one investment", 
           emoji: "🎯", 
-          description: "Focus on single option", 
           isCorrect: false 
         },
         
@@ -98,14 +94,12 @@ const InvestmentQuiz = () => {
           id: "avoid", 
           text: "Avoid all investments", 
           emoji: "🚫", 
-          description: "Don't invest at all", 
           isCorrect: false 
         },
         { 
           id: "spread", 
           text: "Spread across different investments", 
           emoji: "📊", 
-          description: "Reduce risk by diversifying", 
           isCorrect: true 
         },
       ]
@@ -118,21 +112,18 @@ const InvestmentQuiz = () => {
           id: "mix", 
           text: "Mix of stocks and bonds", 
           emoji: "📦", 
-          description: "Diversified investment", 
           isCorrect: true 
         },
         { 
           id: "single", 
           text: "Single company stock", 
           emoji: "📄", 
-          description: "One investment only", 
           isCorrect: false 
         },
         { 
           id: "bank", 
           text: "Bank account", 
           emoji: "🏦", 
-          description: "Savings deposit", 
           isCorrect: false 
         }
       ]
@@ -146,21 +137,18 @@ const InvestmentQuiz = () => {
           id: "same", 
           text: "Same as saving", 
           emoji: "➡️", 
-          description: "No difference", 
           isCorrect: false 
         },
         { 
           id: "lose", 
           text: "Guaranteed to lose", 
           emoji: "📉", 
-          description: "Always loses money", 
           isCorrect: false 
         },
          { 
           id: "grow", 
           text: "Potential to grow faster", 
           emoji: "📈", 
-          description: "Beat inflation, higher returns", 
           isCorrect: true 
         },
       ]

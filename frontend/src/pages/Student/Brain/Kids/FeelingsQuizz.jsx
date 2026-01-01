@@ -35,21 +35,19 @@ const FeelingsQuizz = () => {
           id: "happiness", 
           text: "Happiness", 
           emoji: "😊", 
-          description: "A positive emotion",
+          
           isCorrect: true
         },
         { 
           id: "shoes", 
           text: "Shoes", 
           emoji: "👟", 
-          description: "An object, not an emotion",
           isCorrect: false
         },
         { 
           id: "pen", 
           text: "Pen", 
           emoji: "✏️", 
-          description: "An object, not an emotion",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const FeelingsQuizz = () => {
           id: "table", 
           text: "Table", 
           emoji: "🪑", 
-          description: "An object, not a feeling",
           isCorrect: false
         },
         { 
           id: "sadness", 
           text: "Sadness", 
           emoji: "😢", 
-          description: "A feeling or emotion",
           isCorrect: true
         },
         { 
           id: "book", 
           text: "Book", 
           emoji: "📚", 
-          description: "An object, not a feeling",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const FeelingsQuizz = () => {
           id: "car", 
           text: "Car", 
           emoji: "🚗", 
-          description: "An object, not an emotion",
           isCorrect: false
         },
         { 
           id: "pencil", 
           text: "Pencil", 
           emoji: "✏️", 
-          description: "An object, not an emotion",
           isCorrect: false
         },
         { 
           id: "anger", 
           text: "Anger", 
           emoji: "😠", 
-          description: "An emotion",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const FeelingsQuizz = () => {
           id: "excitement", 
           text: "Excitement", 
           emoji: "🎉", 
-          description: "A feeling or emotion",
           isCorrect: true
         },
         { 
           id: "clock", 
           text: "Clock", 
           emoji: "🕐", 
-          description: "An object, not a feeling",
           isCorrect: false
         },
         { 
           id: "chair", 
           text: "Chair", 
           emoji: "🪑", 
-          description: "An object, not a feeling",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const FeelingsQuizz = () => {
           id: "lamp", 
           text: "Lamp", 
           emoji: "💡", 
-          description: "An object, not an emotion",
           isCorrect: false
         },
         { 
           id: "fear", 
           text: "Fear", 
           emoji: "😨", 
-          description: "An emotion",
           isCorrect: true
         },
         { 
           id: "ball", 
           text: "Ball", 
           emoji: "⚽", 
-          description: "An object, not an emotion",
           isCorrect: false
         }
       ]

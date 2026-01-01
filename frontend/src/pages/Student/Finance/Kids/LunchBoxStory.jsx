@@ -32,21 +32,19 @@ const LunchBoxStory = () => {
           id: "yes", 
           text: "Yes, share or return", 
           emoji: "🍽️", 
-          description: "Return or share lunch with your friend",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, keep it to myself", 
           emoji: "😐", 
-          description: "Keep it for yourself",
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget about it", 
           emoji: "🙈", 
-          description: "Don't return it",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const LunchBoxStory = () => {
           id: "nothing", 
           text: "Say nothing", 
           emoji: "😶", 
-          description: "Don't acknowledge it",
           isCorrect: false
         },
         {
           id: "share",
           text: "Share something back",
           emoji: "🤝",
-          description: "Return the kindness",
           isCorrect: true
         },
         { 
           id: "more", 
           text: "Take more lunch", 
           emoji: "🍴", 
-          description: "Take advantage",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const LunchBoxStory = () => {
           id: "share", 
           text: "Share ₹5 with friend", 
           emoji: "💸", 
-          description: "Help your friend",
           isCorrect: true
         },
         { 
           id: "all", 
           text: "Spend all on yourself", 
           emoji: "🍔", 
-          description: "Use all for yourself",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hide your money", 
           emoji: "💰", 
-          description: "Keep it secret",
           isCorrect: false
         }
       ]
@@ -113,21 +105,18 @@ const LunchBoxStory = () => {
           id: "never", 
           text: "Never repay", 
           emoji: "😞", 
-          description: "Don't pay it back",
           isCorrect: false
         },
         { 
           id: "snacks", 
           text: "Spend it on snacks", 
           emoji: "🍟", 
-          description: "Use it for something else",
           isCorrect: false
         },
         {
           id: "next",
           text: "Next day as promised",
           emoji: "✅",
-          description: "Keep your promise",
           isCorrect: true
         },
       ]
@@ -140,21 +129,18 @@ const LunchBoxStory = () => {
           id: "trust", 
           text: "Builds trust and kindness", 
           emoji: "😊", 
-          description: "Strengthens friendships",
           isCorrect: true
         },
         { 
           id: "food", 
           text: "Gets you more food", 
           emoji: "🍽️", 
-          description: "Receive more in return",
-          isCorrect: false
+            isCorrect: false
         },
         { 
           id: "popular", 
           text: "Makes you popular", 
           emoji: "👥", 
-          description: "Makes others like you",
           isCorrect: false
         }
       ]

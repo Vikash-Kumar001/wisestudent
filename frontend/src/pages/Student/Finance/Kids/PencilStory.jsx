@@ -32,21 +32,19 @@ const PencilStory = () => {
           id: "yes", 
           text: "Yes, return it", 
           emoji: "✏️", 
-          description: "Return the pencil to your friend",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, keep it", 
           emoji: "😐", 
-          description: "Keep it for yourself",
           isCorrect: false
         },
         { 
           id: "lose", 
           text: "Lose it", 
           emoji: "🙈", 
-          description: "Don't return it and lose it",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const PencilStory = () => {
           id: "take", 
           text: "Take one without asking", 
           emoji: "🤫", 
-          description: "Take without permission",
           isCorrect: false
         },
         {
           id: "ask",
           text: "Ask to borrow and return",
           emoji: "🤝",
-          description: "Borrow properly and return later",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip writing", 
           emoji: "✍️", 
-          description: "Don't do the work",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const PencilStory = () => {
           id: "replace", 
           text: "Replace it with a new one", 
           emoji: "✅", 
-          description: "Buy a new pencil to replace it",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Hide it", 
           emoji: "🧸", 
-          description: "Hide what happened",
           isCorrect: false
         },
         { 
           id: "blame", 
           text: "Blame someone else", 
           emoji: "🙈", 
-          description: "Make someone else responsible",
           isCorrect: false
         }
       ]
@@ -113,21 +105,19 @@ const PencilStory = () => {
           id: "candy", 
           text: "Spend it on candy", 
           emoji: "🍬", 
-          description: "Use the money for something else",
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget to repay", 
           emoji: "😞", 
-          description: "Don't pay it back",
           isCorrect: false
         },
         {
           id: "repay",
           text: "Repay the ₹5",
           emoji: "💸",
-          description: "Pay back the money you borrowed",
+          
           isCorrect: true
         },
       ]
@@ -140,21 +130,18 @@ const PencilStory = () => {
           id: "pencils", 
           text: "Gets you more pencils", 
           emoji: "✏️", 
-          description: "People will lend you more",
           isCorrect: false
         },
         {
           id: "trust",
           text: "Builds trust with friends",
           emoji: "😊",
-          description: "Shows you're reliable",
           isCorrect: true
         },
         { 
           id: "popular", 
           text: "Makes you popular", 
           emoji: "👥", 
-          description: "Makes others like you",
           isCorrect: false
         }
       ]

@@ -35,21 +35,19 @@ const ConsumerQuiz = () => {
           id: "court", 
           text: "Consumer Court", 
           emoji: "⚖️", 
-          description: "Legal protection for consumers", 
+          
           isCorrect: true 
         },
         { 
           id: "playground", 
           text: "Playground", 
           emoji: "🏃", 
-          description: "Not the right place", 
           isCorrect: false 
         },
         { 
           id: "nowhere", 
           text: "Nowhere", 
           emoji: "😔", 
-          description: "No help available", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const ConsumerQuiz = () => {
           id: "nothing", 
           text: "No rights", 
           emoji: "❌", 
-          description: "Consumers have no rights", 
           isCorrect: false 
         },
         { 
           id: "protection", 
           text: "Protection from fraud", 
           emoji: "🛡️", 
-          description: "Right to safe products", 
           isCorrect: true 
         },
         { 
           id: "spend", 
           text: "Right to spend", 
           emoji: "💸", 
-          description: "Just spending money", 
           isCorrect: false 
         }
       ]
@@ -89,21 +84,18 @@ const ConsumerQuiz = () => {
           id: "accept", 
           text: "Accept it", 
           emoji: "😔", 
-          description: "Keep the defective item", 
           isCorrect: false 
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😴", 
-          description: "Do nothing", 
           isCorrect: false 
         },
         { 
           id: "complain", 
           text: "Complain to seller", 
           emoji: "📢", 
-          description: "Demand replacement or refund", 
           isCorrect: true 
         }
       ]
@@ -116,21 +108,18 @@ const ConsumerQuiz = () => {
           id: "know", 
           text: "Know product details", 
           emoji: "📋", 
-          description: "Get honest information", 
           isCorrect: true 
         },
         { 
           id: "hide", 
           text: "Hide information", 
           emoji: "🙈", 
-          description: "Keep secrets", 
           isCorrect: false 
         },
         { 
           id: "lie", 
           text: "Accept lies", 
           emoji: "😈", 
-          description: "Believe false claims", 
           isCorrect: false 
         }
       ]
@@ -143,21 +132,18 @@ const ConsumerQuiz = () => {
           id: "police", 
           text: "Police Station", 
           emoji: "🚔", 
-          description: "For criminal cases only", 
           isCorrect: false 
         },
         { 
           id: "court2", 
           text: "Consumer Court", 
           emoji: "⚖️", 
-          description: "Legal authority for consumers", 
           isCorrect: true 
         },
         { 
           id: "school", 
           text: "School", 
           emoji: "🏫", 
-          description: "Not the right place", 
           isCorrect: false 
         }
       ]

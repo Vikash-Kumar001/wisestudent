@@ -29,21 +29,20 @@ const PosterClimateAction = () => {
         {
           id: 1,
           title: "Ignore Climate Problems",
-          description: "A poster suggesting we don't worry about climate",
+          
           emoji: "🙈",
           isCorrect: false
         },
         {
           id: 2,
           title: "We Can Help the Earth",
-          description: "A poster showing how we can take action on climate",
+          
           emoji: "🌍",
           isCorrect: true
         },
         {
           id: 3,
           title: "Keep Everything Same",
-          description: "A poster suggesting no changes are needed",
           emoji: "🔄",
           isCorrect: false
         }
@@ -57,7 +56,6 @@ const PosterClimateAction = () => {
         {
           id: 1,
           title: "Drive Everywhere",
-          description: "A poster encouraging car use",
           emoji: "🚗",
           isCorrect: false
         },
@@ -65,14 +63,12 @@ const PosterClimateAction = () => {
         {
           id: 3,
           title: "Fly Often",
-          description: "A poster encouraging air travel",
           emoji: "✈️",
           isCorrect: false
         },
         {
           id: 2,
           title: "Walk, Bike, Use Public Transport",
-          description: "A poster promoting low-carbon transport",
           emoji: "🚇",
           isCorrect: true
         },
@@ -86,21 +82,18 @@ const PosterClimateAction = () => {
         {
           id: 1,
           title: "Use All Lights",
-          description: "A poster encouraging energy waste",
           emoji: "💡",
           isCorrect: false
         },
         {
           id: 2,
           title: "Turn Off When Not Needed",
-          description: "A poster showing energy conservation",
           emoji: "💡",
           isCorrect: true
         },
         {
           id: 3,
           title: "Keep Everything On",
-          description: "A poster suggesting no energy conservation",
           emoji: "🔌",
           isCorrect: false
         }
@@ -114,14 +107,13 @@ const PosterClimateAction = () => {
          {
           id: 2,
           title: "Reduce, Reuse, Recycle",
-          description: "A poster showing climate-friendly practices",
+          
           emoji: "♻️",
           isCorrect: true
         },
         {
           id: 1,
           title: "Waste Everything",
-          description: "A poster encouraging waste",
           emoji: "🗑️",
           isCorrect: false
         },
@@ -129,7 +121,6 @@ const PosterClimateAction = () => {
         {
           id: 3,
           title: "Buy More Stuff",
-          description: "A poster encouraging overconsumption",
           emoji: "🛒",
           isCorrect: false
         }
@@ -143,7 +134,7 @@ const PosterClimateAction = () => {
         {
           id: 1,
           title: "Pollute More",
-          description: "A poster encouraging environmental damage",
+         
           emoji: "🏭",
           isCorrect: false
         },
@@ -151,14 +142,14 @@ const PosterClimateAction = () => {
         {
           id: 3,
           title: "Ignore Climate Change",
-          description: "A poster suggesting we don't worry about climate",
+          
           emoji: "🤷",
           isCorrect: false
         },
         {
           id: 2,
           title: "Care for Our Climate",
-          description: "A poster showing climate protection",
+          
           emoji: "🌡️",
           isCorrect: true
         },

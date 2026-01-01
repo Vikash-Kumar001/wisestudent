@@ -35,21 +35,19 @@ const Game = () => {
           id: "yes", 
           text: "Yes", 
           emoji: "🧠", 
-          description: "Memory games help improve brain function",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "🤯", 
-          description: "Memory games do help the brain",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "💭", 
-          description: "Memory games definitely help",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const Game = () => {
           id: "false", 
           text: "False", 
           emoji: "🤯", 
-          description: "Puzzle games do help memory",
           isCorrect: false
         },
         { 
           id: "true", 
           text: "True", 
           emoji: "🧩", 
-          description: "Puzzle games improve memory",
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "💭", 
-          description: "Puzzle games definitely help",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const Game = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "💭", 
-          description: "Memory games definitely help",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
           emoji: "👾", 
-          description: "Memory games train your brain",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "🤯", 
-          description: "Memory games do help",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const Game = () => {
           id: "true", 
           text: "True", 
           emoji: "📝", 
-          description: "Brain games strengthen memory",
           isCorrect: true
         },
         { 
           id: "false", 
           text: "False", 
           emoji: "🤯", 
-          description: "Brain games do help memory",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "💭", 
-          description: "Brain games definitely help",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const Game = () => {
           id: "no", 
           text: "No", 
           emoji: "🤯", 
-          description: "Regular practice does help",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "💭", 
-          description: "Regular practice definitely helps",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
           emoji: "🤓", 
-          description: "Regular practice improves recall",
           isCorrect: true
         }
       ]

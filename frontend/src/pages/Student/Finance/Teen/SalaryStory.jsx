@@ -31,21 +31,21 @@ const SalaryStory = () => {
           id: "spend", 
           text: "Spend all", 
           emoji: "🛍️", 
-          description: "Use the entire salary for current expenses and entertainment",
+          
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save ₹400 (20%)", 
           emoji: "💰", 
-          description: "Set aside 20% for future needs and emergencies",
+          
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste money", 
           emoji: "💸", 
-          description: "Spend on unnecessary things",
+          
           isCorrect: false
         }
       ]
@@ -58,21 +58,18 @@ const SalaryStory = () => {
           id: "save", 
           text: "Save most of it", 
           emoji: "🏦", 
-          description: "Save ₹400 and use ₹100 for a small treat",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend all on luxury", 
           emoji: "💎", 
-          description: "Buy expensive items they don't really need",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore bonus", 
           emoji: "🙈", 
-          description: "Don't think about what to do with it",
           isCorrect: false
         }
       ]
@@ -85,21 +82,18 @@ const SalaryStory = () => {
           id: "spend", 
           text: "Stop saving", 
           emoji: "💸", 
-          description: "Stop saving completely to cover all expenses",
           isCorrect: false
         },
         { 
           id: "waste", 
           text: "Spend more", 
           emoji: "🛒", 
-          description: "Increase spending even more",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Maintain savings", 
           emoji: "📈", 
-          description: "Still save a portion, even if it's smaller, and look for ways to reduce expenses",
           isCorrect: true
         }
       ]
@@ -112,21 +106,18 @@ const SalaryStory = () => {
           id: "spend", 
           text: "Upgrade lifestyle", 
           emoji: "💎", 
-          description: "Immediately upgrade to more expensive housing, car, and lifestyle",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Increase savings", 
           emoji: "🎯", 
-          description: "Save a portion of the raise and use the rest for necessary expenses",
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste it all", 
           emoji: "🗑️", 
-          description: "Spend on things you don't need",
           isCorrect: false
         }
       ]
@@ -139,21 +130,18 @@ const SalaryStory = () => {
           id: "spend", 
           text: "Buy on EMI", 
           emoji: "💳", 
-          description: "Buy it immediately with monthly installments and interest",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow money", 
           emoji: "🤲", 
-          description: "Borrow from friends or family",
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save over time", 
           emoji: "⏳", 
-          description: "Save ₹2000 per month for 5 months to buy it without debt",
           isCorrect: true
         }
       ]

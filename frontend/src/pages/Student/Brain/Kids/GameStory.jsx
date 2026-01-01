@@ -35,21 +35,19 @@ const GameStory = () => {
           id: "homework", 
           text: "Finish homework first, then play", 
           emoji: "📚", 
-          description: "Complete responsibilities before fun",
+          
           isCorrect: true
         },
         { 
           id: "games", 
           text: "Play games first, homework later", 
           emoji: "🎮", 
-          description: "This can delay your work",
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Do both at same time", 
           emoji: "🤹", 
-          description: "Multitasking reduces focus",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const GameStory = () => {
           id: "continue", 
           text: "Keep playing more", 
           emoji: "🎮", 
-          description: "Too much screen time isn't healthy",
           isCorrect: false
         },
         { 
           id: "break", 
           text: "Take a break and do other activities", 
           emoji: "⏸️", 
-          description: "Balancing activities is important",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore everything else", 
           emoji: "😴", 
-          description: "This isn't a good balance",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const GameStory = () => {
           id: "play", 
           text: "Play games with friend", 
           emoji: "🎮", 
-          description: "This can distract from studying",
           isCorrect: false
         },
         { 
           id: "study", 
           text: "Finish studying first, then play", 
           emoji: "📖", 
-          description: "Prioritize your studies",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip studying completely", 
           emoji: "⏭️", 
-          description: "Skipping isn't helpful",
           isCorrect: false
         }
       ]
@@ -116,7 +108,6 @@ const GameStory = () => {
           id: "onlygames", 
           text: "Play games all the time", 
           emoji: "🎮", 
-          description: "This isn't balanced",
           isCorrect: false
         },
         
@@ -124,14 +115,12 @@ const GameStory = () => {
           id: "onlystudy", 
           text: "Never play games", 
           emoji: "📚", 
-          description: "Balance includes some fun time",
           isCorrect: false
         },
         { 
           id: "schedule", 
           text: "Set a schedule: study time and game time", 
           emoji: "⏰", 
-          description: "Planning helps balance activities",
           isCorrect: true
         },
       ]
@@ -144,14 +133,12 @@ const GameStory = () => {
           id: "play", 
           text: "Play games as a reward", 
           emoji: "🎮", 
-          description: "Rewarding yourself is good",
           isCorrect: true
         },
         { 
           id: "morehomework", 
           text: "Do extra homework", 
           emoji: "📝", 
-          description: "You can do this, but rest is also good",
           isCorrect: false
         },
        
@@ -159,7 +146,6 @@ const GameStory = () => {
           id: "nothing", 
           text: "Do nothing", 
           emoji: "😴", 
-          description: "Being active is better",
           isCorrect: false
         }
       ]

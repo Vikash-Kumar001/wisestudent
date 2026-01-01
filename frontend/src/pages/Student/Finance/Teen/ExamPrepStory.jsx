@@ -35,21 +35,19 @@ const ExamPrepStory = () => {
           id: "tuition", 
           text: "Pay tuition", 
           emoji: "📚", 
-          description: "Prioritize education", 
+           
           isCorrect: true 
         },
         { 
           id: "snacks", 
           text: "Buy snacks", 
           emoji: "🍫", 
-          description: "Fun but not essential", 
           isCorrect: false 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for tuition, some for snacks", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const ExamPrepStory = () => {
           id: "movie", 
           text: "Movie ticket", 
           emoji: "🎬", 
-          description: "Temporary fun", 
           isCorrect: false 
         },
         { 
           id: "fees", 
           text: "Pay exam fees", 
           emoji: "📝", 
-          description: "Supports studies", 
           isCorrect: true 
         },
         { 
           id: "save", 
           text: "Save everything", 
           emoji: "💰", 
-          description: "Don't spend anything", 
           isCorrect: false 
         }
       ]
@@ -89,21 +84,18 @@ const ExamPrepStory = () => {
           id: "clothes", 
           text: "Buy clothes", 
           emoji: "👗", 
-          description: "Not urgent", 
           isCorrect: false 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for study, some for clothes", 
           isCorrect: false 
         },
         { 
           id: "study", 
           text: "Buy study materials", 
           emoji: "📖", 
-          description: "Helps exams", 
           isCorrect: true 
         }
       ]
@@ -116,21 +108,18 @@ const ExamPrepStory = () => {
           id: "tutoring", 
           text: "Pay for tutoring", 
           emoji: "🎓", 
-          description: "Boosts learning", 
           isCorrect: true 
         },
         { 
           id: "snacks", 
           text: "Party snacks", 
           emoji: "🎉", 
-          description: "Short-term fun", 
           isCorrect: false 
         },
         { 
           id: "save", 
           text: "Save everything", 
           emoji: "💰", 
-          description: "Don't spend anything", 
           isCorrect: false 
         }
       ]
@@ -143,21 +132,18 @@ const ExamPrepStory = () => {
           id: "console", 
           text: "Gaming console", 
           emoji: "🎮", 
-          description: "Expensive want", 
           isCorrect: false 
         },
         { 
           id: "course", 
           text: "Exam prep course", 
           emoji: "📚", 
-          description: "Invest in future", 
           isCorrect: true 
         },
         { 
           id: "split", 
           text: "Split between both", 
           emoji: "⚖️", 
-          description: "Use some for course, some for console", 
           isCorrect: false 
         }
       ]

@@ -47,20 +47,20 @@ const PuzzleNeedsWants = () => {
 
   // Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Drinking Water", emoji: "💧", hint: "Essential for survival" },
-    { id: 2, name: "School Shoes", emoji: "👟", hint: "Required for education" },
-    { id: 3, name: "Toy Car", emoji: "🚗", hint: "Entertainment item" },
-    { id: 4, name: "Pocket Money", emoji: "💰", hint: "Personal funds" },
-    { id: 5, name: "Financial Knowledge", emoji: "📚", hint: "Learning skill" }
+    { id: 1, name: "Drinking Water", emoji: "💧",  },
+    { id: 2, name: "School Shoes", emoji: "👟",  },
+    { id: 3, name: "Toy Car", emoji: "🚗",  },
+    { id: 4, name: "Pocket Money", emoji: "💰",  },
+    { id: 5, name: "Financial Knowledge", emoji: "📚",  }
   ];
 
   // Categories (right side) - 5 items
   const categories = [
-    { id: 6, name: "Need", emoji: "✅", description: "Essential requirement" },
-    { id: 7, name: "Want", emoji: "🎁", description: "Desired luxury" },
-    { id: 8, name: "Save", emoji: "🏦", description: "Money for future" },
-    { id: 9, name: "Invest", emoji: "📈", description: "Grow resources" },
-    { id: 10, name: "Share", emoji: "🤲", description: "Help others" }
+    { id: 6, name: "Need", emoji: "✅",  },
+    { id: 7, name: "Want", emoji: "🎁",  },
+    { id: 8, name: "Save", emoji: "🏦",  },
+    { id: 9, name: "Invest", emoji: "📈",  },
+    { id: 10, name: "Share", emoji: "🤲",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

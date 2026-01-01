@@ -35,21 +35,19 @@ const QuizOnEntrepreneurship = () => {
           id: "creates", 
           text: "Creates new business", 
           emoji: "💡", 
-          description: "Starts and runs a business", 
+          
           isCorrect: true 
         },
         { 
           id: "spends", 
           text: "Only spends", 
           emoji: "💸", 
-          description: "Just uses money", 
           isCorrect: false 
         },
         { 
           id: "nothing", 
           text: "Does nothing", 
           emoji: "😴", 
-          description: "No action taken", 
           isCorrect: false 
         }
       ]
@@ -62,21 +60,18 @@ const QuizOnEntrepreneurship = () => {
           id: "spend", 
           text: "Spend money", 
           emoji: "🛍️", 
-          description: "Use all money", 
           isCorrect: false 
         },
         { 
           id: "profit", 
           text: "Make profit", 
           emoji: "💰", 
-          description: "Earn money from business", 
           isCorrect: true 
         },
         { 
           id: "avoid", 
           text: "Avoid work", 
           emoji: "😴", 
-          description: "Do nothing", 
           isCorrect: false 
         }
       ]
@@ -89,14 +84,12 @@ const QuizOnEntrepreneurship = () => {
           id: "luck", 
           text: "Just luck", 
           emoji: "🍀", 
-          description: "Pure chance", 
           isCorrect: false 
         },
         { 
           id: "money", 
           text: "Only money", 
           emoji: "💰", 
-          description: "Just capital", 
           isCorrect: false 
         },
         { 
@@ -116,21 +109,20 @@ const QuizOnEntrepreneurship = () => {
           id: "no", 
           text: "No, only special people", 
           emoji: "👑", 
-          description: "Only for elite", 
           isCorrect: false 
         },
         { 
           id: "yes", 
           text: "Yes, with effort", 
-          emoji: "✅", 
-          description: "Anyone can try", 
+          emoji: "💪", 
+           
           isCorrect: true 
         },
         { 
           id: "maybe", 
           text: "Maybe, if rich", 
           emoji: "💎", 
-          description: "Need wealth first", 
+          
           isCorrect: false 
         }
       ]
@@ -143,21 +135,18 @@ const QuizOnEntrepreneurship = () => {
           id: "job", 
           text: "Working for others", 
           emoji: "💼", 
-          description: "Being an employee", 
           isCorrect: false 
         },
         { 
           id: "business", 
           text: "Creating and running business", 
           emoji: "🏢", 
-          description: "Starting a venture", 
           isCorrect: true 
         },
         { 
           id: "spending", 
           text: "Spending money", 
           emoji: "💳", 
-          description: "Using funds", 
           isCorrect: false 
         }
       ]

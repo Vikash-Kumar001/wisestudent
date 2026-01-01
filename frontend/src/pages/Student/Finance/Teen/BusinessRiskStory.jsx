@@ -34,22 +34,22 @@ const BusinessRiskStory = () => {
         { 
           id: "yes", 
           text: "Yes, 50% profit", 
-          emoji: "✅", 
-          description: "Good return on investment",
+          emoji: "🙂", 
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, too risky", 
-          emoji: "❌", 
-          description: "Business is too risky",
+          emoji: "🤦", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Need more information",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,19 @@ const BusinessRiskStory = () => {
           id: "low", 
           text: "5% profit", 
           emoji: "📉", 
-          description: "Very low margin",
+          
           isCorrect: false
         },
         { 
           id: "high", 
           text: "30-50% profit", 
           emoji: "📈", 
-          description: "Healthy profit margin",
           isCorrect: true
         },
         { 
           id: "loss", 
           text: "Loss is okay", 
           emoji: "💸", 
-          description: "Losing money is fine",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const BusinessRiskStory = () => {
           id: "all", 
           text: "Take all risks", 
           emoji: "🎲", 
-          description: "Risk everything",
           isCorrect: false
         },
         { 
           id: "none", 
           text: "Avoid all risks", 
           emoji: "🛡️", 
-          description: "Never take risks",
           isCorrect: false
         },
         { 
           id: "calculated", 
           text: "Yes, calculated risks", 
           emoji: "🎯", 
-          description: "Take smart, planned risks",
           isCorrect: true
         }
       ]
@@ -116,21 +111,18 @@ const BusinessRiskStory = () => {
           id: "jump", 
           text: "Jump in immediately", 
           emoji: "⚡", 
-          description: "Start without planning",
           isCorrect: false
         },
         { 
           id: "plan", 
           text: "Plan and research", 
           emoji: "📋", 
-          description: "Understand market and costs",
           isCorrect: true
         },
         { 
           id: "wait", 
           text: "Wait forever", 
           emoji: "⏳", 
-          description: "Never start",
           isCorrect: false
         }
       ]
@@ -143,21 +135,18 @@ const BusinessRiskStory = () => {
           id: "no2", 
           text: "No, too small", 
           emoji: "❌", 
-          description: "Not enough profit",
           isCorrect: false
         },
         { 
           id: "maybe2", 
           text: "Maybe, if consistent", 
           emoji: "🤷", 
-          description: "Only if repeatable",
           isCorrect: false
         },
         { 
           id: "yes2", 
           text: "Yes, 50% return", 
-          emoji: "✅", 
-          description: "Excellent profit margin",
+          emoji: "🙂", 
           isCorrect: true
         }
       ]

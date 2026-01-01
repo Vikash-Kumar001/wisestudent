@@ -29,9 +29,9 @@ const QuizEntrepreneurship = () => {
       id: 1,
       text: "Who is an entrepreneur?",
       options: [
-        { id: "creates", text: "Creates new business", emoji: "💡", description: "Innovates and builds", isCorrect: true },
-        { id: "spends", text: "Only spends", emoji: "💸", description: "Not productive", isCorrect: false },
-        { id: "nothing", text: "Does nothing", emoji: "😴", description: "Not an entrepreneur", isCorrect: false }
+        { id: "creates", text: "Creates new business", emoji: "💡",  isCorrect: true },
+        { id: "spends", text: "Only spends", emoji: "💸",  isCorrect: false },
+        { id: "nothing", text: "Does nothing", emoji: "😴",  isCorrect: false }
       ],
       reward: 3
     },
@@ -39,9 +39,9 @@ const QuizEntrepreneurship = () => {
       id: 2,
       text: "What does an entrepreneur do?",
       options: [
-        { id: "innovates", text: "Innovates solutions", emoji: "🚀", description: "Solves problems", isCorrect: true },
-        { id: "follows", text: "Follows orders", emoji: "📋", description: "Not entrepreneurial", isCorrect: false },
-        { id: "spends", text: "Spends money", emoji: "🛍️", description: "Not the focus", isCorrect: false }
+        { id: "innovates", text: "Innovates solutions", emoji: "🚀",  isCorrect: true },
+        { id: "follows", text: "Follows orders", emoji: "📋",  isCorrect: false },
+        { id: "spends", text: "Spends money", emoji: "🛍️",  isCorrect: false }
       ],
       reward: 3
     },
@@ -49,9 +49,9 @@ const QuizEntrepreneurship = () => {
       id: 3,
       text: "What’s a key entrepreneur trait?",
       options: [
-        { id: "risk", text: "Takes risks", emoji: "🎯", description: "Calculated risks", isCorrect: true },
-        { id: "avoids", text: "Avoids risks", emoji: "🛡️", description: "Not entrepreneurial", isCorrect: false },
-        { id: "waits", text: "Waits for orders", emoji: "⏳", description: "Not proactive", isCorrect: false }
+        { id: "risk", text: "Takes risks", emoji: "🎯",  isCorrect: true },
+        { id: "avoids", text: "Avoids risks", emoji: "🛡️",  isCorrect: false },
+        { id: "waits", text: "Waits for orders", emoji: "⏳",  isCorrect: false }
       ],
       reward: 4
     },
@@ -59,9 +59,9 @@ const QuizEntrepreneurship = () => {
       id: 4,
       text: "What’s a startup?",
       options: [
-        { id: "new", text: "New business venture", emoji: "🌱", description: "Innovative idea", isCorrect: true },
-        { id: "old", text: "Old company", emoji: "🏢", description: "Not a startup", isCorrect: false },
-        { id: "hobby", text: "Just a hobby", emoji: "🎨", description: "Not a business", isCorrect: false }
+        { id: "new", text: "New business venture", emoji: "🌱",  isCorrect: true },
+        { id: "old", text: "Old company", emoji: "🏢",  isCorrect: false },
+        { id: "hobby", text: "Just a hobby", emoji: "🎨",  isCorrect: false }
       ],
       reward: 4
     },
@@ -69,9 +69,9 @@ const QuizEntrepreneurship = () => {
       id: 5,
       text: "Why do entrepreneurs innovate?",
       options: [
-        { id: "solve", text: "Solve problems", emoji: "🛠️", description: "Create value", isCorrect: true },
-        { id: "spend", text: "Spend money", emoji: "💸", description: "Not the goal", isCorrect: false },
-        { id: "wait", text: "Wait for others", emoji: "⏰", description: "Not proactive", isCorrect: false }
+        { id: "solve", text: "Solve problems", emoji: "🛠️",  isCorrect: true },
+        { id: "spend", text: "Spend money", emoji: "💸",  isCorrect: false },
+        { id: "wait", text: "Wait for others", emoji: "⏰",  isCorrect: false }
       ],
       reward: 5
     }

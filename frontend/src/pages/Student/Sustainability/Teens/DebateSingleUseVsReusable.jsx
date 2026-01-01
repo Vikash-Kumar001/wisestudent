@@ -59,124 +59,127 @@ const DebateSingleUseVsReusable = () => {
     }
   }, [gameFinished, score, gameId, nextGamePath, nextGameId]);
 
-  const questions = [
-    {
-      id: 1,
-      text: "Should we ban single-use plastics?",
-      options: [
-        {
-          id: "a",
-          text: "Yes, completely",
-          emoji: "✅"
-        },
-        {
-          id: "b",
-          text: "Gradually phase out",
-          emoji: "⏳"
-        },
-        {
-          id: "c",
-          text: "No, keep them",
-          emoji: "❌"
-        }
-      ],
-      correctAnswer: "b",
-      explanation: "Gradually phase out. Reduces plastic waste, but balance is important. Single-use plastics harm environment."
-    },
-    {
-      id: 2,
-      text: "What's better: single-use or reusable?",
-      options: [
-        {
-          id: "a",
-          text: "Single-use items",
-          emoji: "🥤"
-        },
-        {
-          id: "b",
-          text: "Reusable items",
-          emoji: "🔄"
-        },
-        {
-          id: "c",
-          text: "Same impact",
-          emoji: "⚖️"
-        }
-      ],
-      correctAnswer: "c",
-      explanation: "Same impact. Creates more waste, but reusable items reduce waste. Reusable is better."
-    },
-    {
-      id: 3,
-      text: "How can we reduce single-use plastic?",
-      options: [
-        {
-          id: "c",
-          text: "Use alternatives",
-          emoji: "🌱"
-        },
-        {
-          id: "a",
-          text: "Use more plastic",
-          emoji: "🥤"
-        },
-        {
-          id: "b",
-          text: "Do nothing",
-          emoji: "🤷"
-        },
-        
-      ],
-      correctAnswer: "c",
-      explanation: "Use alternatives. Reduces waste, but action is needed. Find reusable options."
-    },
-    {
-      id: 4,
-      text: "What's the environmental impact of single-use plastics?",
-      options: [
-        {
-          id: "a",
-          text: "Minimal impact",
-          emoji: "🍃"
-        },
-        {
-          id: "b",
-          text: "Moderate impact",
-          emoji: "⚠️"
-        },
-        {
-          id: "c",
-          text: "Severe impact",
-          emoji: "🔥"
-        }
-      ],
-      correctAnswer: "c",
-      explanation: "Severe impact. Actually harmful, and significant harm. Major environmental threat."
-    },
-    {
-      id: 5,
-      text: "What's the best approach to reduce plastic waste?",
-      options: [
-        {
-          id: "a",
-          text: "Individual action",
-          emoji: "👤"
-        },
-        {
-          id: "b",
-          text: "Government regulation",
-          emoji: "🏛️"
-        },
-        {
-          id: "c",
-          text: "Corporate responsibility",
-          emoji: "🏢"
-        }
-      ],
-      correctAnswer: "b",
-      explanation: "Government regulation. Important but not sufficient, and essential for widespread change. Helpful but not enough alone."
-    }
-  ];
+ const questions = [
+  {
+    id: 1,
+    text: "Should we ban single-use plastics?",
+    options: [
+      {
+        id: "a",
+        text: "Yes, completely",
+        emoji: "👍"
+      },
+      {
+        id: "b",
+        text: "Gradually phase out",
+        emoji: "⏳"
+      },
+      {
+        id: "c",
+        text: "No, keep them",
+        emoji: "👎"
+      }
+    ],
+    correctAnswer: "b",
+    explanation: "Gradually phasing out reduces plastic waste while allowing time to adapt. Single-use plastics harm the environment."
+  },
+  {
+    id: 2,
+    text: "What's better: single-use or reusable?",
+    options: [
+      {
+        id: "b",
+        text: "Reusable items",
+        emoji: "🔄"
+      },
+      {
+        id: "a",
+        text: "Single-use items",
+        emoji: "🥤"
+      },
+      
+      {
+        id: "c",
+        text: "Same impact",
+        emoji: "⚖️"
+      }
+    ],
+    correctAnswer: "b",
+    explanation: "Reusable items reduce waste and pollution, making them better for the environment."
+  },
+  {
+    id: 3,
+    text: "How can we reduce single-use plastic?",
+    options: [
+      
+      {
+        id: "a",
+        text: "Use more plastic",
+        emoji: "🥤"
+      },
+      {
+        id: "b",
+        text: "Do nothing",
+        emoji: "🤷"
+      },
+      {
+        id: "c",
+        text: "Use alternatives",
+        emoji: "🌱"
+      },
+    ],
+    correctAnswer: "c",
+    explanation: "Using alternatives helps reduce plastic waste and encourages sustainable habits."
+  },
+  {
+    id: 4,
+    text: "What's the environmental impact of single-use plastics?",
+    options: [
+      {
+        id: "a",
+        text: "Minimal impact",
+        emoji: "🍃"
+      },
+      {
+        id: "c",
+        text: "Severe impact",
+        emoji: "🔥"
+      },
+      {
+        id: "b",
+        text: "Moderate impact",
+        emoji: "⚠️"
+      },
+      
+    ],
+    correctAnswer: "c",
+    explanation: "Single-use plastics cause severe environmental damage and are a major pollution threat."
+  },
+  {
+    id: 5,
+    text: "What's the best approach to reduce plastic waste?",
+    options: [
+      {
+        id: "a",
+        text: "Individual action",
+        emoji: "👤"
+      },
+      {
+        id: "b",
+        text: "Government regulation",
+        emoji: "🏛️"
+      },
+      {
+        id: "c",
+        text: "Corporate responsibility",
+        emoji: "🏢"
+      }
+    ],
+    correctAnswer: "a",
+    explanation: "Individual actions matter most. When people change their habits, larger systems and governments are influenced to change too."
+  }
+];
+
 
   const handleOptionSelect = (optionId) => {
     const currentQuestion = questions[currentQuestionIndex];

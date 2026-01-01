@@ -31,21 +31,19 @@ const ToyStory = () => {
           id: "safe", 
           text: "Keep Safe", 
           emoji: "🛡️", 
-          description: "Take care of the borrowed toy",
+          
           isCorrect: true
         },
         { 
           id: "break", 
           text: "Break", 
           emoji: "💔", 
-          description: "Don't take care of it",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore It", 
           emoji: "😴", 
-          description: "Forget about taking care",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const ToyStory = () => {
           id: "keep", 
           text: "Keep It", 
           emoji: "🙈", 
-          description: "Don't return it",
           isCorrect: false
         },
         { 
           id: "lose", 
           text: "Lose It", 
           emoji: "😞", 
-          description: "Lose track of the toy",
           isCorrect: false
         },
         {
           id: "return",
           text: "Return Toy",
           emoji: "🔄",
-          description: "Give it back to the owner",
           isCorrect: true
         },
       ]
@@ -85,21 +80,18 @@ const ToyStory = () => {
           id: "care", 
           text: "Care for It", 
           emoji: "💝", 
-          description: "Take good care of it",
           isCorrect: true
         },
         { 
           id: "lose", 
           text: "Lose It", 
           emoji: "😞", 
-          description: "Lose track of it",
           isCorrect: false
         },
         { 
           id: "break", 
           text: "Break It", 
           emoji: "💔", 
-          description: "Damage the toy",
           isCorrect: false
         }
       ]
@@ -112,21 +104,18 @@ const ToyStory = () => {
           id: "hide", 
           text: "Hide", 
           emoji: "🫥", 
-          description: "Hide it and don't return",
           isCorrect: false
         },
         {
           id: "give",
           text: "Give Back",
           emoji: "🤝",
-          description: "Return it immediately",
           isCorrect: true
         },
         { 
           id: "delay", 
           text: "Delay Return", 
           emoji: "⏰", 
-          description: "Put off returning it",
           isCorrect: false
         }
       ]
@@ -138,22 +127,19 @@ const ToyStory = () => {
         { 
           id: "careless", 
           text: "Be Careless", 
-          emoji: "❌", 
-          description: "Don't take care",
+          emoji: "😓", 
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget About It", 
           emoji: "🤷", 
-          description: "Ignore your responsibility",
           isCorrect: false
         },
         {
           id: "responsible",
           text: "Be Responsible",
-          emoji: "✅",
-          description: "Take responsibility and care",
+          emoji: "🔒",
           isCorrect: true
         },
       ]

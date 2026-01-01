@@ -32,21 +32,19 @@ const PiggyBank = () => {
           id: "bank", 
           text: "Bank account", 
           emoji: "🏦", 
-          description: "Earns interest over time",
+          
           isCorrect: true
         },
         { 
           id: "piggy", 
           text: "Piggy bank", 
           emoji: "🐷", 
-          description: "No interest earned",
           isCorrect: false
         },
         { 
           id: "mattress", 
           text: "Under mattress", 
           emoji: "🛏️", 
-          description: "Not safe or earning",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const PiggyBank = () => {
           id: "jar", 
           text: "Jar at home", 
           emoji: "🏺", 
-          description: "Stays the same",
           isCorrect: false
         },
         {
           id: "bank",
           text: "Bank savings account",
           emoji: "💰",
-          description: "Grows with interest",
           isCorrect: true
         },
         { 
           id: "spend", 
           text: "Spend it", 
           emoji: "🛍️", 
-          description: "Use it immediately",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const PiggyBank = () => {
           id: "bank", 
           text: "Bank for interest", 
           emoji: "📈", 
-          description: "Earn 5% interest",
           isCorrect: true
         },
         { 
           id: "piggy", 
           text: "Piggy bank for fun", 
           emoji: "🐷", 
-          description: "No growth",
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give it away", 
           emoji: "🎁", 
-          description: "Give money away",
           isCorrect: false
         }
       ]
@@ -113,21 +105,18 @@ const PiggyBank = () => {
           id: "magic", 
           text: "Piggy bank magic", 
           emoji: "🪄", 
-          description: "Magic happened",
           isCorrect: false
         },
         { 
           id: "added", 
           text: "You added more money", 
           emoji: "💸", 
-          description: "You put in more",
           isCorrect: false
         },
         {
           id: "interest",
           text: "Bank pays interest",
           emoji: "📊",
-          description: "Interest makes it grow",
           isCorrect: true
         },
       ]
@@ -140,21 +129,18 @@ const PiggyBank = () => {
           id: "safe", 
           text: "Safe and grows money", 
           emoji: "🔒", 
-          description: "Secure and earns interest",
           isCorrect: true
         },
         { 
           id: "cool", 
           text: "Looks cooler", 
           emoji: "🐷", 
-          description: "More attractive",
           isCorrect: false
         },
         { 
           id: "carry", 
           text: "Easier to carry", 
           emoji: "🎒", 
-          description: "More portable",
           isCorrect: false
         }
       ]

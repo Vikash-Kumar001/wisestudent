@@ -44,28 +44,25 @@ const SleepHabitsReflex = () => {
           id: "bedtime", 
           text: "Going to bed at bedtime", 
           emoji: "🌙", 
-          description: "A healthy sleep routine",
+          
           isCorrect: true
         },
         { 
           id: "late-gaming", 
           text: "Playing games late at night", 
           emoji: "🎮", 
-          description: "Disrupts sleep schedule",
           isCorrect: false
         },
         { 
           id: "all-night", 
           text: "Staying up all night", 
           emoji: "😴", 
-          description: "Bad for your health",
           isCorrect: false
         },
         { 
           id: "screens", 
           text: "Watching screens before bed", 
           emoji: "📱", 
-          description: "Makes it harder to sleep",
           isCorrect: false
         }
       ]
@@ -78,28 +75,24 @@ const SleepHabitsReflex = () => {
           id: "caffeine", 
           text: "Drinking coffee before bed", 
           emoji: "☕", 
-          description: "Keeps you awake",
           isCorrect: false
         },
         { 
           id: "quiet-time", 
           text: "Having quiet time before bed", 
           emoji: "🧘", 
-          description: "Helps you relax and sleep",
           isCorrect: true
         },
         { 
           id: "loud-music", 
           text: "Listening to loud music", 
           emoji: "🔊", 
-          description: "Makes it hard to sleep",
           isCorrect: false
         },
         { 
           id: "exercise", 
           text: "Intense exercise right before bed", 
           emoji: "🏃", 
-          description: "Can keep you awake",
           isCorrect: false
         }
       ]
@@ -112,28 +105,24 @@ const SleepHabitsReflex = () => {
           id: "irregular", 
           text: "Irregular sleep schedule", 
           emoji: "🔄", 
-          description: "Disrupts your body clock",
           isCorrect: false
         },
         { 
           id: "skipping", 
           text: "Skipping sleep", 
           emoji: "😰", 
-          description: "Bad for your health",
           isCorrect: false
         },
         { 
           id: "early-sleep", 
           text: "Going to sleep early", 
           emoji: "😴", 
-          description: "Gives you enough rest",
           isCorrect: true
         },
         { 
           id: "oversleeping", 
           text: "Oversleeping every day", 
           emoji: "😴", 
-          description: "Can make you feel tired",
           isCorrect: false
         }
       ]
@@ -146,28 +135,24 @@ const SleepHabitsReflex = () => {
           id: "dark-room", 
           text: "Sleeping in a dark room", 
           emoji: "🌑", 
-          description: "Helps you sleep better",
           isCorrect: true
         },
         { 
           id: "bright-lights", 
           text: "Sleeping with bright lights on", 
           emoji: "💡", 
-          description: "Makes it hard to sleep",
           isCorrect: false
         },
         { 
           id: "noise", 
           text: "Sleeping with loud noise", 
           emoji: "🔊", 
-          description: "Disrupts your sleep",
           isCorrect: false
         },
         { 
           id: "messy", 
           text: "Sleeping in a messy room", 
           emoji: "📦", 
-          description: "Can affect your rest",
           isCorrect: false
         }
       ]
@@ -180,28 +165,24 @@ const SleepHabitsReflex = () => {
           id: "random", 
           text: "Random sleep times", 
           emoji: "🎲", 
-          description: "Disrupts your sleep pattern",
           isCorrect: false
         },
         { 
           id: "stress", 
           text: "Going to bed stressed", 
           emoji: "😰", 
-          description: "Makes it hard to sleep",
           isCorrect: false
         },
         { 
           id: "eating", 
           text: "Eating heavy meals before bed", 
           emoji: "🍔", 
-          description: "Can disrupt your sleep",
           isCorrect: false
         },
         { 
           id: "routine", 
           text: "Following a bedtime routine", 
           emoji: "📅", 
-          description: "Helps your body prepare for sleep",
           isCorrect: true
         }
       ]

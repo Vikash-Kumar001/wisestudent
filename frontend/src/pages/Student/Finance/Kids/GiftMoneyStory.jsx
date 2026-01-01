@@ -32,21 +32,20 @@ const GiftMoneyStory = () => {
           id: "spend", 
           text: "Spend it all on toys", 
           emoji: "🎮", 
-          description: "Buy everything you want",
+          
           isCorrect: false
         },
         { 
           id: "save", 
           text: "Save some for later", 
           emoji: "🏦", 
-          description: "Keep some money for future needs",
+          
           isCorrect: true
         },
         { 
           id: "snacks", 
           text: "Buy snacks", 
           emoji: "🍟", 
-          description: "Spend on food items",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const GiftMoneyStory = () => {
           id: "save", 
           text: "Save ₹30 more", 
           emoji: "💰", 
-          description: "Wait and save to afford the shoes",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Borrow ₹30", 
           emoji: "🙈", 
-          description: "Ask someone to lend you money",
           isCorrect: false
         },
         { 
           id: "toy", 
           text: "Buy a toy instead", 
           emoji: "🧸", 
-          description: "Spend on something else",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const GiftMoneyStory = () => {
           id: "yes", 
           text: "Yes, I have enough", 
           emoji: "😊", 
-          description: "You can afford it",
           isCorrect: false
         },
         { 
           id: "discount", 
           text: "Ask for a discount", 
           emoji: "🎟️", 
-          description: "Try to negotiate the price",
           isCorrect: false
         },
         {
           id: "no",
           text: "No, need ₹50 more",
           emoji: "📉",
-          description: "You don't have enough money",
           isCorrect: true
         },
       ]
@@ -113,21 +106,18 @@ const GiftMoneyStory = () => {
           id: "okay", 
           text: "Okay, let's spend it", 
           emoji: "🎉", 
-          description: "Agree to spend everything",
           isCorrect: false
         },
         {
           id: "no",
           text: "No, I'll save some",
-          emoji: "✅",
-          description: "Make a smart choice",
+          emoji: "😓",
           isCorrect: true
         },
         { 
           id: "give", 
           text: "I'll give it to you", 
           emoji: "🎁", 
-          description: "Give your money away",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const GiftMoneyStory = () => {
           id: "bigger", 
           text: "Helps buy bigger things later", 
           emoji: "🚀", 
-          description: "Reach larger goals",
           isCorrect: true
         },
         { 
           id: "more", 
           text: "Lets you spend more now", 
           emoji: "🛍️", 
-          description: "Have more to spend immediately",
           isCorrect: false
         },
         { 
           id: "candy", 
           text: "Makes you buy candy", 
           emoji: "🍬", 
-          description: "Use it for treats",
           isCorrect: false
         }
       ]

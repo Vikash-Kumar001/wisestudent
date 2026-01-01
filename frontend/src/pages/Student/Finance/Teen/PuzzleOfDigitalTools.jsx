@@ -47,20 +47,20 @@ const PuzzleOfDigitalTools = () => {
 
   // Digital tools (left side) - 5 items
   const tools = [
-    { id: 1, name: "UPI", emoji: "📱", hint: "Instant bank transfers" },
-    { id: 2, name: "Debit Card", emoji: "💳", hint: "Spending your own money" },
-    { id: 3, name: "OTP", emoji: "🔐", hint: "One-time security code" },
-    { id: 4, name: "QR Code", emoji: "📷", hint: "Scannable payment link" },
-    { id: 5, name: "CVV", emoji: "🔒", hint: "Card verification digits" }
+    { id: 1, name: "UPI", emoji: "📱",  },
+    { id: 2, name: "Debit Card", emoji: "💳",  },
+    { id: 3, name: "OTP", emoji: "🔐",  },
+    { id: 4, name: "QR Code", emoji: "📷",  },
+    { id: 5, name: "CVV", emoji: "🔒",  }
   ];
 
   // Digital functions (right side) - 5 items
   const functions = [
-    { id: 6, name: "Instant Transfer", emoji: "⚡", description: "Real-time money movement" },
-    { id: 7, name: "Bank Spending", emoji: "🏦", description: "Direct account withdrawals" },
-    { id: 8, name: "Security Code", emoji: "🛡️", description: "Temporary protection pin" },
-    { id: 9, name: "Scan & Pay", emoji: "📲", description: "Mobile payment method" },
-    { id: 10, name: "Card Protection", emoji: "🧾", description: "Prevents unauthorized use" }
+    { id: 6, name: "Instant Transfer", emoji: "⚡",  },
+    { id: 7, name: "Bank Spending", emoji: "🏦",  },
+    { id: 8, name: "Security Code", emoji: "🛡️",  },
+    { id: 9, name: "Scan & Pay", emoji: "📲",  },
+    { id: 10, name: "Card Protection", emoji: "🧾",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

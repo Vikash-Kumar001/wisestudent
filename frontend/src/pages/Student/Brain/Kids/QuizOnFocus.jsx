@@ -35,21 +35,19 @@ const QuizOnFocus = () => {
           id: "a", 
           text: "Quiet room", 
           emoji: "🔇", 
-          description: "A peaceful environment helps concentration",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "TV on", 
           emoji: "📺", 
-          description: "TV can be distracting",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Phone games", 
           emoji: "📱", 
-          description: "Games can break your focus",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const QuizOnFocus = () => {
           id: "a", 
           text: "Multitasking", 
           emoji: "🤹", 
-          description: "Doing many things at once",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Meditation", 
           emoji: "🧘", 
-          description: "Meditation trains your brain to focus",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Loud music", 
           emoji: "🔊", 
-          description: "Loud sounds can be distracting",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const QuizOnFocus = () => {
           id: "a", 
           text: "When you're most alert", 
           emoji: "⚡", 
-          description: "Studying when alert maximizes learning",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Very late at night", 
           emoji: "🌙", 
-          description: "Late night can make you tired",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "During TV show", 
           emoji: "📺", 
-          description: "TV can distract from studying",
           isCorrect: false
         }
       ]
@@ -116,21 +108,18 @@ const QuizOnFocus = () => {
           id: "a", 
           text: "Check all social media", 
           emoji: "📱", 
-          description: "Social media can be distracting",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Clear your desk and gather materials", 
           emoji: "📚", 
-          description: "An organized space helps focus",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Start with hardest task", 
           emoji: "😰", 
-          description: "Starting hard can be overwhelming",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const QuizOnFocus = () => {
           id: "a", 
           text: "Several hours without break", 
           emoji: "⏰", 
-          description: "Too long can cause fatigue",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "25-30 minutes", 
           emoji: "⏱️", 
-          description: "Short focused sessions with breaks work best",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "5 minutes", 
           emoji: "⏳", 
-          description: "Too short to accomplish much",
           isCorrect: false
         }
       ]

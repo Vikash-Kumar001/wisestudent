@@ -22,20 +22,20 @@ const SafetyToolsPuzzle = () => {
   
   // Safety Tools (left side) - 5 items
   const tools = [
-    { id: 1, name: "Sunscreen", emoji: "🧴", hint: "Protects skin from UV rays" },
-    { id: 2, name: "Seatbelt", emoji: "💺", hint: "Restrains occupant in vehicle" },
-    { id: 3, name: "Flashlight", emoji: "💡", hint: "Portable light source" },
-    { id: 4, name: "Knee Pads", emoji: "🛡️", hint: "Protective gear for joints" },
-    { id: 5, name: "Bandage", emoji: "🩹", hint: "Covering for wounds" }
+    { id: 1, name: "Sunscreen", emoji: "🧴",  },
+    { id: 2, name: "Seatbelt", emoji: "💺",  },
+    { id: 3, name: "Flashlight", emoji: "💡",  },
+    { id: 4, name: "Knee Pads", emoji: "🛡️",  },
+    { id: 5, name: "Bandage", emoji: "🩹",  }
   ];
   
   // Uses (right side) - 5 items (shuffled order)
   const uses = [
-    { id: 4, text: "Cushions falls during skating", hint: "Joint protection equipment" },
-    { id: 1, text: "Blocks harmful ultraviolet rays", hint: "Skin protection product" },
-    { id: 5, text: "Covers minor cuts and scrapes", hint: "Wound care supply" },
-    { id: 2, text: "Secures passengers in vehicles", hint: "Automotive safety device" },
-    { id: 3, text: "Illuminates dark environments", hint: "Portable lighting tool" }
+    { id: 4, text: "Cushions falls during skating",  },
+    { id: 1, text: "Blocks harmful ultraviolet rays",  },
+    { id: 5, text: "Covers minor cuts and scrapes",  },
+    { id: 2, text: "Secures passengers in vehicles",  },
+    { id: 3, text: "Illuminates dark environments",  }
   ];
   
   // Correct matches

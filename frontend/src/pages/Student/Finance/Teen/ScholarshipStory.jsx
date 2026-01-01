@@ -35,21 +35,21 @@ const ScholarshipStory = () => {
           id: "lie", 
           text: "Lie to get money", 
           emoji: "😈", 
-          description: "Get more funds",
+          
           isCorrect: false
         },
         { 
           id: "truthful", 
           text: "Be truthful", 
-          emoji: "✅", 
-          description: "Honest application",
+          emoji: "📝", 
+          
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe, if needed", 
           emoji: "🤔", 
-          description: "Consider options",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,18 @@ const ScholarshipStory = () => {
           id: "get-money", 
           text: "Get more money", 
           emoji: "💰", 
-          description: "Extra funds",
           isCorrect: false
         },
         { 
           id: "lose-opportunity", 
           text: "Lose opportunity and trust", 
           emoji: "🚫", 
-          description: "Face consequences",
           isCorrect: true
         },
         { 
           id: "nothing", 
           text: "Nothing happens", 
           emoji: "😊", 
-          description: "No issues",
           isCorrect: false
         }
       ]
@@ -89,21 +86,18 @@ const ScholarshipStory = () => {
           id: "builds-trust", 
           text: "Builds trust and integrity", 
           emoji: "🤝", 
-          description: "Shows character",
           isCorrect: true
         },
         { 
           id: "not-important", 
           text: "Not important", 
           emoji: "😴", 
-          description: "Doesn't matter",
           isCorrect: false
         },
         { 
           id: "waste-time", 
           text: "Wastes time", 
           emoji: "⏳", 
-          description: "Takes longer",
           isCorrect: false
         }
       ]
@@ -116,21 +110,18 @@ const ScholarshipStory = () => {
           id: "hide-mistake", 
           text: "Hide the mistake", 
           emoji: "🙈", 
-          description: "Don't tell anyone",
           isCorrect: false
         },
         { 
           id: "correct-it", 
           text: "Correct it honestly", 
           emoji: "✏️", 
-          description: "Fix and inform",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😴", 
-          description: "Do nothing",
           isCorrect: false
         }
       ]
@@ -143,21 +134,18 @@ const ScholarshipStory = () => {
           id: "honest-application", 
           text: "Honest and complete application", 
           emoji: "📝", 
-          description: "Truthful submission",
           isCorrect: true
         },
         { 
           id: "exaggerate", 
           text: "Exaggerate achievements", 
           emoji: "📈", 
-          description: "Make it better",
           isCorrect: false
         },
         { 
           id: "copy-others", 
           text: "Copy from others", 
           emoji: "📋", 
-          description: "Use templates",
           isCorrect: false
         }
       ]

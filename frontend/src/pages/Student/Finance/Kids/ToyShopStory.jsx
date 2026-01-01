@@ -31,21 +31,19 @@ const ToyShopStory = () => {
           id: "quick", 
           text: "Buy Quickly", 
           emoji: "⚡", 
-          description: "Buy immediately",
+          
           isCorrect: false
         },
         {
           id: "check",
           text: "Check Price",
           emoji: "💰",
-          description: "Check the price first",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore Seller", 
           emoji: "🤷", 
-          description: "Don't pay attention",
           isCorrect: false
         }
       ]
@@ -58,21 +56,18 @@ const ToyShopStory = () => {
           id: "compare", 
           text: "Compare Prices", 
           emoji: "⚖️", 
-          description: "Compare prices at both stores",
           isCorrect: true
         },
         { 
           id: "pay", 
           text: "Pay Now", 
           emoji: "💸", 
-          description: "Pay at first store",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip Both", 
           emoji: "🚶", 
-          description: "Don't buy anything",
           isCorrect: false
         }
       ]
@@ -85,21 +80,18 @@ const ToyShopStory = () => {
           id: "fast", 
           text: "Buy Fast", 
           emoji: "🏃", 
-          description: "Buy quickly",
           isCorrect: false
         },
         {
           id: "quality",
           text: "Ask Quality",
           emoji: "🔍",
-          description: "Check the quality first",
           isCorrect: true
         },
         { 
           id: "guess", 
           text: "Guess Quality", 
           emoji: "🎲", 
-          description: "Buy without checking",
           isCorrect: false
         }
       ]
@@ -112,21 +104,18 @@ const ToyShopStory = () => {
           id: "reviews", 
           text: "Read Reviews", 
           emoji: "⭐", 
-          description: "Read customer reviews",
           isCorrect: true
         },
         { 
           id: "rush", 
           text: "Rush", 
           emoji: "⚡", 
-          description: "Buy immediately",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore Sale", 
           emoji: "🙈", 
-          description: "Don't check anything",
           isCorrect: false
         }
       ]
@@ -139,21 +128,18 @@ const ToyShopStory = () => {
           id: "spend", 
           text: "Spend All", 
           emoji: "💸", 
-          description: "Spend all your money",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow Money", 
           emoji: "💳", 
-          description: "Ask someone for money",
           isCorrect: false
         },
         {
           id: "budget",
           text: "Budget First",
           emoji: "📊",
-          description: "Plan your budget first",
           isCorrect: true
         },
       ]

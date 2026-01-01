@@ -22,9 +22,9 @@ const DebateIgnoreOrReport = () => {
       id: 1,
       text: "Should bullying be ignored or reported?",
       options: [
-        { id: "a", text: "Ignored to avoid conflict" },
-        { id: "b", text: "Reported to appropriate authorities" },
-        { id: "c", text: "Handled by the victims alone" }
+        { id: "a", text: "Ignored to avoid conflict", emoji: "🙈" },
+        { id: "b", text: "Reported to appropriate authorities", emoji: "📢" },
+        { id: "c", text: "Handled by the victims alone", emoji: "👤" }
       ],
       correctAnswer: "b",
       explanation: "Bullying should always be reported to appropriate authorities such as teachers, counselors, or parents. Ignoring bullying allows it to continue and can escalate, causing more harm to victims."
@@ -33,9 +33,9 @@ const DebateIgnoreOrReport = () => {
       id: 2,
       text: "What is the most effective way to address cyberbullying?",
       options: [
-        { id: "b", text: "Document evidence and report to adults" },
-        { id: "a", text: "Retaliate against the bully online" },
-        { id: "c", text: "Hope it will stop on its own" }
+        { id: "b", text: "Document evidence and report to adults", emoji: "📝" },
+        { id: "a", text: "Retaliate against the bully online", emoji: "⚔️" },
+        { id: "c", text: "Hope it will stop on its own", emoji: "🤞" }
       ],
       correctAnswer: "b",
       explanation: "Documenting evidence and reporting cyberbullying to trusted adults is the most effective approach. This ensures proper action is taken while protecting the victim and preventing further harm."
@@ -44,9 +44,9 @@ const DebateIgnoreOrReport = () => {
       id: 3,
       text: "Why is it important for bystanders to report bullying?",
       options: [
-        { id: "a", text: "To gain popularity among peers" },
-        { id: "c", text: "To avoid getting in trouble themselves" },
-        { id: "b", text: "To help stop the bullying and support victims" },
+        { id: "a", text: "To gain popularity among peers", emoji: "😊 " },
+        { id: "c", text: "To avoid getting in trouble themselves", emoji: "🛡️" },
+        { id: "b", text: "To help stop the bullying and support victims", emoji: "🤝" },
       ],
       correctAnswer: "b",
       explanation: "Bystanders play a crucial role in stopping bullying by reporting it. This helps protect victims, holds bullies accountable, and creates a safer environment for everyone."
@@ -55,9 +55,9 @@ const DebateIgnoreOrReport = () => {
       id: 4,
       text: "What should you do if you witness bullying but fear retaliation?",
       options: [
-        { id: "a", text: "Stay silent to protect yourself" },
-        { id: "b", text: "Report anonymously or seek help from trusted adults" },
-        { id: "c", text: "Join in to show you're not a target" }
+        { id: "a", text: "Stay silent to protect yourself", emoji: "🤐" },
+        { id: "b", text: "Report anonymously or seek help from trusted adults", emoji: "🔐" },
+        { id: "c", text: "Join in to show you're not a target", emoji: "😈" }
       ],
       correctAnswer: "b",
       explanation: "If you fear retaliation, reporting anonymously or seeking help from trusted adults is the best approach. This allows action to be taken while protecting you from potential retaliation."
@@ -66,9 +66,9 @@ const DebateIgnoreOrReport = () => {
       id: 5,
       text: "How does reporting bullying benefit the school community?",
       options: [
-        { id: "b", text: "It helps create a safer, more inclusive environment" },
-        { id: "a", text: "It creates more conflict and drama" },
-        { id: "c", text: "It makes the school look bad to outsiders" }
+        { id: "b", text: "It helps create a safer, more inclusive environment", emoji: "🌳" },
+        { id: "a", text: "It creates more conflict and drama", emoji: "🎭" },
+        { id: "c", text: "It makes the school look bad to outsiders", emoji: " 🏫" }
       ],
       correctAnswer: "b",
       explanation: "Reporting bullying helps schools identify patterns, implement preventive measures, and create a safer, more inclusive environment for all students. This benefits the entire school community."
@@ -151,12 +151,7 @@ const DebateIgnoreOrReport = () => {
               const showCorrect = showFeedback && isCorrect;
               const showIncorrect = showFeedback && isSelected && !isCorrect;
               
-              // Add emojis for each option like in the reference game
-              const optionEmojis = {
-                a: "✅",
-                b: "❌",
-                c: "⚠️"
-              };
+
               
               return (
                 <button
@@ -168,7 +163,7 @@ const DebateIgnoreOrReport = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <div className="text-2xl mr-4">{optionEmojis[option.id] || '❓'}</div>
+                    <div className="text-2xl mr-4">{option.emoji || '❓'}</div>
                     <div>
                       <h3 className="font-bold text-xl mb-1">{option.text}</h3>
                     </div>

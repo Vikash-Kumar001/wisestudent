@@ -34,43 +34,43 @@ const DebateWantsMatter = () => {
       scenario: "Should you ignore wants completely?",
       positions: [
         { id: "balance", text: "BALANCED: Balance needs and wants", emoji: "⚖️", points: ["Enjoy life", "Meet needs", "Plan spending"], isCorrect: true },
-        { id: "ignore", text: "AGAINST: Ignore wants", emoji: "❌", points: ["Focus on needs", "Save all money", "Avoid fun"], isCorrect: false },
-        { id: "wants", text: "FOR: Wants matter", emoji: "✅", points: ["Enjoyment important", "Life balance", "Happiness matters"], isCorrect: false }
+        { id: "ignore", text: "AGAINST: Ignore wants", emoji: "🤦", points: ["Focus on needs", "Save all money", "Avoid fun"], isCorrect: false },
+        { id: "wants", text: "FOR: Wants matter", emoji: "🙂", points: ["Enjoyment important", "Life balance", "Happiness matters"], isCorrect: false }
       ]
     },
     {
       id: 2,
       scenario: "Are wants worth budgeting for?",
       positions: [
-        { id: "wants", text: "FOR: Budget for wants", emoji: "✅", points: ["Plan fun", "Avoid overspending", "Stay happy"], isCorrect: true },
+        { id: "wants", text: "FOR: Budget for wants", emoji: "😊", points: ["Plan fun", "Avoid overspending", "Stay happy"], isCorrect: true },
         { id: "balanced", text: "BALANCED: Budget wisely", emoji: "⚖️", points: ["Some wants, some needs", "Moderate approach", "Flexible planning"], isCorrect: false },
-        { id: "nobudget", text: "AGAINST: Don't budget wants", emoji: "❌", points: ["Spend freely", "Risk debt", "No plan"], isCorrect: false }
+        { id: "nobudget", text: "AGAINST: Don't budget wants", emoji: "😲", points: ["Spend freely", "Risk debt", "No plan"], isCorrect: false }
       ]
     },
     {
       id: 3,
       scenario: "Should wants come before savings?",
       positions: [
-        { id: "wants", text: "AGAINST: Wants first", emoji: "❌", points: ["Instant fun", "Risk overspending", "No savings"], isCorrect: false },
+        { id: "wants", text: "AGAINST: Wants first", emoji: "🤦", points: ["Instant fun", "Risk overspending", "No savings"], isCorrect: false },
         { id: "balanced", text: "BALANCED: Balance both", emoji: "⚖️", points: ["Save some, enjoy some", "Moderate approach", "Both matter"], isCorrect: false },
-        { id: "savings", text: "FOR: Savings first", emoji: "✅", points: ["Secure future", "Avoid debt", "Build wealth"], isCorrect: true }
+        { id: "savings", text: "FOR: Savings first", emoji: "🙂", points: ["Secure future", "Avoid debt", "Build wealth"], isCorrect: true }
       ]
     },
     {
       id: 4,
       scenario: "Can wants improve your life?",
       positions: [
-        { id: "planned", text: "FOR: Planned wants help", emoji: "✅", points: ["Boost mood", "Fit budget", "Controlled spending"], isCorrect: true },
+        { id: "planned", text: "FOR: Planned wants help", emoji: "😊", points: ["Boost mood", "Fit budget", "Controlled spending"], isCorrect: true },
         { id: "balanced", text: "BALANCED: Some wants help", emoji: "⚖️", points: ["Moderate enjoyment", "Not all wants", "Selective spending"], isCorrect: false },
-        { id: "unplanned", text: "AGAINST: Unplanned wants hurt", emoji: "❌", points: ["Cause debt", "Disrupt budget", "Stressful"], isCorrect: false }
+        { id: "unplanned", text: "AGAINST: Unplanned wants hurt", emoji: "😲", points: ["Cause debt", "Disrupt budget", "Stressful"], isCorrect: false }
       ]
     },
     {
       id: 5,
       scenario: "Should wants be part of a budget?",
       positions: [
-        { id: "exclude", text: "AGAINST: Exclude wants", emoji: "❌", points: ["Only needs", "No enjoyment", "Strict life"], isCorrect: false },
-        { id: "include", text: "FOR: Include wants", emoji: "✅", points: ["Balanced life", "Motivate saving", "Planned fun"], isCorrect: true },
+        { id: "exclude", text: "AGAINST: Exclude wants", emoji: "👎", points: ["Only needs", "No enjoyment", "Strict life"], isCorrect: false },
+        { id: "include", text: "FOR: Include wants", emoji: "🙂", points: ["Balanced life", "Motivate saving", "Planned fun"], isCorrect: true },
         { id: "balanced", text: "BALANCED: Include some wants", emoji: "⚖️", points: ["Limited wants", "Mostly needs", "Moderate fun"], isCorrect: false }
       ]
     }

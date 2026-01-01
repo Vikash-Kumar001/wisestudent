@@ -47,20 +47,20 @@ const PuzzleOfGrowth = () => {
 
   // Growth Items (left side) - 5 items
   const items = [
-    { id: 1, name: "Seed", emoji: "🌱", hint: "Starts small" },
-    { id: 2, name: "Savings", emoji: "💰", hint: "Money saved" },
-    { id: 3, name: "Plant", emoji: "🌿", hint: "Needs water" },
-    { id: 4, name: "Sapling", emoji: "🌳", hint: "Young tree" },
-    { id: 5, name: "Bulb", emoji: "🌻", hint: "Underground start" }
+    { id: 1, name: "Seed", emoji: "🌱",  },
+    { id: 2, name: "Savings", emoji: "💰",  },
+    { id: 3, name: "Plant", emoji: "🌿",  },
+    { id: 4, name: "Sapling", emoji: "🌳",  },
+    { id: 5, name: "Bulb", emoji: "🌻",  }
   ];
 
   // Outcomes (right side) - 5 items
   const outcomes = [
-    { id: 6, name: "Tree", emoji: "🌲", description: "Grows tall" },
-    { id: 7, name: "Growth", emoji: "📈", description: "Getting bigger" },
-    { id: 8, name: "Flower", emoji: "🌸", description: "Blooms beautifully" },
-    { id: 9, name: "Forest", emoji: "🌲", description: "Many trees" },
-    { id: 10, name: "Wealth", emoji: "🏦", description: "Financial abundance" }
+    { id: 6, name: "Tree", emoji: "🌲",  },
+    { id: 7, name: "Growth", emoji: "📈",  },
+    { id: 8, name: "Flower", emoji: "🌸",  },
+    { id: 9, name: "Forest", emoji: "🌲",  },
+    { id: 10, name: "Wealth", emoji: "🏦",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

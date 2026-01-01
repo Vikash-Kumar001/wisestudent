@@ -35,21 +35,21 @@ const QuizOnDigitalMoney = () => {
           id: "secret", 
           text: "Keep PIN secret", 
           emoji: "🔒", 
-          description: "Protects your account", 
+           
           isCorrect: true 
         },
         { 
           id: "share", 
           text: "Share PIN", 
           emoji: "🔓", 
-          description: "Risks fraud and theft", 
+           
           isCorrect: false 
         },
         { 
           id: "both", 
           text: "Share with friends", 
           emoji: "👥", 
-          description: "Very unsafe practice", 
+           
           isCorrect: false 
         }
       ]
@@ -62,21 +62,18 @@ const QuizOnDigitalMoney = () => {
           id: "nootp", 
           text: "Skip OTP", 
           emoji: "🚫", 
-          description: "Less secure", 
           isCorrect: false 
         },
         { 
           id: "otp", 
           text: "Use OTP", 
           emoji: "🔐", 
-          description: "Verifies your identity", 
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Ignore verification", 
           emoji: "⚠️", 
-          description: "Risky behavior", 
           isCorrect: false 
         }
       ]
@@ -89,21 +86,18 @@ const QuizOnDigitalMoney = () => {
           id: "cvv", 
           text: "Hide CVV", 
           emoji: "🛡️", 
-          description: "Keeps card safe", 
           isCorrect: true 
         },
         { 
           id: "sharecvv", 
           text: "Share CVV", 
           emoji: "📢", 
-          description: "Risks card theft", 
           isCorrect: false 
         },
         { 
           id: "post", 
           text: "Post CVV online", 
           emoji: "🌐", 
-          description: "Extremely dangerous", 
           isCorrect: false 
         }
       ]
@@ -116,21 +110,18 @@ const QuizOnDigitalMoney = () => {
           id: "weak", 
           text: "Use '1234'", 
           emoji: "⚠️", 
-          description: "Easy to guess", 
           isCorrect: false 
         },
         { 
           id: "strong", 
           text: "Strong password", 
           emoji: "🔑", 
-          description: "Hard to crack", 
           isCorrect: true 
         },
         { 
           id: "name", 
           text: "Use your name", 
           emoji: "👤", 
-          description: "Very weak password", 
           isCorrect: false 
         }
       ]
@@ -139,25 +130,23 @@ const QuizOnDigitalMoney = () => {
       id: 5,
       text: "How to verify a website?",
       options: [
-        { 
+        {     
           id: "nohttps", 
           text: "Ignore HTTPS", 
           emoji: "🌐", 
-          description: "Risky site", 
           isCorrect: false 
         },
         { 
           id: "https", 
           text: "Check HTTPS", 
           emoji: "🔒", 
-          description: "Secure site indicator", 
           isCorrect: true 
         },
         { 
           id: "trust", 
           text: "Trust all sites", 
           emoji: "😊", 
-          description: "Unsafe approach", 
+           
           isCorrect: false 
         }
       ]

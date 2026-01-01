@@ -32,21 +32,19 @@ const BankVisitStory = () => {
           id: "watch", 
           text: "Watch and learn quietly", 
           emoji: "👀", 
-          description: "Observe and learn",
+          
           isCorrect: true
         },
         { 
           id: "play", 
           text: "Run around and play", 
           emoji: "🏃", 
-          description: "Play around",
           isCorrect: false
         },
         { 
           id: "touch", 
           text: "Touch everything", 
           emoji: "👆", 
-          description: "Touch things around",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const BankVisitStory = () => {
           id: "ignore", 
           text: "Ignore them completely", 
           emoji: "😐", 
-          description: "Don't respond",
           isCorrect: false
         },
         {
           id: "polite",
           text: "Be polite and respectful",
           emoji: "🙏",
-          description: "Show respect",
           isCorrect: true
         },
         { 
           id: "rude", 
           text: "Be rude to them", 
           emoji: "😠", 
-          description: "Be mean",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const BankVisitStory = () => {
           id: "privacy", 
           text: "Stand back and give privacy", 
           emoji: "🔒", 
-          description: "Respect their privacy",
           isCorrect: true
         },
         { 
           id: "watch", 
           text: "Watch the PIN closely", 
           emoji: "👁️", 
-          description: "Look at their secret code",
           isCorrect: false
         },
         { 
           id: "buttons", 
           text: "Press random buttons", 
           emoji: "🔘", 
-          description: "Press buttons randomly",
           isCorrect: false
         }
       ]
@@ -113,21 +105,18 @@ const BankVisitStory = () => {
           id: "angry", 
           text: "Get angry at guard", 
           emoji: "😠", 
-          description: "Be upset",
           isCorrect: false
         },
         { 
           id: "refuse", 
           text: "Refuse the check", 
           emoji: "❌", 
-          description: "Don't allow checking",
           isCorrect: false
         },
         {
           id: "understand",
           text: "Understand it's for safety",
           emoji: "🛡️",
-          description: "Know it's for protection",
           isCorrect: true
         },
       ]
@@ -140,21 +129,18 @@ const BankVisitStory = () => {
           id: "push", 
           text: "Push to go first", 
           emoji: "👊", 
-          description: "Try to skip the line",
           isCorrect: false
         },
         {
           id: "wait",
           text: "Wait patiently in line",
           emoji: "⏳",
-          description: "Wait your turn",
           isCorrect: true
         },
         { 
           id: "complain", 
           text: "Complain loudly", 
           emoji: "😤", 
-          description: "Make noise and complain",
           isCorrect: false
         }
       ]

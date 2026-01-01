@@ -44,28 +44,25 @@ const ScreenAlertReflex = () => {
           id: "keep-scrolling", 
           text: "Keep Scrolling", 
           emoji: "📱", 
-          description: "An unbalanced screen choice",
+          
           isCorrect: false
         },
         { 
           id: "log-off", 
           text: "Log Off", 
           emoji: "🔌", 
-          description: "A balanced screen choice",
           isCorrect: true
         },
         { 
           id: "game-all-day", 
           text: "Game All Day", 
           emoji: "🎮", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "watch-all-night", 
           text: "Watch all night", 
           emoji: "📺", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         }
       ]
@@ -78,28 +75,24 @@ const ScreenAlertReflex = () => {
           id: "screen-break", 
           text: "Take a screen break", 
           emoji: "⏸️", 
-          description: "A balanced screen choice",
           isCorrect: true
         },
         { 
           id: "non-stop-gaming", 
           text: "Non-stop gaming", 
           emoji: "🎮", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "marathon-watch", 
           text: "Marathon watching", 
           emoji: "📺", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "late-phone", 
           text: "Use phone until late", 
           emoji: "📱", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         }
       ]
@@ -113,28 +106,24 @@ const ScreenAlertReflex = () => {
           id: "stare-screen", 
           text: "Stare at screen continuously", 
           emoji: "👀", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "no-breaks", 
           text: "No breaks while using screens", 
           emoji: "⏰", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "all-day-scrolling", 
           text: "Scroll all day", 
           emoji: "📱", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "rest-eyes", 
           text: "Rest your eyes", 
           emoji: "😴", 
-          description: "A balanced screen choice",
           isCorrect: true
         },
       ]
@@ -148,28 +137,24 @@ const ScreenAlertReflex = () => {
           id: "ignore-time", 
           text: "Ignore time limits", 
           emoji: "⏱️", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "excessive-use", 
           text: "Excessive screen use", 
           emoji: "💻", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "limit-time", 
           text: "Limit screen time", 
           emoji: "⏰", 
-          description: "A balanced screen choice",
           isCorrect: true
         },
         { 
           id: "no-timeout", 
           text: "No timeout breaks", 
           emoji: "📱", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         }
       ]
@@ -182,28 +167,24 @@ const ScreenAlertReflex = () => {
           id: "balanced-schedule", 
           text: "Follow a balanced screen schedule", 
           emoji: "📅", 
-          description: "A balanced screen choice",
           isCorrect: true
         },
         { 
           id: "random-time", 
           text: "Random screen time", 
           emoji: "🔄", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "all-screens", 
           text: "Use all screens at once", 
           emoji: "💻📱📺", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         },
         { 
           id: "no-limits", 
           text: "No screen limits", 
           emoji: "🔓", 
-          description: "An unbalanced screen choice",
           isCorrect: false
         }
       ]

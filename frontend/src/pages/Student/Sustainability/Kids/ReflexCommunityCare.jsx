@@ -116,7 +116,7 @@ const ReflexCommunityCare = () => {
         { id: 'b', text: "Look away", emoji: "🙈", isCorrect: false },
         { id: 'c', text: "Point and laugh", emoji: "😂", isCorrect: false },
         { id: 'd', text: "Ignore and sit elsewhere", emoji: "🚶", isCorrect: false },
-        { id: 'a', text: "Invite them to join us", emoji: "😊", isCorrect: true },
+        { id: 'a', text: "Invite them to join", emoji: "😊", isCorrect: true },
       ]
     },
     {

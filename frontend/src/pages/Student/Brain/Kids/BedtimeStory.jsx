@@ -35,21 +35,21 @@ const BedtimeStory = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "😴", 
-          description: "Good sleep schedule helps brain",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it's bad", 
           emoji: "😫", 
-          description: "Sleeping early is not helpful",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Sleep doesn't matter",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,19 @@ const BedtimeStory = () => {
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Energy doesn't matter",
+          
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "⚡", 
-          description: "Early sleep gives energy",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it's bad", 
           emoji: "👎", 
-          description: "Sleeping early is wrong",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const BedtimeStory = () => {
           id: "no", 
           text: "No, routines are bad", 
           emoji: "🙅‍♂️", 
-          description: "Routines don't help",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, doesn't matter", 
           emoji: "🤔", 
-          description: "Routines are not important",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, it's smart", 
           emoji: "😎", 
-          description: "Routines help sleep better",
           isCorrect: true
         }
       ]
@@ -116,21 +111,18 @@ const BedtimeStory = () => {
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "🏫", 
-          description: "Good sleep prepares for school",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it's bad", 
           emoji: "🤦", 
-          description: "Sleeping early is not good",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, doesn't help", 
           emoji: "🤔", 
-          description: "Sleep doesn't affect school",
           isCorrect: false
         }
       ]
@@ -143,21 +135,18 @@ const BedtimeStory = () => {
           id: "no", 
           text: "No, screens are fine", 
           emoji: "📱", 
-          description: "Screens don't affect sleep",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, doesn't matter", 
           emoji: "🤔", 
-          description: "Screens are okay before bed",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, it's good", 
           emoji: "😴", 
-          description: "No screens help sleep better",
           isCorrect: true
         }
       ]

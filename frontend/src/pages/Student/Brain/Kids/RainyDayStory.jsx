@@ -35,21 +35,20 @@ const RainyDayStory = () => {
           id: "indoor", 
           text: "We can play indoor games!", 
           emoji: "🎮", 
-          description: "Find a positive alternative",
+          
           isCorrect: true
         },
         { 
           id: "ruined", 
           text: "It's ruined forever", 
           emoji: "😢", 
-          description: "Think negatively",
+          
           isCorrect: false
         },
         { 
           id: "hate", 
           text: "Hate rain", 
           emoji: "😠", 
-          description: "Get angry about it",
           isCorrect: false
         }
       ]
@@ -62,21 +61,18 @@ const RainyDayStory = () => {
           id: "worst", 
           text: "This is the worst", 
           emoji: "😤", 
-          description: "Think negatively",
           isCorrect: false
         },
         { 
           id: "enjoy", 
           text: "Enjoy the ride and chat", 
           emoji: "💬", 
-          description: "Make the best of the situation",
           isCorrect: true
         },
         { 
           id: "blame", 
           text: "Blame driver", 
           emoji: "👆", 
-          description: "Find someone to blame",
           isCorrect: false
         }
       ]
@@ -89,21 +85,18 @@ const RainyDayStory = () => {
           id: "share", 
           text: "Share with friends!", 
           emoji: "🤝", 
-          description: "Turn it into a positive opportunity",
           isCorrect: true
         },
         { 
           id: "starve", 
           text: "Starve all day", 
           emoji: "😰", 
-          description: "Think the worst",
           isCorrect: false
         },
         { 
           id: "angry", 
           text: "Be angry", 
           emoji: "😠", 
-          description: "Get upset",
           isCorrect: false
         }
       ]
@@ -116,21 +109,18 @@ const RainyDayStory = () => {
           id: "boring", 
           text: "Boring now", 
           emoji: "😑", 
-          description: "Think negatively",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain", 
           emoji: "😤", 
-          description: "Focus on the problem",
           isCorrect: false
         },
         { 
           id: "stories", 
           text: "Tell stories in dark!", 
           emoji: "📖", 
-          description: "Find a fun alternative",
           isCorrect: true
         }
       ]
@@ -143,21 +133,18 @@ const RainyDayStory = () => {
           id: "late", 
           text: "Late forever", 
           emoji: "😰", 
-          description: "Think the worst",
           isCorrect: false
         },
         { 
           id: "hate", 
           text: "Hate buses", 
           emoji: "😠", 
-          description: "Get angry",
           isCorrect: false
         },
         { 
           id: "walk", 
           text: "Walk and enjoy morning!", 
           emoji: "🚶", 
-          description: "Find the positive side",
           isCorrect: true
         }
       ]

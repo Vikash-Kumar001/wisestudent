@@ -28,21 +28,21 @@ const PosterSaveWater = () => {
         {
           id: 1,
           title: "Waste All Water",
-          description: "A poster encouraging wasting water",
+          // description: "A poster encouraging wasting water",
           emoji: "💦",
           isCorrect: false
         },
         {
           id: 2,
           title: "Every Drop Counts",
-          description: "A poster showing water drops with Earth",
-          emoji: "💧🌍",
+          // description: "A poster showing water drops with Earth",
+          emoji: "💧",
           isCorrect: true
         },
         {
           id: 3,
           title: "Water is Unlimited",
-          description: "A poster saying water never runs out",
+          // description: "A poster saying water never runs out",
           emoji: "🌊",
           isCorrect: false
         }
@@ -56,22 +56,22 @@ const PosterSaveWater = () => {
         {
           id: 1,
           title: "Leave Taps Running",
-          description: "A poster showing taps always on",
+          // description: "A poster showing taps always on",
           emoji: "💦",
           isCorrect: false
         },
         {
           id: 2,
           title: "Use All Water",
-          description: "A poster encouraging using all water",
+          // description: "A poster encouraging using all water",
           emoji: "🌊",
           isCorrect: false
         },
         {
           id: 3,
           title: "Turn Off When Not Using",
-          description: "A poster showing turning off taps",
-          emoji: "🚰💧",
+          // description: "A poster showing turning off taps",
+          emoji: "🚰",
           isCorrect: true
         }
       ],
@@ -84,22 +84,22 @@ const PosterSaveWater = () => {
         {
           id: 1,
           title: "Report Leaks",
-          description: "A poster showing how to report water leaks",
-          emoji: "🔧💧",
+          // description: "A poster showing how to report water leaks",
+          emoji: "🔧",
           isCorrect: false
         },
         {
           id: 2,
           title: "Ignore Dripping Taps",
-          description: "A poster showing ignoring dripping taps",
+          // description: "A poster showing ignoring dripping taps",
           emoji: "💧",
           isCorrect: false
         },
         {
           id: 3,
           title: "Fix Leaks Fast",
-          description: "A poster showing quick leak repairs",
-          emoji: "🛠️💧",
+          // description: "A poster showing quick leak repairs",
+          emoji: "🛠️",
           isCorrect: true
         }
       ],
@@ -112,21 +112,21 @@ const PosterSaveWater = () => {
         {
           id: 1,
           title: "Take Short Showers",
-          description: "A poster showing timing your shower",
-          emoji: "⏱️🚿",
+          // description: "A poster showing timing your shower",
+          emoji: "🚿",
           isCorrect: true
         },
         {
           id: 2,
           title: "Long Luxury Showers",
-          description: "A poster showing long relaxing showers",
+          // description: "A poster showing long relaxing showers",
           emoji: "🛁",
           isCorrect: false
         },
         {
           id: 3,
           title: "Baths Only",
-          description: "A poster showing only taking baths",
+          // description: "A poster showing only taking baths",
           emoji: "🛀",
           isCorrect: false
         }
@@ -140,22 +140,22 @@ const PosterSaveWater = () => {
         {
           id: 1,
           title: "Use Hose Always",
-          description: "A poster showing using hose for everything",
+          // description: "A poster showing using hose for everything",
           emoji: "🚿",
           isCorrect: false
         },
         {
           id: 2,
           title: "Collect Rainwater",
-          description: "A poster showing rain collection barrels",
-          emoji: "🌧️🪣",
+          // description: "A poster showing rain collection barrels",
+          emoji: "🪣",
           isCorrect: true
         },
         {
           id: 3,
           title: "Let Rain Run Off",
-          description: "A poster showing ignoring rainfall",
-          emoji: "🌧️➡️",
+          // description: "A poster showing ignoring rainfall",
+          emoji: "🌧️",
           isCorrect: false
         }
       ],

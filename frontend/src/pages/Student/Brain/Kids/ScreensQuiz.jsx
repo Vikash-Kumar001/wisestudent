@@ -35,21 +35,19 @@ const ScreensQuiz = () => {
           id: "a", 
           text: " Eye strain", 
           emoji: "👁️", 
-          description: "Too much screen time hurts eyes",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: " More energy", 
           emoji: "⚡", 
-          description: "Screens don't give energy",
           isCorrect: false
         },
         { 
           id: "c", 
           text: " Superpowers", 
           emoji: "🦸", 
-          description: "Screens don't give superpowers",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const ScreensQuiz = () => {
           id: "b", 
           text: " Strength", 
           emoji: "💪", 
-          description: "Screens don't affect strength",
           isCorrect: false
         },
         { 
           id: "a", 
           text: " Sleep", 
           emoji: "😴", 
-          description: "Screens before bed affect sleep",
           isCorrect: true
         },
         { 
           id: "c", 
           text: " Height", 
           emoji: "📏", 
-          description: "Screens don't affect height",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const ScreensQuiz = () => {
           id: "c", 
           text: " No limit", 
           emoji: "♾️", 
-          description: "Unlimited screen time is not healthy",
           isCorrect: false
         },
         { 
           id: "a", 
           text: " 10 hrs", 
           emoji: "⏰", 
-          description: "10 hours is too much",
           isCorrect: false
         },
         { 
           id: "b", 
           text: " 1–2 hrs", 
           emoji: "⏱️", 
-          description: "1-2 hours is a good limit",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const ScreensQuiz = () => {
           id: "b", 
           text: " Tiredness", 
           emoji: "😴", 
-          description: "Too much gaming makes you tired",
           isCorrect: true
         },
         { 
           id: "a", 
           text: " Focus", 
           emoji: "🎯", 
-          description: "Too much gaming reduces focus",
           isCorrect: false
         },
         { 
           id: "c", 
           text: " Speed", 
           emoji: "⚡", 
-          description: "Gaming doesn't increase speed",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const ScreensQuiz = () => {
           id: "c", 
           text: " Laziness", 
           emoji: "😑", 
-          description: "Balanced use reduces laziness",
           isCorrect: false
         },
         { 
           id: "a", 
           text: " Eyes", 
           emoji: "👁️", 
-          description: "Balanced use protects your eyes",
           isCorrect: true
         },
         { 
           id: "b", 
           text: " Headaches", 
           emoji: "🤕", 
-          description: "Balanced use reduces headaches",
           isCorrect: false
         }
       ]

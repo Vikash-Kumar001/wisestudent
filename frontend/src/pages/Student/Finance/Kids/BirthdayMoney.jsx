@@ -32,21 +32,19 @@ const BirthdayMoney = () => {
           id: "spend", 
           text: "Spend all on toys and candies", 
           emoji: "🎮🍬", 
-          description: "Buy everything you want right now",
+          
           isCorrect: false
         },
         { 
           id: "give", 
           text: "Give it all to mom for safekeeping", 
           emoji: "👩‍👧", 
-          description: "Let parents keep it for you",
           isCorrect: false
         },
         { 
           id: "split", 
           text: "Split it: some for fun, some for saving", 
           emoji: "💡🏦", 
-          description: "Balance between spending and saving",
           isCorrect: true
         }
       ]
@@ -59,21 +57,18 @@ const BirthdayMoney = () => {
           id: "gifts", 
           text: "Spend half on friends' gifts", 
           emoji: "🎁", 
-          description: "Buy gifts for others",
           isCorrect: false
         },
         { 
           id: "balance", 
           text: "Keep some for savings and some for fun", 
           emoji: "🎯", 
-          description: "Balance needs, wants, and savings",
           isCorrect: true
         },
         { 
           id: "needs", 
           text: "Buy only needs, no wants", 
           emoji: "🛒", 
-          description: "Spend only on necessities",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const BirthdayMoney = () => {
           id: "forget", 
           text: "Forget about the money", 
           emoji: "😅", 
-          description: "Lose track of your savings",
           isCorrect: false
         },
         { 
           id: "spend", 
           text: "Spend more now", 
           emoji: "🛍️", 
-          description: "Have more to spend immediately",
           isCorrect: false
         },
         {
           id: "bigger",
           text: "Buy bigger things later",
           emoji: "🚀",
-          description: "Reach bigger goals over time",
           isCorrect: true
         },
       ]
@@ -113,21 +105,18 @@ const BirthdayMoney = () => {
           id: "save", 
           text: "Save small amounts regularly", 
           emoji: "💰", 
-          description: "Build savings consistently",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Borrow from friends", 
           emoji: "🙈", 
-          description: "Ask others for money",
           isCorrect: false
         },
         { 
           id: "wait", 
           text: "Wait for next birthday", 
           emoji: "🎂", 
-          description: "Hope for more gift money",
           isCorrect: false
         }
       ]
@@ -140,21 +129,18 @@ const BirthdayMoney = () => {
           id: "all", 
           text: "Spend all today", 
           emoji: "🎉", 
-          description: "Use all money immediately",
           isCorrect: false
         },
         {
           id: "enjoy",
           text: "Enjoy a treat and save the rest",
           emoji: "🧁🏦",
-          description: "Have fun now, save for later",
           isCorrect: true
         },
         { 
           id: "none", 
           text: "Save everything, no fun", 
           emoji: "😔", 
-          description: "Never spend on enjoyment",
           isCorrect: false
         }
       ]

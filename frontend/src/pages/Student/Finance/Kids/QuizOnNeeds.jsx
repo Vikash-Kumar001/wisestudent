@@ -31,21 +31,19 @@ const QuizOnNeeds = () => {
           id: "toy", 
           text: "Fancy toy", 
           emoji: "🧸", 
-          description: "Something fun to play with",
+          
           isCorrect: false
         },
         { 
           id: "chocolate", 
           text: "Chocolates", 
           emoji: "🍫", 
-          description: "Sweet treats",
           isCorrect: false
         },
         {
           id: "food",
           text: "Food",
           emoji: "🍎",
-          description: "Essential for survival",
           isCorrect: true
         },
       ]
@@ -58,21 +56,18 @@ const QuizOnNeeds = () => {
           id: "books", 
           text: "Books", 
           emoji: "📚", 
-          description: "Necessary for learning",
           isCorrect: true
         },
         { 
           id: "games", 
           text: "Video games", 
           emoji: "🎮", 
-          description: "Fun entertainment",
           isCorrect: false
         },
         { 
           id: "candy", 
           text: "Candy", 
           emoji: "🍬", 
-          description: "Sweet snacks",
           isCorrect: false
         }
       ]
@@ -85,21 +80,18 @@ const QuizOnNeeds = () => {
           id: "soda", 
           text: "Soda", 
           emoji: "🥤", 
-          description: "Fizzy drink",
           isCorrect: false
         },
         {
           id: "water",
           text: "Water",
           emoji: "💧",
-          description: "Essential for life",
           isCorrect: true
         },
         { 
           id: "icecream", 
           text: "Ice cream", 
           emoji: "🍦", 
-          description: "Cold dessert",
           isCorrect: false
         }
       ]
@@ -112,21 +104,18 @@ const QuizOnNeeds = () => {
           id: "clothes", 
           text: "Clothes", 
           emoji: "👕", 
-          description: "Protect and cover body",
           isCorrect: true
         },
         { 
           id: "toys", 
           text: "Toys", 
           emoji: "🧸", 
-          description: "Play items",
           isCorrect: false
         },
         { 
           id: "movies", 
           text: "Movies", 
           emoji: "🎬", 
-          description: "Entertainment",
           isCorrect: false
         }
       ]
@@ -139,21 +128,18 @@ const QuizOnNeeds = () => {
           id: "toys", 
           text: "Gets you more toys", 
           emoji: "🧸", 
-          description: "More fun items",
           isCorrect: false
         },
         { 
           id: "happy", 
           text: "Makes you happy", 
           emoji: "😊", 
-          description: "Brings joy",
           isCorrect: false
         },
         {
           id: "survival",
           text: "Ensures survival",
           emoji: "🛡️",
-          description: "Keeps you safe and healthy",
           isCorrect: true
         },
       ]

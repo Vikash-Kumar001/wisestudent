@@ -47,20 +47,20 @@ const PuzzleRightVsWrong = () => {
 
   // Financial actions (left side) - 5 items
   const actions = [
-    { id: 1, name: "Donating to Charity", emoji: "💝", hint: "Giving to help others" },
-    { id: 2, name: "Stealing Money", emoji: "😈", hint: "Taking without permission" },
-    { id: 3, name: "Honest Reporting", emoji: "✅", hint: "Truthful financial records" },
-    { id: 4, name: "Paying Bribes", emoji: "💰", hint: "Illegal payments for favors" },
-    { id: 5, name: "Fair Deal", emoji: "🤝", hint: "Equal and honest exchange" }
+    { id: 1, name: "Donating to Charity", emoji: "💝",  },
+    { id: 2, name: "Stealing Money", emoji: "😈",  },
+    { id: 3, name: "Honest Reporting", emoji: "✅",  },
+    { id: 4, name: "Paying Bribes", emoji: "💰",  },
+    { id: 5, name: "Fair Deal", emoji: "🤝",  }
   ];
 
   // Financial outcomes (right side) - 5 items
   const outcomes = [
-    { id: 6, name: "Positive Impact", emoji: "🌟", description: "Benefits society and others" },
-    { id: 7, name: "Legal Consequences", emoji: "⛓️", description: "Results in punishment" },
-    { id: 8, name: "Trust Building", emoji: "🤝", description: "Creates reliable relationships" },
-    { id: 9, name: "Corruption", emoji: "🐍", description: "Undermines fair systems" },
-    { id: 10, name: "Mutual Benefit", emoji: "🤝", description: "Advantages for all parties" }
+    { id: 6, name: "Positive Impact", emoji: "🌟",  },
+    { id: 7, name: "Legal Consequences", emoji: "⛓️",  },
+    { id: 8, name: "Trust Building", emoji: "🤝",  },
+    { id: 9, name: "Corruption", emoji: "🐍",  },
+    { id: 10, name: "Mutual Benefit", emoji: "🤝",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

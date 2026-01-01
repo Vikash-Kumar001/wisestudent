@@ -22,20 +22,20 @@ const EmotionMatchPuzzle = () => {
   
   // Emotions (left side) - 5 items
   const emotions = [
-    { id: 1, name: "Happy", emoji: "😃", hint: "Feeling joyful and pleased" },
-    { id: 2, name: "Sad", emoji: "😢", hint: "Feeling unhappy or sorrowful" },
-    { id: 3, name: "Angry", emoji: "😠", hint: "Feeling furious or irritated" },
-    { id: 4, name: "Scared", emoji: "😨", hint: "Feeling afraid or frightened" },
-    { id: 5, name: "Surprised", emoji: "😲", hint: "Feeling amazed or astonished" }
+    { id: 1, name: "Happy", emoji: "😃",  },
+    { id: 2, name: "Sad", emoji: "😢",  },
+    { id: 3, name: "Angry", emoji: "😠",  },
+    { id: 4, name: "Scared", emoji: "😨",  },
+    { id: 5, name: "Surprised", emoji: "😲",  }
   ];
   
   // Descriptions (right side) - 5 items (shuffled order)
   const descriptions = [
-    { id: 3, text: "Feeling furious or irritated", hint: "When something makes you really upset" },
-    { id: 5, text: "Feeling amazed or astonished", hint: "When something unexpected happens" },
-    { id: 1, text: "Feeling joyful and pleased", hint: "When you're feeling good and cheerful" },
-    { id: 4, text: "Feeling afraid or frightened", hint: "When you feel nervous about something" },
-    { id: 2, text: "Feeling unhappy or sorrowful", hint: "When you're feeling down or blue" }
+    { id: 3, text: "Feeling furious or irritated",  },
+    { id: 5, text: "Feeling amazed or astonished",  },
+    { id: 1, text: "Feeling joyful and pleased",  },
+    { id: 4, text: "Feeling afraid or frightened",  },
+    { id: 2, text: "Feeling unhappy or sorrowful",  }
   ];
   
   // Correct matches

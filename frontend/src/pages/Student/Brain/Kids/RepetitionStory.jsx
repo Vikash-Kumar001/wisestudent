@@ -35,21 +35,19 @@ const RepetitionStory = () => {
           id: "yes", 
           text: "Yes", 
           emoji: "📖", 
-          description: "Daily revision strengthens memory",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "😮‍💨", 
-          description: "Repetition does help memory",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Practice definitely helps",
           isCorrect: false
         }
       ]
@@ -62,21 +60,18 @@ const RepetitionStory = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Repetition helps memory",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
           emoji: "🕵️‍♀️", 
-          description: "Repeating helps you remember",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "🔍", 
-          description: "Practice improves memory",
           isCorrect: false
         }
       ]
@@ -89,21 +84,18 @@ const RepetitionStory = () => {
           id: "no", 
           text: "No", 
           emoji: "🛐", 
-          description: "Daily practice does help",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Practice definitely helps",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
           emoji: "🏆", 
-          description: "Daily practice improves skills",
           isCorrect: true
         }
       ]
@@ -116,21 +108,18 @@ const RepetitionStory = () => {
           id: "yes", 
           text: "Yes", 
           emoji: "🧾", 
-          description: "Re-reading strengthens memory",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "📑", 
-          description: "Repetition helps memory",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Repetition definitely helps",
           isCorrect: false
         }
       ]
@@ -143,21 +132,18 @@ const RepetitionStory = () => {
           id: "false", 
           text: "False", 
           emoji: "🏫", 
-          description: "Repetition does help learning",
           isCorrect: false
         },
         { 
           id: "true", 
           text: "True", 
           emoji: "🧑‍🏫", 
-          description: "Repeating words helps learning",
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Repetition definitely helps",
           isCorrect: false
         }
       ]

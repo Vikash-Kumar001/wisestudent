@@ -32,21 +32,21 @@ const FriendsMoneyStoryGame = () => {
           id: "return", 
           text: "Return it to your friend", 
           emoji: "🤝", 
-          description: "Give it back immediately",
+          
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep it for yourself", 
           emoji: "💸", 
-          description: "Keep the money",
+          
           isCorrect: false
         },
         { 
           id: "snacks", 
           text: "Spend it on snacks", 
           emoji: "🍟", 
-          description: "Use it for food",
+          
           isCorrect: false
         }
       ]
@@ -59,21 +59,18 @@ const FriendsMoneyStoryGame = () => {
           id: "give", 
           text: "Give all ₹10 away", 
           emoji: "🎁", 
-          description: "Give all your money",
           isCorrect: false
         },
         {
           id: "lend",
           text: "Lend ₹5 and ask for it later",
           emoji: "🤲",
-          description: "Help them and expect repayment",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "Say no and keep it", 
           emoji: "😐", 
-          description: "Refuse to help",
           isCorrect: false
         }
       ]
@@ -86,21 +83,18 @@ const FriendsMoneyStoryGame = () => {
           id: "candy", 
           text: "Buy candy for everyone", 
           emoji: "🍬", 
-          description: "Spend on treats",
           isCorrect: false
         },
         {
           id: "teacher",
           text: "Give it to the teacher",
           emoji: "🧑‍🏫",
-          description: "Turn it in to teacher",
           isCorrect: true
         },
         { 
           id: "hide", 
           text: "Keep it quietly", 
           emoji: "🤫", 
-          description: "Keep it secret",
           isCorrect: false
         }
       ]
@@ -113,21 +107,18 @@ const FriendsMoneyStoryGame = () => {
           id: "ask", 
           text: "Politely ask for money", 
           emoji: "💬", 
-          description: "Request the money back",
           isCorrect: true
         },
         { 
           id: "take", 
           text: "Take the candy", 
           emoji: "🍭", 
-          description: "Accept candy instead",
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget about it", 
           emoji: "😌", 
-          description: "Don't ask for it back",
           isCorrect: false
         }
       ]
@@ -140,21 +131,18 @@ const FriendsMoneyStoryGame = () => {
           id: "spend", 
           text: "Lets you spend more", 
           emoji: "🛍️", 
-          description: "Have more to spend",
           isCorrect: false
         },
         {
           id: "trust",
           text: "Builds trust with friends",
           emoji: "😊",
-          description: "Strengthens friendships",
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Gets you more candy", 
           emoji: "🍫", 
-          description: "Receive more treats",
           isCorrect: false
         }
       ]

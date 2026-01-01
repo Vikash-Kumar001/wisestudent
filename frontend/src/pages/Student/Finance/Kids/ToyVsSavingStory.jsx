@@ -31,21 +31,21 @@ const ToyVsSavingStory = () => {
           id: "save", 
           text: "Save for Bicycle", 
           emoji: "🚴", 
-          description: "Wait and save for bigger goal",
+          
           isCorrect: true
         },
         { 
           id: "toy", 
           text: "Buy Toy", 
           emoji: "🧸", 
-          description: "Buy toy immediately",
+          
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore Decision", 
           emoji: "😴", 
-          description: "Don't decide",
+          
           isCorrect: false
         }
       ]
@@ -58,21 +58,18 @@ const ToyVsSavingStory = () => {
           id: "spend", 
           text: "Spend Now", 
           emoji: "💸", 
-          description: "Spend immediately",
           isCorrect: false
         },
         {
           id: "goal",
           text: "Save for Goal",
           emoji: "🎯",
-          description: "Save for something important",
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Waste Money", 
           emoji: "🔥", 
-          description: "Throw it away",
           isCorrect: false
         }
       ]
@@ -85,21 +82,18 @@ const ToyVsSavingStory = () => {
           id: "build", 
           text: "Build Savings", 
           emoji: "💰", 
-          description: "Save up for it",
           isCorrect: true
         },
         { 
           id: "gadget", 
           text: "Buy Gadget", 
           emoji: "📱", 
-          description: "Buy it right away",
           isCorrect: false
         },
         { 
           id: "borrow", 
           text: "Borrow Money", 
           emoji: "🤲", 
-          description: "Borrow to buy it",
           isCorrect: false
         }
       ]
@@ -112,21 +106,18 @@ const ToyVsSavingStory = () => {
           id: "candy", 
           text: "Buy Candy", 
           emoji: "🍬", 
-          description: "Spend on treats",
           isCorrect: false
         },
         { 
           id: "lose", 
           text: "Lose It", 
           emoji: "😞", 
-          description: "Lose the money",
           isCorrect: false
         },
         {
           id: "save",
           text: "Save Allowance",
           emoji: "💾",
-          description: "Put it in savings",
           isCorrect: true
         },
       ]
@@ -139,21 +130,18 @@ const ToyVsSavingStory = () => {
           id: "long", 
           text: "Long-Term Save", 
           emoji: "📈", 
-          description: "Save for bigger things",
           isCorrect: true
         },
         { 
           id: "quick", 
           text: "Quick Spend", 
           emoji: "⚡", 
-          description: "Spend quickly",
           isCorrect: false
         },
         { 
           id: "forget", 
           text: "Forget About It", 
           emoji: "🤷", 
-          description: "Don't think about it",
           isCorrect: false
         }
       ]

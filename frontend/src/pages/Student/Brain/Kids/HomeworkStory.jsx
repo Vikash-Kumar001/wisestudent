@@ -34,22 +34,22 @@ const HomeworkStory = () => {
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "TV distracts from studying",
+          emoji: "👎", 
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
-          description: "TV helps focus",
+          emoji: "👍", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Sometimes it's okay",
+          
           isCorrect: false
         }
       ]
@@ -62,21 +62,19 @@ const HomeworkStory = () => {
           id: "quiet", 
           text: "A quiet desk or table", 
           emoji: "📚", 
-          description: "A dedicated quiet space helps focus",
+          
           isCorrect: true
         },
         { 
           id: "bed", 
           text: "In bed", 
           emoji: "🛏️", 
-          description: "Bed can make you sleepy",
           isCorrect: false
         },
         { 
           id: "floor", 
           text: "On the floor", 
           emoji: "📄", 
-          description: "Floor can be uncomfortable",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const HomeworkStory = () => {
           id: "now", 
           text: "Watch now and do homework later", 
           emoji: "📺", 
-          description: "This can delay your work",
           isCorrect: false
         },
         { 
           id: "later", 
           text: "Finish homework first, then watch", 
-          emoji: "✅", 
-          description: "Complete responsibilities first",
+          emoji: "📺", 
           isCorrect: true
         },
         { 
           id: "both", 
           text: "Do both at same time", 
           emoji: "🤹", 
-          description: "Multitasking reduces focus",
           isCorrect: false
         }
       ]
@@ -116,21 +111,18 @@ const HomeworkStory = () => {
           id: "random", 
           text: "Do whatever you feel like", 
           emoji: "🎲", 
-          description: "This can be disorganized",
           isCorrect: false
         },
         { 
           id: "plan", 
           text: "Plan which subjects first", 
           emoji: "📋", 
-          description: "Planning helps manage time",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip some subjects", 
           emoji: "⏭️", 
-          description: "Skipping isn't helpful",
           isCorrect: false
         }
       ]
@@ -143,21 +135,18 @@ const HomeworkStory = () => {
           id: "copy", 
           text: "Copy from friend", 
           emoji: "👀", 
-          description: "Copying doesn't help you learn",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask teacher or parent for help", 
           emoji: "🙋", 
-          description: "Asking for help builds understanding",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip it", 
           emoji: "⏭️", 
-          description: "Skipping doesn't solve the problem",
           isCorrect: false
         }
       ]

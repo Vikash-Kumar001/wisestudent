@@ -32,21 +32,20 @@ const HelpingParentsStory = () => {
           id: "give", 
           text: "Give your ₹20 to help", 
           emoji: "🥕", 
-          description: "Help your family",
+          
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Keep it for candy", 
           emoji: "🍬", 
-          description: "Spend on treats",
+          
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore their request", 
           emoji: "😐", 
-          description: "Don't help",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const HelpingParentsStory = () => {
           id: "toys", 
           text: "Spend it on toys", 
           emoji: "🧸", 
-          description: "Buy toys",
           isCorrect: false
         },
         {
           id: "save",
           text: "Yes, add to savings",
           emoji: "💰",
-          description: "Put money in savings",
           isCorrect: true
         },
         { 
           id: "give", 
           text: "Give it away", 
           emoji: "🎁", 
-          description: "Give to someone else",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const HelpingParentsStory = () => {
           id: "change", 
           text: "Buy milk and return change", 
           emoji: "🧀", 
-          description: "Buy and give back extra",
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Buy candy with change", 
           emoji: "🍭", 
-          description: "Spend extra on candy",
           isCorrect: false
         },
         { 
           id: "keep", 
           text: "Keep all ₹20", 
           emoji: "🤫", 
-          description: "Don't return change",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const HelpingParentsStory = () => {
           id: "snacks", 
           text: "Spend it on snacks", 
           emoji: "🍟", 
-          description: "Use it for food",
           isCorrect: false
         },
         { 
           id: "hide", 
           text: "Hide it in your pocket", 
           emoji: "🧥", 
-          description: "Keep it secret",
           isCorrect: false
         },
         {
           id: "find",
           text: "Try to find the owner",
           emoji: "🕵️",
-          description: "Look for who lost it",
           isCorrect: true
         },
       ]
@@ -140,21 +130,18 @@ const HelpingParentsStory = () => {
           id: "proud", 
           text: "Proud and responsible", 
           emoji: "😊", 
-          description: "Feel good about helping",
           isCorrect: true
         },
         { 
           id: "sad", 
           text: "Sad for less money", 
           emoji: "😔", 
-          description: "Upset about losing money",
           isCorrect: false
         },
         { 
           id: "nothing", 
           text: "Nothing special", 
           emoji: "😐", 
-          description: "Don't care",
           isCorrect: false
         }
       ]

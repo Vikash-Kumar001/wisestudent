@@ -21,7 +21,7 @@ const QuizOnVolunteering = () => {
     {
       id: 1,
       text: "Which is volunteering?",
-      emoji: " volunteerman",
+      emoji: " 👨‍👩‍👧‍👦",
       options: [
         {
           id: "a",

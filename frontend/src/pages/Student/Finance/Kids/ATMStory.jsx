@@ -32,21 +32,20 @@ const ATMStory = () => {
           id: "ignore", 
           text: "Ignore it", 
           emoji: "😐", 
-          description: "Pay no attention",
+          
           isCorrect: false
         },
         {
           id: "learn",
           text: "Learn how it works",
           emoji: "💳",
-          description: "Learn about money management",
+          
           isCorrect: true
         },
         { 
           id: "play", 
           text: "Play with it", 
           emoji: "🎮", 
-          description: "Use it as a toy",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const ATMStory = () => {
           id: "memorize", 
           text: "Try to memorize the PIN", 
           emoji: "🧠", 
-          description: "Remember their secret code",
           isCorrect: false
         },
         { 
           id: "tell", 
           text: "Tell friends about it", 
           emoji: "💬", 
-          description: "Share with others",
           isCorrect: false
         },
         {
           id: "away",
           text: "Look away to give privacy",
           emoji: "👀",
-          description: "Respect their privacy",
           isCorrect: true
         },
       ]
@@ -86,21 +82,18 @@ const ATMStory = () => {
           id: "split", 
           text: "Save 50 rupees, spend 50", 
           emoji: "💰", 
-          description: "Balance saving and spending",
           isCorrect: true
         },
         { 
           id: "toys", 
           text: "Spend all on toys", 
           emoji: "🧸", 
-          description: "Buy toys with all money",
           isCorrect: false
         },
         { 
           id: "friends", 
           text: "Give all to friends", 
           emoji: "🎁", 
-          description: "Give everything away",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const ATMStory = () => {
           id: "save", 
           text: "Save more money first", 
           emoji: "💾", 
-          description: "Wait and save to afford it",
           isCorrect: true
         },
         { 
           id: "borrow", 
           text: "Borrow from friends", 
           emoji: "🙈", 
-          description: "Ask friends for money",
           isCorrect: false
         },
         { 
           id: "demand", 
           text: "Demand it from parents", 
           emoji: "😤", 
-          description: "Force parents to buy it",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const ATMStory = () => {
           id: "ignore", 
           text: "Ignore them", 
           emoji: "😐", 
-          description: "Don't help",
           isCorrect: false
         },
         { 
           id: "laugh", 
           text: "Laugh at them", 
           emoji: "😆", 
-          description: "Make fun of them",
           isCorrect: false
         },
         {
           id: "share",
           text: "Share your lunch with them",
           emoji: "🍱",
-          description: "Help them by sharing",
           isCorrect: true
         },
       ]

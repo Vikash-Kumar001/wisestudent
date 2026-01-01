@@ -23,31 +23,30 @@ const Poster3Rs = () => {
 
   const stages = [
     {
-      question: "Which poster best promotes the 3 Rs: Reduce, Reuse, Recycle?",
+      question: "Which poster best promotes the 3 R's: Reduce, Reuse, Recycle?",
       posters: [
         {
           id: 1,
           title: "Just Throw It Away",
-          description: "A poster showing only throwing things away",
+          
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 2,
-          title: "3 Rs Save Our Planet",
-          description: "A poster showing Reduce, Reuse, Recycle with Earth",
-          emoji: "♻️🌍",
+          title: "3 R's Save Our Planet",
+          
+          emoji: "🌍",
           isCorrect: true
         },
         {
           id: 3,
           title: "Buy More Stuff",
-          description: "A poster encouraging buying new things",
           emoji: "🛍️",
           isCorrect: false
         }
       ],
-      correctFeedback: "3 Rs Save Our Planet is the best message for sustainability!",
+      correctFeedback: "3 R's Save Our Planet is the best message for sustainability!",
       explanation: "This poster reminds us to Reduce, Reuse, and Recycle to protect our planet!"
     },
     {
@@ -56,22 +55,19 @@ const Poster3Rs = () => {
         {
           id: 1,
           title: "Buy Everything",
-          description: "A poster encouraging buying lots of things",
           emoji: "🛒",
           isCorrect: false
         },
         {
           id: 2,
           title: "Throw It All Away",
-          description: "A poster showing throwing everything away",
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 3,
           title: "Use Less, Waste Less",
-          description: "A poster showing using fewer resources",
-          emoji: "📉♻️",
+          emoji: "📉",
           isCorrect: true
         }
       ],
@@ -84,22 +80,19 @@ const Poster3Rs = () => {
         {
           id: 1,
           title: "Repurpose Old Items",
-          description: "A poster showing creative ways to reuse old things",
-          emoji: "🔄📦",
+          emoji: "📦",
           isCorrect: false
         },
         {
           id: 2,
           title: "Use Once and Trash",
-          description: "A poster showing single-use items",
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 3,
           title: "Creative Reuse Ideas",
-          description: "A poster showing fun ways to repurpose items",
-          emoji: "🎨♻️",
+          emoji: "♻️",
           isCorrect: true
         }
       ],
@@ -112,21 +105,18 @@ const Poster3Rs = () => {
         {
           id: 1,
           title: "Sort Your Recycling",
-          description: "A poster showing how to sort recyclable materials",
-          emoji: "♻️📊",
+          emoji: "♻️",
           isCorrect: true
         },
         {
           id: 2,
           title: "All Trash Goes Together",
-          description: "A poster showing mixing all waste together",
           emoji: "🗑️",
           isCorrect: false
         },
         {
           id: 3,
           title: "Recycling is Pointless",
-          description: "A poster discouraging recycling efforts",
           emoji: "🙅‍♂️",
           isCorrect: false
         }
@@ -140,21 +130,18 @@ const Poster3Rs = () => {
         {
           id: 1,
           title: "Pollute More",
-          description: "A poster encouraging environmental damage",
           emoji: "🏭",
           isCorrect: false
         },
         {
           id: 2,
           title: "Protect Nature",
-          description: "A poster showing care for plants and animals",
-          emoji: "🌿🐾",
+          emoji: "🐾",
           isCorrect: true
         },
         {
           id: 3,
           title: "Ignore Environmental Issues",
-          description: "A poster suggesting we don't worry about the environment",
           emoji: "🙈",
           isCorrect: false
         }
