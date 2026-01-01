@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -9,9 +9,13 @@ import {
 import api from '../../utils/api';
 import { toast } from 'react-hot-toast';
 import analytics from '../../utils/analytics';
+import { useSocket } from '../../context/SocketContext';
+import { usePermissions, PermissionGuard } from '../../hooks/usePermissions';
 
 const SchoolAdminApprovals = () => {
   const navigate = useNavigate();
+  const { socket } = useSocket();
+  const { hasPermission } = usePermissions();
   const [loading, setLoading] = useState(true);
   const [pendingAssignments, setPendingAssignments] = useState([]);
   const [pendingTemplates, setPendingTemplates] = useState([]);
@@ -25,11 +29,7 @@ const SchoolAdminApprovals = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [showTemplateModal, setShowTemplateModal] = useState(false);
 
-  useEffect(() => {
-    fetchApprovals();
-  }, []);
-
-  const fetchApprovals = async () => {
+  const fetchApprovals = useCallback(async () => {
     try {
       setLoading(true);
       const response = await api.get('/api/school/admin/pending-approvals');
@@ -41,7 +41,67 @@ const SchoolAdminApprovals = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchApprovals();
+  }, [fetchApprovals]);
+
+  // Real-time socket listeners for approval updates
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleAssignmentApproved = (data) => {
+      console.log('✅ Assignment approved, refreshing approvals...');
+      setPendingAssignments(prev => prev.filter(a => a.id !== data.assignmentId));
+      fetchApprovals();
+    };
+
+    const handleAssignmentRejected = (data) => {
+      console.log('❌ Assignment rejected, refreshing approvals...');
+      setPendingAssignments(prev => prev.filter(a => a.id !== data.assignmentId));
+      fetchApprovals();
+    };
+
+    const handleAssignmentChangesRequested = (data) => {
+      console.log('🔄 Assignment changes requested, refreshing approvals...');
+      setPendingAssignments(prev => prev.filter(a => a.id !== data.assignmentId));
+      fetchApprovals();
+    };
+
+    const handleTemplateApproved = (data) => {
+      console.log('✅ Template approved, refreshing approvals...');
+      setPendingTemplates(prev => prev.filter(t => t.id !== data.templateId));
+      fetchApprovals();
+    };
+
+    const handleTemplateRejected = (data) => {
+      console.log('❌ Template rejected, refreshing approvals...');
+      setPendingTemplates(prev => prev.filter(t => t.id !== data.templateId));
+      fetchApprovals();
+    };
+
+    const handleDashboardUpdate = () => {
+      console.log('🔄 Dashboard update received, refreshing approvals...');
+      fetchApprovals();
+    };
+
+    socket.on('assignment:approved', handleAssignmentApproved);
+    socket.on('assignment:rejected', handleAssignmentRejected);
+    socket.on('assignment:changes_requested', handleAssignmentChangesRequested);
+    socket.on('template:approved', handleTemplateApproved);
+    socket.on('template:rejected', handleTemplateRejected);
+    socket.on('school-admin:dashboard:update', handleDashboardUpdate);
+
+    return () => {
+      socket.off('assignment:approved', handleAssignmentApproved);
+      socket.off('assignment:rejected', handleAssignmentRejected);
+      socket.off('assignment:changes_requested', handleAssignmentChangesRequested);
+      socket.off('template:approved', handleTemplateApproved);
+      socket.off('template:rejected', handleTemplateRejected);
+      socket.off('school-admin:dashboard:update', handleDashboardUpdate);
+    };
+  }, [socket, fetchApprovals]);
 
   const handleViewPreview = async (assignment) => {
     try {
@@ -79,7 +139,8 @@ const SchoolAdminApprovals = () => {
     try {
       setProcessingId(selectedAssignment.id);
       await api.post(`/api/school/admin/assignments/${selectedAssignment.id}/request-changes`, {
-        feedback: changeRequest
+        changes: changeRequest,
+        comments: changeRequest
       });
       analytics.trackApprovalAction(selectedAssignment.id, 'requested_changes', null, 'assignment');
       toast.success('Change request sent to teacher');
@@ -632,22 +693,24 @@ const SchoolAdminApprovals = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => handleViewPreview(assignment)}
-                        className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                      >
-                        <Eye className="w-4 h-4" />
-                        Preview
-                      </button>
+                      <PermissionGuard require="approveAssignments">
+                        <button
+                          onClick={() => handleViewPreview(assignment)}
+                          className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                        >
+                          <Eye className="w-4 h-4" />
+                          Preview
+                        </button>
 
-                      <button
-                        onClick={() => handleApprove(assignment.id)}
-                        disabled={processingId === assignment.id}
-                        className="flex-1 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                      >
-                        <Check className="w-4 h-4" />
-                        {processingId === assignment.id ? '...' : 'Approve'}
-                      </button>
+                        <button
+                          onClick={() => handleApprove(assignment.id)}
+                          disabled={processingId === assignment.id}
+                          className="flex-1 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                        >
+                          <Check className="w-4 h-4" />
+                          {processingId === assignment.id ? '...' : 'Approve'}
+                        </button>
+                      </PermissionGuard>
                     </div>
                   </Motion.div>
                 ))}
@@ -699,22 +762,24 @@ const SchoolAdminApprovals = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => handleViewTemplate(template)}
-                        className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                      >
-                        <Eye className="w-4 h-4" />
-                        View
-                      </button>
+                      <PermissionGuard require="approveTemplates">
+                        <button
+                          onClick={() => handleViewTemplate(template)}
+                          className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                        >
+                          <Eye className="w-4 h-4" />
+                          View
+                        </button>
 
-                      <button
-                        onClick={() => handleApproveTemplate(template.id)}
-                        disabled={processingId === template.id}
-                        className="flex-1 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                      >
-                        <Check className="w-4 h-4" />
-                        {processingId === template.id ? '...' : 'Approve'}
-                      </button>
+                        <button
+                          onClick={() => handleApproveTemplate(template.id)}
+                          disabled={processingId === template.id}
+                          className="flex-1 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                        >
+                          <Check className="w-4 h-4" />
+                          {processingId === template.id ? '...' : 'Approve'}
+                        </button>
+                      </PermissionGuard>
                     </div>
                   </Motion.div>
                 ))}

@@ -19,7 +19,6 @@ const SchoolAdminDashboard = () => {
   const { socket } = useSocket();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({});
-  const [campuses, setCampuses] = useState([]);
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
   const [leaderboard, setLeaderboard] = useState([]);
   const [pendingApprovals, setPendingApprovals] = useState([]);
@@ -37,8 +36,6 @@ const SchoolAdminDashboard = () => {
   const [showAddStudentModal, setShowAddStudentModal] = useState(false);
   const [showStudentDetailModal, setShowStudentDetailModal] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
-  const [showCampusDetailModal, setShowCampusDetailModal] = useState(false);
-  const [selectedCampus, setSelectedCampus] = useState(null);
   
   // Add Student Form
   const [newStudent, setNewStudent] = useState({
@@ -63,6 +60,95 @@ const SchoolAdminDashboard = () => {
 
     return () => {
       socket.off('school:subscription:updated', handleSubscriptionUpdate);
+    };
+  }, [socket]);
+
+  // Realtime dashboard updates
+  useEffect(() => {
+    if (!socket) return;
+
+    // Listen for dashboard updates
+    const handleDashboardUpdate = () => {
+      console.log('🔄 Dashboard update received, refreshing data...');
+      fetchDashboardData();
+    };
+
+    // Listen for student updates
+    const handleStudentUpdate = () => {
+      console.log('👥 Student update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Listen for approval updates
+    const handleApprovalUpdate = () => {
+      console.log('✅ Approval update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Listen for activity updates
+    const handleActivityUpdate = () => {
+      console.log('📊 Activity update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Listen for class roster updates (affects campus stats)
+    const handleClassRosterUpdate = () => {
+      console.log('📚 Class roster update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Listen for pillar mastery updates (affects top performers)
+    const handlePillarUpdate = () => {
+      console.log('📈 Pillar mastery update received, refreshing top performers...');
+      fetchDashboardData();
+    };
+
+    // Listen for campus updates
+    const handleCampusUpdate = () => {
+      console.log('🔄 Campus update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Listen for campus stats updates
+    const handleCampusStatsUpdate = () => {
+      console.log('📊 Campus stats update received, refreshing dashboard...');
+      fetchDashboardData();
+    };
+
+    // Subscribe to all relevant events
+    socket.on('school-admin:dashboard:update', handleDashboardUpdate);
+    socket.on('school:students:updated', handleStudentUpdate);
+    socket.on('school:students:removed', handleStudentUpdate);
+    socket.on('school:class-roster:updated', handleClassRosterUpdate);
+    socket.on('assignment:approved', handleApprovalUpdate);
+    socket.on('assignment:rejected', handleApprovalUpdate);
+    socket.on('template:approved', handleApprovalUpdate);
+    socket.on('template:rejected', handleApprovalUpdate);
+    socket.on('school:activity:new', handleActivityUpdate);
+    socket.on('student:pillar:updated', handlePillarUpdate);
+    socket.on('game-completed', handlePillarUpdate);
+
+    // Request initial update only once when socket is ready
+    if (socket.connected) {
+      socket.emit('school-admin:dashboard:request-update');
+    } else {
+      socket.once('connect', () => {
+        socket.emit('school-admin:dashboard:request-update');
+      });
+    }
+
+    return () => {
+      socket.off('school-admin:dashboard:update', handleDashboardUpdate);
+      socket.off('school:students:updated', handleStudentUpdate);
+      socket.off('school:students:removed', handleStudentUpdate);
+      socket.off('school:class-roster:updated', handleClassRosterUpdate);
+      socket.off('assignment:approved', handleApprovalUpdate);
+      socket.off('assignment:rejected', handleApprovalUpdate);
+      socket.off('template:approved', handleApprovalUpdate);
+      socket.off('template:rejected', handleApprovalUpdate);
+      socket.off('school:activity:new', handleActivityUpdate);
+      socket.off('student:pillar:updated', handlePillarUpdate);
+      socket.off('game-completed', handlePillarUpdate);
     };
   }, [socket]);
 
@@ -104,11 +190,10 @@ const SchoolAdminDashboard = () => {
     try {
       setLoading(true);
       const [
-        statsRes, campusesRes, atRiskRes, leaderboardRes, approvalsRes,
+        statsRes, atRiskRes, leaderboardRes, approvalsRes,
         messagesRes, profileRes, masteryRes, wellbeingRes
       ] = await Promise.all([
         api.get("/api/school/admin/kpis"),
-        api.get("/api/school/admin/campuses"),
         api.get("/api/school/admin/students?status=flagged&limit=5"),
         api.get("/api/school/admin/top-performers"),
         api.get("/api/school/admin/pending-approvals"),
@@ -119,7 +204,6 @@ const SchoolAdminDashboard = () => {
       ]);
 
       setStats(statsRes.data);
-      setCampuses(campusesRes.data.campuses || []);
       setStudentsAtRisk(atRiskRes.data.students || []);
       setLeaderboard(leaderboardRes.data.students || []);
       setPendingApprovals(approvalsRes.data);
@@ -168,10 +252,6 @@ const SchoolAdminDashboard = () => {
     }
   };
 
-  const handleViewCampus = (campus) => {
-    setSelectedCampus(campus);
-    setShowCampusDetailModal(true);
-  };
 
   const StatCard = ({ title, value, icon: Icon, color, trend, onClick, subtitle }) => (
     <motion.div
@@ -493,112 +573,6 @@ const SchoolAdminDashboard = () => {
     </AnimatePresence>
   );
 
-  // Campus Detail Modal
-  const CampusDetailModal = () => (
-    <AnimatePresence>
-      {showCampusDetailModal && selectedCampus && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowCampusDetailModal(false)}
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-0 flex items-center justify-center z-50 p-4"
-          >
-            <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="sticky top-0 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-t-2xl">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-2xl font-black mb-1">{selectedCampus.name}</h2>
-                    <p className="text-sm text-white/80">Campus Details</p>
-                  </div>
-                  <button
-                    onClick={() => setShowCampusDetailModal(false)}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-blue-50 rounded-xl p-4 border-2 border-blue-200 text-center">
-                    <p className="text-xs text-gray-600 mb-1">Students</p>
-                    <p className="text-3xl font-black text-blue-600">{selectedCampus.studentCount || 0}</p>
-                  </div>
-                  <div className="bg-green-50 rounded-xl p-4 border-2 border-green-200 text-center">
-                    <p className="text-xs text-gray-600 mb-1">Teachers</p>
-                    <p className="text-3xl font-black text-green-600">{selectedCampus.teacherCount || 0}</p>
-                  </div>
-                  <div className="bg-purple-50 rounded-xl p-4 border-2 border-purple-200 text-center">
-                    <p className="text-xs text-gray-600 mb-1">Classes</p>
-                    <p className="text-3xl font-black text-purple-600">{selectedCampus.classCount || 0}</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                    <div className="flex items-center gap-2 text-gray-700 mb-2">
-                      <MapPin className="w-5 h-5 text-blue-600" />
-                      <span className="font-bold">Location</span>
-                    </div>
-                    <p className="text-sm text-gray-900">{selectedCampus.location || 'Not specified'}</p>
-                  </div>
-
-                  {selectedCampus.contactInfo?.email && (
-                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                      <div className="flex items-center gap-2 text-gray-700 mb-2">
-                        <Mail className="w-5 h-5 text-green-600" />
-                        <span className="font-bold">Email</span>
-                      </div>
-                      <p className="text-sm text-gray-900">{selectedCampus.contactInfo.email}</p>
-                    </div>
-                  )}
-
-                  {selectedCampus.contactInfo?.phone && (
-                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                      <div className="flex items-center gap-2 text-gray-700 mb-2">
-                        <Phone className="w-5 h-5 text-purple-600" />
-                        <span className="font-bold">Phone</span>
-                      </div>
-                      <p className="text-sm text-gray-900">{selectedCampus.contactInfo.phone}</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-3 pt-6 border-t border-gray-200 mt-6">
-                  <button
-                    onClick={() => {
-                      setShowCampusDetailModal(false);
-                      navigate('/school/admin/settings');
-                    }}
-                    className="flex-1 py-3 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                  >
-                    <Edit className="w-5 h-5" />
-                    Edit Campus
-                  </button>
-                  <button
-                    onClick={() => setShowCampusDetailModal(false)}
-                    className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold hover:bg-gray-300 transition-colors"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
@@ -621,30 +595,8 @@ const SchoolAdminDashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center justify-between flex-wrap gap-4"
           >
-            <div>
-              <h1 className="text-4xl font-black mb-2">
-                Welcome back, {adminProfile?.name || "Admin"}! 👋
-              </h1>
-              <p className="text-lg text-white/90">
-                Here's your school overview for today
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={fetchDashboardData}
-                className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg font-semibold hover:bg-white/30 transition-all flex items-center gap-2"
-              >
-                <RefreshCw className="w-4 h-4" />
-                Refresh
-              </button>
-              <button
-                onClick={() => setShowAddStudentModal(true)}
-                className="px-4 py-2 bg-white text-purple-600 rounded-lg font-bold hover:bg-white/90 transition-all flex items-center gap-2 shadow-lg"
-              >
-                <UserPlus className="w-5 h-5" />
-                Add Student
-              </button>
-            </div>
+            <h1 className="text-4xl font-black mb-2">Dashboard</h1>
+            <p className="text-lg text-white/90">Welcome back, {adminProfile?.name || 'Admin'}</p>
           </motion.div>
         </div>
       </div>
@@ -654,7 +606,7 @@ const SchoolAdminDashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"
+          className="bg-white rounded-2xl shadow-xl p-6 mb-6 border-2 border-gray-100"
         >
           <QuickActionButton
             label="View Analytics"
@@ -730,62 +682,6 @@ const SchoolAdminDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* My Campuses */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-                  <Building2 className="w-7 h-7 text-purple-600" />
-                  School Campuses
-                </h2>
-                <button
-                  onClick={() => navigate("/school/admin/settings")}
-                  className="text-purple-600 hover:text-purple-700 font-semibold flex items-center gap-2 transition-all"
-                >
-                  Manage <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {campuses.slice(0, 4).map((campus, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    whileHover={{ scale: 1.03, y: -3 }}
-                    onClick={() => handleViewCampus(campus)}
-                    className="p-5 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 cursor-pointer hover:shadow-lg transition-all"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg font-bold text-gray-900">{campus.name}</h3>
-                      {campus.isMain && (
-                        <div className="p-2 bg-purple-500 rounded-lg">
-                          <Star className="w-5 h-5 text-white fill-white" />
-                        </div>
-                      )}
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <div className="text-center">
-                        <p className="text-2xl font-black text-blue-600">{campus.studentCount || 0}</p>
-                        <p className="text-xs text-gray-600">Students</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-2xl font-black text-green-600">{campus.teacherCount || 0}</p>
-                        <p className="text-xs text-gray-600">Teachers</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-2xl font-black text-purple-600">{campus.classCount || 0}</p>
-                        <p className="text-xs text-gray-600">Classes</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
             {/* School-Wide Pillar Mastery */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -935,7 +831,7 @@ const SchoolAdminDashboard = () => {
                     </div>
                     <div className="flex items-center gap-1 flex-shrink-0">
                       <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                      <span className="text-sm font-black text-gray-900">{student.score || 95}%</span>
+                      <span className="text-sm font-black text-gray-900">{student.score ?? 0}%</span>
                     </div>
                   </motion.div>
                 ))}
@@ -1042,7 +938,6 @@ const SchoolAdminDashboard = () => {
       {/* Modals */}
       <AddStudentModal />
       <StudentDetailModal />
-      <CampusDetailModal />
 
       {/* Subscription Expiration Modal */}
       <SchoolAdminExpiredSubscriptionModal

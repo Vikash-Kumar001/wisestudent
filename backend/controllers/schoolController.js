@@ -694,6 +694,31 @@ export const createTeacher = async (req, res) => {
       }
     }
 
+    // Emit socket events for realtime dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:teachers:updated', {
+        teacherId: teacher._id,
+        action: 'created',
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'teacher_created',
+        timestamp: new Date()
+      });
+
+      // Emit campus statistics update if teacher has campusId
+      if (teacher.campusId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:stats:updated', {
+          campusId: teacher.campusId,
+          tenantId,
+          timestamp: new Date()
+        });
+      }
+    }
+
     res.status(201).json({
       success: true,
       message: 'Teacher created successfully',
@@ -762,6 +787,31 @@ export const deleteTeacher = async (req, res) => {
       ipAddress: req.ip,
       userAgent: req.headers['user-agent'],
     });
+
+    // Emit socket events for realtime dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:teachers:updated', {
+        teacherId,
+        action: 'deleted',
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'teacher_deleted',
+        timestamp: new Date()
+      });
+
+      // Emit campus statistics update if teacher had campusId
+      if (teacher.campusId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:stats:updated', {
+          campusId: teacher.campusId,
+          tenantId,
+          timestamp: new Date()
+        });
+      }
+    }
 
     res.json({
       success: true,
@@ -4094,10 +4144,12 @@ export const getStudentDetails = async (req, res) => {
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-    const [student, activityLogs, moodLogs] = await Promise.all([
+    const [student, activityLogs, moodLogs, userProgress, wallet] = await Promise.all([
       User.findById(studentId).select('name email avatar teacherNotes flaggedForCounselor flaggedReason consentFlags').lean(),
       ActivityLog.find({ userId: studentId, createdAt: { $gte: sevenDaysAgo } }).sort({ createdAt: -1 }).limit(10).lean(),
-      MoodLog.find({ userId: studentId, createdAt: { $gte: sevenDaysAgo } }).sort({ createdAt: -1 }).limit(5).lean()
+      MoodLog.find({ userId: studentId, createdAt: { $gte: sevenDaysAgo } }).sort({ createdAt: -1 }).limit(5).lean(),
+      UserProgress.findOne({ userId: studentId }).lean(),
+      Wallet.findOne({ userId: studentId }).lean()
     ]);
 
     if (!student) {
@@ -4199,7 +4251,12 @@ export const getStudentDetails = async (req, res) => {
       flagged: student.flaggedForCounselor || false,
       flagReason: student.flaggedReason || '',
       recentMood,
-      consentFlags: student.consentFlags || {}
+      consentFlags: student.consentFlags || {},
+      // Real-time stats
+      level: userProgress?.level || 1,
+      xp: userProgress?.xp || 0,
+      coins: wallet?.balance || 0,
+      streak: userProgress?.streak || 0
     });
   } catch (error) {
     console.error('Error fetching student details:', error);
@@ -4234,6 +4291,18 @@ export const saveStudentNote = async (req, res) => {
 
     await student.save();
 
+    // Emit socket event for real-time update
+    const io = req.app?.get('io');
+    const { tenantId } = req;
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:students:updated', {
+        studentId,
+        action: 'note_added',
+        tenantId,
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Note saved successfully',
@@ -4250,6 +4319,7 @@ export const toggleStudentFlag = async (req, res) => {
   try {
     const { studentId } = req.params;
     const { flagged, reason } = req.body;
+    const { tenantId } = req;
 
     const student = await User.findByIdAndUpdate(
       studentId,
@@ -4261,6 +4331,23 @@ export const toggleStudentFlag = async (req, res) => {
       },
       { new: true }
     ).select('flaggedForCounselor flaggedReason');
+
+    // Emit socket events for realtime analytics updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('student:wellbeing:updated', {
+        studentId,
+        flagged,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      // Also emit general dashboard update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'wellbeing_updated',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,
@@ -4781,6 +4868,14 @@ export const assignStudentsToClass = async (req, res) => {
 
       io.emit('school:students:updated', payload);
       io.emit('school:class-roster:updated', payload);
+      
+      // Also emit to dashboard room for realtime updates
+      if (tenantId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+          type: 'students_updated',
+          timestamp: new Date()
+        });
+      }
     }
 
     res.json({
@@ -5203,11 +5298,49 @@ export const getSchoolPillarMastery = async (req, res) => {
     const { classId, section } = req.query;
 
     // Build query filter
-    const filter = { tenantId, isActive: true };
-    if (classId) filter.classId = classId;
-    if (section) filter.section = section;
+    const filter = { tenantId };
+    const { grade } = req.query;
+    
+    if (classId && classId !== 'all') filter.classId = classId;
+    if (section && section !== 'all') filter.section = section;
+    if (grade && grade !== 'all') {
+      // Find classes with the specified grade
+      const classes = await SchoolClass.find({ 
+        tenantId, 
+        classNumber: parseInt(grade) 
+      }).select('_id').lean();
+      if (classes.length > 0) {
+        filter.classId = { $in: classes.map(c => c._id) };
+      } else {
+        // No classes found for this grade
+        return res.json({
+          averages: {
+            uvls: 0,
+            dcos: 0,
+            moral: 0,
+            ehe: 0,
+            crgc: 0,
+            overall: 0,
+            pillars: {
+              uvls: 0,
+              dcos: 0,
+              moral: 0,
+              ehe: 0,
+              crgc: 0,
+              overall: 0
+            }
+          },
+          totalStudents: 0,
+          byClass: []
+        });
+      }
+    }
 
-    const students = await SchoolStudent.find(filter).select('pillars classId section');
+    const students = await SchoolStudent.find(filter)
+      .populate('userId', '_id')
+      .populate('classId', 'classNumber stream')
+      .select('userId classId section')
+      .lean();
 
     if (students.length === 0) {
       return res.json({
@@ -5217,67 +5350,160 @@ export const getSchoolPillarMastery = async (req, res) => {
           moral: 0,
           ehe: 0,
           crgc: 0,
-          overall: 0
+          overall: 0,
+          pillars: {
+            uvls: 0,
+            dcos: 0,
+            moral: 0,
+            ehe: 0,
+            crgc: 0,
+            overall: 0
+          }
         },
         totalStudents: 0,
         byClass: []
       });
     }
 
-    // Calculate averages
+    // Define pillars with their game types
+    const pillars = [
+      { key: 'uvls', name: 'UVLS', totalGames: 42 },
+      { key: 'dcos', name: 'DCOS', totalGames: 42 },
+      { key: 'moral', name: 'Moral Values', totalGames: 42 },
+      { key: 'ehe', name: 'EHE', totalGames: 42 },
+      { key: 'crgc', name: 'CRGC', totalGames: 42 }
+    ];
+
+    // Calculate real-time mastery for each student
+    const studentMasteries = await Promise.all(
+      students.map(async (student) => {
+        if (!student.userId?._id) return null;
+
+        const userId = student.userId._id;
+
+        // Fetch real-time game progress
+        const gameProgress = await UnifiedGameProgress.find({ userId }).lean();
+
+        // Calculate mastery for each pillar
+        const pillarMasteryData = pillars.map(pillar => {
+          const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
+          
+          if (pillarGames.length === 0) {
+            return { pillar: pillar.key, mastery: 0 };
+          }
+
+          // Calculate mastery based on games completed vs total games
+          const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
+          const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
+
+          return { pillar: pillar.key, mastery };
+        });
+
+        // Calculate overall mastery
+        const overallMastery = pillarMasteryData.length > 0
+          ? Math.round(pillarMasteryData.reduce((sum, p) => sum + p.mastery, 0) / pillarMasteryData.length)
+          : 0;
+
+        return {
+          classId: student.classId?._id,
+          section: student.section,
+          uvls: pillarMasteryData.find(p => p.pillar === 'uvls')?.mastery || 0,
+          dcos: pillarMasteryData.find(p => p.pillar === 'dcos')?.mastery || 0,
+          moral: pillarMasteryData.find(p => p.pillar === 'moral')?.mastery || 0,
+          ehe: pillarMasteryData.find(p => p.pillar === 'ehe')?.mastery || 0,
+          crgc: pillarMasteryData.find(p => p.pillar === 'crgc')?.mastery || 0,
+          overall: overallMastery
+        };
+      })
+    );
+
+    // Filter out null values
+    const validMasteries = studentMasteries.filter(m => m !== null);
+
+    if (validMasteries.length === 0) {
+      return res.json({
+        averages: {
+          uvls: 0,
+          dcos: 0,
+          moral: 0,
+          ehe: 0,
+          crgc: 0,
+          overall: 0,
+          pillars: {
+            uvls: 0,
+            dcos: 0,
+            moral: 0,
+            ehe: 0,
+            crgc: 0,
+            overall: 0
+          }
+        },
+        totalStudents: 0,
+        byClass: []
+      });
+    }
+
+    // Calculate school-wide averages
     const totals = {
       uvls: 0,
       dcos: 0,
       moral: 0,
       ehe: 0,
-      crgc: 0
+      crgc: 0,
+      overall: 0
     };
 
     const classTotals = {};
 
-    students.forEach(student => {
-      if (student.pillars) {
-        totals.uvls += student.pillars.uvls || 0;
-        totals.dcos += student.pillars.dcos || 0;
-        totals.moral += student.pillars.moral || 0;
-        totals.ehe += student.pillars.ehe || 0;
-        totals.crgc += student.pillars.crgc || 0;
+    validMasteries.forEach(mastery => {
+      totals.uvls += mastery.uvls;
+      totals.dcos += mastery.dcos;
+      totals.moral += mastery.moral;
+      totals.ehe += mastery.ehe;
+      totals.crgc += mastery.crgc;
+      totals.overall += mastery.overall;
 
-        // Track by class
-        const classKey = `${student.classId}-${student.section}`;
-        if (!classTotals[classKey]) {
-          classTotals[classKey] = {
-            classId: student.classId,
-            section: student.section,
-            count: 0,
-            uvls: 0,
-            dcos: 0,
-            moral: 0,
-            ehe: 0,
-            crgc: 0
-          };
-        }
-        classTotals[classKey].count++;
-        classTotals[classKey].uvls += student.pillars.uvls || 0;
-        classTotals[classKey].dcos += student.pillars.dcos || 0;
-        classTotals[classKey].moral += student.pillars.moral || 0;
-        classTotals[classKey].ehe += student.pillars.ehe || 0;
-        classTotals[classKey].crgc += student.pillars.crgc || 0;
+      // Track by class
+      const classKey = mastery.classId?.toString() || 'unassigned';
+      if (!classTotals[classKey]) {
+        classTotals[classKey] = {
+          classId: mastery.classId,
+          section: mastery.section,
+          count: 0,
+          uvls: 0,
+          dcos: 0,
+          moral: 0,
+          ehe: 0,
+          crgc: 0,
+          overall: 0
+        };
       }
+      classTotals[classKey].count++;
+      classTotals[classKey].uvls += mastery.uvls;
+      classTotals[classKey].dcos += mastery.dcos;
+      classTotals[classKey].moral += mastery.moral;
+      classTotals[classKey].ehe += mastery.ehe;
+      classTotals[classKey].crgc += mastery.crgc;
+      classTotals[classKey].overall += mastery.overall;
     });
 
-    const count = students.length;
+    const count = validMasteries.length;
     const averages = {
       uvls: parseFloat((totals.uvls / count).toFixed(2)),
       dcos: parseFloat((totals.dcos / count).toFixed(2)),
       moral: parseFloat((totals.moral / count).toFixed(2)),
       ehe: parseFloat((totals.ehe / count).toFixed(2)),
-      crgc: parseFloat((totals.crgc / count).toFixed(2))
+      crgc: parseFloat((totals.crgc / count).toFixed(2)),
+      overall: parseFloat((totals.overall / count).toFixed(2)),
+      pillars: {
+        uvls: parseFloat((totals.uvls / count).toFixed(2)),
+        dcos: parseFloat((totals.dcos / count).toFixed(2)),
+        moral: parseFloat((totals.moral / count).toFixed(2)),
+        ehe: parseFloat((totals.ehe / count).toFixed(2)),
+        crgc: parseFloat((totals.crgc / count).toFixed(2)),
+        overall: parseFloat((totals.overall / count).toFixed(2))
+      }
     };
-    
-    averages.overall = parseFloat(
-      ((averages.uvls + averages.dcos + averages.moral + averages.ehe + averages.crgc) / 5).toFixed(2)
-    );
 
     // Calculate class averages
     const byClass = Object.values(classTotals).map(cls => ({
@@ -5289,7 +5515,8 @@ export const getSchoolPillarMastery = async (req, res) => {
         dcos: parseFloat((cls.dcos / cls.count).toFixed(2)),
         moral: parseFloat((cls.moral / cls.count).toFixed(2)),
         ehe: parseFloat((cls.ehe / cls.count).toFixed(2)),
-        crgc: parseFloat((cls.crgc / cls.count).toFixed(2))
+        crgc: parseFloat((cls.crgc / cls.count).toFixed(2)),
+        overall: parseFloat((cls.overall / cls.count).toFixed(2))
       }
     }));
 
@@ -5602,9 +5829,69 @@ export const getOrganizationCampuses = async (req, res) => {
       return res.json({ campuses: [], mainCampus: null });
     }
 
+    // Filter campuses based on user permissions
+    let accessibleCampuses = organization.campuses || [];
+    
+    // Check if user has campus restrictions
+    if (req.rolePermission) {
+      const { canAccessCampus } = await import('../utils/permissionChecker.js');
+      const userCampusId = req.user?.campusId;
+      
+      // If user can only view own campus, filter to their campus
+      if (req.rolePermission.permissions?.viewOwnCampusOnly && !req.rolePermission.permissions?.viewAllCampuses) {
+        accessibleCampuses = accessibleCampuses.filter(campus => {
+          return canAccessCampus(req.rolePermission, userCampusId, campus.campusId);
+        });
+      }
+    }
+
+    // Calculate real-time statistics for each campus
+    const campusesWithStats = await Promise.all(
+      accessibleCampuses.map(async (campus) => {
+        const campusId = campus.campusId;
+
+        // Calculate real-time student count
+        const studentCount = await SchoolStudent.countDocuments({
+          tenantId,
+          campusId,
+          isActive: true
+        });
+
+        // Calculate real-time teacher count
+        const teacherCount = await User.countDocuments({
+          tenantId,
+          campusId,
+          role: 'school_teacher',
+          isActive: true
+        });
+
+        // Calculate real-time class count (count distinct classes that have students from this campus)
+        let classCount = 0;
+        try {
+          const classIds = await SchoolStudent.distinct('classId', {
+            tenantId,
+            campusId,
+            isActive: true,
+            classId: { $exists: true, $ne: null }
+          });
+          classCount = classIds ? classIds.length : 0;
+        } catch (error) {
+          console.error(`Error calculating class count for campus ${campusId}:`, error);
+          classCount = 0;
+        }
+
+        return {
+          ...(campus.toObject ? campus.toObject() : campus),
+          studentCount,
+          teacherCount,
+          classCount: classCount || 0
+        };
+      })
+    );
+
     res.json({
-      campuses: organization.campuses || [],
-      mainCampus: organization.campuses?.find(c => c.isMain),
+      campuses: campusesWithStats,
+      mainCampus: campusesWithStats.find(c => c.isMain),
     });
   } catch (error) {
     console.error('Error fetching campuses:', error);
@@ -5647,6 +5934,38 @@ export const addCampus = async (req, res) => {
     }
     organization.campuses.push(newCampus);
     await organization.save();
+
+    // Log audit
+    await ComplianceAuditLog.logAction({
+      tenantId,
+      orgId,
+      userId: req.user._id,
+      userRole: req.user.role,
+      userName: req.user.name,
+      action: 'campus_created',
+      targetType: 'campus',
+      targetId: campusId,
+      targetName: name,
+      description: `Campus "${name}" created`,
+      ipAddress: req.ip,
+      userAgent: req.headers['user-agent'],
+    });
+
+    // Emit socket events for real-time dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:created', {
+        campusId,
+        campus: newCampus,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'campus_created',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,
@@ -5944,6 +6263,7 @@ export const approveOrRejectItem = async (req, res) => {
   try {
     const { itemId, type, action, reason } = req.body;
     const userId = req.user?._id;
+    const { tenantId } = req;
 
     let result;
 
@@ -5979,6 +6299,34 @@ export const approveOrRejectItem = async (req, res) => {
 
       await template.save();
       result = template;
+    }
+
+    // Emit socket events for realtime dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      if (type === 'assignment') {
+        io.to(`school-admin-dashboard:${tenantId}`).emit(action === 'approve' ? 'assignment:approved' : 'assignment:rejected', {
+          itemId,
+          type,
+          action,
+          tenantId,
+          timestamp: new Date()
+        });
+      } else if (type === 'template') {
+        io.to(`school-admin-dashboard:${tenantId}`).emit(action === 'approve' ? 'template:approved' : 'template:rejected', {
+          itemId,
+          type,
+          action,
+          tenantId,
+          timestamp: new Date()
+        });
+      }
+      
+      // Emit general dashboard update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'approval_update',
+        timestamp: new Date()
+      });
     }
 
     res.json({
@@ -6158,6 +6506,22 @@ export const createTemplate = async (req, res) => {
       approvalStatus: templateData.isPublic ? 'pending' : 'approved',
     });
 
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:created', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_created',
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Template created successfully',
@@ -6207,6 +6571,22 @@ export const approveTemplate = async (req, res) => {
     template.approvalStatus = 'approved';
     template.approvedBy = userId;
     await template.save();
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:approved', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_approved',
+        timestamp: new Date()
+      });
+    }
 
     // Log audit
     await ComplianceAuditLog.logAction({
@@ -6266,6 +6646,22 @@ export const rejectTemplate = async (req, res) => {
     template.rejectionReason = reason || 'Template does not meet requirements';
     await template.save();
 
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:rejected', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_rejected',
+        timestamp: new Date()
+      });
+    }
+
     // Log audit
     await ComplianceAuditLog.logAction({
       tenantId,
@@ -6322,6 +6718,22 @@ export const updateTemplate = async (req, res) => {
     Object.assign(template, updates);
     await template.save();
 
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:updated', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_updated',
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Template updated successfully',
@@ -6346,6 +6758,22 @@ export const deleteTemplate = async (req, res) => {
 
     template.isActive = false;
     await template.save();
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:deleted', {
+        templateId: template._id,
+        templateTitle: template.title,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_deleted',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,
@@ -7781,6 +8209,21 @@ export const approveAssignmentWithNotification = async (req, res) => {
         title: assignment.title,
         studentsNotified: targetStudents.length,
       });
+
+      // Emit to admin dashboard for real-time updates
+      if (tenantId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('assignment:approved', {
+          assignmentId: assignment._id,
+          assignment: assignment.toObject ? assignment.toObject() : assignment,
+          tenantId,
+          timestamp: new Date()
+        });
+        
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+          type: 'assignment_approved',
+          timestamp: new Date()
+        });
+      }
     }
 
     // Log audit trail
@@ -7852,6 +8295,22 @@ export const requestAssignmentChanges = async (req, res) => {
       },
     });
 
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('assignment:changes_requested', {
+        assignmentId: assignment._id,
+        assignment: assignment.toObject ? assignment.toObject() : assignment,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'assignment_changes_requested',
+        timestamp: new Date()
+      });
+    }
+
     // Log audit
     await ComplianceAuditLog.logAction({
       tenantId,
@@ -7910,6 +8369,22 @@ export const rejectAssignment = async (req, res) => {
         reason,
       },
     });
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('assignment:rejected', {
+        assignmentId: assignment._id,
+        assignment: assignment.toObject ? assignment.toObject() : assignment,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'assignment_rejected',
+        timestamp: new Date()
+      });
+    }
 
     // Log audit
     await ComplianceAuditLog.logAction({
@@ -7980,6 +8455,22 @@ export const uploadTemplateWithTags = async (req, res) => {
       approvalStatus: visibility === 'public' ? 'pending' : 'approved',
     });
 
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:created', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_created',
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Template created successfully',
@@ -8025,6 +8516,22 @@ export const updateTemplateWithTags = async (req, res) => {
     }
 
     await template.save();
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('template:updated', {
+        templateId: template._id,
+        template: template.toObject ? template.toObject() : template,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'template_updated',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,
@@ -9128,21 +9635,75 @@ export const getOrganizationInfo = async (req, res) => {
     const { tenantId } = req;
     const orgId = req.user?.orgId;
 
+    if (!orgId) {
+      return res.json({
+        organization: {
+          name: 'School',
+          email: '',
+          address: '',
+          phone: '',
+          website: '',
+          principalName: ''
+        }
+      });
+    }
+
     const organization = await Organization.findById(orgId);
+    
+    if (!organization) {
+      return res.json({
+        organization: {
+          name: 'School',
+          email: '',
+          address: '',
+          phone: '',
+          website: '',
+          principalName: ''
+        }
+      });
+    }
+    
+    // Handle address - it might be an object or string
+    let addressString = '';
+    if (organization.settings?.address) {
+      if (typeof organization.settings.address === 'string') {
+        addressString = organization.settings.address;
+      } else if (typeof organization.settings.address === 'object') {
+        const addr = organization.settings.address;
+        // If street contains the full address (likely has commas or is long), use only street
+        // Otherwise, combine all fields
+        if (addr.street && (addr.street.includes(',') || addr.street.length > 50)) {
+          // Street field contains the full address, use it directly
+          addressString = addr.street;
+        } else {
+          // Build address string from object fields, filtering out duplicates
+          const parts = [
+            addr.street,
+            addr.city,
+            addr.state,
+            addr.pincode,
+            addr.country
+          ].filter(Boolean);
+          addressString = parts.join(', ') || '';
+        }
+      }
+    }
     
     res.json({
       organization: {
         name: organization?.name || 'School',
-        email: organization?.settings?.contactInfo?.email || organization?.contactInfo?.email || '',
-        address: organization?.settings?.address || '',
-        phone: organization?.settings?.contactInfo?.phone || organization?.contactInfo?.phone || '',
-        website: organization?.settings?.website || '',
-        principalName: organization?.settings?.principalName || ''
+        email: organization?.settings?.contactInfo?.email || '',
+        address: addressString,
+        phone: organization?.settings?.contactInfo?.phone || '',
+        website: organization?.settings?.contactInfo?.website || ''
       }
     });
   } catch (error) {
     console.error('Error fetching organization info:', error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ 
+      message: 'Server error',
+      error: error.message 
+    });
   }
 };
 
@@ -9151,7 +9712,9 @@ export const updateOrganizationInfo = async (req, res) => {
   try {
     const { tenantId } = req;
     const orgId = req.user?.orgId;
-    const { name, email, phone, address, website, principalName } = req.body;
+    const { name, email, phone, address, website } = req.body;
+
+    console.log('📝 Update organization info request:', { name, email, phone, address, website });
 
     if (!orgId) {
       return res.status(400).json({ message: 'Organization ID required' });
@@ -9162,27 +9725,75 @@ export const updateOrganizationInfo = async (req, res) => {
       return res.status(404).json({ message: 'Organization not found' });
     }
 
-    // Update fields
-    if (name) organization.name = name;
-    
-    if (!organization.settings) organization.settings = {};
-    if (!organization.contactInfo) organization.contactInfo = {};
-    
-    if (email) {
-      organization.contactInfo.email = email;
-      if (!organization.settings.contactInfo) organization.settings.contactInfo = {};
-      organization.settings.contactInfo.email = email;
+    // Update fields - name is required, so validate it
+    if (name !== undefined && name !== null) {
+      const trimmedName = typeof name === 'string' ? name.trim() : String(name).trim();
+      if (!trimmedName) {
+        return res.status(400).json({ message: 'School name is required' });
+      }
+      console.log('✅ Updating name from', organization.name, 'to', trimmedName);
+      organization.name = trimmedName;
+    } else {
+      console.log('⚠️ Name not provided in request');
     }
-    if (phone) {
-      organization.contactInfo.phone = phone;
-      if (!organization.settings.contactInfo) organization.settings.contactInfo = {};
-      organization.settings.contactInfo.phone = phone;
+    
+    // Initialize settings if it doesn't exist
+    if (!organization.settings) {
+      organization.settings = {};
     }
-    if (address) organization.settings.address = address;
-    if (website) organization.settings.website = website;
-    if (principalName) organization.settings.principalName = principalName;
-
+    
+    // Update contact info in settings
+    if (!organization.settings.contactInfo) {
+      organization.settings.contactInfo = {};
+    }
+    
+    if (email !== undefined) {
+      organization.settings.contactInfo.email = email || '';
+    }
+    if (phone !== undefined) {
+      organization.settings.contactInfo.phone = phone || '';
+    }
+    if (website !== undefined) {
+      organization.settings.contactInfo.website = website || '';
+    }
+    
+    // Handle address - if it's a string, store it in a way that's compatible with the schema
+    // The schema expects address to be an object, but we'll store the string in a way that works
+    if (address !== undefined) {
+      // If address is a string, store it in the street field and clear other fields to avoid duplication
+      if (typeof address === 'string' && address.trim()) {
+        // Store the full address string only in the street field
+        // Clear other fields to prevent duplication when retrieving
+        organization.settings.address = {
+          street: address.trim()
+        };
+      } else if (typeof address === 'object' && address !== null) {
+        // If it's already an object, use it directly
+        organization.settings.address = { ...address };
+      } else if (address === '' || address === null) {
+        // Clear address if empty
+        organization.settings.address = {};
+      }
+    }
+    
+    console.log('💾 Saving organization with name:', organization.name);
     await organization.save();
+    console.log('✅ Organization saved successfully. New name:', organization.name);
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('organization:updated', {
+        orgId: organization._id,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'organization_updated',
+        timestamp: new Date()
+      });
+    }
 
     // Log audit
     await ComplianceAuditLog.logAction({
@@ -9191,8 +9802,8 @@ export const updateOrganizationInfo = async (req, res) => {
       userId: req.user._id,
       userRole: req.user.role,
       userName: req.user.name,
-      action: 'organization_updated',
-      targetType: 'organization',
+      action: 'settings_changed',
+      targetType: 'system',
       targetId: organization._id,
       description: 'Organization information updated',
       ipAddress: req.ip,
@@ -9202,11 +9813,22 @@ export const updateOrganizationInfo = async (req, res) => {
     res.json({
       success: true,
       message: 'Organization updated successfully',
-      organization,
+      organization: {
+        name: organization.name,
+        email: organization.settings?.contactInfo?.email || '',
+        phone: organization.settings?.contactInfo?.phone || '',
+        address: typeof organization.settings?.address === 'object' 
+          ? (organization.settings.address.street || JSON.stringify(organization.settings.address))
+          : (organization.settings?.address || ''),
+        website: organization.settings?.contactInfo?.website || ''
+      },
     });
   } catch (error) {
     console.error('Error updating organization:', error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ 
+      message: 'Server error',
+      error: error.message 
+    });
   }
 };
 
@@ -9256,6 +9878,22 @@ export const updateCampus = async (req, res) => {
       userAgent: req.headers['user-agent'],
     });
 
+    // Emit socket events for real-time dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:updated', {
+        campusId,
+        campus,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'campus_updated',
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Campus updated successfully',
@@ -9288,6 +9926,8 @@ export const deleteCampus = async (req, res) => {
       return res.status(400).json({ message: 'Cannot delete main campus' });
     }
 
+    const campusName = campus.name;
+
     // Remove campus
     organization.campuses = organization.campuses.filter(c => c.campusId !== campusId);
     organization.markModified('campuses');
@@ -9303,10 +9943,27 @@ export const deleteCampus = async (req, res) => {
       action: 'campus_deleted',
       targetType: 'campus',
       targetId: campusId,
-      description: `Campus "${campus.name}" deleted`,
+      targetName: campusName,
+      description: `Campus "${campusName}" deleted`,
       ipAddress: req.ip,
       userAgent: req.headers['user-agent'],
     });
+
+    // Emit socket events for real-time dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:deleted', {
+        campusId,
+        campusName,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'campus_deleted',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,
@@ -9400,19 +10057,84 @@ export const getTopPerformers = async (req, res) => {
     const { tenantId } = req;
     const limit = parseInt(req.query.limit) || 10;
 
+    // Get all students for the tenant
     const students = await SchoolStudent.find({ tenantId })
       .populate('userId', 'name email')
-      .sort({ 'pillars.uvls': -1 })
-      .limit(limit);
+      .populate('classId', 'classNumber stream')
+      .lean();
 
-    const performers = students.map(student => ({
-      name: student.userId?.name || student.name,
-      grade: student.grade,
-      section: student.section,
-      score: Math.round(
-        ((student.pillars?.uvls || 0) + (student.pillars?.dcos || 0) + (student.pillars?.moral || 0) + (student.pillars?.ehe || 0) + (student.pillars?.crgc || 0)) / 5
-      ),
-    }));
+    // Define pillars with their game types
+    const pillars = [
+      { key: 'uvls', name: 'UVLS', totalGames: 42 },
+      { key: 'dcos', name: 'DCOS', totalGames: 42 },
+      { key: 'moral', name: 'Moral Values', totalGames: 42 },
+      { key: 'ehe', name: 'EHE', totalGames: 42 },
+      { key: 'crgc', name: 'CRGC', totalGames: 42 },
+      { key: 'financial', name: 'Financial Literacy', totalGames: 42 },
+      { key: 'brain', name: 'Brain Health', totalGames: 42 },
+      { key: 'ai', name: 'AI for All', totalGames: 42 },
+      { key: 'entrepreneurship', name: 'Entrepreneurship', totalGames: 42 },
+      { key: 'educational', name: 'Education', totalGames: 42 }
+    ];
+
+    // Calculate real-time mastery for each student
+    const performersWithScores = await Promise.all(
+      students.map(async (student) => {
+        if (!student.userId?._id) return null;
+
+        const userId = student.userId._id;
+
+        // Fetch real-time game progress
+        const gameProgress = await UnifiedGameProgress.find({ userId }).lean();
+
+        // Calculate mastery for each pillar
+        const pillarMasteryData = pillars.map(pillar => {
+          const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
+          
+          if (pillarGames.length === 0) {
+            return {
+              pillar: pillar.name,
+              mastery: 0,
+              gamesCompleted: 0,
+              totalGames: pillar.totalGames
+            };
+          }
+
+          // Calculate mastery based on games completed vs total games
+          const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
+          const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
+
+          return {
+            pillar: pillar.name,
+            mastery: mastery,
+            gamesCompleted,
+            totalGames: pillar.totalGames
+          };
+        });
+
+        // Calculate overall mastery (average of all pillars with games)
+        const pillarsWithGames = pillarMasteryData.filter(p => p.totalGames > 0);
+        const overallMastery = pillarsWithGames.length > 0
+          ? Math.round(pillarsWithGames.reduce((sum, p) => sum + p.mastery, 0) / pillarsWithGames.length)
+          : 0;
+
+        return {
+          _id: student._id,
+          name: student.userId?.name || 'Unknown',
+          grade: student.classId?.classNumber || student.grade || 0,
+          section: student.section || 'A',
+          score: overallMastery,
+          userId: userId
+        };
+      })
+    );
+
+    // Filter out null values and sort by score (descending)
+    const performers = performersWithScores
+      .filter(p => p !== null)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map(({ _id, userId, ...rest }) => rest); // Remove _id and userId from response
 
     res.json({
       success: true,
@@ -10218,6 +10940,14 @@ export const removeStudentFromClass = async (req, res) => {
       };
       io.emit('school:students:removed', payload);
       io.emit('school:class-roster:updated', payload);
+      
+      // Also emit to dashboard room for realtime updates
+      if (tenantId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+          type: 'students_removed',
+          timestamp: new Date()
+        });
+      }
     }
 
     res.json({
@@ -10971,6 +11701,41 @@ export const createStudent = async (req, res) => {
       userAgent: req.headers['user-agent'],
     });
 
+    // Emit socket events for realtime dashboard updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      // Emit student update event
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:students:updated', {
+        studentId: student._id,
+        action: 'created',
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      // Emit general dashboard update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'student_created',
+        timestamp: new Date()
+      });
+      
+      // Emit activity update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:activity:new', {
+        type: 'student_created',
+        studentName: name,
+        tenantId,
+        timestamp: new Date()
+      });
+
+      // Emit campus statistics update if student has campusId
+      if (student.campusId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school:campus:stats:updated', {
+          campusId: student.campusId,
+          tenantId,
+          timestamp: new Date()
+        });
+      }
+    }
+
     res.status(201).json({
       success: true,
       message: 'Student account created successfully - class assignment pending',
@@ -11055,6 +11820,17 @@ export const resetStudentPassword = async (req, res) => {
       userAgent: req.headers['user-agent'],
     });
 
+    // Emit socket events for realtime updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:students:updated', {
+        studentId,
+        action: 'password_reset',
+        tenantId,
+        timestamp: new Date()
+      });
+    }
+
     res.json({
       success: true,
       message: 'Password reset successfully'
@@ -11081,6 +11857,9 @@ export const deleteStudent = async (req, res) => {
     const studentName = student.userId?.name || 'Unknown Student';
     const rollNumber = student.rollNumber;
     const userId = student.userId?._id;
+
+    // Store campusId before deletion for stats update
+    const studentCampusId = student.campusId;
 
     // Delete the student profile (using proper query with tenantId)
     await SchoolStudent.findOneAndDelete({ _id: studentId, tenantId });
@@ -11116,6 +11895,32 @@ export const deleteStudent = async (req, res) => {
       ipAddress: req.ip,
       userAgent: req.headers['user-agent'],
     });
+
+    // Emit socket events for realtime updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      // Emit student removed event
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:students:removed', {
+        studentId,
+        studentName,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      // Also emit general update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school:students:updated', {
+        studentId,
+        action: 'deleted',
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      // Emit dashboard update
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'student_deleted',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       success: true,

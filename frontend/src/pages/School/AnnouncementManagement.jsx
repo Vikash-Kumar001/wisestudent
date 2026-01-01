@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus, Search, Filter, Edit, Trash2, Pin, PinOff, Eye, Calendar,
@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import api from "../../utils/api";
 import { toast } from "react-hot-toast";
+import { useSocket } from "../../context/SocketContext";
+import { usePermissions, PermissionGuard } from "../../hooks/usePermissions";
 
 const AnnouncementManagement = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -63,10 +65,89 @@ const AnnouncementManagement = () => {
     { value: "specific_class", label: "Specific Classes" }
   ];
 
+  const { socket } = useSocket();
+  const { hasPermission } = usePermissions();
+
+  const fetchAnnouncements = useCallback(async () => {
+    try {
+      setLoading(true);
+      const params = new URLSearchParams({
+        page: currentPage,
+        limit: 10,
+        ...(filterType !== "all" && { type: filterType }),
+        ...(filterPriority !== "all" && { priority: filterPriority }),
+        ...(filterAudience !== "all" && { targetAudience: filterAudience })
+      });
+
+      const response = await api.get(`/api/announcements/admin/all?${params}`);
+      setAnnouncements(response.data.announcements);
+      setTotalPages(response.data.totalPages);
+    } catch (error) {
+      console.error("Error fetching announcements:", error);
+      toast.error("Failed to load announcements");
+    } finally {
+      setLoading(false);
+    }
+  }, [currentPage, filterType, filterPriority, filterAudience]);
+
   useEffect(() => {
     fetchAnnouncements();
     fetchStats();
-  }, [currentPage, filterType, filterPriority, filterAudience]);
+  }, [fetchAnnouncements]);
+
+  // Real-time socket listeners for announcement updates
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleAnnouncementCreated = (data) => {
+      console.log('🔄 Announcement created, refreshing list...');
+      fetchAnnouncements();
+      fetchStats();
+    };
+
+    const handleAnnouncementUpdated = (data) => {
+      console.log('🔄 Announcement updated, refreshing list...');
+      fetchAnnouncements();
+      fetchStats();
+    };
+
+    const handleAnnouncementDeleted = (data) => {
+      console.log('🔄 Announcement deleted, refreshing list...');
+      setAnnouncements(prev => prev.filter(a => a._id !== data.announcementId));
+      fetchAnnouncements();
+      fetchStats();
+    };
+
+    const handleAnnouncementPinToggled = (data) => {
+      console.log('📌 Announcement pin toggled, refreshing list...');
+      setAnnouncements(prev => prev.map(a => 
+        a._id === data.announcementId 
+          ? { ...a, isPinned: data.isPinned }
+          : a
+      ));
+      fetchStats();
+    };
+
+    const handleDashboardUpdate = () => {
+      console.log('🔄 Dashboard update received, refreshing announcements...');
+      fetchAnnouncements();
+      fetchStats();
+    };
+
+    socket.on('announcement:created', handleAnnouncementCreated);
+    socket.on('announcement:updated', handleAnnouncementUpdated);
+    socket.on('announcement:deleted', handleAnnouncementDeleted);
+    socket.on('announcement:pin_toggled', handleAnnouncementPinToggled);
+    socket.on('school-admin:dashboard:update', handleDashboardUpdate);
+
+    return () => {
+      socket.off('announcement:created', handleAnnouncementCreated);
+      socket.off('announcement:updated', handleAnnouncementUpdated);
+      socket.off('announcement:deleted', handleAnnouncementDeleted);
+      socket.off('announcement:pin_toggled', handleAnnouncementPinToggled);
+      socket.off('school-admin:dashboard:update', handleDashboardUpdate);
+    };
+  }, [socket, fetchAnnouncements]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -100,27 +181,6 @@ const AnnouncementManagement = () => {
     };
   }, [showCreateModal, showEditModal, showViewModal]);
 
-  const fetchAnnouncements = async () => {
-    try {
-      setLoading(true);
-      const params = new URLSearchParams({
-        page: currentPage,
-        limit: 10,
-        ...(filterType !== "all" && { type: filterType }),
-        ...(filterPriority !== "all" && { priority: filterPriority }),
-        ...(filterAudience !== "all" && { targetAudience: filterAudience })
-      });
-
-      const response = await api.get(`/api/announcements/admin/all?${params}`);
-      setAnnouncements(response.data.announcements);
-      setTotalPages(response.data.totalPages);
-    } catch (error) {
-      console.error("Error fetching announcements:", error);
-      toast.error("Failed to load announcements");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const fetchStats = async () => {
     try {
@@ -368,13 +428,15 @@ const AnnouncementManagement = () => {
               </select>
             </div>
 
-            <button
-              onClick={() => setShowCreateModal(true)}
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <Plus className="w-4 h-4" />
-              Create Announcement
-            </button>
+            <PermissionGuard require="createAnnouncements">
+              <button
+                onClick={() => setShowCreateModal(true)}
+                className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <Plus className="w-4 h-4" />
+                Create Announcement
+              </button>
+            </PermissionGuard>
           </div>
         </div>
 
@@ -442,38 +504,46 @@ const AnnouncementManagement = () => {
                       </div>
                       
                       <div className="flex items-center gap-2 ml-4">
-                        <button
-                          onClick={() => openViewModal(announcement)}
-                          className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
-                          title="View"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => openEditModal(announcement)}
-                          className="p-2 text-gray-400 hover:text-green-600 transition-colors"
-                          title="Edit"
-                        >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleTogglePin(announcement._id)}
-                          className={`p-2 transition-colors ${
-                            announcement.isPinned 
-                              ? 'text-yellow-600 hover:text-yellow-700' 
-                              : 'text-gray-400 hover:text-yellow-600'
-                          }`}
-                          title={announcement.isPinned ? "Unpin" : "Pin"}
-                        >
-                          {announcement.isPinned ? <PinOff className="w-4 h-4" /> : <Pin className="w-4 h-4" />}
-                        </button>
-                        <button
-                          onClick={() => handleDeleteAnnouncement(announcement._id)}
-                          className="p-2 text-gray-400 hover:text-red-600 transition-colors"
-                          title="Delete"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+                        <PermissionGuard require="viewAnnouncements">
+                          <button
+                            onClick={() => openViewModal(announcement)}
+                            className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                            title="View"
+                          >
+                            <Eye className="w-4 h-4" />
+                          </button>
+                        </PermissionGuard>
+                        <PermissionGuard require="editAnnouncements">
+                          <button
+                            onClick={() => openEditModal(announcement)}
+                            className="p-2 text-gray-400 hover:text-green-600 transition-colors"
+                            title="Edit"
+                          >
+                            <Edit className="w-4 h-4" />
+                          </button>
+                        </PermissionGuard>
+                        <PermissionGuard require="editAnnouncements">
+                          <button
+                            onClick={() => handleTogglePin(announcement._id)}
+                            className={`p-2 transition-colors ${
+                              announcement.isPinned 
+                                ? 'text-yellow-600 hover:text-yellow-700' 
+                                : 'text-gray-400 hover:text-yellow-600'
+                            }`}
+                            title={announcement.isPinned ? "Unpin" : "Pin"}
+                          >
+                            {announcement.isPinned ? <PinOff className="w-4 h-4" /> : <Pin className="w-4 h-4" />}
+                          </button>
+                        </PermissionGuard>
+                        <PermissionGuard require="deleteAnnouncements">
+                          <button
+                            onClick={() => handleDeleteAnnouncement(announcement._id)}
+                            className="p-2 text-gray-400 hover:text-red-600 transition-colors"
+                            title="Delete"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </PermissionGuard>
                       </div>
                     </div>
                   </motion.div>
@@ -508,165 +578,188 @@ const AnnouncementManagement = () => {
       {/* Create Announcement Modal */}
       <AnimatePresence>
         {showCreateModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-            onClick={() => setShowCreateModal(false)}
-          >
+          <>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowCreateModal(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none"
             >
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-semibold text-gray-900">Create Announcement</h2>
-                  <button
-                    onClick={() => setShowCreateModal(false)}
-                    className="text-gray-400 hover:text-gray-600"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
+              <div 
+                className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="sticky top-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-6 rounded-t-2xl">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h2 className="text-2xl font-black mb-1 flex items-center gap-2">
+                        <MessageSquare className="w-6 h-6" />
+                        Create Announcement
+                      </h2>
+                      <p className="text-sm text-white/80">Share important updates with your school community</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowCreateModal(false)}
+                      className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
                 </div>
+
+                <form onSubmit={handleCreateAnnouncement} className="p-6 space-y-6">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-purple-600" />
+                      Title *
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none font-semibold transition-all"
+                      placeholder="Enter announcement title..."
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4 text-pink-600" />
+                      Message *
+                    </label>
+                    <textarea
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={4}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:outline-none font-medium resize-none transition-all"
+                      placeholder="Write your announcement message here..."
+                      required
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Target className="w-4 h-4 text-indigo-600" />
+                        Type
+                      </label>
+                      <select
+                        value={formData.type}
+                        onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none font-semibold transition-all bg-white"
+                      >
+                        {announcementTypes.map(type => (
+                          <option key={type.value} value={type.value}>{type.label}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Zap className="w-4 h-4 text-orange-600" />
+                        Priority
+                      </label>
+                      <select
+                        value={formData.priority}
+                        onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none font-semibold transition-all bg-white"
+                      >
+                        {priorityLevels.map(priority => (
+                          <option key={priority.value} value={priority.value}>{priority.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <Users className="w-4 h-4 text-blue-600" />
+                      Target Audience *
+                    </label>
+                    <select
+                      value={formData.targetAudience}
+                      onChange={(e) => setFormData({ ...formData, targetAudience: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none font-semibold transition-all bg-white"
+                      required
+                    >
+                      {targetAudiences.map(audience => (
+                        <option key={audience.value} value={audience.value}>{audience.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-green-600" />
+                        Publish Date
+                      </label>
+                      <input
+                        type="date"
+                        value={formData.publishDate}
+                        onChange={(e) => setFormData({ ...formData, publishDate: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none font-semibold transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-amber-600" />
+                        Expiry Date (Optional)
+                      </label>
+                      <input
+                        type="date"
+                        value={formData.expiryDate}
+                        onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-amber-500 focus:outline-none font-semibold transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-2 border-yellow-200">
+                    <input
+                      type="checkbox"
+                      id="isPinned"
+                      checked={formData.isPinned}
+                      onChange={(e) => setFormData({ ...formData, isPinned: e.target.checked })}
+                      className="h-5 w-5 text-yellow-600 focus:ring-yellow-500 border-yellow-300 rounded cursor-pointer"
+                    />
+                    <label htmlFor="isPinned" className="ml-3 block text-sm font-bold text-gray-900 flex items-center gap-2 cursor-pointer">
+                      <Pin className="w-4 h-4 text-yellow-600" />
+                      Pin this announcement to the top
+                    </label>
+                  </div>
+
+                  <div className="flex justify-end gap-3 pt-4 border-t-2 border-gray-200">
+                    <button
+                      type="button"
+                      onClick={() => setShowCreateModal(false)}
+                      className="px-6 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors font-bold"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-6 py-3 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-xl hover:shadow-lg transition-all flex items-center gap-2 font-black"
+                    >
+                      <Send className="w-5 h-5" />
+                      Create Announcement
+                    </button>
+                  </div>
+                </form>
               </div>
-
-              <form onSubmit={handleCreateAnnouncement} className="p-6 space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Title *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Type
-                    </label>
-                    <select
-                      value={formData.type}
-                      onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      {announcementTypes.map(type => (
-                        <option key={type.value} value={type.value}>{type.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Priority
-                    </label>
-                    <select
-                      value={formData.priority}
-                      onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      {priorityLevels.map(priority => (
-                        <option key={priority.value} value={priority.value}>{priority.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Target Audience *
-                  </label>
-                  <select
-                    value={formData.targetAudience}
-                    onChange={(e) => setFormData({ ...formData, targetAudience: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                  >
-                    {targetAudiences.map(audience => (
-                      <option key={audience.value} value={audience.value}>{audience.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Publish Date
-                    </label>
-                    <input
-                      type="date"
-                      value={formData.publishDate}
-                      onChange={(e) => setFormData({ ...formData, publishDate: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Expiry Date (Optional)
-                    </label>
-                    <input
-                      type="date"
-                      value={formData.expiryDate}
-                      onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="isPinned"
-                    checked={formData.isPinned}
-                    onChange={(e) => setFormData({ ...formData, isPinned: e.target.checked })}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label htmlFor="isPinned" className="ml-2 block text-sm text-gray-700">
-                    Pin this announcement to the top
-                  </label>
-                </div>
-
-                <div className="flex justify-end gap-3 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setShowCreateModal(false)}
-                    className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
-                  >
-                    <Send className="w-4 h-4" />
-                    Create Announcement
-                  </button>
-                </div>
-              </form>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
 

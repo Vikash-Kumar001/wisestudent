@@ -82,6 +82,29 @@ export const requireSchoolRole = (req, res, next) => {
   next();
 };
 
+// ✅ Middleware: Load user permissions into request
+export const loadUserPermissions = async (req, res, next) => {
+  try {
+    if (!req.user) {
+      return next();
+    }
+
+    const { getUserRolePermissions, getAllPermissions } = await import('../utils/permissionChecker.js');
+    const tenantId = req.tenantId || req.user.tenantId;
+    const rolePermission = await getUserRolePermissions(req.user._id, tenantId);
+
+    if (rolePermission) {
+      req.rolePermission = rolePermission;
+      req.userPermissions = getAllPermissions(rolePermission);
+    }
+
+    next();
+  } catch (error) {
+    console.error('Error loading user permissions:', error);
+    next(); // Continue even if permission loading fails
+  }
+};
+
 // ✅ Middleware: School roles + regular parent access (for chat functionality)
 export const requireSchoolRoleOrParent = (req, res, next) => {
   const allowedRoles = ['school_admin', 'school_teacher', 'school_student', 'school_parent', 'school_accountant', 'school_librarian', 'parent'];

@@ -502,6 +502,28 @@ export const completeGame = async (req, res) => {
           console.error('Error broadcasting leaderboard update:', err);
         });
       }
+
+      // Emit analytics update for school admin dashboard
+      try {
+        const user = await User.findById(userId).select('tenantId organizationId').lean();
+        const tenantId = user?.tenantId || user?.organizationId;
+        if (tenantId) {
+          io.to(`school-admin-dashboard:${tenantId}`).emit('student:pillar:updated', {
+            studentId: userId.toString(),
+            gameId,
+            tenantId,
+            timestamp: new Date()
+          });
+          
+          // Also emit general analytics update
+          io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+            type: 'game_completed',
+            timestamp: new Date()
+          });
+        }
+      } catch (err) {
+        console.error('Error emitting analytics update:', err);
+      }
     }
     
     res.status(200).json({
@@ -1387,6 +1409,25 @@ export const completeUnifiedGame = async (req, res) => {
         const { broadcastLeaderboardUpdate } = await import('../utils/leaderboardBroadcast.js');
         broadcastLeaderboardUpdate(io).catch(err => {
           console.error('Error broadcasting leaderboard update:', err);
+        });
+      }
+
+      // Emit analytics update for school admin dashboard
+      const user = await User.findById(userId).select('tenantId organizationId').lean();
+      const tenantId = user?.tenantId || user?.organizationId;
+      if (tenantId) {
+        io.to(`school-admin-dashboard:${tenantId}`).emit('student:pillar:updated', {
+          studentId: userId.toString(),
+          gameId,
+          gameType,
+          tenantId,
+          timestamp: new Date()
+        });
+        
+        // Also emit general analytics update
+        io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+          type: 'game_completed',
+          timestamp: new Date()
         });
       }
     }

@@ -74,6 +74,19 @@ export const createAnnouncement = async (req, res) => {
     // Emit real-time notification via Socket.IO
     const io = req.app?.get('io');
     if (io) {
+      // Emit to admin dashboard for real-time updates
+      io.to(`school-admin-dashboard:${tenantId}`).emit('announcement:created', {
+        announcementId: announcement._id,
+        announcement: populatedAnnouncement,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'announcement_created',
+        timestamp: new Date()
+      });
+
       // Emit to all users in the tenant
       io.to(tenantId).emit('announcement:new', {
         announcement: populatedAnnouncement,
@@ -208,6 +221,19 @@ export const updateAnnouncement = async (req, res) => {
     // Emit real-time update via Socket.IO
     const io = req.app?.get('io');
     if (io) {
+      // Emit to admin dashboard for real-time updates
+      io.to(`school-admin-dashboard:${tenantId}`).emit('announcement:updated', {
+        announcementId: announcement._id,
+        announcement: announcement.toObject ? announcement.toObject() : announcement,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'announcement_updated',
+        timestamp: new Date()
+      });
+
       // Emit to all users in the tenant
       io.to(tenantId).emit('announcement:updated', {
         announcement,
@@ -268,6 +294,22 @@ export const deleteAnnouncement = async (req, res) => {
 
     if (!announcement) {
       return res.status(404).json({ message: 'Announcement not found' });
+    }
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('announcement:deleted', {
+        announcementId: announcement._id,
+        announcementTitle: announcement.title,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'announcement_deleted',
+        timestamp: new Date()
+      });
     }
 
     res.json({ message: 'Announcement deleted successfully' });
@@ -519,6 +561,22 @@ export const toggleAnnouncementPin = async (req, res) => {
 
     announcement.isPinned = !announcement.isPinned;
     await announcement.save();
+
+    // Emit socket event for real-time updates
+    const io = req.app?.get('io');
+    if (io && tenantId) {
+      io.to(`school-admin-dashboard:${tenantId}`).emit('announcement:pin_toggled', {
+        announcementId: announcement._id,
+        isPinned: announcement.isPinned,
+        tenantId,
+        timestamp: new Date()
+      });
+      
+      io.to(`school-admin-dashboard:${tenantId}`).emit('school-admin:dashboard:update', {
+        type: 'announcement_pin_toggled',
+        timestamp: new Date()
+      });
+    }
 
     res.json({
       message: `Announcement ${announcement.isPinned ? 'pinned' : 'unpinned'} successfully`,

@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import api from '../../utils/api';
 import { toast } from 'react-hot-toast';
+import { useSocket } from '../../context/SocketContext';
 
 ChartJS.register(
   CategoryScale, LinearScale, PointElement, LineElement,
@@ -21,6 +22,7 @@ ChartJS.register(
 
 const SchoolAdminAnalytics = () => {
   const navigate = useNavigate();
+  const { socket } = useSocket();
   const [loading, setLoading] = useState(true);
   const [pillarMastery, setPillarMastery] = useState({});
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
@@ -41,9 +43,90 @@ const SchoolAdminAnalytics = () => {
     fetchAnalyticsData();
   }, [selectedTimeRange, selectedCampus, selectedGrade]);
 
-  const fetchAnalyticsData = async () => {
+  // Realtime analytics updates
+  useEffect(() => {
+    if (!socket) return;
+
+    // Listen for dashboard updates that affect analytics
+    const handleDashboardUpdate = () => {
+      console.log('🔄 Analytics update received, refreshing data...');
+      fetchAnalyticsData(false); // Don't show loading spinner for realtime updates
+    };
+
+    // Listen for student updates
+    const handleStudentUpdate = () => {
+      console.log('👥 Student update received, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Listen for pillar mastery updates (when games are completed)
+    const handlePillarUpdate = () => {
+      console.log('📊 Pillar mastery update received, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Listen for wellbeing case updates
+    const handleWellbeingUpdate = () => {
+      console.log('❤️ Wellbeing update received, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Listen for class roster updates
+    const handleClassRosterUpdate = () => {
+      console.log('📚 Class roster update received, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Listen for game completion (affects pillar mastery and leaderboard)
+    const handleGameCompleted = () => {
+      console.log('🎮 Game completed, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Listen for engagement updates (when students/teachers are active)
+    const handleEngagementUpdate = () => {
+      console.log('📈 Engagement update received, refreshing analytics...');
+      fetchAnalyticsData(false);
+    };
+
+    // Subscribe to all relevant events
+    socket.on('school-admin:dashboard:update', handleDashboardUpdate);
+    socket.on('school:students:updated', handleStudentUpdate);
+    socket.on('school:students:removed', handleStudentUpdate);
+    socket.on('school:class-roster:updated', handleClassRosterUpdate);
+    socket.on('student:pillar:updated', handlePillarUpdate);
+    socket.on('student:wellbeing:updated', handleWellbeingUpdate);
+    socket.on('student:activity:new', handleStudentUpdate);
+    socket.on('game-completed', handleGameCompleted);
+    socket.on('teacher:activity:update', handleEngagementUpdate);
+    socket.on('activity:logged', handleEngagementUpdate);
+
+    // Request initial update only once when socket is ready
+    if (socket.connected) {
+      socket.emit('school-admin:dashboard:request-update');
+    } else {
+      socket.once('connect', () => {
+        socket.emit('school-admin:dashboard:request-update');
+      });
+    }
+
+    return () => {
+      socket.off('school-admin:dashboard:update', handleDashboardUpdate);
+      socket.off('school:students:updated', handleStudentUpdate);
+      socket.off('school:students:removed', handleStudentUpdate);
+      socket.off('school:class-roster:updated', handleClassRosterUpdate);
+      socket.off('student:pillar:updated', handlePillarUpdate);
+      socket.off('student:wellbeing:updated', handleWellbeingUpdate);
+      socket.off('student:activity:new', handleStudentUpdate);
+      socket.off('game-completed', handleGameCompleted);
+      socket.off('teacher:activity:update', handleEngagementUpdate);
+      socket.off('activity:logged', handleEngagementUpdate);
+    };
+  }, [socket]);
+
+  const fetchAnalyticsData = async (showLoading = true) => {
     try {
-      setLoading(true);
+      if (showLoading) setLoading(true);
       const campusParam = selectedCampus !== 'all' ? `?campusId=${selectedCampus}` : '';
       const gradeParam = selectedGrade !== 'all' ? (campusParam ? `&grade=${selectedGrade}` : `?grade=${selectedGrade}`) : '';
       
@@ -73,9 +156,11 @@ const SchoolAdminAnalytics = () => {
       setPerformanceByGrade(performanceRes.data.grades || []);
     } catch (error) {
       console.error('Error fetching analytics:', error);
-      toast.error('Failed to load analytics');
+      if (showLoading) {
+        toast.error('Failed to load analytics');
+      }
     } finally {
-      setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
 
@@ -86,6 +171,7 @@ const SchoolAdminAnalytics = () => {
       if (selectedCampus !== 'all') params.append('campusId', selectedCampus);
       if (selectedGrade !== 'all') params.append('grade', selectedGrade);
       params.append('timeRange', selectedTimeRange);
+      params.append('format', 'csv');
       
       const response = await api.get(`/api/school/admin/analytics/export?${params}`, {
         responseType: 'blob'
@@ -94,10 +180,11 @@ const SchoolAdminAnalytics = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `analytics-report-${Date.now()}.pdf`);
+      link.setAttribute('download', `analytics-report-${Date.now()}.csv`);
       document.body.appendChild(link);
       link.click();
       link.remove();
+      window.URL.revokeObjectURL(url);
       toast.dismiss();
       toast.success('Report exported successfully!');
     } catch (error) {

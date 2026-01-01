@@ -125,10 +125,7 @@ import {
   // Enhanced template management
   uploadTemplateWithTags,
   updateTemplateWithTags,
-  // Role management
-  getRolePermissions,
-  createCustomRole,
-  updateRolePermissions,
+  // User management
   createUserWithRole,
   assignRoleToUser,
   // Escalation management
@@ -182,7 +179,8 @@ import {
   updatePreferences
 } from '../controllers/schoolController.js';
 import { extractTenant, enforceTenantIsolation } from '../middlewares/tenantMiddleware.js';
-import { requireAuth, requireSchoolAdmin, requireSchoolTeacher, requireSchoolRole } from '../middlewares/requireAuth.js';
+import { requireAuth, requireSchoolAdmin, requireSchoolTeacher, requireSchoolRole, loadUserPermissions } from '../middlewares/requireAuth.js';
+import { requirePermission } from '../utils/permissionChecker.js';
 import { getAdminProfileStats } from '../controllers/userController.js';
 import { checkTeacherAccess } from '../controllers/teacherAccessController.js';
 import multer from 'multer';
@@ -204,118 +202,115 @@ router.get('/classes', requireAuth, requireSchoolRole, getSchoolClasses);
 router.get('/students', requireAuth, requireSchoolRole, getSchoolStudents);
 router.get('/teachers', requireAuth, requireSchoolRole, getSchoolTeachers);
 
-// School Admin Analytics Routes (Admin only)
-router.get('/admin/analytics/student-adoption', requireAuth, requireSchoolAdmin, getStudentAdoption);
-router.get('/admin/analytics/pillar-mastery', requireAuth, requireSchoolAdmin, getSchoolPillarMastery);
-router.get('/admin/analytics/wellbeing-cases', requireAuth, requireSchoolAdmin, getWellbeingCases);
-router.get('/admin/analytics/teacher-adoption', requireAuth, requireSchoolAdmin, getTeacherAdoption);
-router.get('/admin/analytics/nep-alignment', requireAuth, requireSchoolAdmin, getNEPAlignment);
+// School Admin Analytics Routes (with permission checks)
+router.get('/admin/analytics/student-adoption', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getStudentAdoption);
+router.get('/admin/analytics/pillar-mastery', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getSchoolPillarMastery);
+router.get('/admin/analytics/wellbeing-cases', requireAuth, loadUserPermissions, requirePermission(['viewAnalytics', 'viewWellbeingCases']), getWellbeingCases);
+router.get('/admin/analytics/teacher-adoption', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getTeacherAdoption);
+router.get('/admin/analytics/nep-alignment', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getNEPAlignment);
 
-// Comprehensive School Admin Routes (Admin only)
-router.get('/admin/campuses', requireAuth, requireSchoolAdmin, getOrganizationCampuses);
-router.post('/admin/campuses', requireAuth, requireSchoolAdmin, addCampus);
-router.get('/admin/kpis', requireAuth, requireSchoolAdmin, getComprehensiveKPIs);
-router.get('/admin/heatmap', requireAuth, requireSchoolAdmin, getHeatmapData);
-router.get('/admin/pending-approvals', requireAuth, requireSchoolAdmin, getPendingApprovals);
-router.post('/admin/approve-reject', requireAuth, requireSchoolAdmin, approveOrRejectItem);
-router.get('/admin/staff', requireAuth, requireSchoolAdmin, getAllStaff);
-router.post('/admin/assign-teacher', requireAuth, requireSchoolAdmin, assignTeacherToClass);
+// Comprehensive School Admin Routes (with permission checks)
+router.get('/admin/campuses', requireAuth, loadUserPermissions, requirePermission(['viewDashboard', 'viewAllCampuses', 'viewOwnCampusOnly'], { mode: 'any' }), getOrganizationCampuses);
+router.post('/admin/campuses', requireAuth, loadUserPermissions, requirePermission('manageCampuses'), addCampus);
+router.get('/admin/kpis', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getComprehensiveKPIs);
+router.get('/admin/heatmap', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getHeatmapData);
+router.get('/admin/pending-approvals', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), getPendingApprovals);
+router.post('/admin/approve-reject', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), approveOrRejectItem);
+router.get('/admin/staff', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getAllStaff);
+router.post('/admin/assign-teacher', requireAuth, loadUserPermissions, requirePermission('assignClasses'), assignTeacherToClass);
 
-// Template Management Routes (Admin only)
-router.get('/admin/templates/export', requireAuth, requireSchoolAdmin, exportTemplates);
-router.get('/admin/templates', requireAuth, requireSchoolAdmin, getTemplates);
-router.post('/admin/templates', requireAuth, requireSchoolAdmin, createTemplate);
-router.get('/admin/templates/:templateId', requireAuth, requireSchoolAdmin, getTemplateById);
-router.put('/admin/templates/:templateId', requireAuth, requireSchoolAdmin, updateTemplate);
-router.delete('/admin/templates/:templateId', requireAuth, requireSchoolAdmin, deleteTemplate);
-router.post('/admin/templates/:templateId/approve', requireAuth, requireSchoolAdmin, approveTemplate);
-router.post('/admin/templates/:templateId/reject', requireAuth, requireSchoolAdmin, rejectTemplate);
+// Template Management Routes (with permission checks)
+router.get('/admin/templates/export', requireAuth, loadUserPermissions, requirePermission('viewAllAssignments'), exportTemplates);
+router.get('/admin/templates', requireAuth, loadUserPermissions, requirePermission('viewAllAssignments'), getTemplates);
+router.post('/admin/templates', requireAuth, loadUserPermissions, requirePermission('createTemplates'), createTemplate);
+router.get('/admin/templates/:templateId', requireAuth, loadUserPermissions, requirePermission('viewAllAssignments'), getTemplateById);
+router.put('/admin/templates/:templateId', requireAuth, loadUserPermissions, requirePermission('editTemplates'), updateTemplate);
+router.delete('/admin/templates/:templateId', requireAuth, loadUserPermissions, requirePermission('deleteTemplates'), deleteTemplate);
+router.post('/admin/templates/:templateId/approve', requireAuth, loadUserPermissions, requirePermission('approveTemplates'), approveTemplate);
+router.post('/admin/templates/:templateId/reject', requireAuth, loadUserPermissions, requirePermission('approveTemplates'), rejectTemplate);
 
-// Subscription & Billing Routes (Admin only)
-router.get('/admin/subscription', requireAuth, requireSchoolAdmin, getSubscriptionDetails);
-router.get('/admin/subscription/enhanced', requireAuth, requireSchoolAdmin, getEnhancedSubscriptionDetails);
-router.post('/admin/subscription/upgrade', requireAuth, requireSchoolAdmin, upgradeSubscription);
-router.post('/admin/subscription/renew', requireAuth, requireSchoolAdmin, renewSubscription);
-router.get('/admin/subscription/plans', requireAuth, requireSchoolAdmin, getPlanComparison);
-router.get('/admin/invoices/:invoiceId', requireAuth, requireSchoolAdmin, getInvoiceDetails);
-router.put('/admin/subscription/payment-method', requireAuth, requireSchoolAdmin, updatePaymentMethod);
+// Subscription & Billing Routes (with permission checks)
+router.get('/admin/subscription', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), getSubscriptionDetails);
+router.get('/admin/subscription/enhanced', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), getEnhancedSubscriptionDetails);
+router.post('/admin/subscription/upgrade', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), upgradeSubscription);
+router.post('/admin/subscription/renew', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), renewSubscription);
+router.get('/admin/subscription/plans', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), getPlanComparison);
+router.get('/admin/invoices/:invoiceId', requireAuth, loadUserPermissions, requirePermission('viewFinancials'), getInvoiceDetails);
+router.put('/admin/subscription/payment-method', requireAuth, loadUserPermissions, requirePermission('manageSubscription'), updatePaymentMethod);
 
 // Support & Trial Extension Routes (Admin only)
 router.get('/admin/support/tickets', requireAuth, requireSchoolAdmin, getSupportTickets);
 
-// Policy & Compliance Routes (Admin only)
-router.get('/admin/compliance/dashboard', requireAuth, requireSchoolAdmin, getComplianceDashboard);
-router.get('/admin/compliance/consents', requireAuth, requireSchoolAdmin, getConsentRecords);
-router.post('/admin/compliance/consents', requireAuth, requireSchoolAdmin, createConsentRecord);
-router.put('/admin/compliance/consents/:consentId/withdraw', requireAuth, requireSchoolAdmin, withdrawConsent);
-router.get('/admin/compliance/policies', requireAuth, requireSchoolAdmin, getDataRetentionPolicies);
-router.post('/admin/compliance/policies', requireAuth, requireSchoolAdmin, createDataRetentionPolicy);
-router.put('/admin/compliance/policies/:policyId', requireAuth, requireSchoolAdmin, updateDataRetentionPolicy);
-router.delete('/admin/compliance/policies/:policyId', requireAuth, requireSchoolAdmin, deleteDataRetentionPolicy);
-router.post('/admin/compliance/policies/:policyId/enforce', requireAuth, requireSchoolAdmin, enforceDataRetention);
-router.get('/admin/compliance/audit-logs', requireAuth, requireSchoolAdmin, getAuditLogs);
-router.get('/admin/compliance/audit-logs/export', requireAuth, requireSchoolAdmin, exportAuditLogs);
-router.get('/admin/compliance/user/:userId/consents', requireAuth, requireSchoolAdmin, getUserConsentStatus);
-router.get('/admin/compliance/report', requireAuth, requireSchoolAdmin, generateComplianceReport);
+// Policy & Compliance Routes (with permission checks)
+router.get('/admin/compliance/dashboard', requireAuth, loadUserPermissions, requirePermission('viewComplianceData'), getComplianceDashboard);
+router.get('/admin/compliance/consents', requireAuth, loadUserPermissions, requirePermission('viewComplianceData'), getConsentRecords);
+router.post('/admin/compliance/consents', requireAuth, loadUserPermissions, requirePermission('manageConsents'), createConsentRecord);
+router.put('/admin/compliance/consents/:consentId/withdraw', requireAuth, loadUserPermissions, requirePermission('manageConsents'), withdrawConsent);
+router.get('/admin/compliance/policies', requireAuth, loadUserPermissions, requirePermission('viewComplianceData'), getDataRetentionPolicies);
+router.post('/admin/compliance/policies', requireAuth, loadUserPermissions, requirePermission('managePolicies'), createDataRetentionPolicy);
+router.put('/admin/compliance/policies/:policyId', requireAuth, loadUserPermissions, requirePermission('managePolicies'), updateDataRetentionPolicy);
+router.delete('/admin/compliance/policies/:policyId', requireAuth, loadUserPermissions, requirePermission('managePolicies'), deleteDataRetentionPolicy);
+router.post('/admin/compliance/policies/:policyId/enforce', requireAuth, loadUserPermissions, requirePermission('managePolicies'), enforceDataRetention);
+router.get('/admin/compliance/audit-logs', requireAuth, loadUserPermissions, requirePermission('viewAuditLogs'), getAuditLogs);
+router.get('/admin/compliance/audit-logs/export', requireAuth, loadUserPermissions, requirePermission('viewAuditLogs'), exportAuditLogs);
+router.get('/admin/compliance/user/:userId/consents', requireAuth, loadUserPermissions, requirePermission('viewComplianceData'), getUserConsentStatus);
+router.get('/admin/compliance/report', requireAuth, loadUserPermissions, requirePermission('viewComplianceData'), generateComplianceReport);
 
-// Enhanced Assignment Approval Routes (Admin only)
-router.get('/admin/assignments/:assignmentId/preview', requireAuth, requireSchoolAdmin, getAssignmentPreview);
-router.post('/admin/assignments/:assignmentId/approve', requireAuth, requireSchoolAdmin, approveAssignmentWithNotification);
-router.post('/admin/assignments/:assignmentId/request-changes', requireAuth, requireSchoolAdmin, requestAssignmentChanges);
-router.post('/admin/assignments/:assignmentId/reject', requireAuth, requireSchoolAdmin, rejectAssignment);
+// Enhanced Assignment Approval Routes (with permission checks)
+router.get('/admin/assignments/:assignmentId/preview', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), getAssignmentPreview);
+router.post('/admin/assignments/:assignmentId/approve', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), approveAssignmentWithNotification);
+router.post('/admin/assignments/:assignmentId/request-changes', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), requestAssignmentChanges);
+router.post('/admin/assignments/:assignmentId/reject', requireAuth, loadUserPermissions, requirePermission('approveAssignments'), rejectAssignment);
 
-// Enhanced Template Management Routes (Admin only)
-router.post('/admin/templates/upload', requireAuth, requireSchoolAdmin, uploadTemplateWithTags);
-router.put('/admin/templates/:templateId/tags', requireAuth, requireSchoolAdmin, updateTemplateWithTags);
+// Enhanced Template Management Routes (with permission checks)
+router.post('/admin/templates/upload', requireAuth, loadUserPermissions, requirePermission('createTemplates'), uploadTemplateWithTags);
+router.put('/admin/templates/:templateId/tags', requireAuth, loadUserPermissions, requirePermission('editTemplates'), updateTemplateWithTags);
 
-// Role Management Routes (Admin only)
-router.get('/admin/roles', requireAuth, requireSchoolAdmin, getRolePermissions);
-router.post('/admin/roles', requireAuth, requireSchoolAdmin, createCustomRole);
-router.put('/admin/roles/:roleId', requireAuth, requireSchoolAdmin, updateRolePermissions);
-router.post('/admin/users/create-with-role', requireAuth, requireSchoolAdmin, createUserWithRole);
-router.put('/admin/users/:userId/assign-role', requireAuth, requireSchoolAdmin, assignRoleToUser);
+// User Management Routes (with permission checks)
+router.post('/admin/users/create-with-role', requireAuth, loadUserPermissions, requirePermission('createStaff'), createUserWithRole);
+router.put('/admin/users/:userId/assign-role', requireAuth, loadUserPermissions, requirePermission('editStaff'), assignRoleToUser);
 
-// Escalation & Emergency Routes (Admin only)
-router.get('/admin/escalation-chains', requireAuth, requireSchoolAdmin, getEscalationChains);
-router.post('/admin/escalation-chains', requireAuth, requireSchoolAdmin, createEscalationChain);
-router.put('/admin/escalation-chains/:chainId', requireAuth, requireSchoolAdmin, updateEscalationChain);
-router.post('/admin/escalation/trigger', requireAuth, requireSchoolAdmin, triggerEscalation);
-router.get('/admin/escalation/cases', requireAuth, requireSchoolAdmin, getEscalationCases);
-router.put('/admin/escalation/cases/:caseId/resolve', requireAuth, requireSchoolAdmin, resolveEscalationCase);
+// Escalation & Emergency Routes (with permission checks)
+router.get('/admin/escalation-chains', requireAuth, loadUserPermissions, requirePermission('manageEscalation'), getEscalationChains);
+router.post('/admin/escalation-chains', requireAuth, loadUserPermissions, requirePermission('manageEscalation'), createEscalationChain);
+router.put('/admin/escalation-chains/:chainId', requireAuth, loadUserPermissions, requirePermission('manageEscalation'), updateEscalationChain);
+router.post('/admin/escalation/trigger', requireAuth, loadUserPermissions, requirePermission('manageEscalation'), triggerEscalation);
+router.get('/admin/escalation/cases', requireAuth, loadUserPermissions, requirePermission('viewWellbeingCases'), getEscalationCases);
+router.put('/admin/escalation/cases/:caseId/resolve', requireAuth, loadUserPermissions, requirePermission('resolveWellbeingCases'), resolveEscalationCase);
 
-// Helper Endpoints (Admin only)
-router.get('/admin/profile-stats', requireAuth, requireSchoolAdmin, getAdminProfileStats);
-router.get('/admin/organization-info', requireAuth, requireSchoolAdmin, getOrganizationInfo);
-router.put('/admin/organization-info', requireAuth, requireSchoolAdmin, updateOrganizationInfo);
-router.put('/admin/campuses/:campusId', requireAuth, requireSchoolAdmin, updateCampus);
-router.delete('/admin/campuses/:campusId', requireAuth, requireSchoolAdmin, deleteCampus);
-router.put('/admin/preferences', requireAuth, requireSchoolAdmin, updatePreferences);
-router.get('/admin/recent-activity', requireAuth, requireSchoolAdmin, getRecentActivity);
-router.get('/admin/top-performers', requireAuth, requireSchoolAdmin, getTopPerformers);
-router.get('/admin/weekly-trend', requireAuth, requireSchoolAdmin, getWeeklyTrend);
-router.get('/admin/analytics/performance-by-grade', requireAuth, requireSchoolAdmin, getPerformanceByGrade);
-router.get('/admin/analytics/engagement-trend', requireAuth, requireSchoolAdmin, getEngagementTrend);
-router.get('/admin/analytics/export', requireAuth, requireSchoolAdmin, exportAnalyticsReport);
+// Helper Endpoints (with permission checks)
+router.get('/admin/profile-stats', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getAdminProfileStats);
+router.get('/admin/organization-info', requireAuth, loadUserPermissions, requirePermission('manageSettings'), getOrganizationInfo);
+router.put('/admin/organization-info', requireAuth, loadUserPermissions, requirePermission('manageSettings'), updateOrganizationInfo);
+router.put('/admin/campuses/:campusId', requireAuth, loadUserPermissions, requirePermission('manageCampuses'), updateCampus);
+router.delete('/admin/campuses/:campusId', requireAuth, loadUserPermissions, requirePermission('manageCampuses'), deleteCampus);
+router.put('/admin/preferences', requireAuth, loadUserPermissions, requirePermission('manageSettings'), updatePreferences);
+router.get('/admin/recent-activity', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getRecentActivity);
+router.get('/admin/top-performers', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getTopPerformers);
+router.get('/admin/weekly-trend', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getWeeklyTrend);
+router.get('/admin/analytics/performance-by-grade', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getPerformanceByGrade);
+router.get('/admin/analytics/engagement-trend', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getEngagementTrend);
+router.get('/admin/analytics/export', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), exportAnalyticsReport);
 router.get('/admin/classes', extractTenant, requireAuth, requireSchoolAdmin, getAllClasses);
-router.get('/admin/students', extractTenant, requireAuth, requireSchoolAdmin, getStudentsWithFilters);
-router.get('/admin/students/available', extractTenant, requireAuth, requireSchoolAdmin, getAvailableStudents);
-router.post('/admin/students/create', extractTenant, requireAuth, requireSchoolAdmin, createStudent);
-router.get('/admin/students/stats', extractTenant, requireAuth, requireSchoolAdmin, getAdminStudentStats);
-router.get('/admin/students/export', extractTenant, requireAuth, requireSchoolAdmin, exportStudents);
-router.post('/admin/students/sync-gender', extractTenant, requireAuth, requireSchoolAdmin, syncStudentGender);
-router.get('/admin/students/:studentId', extractTenant, requireAuth, requireSchoolAdmin, getSchoolStudentDetails);
-router.post('/admin/students/:studentId/reset-password', requireAuth, requireSchoolAdmin, resetStudentPassword);
-router.delete('/admin/students/:studentId', requireAuth, requireSchoolAdmin, deleteStudent);
+router.get('/admin/students', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getStudentsWithFilters);
+router.get('/admin/students/available', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getAvailableStudents);
+router.post('/admin/students/create', extractTenant, requireAuth, loadUserPermissions, requirePermission('createStudent'), createStudent);
+router.get('/admin/students/stats', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getAdminStudentStats);
+router.get('/admin/students/export', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewStudentPII'), exportStudents);
+router.post('/admin/students/sync-gender', extractTenant, requireAuth, loadUserPermissions, requirePermission('editStudent'), syncStudentGender);
+router.get('/admin/students/:studentId', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewStudentPII'), getSchoolStudentDetails);
+router.post('/admin/students/:studentId/reset-password', requireAuth, loadUserPermissions, requirePermission('editStudent'), resetStudentPassword);
+router.delete('/admin/students/:studentId', requireAuth, loadUserPermissions, requirePermission('deleteStudent'), deleteStudent);
 router.get('/admin/staff/stats', requireAuth, requireSchoolAdmin, getStaffStats);
 
-// Teacher Management Routes (Admin only)
-router.get('/admin/teachers', extractTenant, requireAuth, requireSchoolAdmin, getSchoolTeachers);
-router.get('/admin/teachers/available', extractTenant, requireAuth, requireSchoolAdmin, getAvailableTeachers);
-router.post('/admin/teachers/create', extractTenant, requireAuth, requireSchoolAdmin, createTeacher);
-router.get('/admin/teachers/stats', requireAuth, requireSchoolAdmin, getAdminTeacherStats);
-router.get('/admin/teachers/export', requireAuth, requireSchoolAdmin, exportTeachers);
-router.get('/admin/teachers/:teacherId', requireAuth, requireSchoolAdmin, getTeacherDetailsById);
-router.delete('/admin/teachers/:teacherId', requireAuth, requireSchoolAdmin, deleteTeacher);
+// Teacher Management Routes (with permission checks)
+router.get('/admin/teachers', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getSchoolTeachers);
+router.get('/admin/teachers/available', extractTenant, requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getAvailableTeachers);
+router.post('/admin/teachers/create', extractTenant, requireAuth, loadUserPermissions, requirePermission('createStaff'), createTeacher);
+router.get('/admin/teachers/stats', requireAuth, loadUserPermissions, requirePermission('viewAnalytics'), getAdminTeacherStats);
+router.get('/admin/teachers/export', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), exportTeachers);
+router.get('/admin/teachers/:teacherId', requireAuth, loadUserPermissions, requirePermission('viewDashboard'), getTeacherDetailsById);
+router.delete('/admin/teachers/:teacherId', requireAuth, loadUserPermissions, requirePermission('deleteStaff'), deleteTeacher);
 
 // Class Management Routes (Admin only)
 router.get('/admin/classes', requireAuth, requireSchoolAdmin, getAllClasses);

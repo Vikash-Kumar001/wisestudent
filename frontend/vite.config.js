@@ -13,6 +13,7 @@ export default defineConfig({
       host: 'localhost',
       port: 3000,
       clientPort: 3000,
+      overlay: false, // Disable error overlay for HMR connection issues
     },
     watch: {
       usePolling: false,

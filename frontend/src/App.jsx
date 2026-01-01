@@ -577,6 +577,15 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          {/* Student progress route - must be before /students to match correctly */}
+          <Route
+            path="/school/admin/student/:studentId/progress"
+            element={
+              <ProtectedRoute roles={["school_admin"]}>
+                <TeacherStudentProgress />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/school/admin/students"
             element={

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -9,9 +9,13 @@ import {
 import api from '../../utils/api';
 import { toast } from 'react-hot-toast';
 import analytics from '../../utils/analytics';
+import { useSocket } from '../../context/SocketContext';
+import { usePermissions, PermissionGuard } from '../../hooks/usePermissions';
 
 const SchoolAdminTemplates = () => {
   const navigate = useNavigate();
+  const { socket } = useSocket();
+  const { hasPermission } = usePermissions();
   const [loading, setLoading] = useState(true);
   const [templates, setTemplates] = useState([]);
   const [viewMode, setViewMode] = useState('grid');
@@ -39,10 +43,79 @@ const SchoolAdminTemplates = () => {
   const [availableNEPCompetencies, setAvailableNEPCompetencies] = useState([]);
   const [processingId, setProcessingId] = useState(null);
 
+  const fetchTemplates = useCallback(async () => {
+    try {
+      setLoading(true);
+      const params = new URLSearchParams();
+      if (filterCategory !== 'all') params.append('category', filterCategory);
+      if (filterType !== 'all') params.append('type', filterType);
+      
+      const response = await api.get(`/api/school/admin/templates?${params}`);
+      setTemplates(response.data.templates || []);
+    } catch (error) {
+      console.error('Error fetching templates:', error);
+      toast.error('Failed to load templates');
+    } finally {
+      setLoading(false);
+    }
+  }, [filterCategory, filterType]);
+
   useEffect(() => {
     fetchTemplates();
     fetchNEPCompetencies();
-  }, [filterCategory, filterType, filterVisibility]);
+  }, [fetchTemplates]);
+
+  // Real-time socket listeners for template updates
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleTemplateCreated = (data) => {
+      console.log('🔄 Template created, refreshing list...');
+      fetchTemplates();
+    };
+
+    const handleTemplateUpdated = (data) => {
+      console.log('🔄 Template updated, refreshing list...');
+      fetchTemplates();
+    };
+
+    const handleTemplateDeleted = (data) => {
+      console.log('🔄 Template deleted, refreshing list...');
+      setTemplates(prev => prev.filter(t => t._id !== data.templateId));
+      fetchTemplates();
+    };
+
+    const handleTemplateApproved = (data) => {
+      console.log('✅ Template approved, refreshing list...');
+      fetchTemplates();
+    };
+
+    const handleTemplateRejected = (data) => {
+      console.log('❌ Template rejected, refreshing list...');
+      fetchTemplates();
+    };
+
+    const handleDashboardUpdate = () => {
+      console.log('🔄 Dashboard update received, refreshing templates...');
+      fetchTemplates();
+    };
+
+    socket.on('template:created', handleTemplateCreated);
+    socket.on('template:updated', handleTemplateUpdated);
+    socket.on('template:deleted', handleTemplateDeleted);
+    socket.on('template:approved', handleTemplateApproved);
+    socket.on('template:rejected', handleTemplateRejected);
+    socket.on('school-admin:dashboard:update', handleDashboardUpdate);
+
+    return () => {
+      socket.off('template:created', handleTemplateCreated);
+      socket.off('template:updated', handleTemplateUpdated);
+      socket.off('template:deleted', handleTemplateDeleted);
+      socket.off('template:approved', handleTemplateApproved);
+      socket.off('template:rejected', handleTemplateRejected);
+      socket.off('school-admin:dashboard:update', handleDashboardUpdate);
+    };
+  }, [socket, fetchTemplates]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -76,22 +149,6 @@ const SchoolAdminTemplates = () => {
     };
   }, [showUploadModal, showEditModal]);
 
-  const fetchTemplates = async () => {
-    try {
-      setLoading(true);
-      const params = new URLSearchParams();
-      if (filterCategory !== 'all') params.append('category', filterCategory);
-      if (filterType !== 'all') params.append('type', filterType);
-      
-      const response = await api.get(`/api/school/admin/templates?${params}`);
-      setTemplates(response.data.templates || []);
-    } catch (error) {
-      console.error('Error fetching templates:', error);
-      toast.error('Failed to load templates');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const fetchNEPCompetencies = async () => {
     try {
@@ -278,11 +335,17 @@ const SchoolAdminTemplates = () => {
   });
 
   const pillars = [
-    { id: 'uvls', name: 'UVLS', color: 'bg-blue-500' },
-    { id: 'dcos', name: 'DCOS', color: 'bg-green-500' },
-    { id: 'moral', name: 'Moral', color: 'bg-purple-500' },
-    { id: 'ehe', name: 'EHE', color: 'bg-pink-500' },
-    { id: 'crgc', name: 'CRGC', color: 'bg-orange-500' }
+    { id: 'finance', name: 'Financial Literacy', fullName: 'Financial Literacy', color: 'bg-emerald-500', description: 'Money management and financial skills' },
+    { id: 'brain', name: 'Brain Health', fullName: 'Brain Health', color: 'bg-cyan-500', description: 'Mental wellness and cognitive development' },
+    { id: 'uvls', name: 'UVLS', fullName: 'UVLS (Life Skills & Values)', color: 'bg-blue-500', description: 'Understanding Values & Life Skills' },
+    { id: 'dcos', name: 'DCOS', fullName: 'Digital Citizenship & Online Safety', color: 'bg-green-500', description: 'Digital Citizenship & Online Safety' },
+    { id: 'moral', name: 'Moral Values', fullName: 'Moral Values', color: 'bg-purple-500', description: 'Moral & Spiritual Education' },
+    { id: 'ai', name: 'AI for All', fullName: 'AI for All', color: 'bg-indigo-500', description: 'Artificial Intelligence literacy' },
+    { id: 'health-male', name: 'Health - Male', fullName: 'Health - Male', color: 'bg-teal-500', description: 'Male health and wellness' },
+    { id: 'health-female', name: 'Health - Female', fullName: 'Health - Female', color: 'bg-rose-500', description: 'Female health and wellness' },
+    { id: 'ehe', name: 'EHE', fullName: 'Entrepreneurship & Higher Education', color: 'bg-pink-500', description: 'Environmental & Health Education' },
+    { id: 'crgc', name: 'CRGC', fullName: 'Civic Responsibility & Global Citizenship', color: 'bg-orange-500', description: 'Cultural Roots & Global Citizenship' },
+    { id: 'sustainability', name: 'Sustainability', fullName: 'Sustainability', color: 'bg-lime-500', description: 'Environmental sustainability' }
   ];
 
   // Upload Modal Component
@@ -435,26 +498,54 @@ const SchoolAdminTemplates = () => {
 
                 {/* Pillar Alignment */}
                 <div className="space-y-4">
-                  <h3 className="font-bold text-gray-900 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-purple-600" />
-                    Pillar Alignment
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-bold text-gray-900 flex items-center gap-2">
+                      <Target className="w-5 h-5 text-purple-600" />
+                      Pillar Alignment ({uploadForm.pillarAlignment.length} selected)
+                    </h3>
+                    <span className="text-xs text-gray-500 font-semibold">
+                      Select all applicable pillars
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {pillars.map(pillar => (
                       <button
                         key={pillar.id}
                         type="button"
                         onClick={() => togglePillar(pillar.id)}
-                        className={`px-4 py-2 rounded-lg font-bold transition-all ${
+                        className={`px-4 py-3 rounded-lg font-bold transition-all text-left flex flex-col gap-1 ${
                           uploadForm.pillarAlignment.includes(pillar.id)
-                            ? `${pillar.color} text-white shadow-lg`
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                            ? `${pillar.color} text-white shadow-lg scale-105`
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-gray-200'
                         }`}
                       >
-                        {pillar.name}
+                        <span className="text-sm font-black">{pillar.name}</span>
+                        {uploadForm.pillarAlignment.includes(pillar.id) && (
+                          <span className="text-xs opacity-90">{pillar.description}</span>
+                        )}
                       </button>
                     ))}
                   </div>
+                  {uploadForm.pillarAlignment.length > 0 && (
+                    <div className="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                      <p className="text-xs font-semibold text-purple-700 mb-1">
+                        Selected Pillars:
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {uploadForm.pillarAlignment.map(pillarId => {
+                          const pillar = pillars.find(p => p.id === pillarId);
+                          return pillar ? (
+                            <span
+                              key={pillarId}
+                              className={`px-2 py-1 ${pillar.color} text-white rounded text-xs font-bold`}
+                            >
+                              {pillar.name}
+                            </span>
+                          ) : null;
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* NEP Competencies */}
@@ -713,26 +804,54 @@ const SchoolAdminTemplates = () => {
 
                 {/* Pillar Alignment */}
                 <div className="space-y-4">
-                  <h3 className="font-bold text-gray-900 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-blue-600" />
-                    Pillar Alignment
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-bold text-gray-900 flex items-center gap-2">
+                      <Target className="w-5 h-5 text-blue-600" />
+                      Pillar Alignment ({uploadForm.pillarAlignment.length} selected)
+                    </h3>
+                    <span className="text-xs text-gray-500 font-semibold">
+                      Select all applicable pillars
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {pillars.map(pillar => (
                       <button
                         key={pillar.id}
                         type="button"
                         onClick={() => togglePillar(pillar.id)}
-                        className={`px-4 py-2 rounded-lg font-bold transition-all ${
+                        className={`px-4 py-3 rounded-lg font-bold transition-all text-left flex flex-col gap-1 ${
                           uploadForm.pillarAlignment.includes(pillar.id)
-                            ? `${pillar.color} text-white shadow-lg`
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                            ? `${pillar.color} text-white shadow-lg scale-105`
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-gray-200'
                         }`}
                       >
-                        {pillar.name}
+                        <span className="text-sm font-black">{pillar.name}</span>
+                        {uploadForm.pillarAlignment.includes(pillar.id) && (
+                          <span className="text-xs opacity-90">{pillar.description}</span>
+                        )}
                       </button>
                     ))}
                   </div>
+                  {uploadForm.pillarAlignment.length > 0 && (
+                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <p className="text-xs font-semibold text-blue-700 mb-1">
+                        Selected Pillars:
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {uploadForm.pillarAlignment.map(pillarId => {
+                          const pillar = pillars.find(p => p.id === pillarId);
+                          return pillar ? (
+                            <span
+                              key={pillarId}
+                              className={`px-2 py-1 ${pillar.color} text-white rounded text-xs font-bold`}
+                            >
+                              {pillar.name}
+                            </span>
+                          ) : null;
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* NEP Competencies */}
@@ -922,21 +1041,25 @@ const SchoolAdminTemplates = () => {
                 </button>
               </div>
 
-              <button
-                onClick={handleExportTemplates}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-              >
-                <Download className="w-4 h-4" />
-                Export
-              </button>
+              <PermissionGuard require="viewAllAssignments">
+                <button
+                  onClick={handleExportTemplates}
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                >
+                  <Download className="w-4 h-4" />
+                  Export
+                </button>
+              </PermissionGuard>
 
-              <button
-                onClick={() => setShowUploadModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-              >
-                <Plus className="w-4 h-4" />
-                Upload Template
-              </button>
+              <PermissionGuard require="createTemplates">
+                <button
+                  onClick={() => setShowUploadModal(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                >
+                  <Plus className="w-4 h-4" />
+                  Upload Template
+                </button>
+              </PermissionGuard>
             </div>
           </div>
         </motion.div>
@@ -1010,21 +1133,25 @@ const SchoolAdminTemplates = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleEditTemplate(template)}
-                    className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                  >
-                    <Edit className="w-4 h-4" />
-                    Edit
-                  </button>
+                  <PermissionGuard require="editTemplates">
+                    <button
+                      onClick={() => handleEditTemplate(template)}
+                      className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                    >
+                      <Edit className="w-4 h-4" />
+                      Edit
+                    </button>
+                  </PermissionGuard>
 
-                  <button
-                    onClick={() => handleDeleteTemplate(template._id)}
-                    disabled={processingId === template._id}
-                    className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg font-bold hover:shadow-lg transition-all disabled:opacity-50"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  <PermissionGuard require="deleteTemplates">
+                    <button
+                      onClick={() => handleDeleteTemplate(template._id)}
+                      disabled={processingId === template._id}
+                      className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-lg font-bold hover:shadow-lg transition-all disabled:opacity-50"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </PermissionGuard>
                 </div>
               </motion.div>
             ))}
@@ -1090,19 +1217,23 @@ const SchoolAdminTemplates = () => {
                     </td>
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => handleEditTemplate(template)}
-                          className="p-2 hover:bg-blue-100 rounded-lg transition-all"
-                        >
-                          <Edit className="w-4 h-4 text-blue-600" />
-                        </button>
-                        <button
-                          onClick={() => handleDeleteTemplate(template._id)}
-                          disabled={processingId === template._id}
-                          className="p-2 hover:bg-red-100 rounded-lg transition-all disabled:opacity-50"
-                        >
-                          <Trash2 className="w-4 h-4 text-red-600" />
-                        </button>
+                        <PermissionGuard require="editTemplates">
+                          <button
+                            onClick={() => handleEditTemplate(template)}
+                            className="p-2 hover:bg-blue-100 rounded-lg transition-all"
+                          >
+                            <Edit className="w-4 h-4 text-blue-600" />
+                          </button>
+                        </PermissionGuard>
+                        <PermissionGuard require="deleteTemplates">
+                          <button
+                            onClick={() => handleDeleteTemplate(template._id)}
+                            disabled={processingId === template._id}
+                            className="p-2 hover:bg-red-100 rounded-lg transition-all disabled:opacity-50"
+                          >
+                            <Trash2 className="w-4 h-4 text-red-600" />
+                          </button>
+                        </PermissionGuard>
                       </div>
                     </td>
                   </motion.tr>

@@ -74,6 +74,18 @@ export const logActivity = async (req, res, next) => {
           },
           timestamp: new Date()
         });
+        
+        // Emit to analytics dashboard room for realtime updates
+        io.to(`school-admin-dashboard:${tenantId}`).emit('student:activity:new', {
+          type: 'student_activity',
+          activityLog,
+          student: {
+            id: req.user._id,
+            name: req.user.name,
+            role: req.user.role,
+          },
+          timestamp: new Date()
+        });
       }
       
       // Emit activity:logged event to student's room for real-time recommendations update

@@ -8,8 +8,23 @@ import {
 } from 'lucide-react';
 import api from '../utils/api';
 import { toast } from 'react-hot-toast';
+import { useSocket } from '../context/SocketContext';
+import { useAuth } from '../hooks/useAuth';
 
-const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
+const StudentDetailModal = ({ 
+  student, 
+  isOpen, 
+  onClose, 
+  onUpdate,
+  // Support alternative prop names for SchoolAdminStudents
+  selectedStudent,
+  showStudentDetail,
+  setShowStudentDetail,
+  openResetPasswordModal,
+  handleDeleteStudent
+}) => {
+  const { socket } = useSocket();
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('timeline');
   const [loading, setLoading] = useState(false);
   const [studentDetails, setStudentDetails] = useState(null);
@@ -18,16 +33,26 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
   const [isFlagged, setIsFlagged] = useState(false);
   const [messageText, setMessageText] = useState('');
 
+  // Support both prop formats
+  const actualStudent = student || selectedStudent;
+  const actualIsOpen = isOpen !== undefined ? isOpen : showStudentDetail;
+  const actualOnClose = onClose || (() => setShowStudentDetail && setShowStudentDetail(false));
+
   useEffect(() => {
-    if (isOpen && student) {
+    if (actualIsOpen && actualStudent) {
+      console.log('📋 Opening student detail modal for:', {
+        studentId: actualStudent._id,
+        userId: actualStudent.userId,
+        name: actualStudent.name
+      });
       fetchStudentDetails();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen, student]);
+  }, [actualIsOpen, actualStudent]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
-    if (isOpen) {
+    if (actualIsOpen) {
       // Save the current scrollbar width to prevent layout shift
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = 'hidden';
@@ -40,21 +65,138 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
       document.body.style.overflow = 'unset';
       document.body.style.paddingRight = '0';
     };
-  }, [isOpen]);
+  }, [actualIsOpen]);
 
-  const fetchStudentDetails = async () => {
+  const fetchStudentDetails = async (showLoading = true) => {
+    if (!actualStudent?._id && !actualStudent?.userId) return;
+    
+    // Use userId if available (for school admin), otherwise use _id (for teacher)
+    const studentIdToUse = actualStudent?.userId || actualStudent?._id;
+    
+    if (!studentIdToUse) return;
+    
     try {
-      setLoading(true);
-      const response = await api.get(`/api/school/teacher/student/${student._id}/details`);
+      if (showLoading) setLoading(true);
+      const response = await api.get(`/api/school/teacher/student/${studentIdToUse}/details`);
       setStudentDetails(response.data);
       setNotes(response.data.notes || '');
       setIsFlagged(response.data.flagged || false);
+      
+      // Update student stats from API response
+      if (response.data) {
+        // Update the actualStudent object with real-time stats
+        if (actualStudent) {
+          actualStudent.level = response.data.level || actualStudent.level || 1;
+          actualStudent.xp = response.data.xp || actualStudent.xp || 0;
+          actualStudent.coins = response.data.coins || actualStudent.coins || 0;
+          actualStudent.streak = response.data.streak || actualStudent.streak || 0;
+        }
+      }
     } catch (error) {
       console.error('Error fetching student details:', error);
+      // If teacher endpoint fails, try admin endpoint as fallback
+      if (actualStudent?._id && !actualStudent?.userId) {
+        try {
+          const adminResponse = await api.get(`/api/school/admin/students/${actualStudent._id}`);
+          const adminStudentData = adminResponse.data.student || {};
+          
+          // Transform admin response to match expected format
+          setStudentDetails({
+            student: {
+              _id: adminStudentData._id,
+              name: adminStudentData.name,
+              email: adminStudentData.email,
+              avatar: adminStudentData.avatar
+            },
+            timeline: [],
+            notes: [],
+            flagged: adminStudentData.wellbeingFlags?.length > 0 || false,
+            flagReason: '',
+            recentMood: null,
+            consentFlags: {},
+            level: 1,
+            xp: 0,
+            coins: 0,
+            streak: 0
+          });
+          setNotes('');
+          setIsFlagged(adminStudentData.wellbeingFlags?.length > 0 || false);
+        } catch (adminError) {
+          console.error('Error fetching student details from admin endpoint:', adminError);
+        }
+      }
     } finally {
-      setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
+
+  // Realtime updates for student details
+  useEffect(() => {
+    if (!socket || !actualIsOpen || !actualStudent?._id) return;
+
+    const handleStudentUpdate = (data) => {
+      if (data.studentId === actualStudent._id || data.studentId === actualStudent._id?.toString()) {
+        console.log('🔄 Student detail update received, refreshing...');
+        fetchStudentDetails(false);
+      }
+    };
+
+    const handlePillarUpdate = (data) => {
+      const studentUserId = actualStudent?.userId || actualStudent?._id;
+      if (data.studentId === studentUserId || data.studentId === studentUserId?.toString() || 
+          data.userId === studentUserId || data.userId === studentUserId?.toString()) {
+        console.log('📊 Pillar mastery update received, refreshing student details...');
+        fetchStudentDetails(false);
+      }
+    };
+
+    const handleWellbeingUpdate = (data) => {
+      if (data.studentId === actualStudent._id || data.studentId === actualStudent._id?.toString()) {
+        console.log('❤️ Wellbeing update received, refreshing student details...');
+        fetchStudentDetails(false);
+      }
+    };
+
+    const handleActivityUpdate = (data) => {
+      if (data.studentId === actualStudent._id || data.studentId === actualStudent._id?.toString()) {
+        console.log('📈 Activity update received, refreshing student details...');
+        fetchStudentDetails(false);
+      }
+    };
+
+    const handleStatsUpdate = (data) => {
+      // Check if this update is for the current student
+      const studentUserId = actualStudent?.userId || actualStudent?._id;
+      if (data.userId === studentUserId?.toString() || 
+          data.studentId === actualStudent?._id?.toString() ||
+          data.studentId === studentUserId?.toString()) {
+        console.log('📊 Stats update received, refreshing student details...');
+        fetchStudentDetails(false);
+      }
+    };
+
+    socket.on('school:students:updated', handleStudentUpdate);
+    socket.on('student:pillar:updated', handlePillarUpdate);
+    socket.on('student:wellbeing:updated', handleWellbeingUpdate);
+    socket.on('student:activity:new', handleActivityUpdate);
+    socket.on('game-completed', handlePillarUpdate);
+    socket.on('stats:updated', handleStatsUpdate);
+    socket.on('level:up', handleStatsUpdate);
+    socket.on('xp:earned', handleStatsUpdate);
+    socket.on('wallet:updated', handleStatsUpdate);
+
+    return () => {
+      socket.off('school:students:updated', handleStudentUpdate);
+      socket.off('student:pillar:updated', handlePillarUpdate);
+      socket.off('student:wellbeing:updated', handleWellbeingUpdate);
+      socket.off('student:activity:new', handleActivityUpdate);
+      socket.off('game-completed', handlePillarUpdate);
+      socket.off('stats:updated', handleStatsUpdate);
+      socket.off('level:up', handleStatsUpdate);
+      socket.off('xp:earned', handleStatsUpdate);
+      socket.off('wallet:updated', handleStatsUpdate);
+    };
+  }, [socket, actualIsOpen, actualStudent, fetchStudentDetails]);
 
   const handleSaveNote = async () => {
     if (!newNote.trim()) {
@@ -62,13 +204,17 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
       return;
     }
 
+    const studentIdToUse = actualStudent?.userId || actualStudent?._id;
+    if (!studentIdToUse) return;
+
     try {
-      await api.post(`/api/school/teacher/student/${student._id}/notes`, {
+      await api.post(`/api/school/teacher/student/${studentIdToUse}/notes`, {
         note: newNote.trim()
       });
       toast.success('Note saved successfully');
       setNewNote('');
-      fetchStudentDetails();
+      // Refresh details to show the new note
+      await fetchStudentDetails(false);
     } catch (error) {
       console.error('Error saving note:', error);
       toast.error('Failed to save note');
@@ -76,13 +222,18 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
   };
 
   const handleToggleFlag = async () => {
+    const studentIdToUse = actualStudent?.userId || actualStudent?._id;
+    if (!studentIdToUse) return;
+
     try {
-      await api.put(`/api/school/teacher/student/${student._id}/flag`, {
+      await api.put(`/api/school/teacher/student/${studentIdToUse}/flag`, {
         flagged: !isFlagged,
         reason: !isFlagged ? 'Needs attention' : null
       });
       setIsFlagged(!isFlagged);
       toast.success(isFlagged ? 'Student unflagged' : 'Student flagged for counselor');
+      // Refresh details to get updated flag status
+      await fetchStudentDetails(false);
       if (onUpdate) onUpdate();
     } catch (error) {
       console.error('Error toggling flag:', error);
@@ -96,30 +247,35 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
       return;
     }
 
+    const studentIdToUse = actualStudent?.userId || actualStudent?._id;
+    if (!studentIdToUse) return;
+
     try {
-      await api.post(`/api/school/teacher/student/${student._id}/message`, {
+      await api.post(`/api/school/teacher/student/${studentIdToUse}/message`, {
         message: messageText.trim()
       });
       toast.success('Message sent successfully');
       setMessageText('');
+      // Refresh details to show the new activity in timeline
+      await fetchStudentDetails(false);
     } catch (error) {
       console.error('Error sending message:', error);
       toast.error('Failed to send message');
     }
   };
 
-  if (!student) return null;
+  if (!actualStudent) return null;
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {actualIsOpen && (
         <>
           {/* Backdrop */}
           <Motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={actualOnClose}
             className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50"
           />
 
@@ -132,67 +288,65 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white rounded-xl border border-slate-200 shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="bg-white rounded-xl border border-slate-200 shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col" style={{ maxHeight: '90vh' }}>
               {/* Header */}
               <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-4">
                     <div className="relative">
-                      <img
-                        src={student.avatar || '/avatars/avatar1.png'}
-                        alt={student.name}
-                        className="w-16 h-16 rounded-full border-4 border-white shadow-xl ring-4 ring-white/30"
-                      />
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-black text-2xl shadow-lg border-2 border-white/30">
+                        {actualStudent.name?.charAt(0) || 'S'}
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-md"></div>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-black drop-shadow-lg">{student.name}</h2>
-                      <p className="text-white/90 text-sm font-medium">{student.email}</p>
+                      <h2 className="text-2xl font-black">{actualStudent.name}</h2>
+                      <p className="text-white/90 text-sm font-medium">{actualStudent.email}</p>
                     </div>
                   </div>
                   <Motion.button
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={onClose}
+                    onClick={actualOnClose}
                     className="p-2 hover:bg-white/20 rounded-xl transition-all backdrop-blur-sm"
                   >
                     <X className="w-6 h-6" />
                   </Motion.button>
                 </div>
 
-                {/* Quick Stats */}
+                {/* Quick Stats - Matching dashboard style */}
                 <div className="grid grid-cols-4 gap-3">
                   <Motion.div 
                     whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-br from-blue-500/30 to-cyan-600/30 backdrop-blur-md rounded-xl p-3 text-center border border-white/20 shadow-lg"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20"
                   >
-                    <Zap className="w-5 h-5 mx-auto mb-1 drop-shadow-md" />
-                    <p className="text-xl font-black drop-shadow-md">{student.level || 1}</p>
-                    <p className="text-xs opacity-90 font-semibold">Level</p>
+                    <Zap className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <p className="text-xl font-black text-white">{studentDetails?.level ?? actualStudent.level ?? 1}</p>
+                    <p className="text-xs text-white/80 font-semibold">Level</p>
                   </Motion.div>
                   <Motion.div 
                     whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-br from-amber-500/30 to-orange-600/30 backdrop-blur-md rounded-xl p-3 text-center border border-white/20 shadow-lg"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20"
                   >
-                    <Trophy className="w-5 h-5 mx-auto mb-1 drop-shadow-md" />
-                    <p className="text-xl font-black drop-shadow-md">{student.xp || 0}</p>
-                    <p className="text-xs opacity-90 font-semibold">XP</p>
+                    <Trophy className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <p className="text-xl font-black text-white">{studentDetails?.xp ?? actualStudent.xp ?? 0}</p>
+                    <p className="text-xs text-white/80 font-semibold">XP</p>
                   </Motion.div>
                   <Motion.div 
                     whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-br from-yellow-500/30 to-amber-600/30 backdrop-blur-md rounded-xl p-3 text-center border border-white/20 shadow-lg"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20"
                   >
-                    <Coins className="w-5 h-5 mx-auto mb-1 drop-shadow-md" />
-                    <p className="text-xl font-black drop-shadow-md">{student.coins || 0}</p>
-                    <p className="text-xs opacity-90 font-semibold">Coins</p>
+                    <Coins className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <p className="text-xl font-black text-white">{studentDetails?.coins ?? actualStudent.coins ?? 0}</p>
+                    <p className="text-xs text-white/80 font-semibold">Coins</p>
                   </Motion.div>
                   <Motion.div 
                     whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-br from-red-500/30 to-pink-600/30 backdrop-blur-md rounded-xl p-3 text-center border border-white/20 shadow-lg"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20"
                   >
-                    <Flame className="w-5 h-5 mx-auto mb-1 drop-shadow-md" />
-                    <p className="text-xl font-black drop-shadow-md">{student.streak || 0}</p>
-                    <p className="text-xs opacity-90 font-semibold">Streak</p>
+                    <Flame className="w-5 h-5 mx-auto mb-1 text-white" />
+                    <p className="text-xl font-black text-white">{studentDetails?.streak ?? actualStudent.streak ?? 0}</p>
+                    <p className="text-xs text-white/80 font-semibold">Streak</p>
                   </Motion.div>
                 </div>
               </div>
@@ -259,7 +413,7 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
               </div>
 
               {/* Content - Scrollable */}
-              <div className="flex-1 overflow-y-auto p-6">
+              <div className="flex-1 overflow-y-auto p-6" style={{ maxHeight: 'calc(90vh - 300px)' }}>
                 {loading ? (
                   <div className="flex flex-col items-center justify-center py-16">
                     <Motion.div
@@ -491,7 +645,7 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
                         </Motion.div>
 
                         {/* Row: Flag + Full Profile */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                           {/* Flag for Counselor */}
                           <Motion.div
                             initial={{ opacity: 0, x: -10 }}
@@ -547,8 +701,18 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => {
-                                onClose();
-                                window.location.href = `/school-teacher/student/${student._id}/progress`;
+                                actualOnClose();
+                                const studentIdToUse = actualStudent?.userId || actualStudent?._id;
+                                if (studentIdToUse) {
+                                  // Check user role to determine the correct route
+                                  const userRole = user?.role;
+                                  const route = userRole === 'school_admin' 
+                                    ? `/school/admin/student/${studentIdToUse}/progress`
+                                    : `/school-teacher/student/${studentIdToUse}/progress`;
+                                  window.location.href = route;
+                                } else {
+                                  toast.error('Unable to open profile: Student ID not found');
+                                }
                               }}
                               className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-bold hover:shadow-md transition-all flex items-center gap-2 w-full justify-center"
                             >
@@ -557,6 +721,9 @@ const StudentDetailModal = ({ student, isOpen, onClose, onUpdate }) => {
                             </Motion.button>
                           </Motion.div>
                         </div>
+                        
+                        {/* Ensure content is scrollable - add padding at bottom */}
+                        <div className="h-4"></div>
                       </div>
                     )}
                   </>

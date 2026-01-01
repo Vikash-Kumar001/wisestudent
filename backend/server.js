@@ -248,6 +248,12 @@ io.on("connection", async (socket) => {
     if (user.role === "csr") {
       setupCSROverviewSocket(io, socket, user);
     }
+    
+    // Setup School Admin Dashboard socket handler
+    if (user.role === "school_admin") {
+      const { setupSchoolAdminDashboardSocket } = await import('./socketHandlers/schoolAdminDashboardSocket.js');
+      setupSchoolAdminDashboardSocket(io, socket, user);
+    }
 
   } catch (err) {
     console.error("❌ Socket auth error:", err.message);
