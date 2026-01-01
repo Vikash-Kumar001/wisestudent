@@ -55,20 +55,20 @@ const PuzzleBrainFuel = () => {
 
   // Brain fuels (left side)
   const leftItems = [
-    { id: 1, name: 'Omega-3', emoji: '🐟', description: 'Essential fatty acids for brain health' },
-    { id: 2, name: 'Exercise', emoji: '🏃', description: 'Physical activity for brain function' },
-    { id: 3, name: 'Antioxidants', emoji: '🫐', description: 'Protect brain cells from damage' },
-    { id: 4, name: 'Caffeine', emoji: '☕', description: 'Enhances alertness temporarily' },
-    { id: 5, name: 'Sleep', emoji: '😴', description: 'Essential for memory consolidation' }
+    { id: 1, name: 'Omega-3', emoji: '🐟',  },
+    { id: 2, name: 'Exercise', emoji: '🏃',  },
+    { id: 3, name: 'Antioxidants', emoji: '🫐',  },
+    { id: 4, name: 'Caffeine', emoji: '☕',  },
+    { id: 5, name: 'Sleep', emoji: '😴',  },
   ];
 
   // Sources/Benefits (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Energy', emoji: '⚡', description: 'Physical activity increases blood flow' }, // Matches Exercise (left position 2, right position 1)
-    { id: 4, name: 'Coffee', emoji: '☕', description: 'Enhances alertness and concentration' }, // Matches Caffeine (left position 4, right position 2)
-    { id: 1, name: 'Fish', emoji: '🐠', description: 'Omega-3 fatty acids support brain function' }, // Matches Omega-3 (left position 1, right position 3)
-    { id: 5, name: 'Rest', emoji: '🌙', description: 'Essential for memory consolidation' }, // Matches Sleep (left position 5, right position 4)
-    { id: 3, name: 'Berries', emoji: '🫐', description: 'Protect brain cells from oxidative stress' } // Matches Antioxidants (left position 3, right position 5)
+    { id: 2, name: 'Energy', emoji: '⚡',  },
+    { id: 4, name: 'Coffee', emoji: '☕',  },
+    { id: 1, name: 'Fish', emoji: '🐠',  },
+    { id: 5, name: 'Rest', emoji: '🌙',  },
+    { id: 3, name: 'Berries', emoji: '🫐',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

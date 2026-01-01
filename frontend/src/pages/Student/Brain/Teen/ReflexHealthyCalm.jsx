@@ -30,50 +30,50 @@ const ReflexHealthyCalm = () => {
       id: 1,
       text: "Tap for 'Exercise,' avoid 'Avoid Work.'",
       options: [
-        { id: "exercise", text: "Exercise", emoji: "🏃", description: "Promotes endorphins and natural calm", isCorrect: true },
-        { id: "avoid", text: "Avoid Work", emoji: "🛋️", description: "Procrastination increases stress", isCorrect: false },
-        { id: "procrastinate", text: "Procrastinate", emoji: "⏰", description: "Delays and increases pressure", isCorrect: false },
-        { id: "ignore", text: "Ignore Tasks", emoji: "🙈", description: "Makes problems worse", isCorrect: false }
+        { id: "exercise", text: "Exercise", emoji: "🏃",  isCorrect: true },
+        { id: "avoid", text: "Avoid Work", emoji: "🛋️",  isCorrect: false },
+        { id: "procrastinate", text: "Procrastinate", emoji: "⏰",  isCorrect: false },
+        { id: "ignore", text: "Ignore Tasks", emoji: "🙈",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which action promotes healthy calm?",
       options: [
-        { id: "energy", text: "Energy Drinks", emoji: "⚡🥤", description: "Can increase anxiety", isCorrect: false },
-        { id: "tea", text: "Tea Time", emoji: "🍵", description: "Herbal tea soothes nerves", isCorrect: true },
-        { id: "caffeine", text: "Excess Caffeine", emoji: "☕", description: "Can cause jitters", isCorrect: false },
-        { id: "sugar", text: "Sugar Rush", emoji: "🍬", description: "Temporary, then crash", isCorrect: false }
+        { id: "energy", text: "Energy Drinks", emoji: "⚡🥤",  isCorrect: false },
+        { id: "tea", text: "Tea Time", emoji: "🍵",  isCorrect: true },
+        { id: "caffeine", text: "Excess Caffeine", emoji: "☕",  isCorrect: false },
+        { id: "sugar", text: "Sugar Rush", emoji: "🍬",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps maintain calm?",
       options: [
-        { id: "rush", text: "Rush Around", emoji: "🏃‍♂️💨", description: "Increases stress", isCorrect: false },
-        { id: "panic", text: "Panic", emoji: "😱", description: "Triggers fight-or-flight", isCorrect: false },
-        { id: "worry", text: "Worry Constantly", emoji: "😟", description: "Maintains anxiety", isCorrect: false },
-        { id: "mindful", text: "Mindful Walk", emoji: "🚶🧠", description: "Grounds you in the present", isCorrect: true }
+        { id: "rush", text: "Rush Around", emoji: "🏃‍♂️💨",  isCorrect: false },
+        { id: "panic", text: "Panic", emoji: "😱",  isCorrect: false },
+        { id: "worry", text: "Worry Constantly", emoji: "😟",  isCorrect: false },
+        { id: "mindful", text: "Mindful Walk", emoji: "🚶🧠",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which supports healthy calm?",
       options: [
-        { id: "diet", text: "Balanced Diet", emoji: "🥗", description: "Supports stable mood", isCorrect: true },
-        { id: "skip", text: "Skip Meals", emoji: "🚫🍽️", description: "Causes blood sugar drops", isCorrect: false },
-        { id: "junk", text: "Junk Food Only", emoji: "🍔", description: "Can cause mood swings", isCorrect: false },
-        { id: "fast", text: "Fast All Day", emoji: "⏰", description: "Impairs cognitive function", isCorrect: false }
+        { id: "diet", text: "Balanced Diet", emoji: "🥗",  isCorrect: true },
+        { id: "skip", text: "Skip Meals", emoji: "🚫🍽️",  isCorrect: false },
+        { id: "junk", text: "Junk Food Only", emoji: "🍔",  isCorrect: false },
+        { id: "fast", text: "Fast All Day", emoji: "⏰",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What promotes calm habits?",
       options: [
-        { id: "late", text: "Late Nights", emoji: "🌙", description: "Disrupts circadian rhythm", isCorrect: false },
-        { id: "irregular", text: "Irregular Sleep", emoji: "😴", description: "Increases stress", isCorrect: false },
-        { id: "skip", text: "Skip Sleep", emoji: "🚫", description: "Impairs recovery", isCorrect: false },
-        { id: "sleep", text: "Routine Sleep", emoji: "🛌", description: "Regulates stress hormones", isCorrect: true }
+        { id: "late", text: "Late Nights", emoji: "🌙",  isCorrect: false },
+        { id: "irregular", text: "Irregular Sleep", emoji: "😴",  isCorrect: false },
+        { id: "skip", text: "Skip Sleep", emoji: "🚫",  isCorrect: false },
+        { id: "sleep", text: "Routine Sleep", emoji: "🛌",  isCorrect: true }
       ]
     }
   ];

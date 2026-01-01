@@ -52,20 +52,20 @@ const PuzzleClimatePolicies = () => {
 
   // Climate Challenges (left side) - 5 items
   const challenges = [
-    { id: 1, name: "Carbon Emissions", emoji: "🌍", description: "Greenhouse gas release" },
-    { id: 2, name: "Deforestation", emoji: "🪓", description: "Forest clearing" },
-    { id: 3, name: "Ocean Acidification", emoji: "🌊", description: "CO2 absorption" },
-    { id: 4, name: "Air Pollution", emoji: "💨", description: "Toxic emissions" },
-    { id: 5, name: "Water Scarcity", emoji: "💧", description: "Shortage crisis" }
+    { id: 1, name: "Carbon Emissions", emoji: "🌍",  },
+    { id: 2, name: "Deforestation", emoji: "🪓",  },
+    { id: 3, name: "Ocean Acidification", emoji: "🌊",  },
+    { id: 4, name: "Air Pollution", emoji: "💨",  },
+    { id: 5, name: "Water Scarcity", emoji: "💧",  }
   ];
 
   // Climate Policies (right side) - 5 items
   const policies = [
-    { id: 4, name: "Clean Air Act", emoji: "💨", description: "Pollution control" },
-    { id: 5, name: "Water Conservation", emoji: "💧", description: "Resource protection" },
-    { id: 1, name: "Carbon Tax", emoji: "💰", description: "Emission pricing" },
-    { id: 2, name: "Forest Protection", emoji: "🌲", description: "Preservation laws" },
-    { id: 3, name: "Ocean Protection", emoji: "🌊", description: "Marine conservation" }
+    { id: 4, name: "Clean Air Act", emoji: "💨",  },
+    { id: 5, name: "Water Conservation", emoji: "💧",  },
+    { id: 1, name: "Carbon Tax", emoji: "💰",  },
+    { id: 2, name: "Forest Protection", emoji: "🌲",  },
+    { id: 3, name: "Ocean Protection", emoji: "🌊",  }
   ];
 
   // Correct matches

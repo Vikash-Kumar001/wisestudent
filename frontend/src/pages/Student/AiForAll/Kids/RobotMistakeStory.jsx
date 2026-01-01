@@ -26,12 +26,12 @@ const RobotMistakeStory = () => {
   const questions = [
     {
       id: 1,
-      text: "🤖 Robot says: 'This is an apple!' (But it shows a banana). What should you do?",
+      text: " Robot says: 'This is an apple!' (But it shows a banana). What should you do?",
       options: [
         { 
           id: "correct", 
           text: "Correct the robot", 
-          emoji: "✅", 
+          emoji: "😀", 
           isCorrect: true
         },
         { 
@@ -50,7 +50,7 @@ const RobotMistakeStory = () => {
     },
     {
       id: 2,
-      text: "🤖 Robot says: 'Dog says meow!'. What should you do?",
+      text: " Robot says: 'Dog says meow!'. What should you do?",
       options: [
         { 
           id: "nothing", 
@@ -74,7 +74,7 @@ const RobotMistakeStory = () => {
     },
     {
       id: 3,
-      text: "🤖 Robot says: '2 + 2 = 5'. What should you do?",
+      text: " Robot says: '2 + 2 = 5'. What should you do?",
       options: [
         { 
           id: "wrong", 
@@ -98,7 +98,7 @@ const RobotMistakeStory = () => {
     },
     {
       id: 4,
-      text: "🤖 Robot calls the Sun 'the Moon'. What should you do?",
+      text: " Robot calls the Sun 'the Moon'. What should you do?",
       options: [
         { 
           id: "fix", 
@@ -122,7 +122,7 @@ const RobotMistakeStory = () => {
     },
     {
       id: 5,
-      text: "🤖 Robot says: 'All cats are the same color!'. What should you do?",
+      text: " Robot says: 'All cats are the same color!'. What should you do?",
       options: [
         { 
           id: "agree", 

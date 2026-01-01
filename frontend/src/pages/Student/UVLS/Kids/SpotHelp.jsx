@@ -35,21 +35,21 @@ const SpotHelp = () => {
           id: "help", 
           text: "Offer to help get the book", 
           emoji: "🤝", 
-          description: "Help Bella reach her book",
+          // description: "Help Bella reach her book",
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Keep playing", 
           emoji: "🙈", 
-          description: "Ignore the situation",
+          // description: "Ignore the situation",
           isCorrect: false 
         },
         { 
           id: "watch", 
           text: "Just watch", 
           emoji: "👀", 
-          description: "Observe without helping",
+          // description: "Observe without helping",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const SpotHelp = () => {
           id: "ignore", 
           text: "Continue playing", 
           emoji: "⚽", 
-          description: "Keep playing your game",
+          // description: "Keep playing your game",
           isCorrect: false 
         },
         { 
           id: "help", 
           text: "Help find the ball", 
           emoji: "🔍", 
-          description: "Assist in finding the lost ball",
+          // description: "Assist in finding the lost ball",
           isCorrect: true 
         },
         { 
           id: "laugh", 
           text: "Laugh about it", 
           emoji: "😂", 
-          description: "Make fun of the situation",
+          // description: "Make fun of the situation",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const SpotHelp = () => {
           id: "help", 
           text: "Get napkins to clean up", 
           emoji: "🧻", 
-          description: "Help clean the spill",
+          // description: "Help clean the spill",
           isCorrect: true 
         },
         { 
           id: "eat", 
           text: "Eat my lunch", 
           emoji: "🍽️", 
-          description: "Focus on your own meal",
+          // description: "Focus on your own meal",
           isCorrect: false 
         },
         { 
           id: "point", 
           text: "Point and laugh", 
           emoji: "😏", 
-          description: "Make fun of the accident",
+          // description: "Make fun of the accident",
           isCorrect: false 
         }
       ]
@@ -116,21 +116,21 @@ const SpotHelp = () => {
           id: "read", 
           text: "Continue reading", 
           emoji: "📚", 
-          description: "Keep reading your book",
+          // description: "Keep reading your book",
           isCorrect: false 
         },
         { 
           id: "avoid", 
           text: "Avoid them", 
           emoji: "🚶", 
-          description: "Walk away",
+          // description: "Walk away",
           isCorrect: false 
         },
         { 
           id: "help", 
           text: "Help find the book", 
           emoji: "🔍", 
-          description: "Assist in finding the book",
+          // description: "Assist in finding the book",
           isCorrect: true 
         }
       ]
@@ -143,21 +143,21 @@ const SpotHelp = () => {
           id: "help", 
           text: "Offer to get the supplies", 
           emoji: "🎨", 
-          description: "Help get the art supplies",
+          // description: "Help get the art supplies",
           isCorrect: true 
         },
         { 
           id: "work", 
           text: "Keep working on my art", 
           emoji: "🖌️", 
-          description: "Focus on your own project",
+          // description: "Focus on your own project",
           isCorrect: false 
         },
         { 
           id: "ignore", 
           text: "Pretend not to see", 
           emoji: "🙈", 
-          description: "Ignore their need",
+          // description: "Ignore their need",
           isCorrect: false 
         }
       ]

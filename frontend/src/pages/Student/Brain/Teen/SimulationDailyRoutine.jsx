@@ -61,28 +61,26 @@ const SimulationDailyRoutine = () => {
           id: "sleep", 
           text: "Sleep 8 hours only", 
           emoji: "😴", 
-          description: "Focus on rest but skip physical activity",
+          
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Sleep 8 hours and play sport", 
           emoji: "⚖️", 
-          description: "Get adequate rest and engage in physical activity",
+          
           isCorrect: true
         },
         { 
           id: "sport", 
           text: "Play sport only", 
           emoji: "🏃", 
-          description: "Stay active but sacrifice sleep",
           isCorrect: false
         },
         { 
           id: "junk", 
           text: "Eat junk food all day", 
           emoji: "🍔", 
-          description: "Poor nutrition choices",
           isCorrect: false
         }
       ]
@@ -95,28 +93,24 @@ const SimulationDailyRoutine = () => {
           id: "study", 
           text: "Study all night", 
           emoji: "📚", 
-          description: "Cram as much as possible",
           isCorrect: false
         },
         { 
           id: "panic", 
           text: "Panic and stress", 
           emoji: "😰", 
-          description: "Feel anxious about the exam",
           isCorrect: false
         },
         { 
           id: "sleep", 
           text: "Sleep well and review briefly", 
           emoji: "😴", 
-          description: "Get rest and light review",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore the exam completely", 
           emoji: "🙈", 
-          description: "Do nothing to prepare",
           isCorrect: false
         }
       ]
@@ -129,28 +123,24 @@ const SimulationDailyRoutine = () => {
           id: "walk", 
           text: "Take a short walk outdoors", 
           emoji: "🚶", 
-          description: "Get fresh air and movement",
           isCorrect: true
         },
         { 
           id: "social", 
           text: "Scroll social media", 
           emoji: "📱", 
-          description: "Check notifications and messages",
           isCorrect: false
         },
         { 
           id: "snack", 
           text: "Eat sugary snacks", 
           emoji: "🍬", 
-          description: "Quick energy boost",
           isCorrect: false
         },
         { 
           id: "nap", 
           text: "Take a long nap", 
           emoji: "😴", 
-          description: "Extended rest period",
           isCorrect: false
         }
       ]
@@ -163,28 +153,25 @@ const SimulationDailyRoutine = () => {
           id: "pomodoro", 
           text: "Use Pomodoro technique (25 min study, 5 min break)", 
           emoji: "⏱️", 
-          description: "Structured work-break intervals",
+          
           isCorrect: true
         },
         { 
           id: "marathon", 
           text: "Study for 4 hours straight", 
           emoji: "📖", 
-          description: "Long continuous sessions",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Study randomly throughout the day", 
           emoji: "🎲", 
-          description: "Irregular timing",
           isCorrect: false
         },
         { 
           id: "night", 
           text: "Only study late at night", 
           emoji: "🌙", 
-          description: "Single time period focus",
           isCorrect: false
         }
       ]
@@ -197,28 +184,24 @@ const SimulationDailyRoutine = () => {
           id: "rush", 
           text: "Rush out without eating", 
           emoji: "🏃", 
-          description: "Quick start to the day",
           isCorrect: false
         },
         { 
           id: "healthy", 
           text: "Healthy breakfast and light stretching", 
           emoji: "🥗", 
-          description: "Nourish body and activate muscles",
           isCorrect: true
         },
         { 
           id: "heavy", 
           text: "Heavy meal and stay in bed", 
           emoji: "🍔", 
-          description: "Large breakfast and minimal movement",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip breakfast entirely", 
           emoji: "🚫", 
-          description: "No morning meal",
           isCorrect: false
         }
       ]

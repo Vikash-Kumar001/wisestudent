@@ -30,50 +30,50 @@ const ReflexOptimism = () => {
       id: 1,
       text: "Tap for 'Gratitude,' avoid 'Jealousy.'",
       options: [
-        { id: "gratitude", text: "Gratitude", emoji: "🙏", description: "Appreciating what you have", isCorrect: true },
-        { id: "jealousy", text: "Jealousy", emoji: "😤", description: "Wanting what others have", isCorrect: false },
-        { id: "envy", text: "Envy", emoji: "😒", description: "Resenting others' success", isCorrect: false },
-        { id: "resentment", text: "Resentment", emoji: "😠", description: "Holding grudges", isCorrect: false }
+        { id: "gratitude", text: "Gratitude", emoji: "🙏",  isCorrect: true },
+        { id: "jealousy", text: "Jealousy", emoji: "😤",  isCorrect: false },
+        { id: "envy", text: "Envy", emoji: "😒",  isCorrect: false },
+        { id: "resentment", text: "Resentment", emoji: "😠",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which mindset promotes optimism?",
       options: [
-        { id: "fixed", text: "Fixed Mindset", emoji: "🔒", description: "Believing abilities are fixed", isCorrect: false },
-        { id: "growth", text: "Growth Mindset", emoji: "🌱", description: "Believing in improvement", isCorrect: true },
-        { id: "defeatist", text: "Defeatist", emoji: "😔", description: "Giving up easily", isCorrect: false },
-        { id: "pessimistic", text: "Pessimistic", emoji: "☁️", description: "Expecting worst outcomes", isCorrect: false }
+        { id: "fixed", text: "Fixed Mindset", emoji: "🔒",  isCorrect: false },
+        { id: "growth", text: "Growth Mindset", emoji: "🌱",  isCorrect: true },
+        { id: "defeatist", text: "Defeatist", emoji: "😔",  isCorrect: false },
+        { id: "pessimistic", text: "Pessimistic", emoji: "☁️",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps maintain optimism during tough times?",
       options: [
-        { id: "despair", text: "Despair", emoji: "😰", description: "Losing all hope", isCorrect: false },
-        { id: "denial", text: "Denial", emoji: "🙈", description: "Ignoring problems", isCorrect: false },
-        { id: "cynicism", text: "Cynicism", emoji: "😏", description: "Distrusting everything", isCorrect: false },
-        { id: "hope", text: "Hope & Persistence", emoji: "🌟", description: "Believing things will improve", isCorrect: true }
+        { id: "despair", text: "Despair", emoji: "😰",  isCorrect: false },
+        { id: "denial", text: "Denial", emoji: "🙈",  isCorrect: false },
+        { id: "cynicism", text: "Cynicism", emoji: "😏",  isCorrect: false },
+        { id: "hope", text: "Hope & Persistence", emoji: "🌟",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which action builds optimism?",
       options: [
-        { id: "celebrate", text: "Celebrate Small Wins", emoji: "🎉", description: "Acknowledging progress", isCorrect: true },
-        { id: "dismiss", text: "Dismiss Achievements", emoji: "🤷", description: "Ignoring successes", isCorrect: false },
-        { id: "compare", text: "Compare Negatively", emoji: "📉", description: "Focusing on shortcomings", isCorrect: false },
-        { id: "minimize", text: "Minimize Success", emoji: "😐", description: "Downplaying achievements", isCorrect: false }
+        { id: "celebrate", text: "Celebrate Small Wins", emoji: "🎉",  isCorrect: true },
+        { id: "dismiss", text: "Dismiss Achievements", emoji: "🤷",  isCorrect: false },
+        { id: "compare", text: "Compare Negatively", emoji: "📉",  isCorrect: false },
+        { id: "minimize", text: "Minimize Success", emoji: "😐",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What's the optimistic view of setbacks?",
       options: [
-        { id: "failure", text: "Complete Failure", emoji: "❌", description: "End of the road", isCorrect: false },
-        { id: "proof", text: "Proof of Inability", emoji: "🚫", description: "Confirms weakness", isCorrect: false },
-        { id: "waste", text: "Waste of Time", emoji: "⏰", description: "No value gained", isCorrect: false },
-        { id: "learning", text: "Learning Opportunity", emoji: "📚", description: "Chance to grow", isCorrect: true }
+        { id: "failure", text: "Complete Failure", emoji: "❌",  isCorrect: false },
+        { id: "proof", text: "Proof of Inability", emoji: "🚫",  isCorrect: false },
+        { id: "waste", text: "Waste of Time", emoji: "⏰",  isCorrect: false },
+        { id: "learning", text: "Learning Opportunity", emoji: "📚",  isCorrect: true }
       ]
     }
   ];

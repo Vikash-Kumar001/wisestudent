@@ -35,28 +35,25 @@ const ReflexMemoryBoost = () => {
           id: "revision", 
           text: "Revision", 
           emoji: "🔄", 
-          description: "Regular review strengthens memory",
+          
           isCorrect: true
         },
         { 
           id: "forget", 
           text: "Forget", 
           emoji: "🗑️", 
-          description: "Not actively trying to remember",
           isCorrect: false
         },
         { 
           id: "sleep", 
           text: "Sleep Well", 
           emoji: "😴", 
-          description: "Sleep consolidates memories",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip Meals", 
           emoji: "🍽️", 
-          description: "Can cause brain fog",
           isCorrect: false
         }
       ]
@@ -69,28 +66,24 @@ const ReflexMemoryBoost = () => {
           id: "cram", 
           text: "Cramming", 
           emoji: "📖", 
-          description: "Poor for long-term retention",
           isCorrect: false
         },
         { 
           id: "exercise", 
           text: "Exercise", 
           emoji: "🏃", 
-          description: "Increases blood flow to brain",
           isCorrect: true
         },
         { 
           id: "mnemonics", 
           text: "Mnemonics", 
           emoji: "🧠", 
-          description: "Memory techniques aid recall",
           isCorrect: false
         },
         { 
           id: "distraction", 
           text: "Distractions", 
           emoji: "📱", 
-          description: "Interfere with memory formation",
           isCorrect: false
         }
       ]
@@ -103,28 +96,24 @@ const ReflexMemoryBoost = () => {
           id: "dehydration", 
           text: "Dehydration", 
           emoji: "🏜️", 
-          description: "Impairs cognitive function",
           isCorrect: false
         },
         { 
           id: "hydration", 
           text: "Hydration", 
           emoji: "💧", 
-          description: "Maintains optimal brain function",
           isCorrect: true
         },
         { 
           id: "nutrition", 
           text: "Healthy Nutrition", 
           emoji: "🥗", 
-          description: "Provides essential brain nutrients",
           isCorrect: false
         },
         { 
           id: "junk", 
           text: "Junk Food", 
           emoji: "🍔", 
-          description: "Can impair memory",
           isCorrect: false
         }
       ]
@@ -137,28 +126,24 @@ const ReflexMemoryBoost = () => {
           id: "cram", 
           text: "Last-Minute Cramming", 
           emoji: "📚", 
-          description: "Poor for long-term memory",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignoring Information", 
           emoji: "🙈", 
-          description: "Doesn't help memory",
           isCorrect: false
         },
         { 
           id: "spaced", 
           text: "Spaced Repetition", 
           emoji: "⏰", 
-          description: "Reinforces memory over time",
           isCorrect: true
         },
         { 
           id: "visualization", 
           text: "Visualization", 
           emoji: "🖼️", 
-          description: "Creates strong memory associations",
           isCorrect: false
         }
       ]
@@ -171,28 +156,24 @@ const ReflexMemoryBoost = () => {
           id: "passive", 
           text: "Passive Reading", 
           emoji: "📄", 
-          description: "Less effective for retention",
           isCorrect: false
         },
         { 
           id: "forgetting", 
           text: "Forgetting", 
           emoji: "❌", 
-          description: "Opposite of memory retention",
           isCorrect: false
         },
         { 
           id: "active", 
           text: "Active Recall", 
           emoji: "🧠", 
-          description: "Testing yourself strengthens memory",
           isCorrect: true
         },
         { 
           id: "association", 
           text: "Association", 
           emoji: "🔗", 
-          description: "Links new info to existing knowledge",
           isCorrect: false
         }
       ]

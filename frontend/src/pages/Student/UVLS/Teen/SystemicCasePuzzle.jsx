@@ -20,20 +20,20 @@ const SystemicCasePuzzle = () => {
 
   // Anti-bullying program components (left side) - 5 items with hints
   const components = [
-    { id: 1, name: "Policy Framework", emoji: "📜", hint: "Rules and guidelines for behavior" },
-    { id: 2, name: "Training Program", emoji: "📢", hint: "Educational workshops and sessions" },
-    { id: 3, name: "Support Systems", emoji: "🛋️", hint: "Help resources for affected individuals" },
-    { id: 4, name: "Evaluation Methods", emoji: "📊", hint: "Monitoring and assessment tools" },
-    { id: 5, name: "Sustainability Plan", emoji: "♻️", hint: "Long-term continuation strategy" }
+    { id: 1, name: "Policy Framework", emoji: "📜",  },
+    { id: 2, name: "Training Program", emoji: "📢",  },
+    { id: 3, name: "Support Systems", emoji: "🛋️",  },
+    { id: 4, name: "Evaluation Methods", emoji: "📊",  },
+    { id: 5, name: "Sustainability Plan", emoji: "♻️",  }
   ];
 
   // Implementation strategies (right side) - 5 items with descriptions
   const strategies = [
-    { id: 6, name: "Enforcement Guidelines", emoji: "✅", description: "Clear consequences and procedures" },
-    { id: 7, name: "Interactive Sessions", emoji: "👥", description: "Engaging hands-on learning experiences" },
-    { id: 8, name: "Multi-channel Support", emoji: "🆘", description: "Various avenues for seeking help" },
-    { id: 9, name: "Continuous Feedback", emoji: "🔄", description: "Ongoing data collection and improvement" },
-    { id: 10, name: "Community Involvement", emoji: "🤝", description: "Stakeholder participation and commitment" }
+    { id: 6, name: "Enforcement Guidelines", emoji: "✅",  },
+    { id: 7, name: "Interactive Sessions", emoji: "👥",  },
+    { id: 8, name: "Multi-channel Support", emoji: "🆘",  },
+    { id: 9, name: "Continuous Feedback", emoji: "🔄",  },
+    { id: 10, name: "Community Involvement", emoji: "🤝",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

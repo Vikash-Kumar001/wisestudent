@@ -30,50 +30,50 @@ const ReflexStressCheck = () => {
       id: 1,
       text: "Tap for 'Meditate,' avoid 'Overthink.'",
       options: [
-        { id: "meditate", text: "Meditate", emoji: "🧘", description: "Clears mind and reduces stress", isCorrect: true },
-        { id: "overthink", text: "Overthink", emoji: "🤯", description: "Increases anxiety and stress", isCorrect: false },
-        { id: "worry", text: "Worry More", emoji: "😟", description: "Amplifies stress levels", isCorrect: false },
-        { id: "panic", text: "Panic", emoji: "😱", description: "Triggers fight-or-flight response", isCorrect: false }
+        { id: "meditate", text: "Meditate", emoji: "🧘",  isCorrect: true },
+        { id: "overthink", text: "Overthink", emoji: "🤯",  isCorrect: false },
+        { id: "worry", text: "Worry More", emoji: "😟",  isCorrect: false },
+        { id: "panic", text: "Panic", emoji: "😱",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which action helps reduce stress quickly?",
       options: [
-        { id: "ignore", text: "Ignore Feelings", emoji: "🙈", description: "Bottles up stress", isCorrect: false },
-        { id: "breathe", text: "Deep Breathing", emoji: "🌬️", description: "Activates relaxation response", isCorrect: true },
-        { id: "complain", text: "Complain", emoji: "😠", description: "Increases negative emotions", isCorrect: false },
-        { id: "isolate", text: "Isolate Yourself", emoji: "🚶", description: "Reduces support", isCorrect: false }
+        { id: "ignore", text: "Ignore Feelings", emoji: "🙈",  isCorrect: false },
+        { id: "breathe", text: "Deep Breathing", emoji: "🌬️",  isCorrect: true },
+        { id: "complain", text: "Complain", emoji: "😠",  isCorrect: false },
+        { id: "isolate", text: "Isolate Yourself", emoji: "🚶",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps manage stress effectively?",
       options: [
-        { id: "clench", text: "Clench Fists", emoji: "✊", description: "Increases tension", isCorrect: false },
-        { id: "tense", text: "Tense Up", emoji: "💪", description: "Creates more stress", isCorrect: false },
-        { id: "stretch", text: "Stretch", emoji: "🤸", description: "Releases muscle tension", isCorrect: true },
-        { id: "freeze", text: "Freeze", emoji: "❄️", description: "Paralyzes response", isCorrect: false }
+        { id: "clench", text: "Clench Fists", emoji: "✊",  isCorrect: false },
+        { id: "tense", text: "Tense Up", emoji: "💪",  isCorrect: false },
+        { id: "stretch", text: "Stretch", emoji: "🤸",  isCorrect: true },
+        { id: "freeze", text: "Freeze", emoji: "❄️",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "Which activity reduces stress?",
       options: [
-        { id: "frown", text: "Frown", emoji: "😠", description: "Increases negative feelings", isCorrect: false },
-        { id: "cry", text: "Cry Alone", emoji: "😢", description: "Can increase isolation", isCorrect: false },
-        { id: "sulk", text: "Sulk", emoji: "😔", description: "Maintains negative state", isCorrect: false },
-        { id: "laugh", text: "Laugh", emoji: "😂", description: "Boosts mood and lowers stress", isCorrect: true }
+        { id: "frown", text: "Frown", emoji: "😠",  isCorrect: false },
+        { id: "cry", text: "Cry Alone", emoji: "😢",  isCorrect: false },
+        { id: "sulk", text: "Sulk", emoji: "😔",  isCorrect: false },
+        { id: "laugh", text: "Laugh", emoji: "😂",  isCorrect: true }
       ]
     },
     {
       id: 5,
       text: "What supports stress relief?",
       options: [
-        { id: "hydrate", text: "Hydrate", emoji: "💧", description: "Maintains bodily functions", isCorrect: true },
-        { id: "dehydrate", text: "Dehydrate", emoji: "🏜️", description: "Impairs cognitive function", isCorrect: false },
-        { id: "skip", text: "Skip Water", emoji: "🚫", description: "Causes physical stress", isCorrect: false },
-        { id: "ignore", text: "Ignore Thirst", emoji: "🙈", description: "Worsens stress response", isCorrect: false }
+        { id: "hydrate", text: "Hydrate", emoji: "💧",  isCorrect: true },
+        { id: "dehydrate", text: "Dehydrate", emoji: "🏜️",  isCorrect: false },
+        { id: "skip", text: "Skip Water", emoji: "🚫",  isCorrect: false },
+        { id: "ignore", text: "Ignore Thirst", emoji: "🙈",  isCorrect: false }
       ]
     }
   ];

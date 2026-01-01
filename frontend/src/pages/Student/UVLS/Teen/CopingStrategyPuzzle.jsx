@@ -20,20 +20,20 @@ const CopingStrategyPuzzle = () => {
 
   // Stressful situations (left side) - 5 items with hints
   const stressors = [
-    { id: 1, name: "Exam Anxiety", emoji: "📝", hint: "Feeling nervous about academic performance" },
-    { id: 2, name: "Friend Conflict", emoji: "👥", hint: "Having disagreements with peers" },
-    { id: 3, name: "Schedule Overload", emoji: "📅", hint: "Juggling too many responsibilities" },
-    { id: 4, name: "Low Self-Esteem", emoji: "😔", hint: "Feeling bad about yourself" },
-    { id: 5, name: "Building Anger", emoji: "😠", hint: "Feeling increasingly frustrated" }
+    { id: 1, name: "Exam Anxiety", emoji: "📝",  },
+    { id: 2, name: "Friend Conflict", emoji: "👥",  },
+    { id: 3, name: "Schedule Overload", emoji: "📅",  },
+    { id: 4, name: "Low Self-Esteem", emoji: "😔",  },
+    { id: 5, name: "Building Anger", emoji: "😠",  }
   ];
 
   // Coping strategies (right side) - 5 items with descriptions
   const strategies = [
-    { id: 6, name: "Breathing Exercises", emoji: "💨", description: "Deep breathing to calm nerves" },
-    { id: 7, name: "Open Communication", emoji: "💬", description: "Talking through issues constructively" },
-    { id: 8, name: "Task Prioritization", emoji: "📋", description: "Organizing and ranking responsibilities" },
-    { id: 9, name: "Positive Affirmations", emoji: "✨", description: "Building self-confidence with positive self-talk" },
-    { id: 10, name: "Count to Ten", emoji: "🔟", description: "Pausing to control emotional reactions" }
+    { id: 6, name: "Breathing Exercises", emoji: "💨",  },
+    { id: 7, name: "Open Communication", emoji: "💬",  },
+    { id: 8, name: "Task Prioritization", emoji: "📋",  },
+    { id: 9, name: "Positive Affirmations", emoji: "✨",  },
+    { id: 10, name: "Count to Ten", emoji: "🔟",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

@@ -61,21 +61,20 @@ const AIInGamesStory = () => {
           id: "ai", 
           text: "AI System", 
           emoji: "🤖", 
-          description: "AI algorithms analyze player behavior and adapt enemy responses to create challenging gameplay",
+          
           isCorrect: true
         },
         { 
           id: "script", 
           text: "Random Script", 
           emoji: "📝", 
-          description: "Random scripts lack the intelligence to adapt to player strategies and create engaging experiences",
+          
           isCorrect: false
         },
         { 
           id: "player", 
           text: "Player Control", 
           emoji: "🎮", 
-          description: "Players control their own characters, not the behavior of enemy characters in the game",
           isCorrect: false
         }
       ]
@@ -88,21 +87,18 @@ const AIInGamesStory = () => {
           id: "engine", 
           text: "AI Engine", 
           emoji: "🤖", 
-          description: "AI engines simulate realistic environmental changes that respond to game events and time progression",
           isCorrect: true
         },
         { 
           id: "commands", 
           text: "Player Commands", 
           emoji: "👤", 
-          description: "Player commands typically control character actions, not automated environmental systems",
           isCorrect: false
         },
         { 
           id: "timer", 
           text: "Simple Timer", 
           emoji: "⏰", 
-          description: "Simple timers can change visuals but lack the sophistication to create meaningful gameplay impact",
           isCorrect: false
         }
       ]
@@ -116,21 +112,18 @@ const AIInGamesStory = () => {
           id: "movement", 
           text: "Random Movement", 
           emoji: "✋", 
-          description: "Random movement creates unrealistic and frustrating gameplay experiences for players",
           isCorrect: false
         },
         { 
           id: "decision", 
           text: "AI Decision Making", 
           emoji: "🤖", 
-          description: "AI decision trees and behavior trees create complex, believable NPC reactions to player interactions",
           isCorrect: true
         },
         { 
           id: "preset", 
           text: "Preset Paths", 
           emoji: "🛤️", 
-          description: "Preset paths are predictable and don't create the dynamic, responsive interactions players expect",
           isCorrect: false
         }
       ]
@@ -143,21 +136,18 @@ const AIInGamesStory = () => {
           id: "algorithm", 
           text: "AI Algorithm", 
           emoji: "🤖", 
-          description: "AI algorithms continuously assess player performance and adjust difficulty to maintain engagement",
           isCorrect: true
         },
         { 
           id: "manual", 
           text: "Manual Adjustment", 
           emoji: "👮", 
-          description: "Manual adjustments can't respond in real-time to player performance during gameplay",
           isCorrect: false
         },
         { 
           id: "fixed", 
           text: "Fixed Settings", 
           emoji: "⚙️", 
-          description: "Fixed settings don't provide the personalized challenge that keeps players engaged",
           isCorrect: false
         }
       ]
@@ -171,21 +161,18 @@ const AIInGamesStory = () => {
           id: "designer", 
           text: "Designer Randomizer", 
           emoji: "✏️", 
-          description: "Manual randomization lacks the balance and playability that AI-generated content provides",
           isCorrect: false
         },
         { 
           id: "copy", 
           text: "Copied Templates", 
           emoji: "📋", 
-          description: "Copied templates become repetitive and don't provide the novelty that keeps players interested",
           isCorrect: false
         },
         { 
           id: "generator", 
           text: "AI Level Generator", 
           emoji: "🤖", 
-          description: "AI procedural generation algorithms create unique, balanced levels with varied challenges",
           isCorrect: true
         },
       ]

@@ -85,7 +85,7 @@ const FutureAiQuiz = () => {
         { 
           id: "no", 
           text: "No, AI can't work in space", 
-          emoji: "❌", 
+          emoji: "🚀", 
           isCorrect: false
         },
         { 
@@ -109,7 +109,7 @@ const FutureAiQuiz = () => {
         { 
           id: "no", 
           text: "No, AI cannot help", 
-          emoji: "❌", 
+          emoji: "🤖", 
           isCorrect: false
         },
         { 
@@ -133,7 +133,7 @@ const FutureAiQuiz = () => {
         { 
           id: "no", 
           text: "No, AI has no impact", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

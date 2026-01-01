@@ -61,21 +61,20 @@ const HumanPlusAIStory = () => {
           id: "doctor", 
           text: "Doctor", 
           emoji: "👨‍⚕️", 
-          description: "Medical professionals have the expertise and legal responsibility for patient care decisions",
+          
           isCorrect: true
         },
         { 
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI systems assist but cannot replace human judgment in medical decisions",
+          
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Both together", 
           emoji: "🤝", 
-          description: "AI provides insights, but humans make the final decision in healthcare",
           isCorrect: false
         }
       ]
@@ -88,21 +87,18 @@ const HumanPlusAIStory = () => {
           id: "doctor", 
           text: "Doctor", 
           emoji: "👨‍⚕️", 
-          description: "Surgeons are ultimately responsible for all surgical decisions and actions",
           isCorrect: true
         },
         { 
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI can suggest but cannot perform surgery or make critical decisions",
           isCorrect: false
         },
         { 
           id: "nurse", 
           text: "Nurse", 
           emoji: "👩‍⚕️", 
-          description: "Nurses play important roles but surgeons make the final decisions",
           isCorrect: false
         }
       ]
@@ -116,21 +112,18 @@ const HumanPlusAIStory = () => {
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI can flag potential issues but cannot definitively diagnose medical conditions",
           isCorrect: false
         },
         { 
           id: "machine", 
           text: "Machine", 
           emoji: "🖥️", 
-          description: "Diagnostic equipment captures images, but interpretation requires human expertise",
           isCorrect: false
         },
          { 
           id: "doctor", 
           text: "Doctor", 
           emoji: "👨‍⚕️", 
-          description: "Medical professionals interpret diagnostic results and make clinical decisions",
           isCorrect: true
         },
       ]
@@ -144,21 +137,18 @@ const HumanPlusAIStory = () => {
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI can recommend treatments but cannot legally prescribe medications",
           isCorrect: false
         },
         { 
           id: "doctor", 
           text: "Doctor", 
           emoji: "👨‍⚕️", 
-          description: "Licensed physicians have legal authority to prescribe medications",
           isCorrect: true
         },
         { 
           id: "pharmacist", 
           text: "Pharmacist", 
           emoji: "💊", 
-          description: "Pharmacists dispense medications but prescriptions must come from licensed providers",
           isCorrect: false
         }
       ]
@@ -172,21 +162,18 @@ const HumanPlusAIStory = () => {
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI can detect anomalies but cannot make clinical decisions about patient care",
           isCorrect: false
         },
         { 
           id: "doctor", 
           text: "Doctor", 
           emoji: "👨‍⚕️", 
-          description: "Medical professionals evaluate alerts and determine appropriate responses",
           isCorrect: true
         },
         { 
           id: "monitor", 
           text: "Monitor itself", 
           emoji: "🖥️", 
-          description: "Monitoring devices display data but cannot interpret clinical significance",
           isCorrect: false
         }
       ]

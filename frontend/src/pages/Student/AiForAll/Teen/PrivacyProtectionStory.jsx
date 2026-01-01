@@ -61,21 +61,20 @@ const PrivacyProtectionStory = () => {
           id: "share", 
           text: "Share my address", 
           emoji: "📍", 
-          description: "Sharing your home address with AI systems can compromise your privacy and safety",
+          
           isCorrect: false
         },
         { 
           id: "private", 
           text: "Keep it private", 
           emoji: "🔒", 
-          description: "Personal addresses should never be shared with AI systems or online services unnecessarily",
+          
           isCorrect: true
         },
         { 
           id: "partial", 
           text: "Share only city", 
           emoji: "🏙️", 
-          description: "Even partial location information can sometimes be used to identify you",
           isCorrect: false
         }
       ]
@@ -88,14 +87,12 @@ const PrivacyProtectionStory = () => {
           id: "private", 
           text: "Keep it private", 
           emoji: "🔒", 
-          description: "Legitimate services rarely need your personal phone number for basic functionality",
           isCorrect: true
         },
         { 
           id: "share", 
           text: "Share it", 
           emoji: "📞", 
-          description: "Phone numbers are sensitive personal information that should not be shared unnecessarily",
           isCorrect: false
         },
         
@@ -103,7 +100,6 @@ const PrivacyProtectionStory = () => {
           id: "fake", 
           text: "Provide fake number", 
           emoji: "🎭", 
-          description: "Providing false information may violate terms of service and isn't a privacy solution",
           isCorrect: false
         }
       ]
@@ -116,21 +112,18 @@ const PrivacyProtectionStory = () => {
           id: "yes", 
           text: "Yes, share it", 
           emoji: "📝", 
-          description: "School information can be used to identify you and potentially track your location",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No, keep private", 
           emoji: "🔒", 
-          description: "Educational institutions and personal safety are reasons to keep school information private",
           isCorrect: true
         },
         { 
           id: "general", 
           text: "Share grade level", 
           emoji: "📚", 
-          description: "Even general educational information can contribute to building a profile of you",
           isCorrect: false
         }
       ]
@@ -143,7 +136,6 @@ const PrivacyProtectionStory = () => {
           id: "share", 
           text: "Share it", 
           emoji: "📅", 
-          description: "Birth dates are personally identifiable information that can be used for identity theft",
           isCorrect: false
         },
         
@@ -151,14 +143,12 @@ const PrivacyProtectionStory = () => {
           id: "approximate", 
           text: "Share approximate age", 
           emoji: "🔢", 
-          description: "Approximate age may still be sufficient for personalization while protecting your privacy",
           isCorrect: false
         },
         { 
           id: "private", 
           text: "Keep private", 
           emoji: "🔒", 
-          description: "Age verification can often be done without sharing your exact birth date",
           isCorrect: true
         },
       ]
@@ -171,21 +161,18 @@ const PrivacyProtectionStory = () => {
           id: "allow", 
           text: "Allow access", 
           emoji: "🖼️", 
-          description: "Personal photos contain sensitive information that can be misused if accessed by AI",
           isCorrect: false
         },
         { 
           id: "deny", 
           text: "Keep private", 
           emoji: "🔒", 
-          description: "Photos should only be shared with trusted individuals, not AI systems",
           isCorrect: true
         },
         { 
           id: "limited", 
           text: "Share only old photos", 
           emoji: "👴", 
-          description: "Any personal photos can reveal information about you regardless of when they were taken",
           isCorrect: false
         }
       ]

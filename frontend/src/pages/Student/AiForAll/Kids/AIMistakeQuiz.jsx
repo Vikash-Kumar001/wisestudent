@@ -31,13 +31,13 @@ const AIMistakeQuiz = () => {
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 

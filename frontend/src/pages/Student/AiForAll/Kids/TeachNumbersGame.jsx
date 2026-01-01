@@ -81,7 +81,7 @@ const TeachNumbersGame = () => {
         { 
           id: "learn", 
           text: "So AI learns the right associations ", 
-          emoji: "✅", 
+          emoji: "😏", 
           isCorrect: true
         },
         { 

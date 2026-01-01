@@ -27,19 +27,19 @@ const PuzzleTechnologyImpact = () => {
   const [gameFinished, setGameFinished] = useState(false);
 
   const technologies = [
-    { id: 1, name: "Solar Panels", emoji: "☀️", description: "Converts sunlight to electricity" },
-    { id: 2, name: "Wind Turbines", emoji: "💨", description: "Generates power from wind" },
-    { id: 3, name: "Electric Vehicles", emoji: "🚗", description: "Reduces emissions from transport" },
-    { id: 4, name: "Smart Grids", emoji: "⚡", description: "Optimizes energy distribution" },
-    { id: 5, name: "LED Lighting", emoji: "💡", description: "Uses less energy than traditional bulbs" }
+    { id: 1, name: "Solar Panels", emoji: "☀️",  },
+    { id: 2, name: "Wind Turbines", emoji: "💨",  },
+    { id: 3, name: "Electric Vehicles", emoji: "🚗",  },
+    { id: 4, name: "Smart Grids", emoji: "⚡",  },
+    { id: 5, name: "LED Lighting", emoji: "💡",  }
   ];
 
   const impacts = [
-    { id: 2, name: "Conserves Energy", emoji: "🔋", description: "Uses less power than alternatives" },
-    { id: 3, name: "Improves Air Quality", emoji: "💨", description: "Reduces pollution" },
-    { id: 1, name: "Reduces Carbon Emissions", emoji: "🌍", description: "Lowers greenhouse gases" },
-    { id: 5, name: "Promotes Sustainability", emoji: "🌱", description: "Supports long-term environmental health" },
-    { id: 4, name: "Saves Resources", emoji: "🌿", description: "Uses materials efficiently" },
+    { id: 2, name: "Conserves Energy", emoji: "🔋",  },
+    { id: 3, name: "Improves Air Quality", emoji: "💨",  },
+    { id: 1, name: "Reduces Carbon Emissions", emoji: "🌍",  },
+    { id: 5, name: "Promotes Sustainability", emoji: "🌱",  },
+    { id: 4, name: "Saves Resources", emoji: "🌿",  },
   ];
 
   const correctMatches = {

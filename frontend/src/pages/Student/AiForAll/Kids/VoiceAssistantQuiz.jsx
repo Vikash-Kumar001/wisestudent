@@ -31,13 +31,13 @@ const VoiceAssistantQuiz = () => {
         { 
           id: "yes", 
           text: "Yes, they are AI ", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, they are not AI ", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

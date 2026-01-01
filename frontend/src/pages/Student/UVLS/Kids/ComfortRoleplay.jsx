@@ -37,21 +37,21 @@ const ComfortRoleplay = () => {
           id: "dismiss", 
           text: "It's just a toy, get over it.", 
           emoji: "😤", 
-          description: "Dismissive and unkind",
+          // description: "Dismissive and unkind",
           isCorrect: false 
         },
         { 
           id: "help", 
           text: "I'm sorry you're sad. Can I help you look for it?", 
           emoji: "🔍", 
-          description: "Show empathy and offer help",
+          // description: "Show empathy and offer help",
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Stop crying, it's not a big deal.", 
           emoji: "🚫", 
-          description: "Invalidates their feelings",
+          // description: "Invalidates their feelings",
           isCorrect: false 
         }
       ]
@@ -65,21 +65,21 @@ const ComfortRoleplay = () => {
           id: "support", 
           text: "You can do better next time. I believe in you!", 
           emoji: "💪", 
-          description: "Encouraging and supportive",
+          // description: "Encouraging and supportive",
           isCorrect: true 
         },
         { 
           id: "insult", 
           text: "You're not smart enough, that's why.", 
           emoji: "😔", 
-          description: "Hurts their self-esteem",
+          // description: "Hurts their self-esteem",
           isCorrect: false 
         },
         { 
           id: "blame", 
           text: "I told you so, you should have studied more.", 
           emoji: "👆", 
-          description: "Blaming and unhelpful",
+          // description: "Blaming and unhelpful",
           isCorrect: false 
         }
       ]
@@ -94,21 +94,21 @@ const ComfortRoleplay = () => {
           id: "judge", 
           text: "Why are you sitting alone? That's weird.", 
           emoji: "🤨", 
-          description: "Judgmental and unkind",
+          // description: "Judgmental and unkind",
           isCorrect: false 
         },
         { 
           id: "ignore", 
           text: "You look sad. What's wrong with you?", 
           emoji: "😕", 
-          description: "Insensitive question",
+          // description: "Insensitive question",
           isCorrect: false 
         },
         { 
           id: "invite", 
           text: "Hi! Want to sit with me and my friends?", 
           emoji: "👋", 
-          description: "Welcoming and inclusive",
+          // description: "Welcoming and inclusive",
           isCorrect: true 
         },
       ]
@@ -123,21 +123,21 @@ const ComfortRoleplay = () => {
           id: "dismiss", 
           text: "Stop being scared, it's just school.", 
           emoji: "😒", 
-          description: "Dismisses their fear",
+          // description: "Dismisses their fear",
           isCorrect: false 
         },
         { 
           id: "support", 
           text: "I'll walk with you to school. You'll be okay!", 
           emoji: "🚶", 
-          description: "Offers practical support",
+          // description: "Offers practical support",
           isCorrect: true 
         },
         { 
           id: "scare", 
           text: "Everyone will laugh at you.", 
           emoji: "😱", 
-          description: "Makes them more scared",
+          // description: "Makes them more scared",
           isCorrect: false 
         }
       ]
@@ -151,21 +151,21 @@ const ComfortRoleplay = () => {
           id: "study", 
           text: "Want to study together? We can practice!", 
           emoji: "📚", 
-          description: "Offers help and support",
+          // description: "Offers help and support",
           isCorrect: true 
         },
         { 
           id: "discourage", 
           text: "You'll probably fail anyway.", 
           emoji: "😞", 
-          description: "Discouraging and negative",
+          // description: "Discouraging and negative",
           isCorrect: false 
         },
         { 
           id: "dismiss", 
           text: "Tests are easy, why are you worried?", 
           emoji: "🤷", 
-          description: "Minimizes their concern",
+          // description: "Minimizes their concern",
           isCorrect: false 
         }
       ]

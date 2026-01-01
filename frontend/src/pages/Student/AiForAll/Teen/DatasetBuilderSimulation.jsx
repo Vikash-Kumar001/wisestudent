@@ -26,30 +26,30 @@ const DatasetBuilderSimulation = () => {
       options: [
         { 
           id: "images", 
-          text: "📸 Images", 
+          text: "📸Images", 
           emoji: "🖼️", 
-          description: "Visual data for recognition",
+          
           isCorrect: true
         },
         { 
           id: "sounds", 
-          text: "🔊 Sounds", 
+          text: " Sounds", 
           emoji: "🎵", 
-          description: "Audio data collection",
+          
           isCorrect: false
         },
         { 
           id: "words", 
-          text: "📝 Words", 
+          text: " Words", 
           emoji: "🔤", 
-          description: "Text-based information",
+          
           isCorrect: false
         },
         { 
           id: "videos", 
-          text: "🎥 Videos", 
+          text: " Videos", 
           emoji: "🎬", 
-          description: "Moving image data",
+          
           isCorrect: false
         }
       ]
@@ -61,30 +61,26 @@ const DatasetBuilderSimulation = () => {
         
         { 
           id: "images", 
-          text: "📸 Images", 
+          text: "Images", 
           emoji: "🖼️", 
-          description: "Visual representations",
           isCorrect: false
         },
         { 
           id: "texts", 
-          text: "💬 Texts", 
+          text: " Texts", 
           emoji: "📄", 
-          description: "Written descriptions",
           isCorrect: false
         },
         { 
           id: "sounds", 
-          text: "🔊 Sounds", 
+          text: " Sounds", 
           emoji: "🎵", 
-          description: "Audio recordings of animals",
           isCorrect: true
         },
         { 
           id: "smells", 
-          text: "👃 Smells", 
+          text: " Smells", 
           emoji: "🌸", 
-          description: "Olfactory data",
           isCorrect: false
         }
       ]
@@ -95,30 +91,26 @@ const DatasetBuilderSimulation = () => {
       options: [
         { 
           id: "words", 
-          text: "🗣️ Words", 
+          text: " Words", 
           emoji: "🔤", 
-          description: "Spoken and written language",
           isCorrect: true
         },
         { 
           id: "pictures", 
-          text: "📸 Pictures", 
+          text: " Pictures", 
           emoji: "🖼️", 
-          description: "Visual imagery",
           isCorrect: false
         },
         { 
           id: "music", 
-          text: "🎵 Music", 
+          text: " Music", 
           emoji: "🎶", 
-          description: "Audio compositions",
           isCorrect: false
         },
         { 
           id: "videos", 
-          text: "🎥 Videos", 
+          text: " Videos", 
           emoji: "🎬", 
-          description: "Moving visual content",
           isCorrect: false
         }
       ]
@@ -130,30 +122,26 @@ const DatasetBuilderSimulation = () => {
         
         { 
           id: "sounds", 
-          text: "🔊 Sounds", 
+          text: " Sounds", 
           emoji: "🎵", 
-          description: "Audio recordings",
           isCorrect: false
         },
         { 
           id: "words", 
-          text: "🗣️ Words", 
+          text: " Words", 
           emoji: "🔤", 
-          description: "Text descriptions",
           isCorrect: false
         },
         { 
           id: "images", 
-          text: "📸 Images", 
+          text: " Images", 
           emoji: "🖼️", 
-          description: "Visual representations of signs",
           isCorrect: true
         },
         { 
           id: "maps", 
-          text: "🗺️ Maps", 
+          text: " Maps", 
           emoji: "📍", 
-          description: "Geographical data",
           isCorrect: false
         }
       ]
@@ -165,30 +153,26 @@ const DatasetBuilderSimulation = () => {
         
         { 
           id: "photos", 
-          text: "📸 Photos", 
+          text: " Photos", 
           emoji: "🖼️", 
-          description: "Visual bird images",
           isCorrect: false
         },
         { 
           id: "descriptions", 
-          text: "📖 Descriptions", 
+          text: " Descriptions", 
           emoji: "📝", 
-          description: "Written accounts",
           isCorrect: false
         },
         { 
           id: "videos", 
-          text: "🎥 Videos", 
+          text: " Videos", 
           emoji: "🎬", 
-          description: "Moving visual content",
           isCorrect: false
         },
         { 
           id: "sounds", 
-          text: "🔊 Sounds", 
+          text: " Sounds", 
           emoji: "🎵", 
-          description: "Audio recordings of bird calls",
           isCorrect: true
         },
       ]

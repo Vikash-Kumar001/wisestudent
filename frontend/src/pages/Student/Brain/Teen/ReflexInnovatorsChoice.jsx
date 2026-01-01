@@ -63,50 +63,50 @@ const ReflexInnovatorsChoice = () => {
       id: 1,
       text: "Which action shows innovation?",
       options: [
-        { id: "original", text: "Original", emoji: "💡", description: "Creative and new", isCorrect: true },
-        { id: "plagiarize", text: "Plagiarize", emoji: "📋", description: "Copying others' work", isCorrect: false },
-        { id: "copy", text: "Copy Exactly", emoji: "📄", description: "No originality", isCorrect: false },
-        { id: "steal", text: "Steal Ideas", emoji: "🚫", description: "Unethical", isCorrect: false }
+        { id: "original", text: "Original", emoji: "💡",  isCorrect: true },
+        { id: "plagiarize", text: "Plagiarize", emoji: "📋",  isCorrect: false },
+        { id: "copy", text: "Copy Exactly", emoji: "📄",  isCorrect: false },
+        { id: "steal", text: "Steal Ideas", emoji: "🚫",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "What's the best approach to creating work?",
       options: [
-        { id: "copy", text: "Copy Others' Work", emoji: "📋", description: "No learning", isCorrect: false },
-        { id: "create", text: "Create Original Content", emoji: "✨", description: "Shows creativity", isCorrect: true },
-        { id: "plagiarize", text: "Plagiarize", emoji: "🚫", description: "Unethical", isCorrect: false },
-        { id: "steal", text: "Steal Ideas", emoji: "😠", description: "Wrong", isCorrect: false }
+        { id: "copy", text: "Copy Others' Work", emoji: "📋",  isCorrect: false },
+        { id: "create", text: "Create Original Content", emoji: "✨",  isCorrect: true },
+        { id: "plagiarize", text: "Plagiarize", emoji: "🚫",  isCorrect: false },
+        { id: "steal", text: "Steal Ideas", emoji: "😠",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "How should you approach new projects?",
       options: [
-        { id: "copy", text: "Copy Existing Work", emoji: "📋", description: "No innovation", isCorrect: false },
-        { id: "plagiarize", text: "Plagiarize", emoji: "🚫", description: "Unethical", isCorrect: false },
-        { id: "innovate", text: "Think Creatively", emoji: "🎨", description: "Original solutions", isCorrect: true },
-        { id: "avoid", text: "Avoid Creating", emoji: "🙈", description: "No growth", isCorrect: false }
+        { id: "copy", text: "Copy Existing Work", emoji: "📋",  isCorrect: false },
+        { id: "plagiarize", text: "Plagiarize", emoji: "🚫",  isCorrect: false },
+        { id: "innovate", text: "Think Creatively", emoji: "🎨",  isCorrect: true },
+        { id: "avoid", text: "Avoid Creating", emoji: "🙈",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "What demonstrates true innovation?",
       options: [
-        { id: "original", text: "Original Ideas", emoji: "💡", description: "Creative thinking", isCorrect: true },
-        { id: "copy", text: "Copying Others", emoji: "📋", description: "No creativity", isCorrect: false },
-        { id: "plagiarize", text: "Plagiarizing", emoji: "🚫", description: "Unethical", isCorrect: false },
-        { id: "steal", text: "Stealing", emoji: "😠", description: "Wrong", isCorrect: false }
+        { id: "original", text: "Original Ideas", emoji: "💡",  isCorrect: true },
+        { id: "copy", text: "Copying Others", emoji: "📋",  isCorrect: false },
+        { id: "plagiarize", text: "Plagiarizing", emoji: "🚫",  isCorrect: false },
+        { id: "steal", text: "Stealing", emoji: "😠",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "Which mindset leads to innovation?",
       options: [
-        { id: "create", text: "Create and Innovate", emoji: "✨", description: "Original thinking", isCorrect: true },
-        { id: "copy", text: "Copy Only", emoji: "📋", description: "No innovation", isCorrect: false },
-        { id: "plagiarize", text: "Plagiarize", emoji: "🚫", description: "Unethical", isCorrect: false },
-        { id: "avoid", text: "Avoid Creating", emoji: "🙈", description: "No growth", isCorrect: false }
+        { id: "create", text: "Create and Innovate", emoji: "✨",  isCorrect: true },
+        { id: "copy", text: "Copy Only", emoji: "📋",  isCorrect: false },
+        { id: "plagiarize", text: "Plagiarize", emoji: "🚫",  isCorrect: false },
+        { id: "avoid", text: "Avoid Creating", emoji: "🙈",  isCorrect: false }
       ]
     }
   ];

@@ -20,20 +20,20 @@ const PersuasionPuzzle = () => {
 
   // Persuasion requests (left side) - 5 items with hints
   const requests = [
-    { id: 1, name: "Later Curfew", emoji: "⏰", hint: "Asking for more evening freedom" },
-    { id: 2, name: "Assignment Extension", emoji: "📝", hint: "Requesting more time to complete work" },
-    { id: 3, name: "Group Project Idea", emoji: "💡", hint: "Presenting a proposal to teammates" },
-    { id: 4, name: "School Event", emoji: "🎉", hint: "Advocating for a special activity" },
-    { id: 5, name: "Chore Reduction", emoji: "🧹", hint: "Negotiating household responsibilities" }
+    { id: 1, name: "Later Curfew", emoji: "⏰",  },
+    { id: 2, name: "Assignment Extension", emoji: "📝",  },
+    { id: 3, name: "Group Project Idea", emoji: "💡",  },
+    { id: 4, name: "School Event", emoji: "🎉",  },
+    { id: 5, name: "Chore Reduction", emoji: "🧹",  }
   ];
 
   // Persuasion techniques (right side) - 5 items with descriptions
   const techniques = [
-    { id: 6, name: "Show Responsibility", emoji: "📊", description: "Demonstrate reliability with evidence" },
-    { id: 7, name: "Explain Schedule", emoji: "📅", description: "Clarify time constraints and priorities" },
-    { id: 8, name: "List Benefits", emoji: "✅", description: "Present advantages of your proposal" },
-    { id: 9, name: "Survey Support", emoji: "📋", description: "Show community interest and backing" },
-    { id: 10, name: "Link to Goals", emoji: "📚", description: "Connect request to important objectives" }
+    { id: 6, name: "Show Responsibility", emoji: "📊",  },
+    { id: 7, name: "Explain Schedule", emoji: "📅",  },
+    { id: 8, name: "List Benefits", emoji: "✅",  },
+    { id: 9, name: "Survey Support", emoji: "📋",  },
+    { id: 10, name: "Link to Goals", emoji: "📚",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

@@ -53,20 +53,20 @@ const PuzzleSortWaste = () => {
 
   // Waste Items (left side) - 5 items
   const wasteItems = [
-    { id: 1, name: "Plastic Bottle", emoji: "🥤", description: "Single-use container" },
-    { id: 2, name: "Apple Core", emoji: "🍎", description: "Food scraps" },
-    { id: 3, name: "Broken Toy", emoji: "🧸", description: "Non-recyclable item" },
-    { id: 4, name: "Glass Jar", emoji: "🍯", description: "Reusable container" },
-    { id: 5, name: "Banana Peel", emoji: "🍌", description: "Organic waste" }
+    { id: 1, name: "Plastic Bottle", emoji: "🥤", },
+    { id: 2, name: "Apple Core", emoji: "🍎", },
+    { id: 3, name: "Broken Toy", emoji: "🧸", },
+    { id: 4, name: "Glass Jar", emoji: "🍯", },
+    { id: 5, name: "Banana Peel", emoji: "🍌", }
   ];
 
   // Disposal Methods (right side) - 5 items
   const disposalMethods = [
-    { id: 3, name: "Landfill Bin", emoji: "🗑️", description: "General waste" },
-    { id: 5, name: "Compost Heap", emoji: "🌿", description: "Organic decomposition" },
-    { id: 1, name: "Recycling Center", emoji: "♻️", description: "Material recovery" },
-    { id: 4, name: "Repurpose Area", emoji: "🔄", description: "Creative reuse" },
-    { id: 2, name: "Food Scrap Bin", emoji: "🍂", description: "Biodegradable matter" }
+    { id: 3, name: "Landfill Bin", emoji: "🗑️", },
+    { id: 5, name: "Compost Heap", emoji: "🌿", },
+    { id: 1, name: "Recycling Center", emoji: "♻️", },
+    { id: 4, name: "Repurpose Area", emoji: "🔄", },
+    { id: 2, name: "Food Scrap Bin", emoji: "🍂", }
   ];
 
   // Correct matches

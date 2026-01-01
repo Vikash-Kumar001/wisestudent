@@ -35,21 +35,21 @@ const FeelingsQuiz = () => {
           id: "a", 
           text: "Ask what's wrong and listen", 
           emoji: "🤗", 
-          description: "Show empathy and care",
+          // description: "Show empathy and care",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Laugh at them", 
           emoji: "😂", 
-          description: "Make fun of them",
+          // description: "Make fun of them",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Walk away", 
           emoji: "🚶", 
-          description: "Ignore the situation",
+          // description: "Ignore the situation",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const FeelingsQuiz = () => {
           id: "a", 
           text: "Step over them", 
           emoji: "👣", 
-          description: "Walk around the books",
+          // description: "Walk around the books",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Help pick them up", 
           emoji: "🤝", 
-          description: "Offer assistance",
+          // description: "Offer assistance",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Ignore and walk past", 
           emoji: "🙈", 
-          description: "Pretend not to see",
+          // description: "Pretend not to see",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const FeelingsQuiz = () => {
           id: "a", 
           text: "Invite them to sit together", 
           emoji: "🍱", 
-          description: "Include them in your group",
+          // description: "Include them in your group",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Sit far away", 
           emoji: "🏃", 
-          description: "Avoid them",
+          // description: "Avoid them",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Pretend not to see", 
           emoji: "🙄", 
-          description: "Ignore their sadness",
+          // description: "Ignore their sadness",
           isCorrect: false 
         }
       ]
@@ -116,21 +116,21 @@ const FeelingsQuiz = () => {
           id: "a", 
           text: "Watch them struggle", 
           emoji: "👀", 
-          description: "Just observe",
+          // description: "Just observe",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Laugh at their confusion", 
           emoji: "😏", 
-          description: "Make fun of them",
+          // description: "Make fun of them",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Offer to show them the way", 
           emoji: "🗺️", 
-          description: "Help them find their way",
+          // description: "Help them find their way",
           isCorrect: true 
         }
       ]
@@ -143,21 +143,21 @@ const FeelingsQuiz = () => {
           id: "a", 
           text: "Share your lunch with them", 
           emoji: "🥪", 
-          description: "Help them out",
+          // description: "Help them out",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Eat alone", 
           emoji: "🍔", 
-          description: "Keep your food to yourself",
+          // description: "Keep your food to yourself",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore their problem", 
           emoji: "🤷", 
-          description: "Not your concern",
+          // description: "Not your concern",
           isCorrect: false 
         }
       ]

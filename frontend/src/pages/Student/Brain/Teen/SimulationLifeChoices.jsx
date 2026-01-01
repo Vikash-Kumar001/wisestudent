@@ -58,10 +58,10 @@ const SimulationLifeChoices = () => {
       id: 1,
       text: "Fail in sports selection. What's the best response?",
       options: [
-        { id: 'practice', text: 'Practice harder', description: 'Shows growth mindset', isCorrect: true },
-        { id: 'quit', text: 'Quit', description: 'Gives up', isCorrect: false },
-        { id: 'blame', text: 'Blame others', description: 'Avoids responsibility', isCorrect: false },
-        { id: 'avoid', text: 'Avoid sports', description: 'No growth', isCorrect: false }
+        { id: 'practice', text: 'Practice harder',  isCorrect: true },
+        { id: 'quit', text: 'Quit',  isCorrect: false },
+        { id: 'blame', text: 'Blame others',  isCorrect: false },
+        { id: 'avoid', text: 'Avoid sports',  isCorrect: false }
       ],
       correct: 'practice',
       explanation: 'Practicing harder shows growth mindset, persistence, and leads to improvement and eventual success!'
@@ -70,10 +70,10 @@ const SimulationLifeChoices = () => {
       id: 2,
       text: "You fail at something important. What's the best response?",
       options: [
-        { id: 'quit', text: 'Give up completely', description: 'Fixed mindset', isCorrect: false },
-        { id: 'learn', text: 'Learn from failure and try again', description: 'Growth mindset', isCorrect: true },
-        { id: 'blame', text: 'Blame external factors', description: 'No learning', isCorrect: false },
-        { id: 'avoid', text: 'Avoid trying again', description: 'No growth', isCorrect: false }
+        { id: 'quit', text: 'Give up completely',  isCorrect: false },
+        { id: 'learn', text: 'Learn from failure and try again',  isCorrect: true },
+        { id: 'blame', text: 'Blame external factors',  isCorrect: false },
+        { id: 'avoid', text: 'Avoid trying again',  isCorrect: false }
       ],
       correct: 'learn',
       explanation: 'Learning from failure and trying again demonstrates resilience, growth mindset, and leads to improvement!'
@@ -82,10 +82,10 @@ const SimulationLifeChoices = () => {
       id: 3,
       text: "What should you do when you don't succeed?",
       options: [
-        { id: 'quit', text: 'Quit immediately', description: 'No persistence', isCorrect: false },
-        { id: 'blame', text: 'Blame others', description: 'Avoids responsibility', isCorrect: false },
-        { id: 'persist', text: 'Keep practicing and improving', description: 'Shows determination', isCorrect: true },
-        { id: 'avoid', text: 'Avoid challenges', description: 'No growth', isCorrect: false }
+        { id: 'quit', text: 'Quit immediately', isCorrect: false },
+        { id: 'blame', text: 'Blame others', isCorrect: false },
+        { id: 'persist', text: 'Keep practicing and improving', isCorrect: true },
+        { id: 'avoid', text: 'Avoid challenges', isCorrect: false }
       ],
       correct: 'persist',
       explanation: 'Continuing to practice and improve despite setbacks shows resilience and leads to eventual success!'
@@ -94,10 +94,10 @@ const SimulationLifeChoices = () => {
       id: 4,
       text: "How should you handle setbacks?",
       options: [
-        { id: 'improve', text: 'Use them as learning opportunities', description: 'Growth mindset', isCorrect: true },
-        { id: 'quit', text: 'Give up', description: 'Fixed mindset', isCorrect: false },
-        { id: 'blame', text: 'Blame everything', description: 'No learning', isCorrect: false },
-        { id: 'avoid', text: 'Avoid future attempts', description: 'No growth', isCorrect: false }
+        { id: 'improve', text: 'Use them as learning opportunities', isCorrect: true },
+        { id: 'quit', text: 'Give up', isCorrect: false },
+        { id: 'blame', text: 'Blame everything', isCorrect: false },
+        { id: 'avoid', text: 'Avoid future attempts', isCorrect: false }
       ],
       correct: 'improve',
       explanation: 'Using setbacks as learning opportunities helps you grow, improve, and eventually succeed!'
@@ -106,10 +106,10 @@ const SimulationLifeChoices = () => {
       id: 5,
       text: "What's the best approach to failure?",
       options: [
-        { id: 'quit', text: 'Quit and never try again', description: 'No persistence', isCorrect: false },
-        { id: 'blame', text: 'Blame others only', description: 'No learning', isCorrect: false },
-        { id: 'grow', text: 'Learn, adapt, and keep trying', description: 'Shows growth', isCorrect: true },
-        { id: 'avoid', text: 'Avoid all challenges', description: 'No growth', isCorrect: false }
+        { id: 'quit', text: 'Quit and never try again', isCorrect: false },
+        { id: 'blame', text: 'Blame others only', isCorrect: false },
+        { id: 'grow', text: 'Learn, adapt, and keep trying', isCorrect: true },
+        { id: 'avoid', text: 'Avoid all challenges', isCorrect: false }
       ],
       correct: 'grow',
       explanation: 'Learning from failure, adapting your approach, and continuing to try leads to growth and success!'

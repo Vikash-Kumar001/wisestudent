@@ -37,21 +37,21 @@ const CyberSpot = () => {
           id: "malicious1", 
           text: "You're ugly!", 
           emoji: "😠", 
-          description: "Mean and hurtful comment",
+          // description: "Mean and hurtful comment",
           isCorrect: true 
         },
         { 
           id: "nice1", 
           text: "Nice pic!", 
           emoji: "👍", 
-          description: "Friendly and positive",
+          // description: "Friendly and positive",
           isCorrect: false 
         },
         { 
           id: "neutral1", 
           text: "Have a great day!", 
           emoji: "😊", 
-          description: "Kind and supportive",
+          // description: "Kind and supportive",
           isCorrect: false 
         }
       ]
@@ -65,21 +65,21 @@ const CyberSpot = () => {
           id: "nice2", 
           text: "Happy birthday!", 
           emoji: "🎂", 
-          description: "Friendly and positive",
+          // description: "Friendly and positive",
           isCorrect: false 
         },
         { 
           id: "malicious2", 
           text: "Fake news about you.", 
           emoji: "⚠️", 
-          description: "Spreading false information",
+          // description: "Spreading false information",
           isCorrect: true 
         },
         { 
           id: "neutral2", 
           text: "Thanks for sharing!", 
           emoji: "🙏", 
-          description: "Polite and kind",
+          // description: "Polite and kind",
           isCorrect: false 
         }
       ]
@@ -93,21 +93,21 @@ const CyberSpot = () => {
           id: "nice3", 
           text: "Sharing fun meme.", 
           emoji: "😄", 
-          description: "Fun and harmless",
+          // description: "Fun and harmless",
           isCorrect: false 
         },
         { 
           id: "neutral3", 
           text: "Great job!", 
           emoji: "👏", 
-          description: "Encouraging and positive",
+          // description: "Encouraging and positive",
           isCorrect: false 
         },
         { 
           id: "malicious3", 
           text: "Spreading rumors online.", 
           emoji: "🗣️", 
-          description: "Harmful and false information",
+          // description: "Harmful and false information",
           isCorrect: true 
         }
       ]
@@ -121,21 +121,21 @@ const CyberSpot = () => {
           id: "malicious4", 
           text: "Doxing personal info.", 
           emoji: "🔓", 
-          description: "Sharing private information without consent",
+          // description: "Sharing private information without consent",
           isCorrect: true 
         },
         { 
           id: "nice4", 
           text: "Compliment on post.", 
           emoji: "💝", 
-          description: "Kind and positive",
+          // description: "Kind and positive",
           isCorrect: false 
         },
         { 
           id: "neutral4", 
           text: "Keep it up!", 
           emoji: "💪", 
-          description: "Encouraging and supportive",
+          // description: "Encouraging and supportive",
           isCorrect: false 
         }
       ]
@@ -149,7 +149,7 @@ const CyberSpot = () => {
           id: "nice5", 
           text: "Friendly invite.", 
           emoji: "👋", 
-          description: "Welcoming and kind",
+          // description: "Welcoming and kind",
           isCorrect: false 
         },
         
@@ -157,14 +157,14 @@ const CyberSpot = () => {
           id: "neutral5", 
           text: "Hope you're well!", 
           emoji: "❤️", 
-          description: "Caring and friendly",
+          // description: "Caring and friendly",
           isCorrect: false 
         },
         { 
           id: "malicious5", 
           text: "Harassing emails.", 
           emoji: "📧", 
-          description: "Repeated unwanted contact",
+          // description: "Repeated unwanted contact",
           isCorrect: true 
         },
       ]

@@ -62,21 +62,21 @@ const AISpaceStory = () => {
           id: "ai", 
           text: "AI alone", 
           emoji: "🤖", 
-          description: "AI assists but cannot replace human judgment in complex space missions",
+          
           isCorrect: false
         },
         { 
           id: "humans", 
           text: "Humans", 
           emoji: "👨‍🚀", 
-          description: "Humans make critical decisions and maintain ultimate control over space missions",
+          
           isCorrect: true
         },
         { 
           id: "satellites", 
           text: "Earth satellites", 
           emoji: "🛰️", 
-          description: "Satellites provide communication but don't control mission decisions",
+          
           isCorrect: false
         }
       ]
@@ -89,21 +89,18 @@ const AISpaceStory = () => {
           id: "humans", 
           text: "Humans", 
           emoji: "👨‍🚀", 
-          description: "Astronauts make final decisions based on AI recommendations and their expertise",
           isCorrect: true
         },
         { 
           id: "ai", 
           text: "AI", 
           emoji: "🤖", 
-          description: "AI can assist with calculations but humans must make the final call",
           isCorrect: false
         },
         { 
           id: "control", 
           text: "Mission Control only", 
           emoji: "🌍", 
-          description: "Mission Control provides support but astronauts on-site make immediate decisions",
           isCorrect: false
         }
       ]
@@ -117,21 +114,18 @@ const AISpaceStory = () => {
           id: "autonomous", 
           text: "AI autonomously", 
           emoji: "🤖", 
-          description: "AI can alert but cannot take physical action without human authorization",
           isCorrect: false
         },
         { 
           id: "astronauts", 
           text: "Astronauts", 
           emoji: "👨‍🚀", 
-          description: "Astronauts respond to alerts and take necessary actions for survival",
           isCorrect: true
         },
         { 
           id: "base", 
           text: "Mars base AI", 
           emoji: "🏠", 
-          description: "Local systems assist but humans make critical resource decisions",
           isCorrect: false
         }
       ]
@@ -145,21 +139,18 @@ const AISpaceStory = () => {
           id: "system", 
           text: "AI system", 
           emoji: "🤖", 
-          description: "AI can identify problems but humans determine the best course of action",
           isCorrect: false
         },
         { 
           id: "ground", 
           text: "Ground team only", 
           emoji: "🌍", 
-          description: "Ground teams provide advice but astronauts must act quickly on-site",
           isCorrect: false
         },
         { 
           id: "humans", 
           text: "Humans", 
           emoji: "👨‍🚀", 
-          description: "Astronauts assess situations and decide on appropriate responses to equipment failures",
           isCorrect: true
         },
       ]
@@ -172,21 +163,18 @@ const AISpaceStory = () => {
           id: "humans", 
           text: "Humans", 
           emoji: "👨‍🚀", 
-          description: "Scientists and mission commanders approve experimental plans for safety and objectives",
           isCorrect: true
         },
         { 
           id: "alone", 
           text: "AI alone", 
           emoji: "🤖", 
-          description: "AI can suggest experiments but humans must approve them for implementation",
           isCorrect: false
         },
         { 
           id: "robots", 
           text: "Robots", 
           emoji: "🤖🤖", 
-          description: "Robots execute plans but don't approve them",
           isCorrect: false
         }
       ]

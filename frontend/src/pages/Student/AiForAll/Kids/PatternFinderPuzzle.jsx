@@ -26,11 +26,11 @@ const PatternFinderPuzzle = () => {
 
   // Sequences (left side)
   const leftItems = [
-    { id: 1, name: '1, 2, 3, ?, 5', emoji: '🔢', description: 'Find the missing number' },
-    { id: 2, name: '2, 4, 6, ?, 10', emoji: '📊', description: 'Even numbers pattern' },
-    { id: 3, name: '5, 10, 15, ?, 25', emoji: '🔟', description: 'Multiples of 5' },
-    { id: 4, name: '10, 9, 8, ?, 6', emoji: '⬇️', description: 'Counting backwards' },
-    { id: 5, name: '1, 1, 2, 3, ?', emoji: '🔺', description: 'Fibonacci pattern' }
+    { id: 1, name: '1, 2, 3, ?, 5', emoji: '🔢', },
+    { id: 2, name: '2, 4, 6, ?, 10', emoji: '📊', },
+    { id: 3, name: '5, 10, 15, ?, 25', emoji: '🔟', },
+    { id: 4, name: '10, 9, 8, ?, 6', emoji: '⬇️', },
+    { id: 5, name: '1, 1, 2, 3, ?', emoji: '🔺', },
   ];
 
   // Answers (right side) - manually arranged to vary correct answer positions

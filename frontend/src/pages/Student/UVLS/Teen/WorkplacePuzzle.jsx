@@ -20,20 +20,20 @@ const WorkplacePuzzle = () => {
 
   // Workplace issues (left side) - 5 items with hints
   const issues = [
-    { id: 1, name: "Pay Inequality", emoji: "💰", hint: "Unequal compensation for equivalent work" },
-    { id: 2, name: "Harassment", emoji: "🛡️", hint: "Unwanted conduct creating hostile environment" },
-    { id: 3, name: "Glass Ceiling", emoji: "📈", hint: "Barriers preventing advancement opportunities" },
-    { id: 4, name: "Leave Discrimination", emoji: "👶", hint: "Unfair treatment related to family planning" },
-    { id: 5, name: "Role Stereotyping", emoji: "📋", hint: "Assigned tasks based on biased assumptions" }
+    { id: 1, name: "Pay Inequality", emoji: "💰",  },
+    { id: 2, name: "Harassment", emoji: "🛡️",  },
+    { id: 3, name: "Glass Ceiling", emoji: "📈",  },
+    { id: 4, name: "Leave Discrimination", emoji: "👶",  },
+    { id: 5, name: "Role Stereotyping", emoji: "📋",  }
   ];
 
   // Workplace solutions (right side) - 5 items with descriptions
   const solutions = [
-    { id: 6, name: "Pay Transparency", emoji: "🔍", description: "Open salary structures and audits" },
-    { id: 7, name: "Safety Protocols", emoji: "✅", description: "Reporting systems and staff training" },
-    { id: 8, name: "Career Development", emoji: "🎓", description: "Mentorship programs and training" },
-    { id: 9, name: "Inclusive Policies", emoji: "👨‍👩‍👧‍👦", description: "Family-friendly workplace standards" },
-    { id: 10, name: "Bias Elimination", emoji: "🎯", description: "Diverse hiring and awareness training" }
+    { id: 6, name: "Pay Transparency", emoji: "🔍",  },
+    { id: 7, name: "Safety Protocols", emoji: "✅",  },
+    { id: 8, name: "Career Development", emoji: "🎓",  },
+    { id: 9, name: "Inclusive Policies", emoji: "👨‍👩‍👧‍👦",  },
+    { id: 10, name: "Bias Elimination", emoji: "🎯",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

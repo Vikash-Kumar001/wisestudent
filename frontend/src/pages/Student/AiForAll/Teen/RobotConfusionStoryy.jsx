@@ -61,21 +61,20 @@ const RobotConfusionStoryy = () => {
           id: "lion", 
           text: "Give more lion images", 
           emoji: "🦁", 
-          description: "Providing more examples of lions helps the AI distinguish between similar animals",
+          
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore the mistake", 
           emoji: "❌", 
-          description: "Ignoring mistakes prevents the AI from learning and improving its accuracy",
+          
           isCorrect: false
         },
         { 
           id: "delete", 
           text: "Delete all data", 
           emoji: "🗑️", 
-          description: "Deleting data eliminates all learning, not just incorrect patterns",
           isCorrect: false
         }
       ]
@@ -89,21 +88,18 @@ const RobotConfusionStoryy = () => {
           id: "wrong", 
           text: "Keep wrong label", 
           emoji: "❌", 
-          description: "Keeping incorrect labels reinforces mistaken AI behavior",
           isCorrect: false
         },
         { 
           id: "remove", 
           text: "Remove tomatoes", 
           emoji: "🍅", 
-          description: "Removing examples limits AI learning rather than correcting it",
           isCorrect: false
         },
         { 
           id: "labels", 
           text: "Add correct fruit labels", 
           emoji: "🏷️", 
-          description: "Accurate labeling helps AI learn the distinguishing features of different fruits",
           isCorrect: true
         },
       ]
@@ -116,21 +112,18 @@ const RobotConfusionStoryy = () => {
           id: "bus", 
           text: "Provide more bus images", 
           emoji: "🚌", 
-          description: "Showing more examples of buses helps AI learn to distinguish them from cars",
           isCorrect: true
         },
         { 
           id: "delete", 
           text: "Delete car data", 
           emoji: "🚗", 
-          description: "Deleting car data removes important context that helps AI differentiate vehicles",
           isCorrect: false
         },
         { 
           id: "merge", 
           text: "Merge categories", 
           emoji: "🔄", 
-          description: "Merging categories reduces AI precision rather than improving it",
           isCorrect: false
         }
       ]
@@ -144,21 +137,18 @@ const RobotConfusionStoryy = () => {
           id: "dogs", 
           text: "Only show dogs", 
           emoji: "🐶", 
-          description: "Showing only dogs prevents the AI from learning about cats at all",
           isCorrect: false
         },
         { 
           id: "cat", 
           text: "Add more cat photos", 
           emoji: "🐱", 
-          description: "More cat examples help AI recognize the distinguishing features of cats vs dogs",
           isCorrect: true
         },
         { 
           id: "blur", 
           text: "Blur images", 
           emoji: "🌫️", 
-          description: "Blurring images makes it harder for AI to learn distinguishing features",
           isCorrect: false
         }
       ]
@@ -172,21 +162,18 @@ const RobotConfusionStoryy = () => {
           id: "fewer", 
           text: "Use fewer examples", 
           emoji: "❌", 
-          description: "Fewer examples make it harder for AI to learn distinguishing features",
           isCorrect: false
         },
                 { 
           id: "both", 
           text: "Train with both furniture types", 
-          emoji: "🪑🪵", 
-          description: "Showing both types of furniture helps AI learn to distinguish between them",
+          emoji: "🪵", 
           isCorrect: true
         },
         { 
           id: "same", 
           text: "Show only one type", 
           emoji: "🪑", 
-          description: "Showing only one type prevents AI from learning to differentiate",
           isCorrect: false
         }
       ]

@@ -36,7 +36,7 @@ const WalkAwayReflex = () => {
       question: "Situation: 'Deal too good to be true.'",
       correctAnswer: "Walk Away",
       options: [
-        { text: "Stay", isCorrect: false, emoji: "✅" },
+        { text: "Stay", isCorrect: false, emoji: "🧍" },
         { text: "Negotiate", isCorrect: false, emoji: "🤝" },
         { text: "Walk Away", isCorrect: true, emoji: "🚶" },
         { text: "Ask for discount", isCorrect: false, emoji: "💰" }
@@ -48,7 +48,7 @@ const WalkAwayReflex = () => {
       correctAnswer: "Stay",
       options: [
         { text: "Walk Away", isCorrect: false, emoji: "🚶" },
-        { text: "Stay", isCorrect: true, emoji: "✅" },
+        { text: "Stay", isCorrect: true, emoji: "🧍" },
         { text: "Hesitate", isCorrect: false, emoji: "🤔" },
         { text: "Ask for more time", isCorrect: false, emoji: "⏰" }
       ]
@@ -60,7 +60,7 @@ const WalkAwayReflex = () => {
       options: [
         { text: "Walk Away", isCorrect: true, emoji: "🚶" },
         { text: "Sign quickly", isCorrect: false, emoji: "📝" },
-        { text: "Stay", isCorrect: false, emoji: "✅" },
+        { text: "Stay", isCorrect: false, emoji: "🧍" },
         { text: "Ask questions", isCorrect: false, emoji: "❓" }
       ]
     },
@@ -72,7 +72,7 @@ const WalkAwayReflex = () => {
         { text: "Walk Away", isCorrect: false, emoji: "🚶" },
         { text: "Negotiate more", isCorrect: false, emoji: "🤝" },
         { text: "Delay signing", isCorrect: false, emoji: "⏰" },
-        { text: "Stay", isCorrect: true, emoji: "✅" },
+        { text: "Stay", isCorrect: true, emoji: "🧍" },
       ]
     },
     {
@@ -80,7 +80,7 @@ const WalkAwayReflex = () => {
       question: "Situation: 'Hidden costs revealed.'",
       correctAnswer: "Walk Away",
       options: [
-        { text: "Accept anyway", isCorrect: false, emoji: "✅" },
+        { text: "Accept anyway", isCorrect: false, emoji: "🤕" },
         { text: "Walk Away", isCorrect: true, emoji: "🚶" },
         { text: "Negotiate", isCorrect: false, emoji: "🤝" },
         { text: "Ask for details", isCorrect: false, emoji: "❓" }

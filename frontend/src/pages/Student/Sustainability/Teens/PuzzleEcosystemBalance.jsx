@@ -52,20 +52,20 @@ const PuzzleEcosystemBalance = () => {
 
   // Ecosystem Problems (left side) - 5 items
   const problems = [
-    { id: 1, name: "Species Extinction", emoji: "🦕", description: "Loss of biodiversity" },
-    { id: 2, name: "Habitat Destruction", emoji: " 💥", description: "Natural home loss" },
-    { id: 3, name: "Pollution", emoji: " 🏭", description: "Environmental contamination" },
-    { id: 4, name: "Climate Change", emoji: "🌡️", description: "Global temperature rise" },
-    { id: 5, name: "Overfishing", emoji: "🎣", description: "Depleting marine life" }
+    { id: 1, name: "Species Extinction", emoji: "🦕",  },
+    { id: 2, name: "Habitat Destruction", emoji: " 💥",  },
+    { id: 3, name: "Pollution", emoji: " 🏭",  },
+    { id: 4, name: "Climate Change", emoji: "🌡️",  },
+    { id: 5, name: "Overfishing", emoji: "🎣",  }
   ];
 
   // Ecosystem Solutions (right side) - 5 items
   const solutions = [
-    { id: 5, name: "Marine Protection", emoji: "🌊", description: "Ocean conservation" },
-    { id: 1, name: "Species Conservation", emoji: "🦋", description: "Protecting wildlife" },
-    { id: 2, name: "Habitat Restoration", emoji: "🌱", description: "Rebuilding ecosystems" },
-    { id: 3, name: "Pollution Control", emoji: "♻️", description: "Reducing contamination" },
-    { id: 4, name: "Climate Action", emoji: "🌿", description: "Addressing warming" }
+    { id: 5, name: "Marine Protection", emoji: "🌊",  },
+    { id: 1, name: "Species Conservation", emoji: "🦋",  },
+    { id: 2, name: "Habitat Restoration", emoji: "🌱",  },
+    { id: 3, name: "Pollution Control", emoji: "♻️",  },
+    { id: 4, name: "Climate Action", emoji: "🌿",  }
   ];
 
   // Correct matches

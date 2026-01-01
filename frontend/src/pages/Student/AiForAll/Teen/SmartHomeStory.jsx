@@ -62,21 +62,21 @@ const SmartHomeStory = () => {
           id: "remote", 
           text: "Someone manually controlling it remotely", 
           emoji: "📱", 
-          description: "While remote control is possible, smart homes primarily use automated AI systems that learn and adapt to your habits",
+          // description: "While remote control is possible, smart homes primarily use automated AI systems that learn and adapt to your habits",
           isCorrect: false
         },
         { 
           id: "iot", 
           text: "IoT AI System", 
           emoji: "🤖", 
-          description: "Smart homes use IoT (Internet of Things) AI systems that learn your preferences, detect your presence, understand context (time, weather), and automate your environment for comfort and efficiency",
+          // description: "Smart homes use IoT (Internet of Things) AI systems that learn your preferences, detect your presence, understand context (time, weather), and automate your environment for comfort and efficiency",
           isCorrect: true
         },
         { 
           id: "sensor", 
           text: "Motion sensor only (no AI)", 
           emoji: "📡", 
-          description: "Motion sensors are just one component; modern smart homes use AI to learn preferences and make intelligent decisions beyond simple motion detection",
+          // description: "Motion sensors are just one component; modern smart homes use AI to learn preferences and make intelligent decisions beyond simple motion detection",
           isCorrect: false
         }
       ]
@@ -90,21 +90,21 @@ const SmartHomeStory = () => {
           id: "manual", 
           text: "You set a fixed schedule", 
           emoji: "🗓️", 
-          description: "While you can set schedules, smart thermostats go beyond fixed schedules by learning and adapting to your actual behavior",
+          // description: "While you can set schedules, smart thermostats go beyond fixed schedules by learning and adapting to your actual behavior",
           isCorrect: false
         },
         { 
           id: "guess", 
           text: "Random guessing", 
           emoji: "🎲", 
-          description: "Smart devices use data analysis, not random guessing, to make intelligent decisions",
+          // description: "Smart devices use data analysis, not random guessing, to make intelligent decisions",
           isCorrect: false
         },
         { 
           id: "schedule", 
           text: "AI analyzes your daily routine", 
           emoji: "⏰", 
-          description: "Smart thermostats use machine learning to analyze patterns in your behavior and predict when you'll be home to optimize energy usage",
+          // description: "Smart thermostats use machine learning to analyze patterns in your behavior and predict when you'll be home to optimize energy usage",
           isCorrect: true
         },
       ]
@@ -118,21 +118,21 @@ const SmartHomeStory = () => {
           id: "preset", 
           text: "Pre-programmed playlist", 
           emoji: "📋", 
-          description: "While presets exist, smart speakers personalize recommendations based on your unique preferences",
+          // description: "While presets exist, smart speakers personalize recommendations based on your unique preferences",
           isCorrect: false
         },
         { 
           id: "learning", 
           text: "AI learned from your past choices", 
           emoji: "🧠", 
-          description: "Voice assistants use AI to analyze your music preferences, listening history, and explicit feedback to make personalized recommendations",
+          // description: "Voice assistants use AI to analyze your music preferences, listening history, and explicit feedback to make personalized recommendations",
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Plays random songs", 
           emoji: "🔀", 
-          description: "Smart speakers use preference learning algorithms, not randomness, to select music",
+          // description: "Smart speakers use preference learning algorithms, not randomness, to select music",
           isCorrect: false
         }
       ]
@@ -145,21 +145,21 @@ const SmartHomeStory = () => {
           id: "ai", 
           text: "AI pattern recognition", 
           emoji: "👁️", 
-          description: "Smart security systems use AI and computer vision to recognize normal vs. abnormal patterns and detect potential threats",
+          // description: "Smart security systems use AI and computer vision to recognize normal vs. abnormal patterns and detect potential threats",
           isCorrect: true
         },
         { 
           id: "human", 
           text: "24/7 human monitoring", 
           emoji: "👮", 
-          description: "While some services offer human monitoring, the initial detection is typically done by AI systems",
+          // description: "While some services offer human monitoring, the initial detection is typically done by AI systems",
           isCorrect: false
         },
         { 
           id: "alarm", 
           text: "Basic motion sensors only", 
           emoji: "🔔", 
-          description: "Modern smart security goes beyond simple motion detection using AI-powered pattern recognition",
+          // description: "Modern smart security goes beyond simple motion detection using AI-powered pattern recognition",
           isCorrect: false
         }
       ]
@@ -173,21 +173,21 @@ const SmartHomeStory = () => {
           id: "manual", 
           text: "You manually input recipes", 
           emoji: "📝", 
-          description: "While manual input is possible, smart fridges automatically suggest recipes based on AI analysis",
+          // description: "While manual input is possible, smart fridges automatically suggest recipes based on AI analysis",
           isCorrect: false
         },
         { 
           id: "internet", 
           text: "Random internet search", 
           emoji: "🔍", 
-          description: "Recipe suggestions are based on intelligent matching algorithms, not random searches",
+          // description: "Recipe suggestions are based on intelligent matching algorithms, not random searches",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI matches ingredients to recipe databases", 
           emoji: "🍳", 
-          description: "Smart appliances use AI to connect available ingredients with recipe databases and suggest meals tailored to what you have",
+          // description: "Smart appliances use AI to connect available ingredients with recipe databases and suggest meals tailored to what you have",
           isCorrect: true
         },
       ]

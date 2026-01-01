@@ -26,20 +26,20 @@ const AIRightsPuzzle = () => {
 
   // Questions (left side)
   const leftItems = [
-    { id: 1, name: 'Who should make the rules?', emoji: '👩‍💼', description: 'Rule creation question' },
-    { id: 2, name: 'Who should follow the rules?', emoji: '🤖', description: 'Rule following question' },
-    { id: 3, name: 'AI helps humans by...', emoji: '💡', description: 'AI assistance question' },
-    { id: 4, name: 'What is the right order?', emoji: '📋', description: 'Order question' },
-    { id: 5, name: 'AI responsibility means...', emoji: '⚖️', description: 'Responsibility question' }
+    { id: 1, name: 'Who should make the rules?', emoji: '👩‍💼',  },
+    { id: 2, name: 'Who should follow the rules?', emoji: '🤖',  },
+    { id: 3, name: 'AI helps humans by...', emoji: '💡',  },
+    { id: 4, name: 'What is the right order?', emoji: '📋',  },
+    { id: 5, name: 'AI responsibility means...', emoji: '⚖️',  }
   ];
 
   // Answers (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'AI follows rules', emoji: '🤖', description: 'AI should follow human rules' }, // Matches left 2 (right position 1)
-    { id: 4, name: 'Humans make rules → AI follows', emoji: '✅', description: 'Correct order of rule-making' }, // Matches left 4 (right position 2)
-    { id: 1, name: 'Humans make rules', emoji: '👩‍💼', description: 'Humans should create rules' }, // Matches left 1 (right position 3)
-    { id: 5, name: 'Following human instructions', emoji: '📝', description: 'AI follows human guidance' }, // Matches left 5 (right position 4)
-    { id: 3, name: 'Following instructions', emoji: '📋', description: 'AI helps by following instructions' } // Matches left 3 (right position 5)
+    { id: 2, name: 'AI follows rules', emoji: '🤖',  },
+    { id: 4, name: 'Humans make rules → AI follows', emoji: '📐',  },
+    { id: 1, name: 'Humans make rules', emoji: '👩‍💼',  },
+    { id: 5, name: 'Following human instructions', emoji: '📝',  },
+    { id: 3, name: 'Following instructions', emoji: '📋',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

@@ -28,28 +28,28 @@ const SmartHomeSimulation = () => {
           id: "convenience", 
           text: "Enhanced convenience", 
           emoji: "🏠", 
-          description: "Automated control of home systems",
+          
           isCorrect: true
         },
         { 
           id: "cost", 
           text: "Reduced device costs", 
           emoji: "💰", 
-          description: "Cheaper smart home equipment",
+          // description: "Cheaper smart home equipment",
           isCorrect: false
         },
         { 
           id: "complexity", 
           text: "Increased complexity", 
           emoji: "🧩", 
-          description: "More complicated systems",
+          // description: "More complicated systems",
           isCorrect: false
         },
         { 
           id: "manual", 
           text: "Manual operation", 
           emoji: "✋", 
-          description: "Human-controlled systems",
+          // description: "Human-controlled systems",
           isCorrect: false
         }
       ]
@@ -63,28 +63,28 @@ const SmartHomeSimulation = () => {
           id: "microphone", 
           text: "Audio sensors", 
           emoji: "🎤", 
-          description: "Capture sound waves",
+          // description: "Capture sound waves",
           isCorrect: false
         },
         { 
           id: "thermometer", 
           text: "Temperature sensors", 
           emoji: "🌡️", 
-          description: "Measure ambient heat",
+          // description: "Measure ambient heat",
           isCorrect: false
         },
          { 
           id: "camera", 
           text: "Motion sensors", 
           emoji: "📹", 
-          description: "Detect movement in rooms",
+          // description: "Detect movement in rooms",
           isCorrect: true
         },
         { 
           id: "barometer", 
           text: "Pressure sensors", 
           emoji: "🔽", 
-          description: "Detect atmospheric pressure",
+          // description: "Detect atmospheric pressure",
           isCorrect: false
         }
       ]
@@ -97,28 +97,28 @@ const SmartHomeSimulation = () => {
           id: "power", 
           text: "Power consumption", 
           emoji: "🔋", 
-          description: "Energy usage of devices",
+          // description: "Energy usage of devices",
           isCorrect: false
         },
         { 
           id: "data", 
           text: "Data collection and storage", 
           emoji: "🗄️", 
-          description: "Personal information handling",
+          // description: "Personal information handling",
           isCorrect: true
         },
         { 
           id: "connectivity", 
           text: "Internet connectivity", 
           emoji: "🌐", 
-          description: "Network reliability",
+          // description: "Network reliability",
           isCorrect: false
         },
         { 
           id: "compatibility", 
           text: "Device compatibility", 
           emoji: "🔌", 
-          description: "Inter-device communication",
+          // description: "Inter-device communication",
           isCorrect: false
         }
       ]
@@ -131,28 +131,28 @@ const SmartHomeSimulation = () => {
           id: "wifi", 
           text: "Wireless networks (WiFi/Bluetooth)", 
           emoji: "📶", 
-          description: "Radio frequency connections",
+          // description: "Radio frequency connections",
           isCorrect: true
         },
         { 
           id: "wires", 
           text: "Physical wiring", 
           emoji: "🔌", 
-          description: "Cabled connections",
+          // description: "Cabled connections",
           isCorrect: false
         },
         { 
           id: "signals", 
           text: "Cellular signals", 
           emoji: "📱", 
-          description: "Mobile network transmission",
+          // description: "Mobile network transmission",
           isCorrect: false
         },
         { 
           id: "satellite", 
           text: "Satellite communication", 
           emoji: "🛰️", 
-          description: "Orbital signal relay",
+          // description: "Orbital signal relay",
           isCorrect: false
         }
       ]
@@ -165,28 +165,28 @@ const SmartHomeSimulation = () => {
           id: "schedule", 
           text: "Scheduled device activation", 
           emoji: "⏰", 
-          description: "Timed turning on/off of devices",
+          // description: "Timed turning on/off of devices",
           isCorrect: true
         },
         { 
           id: "manual", 
           text: "Manual device control", 
           emoji: "👆", 
-          description: "Human-operated switching",
+          // description: "Human-operated switching",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random device activation", 
           emoji: "🎲", 
-          description: "Unpredictable triggering",
+          // description: "Unpredictable triggering",
           isCorrect: false
         },
         { 
           id: "constant", 
           text: "Constant device operation", 
           emoji: "🔁", 
-          description: "Always-on systems",
+          // description: "Always-on systems",
           isCorrect: false
         }
       ]

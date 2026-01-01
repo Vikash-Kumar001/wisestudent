@@ -37,21 +37,19 @@ const QuizOnAttention = () => {
           id: "b", 
           text: "Single task", 
           emoji: "🎯", 
-          description: "Focusing on one task at a time improves concentration and productivity",
+          
           isCorrect: true
         },
         { 
           id: "a", 
           text: "Multitasking", 
           emoji: "📱", 
-          description: "Multitasking actually reduces efficiency and increases errors",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Daydreaming", 
           emoji: "☁️", 
-          description: "Daydreaming reduces focus and productivity",
           isCorrect: false
         }
       ]
@@ -64,21 +62,18 @@ const QuizOnAttention = () => {
           id: "a", 
           text: "Increases productivity by 40%", 
           emoji: "📈", 
-          description: "Multitasking does not increase productivity",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Reduces productivity by up to 40%", 
           emoji: "📉", 
-          description: "Research shows digital multitasking can reduce productivity by up to 40% due to task-switching costs",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Has no measurable effect", 
           emoji: "➡️", 
-          description: "Multitasking has significant negative effects on productivity",
           isCorrect: false
         }
       ]
@@ -91,21 +86,18 @@ const QuizOnAttention = () => {
           id: "b", 
           text: "Pomodoro Technique (25 min focus + 5 min break)", 
           emoji: "⏱️", 
-          description: "The Pomodoro Technique helps maintain focus by breaking work into intervals with planned breaks",
           isCorrect: true
         },
         { 
           id: "a", 
           text: "Checking phone every 5 minutes", 
           emoji: "📱", 
-          description: "Frequent interruptions break focus and reduce productivity",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Working for 8 hours straight", 
           emoji: "😴", 
-          description: "Long sessions without breaks lead to mental fatigue",
           isCorrect: false
         }
       ]
@@ -118,21 +110,18 @@ const QuizOnAttention = () => {
           id: "a", 
           text: "Improves alertness", 
           emoji: "⚡", 
-          description: "Sleep deprivation actually reduces alertness and cognitive function",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Only affects physical performance", 
           emoji: "💪", 
-          description: "Sleep affects both mental and physical performance",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Impairs concentration and reaction time", 
           emoji: "⚠️", 
-          description: "Sleep deprivation significantly impairs attention, concentration, and reaction time",
           isCorrect: true
         }
       ]
@@ -145,21 +134,18 @@ const QuizOnAttention = () => {
           id: "a", 
           text: "Noisy, chaotic environment", 
           emoji: "🔊", 
-          description: "Noise and chaos create distractions that reduce focus",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Organized, distraction-free space", 
           emoji: "✨", 
-          description: "An organized, distraction-free environment minimizes interruptions and helps maintain sustained attention",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Dimly lit room", 
           emoji: "🌙", 
-          description: "Poor lighting can strain eyes and reduce focus",
           isCorrect: false
         }
       ]

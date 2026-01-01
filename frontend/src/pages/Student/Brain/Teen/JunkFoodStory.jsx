@@ -61,21 +61,19 @@ const JunkFoodStory = () => {
           id: "yes", 
           text: "Yes, it impairs cognitive function", 
           emoji: "⚠️", 
-          description: "Excessive junk food consumption can lead to inflammation and impair cognitive function over time",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it has no effect", 
-          emoji: "❌", 
-          description: "Junk food actually has negative effects on brain function",
+          emoji: "👎", 
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends on the type", 
           emoji: "🤔", 
-          description: "All types of junk food have negative effects on brain health",
           isCorrect: false
         }
       ]
@@ -88,21 +86,18 @@ const JunkFoodStory = () => {
           id: "trans", 
           text: "Trans fats", 
           emoji: "🍟", 
-          description: "Trans fats are harmful to brain health",
           isCorrect: false
         },
         { 
           id: "omega", 
           text: "Omega-3 fatty acids", 
           emoji: "🐟", 
-          description: "Omega-3 fatty acids are crucial for brain cell membrane health and cognitive function",
           isCorrect: true
         },
         { 
           id: "sugar", 
           text: "High fructose corn syrup", 
           emoji: "🍬", 
-          description: "High sugar intake harms brain function",
           isCorrect: false
         }
       ]
@@ -115,21 +110,18 @@ const JunkFoodStory = () => {
           id: "crashes", 
           text: "Causes energy crashes", 
           emoji: "📉", 
-          description: "High sugar intake causes blood sugar spikes followed by crashes, leading to decreased focus and irritability",
           isCorrect: true
         },
         { 
           id: "improves", 
           text: "Improves sustained attention", 
           emoji: "📈", 
-          description: "Sugar actually decreases sustained attention",
           isCorrect: false
         },
         { 
           id: "noeffect", 
           text: "Has no effect on focus", 
           emoji: "➡️", 
-          description: "Sugar significantly affects focus and attention",
           isCorrect: false
         }
       ]
@@ -142,21 +134,19 @@ const JunkFoodStory = () => {
           id: "processed", 
           text: "Processed snacks", 
           emoji: "🍪", 
-          description: "Processed snacks cause energy spikes and crashes",
+          
           isCorrect: false
         },
         { 
           id: "sugary", 
           text: "Sugary drinks", 
           emoji: "🥤", 
-          description: "Sugary drinks cause rapid energy spikes followed by crashes",
           isCorrect: false
         },
         { 
           id: "complex", 
           text: "Complex carbohydrates", 
           emoji: "🌾", 
-          description: "Complex carbohydrates provide steady glucose release, maintaining consistent brain energy levels",
           isCorrect: true
         }
       ]
@@ -169,21 +159,18 @@ const JunkFoodStory = () => {
           id: "improves", 
           text: "Improves concentration and grades", 
           emoji: "📚", 
-          description: "A balanced diet rich in nutrients supports optimal brain function, improving concentration, memory, and academic performance",
           isCorrect: true
         },
         { 
           id: "decreases", 
           text: "Decreases test scores", 
           emoji: "📉", 
-          description: "A balanced diet actually improves academic performance",
           isCorrect: false
         },
         { 
           id: "onlyphysical", 
           text: "Only affects physical health", 
           emoji: "💪", 
-          description: "A balanced diet affects both physical and mental health, including brain function",
           isCorrect: false
         }
       ]

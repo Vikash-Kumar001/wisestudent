@@ -31,22 +31,22 @@ const FriendlyAIQuiz = () => {
         { 
           id: "yes", 
           text: "Yes - AI should help us", 
-          emoji: "✅", 
-          description: "AI is created to make our lives better, easier, and safer",
+          emoji: "👍", 
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No - AI should not help", 
-          emoji: "❌", 
-          description: "AI should help people - that's its main purpose",
+          emoji: "👎", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI should definitely help people",
+         
           isCorrect: false
         }
       ]
@@ -59,21 +59,21 @@ const FriendlyAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI must treat everyone fairly and equally",
+          
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, it should be fair", 
           emoji: "⚖️", 
-          description: "A good AI must treat everyone fairly without bias",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it can be unfair", 
           emoji: "🚫", 
-          description: "AI should always be fair to everyone",
+          
           isCorrect: false
         }
       ]
@@ -86,21 +86,18 @@ const FriendlyAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI should definitely protect your data and privacy",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No - Anyone can see it", 
           emoji: "👀", 
-          description: "AI should protect your data and respect privacy",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes - Keep data safe", 
           emoji: "🛡️", 
-          description: "AI should protect your data and respect privacy at all times",
           isCorrect: true
         }
       ]
@@ -113,21 +110,18 @@ const FriendlyAIQuiz = () => {
           id: "yes", 
           text: "Yes - We must teach AI ethics", 
           emoji: "👩‍🏫", 
-          description: "Humans must teach AI what's right and wrong to make it helpful",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No - AI learns alone", 
           emoji: "🤷‍♀️", 
-          description: "Humans need to teach AI ethics and values",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "We must teach AI what's right and wrong",
           isCorrect: false
         }
       ]
@@ -140,21 +134,18 @@ const FriendlyAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI can help, but kindness and teamwork are human superpowers",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No - Humans should still be kind", 
           emoji: "❤️", 
-          description: "AI can help, but kindness and teamwork are human superpowers",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes - Let AI do everything", 
           emoji: "🤖", 
-          description: "AI can help, but humans should still be kind and work together",
           isCorrect: false
         }
       ]

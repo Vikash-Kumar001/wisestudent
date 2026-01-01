@@ -61,21 +61,20 @@ const OverfittingStoryy = () => {
           id: "overfitting", 
           text: "Overfitting AI", 
           emoji: "🤖", 
-          description: "AI became too specialized in red apples and failed to generalize to other fruit colors",
+          
           isCorrect: true
         },
         { 
           id: "perfect", 
           text: "Perfect Model", 
           emoji: "✔️", 
-          description: "A perfect model would recognize all types of fruits, not just one color",
+          
           isCorrect: false
         },
         { 
           id: "underfitting", 
           text: "Underfitting AI", 
           emoji: "📉", 
-          description: "Underfitting means the AI is too simple to learn patterns, not too specialized",
           isCorrect: false
         }
       ]
@@ -88,14 +87,12 @@ const OverfittingStoryy = () => {
           id: "guess", 
           text: "Random Guess", 
           emoji: "🌟", 
-          description: "Random guessing would sometimes be correct, not consistently wrong on green apples",
           isCorrect: false
         },
         { 
           id: "red", 
           text: "Overfitting on Red Apples", 
           emoji: "🤖", 
-          description: "The AI learned only red apples so well that it couldn't recognize other variations",
           isCorrect: true
         },
         
@@ -103,7 +100,6 @@ const OverfittingStoryy = () => {
           id: "broken", 
           text: "Broken Algorithm", 
           emoji: "🔧", 
-          description: "A broken algorithm wouldn't work at all, not just fail on specific cases",
           isCorrect: false
         }
       ]
@@ -117,21 +113,18 @@ const OverfittingStoryy = () => {
           id: "red", 
           text: "Keep red apples only", 
           emoji: "🍎", 
-          description: "Using only one type of data reinforces the overfitting problem",
           isCorrect: false
         },
         { 
           id: "delete", 
           text: "Delete all data", 
           emoji: "🗑️", 
-          description: "Deleting data would eliminate all learning, not improve the model",
           isCorrect: false
         },
         { 
           id: "variety", 
           text: "Train with diverse fruits", 
-          emoji: "🍎🍏🍐", 
-          description: "Adding variety in training data helps AI learn general patterns instead of specific cases",
+          emoji: "🍐", 
           isCorrect: true
         },
       ]
@@ -145,21 +138,18 @@ const OverfittingStoryy = () => {
           id: "good", 
           text: "Overfitting is good", 
           emoji: "✔️", 
-          description: "Overfitting reduces AI's ability to generalize, which is detrimental to performance",
           isCorrect: false
         },
         { 
           id: "avoid", 
           text: "Variety avoids overfitting", 
           emoji: "🤖", 
-          description: "Diverse training data prevents AI from becoming too specialized in limited examples",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore data quality", 
           emoji: "🙈", 
-          description: "Data quality is crucial for AI performance, not something to ignore",
           isCorrect: false
         }
       ]
@@ -172,21 +162,18 @@ const OverfittingStoryy = () => {
           id: "better", 
           text: "Better AI with more data", 
           emoji: "🌟", 
-          description: "More diverse training data leads to more robust and reliable AI systems",
           isCorrect: true
         },
         { 
           id: "stick", 
           text: "Stick to red apples only", 
           emoji: "🍎", 
-          description: "Limiting data variety perpetuates the overfitting problem",
           isCorrect: false
         },
         { 
           id: "complex", 
           text: "Make model more complex", 
           emoji: "🌀", 
-          description: "Increasing complexity without addressing data diversity won't solve overfitting",
           isCorrect: false
         }
       ]

@@ -26,20 +26,20 @@ const AISuperpowerPuzzle = () => {
 
   // AI concepts (left side)
   const leftItems = [
-    { id: 1, name: 'AI is Powerful', emoji: '⚡', description: 'AI has great capabilities' },
-    { id: 2, name: 'AI can Learn', emoji: '🧠', description: 'AI learns from data' },
-    { id: 3, name: 'AI helps Humans', emoji: '🤝', description: 'AI assists people' },
-    { id: 4, name: 'AI needs Ethics', emoji: '⚖️', description: 'AI requires guidelines' },
-    { id: 5, name: 'AI is Fast', emoji: '🚀', description: 'AI processes quickly' }
+    { id: 1, name: 'AI is Powerful', emoji: '⚡',  },
+    { id: 2, name: 'AI can Learn', emoji: '🧠' },
+    { id: 3, name: 'AI helps Humans', emoji: '🤝' },
+    { id: 4, name: 'AI needs Ethics', emoji: '⚖️' },
+    { id: 5, name: 'AI is Fast', emoji: '🚀' }
   ];
 
   // Completions (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'from Data', emoji: '📊', description: 'AI learns from information' }, // Matches left 2 (right position 1)
-    { id: 4, name: 'and Guidelines', emoji: '📋', description: 'AI needs rules to follow' }, // Matches left 4 (right position 2)
-    { id: 1, name: 'but Needs Rules', emoji: '🛡️', description: 'AI needs boundaries' }, // Matches left 1 (right position 3)
-    { id: 5, name: 'Accurate and Helpful', emoji: '✅', description: 'AI is precise and useful' }, // Matches left 5 (right position 4)
-    { id: 3, name: 'solve Problems', emoji: '💡', description: 'AI helps with solutions' } // Matches left 3 (right position 5)
+    { id: 2, name: 'from Data', emoji: '📊' },
+    { id: 4, name: 'and Guidelines', emoji: '📋' },
+    { id: 1, name: 'but Needs Rules', emoji: '🛡️' },
+    { id: 5, name: 'Accurate and Helpful', emoji: '✅' },
+    { id: 3, name: 'solve Problems', emoji: '💡' }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

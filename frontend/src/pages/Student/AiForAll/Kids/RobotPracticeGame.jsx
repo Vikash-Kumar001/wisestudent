@@ -24,21 +24,19 @@ const RobotPracticeGame = () => {
           id: "gripper", 
           text: "Use Gripper Arm", 
           emoji: "💪", 
-          description: "Precision grippers are designed for picking up objects",
+          
           isCorrect: true
         },
         { 
           id: "vacuum", 
           text: "Use Vacuum Suction", 
           emoji: "🧹", 
-          description: "Better for flat surfaces, not ideal for balls",
           isCorrect: false
         },
         { 
           id: "push", 
           text: "Push with Wheel", 
           emoji: "🦾", 
-          description: "Pushing won't securely grasp the ball",
           isCorrect: false
         }
       ],
@@ -52,21 +50,18 @@ const RobotPracticeGame = () => {
           id: "fast", 
           text: "Move Quickly", 
           emoji: "⚡", 
-          description: "Speed increases chance of dropping the block",
           isCorrect: false
         },
         { 
           id: "careful", 
           text: "Move Carefully", 
           emoji: "🦿", 
-          description: "Precise movements prevent dropping the block",
           isCorrect: true
         },
         { 
           id: "drop", 
           text: "Drop from Height", 
           emoji: "💥", 
-          description: "Dropping may damage the block or miss the box",
           isCorrect: false
         }
       ],
@@ -80,21 +75,18 @@ const RobotPracticeGame = () => {
           id: "wave", 
           text: "Friendly Wave", 
           emoji: "👋", 
-          description: "Social gestures help human-robot interaction",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore Human", 
           emoji: "🤐", 
-          description: "Ignoring reduces positive interaction",
           isCorrect: false
         },
         { 
           id: "back", 
           text: "Back Away", 
           emoji: "🚶", 
-          description: "Backing away seems unfriendly to humans",
           isCorrect: false
         }
       ],
@@ -108,21 +100,19 @@ const RobotPracticeGame = () => {
           id: "random", 
           text: "Sort Randomly", 
           emoji: "🔀", 
-          description: "Random sorting defeats the purpose of sorting",
           isCorrect: false
         },
         { 
           id: "skip", 
           text: "Skip Sorting", 
           emoji: "⏭️", 
-          description: "Skipping means the task isn't completed",
           isCorrect: false
         },
         { 
           id: "vision", 
           text: "Use Shape Recognition", 
           emoji: "👁️", 
-          description: "Computer vision identifies shapes accurately",
+          
           isCorrect: true
         }
       ],
@@ -136,21 +126,18 @@ const RobotPracticeGame = () => {
           id: "steady", 
           text: "Push Steadily", 
           emoji: "✊", 
-          description: "Consistent force moves the car smoothly",
           isCorrect: true
         },
         { 
           id: "hard", 
           text: "Push Very Hard", 
           emoji: "💪", 
-          description: "Excessive force might damage the toy",
           isCorrect: false
         },
         { 
           id: "gentle", 
           text: "Push Too Gently", 
           emoji: "🫣", 
-          description: "Too little force won't move the car effectively",
           isCorrect: false
         }
       ],

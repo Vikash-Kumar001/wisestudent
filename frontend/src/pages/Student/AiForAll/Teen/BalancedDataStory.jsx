@@ -61,21 +61,19 @@ const BalancedDataStory = () => {
           id: "balanced", 
           text: "Lack of balanced data", 
           emoji: "🌙", 
-          description: "AI trained only on daytime photos lacks the diversity needed to recognize objects in different lighting conditions",
+          
           isCorrect: true
         },
         { 
           id: "hate", 
           text: "AI hates night", 
           emoji: "🌌", 
-          description: "AI doesn't have emotions or preferences - it simply lacks appropriate training data",
           isCorrect: false
         },
         { 
           id: "camera", 
           text: "Camera malfunction", 
           emoji: "📷", 
-          description: "The issue is with the training data, not the camera hardware",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const BalancedDataStory = () => {
           id: "ignore", 
           text: "AI ignores new photos", 
           emoji: "🚫", 
-          description: "Properly designed AI systems incorporate new training data to improve performance",
           isCorrect: false
         },
         { 
           id: "learn", 
           text: "AI learns to recognize at night", 
           emoji: "🌙", 
-          description: "Adding diverse examples helps AI generalize and perform well in different conditions",
           isCorrect: true
         },
         { 
           id: "delete", 
           text: "AI deletes old photos", 
           emoji: "🗑️", 
-          description: "AI retains previous learning while incorporating new data, rather than discarding old information",
           isCorrect: false
         }
       ]
@@ -116,21 +111,18 @@ const BalancedDataStory = () => {
           id: "improve", 
           text: "Balanced data improves AI", 
           emoji: "🌟", 
-          description: "Diverse training data enables AI to handle various real-world scenarios effectively",
           isCorrect: true
         },
         { 
           id: "perfect", 
           text: "AI is always perfect", 
           emoji: "🤖", 
-          description: "Even with good training, AI can still make mistakes and requires continuous improvement",
           isCorrect: false
         },
         { 
           id: "confuse", 
           text: "Night photos confuse AI", 
           emoji: "🌙", 
-          description: "Well-selected diverse data improves rather than degrades AI performance",
           isCorrect: false
         }
       ]
@@ -144,21 +136,18 @@ const BalancedDataStory = () => {
           id: "false", 
           text: "False", 
           emoji: "❌", 
-          description: "Single-condition training inherently limits AI's ability to generalize",
           isCorrect: false
         },
         { 
           id: "depends", 
           text: "Depends on the AI", 
           emoji: "🤔", 
-          description: "Regardless of the AI system, diverse training data is essential for robust performance",
           isCorrect: false
         },
          { 
           id: "true", 
           text: "True", 
           emoji: "✔️", 
-          description: "Limited training data creates blind spots and biases in AI systems",
           isCorrect: true
         },
       ]
@@ -172,21 +161,18 @@ const BalancedDataStory = () => {
           id: "daylight", 
           text: "AI performs best in daylight only", 
           emoji: "🌞", 
-          description: "Limiting AI to one condition creates weaknesses rather than strengths",
           isCorrect: false
         },
          { 
           id: "diverse", 
           text: "AI needs diverse data to perform well", 
           emoji: "🌈", 
-          description: "Diverse training data is fundamental to creating robust and fair AI systems",
           isCorrect: true
         },
         { 
           id: "optional", 
           text: "Night photos are optional", 
           emoji: "🌙", 
-          description: "Comprehensive training data covering various conditions is essential, not optional",
           isCorrect: false
         }
       ]

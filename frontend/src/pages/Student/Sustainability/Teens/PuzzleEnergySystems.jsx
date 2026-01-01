@@ -52,20 +52,20 @@ const PuzzleEnergySystems = () => {
 
   // Energy Sources (left side) - 5 items
   const energySources = [
-    { id: 1, name: "Solar Power", emoji: "☀️", description: "Sun energy" },
-    { id: 2, name: "Wind Power", emoji: "💨", description: "Wind turbines" },
-    { id: 3, name: "Coal Power", emoji: "🏭", description: "Fossil fuel" },
-    { id: 4, name: "Hydro Power", emoji: "💧", description: "Water energy" },
-    { id: 5, name: "Nuclear Power", emoji: "⚛️", description: "Nuclear energy" }
+    { id: 1, name: "Solar Power", emoji: "☀️",  },
+    { id: 2, name: "Wind Power", emoji: "💨",  },
+    { id: 3, name: "Coal Power", emoji: "🏭",  },
+    { id: 4, name: "Hydro Power", emoji: "💧",  },
+    { id: 5, name: "Nuclear Power", emoji: "⚛️",  }
   ];
 
   // Environmental Impacts (right side) - 5 items
   const environmentalImpacts = [
-    { id: 5, name: "Low Emissions", emoji: "🌱", description: "Minimal pollution" },
-    { id: 1, name: "Clean Energy", emoji: "🌿", description: "No direct emissions" },
-    { id: 2, name: "Sustainable", emoji: "♻️", description: "Renewable source" },
-    { id: 3, name: "High Emissions", emoji: "🌫️", description: "Carbon emissions" },
-    { id: 4, name: "Water Dependent", emoji: "🌊", description: "Water usage" }
+    { id: 5, name: "Low Emissions", emoji: "🌱",  },
+    { id: 1, name: "Clean Energy", emoji: "🌿",  },
+    { id: 2, name: "Sustainable", emoji: "♻️",  },
+    { id: 3, name: "High Emissions", emoji: "🌫️",  },
+    { id: 4, name: "Water Dependent", emoji: "🌊",  }
   ];
 
   // Correct matches

@@ -28,28 +28,25 @@ const FaceUnlockSimulation = () => {
           id: "security", 
           text: "Enhance device security", 
           emoji: "🔒", 
-          description: "Protect device access with biometric authentication",
+         
           isCorrect: true
         },
         { 
           id: "convenience", 
           text: "Improve convenience", 
           emoji: "📈", 
-          description: "Make unlocking easier",
           isCorrect: false
         },
         { 
           id: "tracking", 
           text: "Track user behavior", 
           emoji: "👀", 
-          description: "Monitor user activities",
           isCorrect: false
         },
         { 
           id: "advertising", 
           text: "Target advertising", 
           emoji: "📢", 
-          description: "Deliver personalized ads",
           isCorrect: false
         }
       ]
@@ -62,28 +59,24 @@ const FaceUnlockSimulation = () => {
           id: "nlp", 
           text: "Natural Language Processing", 
           emoji: "💬", 
-          description: "Process human language",
           isCorrect: false
         },
         { 
           id: "computerVision", 
           text: "Computer Vision", 
           emoji: "👁️", 
-          description: "Analyze and understand visual content",
           isCorrect: true
         },
         { 
           id: "ml", 
           text: "Machine Learning", 
           emoji: "🤖", 
-          description: "Learn from data patterns",
           isCorrect: false
         },
         { 
           id: "neural", 
           text: "Neural Networks", 
           emoji: "🧠", 
-          description: "Mimic brain structures",
           isCorrect: false
         }
       ]
@@ -96,28 +89,24 @@ const FaceUnlockSimulation = () => {
           id: "battery", 
           text: "Battery consumption", 
           emoji: "🔋", 
-          description: "Drain on device power",
           isCorrect: false
         },
         { 
           id: "biometric", 
           text: "Biometric data storage", 
           emoji: "🗄️", 
-          description: "Secure storage of personal identifiers",
           isCorrect: true
         },
         { 
           id: "speed", 
           text: "Processing speed", 
           emoji: "⏱️", 
-          description: "Time to recognize faces",
           isCorrect: false
         },
         { 
           id: "accuracy", 
           text: "Recognition accuracy", 
           emoji: "🎯", 
-          description: "Correct identification rate",
           isCorrect: false
         }
       ]
@@ -130,28 +119,24 @@ const FaceUnlockSimulation = () => {
           id: "updates", 
           text: "Software updates", 
           emoji: "🔄", 
-          description: "Regular system improvements",
           isCorrect: false
         },
         { 
           id: "learning", 
           text: "Continuous learning", 
           emoji: "📈", 
-          description: "Adapting to user's appearance changes",
           isCorrect: true
         },
         { 
           id: "hardware", 
           text: "Hardware upgrades", 
           emoji: "🔧", 
-          description: "Better camera sensors",
           isCorrect: false
         },
         { 
           id: "network", 
           text: "Network connectivity", 
           emoji: "🌐", 
-          description: "Internet connection quality",
           isCorrect: false
         }
       ]
@@ -164,28 +149,24 @@ const FaceUnlockSimulation = () => {
           id: "lighting", 
           text: "Lighting conditions", 
           emoji: "💡", 
-          description: "Performance in different light environments",
           isCorrect: true
         },
         { 
           id: "color", 
           text: "Screen color quality", 
           emoji: "🎨", 
-          description: "Display color accuracy",
           isCorrect: false
         },
         { 
           id: "size", 
           text: "Device size", 
           emoji: "📏", 
-          description: "Physical dimensions of device",
           isCorrect: false
         },
         { 
           id: "weight", 
           text: "Device weight", 
           emoji: "⚖️", 
-          description: "Physical heaviness of device",
           isCorrect: false
         }
       ]

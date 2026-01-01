@@ -61,21 +61,21 @@ const AIForGoodStory = () => {
           id: "good", 
           text: "Good AI", 
           emoji: "💖", 
-          description: "AI that assists people with disabilities improves accessibility and quality of life",
+         
           isCorrect: true
         },
         { 
           id: "bad", 
           text: "Bad AI", 
           emoji: "⚠️", 
-          description: "AI designed to help people is a positive application of technology",
+          
           isCorrect: false
         },
         { 
           id: "neutral", 
           text: "Neutral AI", 
           emoji: "⚪", 
-          description: "When AI actively helps people, it's making a positive difference in their lives",
+          
           isCorrect: false
         }
       ]
@@ -88,22 +88,20 @@ const AIForGoodStory = () => {
         { 
           id: "no", 
           text: "No, it's wrong", 
-          emoji: "❌", 
-          description: "Energy-saving AI applications help reduce environmental impact",
+          emoji: "👎", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends", 
           emoji: "🤔", 
-          description: "Environmental conservation through AI is generally considered a positive use",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, it's helpful!", 
-          emoji: "✅", 
-          description: "AI that conserves energy contributes to environmental sustainability",
+          emoji: "👍", 
           isCorrect: true
         },
       ]
@@ -117,21 +115,18 @@ const AIForGoodStory = () => {
           id: "no", 
           text: "No, it's unnecessary", 
           emoji: "🚫", 
-          description: "Protecting endangered species and preventing poaching is an important conservation effort",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, saving lives!", 
           emoji: "🫶", 
-          description: "AI that protects wildlife and prevents illegal activities serves the greater good",
           isCorrect: true
         },
         { 
           id: "partial", 
           text: "Partially helpful", 
           emoji: "🟡", 
-          description: "Wildlife protection AI has clear benefits for biodiversity conservation",
           isCorrect: false
         }
       ]
@@ -144,21 +139,18 @@ const AIForGoodStory = () => {
           id: "yes", 
           text: "Yes, helps patients", 
           emoji: "❤️", 
-          description: "AI in healthcare that improves early detection saves lives",
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it replaces doctors", 
           emoji: "🤖", 
-          description: "AI augments doctors' abilities rather than replacing them",
           isCorrect: false
         },
         { 
           id: "concern", 
           text: "Raises privacy concerns", 
           emoji: "🔒", 
-          description: "While privacy is important, life-saving medical AI applications are generally positive",
           isCorrect: false
         }
       ]
@@ -172,21 +164,18 @@ const AIForGoodStory = () => {
           id: "no", 
           text: "No, not useful", 
           emoji: "😐", 
-          description: "Educational AI that helps students learn is a valuable tool",
           isCorrect: false
         },
         { 
           id: "mixed", 
           text: "Mixed results", 
           emoji: "📊", 
-          description: "When properly designed, AI tutoring systems have proven educational benefits",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, supports learning!", 
           emoji: "🌟", 
-          description: "AI that enhances education and makes learning more accessible benefits society",
           isCorrect: true
         },
       ]

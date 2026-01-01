@@ -37,7 +37,7 @@ const TrueFalseAIQuiz = () => {
         { 
           id: "false", 
           text: "False", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -61,7 +61,7 @@ const TrueFalseAIQuiz = () => {
         { 
           id: "false", 
           text: "False", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
@@ -85,7 +85,7 @@ const TrueFalseAIQuiz = () => {
         { 
           id: "false", 
           text: "False", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

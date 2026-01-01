@@ -52,20 +52,20 @@ const PuzzleClimateSolutions = () => {
 
   // Climate Solutions Items (left side) - 5 items
   const climateItems = [
-    { id: 1, name: "Trees", emoji: "🌳", description: "Absorb CO2 from air" },
-    { id: 2, name: "Cars", emoji: "🚗", description: "Produce emissions" },
-    { id: 3, name: "Bikes", emoji: "🚲", description: "Clean transportation" },
-    { id: 4, name: "Solar", emoji: "☀️", description: "Clean energy source" },
-    { id: 5, name: "Plastic", emoji: "♳", description: "Pollutes environment" }
+    { id: 1, name: "Trees", emoji: "🌳",  },
+    { id: 2, name: "Cars", emoji: "🚗",  },
+    { id: 3, name: "Bikes", emoji: "🚲",  },
+    { id: 4, name: "Solar", emoji: "☀️",  },
+    { id: 5, name: "Plastic", emoji: "♳",  }
   ];
 
   // Climate Solutions Methods (right side) - 5 items
   const climateSolutions = [
-    { id: 5, name: "Waste", emoji: "🗑️", description: "Harms environment" },
-    { id: 1, name: "Cool Air", emoji: "❄️", description: "Helps climate" },
-    { id: 2, name: "Pollution", emoji: "🏭", description: "Harms climate" },
-    { id: 3, name: "Clean", emoji: "✨", description: "Good for environment" },
-    { id: 4, name: "Green Energy", emoji: "⚡", description: "Clean power" },
+    { id: 5, name: "Waste", emoji: "🗑️",  },
+    { id: 1, name: "Cool Air", emoji: "❄️",  },
+    { id: 2, name: "Pollution", emoji: "🏭",  },
+    { id: 3, name: "Clean", emoji: "✨",  },
+    { id: 4, name: "Green Energy", emoji: "⚡",  },
   ];
 
   // Correct matches

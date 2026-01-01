@@ -58,10 +58,10 @@ const SimulationDailyRoutinee = () => {
       id: 1,
       text: "4 hrs free. What's the best way to spend it?",
       options: [
-        { id: 'balance', text: 'Sports + study + 1 hr screen', description: 'Balanced approach', isCorrect: true },
-        { id: 'screen', text: 'All screen time', description: 'Unbalanced approach', isCorrect: false },
-        { id: 'ignore', text: 'Ignore free time', description: 'Waste of opportunity', isCorrect: false },
-        { id: 'random', text: 'Random activities', description: 'No structure', isCorrect: false }
+        { id: 'balance', text: 'Sports + study + 1 hr screen',  isCorrect: true },
+        { id: 'screen', text: 'All screen time',  isCorrect: false },
+        { id: 'ignore', text: 'Ignore free time',  isCorrect: false },
+        { id: 'random', text: 'Random activities',  isCorrect: false }
       ],
       correct: 'balance',
       explanation: 'A balanced approach with sports, study, and limited screen time promotes physical health, learning, and entertainment!'
@@ -70,10 +70,10 @@ const SimulationDailyRoutinee = () => {
       id: 2,
       text: "You have 3 hours free. What's the best way to spend it?",
       options: [
-        { id: 'only', text: 'Only screen time', description: 'Unbalanced', isCorrect: false },
-        { id: 'mix', text: 'Mix of exercise, study, and relaxation', description: 'Well-rounded', isCorrect: true },
-        { id: 'nothing', text: 'Do nothing', description: 'Waste of time', isCorrect: false },
-        { id: 'stress', text: 'Stress about time', description: 'Unproductive', isCorrect: false }
+        { id: 'only', text: 'Only screen time',  isCorrect: false },
+        { id: 'mix', text: 'Mix of exercise, study, and relaxation',  isCorrect: true },
+        { id: 'nothing', text: 'Do nothing',  isCorrect: false },
+        { id: 'stress', text: 'Stress about time',  isCorrect: false }
       ],
       correct: 'mix',
       explanation: 'A mix of physical activity, mental stimulation, and relaxation creates a healthy, balanced routine!'
@@ -82,10 +82,10 @@ const SimulationDailyRoutinee = () => {
       id: 3,
       text: "How should you balance screen time with other activities?",
       options: [
-        { id: 'all', text: 'Screen time all the time', description: 'Unhealthy', isCorrect: false },
-        { id: 'avoid', text: 'Avoid all activities', description: 'No balance', isCorrect: false },
-        { id: 'random', text: 'No plan or structure', description: 'Chaotic', isCorrect: false },
-        { id: 'limit', text: 'Set limits and include other activities', description: 'Healthy balance', isCorrect: true }
+        { id: 'all', text: 'Screen time all the time',  isCorrect: false },
+        { id: 'avoid', text: 'Avoid all activities',  isCorrect: false },
+        { id: 'random', text: 'No plan or structure',  isCorrect: false },
+        { id: 'limit', text: 'Set limits and include other activities',  isCorrect: true }
       ],
       correct: 'limit',
       explanation: 'Setting screen time limits and including physical activity, study, and social time creates a healthy daily routine!'
@@ -94,10 +94,10 @@ const SimulationDailyRoutinee = () => {
       id: 4,
       text: "What's the benefit of a balanced daily routine?",
       options: [
-        { id: 'benefits', text: 'Better health, learning, and well-being', description: 'Multiple benefits', isCorrect: true },
-        { id: 'none', text: 'No benefits', description: 'Incorrect', isCorrect: false },
-        { id: 'stress', text: 'More stress', description: 'False', isCorrect: false },
-        { id: 'boring', text: 'Makes life boring', description: 'Misconception', isCorrect: false }
+        { id: 'benefits', text: 'Better health, learning, and well-being',  isCorrect: true },
+        { id: 'none', text: 'No benefits',  isCorrect: false },
+        { id: 'stress', text: 'More stress',  isCorrect: false },
+        { id: 'boring', text: 'Makes life boring',  isCorrect: false }
       ],
       correct: 'benefits',
       explanation: 'A balanced routine improves physical health, enhances learning, reduces stress, and promotes overall well-being!'
@@ -106,10 +106,10 @@ const SimulationDailyRoutinee = () => {
       id: 5,
       text: "What makes a daily routine effective?",
       options: [
-        { id: 'only', text: 'Only one type of activity', description: 'Unbalanced', isCorrect: false },
-        { id: 'no', text: 'No structure at all', description: 'Ineffective', isCorrect: false },
-        { id: 'extreme', text: 'Extreme focus on one thing', description: 'Unhealthy', isCorrect: false },
-        { id: 'effective', text: 'Balance of work, play, and rest', description: 'Comprehensive', isCorrect: true }
+        { id: 'only', text: 'Only one type of activity', isCorrect: false },
+        { id: 'no', text: 'No structure at all', isCorrect: false },
+        { id: 'extreme', text: 'Extreme focus on one thing', isCorrect: false },
+        { id: 'effective', text: 'Balance of work, play, and rest', isCorrect: true }
       ],
       correct: 'effective',
       explanation: 'An effective routine balances work (studies), play (entertainment), and rest (sleep/relaxation) for optimal well-being!'

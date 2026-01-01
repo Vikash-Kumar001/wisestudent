@@ -36,21 +36,21 @@ const SpotStereotype = () => {
           id: "stereotype1", 
           text: "Girls can't play football.", 
           emoji: "🚫", 
-          description: "Unfair assumption about girls",
+          // description: "Unfair assumption about girls",
           isCorrect: true 
         },
         { 
           id: "fact1", 
           text: "Everyone likes ice cream.", 
           emoji: "🍦", 
-          description: "General preference, not a stereotype",
+          // description: "General preference, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "fact2", 
           text: "Kids go to school.", 
           emoji: "📚", 
-          description: "A fact, not a stereotype",
+          // description: "A fact, not a stereotype",
           isCorrect: false 
         }
       ]
@@ -64,21 +64,21 @@ const SpotStereotype = () => {
           id: "fact3", 
           text: "Friends help each other.", 
           emoji: "🤝", 
-          description: "A positive fact, not a stereotype",
+          // description: "A positive fact, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "stereotype2", 
           text: "Moms cook, dads work.", 
           emoji: "👨‍👩‍👧", 
-          description: "Gender role stereotype",
+          // description: "Gender role stereotype",
           isCorrect: true 
         },
         { 
           id: "fact4", 
           text: "We all need food.", 
           emoji: "🍎", 
-          description: "A fact, not a stereotype",
+          // description: "A fact, not a stereotype",
           isCorrect: false 
         }
       ]
@@ -92,21 +92,21 @@ const SpotStereotype = () => {
           id: "stereotype3", 
           text: "Boys are strong, girls are weak.", 
           emoji: "💪", 
-          description: "Unfair gender stereotype",
+          // description: "Unfair gender stereotype",
           isCorrect: true 
         },
         { 
           id: "fact5", 
           text: "Playtime is fun.", 
           emoji: "🎮", 
-          description: "A fact, not a stereotype",
+          // description: "A fact, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "fact6", 
           text: "We should be kind to others.", 
           emoji: "❤️", 
-          description: "A value, not a stereotype",
+          // description: "A value, not a stereotype",
           isCorrect: false 
         }
       ]
@@ -120,21 +120,21 @@ const SpotStereotype = () => {
           id: "fact7", 
           text: "Everyone deserves respect.", 
           emoji: "🙏", 
-          description: "A value, not a stereotype",
+          // description: "A value, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "fact8", 
           text: "Learning is important.", 
           emoji: "📖", 
-          description: "A fact, not a stereotype",
+          // description: "A fact, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "stereotype4", 
           text: "Doctors are men.", 
           emoji: "👨‍⚕️", 
-          description: "Gender career stereotype",
+          // description: "Gender career stereotype",
           isCorrect: true 
         }
       ]
@@ -148,21 +148,21 @@ const SpotStereotype = () => {
           id: "stereotype5", 
           text: "Girls like dolls, boys like cars.", 
           emoji: "🧸", 
-          description: "Gender toy stereotype",
+          // description: "Gender toy stereotype",
           isCorrect: true 
         },
         { 
           id: "fact9", 
           text: "Sharing is caring.", 
           emoji: "💝", 
-          description: "A value, not a stereotype",
+          // description: "A value, not a stereotype",
           isCorrect: false 
         },
         { 
           id: "fact10", 
           text: "Exercise is good for health.", 
           emoji: "🏃", 
-          description: "A fact, not a stereotype",
+          // description: "A fact, not a stereotype",
           isCorrect: false 
         }
       ]

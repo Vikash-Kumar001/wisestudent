@@ -53,20 +53,20 @@ const PuzzleMaterialLife = () => {
 
   // Materials (left side) - 5 items
   const materials = [
-    { id: 1, name: "Bottle", emoji: "🥤", description: "A plastic container" },
-    { id: 2, name: "Box", emoji: "📦", description: "A cardboard container" },
-    { id: 3, name: "Crayon", emoji: "🖍️", description: "A coloring tool" },
-    { id: 4, name: "Jar", emoji: "🫙", description: "A glass container" },
-    { id: 5, name: "T-Shirt", emoji: "👕", description: "A piece of clothing" }
+    { id: 1, name: "Bottle", emoji: "🥤",  },
+    { id: 2, name: "Box", emoji: "📦",  },
+    { id: 3, name: "Crayon", emoji: "🖍️",  },
+    { id: 4, name: "Jar", emoji: "🫙",  },
+    { id: 5, name: "T-Shirt", emoji: "👕",  }
   ];
 
   // Actions (right side) - 5 items
   const actions = [
-    { id: 3, name: "Upcycle", emoji: "🔄", description: "Make new from old" },
-    { id: 5, name: "Donate", emoji: "🎁", description: "Give to others" },
-    { id: 1, name: "Reuse", emoji: "🔄", description: "Use again" },
-    { id: 4, name: "Recycle", emoji: "♻️", description: "Process for new use" },
-    { id: 2, name: "Repurpose", emoji: "🔧", description: "Use for different purpose" }
+    { id: 3, name: "Upcycle", emoji: "🔄",  },
+    { id: 5, name: "Donate", emoji: "🎁",  },
+    { id: 1, name: "Reuse", emoji: "🔄",  },
+    { id: 4, name: "Recycle", emoji: "♻️",  },
+    { id: 2, name: "Repurpose", emoji: "🔧",  }
   ];
 
   // Correct matches

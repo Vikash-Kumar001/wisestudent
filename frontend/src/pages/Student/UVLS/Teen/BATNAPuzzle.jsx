@@ -20,20 +20,20 @@ const BATNAPuzzle = () => {
 
   // Negotiation situations (left side) - 5 items with hints
   const situations = [
-    { id: 1, name: "Buying a Used Car", emoji: "🚗", hint: "Need transportation but on a budget" },
-    { id: 2, name: "Renting an Apartment", emoji: "🏠", hint: "Need housing but have limited funds" },
-    { id: 3, name: "Job Salary Negotiation", emoji: "💼", hint: "Want fair compensation for your work" },
-    { id: 4, name: "Group Project Deadline", emoji: "📋", hint: "Team isn't meeting commitments" },
-    { id: 5, name: "Buying a New Phone", emoji: "📱", hint: "Device broke but need replacement" }
+    { id: 1, name: "Buying a Used Car", emoji: "🚗",  },
+    { id: 2, name: "Renting an Apartment", emoji: "🏠",  },
+    { id: 3, name: "Job Salary Negotiation", emoji: "💼",  },
+    { id: 4, name: "Group Project Deadline", emoji: "📋",  },
+    { id: 5, name: "Buying a New Phone", emoji: "📱",  }
   ];
 
   // BATNA options (right side) - 5 items with descriptions
   const batnas = [
-    { id: 6, name: "Another Seller/Walk Away", emoji: "🛒", description: "Research other options or leave deal" },
-    { id: 7, name: "Cheaper Place/Family Stay", emoji: "🏡", description: "Find affordable housing or temporary solution" },
-    { id: 8, name: "Other Job Offers", emoji: "👔", description: "Have competing opportunities" },
-    { id: 9, name: "Independent Work/Extension", emoji: "📅", description: "Work alone or negotiate timeline" },
-    { id: 10, name: "Different Model/Sale Wait", emoji: "🕒", description: "Choose alternative or delay purchase" }
+    { id: 6, name: "Another Seller/Walk Away", emoji: "🛒",  },
+    { id: 7, name: "Cheaper Place/Family Stay", emoji: "🏡",  },
+    { id: 8, name: "Other Job Offers", emoji: "👔",  },
+    { id: 9, name: "Independent Work/Extension", emoji: "📅",  },
+    { id: 10, name: "Different Model/Sale Wait", emoji: "🕒",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

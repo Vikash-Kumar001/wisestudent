@@ -109,7 +109,7 @@ const InterventionRoleplay = () => {
         { 
           id: "b", 
           text: "Agree with them", 
-          emoji: "✅",
+          emoji: "🙃",
           isCorrect: false
         },
         { 

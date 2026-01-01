@@ -24,20 +24,20 @@ const SimpleAlgorithmPuzzle = () => {
 
   // AI Algorithm Steps (left side) - 6 items
   const leftItems = [
-    { id: 5, name: "Deployment", emoji: "🚀", description: "Deploy to production" },
-    { id: 2, name: "Feature Selection", emoji: "🔍", description: "Choose relevant attributes" },
-    { id: 3, name: "Model Training", emoji: "🏋️", description: "Train the algorithm" },
-    { id: 4, name: "Testing & Validation", emoji: "🧪", description: "Validate on test data" },
-    { id: 1, name: "Data Collection", emoji: "📊", description: "Gather training data" },
+    { id: 5, name: "Deployment", emoji: "🚀",  },
+    { id: 2, name: "Feature Selection", emoji: "🔍",  },
+    { id: 3, name: "Model Training", emoji: "🏋️",  },
+    { id: 4, name: "Testing & Validation", emoji: "🧪",  },
+    { id: 1, name: "Data Collection", emoji: "📊",  },
   ];
 
   // Algorithm Order (right side) - 6 items, rearranged to split matches
   const rightItems = [
-    { id: 1, name: "First", emoji: "1️⃣", description: "The beginning step" },
-    { id: 2, name: "Second", emoji: "2️⃣", description: "A middle step" },
-    { id: 3, name: "Third", emoji: "3️⃣", description: "An important step" },
-    { id: 4, name: "Fourth", emoji: "4️⃣", description: "A verification step" },
-    { id: 5, name: "Fifth", emoji: "5️⃣", description: "The final step" },
+    { id: 1, name: "First", emoji: "1️⃣",  },
+    { id: 2, name: "Second", emoji: "2️⃣",  },
+    { id: 3, name: "Third", emoji: "3️⃣",  },
+    { id: 4, name: "Fourth", emoji: "4️⃣",  },
+    { id: 5, name: "Fifth", emoji: "5️⃣",  },
     
   ];
 

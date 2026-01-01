@@ -60,22 +60,22 @@ const SocialMediaStory = () => {
         { 
           id: "no", 
           text: "No, it reduces focus", 
-          emoji: "❌", 
-          description: "Distracts from studying",
+          emoji: "👎", 
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, it helps", 
-          emoji: "✅", 
-          description: "Distracts from learning",
+          emoji: "👍", 
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends on the person", 
           emoji: "🤔", 
-          description: "Always distracting",
+          
           isCorrect: false
         }
       ]
@@ -88,21 +88,19 @@ const SocialMediaStory = () => {
           id: "a", 
           text: "Improves sleep", 
           emoji: "😴", 
-          description: "Disrupts sleep",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Disrupts sleep patterns", 
           emoji: "🌙", 
-          description: "Affects sleep quality",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Has no effect", 
           emoji: "➡️", 
-          description: "Affects sleep",
           isCorrect: false
         }
       ]
@@ -115,21 +113,18 @@ const SocialMediaStory = () => {
           id: "b", 
           text: "Can lead to anxiety and depression", 
           emoji: "😰", 
-          description: "Harms self-esteem",
           isCorrect: true
         },
         { 
           id: "a", 
           text: "Boosts self-esteem", 
           emoji: "📈", 
-          description: "Harms self-esteem",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Only affects adults", 
           emoji: "👤", 
-          description: "Affects all ages",
           isCorrect: false
         }
       ]
@@ -142,21 +137,18 @@ const SocialMediaStory = () => {
           id: "a", 
           text: "Unlimited scrolling anytime", 
           emoji: "📱", 
-          description: "Leads to addiction",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Avoid it completely", 
           emoji: "🚫", 
-          description: "Moderation is key",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Set time limits and take breaks", 
           emoji: "⏰", 
-          description: "Maintains healthy habits",
           isCorrect: true
         }
       ]
@@ -169,21 +161,18 @@ const SocialMediaStory = () => {
           id: "a", 
           text: "Improves communication skills", 
           emoji: "💬", 
-          description: "Reduces real-world skills",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Only affects older people", 
           emoji: "👴", 
-          description: "Affects all ages",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Can reduce empathy and social skills", 
           emoji: "🤝", 
-          description: "Reduces social skills",
           isCorrect: true
         }
       ]

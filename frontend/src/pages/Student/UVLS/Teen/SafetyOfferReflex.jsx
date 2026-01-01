@@ -36,7 +36,7 @@ const SafetyOfferReflex = () => {
       question: "Offer: 'Stranger offers ride.'",
       correctAnswer: "Refuse",
       options: [
-        { text: "Accept", isCorrect: false, emoji: "✅" },
+        { text: "Accept", isCorrect: false, emoji: "😇" },
         { text: "Refuse", isCorrect: true, emoji: "🚫" },
         { text: "Ask questions", isCorrect: false, emoji: "❓" },
         { text: "Negotiate terms", isCorrect: false, emoji: "🤝" }
@@ -47,7 +47,7 @@ const SafetyOfferReflex = () => {
       question: "Offer: 'Friend offers help.'",
       correctAnswer: "Accept",
       options: [
-        { text: "Accept", isCorrect: true, emoji: "✅" },
+        { text: "Accept", isCorrect: true, emoji: "😇" },
         { text: "Refuse", isCorrect: false, emoji: "🚫" },
         { text: "Ask questions", isCorrect: false, emoji: "❓" },
         { text: "Tell others", isCorrect: false, emoji: "📢" }
@@ -58,7 +58,7 @@ const SafetyOfferReflex = () => {
       question: "Offer: 'Unknown online friend asks for personal info.'",
       correctAnswer: "Refuse",
       options: [
-        { text: "Accept", isCorrect: false, emoji: "✅" },
+        { text: "Accept", isCorrect: false, emoji: "😇" },
         { text: "Ask for details", isCorrect: false, emoji: "❓" },
         { text: "Refuse", isCorrect: true, emoji: "🚫" },
         { text: "Share some info", isCorrect: false, emoji: "📝" }
@@ -69,7 +69,7 @@ const SafetyOfferReflex = () => {
       question: "Offer: 'Teacher asks for meeting.'",
       correctAnswer: "Accept",
       options: [
-        { text: "Accept", isCorrect: true, emoji: "✅" },
+        { text: "Accept", isCorrect: true, emoji: "😇" },
         { text: "Ask questions", isCorrect: false, emoji: "❓" },
         { text: "Refuse", isCorrect: false, emoji: "🚫" },
         { text: "Bring friend", isCorrect: false, emoji: "👥" }
@@ -80,7 +80,7 @@ const SafetyOfferReflex = () => {
       question: "Offer: 'Free gift from unknown person.'",
       correctAnswer: "Refuse",
       options: [
-        { text: "Accept", isCorrect: false, emoji: "✅" },
+        { text: "Accept", isCorrect: false, emoji: "😇" },
         { text: "Ask questions", isCorrect: false, emoji: "❓" },
         { text: "Accept with caution", isCorrect: false, emoji: "⚠️" },
         { text: "Refuse", isCorrect: true, emoji: "🚫" },

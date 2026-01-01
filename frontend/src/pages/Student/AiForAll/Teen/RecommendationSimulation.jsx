@@ -28,28 +28,26 @@ const RecommendationSimulation = () => {
           id: "advertise", 
           text: "Advertise products", 
           emoji: "📢", 
-          description: "Promote items to users",
+          
           isCorrect: false
         },
         { 
           id: "suggest", 
           text: "Suggest relevant content", 
           emoji: "🎯", 
-          description: "Provide personalized recommendations",
+          
           isCorrect: true
         },
         { 
           id: "collect", 
           text: "Collect user data", 
           emoji: "📊", 
-          description: "Gather information about users",
           isCorrect: false
         },
         { 
           id: "entertain", 
           text: "Entertain users", 
           emoji: "🎭", 
-          description: "Provide amusement",
           isCorrect: false
         }
       ]
@@ -62,14 +60,12 @@ const RecommendationSimulation = () => {
           id: "collaborative", 
           text: "Collaborative filtering", 
           emoji: "👥", 
-          description: "Recommend based on similar users",
           isCorrect: true
         },
         { 
           id: "content", 
           text: "Content-based filtering", 
           emoji: "📄", 
-          description: "Recommend based on item characteristics",
           isCorrect: false
         },
        
@@ -77,14 +73,12 @@ const RecommendationSimulation = () => {
           id: "hybrid", 
           text: "Hybrid systems", 
           emoji: "🔄", 
-          description: "Combine multiple approaches",
           isCorrect: false
         },
         { 
           id: "demographic", 
           text: "Demographic filtering", 
           emoji: "👤", 
-          description: "Recommend based on user demographics",
           isCorrect: false
         }
       ]
@@ -97,28 +91,24 @@ const RecommendationSimulation = () => {
           id: "cost", 
           text: "Reduced operational costs", 
           emoji: "💰", 
-          description: "Lower expenses for the business",
           isCorrect: false
         },
         { 
           id: "engagement", 
           text: "Increased user engagement", 
           emoji: "📈", 
-          description: "Higher interaction with content",
           isCorrect: true
         },
         { 
           id: "simplicity", 
           text: "Simplified product design", 
           emoji: "✂️", 
-          description: "Easier product development",
           isCorrect: false
         },
         { 
           id: "storage", 
           text: "Reduced data storage needs", 
           emoji: "💾", 
-          description: "Less storage requirements",
           isCorrect: false
         }
       ]
@@ -131,21 +121,18 @@ const RecommendationSimulation = () => {
           id: "accuracy", 
           text: "High accuracy in predictions", 
           emoji: "🎯", 
-          description: "Precise recommendations",
           isCorrect: false
         },
         { 
           id: "speed", 
           text: "Slow processing times", 
           emoji: "🐌", 
-          description: "Delayed recommendations",
           isCorrect: false
         },
         { 
           id: "diversity", 
           text: "Limited exposure to diverse content", 
           emoji: "🌀", 
-          description: "Narrow range of suggestions",
           isCorrect: true
         },
         
@@ -153,7 +140,6 @@ const RecommendationSimulation = () => {
           id: "interface", 
           text: "Complex user interfaces", 
           emoji: "🧩", 
-          description: "Difficult to use systems",
           isCorrect: false
         }
       ]
@@ -167,28 +153,24 @@ const RecommendationSimulation = () => {
           id: "content", 
           text: "Content-based filtering", 
           emoji: "📄", 
-          description: "Based on item characteristics",
           isCorrect: true
         },
         { 
           id: "matrix", 
           text: "Matrix factorization", 
           emoji: "🔢", 
-          description: "Mathematical decomposition technique",
           isCorrect: false
         },
         { 
           id: "clustering", 
           text: "User clustering", 
           emoji: "⏹️", 
-          description: "Grouping similar users",
           isCorrect: false
         },
         { 
           id: "collaborative", 
           text: "Collaborative filtering", 
           emoji: "👥", 
-          description: "Based on similar users",
           isCorrect: false
         },
       ]

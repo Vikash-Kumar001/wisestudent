@@ -38,7 +38,7 @@ const BiasDetectionReflex = () => {
       options: [
         { text: "Unbiased - Just an opinion", isCorrect: false, emoji: "💭" },
         { text: "Biased - Makes a generalization", isCorrect: true, emoji: "⚠️" },
-        { text: "Unbiased - It's true", isCorrect: false, emoji: "✅" },
+        { text: "Unbiased - It's true", isCorrect: false, emoji: "👎" },
         { text: "Biased - But it's okay", isCorrect: false, emoji: "🤷" }
       ]
     },
@@ -49,8 +49,8 @@ const BiasDetectionReflex = () => {
       options: [
         { text: "Biased - Against dry things", isCorrect: false, emoji: "💧" },
         { text: "Biased - Wet preference", isCorrect: false, emoji: "🎯" },
-        { text: "Unbiased - Factual statement", isCorrect: true, emoji: "✅" },
-        { text: "Unbiased - But it's wrong", isCorrect: false, emoji: "❌" }
+        { text: "Unbiased - Factual statement", isCorrect: true, emoji: "🙂" },
+        { text: "Unbiased - But it's wrong", isCorrect: false, emoji: "🙃" }
       ]
     },
     {
@@ -60,7 +60,7 @@ const BiasDetectionReflex = () => {
       options: [
         { text: "Biased - Generalizes about wealth", isCorrect: true, emoji: "💰" },
         { text: "Unbiased - Just describing", isCorrect: false, emoji: "📝" },
-        { text: "Unbiased - It's accurate", isCorrect: false, emoji: "✅" },
+        { text: "Unbiased - It's accurate", isCorrect: false, emoji: "👍" },
         { text: "Biased - But acceptable", isCorrect: false, emoji: "🤷" }
       ]
     },

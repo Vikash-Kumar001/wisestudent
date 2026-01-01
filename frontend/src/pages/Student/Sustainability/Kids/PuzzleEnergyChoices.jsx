@@ -51,20 +51,20 @@ const PuzzleEnergyChoices = () => {
 
   // Energy Sources (left side) - 5 items
   const energySources = [
-    { id: 1, name: "Sun", emoji: "☀️", description: "Solar energy source" },
-    { id: 2, name: "Wind", emoji: "💨", description: "Wind energy source" },
-    { id: 3, name: "Coal", emoji: "🪨", description: "Fossil fuel energy" },
-    { id: 4, name: "Water", emoji: "💧", description: "Hydro energy source" },
-    { id: 5, name: "Oil", emoji: "🛢️", description: "Fossil fuel energy" }
+    { id: 1, name: "Sun", emoji: "☀️",  },
+    { id: 2, name: "Wind", emoji: "💨",  },
+    { id: 3, name: "Coal", emoji: "🪨",  },
+    { id: 4, name: "Water", emoji: "💧",  },
+    { id: 5, name: "Oil", emoji: "🛢️",  }
   ];
 
   // Energy Types (right side) - 5 items
   const energyTypes = [
-      { id: 2, name: "Clean", emoji: "💨", description: "Renewable energy" },
-      { id: 5, name: "Fossil", emoji: "🛢️", description: "Polluting energy" },
-      { id: 1, name: "Solar", emoji: "☀️", description: "Clean energy" },
-    { id: 3, name: "Dirty", emoji: "🏭", description: "Polluting energy" },
-    { id: 4, name: "Hydro", emoji: "💧", description: "Clean energy" },
+      { id: 2, name: "Clean", emoji: "💨",  },
+      { id: 5, name: "Fossil", emoji: "🛢️",  },
+      { id: 1, name: "Solar", emoji: "☀️",  },
+    { id: 3, name: "Dirty", emoji: "🏭",  },
+    { id: 4, name: "Hydro", emoji: "💧",  },
   ];
 
   // Correct matches

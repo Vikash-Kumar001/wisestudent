@@ -54,20 +54,20 @@ const PuzzleEmotionMatch = () => {
 
   // Emotions (left side)
   const leftItems = [
-    { id: 1, name: 'Fear', emoji: '😨', description: 'Feeling of danger or threat' },
-    { id: 2, name: 'Calm', emoji: '😌', description: 'Peaceful and relaxed state' },
-    { id: 3, name: 'Anger', emoji: '😠', description: 'Strong feeling of displeasure' },
-    { id: 4, name: 'Sadness', emoji: '😢', description: 'Feeling of unhappiness' },
-    { id: 5, name: 'Surprise', emoji: '😲', description: 'Unexpected event or news' }
+    { id: 1, name: 'Fear', emoji: '😨',  },
+    { id: 2, name: 'Calm', emoji: '😌',  },
+    { id: 3, name: 'Anger', emoji: '😠',  },
+    { id: 4, name: 'Sadness', emoji: '😢',  },
+    { id: 5, name: 'Surprise', emoji: '😲',  }
   ];
 
   // Physical responses (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Deep Breathing', emoji: '🌬️', description: 'Slow, controlled breaths for relaxation' }, // Matches Calm (left position 2, right position 1)
-    { id: 1, name: 'Heart Racing', emoji: '💓', description: 'Increased heart rate and alertness' }, // Matches Fear (left position 1, right position 2)
-    { id: 4, name: 'Tears', emoji: '💧', description: 'Emotional release through crying' }, // Matches Sadness (left position 4, right position 3)
-    { id: 3, name: 'Clenched Fists', emoji: '✊', description: 'Tense muscles and body language' }, // Matches Anger (left position 3, right position 4)
-    { id: 5, name: 'Wide Eyes', emoji: '👀', description: 'Eyes open wide in astonishment' } // Matches Surprise (left position 5, right position 5)
+    { id: 2, name: 'Deep Breathing', emoji: '🌬️',  },
+    { id: 1, name: 'Heart Racing', emoji: '💓',  },
+    { id: 4, name: 'Tears', emoji: '💧',  },
+    { id: 3, name: 'Clenched Fists', emoji: '✊',  },
+    { id: 5, name: 'Wide Eyes', emoji: '👀',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

@@ -30,21 +30,21 @@ const HelpElderRoleplay = () => {
           id: "a", 
           text: "Let me help you pick that up", 
           emoji: "🛍️", 
-          description: "Polite and helpful",
+          // description: "Polite and helpful",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "That's your problem!", 
           emoji: "🤬", 
-          description: "Rude and unhelpful",
+          // description: "Rude and unhelpful",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore them", 
           emoji: "🙈", 
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const HelpElderRoleplay = () => {
           id: "b", 
           text: "Go alone!", 
           emoji: "😠", 
-          description: "Rude and unhelpful",
+          // description: "Rude and unhelpful",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Can I help you cross?", 
           emoji: "🛣️", 
-          description: "Polite and helpful",
+          // description: "Polite and helpful",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Look away", 
           emoji: "👀", 
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const HelpElderRoleplay = () => {
           id: "b", 
           text: "Too bad for you", 
           emoji: "🤷", 
-          description: "Rude and unhelpful",
+          // description: "Rude and unhelpful",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Laugh at them", 
           emoji: "😂", 
-          description: "Very rude",
+          // description: "Very rude",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Let me carry that for you", 
           emoji: "💪", 
-          description: "Polite and helpful",
+          // description: "Polite and helpful",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const HelpElderRoleplay = () => {
           id: "a", 
           text: "Listen politely", 
           emoji: "👂", 
-          description: "Respectful and kind",
+          // description: "Respectful and kind",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Interrupt rudely", 
           emoji: "🛑", 
-          description: "Disrespectful",
+          // description: "Disrespectful",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Walk away", 
           emoji: "🚶", 
-          description: "Not respectful",
+          // description: "Not respectful",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const HelpElderRoleplay = () => {
           id: "b", 
           text: "Ignore them", 
           emoji: "🫥", 
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Tease them about their age", 
           emoji: "😏", 
-          description: "Very rude",
+          // description: "Very rude",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Chat with them kindly", 
           emoji: "🗣️", 
-          description: "Polite and friendly",
+          // description: "Polite and friendly",
           isCorrect: true 
         }
       ]

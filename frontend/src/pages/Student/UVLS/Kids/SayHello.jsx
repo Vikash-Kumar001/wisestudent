@@ -30,21 +30,21 @@ const SayHello = () => {
           id: "a", 
           text: "Hi, nice to meet you!", 
           emoji: "👋", 
-          description: "Polite and friendly greeting",
+          // description: "Polite and friendly greeting",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Hey you!", 
           emoji: "🗣️", 
-          description: "Too casual and impolite",
+          // description: "Too casual and impolite",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore", 
           emoji: "🙈", 
-          description: "Not greeting at all",
+          // description: "Not greeting at all",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const SayHello = () => {
           id: "b", 
           text: "Yo!", 
           emoji: "✌️", 
-          description: "Too casual for a teacher",
+          // description: "Too casual for a teacher",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Good morning, teacher!", 
           emoji: "🌅", 
-          description: "Polite and respectful",
+          // description: "Polite and respectful",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Walk past", 
           emoji: "🚶", 
-          description: "Not greeting at all",
+          // description: "Not greeting at all",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const SayHello = () => {
           id: "b", 
           text: "What?", 
           emoji: "🤨", 
-          description: "Rude and impolite",
+          // description: "Rude and impolite",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Stare", 
           emoji: "👀", 
-          description: "Not greeting at all",
+          // description: "Not greeting at all",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Hello, how are you?", 
           emoji: "🏡", 
-          description: "Polite and friendly",
+          // description: "Polite and friendly",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const SayHello = () => {
           id: "b", 
           text: "Ugh", 
           emoji: "😩", 
-          description: "Rude and disrespectful",
+          // description: "Rude and disrespectful",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Hi mom/dad!", 
           emoji: "👨‍👩‍👧", 
-          description: "Warm and polite",
+          // description: "Warm and polite",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "No talk", 
           emoji: "🤐", 
-          description: "Not greeting at all",
+          // description: "Not greeting at all",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const SayHello = () => {
           id: "b", 
           text: "Move over!", 
           emoji: "👉", 
-          description: "Rude and impolite",
+          // description: "Rude and impolite",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Silence", 
           emoji: "🫥", 
-          description: "Not greeting at all",
+          // description: "Not greeting at all",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Hello, what's your name?", 
           emoji: "📚", 
-          description: "Polite and friendly",
+          // description: "Polite and friendly",
           isCorrect: true 
         }
       ]

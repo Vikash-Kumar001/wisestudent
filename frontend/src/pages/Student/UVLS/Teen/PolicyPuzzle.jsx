@@ -20,20 +20,20 @@ const PolicyPuzzle = () => {
 
   // School policies (left side) - 5 items with hints
   const policies = [
-    { id: 1, name: "No Phones Allowed", emoji: "📱", hint: "Restricting device usage during school hours" },
-    { id: 2, name: "Mandatory Uniforms", emoji: "👕", hint: "Requiring specific clothing for all students" },
-    { id: 3, name: "Daily Homework", emoji: "📚", hint: "Assigning work to be completed at home" },
-    { id: 4, name: "Recess Removal", emoji: "🏃", hint: "Withholding break time as punishment" },
-    { id: 5, name: "Grading on Curve", emoji: "📊", hint: "Comparing student performance relatively" }
+    { id: 1, name: "No Phones Allowed", emoji: "📱",  },
+    { id: 2, name: "Mandatory Uniforms", emoji: "👕",  },
+    { id: 3, name: "Daily Homework", emoji: "📚",  },
+    { id: 4, name: "Recess Removal", emoji: "🏃",  },
+    { id: 5, name: "Grading on Curve", emoji: "📊",  }
   ];
 
   // Policy improvements (right side) - 5 items with descriptions
   const improvements = [
-    { id: 6, name: "Designated Usage", emoji: "⏰", description: "Allow devices during specific educational times" },
-    { id: 7, name: "Flexible Options", emoji: "🎨", description: "Permit variations while maintaining standards" },
-    { id: 8, name: "Project-Based Tasks", emoji: "🎓", description: "Focus on meaningful, engaging assignments" },
-    { id: 9, name: "Constructive Alternatives", emoji: "🔨", description: "Replace punishment with learning opportunities" },
-    { id: 10, name: "Balanced Assessment", emoji: "⚖️", description: "Combine relative and absolute evaluation methods" }
+    { id: 6, name: "Designated Usage", emoji: "⏰",  },
+    { id: 7, name: "Flexible Options", emoji: "🎨",  },
+    { id: 8, name: "Project-Based Tasks", emoji: "🎓",  },
+    { id: 9, name: "Constructive Alternatives", emoji: "🔨",  },
+    { id: 10, name: "Balanced Assessment", emoji: "⚖️",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

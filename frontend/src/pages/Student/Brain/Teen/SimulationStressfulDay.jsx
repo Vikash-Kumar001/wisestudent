@@ -58,10 +58,10 @@ const SimulationStressfulDay = () => {
       id: 1,
       text: "You're having a stressful day. How should you handle your emotions?",
       options: [
-        { id: 'journal', text: 'Journal/talk', description: 'Process emotions healthily', isCorrect: true },
-        { id: 'bottle', text: 'Bottle feelings', description: 'Suppresses emotions', isCorrect: false },
-        { id: 'shout', text: 'Shout', description: 'Escalates situation', isCorrect: false },
-        { id: 'ignore', text: 'Ignore completely', description: 'Doesn\'t address problem', isCorrect: false }
+        { id: 'journal', text: 'Journal/talk',  isCorrect: true },
+        { id: 'bottle', text: 'Bottle feelings',  isCorrect: false },
+        { id: 'shout', text: 'Shout',  isCorrect: false },
+        { id: 'ignore', text: 'Ignore completely',  isCorrect: false }
       ],
       correct: 'journal',
       explanation: 'Journaling or talking to someone helps process emotions healthily, reduces stress, and provides perspective!'
@@ -70,10 +70,10 @@ const SimulationStressfulDay = () => {
       id: 2,
       text: "You receive a bad grade. How should you handle your feelings?",
       options: [
-        { id: 'tantrum', text: 'Throw a tantrum', description: 'Destructive behavior', isCorrect: false },
-        { id: 'process', text: 'Cry then make a plan', description: 'Emotional release + action', isCorrect: true },
-        { id: 'deny', text: 'Deny the grade', description: 'Avoids reality', isCorrect: false },
-        { id: 'blame', text: 'Blame the teacher', description: 'No personal growth', isCorrect: false }
+        { id: 'tantrum', text: 'Throw a tantrum',  isCorrect: false },
+        { id: 'process', text: 'Cry then make a plan',  isCorrect: true },
+        { id: 'deny', text: 'Deny the grade',  isCorrect: false },
+        { id: 'blame', text: 'Blame the teacher',  isCorrect: false }
       ],
       correct: 'process',
       explanation: 'Allowing yourself to feel the emotion, then creating a plan, helps you process and move forward constructively!'
@@ -82,10 +82,10 @@ const SimulationStressfulDay = () => {
       id: 3,
       text: "You have a fight with a friend. What's the best approach?",
       options: [
-        { id: 'ghost', text: 'Ghost them', description: 'Damages relationship', isCorrect: false },
-        { id: 'wait', text: 'Wait for them to apologize', description: 'Creates stalemate', isCorrect: false },
-        { id: 'apologize', text: 'Apologize first if needed', description: 'Shows maturity', isCorrect: true },
-        { id: 'ignore', text: 'Ignore the conflict', description: 'Doesn\'t resolve issue', isCorrect: false }
+        { id: 'ghost', text: 'Ghost them',  isCorrect: false },
+        { id: 'wait', text: 'Wait for them to apologize',  isCorrect: false },
+        { id: 'apologize', text: 'Apologize first if needed',  isCorrect: true },
+        { id: 'ignore', text: 'Ignore the conflict',  isCorrect: false }
       ],
       correct: 'apologize',
       explanation: 'Taking responsibility and apologizing when appropriate mends relationships and shows emotional maturity!'
@@ -94,10 +94,10 @@ const SimulationStressfulDay = () => {
       id: 4,
       text: "You're overwhelmed with tasks. What should you do?",
       options: [
-        { id: 'prioritize', text: 'Prioritize & break down', description: 'Makes tasks manageable', isCorrect: true },
-        { id: 'panic', text: 'Panic and quit', description: 'Gives up control', isCorrect: false },
-        { id: 'rush', text: 'Rush through everything', description: 'Increases errors', isCorrect: false },
-        { id: 'avoid', text: 'Avoid all tasks', description: 'Makes situation worse', isCorrect: false }
+        { id: 'prioritize', text: 'Prioritize & break down', isCorrect: true },
+        { id: 'panic', text: 'Panic and quit', isCorrect: false },
+        { id: 'rush', text: 'Rush through everything', isCorrect: false },
+        { id: 'avoid', text: 'Avoid all tasks', isCorrect: false }
       ],
       correct: 'prioritize',
       explanation: 'Breaking tasks into smaller, prioritized steps reduces overwhelm and makes everything more manageable!'
@@ -106,10 +106,10 @@ const SimulationStressfulDay = () => {
       id: 5,
       text: "At the end of a stressful day, how should you reflect?",
       options: [
-        { id: 'negative', text: 'Focus on negatives only', description: 'Increases stress', isCorrect: false },
-        { id: 'balanced', text: 'Reflect on positives too', description: 'Builds resilience', isCorrect: true },
-        { id: 'ignore', text: 'Ignore the day', description: 'Misses learning', isCorrect: false },
-        { id: 'dwell', text: 'Dwell on mistakes', description: 'Maintains negative state', isCorrect: false }
+        { id: 'negative', text: 'Focus on negatives only', isCorrect: false },
+        { id: 'balanced', text: 'Reflect on positives too', isCorrect: true },
+        { id: 'ignore', text: 'Ignore the day', isCorrect: false },
+        { id: 'dwell', text: 'Dwell on mistakes', isCorrect: false }
       ],
       correct: 'balanced',
       explanation: 'Balanced reflection that includes positives helps build resilience and sets a better tone for the next day!'

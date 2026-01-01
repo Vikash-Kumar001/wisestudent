@@ -59,21 +59,21 @@ const CulturalGreeting = () => {
           id: "a", 
           text: "Bow slightly and say 'Konnichiwa'", 
           emoji: "🇯🇵",
-          description: "Shows respect for their culture",
+          // description: "Shows respect for their culture",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "High five enthusiastically", 
           emoji: "🙌",
-          description: "May be too informal",
+          // description: "May be too informal",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Hug them immediately", 
           emoji: "🤗",
-          description: "Personal space is valued",
+          // description: "Personal space is valued",
           isCorrect: false
         }
       ]
@@ -86,21 +86,21 @@ const CulturalGreeting = () => {
           id: "b", 
           text: "Hey dude!", 
           emoji: "👋",
-          description: "Too casual",
+          // description: "Too casual",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Use respectful title (Sir/Ma'am) and maintain eye contact", 
           emoji: "👴",
-          description: "Shows proper respect",
+          // description: "Shows proper respect",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Ignore them", 
           emoji: "🙈",
-          description: "Disrespectful",
+          // description: "Disrespectful",
           isCorrect: false
         }
       ]
@@ -113,21 +113,21 @@ const CulturalGreeting = () => {
           id: "a", 
           text: "Ramadan Mubarak! How is your fast going?", 
           emoji: "🕌",
-          description: "Acknowledges their practice",
+          // description: "Acknowledges their practice",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Want some food?", 
           emoji: "🍽️",
-          description: "Insensitive to fasting",
+          // description: "Insensitive to fasting",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Why aren't you eating?", 
           emoji: "❓",
-          description: "Shows lack of awareness",
+          // description: "Shows lack of awareness",
           isCorrect: false
         }
       ]
@@ -140,21 +140,21 @@ const CulturalGreeting = () => {
           id: "b", 
           text: "Yo, what's up!", 
           emoji: "👋",
-          description: "Too informal",
+          // description: "Too informal",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Hey teacher!", 
           emoji: "👋",
-          description: "Lacks proper respect",
+          // description: "Lacks proper respect",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Good morning, [Title] [Last Name]", 
           emoji: "👨‍🏫",
-          description: "Professional and respectful",
+          // description: "Professional and respectful",
           isCorrect: true
         }
       ]
@@ -167,21 +167,21 @@ const CulturalGreeting = () => {
           id: "a", 
           text: "Make eye contact and greet them normally at their level", 
           emoji: "♿",
-          description: "Treats them equally",
+          // description: "Treats them equally",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Lean down and speak slowly like to a child", 
           emoji: "😕",
-          description: "Condescending",
+          // description: "Condescending",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Avoid greeting to not seem awkward", 
           emoji: "🙈",
-          description: "Exclusionary",
+          // description: "Exclusionary",
           isCorrect: false
         }
       ]

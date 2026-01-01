@@ -20,20 +20,20 @@ const TriggerMapPuzzle = () => {
 
   // Emotional triggers (left side) - 5 items with hints
   const triggers = [
-    { id: 1, name: "Angry", emoji: "😠", hint: "Feeling mad or upset" },
-    { id: 2, name: "Sad", emoji: "😢", hint: "Feeling down or unhappy" },
-    { id: 3, name: "Scared", emoji: "😨", hint: "Feeling afraid or nervous" },
-    { id: 4, name: "Frustrated", emoji: "😤", hint: "Feeling annoyed or irritated" },
-    { id: 5, name: "Lonely", emoji: "😔", hint: "Feeling isolated or alone" }
+    { id: 1, name: "Angry", emoji: "😠",  },
+    { id: 2, name: "Sad", emoji: "😢",  },
+    { id: 3, name: "Scared", emoji: "😨",  },
+    { id: 4, name: "Frustrated", emoji: "😤",  },
+    { id: 5, name: "Lonely", emoji: "😔",  }
   ];
 
   // Calming strategies (right side) - 5 items with descriptions
   const calms = [
-    { id: 6, name: "Deep Breathing", emoji: "💨", description: "Taking slow, deep breaths" },
-    { id: 7, name: "Talking", emoji: "🗣️", description: "Sharing feelings with someone" },
-    { id: 8, name: "Walking", emoji: "🚶", description: "Moving your body gently" },
-    { id: 9, name: "Listening Music", emoji: "🎵", description: "Enjoying soothing sounds" },
-    { id: 10, name: "Calling Friend", emoji: "📞", description: "Connecting with loved ones" }
+    { id: 6, name: "Deep Breathing", emoji: "💨",  },
+    { id: 7, name: "Talking", emoji: "🗣️",  },
+    { id: 8, name: "Walking", emoji: "🚶",  },
+    { id: 9, name: "Listening Music", emoji: "🎵",  },
+    { id: 10, name: "Calling Friend", emoji: "📞",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

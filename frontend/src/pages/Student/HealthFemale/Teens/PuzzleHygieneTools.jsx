@@ -20,20 +20,20 @@ const PuzzleHygieneTools = () => {
   
   // Hygiene Tools (left side) - 5 items
   const tools = [
-    { id: 1, name: "Face Wash", emoji: "🧴", hint: "Cleanser for facial skin" },
-    { id: 2, name: "Pad", emoji: "🩹", hint: "Absorbent product for menstrual flow" },
-    { id: 3, name: "Soap", emoji: "🧼", hint: "Cleansing agent for body hygiene" },
-    { id: 4, name: "Deodorant", emoji: "🌸", hint: "Product for reducing body odor" },
-    { id: 5, name: "Shampoo", emoji: "🧴", hint: "Cleanser for hair and scalp" }
+    { id: 1, name: "Face Wash", emoji: "🧴",  },
+    { id: 2, name: "Pad", emoji: "🩹",  },
+    { id: 3, name: "Soap", emoji: "🧼",  },
+    { id: 4, name: "Deodorant", emoji: "🌸",  },
+    { id: 5, name: "Shampoo", emoji: "🧴",  }
   ];
   
   // Uses (right side) - 5 items (shuffled order)
   const uses = [
-    { id: 3, text: "Cleans body and removes germs", hint: "General hygiene product" },
-    { id: 5, text: "Cleanses hair and scalp", hint: "Hair care product" },
-    { id: 1, text: "Cleans facial skin and prevents acne", hint: "Facial care product" },
-    { id: 4, text: "Reduces underarm body odor", hint: "Odor control product" },
-    { id: 2, text: "Manages menstrual blood flow", hint: "Menstrual hygiene product" }
+    { id: 3, text: "Cleans body and removes germs",  },
+    { id: 5, text: "Cleanses hair and scalp",  },
+    { id: 1, text: "Cleans facial skin and prevents acne",  },
+    { id: 4, text: "Reduces underarm body odor",  },
+    { id: 2, text: "Manages menstrual blood flow",  }
   ];
   
   // Correct matches

@@ -20,20 +20,20 @@ const PublicBudgetPuzzle = () => {
 
   // Community needs (left side) - 5 items with hints
   const needs = [
-    { id: 1, name: "Education Resources", emoji: "📚", hint: "Materials and tools for learning" },
-    { id: 2, name: "Healthcare Services", emoji: "🏥", hint: "Medical care and wellness support" },
-    { id: 3, name: "Infrastructure", emoji: "🏗️", hint: "Roads, buildings, and utilities" },
-    { id: 4, name: "Public Safety", emoji: "👮", hint: "Protection and emergency services" },
-    { id: 5, name: "Environmental Care", emoji: "🌳", hint: "Green spaces and pollution control" }
+    { id: 1, name: "Education Resources", emoji: "📚",  },
+    { id: 2, name: "Healthcare Services", emoji: "🏥",  },
+    { id: 3, name: "Infrastructure", emoji: "🏗️",  },
+    { id: 4, name: "Public Safety", emoji: "👮",  },
+    { id: 5, name: "Environmental Care", emoji: "🌳",  }
   ];
 
   // Budget priorities (right side) - 5 items with descriptions
   const priorities = [
-    { id: 6, name: "High Impact", emoji: "🎯", description: "Maximum benefit for the community" },
-    { id: 7, name: "Urgent Care", emoji: "🚑", description: "Immediate attention required" },
-    { id: 8, name: "Long-term Value", emoji: "📈", description: "Sustainable future benefits" },
-    { id: 9, name: "Risk Prevention", emoji: "🛡️", description: "Protect against potential dangers" },
-    { id: 10, name: "Quality of Life", emoji: "😊", description: "Enhances daily living conditions" }
+    { id: 6, name: "High Impact", emoji: "🎯",  },
+    { id: 7, name: "Urgent Care", emoji: "🚑",  },
+    { id: 8, name: "Long-term Value", emoji: "📈",  },
+    { id: 9, name: "Risk Prevention", emoji: "🛡️",  },
+    { id: 10, name: "Quality of Life", emoji: "😊",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

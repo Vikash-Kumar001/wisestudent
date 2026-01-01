@@ -39,9 +39,9 @@ const TrueFalseReflex = () => {
       question: "Is this true or false: The sun is hot.",
       correctAnswer: "True",
       options: [
-        { text: "True", isCorrect: true, emoji: "✅" },
-        { text: "False", isCorrect: false, emoji: "❌" },
+        { text: "False", isCorrect: false, emoji: "👎" },
         { text: "Maybe", isCorrect: false, emoji: "🤔" },
+        { text: "True", isCorrect: true, emoji: "👍" },
         { text: "I don't know", isCorrect: false, emoji: "🙈" }
       ]
     },
@@ -50,8 +50,8 @@ const TrueFalseReflex = () => {
       question: "Is this true or false: Water is wet.",
       correctAnswer: "True",
       options: [
-        { text: "False", isCorrect: false, emoji: "❌" },
-        { text: "True", isCorrect: true, emoji: "✅" },
+        { text: "False", isCorrect: false, emoji: "👎" },
+        { text: "True", isCorrect: true, emoji: "👍" },
         { text: "Maybe", isCorrect: false, emoji: "🤔" },
         { text: "I don't know", isCorrect: false, emoji: "🙈" }
       ]
@@ -61,10 +61,10 @@ const TrueFalseReflex = () => {
       question: "Is this true or false: Dogs can fly.",
       correctAnswer: "False",
       options: [
-        { text: "True", isCorrect: false, emoji: "✅" },
+        { text: "True", isCorrect: false, emoji: "👍" },
         { text: "Maybe", isCorrect: false, emoji: "🤔" },
-        { text: "False", isCorrect: true, emoji: "❌" },
-        { text: "I don't know", isCorrect: false, emoji: "🙈" }
+        { text: "I don't know", isCorrect: false, emoji: "🙈" },
+        { text: "False", isCorrect: true, emoji: "👎" },
       ]
     },
     {
@@ -72,8 +72,8 @@ const TrueFalseReflex = () => {
       question: "Is this true or false: Earth is round.",
       correctAnswer: "True",
       options: [
-        { text: "True", isCorrect: true, emoji: "✅" },
-        { text: "False", isCorrect: false, emoji: "❌" },
+        { text: "True", isCorrect: true, emoji: "👍" },
+        { text: "False", isCorrect: false, emoji: "👎" },
         { text: "Maybe", isCorrect: false, emoji: "🤔" },
         { text: "I don't know", isCorrect: false, emoji: "🙈" }
       ]
@@ -83,10 +83,10 @@ const TrueFalseReflex = () => {
       question: "Is this true or false: Stars shine.",
       correctAnswer: "True",
       options: [
-        { text: "False", isCorrect: false, emoji: "❌" },
+        { text: "False", isCorrect: false, emoji: "👎" },
         { text: "Maybe", isCorrect: false, emoji: "🤔" },
         { text: "I don't know", isCorrect: false, emoji: "🙈" },
-        { text: "True", isCorrect: true, emoji: "✅" }
+        { text: "True", isCorrect: true, emoji: "👍" }
       ]
     }
   ];

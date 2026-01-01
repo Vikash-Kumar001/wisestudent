@@ -52,20 +52,20 @@ const PuzzleDailyHabits = () => {
 
   // Daily Habits (left side) - 5 items
   const dailyHabits = [
-    { id: 1, name: "Turn Off", emoji: "❌", description: "Switch off when not in use" },
-    { id: 2, name: "Leave On", emoji: "✅", description: "Keep running unnecessarily" },
-    { id: 3, name: "Reuse", emoji: "🔄", description: "Use again creatively" },
-    { id: 4, name: "Throw Away", emoji: "🗑️", description: "Discard after use" },
-    { id: 5, name: "Save Water", emoji: "💧", description: "Conserve water usage" }
+    { id: 1, name: "Turn Off", emoji: "📴",  },
+    { id: 2, name: "Leave On", emoji: "⭕",  },
+    { id: 3, name: "Reuse", emoji: "🔄",  },
+    { id: 4, name: "Throw Away", emoji: "🗑️",  },
+    { id: 5, name: "Save Water", emoji: "💧",  }
   ];
 
   // Consequences (right side) - 5 items
   const consequences = [
-    { id: 2, name: "Waste", emoji: "🗑️", description: "Causes harm" },
-    { id: 1, name: "Save", emoji: "💰", description: "Reduces waste" },
-    { id: 3, name: "Smart", emoji: "🧠", description: "Good choice" },
-    { id: 5, name: "Protect", emoji: "🛡️", description: "Helps environment" },
-    { id: 4, name: "Wasteful", emoji: "❌", description: "Bad choice" },
+    { id: 2, name: "Waste", emoji: "🗑️",  },
+    { id: 1, name: "Save", emoji: "💰",  },
+    { id: 3, name: "Smart", emoji: "🧠",  },
+    { id: 5, name: "Protect", emoji: "🛡️",  },
+    { id: 4, name: "Wasteful", emoji: "❌",  },
   ];
 
   // Correct matches

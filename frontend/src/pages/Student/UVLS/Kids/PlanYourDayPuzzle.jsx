@@ -20,20 +20,20 @@ const PlanYourDayPuzzle = () => {
 
   // Daily activities (left side) - 5 items
   const activities = [
-    { id: 1, name: "Study", emoji: "📚", hint: "Learn new things" },
-    { id: 2, name: "Play", emoji: "🎮", hint: "Fun and recreation" },
-    { id: 3, name: "Eat", emoji: "🍽️", hint: "Meal time" },
-    { id: 4, name: "Exercise", emoji: "🏃", hint: "Physical activity" },
-    { id: 5, name: "Sleep", emoji: "😴", hint: "Rest and recharge" }
+    { id: 1, name: "Study", emoji: "📚",  },
+    { id: 2, name: "Play", emoji: "🎮",  },
+    { id: 3, name: "Eat", emoji: "🍽️",  },
+    { id: 4, name: "Exercise", emoji: "🏃",  },
+    { id: 5, name: "Sleep", emoji: "😴",  }
   ];
 
   // Time slots (right side) - 5 items
   const times = [
-    { id: 6, name: "Morning Focus", emoji: "🌅", description: "Best for learning" },
-    { id: 7, name: "Leisure Time", emoji: "🎉", description: "Relax and enjoy" },
-    { id: 8, name: "Meal Break", emoji: "🍎", description: "Eat and nourish" },
-    { id: 9, name: "Energy Boost", emoji: "💪", description: "Physical strength" },
-    { id: 10, name: "Night Rest", emoji: "🌙", description: "Sleep and recover" }
+    { id: 6, name: "Morning Focus", emoji: "🌅",  },
+    { id: 7, name: "Leisure Time", emoji: "🎉",  },
+    { id: 8, name: "Meal Break", emoji: "🍎",  },
+    { id: 9, name: "Energy Boost", emoji: "💪",  },
+    { id: 10, name: "Night Rest", emoji: "🌙",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

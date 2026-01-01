@@ -26,20 +26,20 @@ const DataCleaningPuzzle = () => {
 
   // Data items (left side)
   const leftItems = [
-    { id: 1, name: 'Clear Apple Image', emoji: '🍎', description: 'Good quality image' },
-    { id: 2, name: 'Blurry Image', emoji: '❌', description: 'Poor quality image' },
-    { id: 3, name: 'Complete Data', emoji: '✅', description: 'All information present' },
-    { id: 4, name: 'Incomplete Data', emoji: '⚠️', description: 'Missing information' },
-    { id: 5, name: 'Accurate Label', emoji: '🏷️', description: 'Correctly labeled data' }
+    { id: 1, name: 'Clear Apple Image', emoji: '🍎',  },
+    { id: 2, name: 'Blurry Image', emoji: 'Ⓜ️',  },
+    { id: 3, name: 'Complete Data', emoji: '📊',  },
+    { id: 4, name: 'Incomplete Data', emoji: '⚠️',  },
+    { id: 5, name: 'Accurate Label', emoji: '🏷️',  }
   ];
 
   // Actions (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Remove', emoji: '🗑️', description: 'Delete poor quality data' }, // Matches left 2 (right position 1)
-    { id: 4, name: 'Fix', emoji: '🔧', description: 'Complete missing information' }, // Matches left 4 (right position 2)
-    { id: 1, name: 'Keep', emoji: '✅', description: 'Use good quality data' }, // Matches left 1 (right position 3)
-    { id: 5, name: 'Use', emoji: '👍', description: 'Use correctly labeled data' }, // Matches left 5 (right position 4)
-    { id: 3, name: 'Train With', emoji: '🤖', description: 'Use complete data for training' } // Matches left 3 (right position 5)
+    { id: 2, name: 'Remove', emoji: '🗑️',  },
+    { id: 4, name: 'Fix', emoji: '🔧',  },
+    { id: 1, name: 'Keep', emoji: '🤐',  },
+    { id: 5, name: 'Use', emoji: '👍',  },
+    { id: 3, name: 'Train With', emoji: '🤖',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

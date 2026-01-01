@@ -20,20 +20,20 @@ const CaseResponsePuzzle = () => {
 
   // Social scenarios (left side) - 5 items with hints
   const scenarios = [
-    { id: 1, name: "Friend Seems Withdrawn", emoji: "😔", hint: "Notice someone acting distant or sad" },
-    { id: 2, name: "Classmate Shares Problems", emoji: "💬", hint: "Someone opens up about their struggles" },
-    { id: 3, name: "Peer Falling Behind", emoji: "📚", hint: "Notice someone struggling academically" },
-    { id: 4, name: "Someone Feels Isolated", emoji: "😔", hint: "Person feels misunderstood or alone" },
-    { id: 5, name: "Hesitant About Help", emoji: "🤔", hint: "Someone reluctant to seek professional support" }
+    { id: 1, name: "Friend Seems Withdrawn", emoji: "😔",  },
+    { id: 2, name: "Classmate Shares Problems", emoji: "💬",  },
+    { id: 3, name: "Peer Falling Behind", emoji: "📚",  },
+    { id: 4, name: "Someone Feels Isolated", emoji: "😔",  },
+    { id: 5, name: "Hesitant About Help", emoji: "🤔",  }
   ];
 
   // Supportive responses (right side) - 5 items with descriptions
   const responses = [
-    { id: 6, name: "Gentle Connection", emoji: "🤝", description: "Offer presence without pressure to talk" },
-    { id: 7, name: "Active Listening", emoji: "👂", description: "Validate feelings and show empathy" },
-    { id: 8, name: "Practical Support", emoji: "🛠️", description: "Offer concrete help or resources" },
-    { id: 9, name: "Honest Support", emoji: "💝", description: "Acknowledge limitations but offer presence" },
-    { id: 10, name: "Encourage Help-Seeking", emoji: "💙", description: "Normalize professional support and offer accompaniment" }
+    { id: 6, name: "Gentle Connection", emoji: "🤝",  },
+    { id: 7, name: "Active Listening", emoji: "👂",  },
+    { id: 8, name: "Practical Support", emoji: "🛠️",  },
+    { id: 9, name: "Honest Support", emoji: "💝",  },
+    { id: 10, name: "Encourage Help-Seeking", emoji: "💙",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

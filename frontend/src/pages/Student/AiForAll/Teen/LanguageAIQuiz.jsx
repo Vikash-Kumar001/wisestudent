@@ -59,13 +59,13 @@ const LanguageAIQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓",
+          emoji: "👍",
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -163,13 +163,13 @@ const LanguageAIQuiz = () => {
         { 
           id: 1, 
           text: "Yes, definitely", 
-          emoji: "✅",
+          emoji: "👍",
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No, just sound waves", 
-          emoji: "❌",
+          emoji: "👋",
           isCorrect: false
         },
         { 

@@ -30,21 +30,21 @@ const ActiveListeningQuiz = () => {
           id: "a", 
           text: "Good listening", 
           emoji: "👂", 
-          description: "You should look at them",
+          // description: "You should look at them",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Bad listening", 
           emoji: "🙉", 
-          description: "Looking away shows you're not paying attention",
+          // description: "Looking away shows you're not paying attention",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Okay", 
           emoji: "🤷", 
-          description: "Eye contact is important",
+          // description: "Eye contact is important",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const ActiveListeningQuiz = () => {
           id: "b", 
           text: "Ignoring", 
           emoji: "🙈", 
-          description: "Repeating means you're listening",
+          // description: "Repeating means you're listening",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Active listening", 
           emoji: "🗣️", 
-          description: "Repeating shows you understood",
+          // description: "Repeating shows you understood",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Yelling", 
           emoji: "😠", 
-          description: "Repeating calmly is listening",
+          // description: "Repeating calmly is listening",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const ActiveListeningQuiz = () => {
           id: "b", 
           text: "Good", 
           emoji: "👍", 
-          description: "You should focus on the speaker",
+          // description: "You should focus on the speaker",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Fun", 
           emoji: "😄", 
-          description: "Listening is more important",
+          // description: "Listening is more important",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Bad", 
           emoji: "📱", 
-          description: "Phones distract from listening",
+          // description: "Phones distract from listening",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const ActiveListeningQuiz = () => {
           id: "b", 
           text: "Sleeping", 
           emoji: "😴", 
-          description: "Nodding shows you're awake and listening",
+          // description: "Nodding shows you're awake and listening",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Active listening", 
           emoji: "👀", 
-          description: "Nodding and eye contact show you're engaged",
+          // description: "Nodding and eye contact show you're engaged",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Running", 
           emoji: "🏃", 
-          description: "You're staying still and focused",
+          // description: "You're staying still and focused",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const ActiveListeningQuiz = () => {
           id: "b", 
           text: "Helpful", 
           emoji: "🤝", 
-          description: "Wait for them to finish",
+          // description: "Wait for them to finish",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Quiet", 
           emoji: "🤫", 
-          description: "Interrupting is not quiet",
+          // description: "Interrupting is not quiet",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Poor listening", 
           emoji: "🛑", 
-          description: "Interrupting shows you're not listening well",
+          // description: "Interrupting shows you're not listening well",
           isCorrect: true 
         }
       ]

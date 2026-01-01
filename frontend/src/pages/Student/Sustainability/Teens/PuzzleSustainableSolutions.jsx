@@ -52,20 +52,20 @@ const PuzzleSustainableSolutions = () => {
 
   // Environmental Problems (left side) - 5 items
   const problems = [
-    { id: 1, name: "High Carbon Emissions", emoji: "🌫️", description: "Greenhouse gas release" },
-    { id: 2, name: "Plastic Pollution", emoji: "🥤", description: "Non-biodegradable waste" },
-    { id: 3, name: "Water Waste", emoji: "💧", description: "Excessive consumption" },
-    { id: 4, name: "Deforestation", emoji: "🌳", description: "Forest clearing" },
-    { id: 5, name: "Energy Waste", emoji: "💡", description: "Inefficient usage" }
+    { id: 1, name: "High Carbon Emissions", emoji: "🌫️",  },
+    { id: 2, name: "Plastic Pollution", emoji: "🥤",  },
+    { id: 3, name: "Water Waste", emoji: "💧",  },
+    { id: 4, name: "Deforestation", emoji: "🌳",  },
+    { id: 5, name: "Energy Waste", emoji: "💡",  }
   ];
 
   // Sustainable Solutions (right side) - 5 items
   const solutions = [
-    { id: 3, name: "Water Efficiency", emoji: "🚿", description: "Conservation methods" },
-    { id: 5, name: "Energy Saving", emoji: "🔋", description: "Efficiency measures" },
-    { id: 1, name: "Clean Power", emoji: "☀️", description: "Renewable sources" },
-    { id: 4, name: "Tree Planting", emoji: "🌲", description: "Reforestation efforts" },
-    { id: 2, name: "Plastic Reduction", emoji: "♻️", description: "Minimizing usage" }
+    { id: 3, name: "Water Efficiency", emoji: "🚿",  },
+    { id: 5, name: "Energy Saving", emoji: "🔋",  },
+    { id: 1, name: "Clean Power", emoji: "☀️",  },
+    { id: 4, name: "Tree Planting", emoji: "🌲",  },
+    { id: 2, name: "Plastic Reduction", emoji: "♻️",  }
   ];
 
   // Correct matches

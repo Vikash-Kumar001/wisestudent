@@ -31,7 +31,7 @@ const AIOrNotQuiz = () => {
         { 
           id: "no", 
           text: "No - It's not AI", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
@@ -67,7 +67,7 @@ const AIOrNotQuiz = () => {
         { 
           id: "no", 
           text: "No - It's not AI", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         }
       ]
@@ -91,7 +91,7 @@ const AIOrNotQuiz = () => {
         { 
           id: "no", 
           text: "No - It's not AI", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: true
         }
       ]
@@ -109,7 +109,7 @@ const AIOrNotQuiz = () => {
         { 
           id: "no", 
           text: "No - It's not AI", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -139,7 +139,7 @@ const AIOrNotQuiz = () => {
         { 
           id: "no", 
           text: "No - It's not AI", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         }
       ]

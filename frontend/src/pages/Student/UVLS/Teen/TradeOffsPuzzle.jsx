@@ -20,20 +20,20 @@ const TradeOffsPuzzle = () => {
 
   // Life dilemmas (left side) - 5 items with hints
   const dilemmas = [
-    { id: 1, name: "Study vs Sleep", emoji: "📚", hint: "Academic demands vs rest needs" },
-    { id: 2, name: "Spend vs Save", emoji: "💰", hint: "Immediate wants vs future needs" },
-    { id: 3, name: "Help vs Work", emoji: "👥", hint: "Social obligations vs personal tasks" },
-    { id: 4, name: "Junk vs Healthy", emoji: "🍔", hint: "Tasty indulgence vs nutritious choices" },
-    { id: 5, name: "Social vs Study", emoji: "🎉", hint: "Relationship time vs academic focus" }
+    { id: 1, name: "Study vs Sleep", emoji: "📚",  },
+    { id: 2, name: "Spend vs Save", emoji: "💰",  },
+    { id: 3, name: "Help vs Work", emoji: "👥",  },
+    { id: 4, name: "Junk vs Healthy", emoji: "🍔",  },
+    { id: 5, name: "Social vs Study", emoji: "🎉",  }
   ];
 
   // Balanced solutions (right side) - 5 items with descriptions
   const solutions = [
-    { id: 6, name: "Time Management", emoji: "⏰", description: "Schedule both activities effectively" },
-    { id: 7, name: "Budget Planning", emoji: "📊", description: "Allocate resources for both goals" },
-    { id: 8, name: "Task Prioritization", emoji: "📋", description: "Organize duties to meet all needs" },
-    { id: 9, name: "Moderation Approach", emoji: "⚖️", description: "Find middle ground between extremes" },
-    { id: 10, name: "Balanced Scheduling", emoji: "📅", description: "Dedicate time slots for each priority" }
+    { id: 6, name: "Time Management", emoji: "⏰",  },
+    { id: 7, name: "Budget Planning", emoji: "📊",  },
+    { id: 8, name: "Task Prioritization", emoji: "📋",  },
+    { id: 9, name: "Moderation Approach", emoji: "⚖️",  },
+    { id: 10, name: "Balanced Scheduling", emoji: "📅",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

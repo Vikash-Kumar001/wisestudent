@@ -54,7 +54,7 @@ const FutureOfAIQuiz = () => {
     {
       id: 1,
       text: "Will AI fly cars in 2050?",
-      emoji: "🚗🤖",
+      emoji: "🚗",
       options: [
         { 
           id: 1, 
@@ -65,13 +65,13 @@ const FutureOfAIQuiz = () => {
         { 
           id: 2, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 3, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         }
       ],
@@ -80,13 +80,13 @@ const FutureOfAIQuiz = () => {
     {
       id: 2,
       text: "Will AI teachers replace humans completely?",
-      emoji: "🧑‍🏫🤖",
+      emoji: "🤖",
       options: [
         
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
@@ -98,7 +98,7 @@ const FutureOfAIQuiz = () => {
         { 
           id: 3, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         }
       ],
@@ -107,19 +107,19 @@ const FutureOfAIQuiz = () => {
     {
       id: 3,
       text: "Could AI create its own city one day?",
-      emoji: "🏙️🤖",
+      emoji: "🤖",
       options: [
         
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌",
+          emoji: "👎",
           isCorrect: false
         },
         { 
@@ -140,7 +140,7 @@ const FutureOfAIQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
@@ -152,7 +152,7 @@ const FutureOfAIQuiz = () => {
         { 
           id: 3, 
           text: "No", 
-          emoji: "❌",
+          emoji: "👎",
           isCorrect: false
         }
       ],
@@ -161,7 +161,7 @@ const FutureOfAIQuiz = () => {
     {
       id: 5,
       text: "Can AI dream like humans in the future?",
-      emoji: "💭🤖",
+      emoji: "🤖",
       options: [
         { 
           id: 1, 
@@ -172,13 +172,13 @@ const FutureOfAIQuiz = () => {
         { 
           id: 2, 
           text: "Yes", 
-          emoji: "✅",
+          emoji: "👍",
           isCorrect: false
         },
         { 
           id: 3, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         }
       ],

@@ -36,21 +36,20 @@ const QuizOnHabits = () => {
           id: "a", 
           text: "Balanced diet", 
           emoji: "🥗", 
-          description: "A balanced diet provides essential nutrients that support brain function and cognitive health",
+          
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Sleep late", 
           emoji: "🌙", 
-          description: "Sleeping late disrupts your natural sleep cycle and harms brain health",
+          
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Skip water", 
           emoji: "💧", 
-          description: "Dehydration impairs cognitive function and brain performance",
           isCorrect: false
         }
       ]
@@ -62,22 +61,19 @@ const QuizOnHabits = () => {
         { 
           id: "a", 
           text: "6-7 hours", 
-          emoji: "😴", 
-          description: "This is less than the recommended amount for teens",
+          emoji: "🕰️", 
           isCorrect: false
         },
         { 
           id: "b", 
           text: "8-10 hours", 
-          emoji: "✅", 
-          description: "Teens need 8-10 hours of quality sleep for proper brain development and cognitive performance",
+          emoji: "⏱️", 
           isCorrect: true
         },
         { 
           id: "c", 
           text: "4-5 hours", 
-          emoji: "😰", 
-          description: "This is far too little sleep and severely impacts brain function",
+          emoji: "⌚", 
           isCorrect: false
         }
       ]
@@ -90,21 +86,18 @@ const QuizOnHabits = () => {
           id: "a", 
           text: "Multitasking", 
           emoji: "📱", 
-          description: "Multitasking actually reduces focus and productivity",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Skipping breakfast", 
           emoji: "🍽️", 
-          description: "Skipping breakfast can cause brain fog and reduce concentration",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Regular meditation", 
           emoji: "🧘", 
-          description: "Regular meditation and mindfulness practices improve focus, attention, and emotional regulation",
           isCorrect: true
         }
       ]
@@ -117,21 +110,18 @@ const QuizOnHabits = () => {
           id: "a", 
           text: "Damages brain cells", 
           emoji: "⚠️", 
-          description: "Chronic stress releases cortisol which can damage brain cells and impair memory and learning",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Improves memory", 
           emoji: "📈", 
-          description: "Chronic stress actually harms memory, not improves it",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Has no effect", 
           emoji: "➡️", 
-          description: "Chronic stress has significant negative effects on the brain",
           isCorrect: false
         }
       ]
@@ -144,21 +134,18 @@ const QuizOnHabits = () => {
           id: "a", 
           text: "Watching TV all day", 
           emoji: "📺", 
-          description: "Passive activities like watching TV don't promote neuroplasticity",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Learning new skills", 
           emoji: "🎓", 
-          description: "Learning new skills, languages, or engaging in challenging activities promotes neuroplasticity and brain growth",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Avoiding challenges", 
           emoji: "🚫", 
-          description: "Avoiding challenges prevents the brain from adapting and growing",
           isCorrect: false
         }
       ]

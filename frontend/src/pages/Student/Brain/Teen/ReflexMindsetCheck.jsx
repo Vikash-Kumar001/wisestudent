@@ -35,50 +35,50 @@ const ReflexMindsetCheck = () => {
       id: 1,
       text: "Tap for 'Growth,' avoid 'Give Up.'",
       options: [
-        { id: "growth", text: "Growth Mindset", emoji: "🌱", description: "Believing in improvement", isCorrect: true },
-        { id: "giveup", text: "Give Up", emoji: "🚫", description: "Quitting when challenged", isCorrect: false },
-        { id: "fixed", text: "Fixed Mindset", emoji: "🔒", description: "Believing abilities are fixed", isCorrect: false },
-        { id: "blame", text: "Blame Others", emoji: "👉", description: "Avoiding responsibility", isCorrect: false }
+        { id: "growth", text: "Growth Mindset", emoji: "🌱",  isCorrect: true },
+        { id: "giveup", text: "Give Up", emoji: "🚫",  isCorrect: false },
+        { id: "fixed", text: "Fixed Mindset", emoji: "🔒",  isCorrect: false },
+        { id: "blame", text: "Blame Others", emoji: "👉",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which mindset helps you learn from mistakes?",
       options: [
-        { id: "avoid", text: "Avoid Challenges", emoji: "🏃", description: "Run from difficulties", isCorrect: false },
-        { id: "learn", text: "Learn from Failure", emoji: "📚", description: "See mistakes as lessons", isCorrect: true },
-        { id: "blame", text: "Blame Circumstances", emoji: "🌪️", description: "Externalize all problems", isCorrect: false },
-        { id: "quit", text: "Quit Easily", emoji: "😔", description: "Give up quickly", isCorrect: false }
+        { id: "avoid", text: "Avoid Challenges", emoji: "🏃",  isCorrect: false },
+        { id: "learn", text: "Learn from Failure", emoji: "📚",  isCorrect: true },
+        { id: "blame", text: "Blame Circumstances", emoji: "🌪️",  isCorrect: false },
+        { id: "quit", text: "Quit Easily", emoji: "😔",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps you persist through challenges?",
       options: [
-        { id: "quit", text: "Quit When Hard", emoji: "🚪", description: "Stop at first difficulty", isCorrect: false },
-        { id: "blame", text: "Blame Talent", emoji: "🎭", description: "Believe it's all about talent", isCorrect: false },
-        { id: "avoid", text: "Avoid Effort", emoji: "😴", description: "Don't try hard", isCorrect: false },
-        { id: "persist", text: "Persistence & Effort", emoji: "💪", description: "Keep trying despite setbacks", isCorrect: true }
+        { id: "quit", text: "Quit When Hard", emoji: "🚪",  isCorrect: false },
+        { id: "blame", text: "Blame Talent", emoji: "🎭",  isCorrect: false },
+        { id: "avoid", text: "Avoid Effort", emoji: "😴",  isCorrect: false },
+        { id: "persist", text: "Persistence & Effort", emoji: "💪",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which approach leads to improvement?",
       options: [
-        { id: "practice", text: "Practice & Feedback", emoji: "🎯", description: "Learn through doing", isCorrect: true },
-        { id: "talent", text: "Rely Only on Talent", emoji: "⭐", description: "Believe talent is everything", isCorrect: false },
-        { id: "avoid", text: "Avoid Feedback", emoji: "🙈", description: "Ignore criticism", isCorrect: false },
-        { id: "giveup", text: "Give Up Early", emoji: "😞", description: "Stop trying quickly", isCorrect: false }
+        { id: "practice", text: "Practice & Feedback", emoji: "🎯",  isCorrect: true },
+        { id: "talent", text: "Rely Only on Talent", emoji: "⭐",  isCorrect: false },
+        { id: "avoid", text: "Avoid Feedback", emoji: "🙈",  isCorrect: false },
+        { id: "giveup", text: "Give Up Early", emoji: "😞",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What mindset views challenges as opportunities?",
       options: [
-        { id: "threat", text: "See Challenges as Threats", emoji: "😰", description: "Fear difficulties", isCorrect: false },
-        { id: "avoid", text: "Avoid All Challenges", emoji: "🏃", description: "Run from difficulties", isCorrect: false },
-        { id: "blame", text: "Blame Challenges", emoji: "😠", description: "Resent difficulties", isCorrect: false },
-        { id: "opportunity", text: "See Challenges as Growth", emoji: "🌟", description: "Embrace difficulties", isCorrect: true }
+        { id: "threat", text: "See Challenges as Threats", emoji: "😰",  isCorrect: false },
+        { id: "avoid", text: "Avoid All Challenges", emoji: "🏃",  isCorrect: false },
+        { id: "blame", text: "Blame Challenges", emoji: "😠",  isCorrect: false },
+        { id: "opportunity", text: "See Challenges as Growth", emoji: "🌟",  isCorrect: true }
       ]
     }
   ];

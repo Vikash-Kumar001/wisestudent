@@ -30,50 +30,50 @@ const ReflexEmotionControl = () => {
       id: 1,
       text: "Tap for 'Talk Calmly,' avoid 'Shout.'",
       options: [
-        { id: "talk", text: "Talk Calmly", emoji: "💬😌", description: "De-escalates emotions", isCorrect: true },
-        { id: "shout", text: "Shout", emoji: "🗣️😠", description: "Escalates conflict", isCorrect: false },
-        { id: "ignore", text: "Ignore", emoji: "🙈", description: "Bottles up feelings", isCorrect: false },
-        { id: "yell", text: "Yell Back", emoji: "😡", description: "Increases tension", isCorrect: false }
+        { id: "talk", text: "Talk Calmly", emoji: "💬😌",  isCorrect: true },
+        { id: "shout", text: "Shout", emoji: "🗣️😠",  isCorrect: false },
+        { id: "ignore", text: "Ignore", emoji: "🙈",  isCorrect: false },
+        { id: "yell", text: "Yell Back", emoji: "😡",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which action helps control emotions?",
       options: [
-        { id: "isolate", text: "Isolate Yourself", emoji: "🚶", description: "Reduces support", isCorrect: false },
-        { id: "breathe", text: "Deep Breathing", emoji: "🌬️", description: "Regulates emotional response", isCorrect: true },
-        { id: "panic", text: "Panic", emoji: "😱", description: "Amplifies emotions", isCorrect: false },
-        { id: "freeze", text: "Freeze", emoji: "❄️", description: "Paralyzes response", isCorrect: false }
+        { id: "isolate", text: "Isolate Yourself", emoji: "🚶",  isCorrect: false },
+        { id: "breathe", text: "Deep Breathing", emoji: "🌬️",  isCorrect: true },
+        { id: "panic", text: "Panic", emoji: "😱",  isCorrect: false },
+        { id: "freeze", text: "Freeze", emoji: "❄️",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps manage strong emotions?",
       options: [
-        { id: "impulse", text: "Act Impulsively", emoji: "⚡", description: "Leads to regret", isCorrect: false },
-        { id: "react", text: "React Immediately", emoji: "🔥", description: "Often makes things worse", isCorrect: false },
-        { id: "rush", text: "Rush Into Action", emoji: "🏃", description: "No time to think", isCorrect: false },
-        { id: "pause", text: "Pause & Reflect", emoji: "⏸️🧠", description: "Prevents impulsive actions", isCorrect: true }
+        { id: "impulse", text: "Act Impulsively", emoji: "⚡",  isCorrect: false },
+        { id: "react", text: "React Immediately", emoji: "🔥",  isCorrect: false },
+        { id: "rush", text: "Rush Into Action", emoji: "🏃",  isCorrect: false },
+        { id: "pause", text: "Pause & Reflect", emoji: "⏸️🧠",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which technique helps with negative emotions?",
       options: [
-        { id: "gratitude", text: "Focus on Gratitude", emoji: "🙏", description: "Shifts perspective positively", isCorrect: true },
-        { id: "compare", text: "Compare More", emoji: "📊", description: "Increases negative feelings", isCorrect: false },
-        { id: "dwell", text: "Dwell on Negatives", emoji: "😔", description: "Maintains negative state", isCorrect: false },
-        { id: "blame", text: "Blame Others", emoji: "👉", description: "Creates resentment", isCorrect: false }
+        { id: "gratitude", text: "Focus on Gratitude", emoji: "🙏",  isCorrect: true },
+        { id: "compare", text: "Compare More", emoji: "📊",  isCorrect: false },
+        { id: "dwell", text: "Dwell on Negatives", emoji: "😔",  isCorrect: false },
+        { id: "blame", text: "Blame Others", emoji: "👉",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What helps when feeling anxious?",
       options: [
-        { id: "worry", text: "Worry Loop", emoji: "🔄😟", description: "Amplifies anxiety", isCorrect: false },
-        { id: "avoid", text: "Avoid Everything", emoji: "🏃", description: "Limits life experiences", isCorrect: false },
-        { id: "panic", text: "Panic", emoji: "😱", description: "Increases stress", isCorrect: false },
-        { id: "grounding", text: "Grounding Exercise", emoji: "🌍", description: "Brings you to present moment", isCorrect: true }
+        { id: "worry", text: "Worry Loop", emoji: "🔄😟",  isCorrect: false },
+        { id: "avoid", text: "Avoid Everything", emoji: "🏃",  isCorrect: false },
+        { id: "panic", text: "Panic", emoji: "😱",  isCorrect: false },
+        { id: "grounding", text: "Grounding Exercise", emoji: "🌍",  isCorrect: true }
       ]
     }
   ];

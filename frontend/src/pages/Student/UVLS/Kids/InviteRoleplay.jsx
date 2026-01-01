@@ -36,21 +36,21 @@ const InviteRoleplay = () => {
           id: "invite1", 
           text: "Hey! Want to be in our group?", 
           emoji: "👋", 
-          description: "Direct and welcoming invitation",
+          // description: "Direct and welcoming invitation",
           isCorrect: true 
         },
         { 
           id: "watch", 
           text: "You can watch us if you want", 
           emoji: "👀", 
-          description: "Passive and not inclusive",
+          // description: "Passive and not inclusive",
           isCorrect: false 
         },
         { 
           id: "enough", 
           text: "We already have enough people", 
           emoji: "🚫", 
-          description: "Excludes them from joining",
+          // description: "Excludes them from joining",
           isCorrect: false 
         }
       ]
@@ -64,21 +64,21 @@ const InviteRoleplay = () => {
           id: "figure", 
           text: "Figure it out yourself", 
           emoji: "😒", 
-          description: "Unhelpful and dismissive",
+          // description: "Unhelpful and dismissive",
           isCorrect: false 
         },
         { 
           id: "explain", 
           text: "Want me to explain the game rules?", 
           emoji: "📖", 
-          description: "Offers help and explanation",
+          // description: "Offers help and explanation",
           isCorrect: true 
         },
         { 
           id: "know", 
           text: "Don't you know how to play?", 
           emoji: "🤨", 
-          description: "Makes them feel embarrassed",
+          // description: "Makes them feel embarrassed",
           isCorrect: false 
         }
       ]
@@ -92,21 +92,21 @@ const InviteRoleplay = () => {
           id: "why", 
           text: "Why aren't you with anyone?", 
           emoji: "😕", 
-          description: "Makes them feel uncomfortable",
+          // description: "Makes them feel uncomfortable",
           isCorrect: false 
         },
         { 
           id: "find", 
           text: "You should find your own group", 
           emoji: "🚶", 
-          description: "Excludes them from joining",
+          // description: "Excludes them from joining",
           isCorrect: false 
         },
         { 
           id: "together", 
           text: "Want to create something together?", 
           emoji: "🎨", 
-          description: "Invites them to collaborate",
+          // description: "Invites them to collaborate",
           isCorrect: true 
         }
       ]
@@ -120,21 +120,21 @@ const InviteRoleplay = () => {
           id: "pick", 
           text: "Come join our team! We'd love to have you!", 
           emoji: "🤝", 
-          description: "Welcoming and inclusive invitation",
+          // description: "Welcoming and inclusive invitation",
           isCorrect: true 
         },
         { 
           id: "wait", 
           text: "Maybe next time", 
           emoji: "⏳", 
-          description: "Delays inclusion",
+          // description: "Delays inclusion",
           isCorrect: false 
         },
         { 
           id: "ignore", 
           text: "Pretend you don't see them", 
           emoji: "🙈", 
-          description: "Excludes them completely",
+          // description: "Excludes them completely",
           isCorrect: false 
         }
       ]
@@ -148,21 +148,21 @@ const InviteRoleplay = () => {
           id: "quiet", 
           text: "You're too quiet, speak up", 
           emoji: "😤", 
-          description: "Puts pressure on them",
+          // description: "Puts pressure on them",
           isCorrect: false 
         },
         { 
           id: "welcome", 
           text: "We'd love to hear what you think! Join us!", 
           emoji: "👂", 
-          description: "Encouraging and welcoming",
+          // description: "Encouraging and welcoming",
           isCorrect: true 
         },
         { 
           id: "later", 
           text: "Maybe you can join later", 
           emoji: "⏰", 
-          description: "Postpones their inclusion",
+          // description: "Postpones their inclusion",
           isCorrect: false 
         }
       ]

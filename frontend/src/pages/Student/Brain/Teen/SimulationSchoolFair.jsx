@@ -58,10 +58,10 @@ const SimulationSchoolFair = () => {
       id: 1,
       text: "Budget ₹500. What's the best approach?",
       options: [
-        { id: 'build', text: 'Build model', description: 'Creative and hands-on', isCorrect: true },
-        { id: 'copy', text: 'Copy poster', description: 'Unoriginal approach', isCorrect: false },
-        { id: 'nothing', text: 'Do nothing', description: 'Waste of opportunity', isCorrect: false },
-        { id: 'buy', text: 'Buy ready-made', description: 'No creativity', isCorrect: false }
+        { id: 'build', text: 'Build model',  isCorrect: true },
+        { id: 'copy', text: 'Copy poster',  isCorrect: false },
+        { id: 'nothing', text: 'Do nothing',  isCorrect: false },
+        { id: 'buy', text: 'Buy ready-made',  isCorrect: false }
       ],
       correct: 'build',
       explanation: 'Building a model shows creativity, problem-solving skills, and hands-on learning, making it the best choice!'
@@ -70,10 +70,10 @@ const SimulationSchoolFair = () => {
       id: 2,
       text: "You have ₹300 for a school project. What's the best approach?",
       options: [
-        { id: 'copy', text: 'Copy someone else\'s work', description: 'No learning', isCorrect: false },
-        { id: 'create', text: 'Create something original', description: 'Shows innovation', isCorrect: true },
-        { id: 'skip', text: 'Skip the project', description: 'Misses opportunity', isCorrect: false },
-        { id: 'buy', text: 'Buy expensive materials', description: 'Waste of budget', isCorrect: false }
+        { id: 'copy', text: 'Copy someone else\'s work', isCorrect: false },
+        { id: 'create', text: 'Create something original', isCorrect: true },
+        { id: 'skip', text: 'Skip the project', isCorrect: false },
+        { id: 'buy', text: 'Buy expensive materials', isCorrect: false }
       ],
       correct: 'create',
       explanation: 'Creating something original demonstrates creativity, problem-solving, and learning, making it the best use of your budget!'
@@ -82,10 +82,10 @@ const SimulationSchoolFair = () => {
       id: 3,
       text: "What's more valuable: creating or copying?",
       options: [
-        { id: 'copy', text: 'Copying is always better', description: 'Incorrect', isCorrect: false },
-        { id: 'same', text: 'They are the same', description: 'False', isCorrect: false },
-        { id: 'create', text: 'Creating teaches skills and shows innovation', description: 'Builds abilities', isCorrect: true },
-        { id: 'neither', text: 'Neither has value', description: 'Wrong', isCorrect: false }
+        { id: 'copy', text: 'Copying is always better', isCorrect: false },
+        { id: 'same', text: 'They are the same', isCorrect: false },
+        { id: 'create', text: 'Creating teaches skills and shows innovation', isCorrect: true },
+        { id: 'neither', text: 'Neither has value', isCorrect: false }
       ],
       correct: 'create',
       explanation: 'Creating teaches valuable skills, demonstrates innovation, and provides learning experiences that copying cannot!'
@@ -94,10 +94,10 @@ const SimulationSchoolFair = () => {
       id: 4,
       text: "How should you use a limited budget for a project?",
       options: [
-        { id: 'smart', text: 'Plan creatively and build something meaningful', description: 'Maximizes value', isCorrect: true },
-        { id: 'waste', text: 'Waste it on unnecessary items', description: 'Poor planning', isCorrect: false },
-        { id: 'copy', text: 'Copy without learning', description: 'No growth', isCorrect: false },
-        { id: 'ignore', text: 'Ignore the budget', description: 'Irresponsible', isCorrect: false }
+        { id: 'smart', text: 'Plan creatively and build something meaningful',  isCorrect: true },
+        { id: 'waste', text: 'Waste it on unnecessary items', isCorrect: false },
+        { id: 'copy', text: 'Copy without learning', isCorrect: false },
+        { id: 'ignore', text: 'Ignore the budget', isCorrect: false }
       ],
       correct: 'smart',
       explanation: 'Planning creatively and building something meaningful maximizes learning and value from your budget!'
@@ -106,10 +106,10 @@ const SimulationSchoolFair = () => {
       id: 5,
       text: "What makes a school project successful?",
       options: [
-        { id: 'copy', text: 'Copying others\' work', description: 'No learning', isCorrect: false },
-        { id: 'effort', text: 'Original effort and creative thinking', description: 'Shows learning', isCorrect: true },
-        { id: 'expensive', text: 'Spending the most money', description: 'Not about cost', isCorrect: false },
-        { id: 'quick', text: 'Finishing quickly', description: 'Rushed work', isCorrect: false }
+        { id: 'copy', text: 'Copying others\' work', isCorrect: false },
+        { id: 'effort', text: 'Original effort and creative thinking', isCorrect: true },
+        { id: 'expensive', text: 'Spending the most money', isCorrect: false },
+        { id: 'quick', text: 'Finishing quickly', isCorrect: false }
       ],
       correct: 'effort',
       explanation: 'A successful project shows original effort, creative thinking, and demonstrates what you\'ve learned!'

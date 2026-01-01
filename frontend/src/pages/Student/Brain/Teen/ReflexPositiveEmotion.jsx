@@ -30,50 +30,50 @@ const ReflexPositiveEmotion = () => {
       id: 1,
       text: "Which action shows empathy and positive emotion?",
       options: [
-        { id: "empathy", text: "Empathy", emoji: "❤️", description: "Understanding others' feelings", isCorrect: true },
-        { id: "bullying", text: "Bullying", emoji: "😠", description: "Hurting others intentionally", isCorrect: false },
-        { id: "ignore", text: "Ignore", emoji: "🙈", description: "Not caring about others", isCorrect: false },
-        { id: "mock", text: "Mock", emoji: "😏", description: "Making fun of others", isCorrect: false }
+        { id: "empathy", text: "Empathy", emoji: "❤️",  isCorrect: true },
+        { id: "bullying", text: "Bullying", emoji: "😠",  isCorrect: false },
+        { id: "ignore", text: "Ignore", emoji: "🙈",  isCorrect: false },
+        { id: "mock", text: "Mock", emoji: "😏",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which action spreads positive emotions?",
       options: [
-        { id: "criticize", text: "Criticize", emoji: "👎", description: "Negative feedback", isCorrect: false },
-        { id: "compliment", text: "Compliment", emoji: "👍", description: "Kind words boost mood", isCorrect: true },
-        { id: "gossip", text: "Gossip", emoji: "🗣️", description: "Spreading rumors", isCorrect: false },
-        { id: "judge", text: "Judge", emoji: "⚖️", description: "Harsh judgment", isCorrect: false }
+        { id: "criticize", text: "Criticize", emoji: "👎",  isCorrect: false },
+        { id: "compliment", text: "Compliment", emoji: "👍",  isCorrect: true },
+        { id: "gossip", text: "Gossip", emoji: "🗣️",  isCorrect: false },
+        { id: "judge", text: "Judge", emoji: "⚖️",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What's the positive way to handle a loss?",
       options: [
-        { id: "blame", text: "Blame Others", emoji: "👉😡", description: "Avoids responsibility", isCorrect: false },
-        { id: "excuse", text: "Make Excuses", emoji: "🤷", description: "Denies reality", isCorrect: false },
-        { id: "grace", text: "Graceful Acceptance", emoji: "😌🏆", description: "Shows maturity", isCorrect: true },
-        { id: "quit", text: "Give Up", emoji: "🚫", description: "No growth", isCorrect: false }
+        { id: "blame", text: "Blame Others", emoji: "👉😡",  isCorrect: false },
+        { id: "excuse", text: "Make Excuses", emoji: "🤷",  isCorrect: false },
+        { id: "grace", text: "Graceful Acceptance", emoji: "😌🏆",  isCorrect: true },
+        { id: "quit", text: "Give Up", emoji: "🚫",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "How should you celebrate a team win?",
       options: [
-        { id: "together", text: "Celebrate Together", emoji: "🎉👥", description: "Strengthens bonds", isCorrect: true },
-        { id: "credit", text: "Take All Credit", emoji: "👑", description: "Selfish behavior", isCorrect: false },
-        { id: "boast", text: "Boast", emoji: "😎", description: "Arrogant attitude", isCorrect: false },
-        { id: "exclude", text: "Exclude Others", emoji: "🚪", description: "Creates division", isCorrect: false }
+        { id: "together", text: "Celebrate Together", emoji: "🎉👥",  isCorrect: true },
+        { id: "credit", text: "Take All Credit", emoji: "👑",  isCorrect: false },
+        { id: "boast", text: "Boast", emoji: "😎",  isCorrect: false },
+        { id: "exclude", text: "Exclude Others", emoji: "🚪",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What helps you see good in bad situations?",
       options: [
-        { id: "dwell", text: "Dwell on Negative", emoji: "😔", description: "Maintains negative state", isCorrect: false },
-        { id: "lesson", text: "Find the Lesson", emoji: "💡", description: "Turns challenges into growth", isCorrect: true },
-        { id: "complain", text: "Complain", emoji: "😤", description: "Focuses on problems", isCorrect: false },
-        { id: "blame", text: "Blame Circumstances", emoji: "🌪️", description: "Victim mindset", isCorrect: false }
+        { id: "dwell", text: "Dwell on Negative", emoji: "😔",  isCorrect: false },
+        { id: "lesson", text: "Find the Lesson", emoji: "💡",  isCorrect: true },
+        { id: "complain", text: "Complain", emoji: "😤",  isCorrect: false },
+        { id: "blame", text: "Blame Circumstances", emoji: "🌪️",  isCorrect: false }
       ]
     }
   ];

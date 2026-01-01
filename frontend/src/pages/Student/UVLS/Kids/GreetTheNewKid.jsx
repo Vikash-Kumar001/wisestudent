@@ -35,21 +35,21 @@ const GreetTheNewKid = () => {
           id: "friendly", 
           text: "Hi! I'm [your name]. Want to sit with me?", 
           emoji: "😊", 
-          description: "Welcome them warmly",
+          // description: "Welcome them warmly",
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Don't say anything and look away", 
           emoji: "😐", 
-          description: "Ignore the new student",
+          // description: "Ignore the new student",
           isCorrect: false 
         },
         { 
           id: "stare", 
           text: "Stare at them without saying anything", 
           emoji: "👀", 
-          description: "Make them uncomfortable",
+          // description: "Make them uncomfortable",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const GreetTheNewKid = () => {
           id: "ignore", 
           text: "Pretend you don't see them", 
           emoji: "🙈", 
-          description: "Avoid them",
+          // description: "Avoid them",
           isCorrect: false 
         },
         { 
           id: "invite", 
           text: "Want to join us for lunch?", 
           emoji: "🤗", 
-          description: "Invite them to join",
+          // description: "Invite them to join",
           isCorrect: true 
         },
         { 
           id: "laugh", 
           text: "Laugh with friends about them", 
           emoji: "😏", 
-          description: "Be unkind",
+          // description: "Be unkind",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const GreetTheNewKid = () => {
           id: "help", 
           text: "I can show you where it is!", 
           emoji: "👉", 
-          description: "Offer to help them",
+          // description: "Offer to help them",
           isCorrect: true 
         },
         { 
           id: "point", 
           text: "Point vaguely without explaining", 
           emoji: "🫱", 
-          description: "Give unclear directions",
+          // description: "Give unclear directions",
           isCorrect: false 
         },
         { 
           id: "walk", 
           text: "Walk away without helping", 
           emoji: "🚶", 
-          description: "Ignore their need",
+          // description: "Ignore their need",
           isCorrect: false 
         }
       ]
@@ -116,21 +116,21 @@ const GreetTheNewKid = () => {
           id: "sigh", 
           text: "Sigh and do it reluctantly", 
           emoji: "😮‍💨", 
-          description: "Show unwillingness",
+          // description: "Show unwillingness",
           isCorrect: false 
         },
         { 
           id: "refuse", 
           text: "Say you're too busy", 
           emoji: "🙅", 
-          description: "Refuse to help",
+          // description: "Refuse to help",
           isCorrect: false 
         },
         { 
           id: "happy", 
           text: "Sure! I'd love to help!", 
           emoji: "😄", 
-          description: "Accept enthusiastically",
+          // description: "Accept enthusiastically",
           isCorrect: true 
         }
       ]
@@ -144,21 +144,21 @@ const GreetTheNewKid = () => {
           id: "weird", 
           text: "You talk funny", 
           emoji: "😒", 
-          description: "Be rude about differences",
+          // description: "Be rude about differences",
           isCorrect: false 
         },
         { 
           id: "welcome", 
           text: "Welcome! We're glad you're here!", 
           emoji: "🎉", 
-          description: "Make them feel welcome",
+          // description: "Make them feel welcome",
           isCorrect: true 
         },
         { 
           id: "avoid", 
           text: "Avoid them because they're different", 
           emoji: "❌", 
-          description: "Exclude them",
+          // description: "Exclude them",
           isCorrect: false 
         }
       ]

@@ -25,21 +25,20 @@ const SmartwatchGame = () => {
           id: "rest", 
           text: "Slow down and rest", 
           emoji: "😌", 
-          description: "Resting helps your heart rate return to normal",
+          
           isCorrect: true
         },
         { 
           id: "faster", 
           text: "Keep running faster", 
           emoji: "🏃‍♂️", 
-          description: "Running faster will increase your heart rate more",
+          
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Ignoring high heart rate can be dangerous",
           isCorrect: false
         }
       ],
@@ -53,21 +52,18 @@ const SmartwatchGame = () => {
           id: "stretch", 
           text: "Get up and stretch", 
           emoji: "🙆‍♀️", 
-          description: "Stretching improves blood circulation after sitting",
           isCorrect: true
         },
         { 
           id: "sit", 
           text: "Keep sitting", 
           emoji: "🪑", 
-          description: "Staying seated won't solve the problem",
           isCorrect: false
         },
         { 
           id: "nap", 
           text: "Take a nap", 
           emoji: "😴", 
-          description: "Napping isn't the solution for prolonged sitting",
           isCorrect: false
         }
       ],
@@ -82,21 +78,18 @@ const SmartwatchGame = () => {
           id: "ignore", 
           text: "Ignore it", 
           emoji: "🚫", 
-          description: "Ignoring will lead to device shutdown",
           isCorrect: false
         },
         { 
           id: "shake", 
           text: "Shake it", 
           emoji: "🤨", 
-          description: "Shaking won't charge the battery",
           isCorrect: false
         },
         { 
           id: "charge", 
           text: "Charge it", 
           emoji: "🔋", 
-          description: "Charging replenishes the smartwatch battery",
           isCorrect: true
         }
       ],
@@ -110,21 +103,18 @@ const SmartwatchGame = () => {
           id: "sleep", 
           text: "Sleep earlier tonight", 
           emoji: "🌙", 
-          description: "Going to bed earlier improves sleep duration",
           isCorrect: true
         },
         { 
           id: "coffee", 
           text: "Drink coffee", 
           emoji: "☕", 
-          description: "Coffee provides temporary energy but doesn't fix sleep",
           isCorrect: false
         },
         { 
           id: "awake", 
           text: "Stay awake all night", 
           emoji: "😵", 
-          description: "Staying awake worsens sleep deprivation",
           isCorrect: false
         }
       ],
@@ -138,21 +128,18 @@ const SmartwatchGame = () => {
           id: "breath", 
           text: "Take deep breaths", 
           emoji: "🌬️", 
-          description: "Deep breathing activates relaxation response",
           isCorrect: true
         },
         { 
           id: "run", 
           text: "Run quickly", 
           emoji: "🏃", 
-          description: "Running increases stress rather than reducing it",
           isCorrect: false
         },
         { 
           id: "phone", 
           text: "Ignore and scroll phone", 
           emoji: "📱", 
-          description: "Phone scrolling increases stress",
           isCorrect: false
         }
         

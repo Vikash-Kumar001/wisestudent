@@ -32,21 +32,19 @@ const SafeAIQuiz = () => {
           id: "no", 
           text: "No", 
           emoji: "🚫", 
-          description: "Never share your home address with robots or AI - it's private information",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
-          description: "You should never share your home address with robots",
+          emoji: "😀", 
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "You should never share your home address - it's private",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const SafeAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI should never know your passwords - keep them private",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
           emoji: "🚫", 
-          description: "Never share your passwords with AI - keep them private and secure",
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✅", 
-          description: "You should never share your passwords with AI",
+          emoji: "👍", 
           isCorrect: false
         }
       ]
@@ -86,21 +81,19 @@ const SafeAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Robots should never access your private photos without permission",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✔️", 
-          description: "Robots should never access your private photos without permission",
+          emoji: "🙂", 
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "Robots should never access your private photos without your permission",
+          emoji: "👎", 
+         
           isCorrect: true
         }
       ]
@@ -112,22 +105,20 @@ const SafeAIQuiz = () => {
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "AI should never share your personal data with strangers - it's private",
+          emoji: "👎", 
+         
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✔️", 
-          description: "AI should never share your personal data with strangers",
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "AI should never share your personal data - it's private",
           isCorrect: false
         }
       ]
@@ -140,21 +131,18 @@ const SafeAIQuiz = () => {
           id: "maybe", 
           text: "Maybe", 
           emoji: "🤔", 
-          description: "Robots should never track your location without your consent",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes", 
-          emoji: "✔️", 
-          description: "Robots should never track your location without your consent",
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: "no", 
           text: "No", 
-          emoji: "❌", 
-          description: "Robots should never track your location without your consent - it's not safe",
+          emoji: "🚫", 
           isCorrect: true
         }
       ]

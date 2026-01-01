@@ -37,7 +37,7 @@ const ClarifyReflex = () => {
       correctAnswer: "Needs Clarification - Vague terms like 'kinda' and 'big'",
       options: [
         { text: "Needs Clarification - Vague terms like 'kinda' and 'big'", isCorrect: true, emoji: "❓" },
-        { text: "Clear - Everyone understands", isCorrect: false, emoji: "✅" },
+        { text: "Clear - Everyone understands", isCorrect: false, emoji: "🙂" },
         { text: "Perfectly specific", isCorrect: false, emoji: "📝" },
         { text: "No clarification needed", isCorrect: false, emoji: "👍" }
       ]
@@ -58,7 +58,7 @@ const ClarifyReflex = () => {
       question: "Statement: 'It's sort of okay.' Does this need clarification?",
       correctAnswer: "Needs Clarification - 'Sort of' and 'okay' are vague",
       options: [
-        { text: "Clear and specific", isCorrect: false, emoji: "✅" },
+        { text: "Clear and specific", isCorrect: false, emoji: "🙃" },
         { text: "Needs Clarification - 'Sort of' and 'okay' are vague", isCorrect: true, emoji: "❓" },
         { text: "Perfectly clear", isCorrect: false, emoji: "📝" },
         { text: "No questions needed", isCorrect: false, emoji: "👍" }
@@ -80,7 +80,7 @@ const ClarifyReflex = () => {
       question: "Statement: 'Maybe tomorrow.' Does this need clarification?",
       correctAnswer: "Needs Clarification - What is 'maybe' about and what's happening 'tomorrow'?",
       options: [
-        { text: "Clear - Everyone knows what this means", isCorrect: false, emoji: "✅" },
+        { text: "Clear - Everyone knows what this means", isCorrect: false, emoji: "🙂" },
         { text: "Specific and detailed", isCorrect: false, emoji: "📝" },
         { text: "Needs Clarification - What is 'maybe' about and what's happening 'tomorrow'?", isCorrect: true, emoji: "❓" },
         { text: "No clarification needed", isCorrect: false, emoji: "👍" }

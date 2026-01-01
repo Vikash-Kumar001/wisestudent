@@ -20,20 +20,20 @@ const HabitChainPuzzle = () => {
 
   // Healthy habits (left side) - 5 items with hints
   const habits = [
-    { id: 1, name: "Daily Exercise", emoji: "💪", hint: "Physical activity for body strength" },
-    { id: 2, name: "Healthy Eating", emoji: "🥗", hint: "Nutritious food choices for energy" },
-    { id: 3, name: "Quality Sleep", emoji: "😴", hint: "Adequate rest for mental clarity" },
-    { id: 4, name: "Mindfulness", emoji: "🧘", hint: "Present-moment awareness practice" },
-    { id: 5, name: "Regular Reading", emoji: "📚", hint: "Continuous learning and knowledge" }
+    { id: 1, name: "Daily Exercise", emoji: "💪",  },
+    { id: 2, name: "Healthy Eating", emoji: "🥗",  },
+    { id: 3, name: "Quality Sleep", emoji: "😴",  },
+    { id: 4, name: "Mindfulness", emoji: "🧘",  },
+    { id: 5, name: "Regular Reading", emoji: "📚",  }
   ];
 
   // Health benefits (right side) - 5 items with descriptions
   const benefits = [
-    { id: 6, name: "Stronger Muscles", emoji: "🦾", description: "Improved physical strength and endurance" },
-    { id: 7, name: "Better Digestion", emoji: "🍽️", description: "Enhanced nutrient absorption and gut health" },
-    { id: 8, name: "Sharper Focus", emoji: "🎯", description: "Improved concentration and mental clarity" },
-    { id: 9, name: "Reduced Stress", emoji: "😌", description: "Lower anxiety and improved emotional balance" },
-    { id: 10, name: "Expanded Vocabulary", emoji: "🧠", description: "Increased knowledge and communication skills" }
+    { id: 6, name: "Stronger Muscles", emoji: "🦾",  },
+    { id: 7, name: "Better Digestion", emoji: "🍽️",  },
+    { id: 8, name: "Sharper Focus", emoji: "🎯",  },
+    { id: 9, name: "Reduced Stress", emoji: "😌",  },
+    { id: 10, name: "Expanded Vocabulary", emoji: "🧠",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

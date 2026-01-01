@@ -54,20 +54,20 @@ const PuzzleOfRelief = () => {
 
   // Stress relief activities (left side)
   const leftItems = [
-    { id: 1, name: 'Talk to Friend', emoji: '👫', description: 'Share your feelings with someone' },
-    { id: 2, name: 'Sleep', emoji: '😴', description: 'Rest and restore your energy' },
-    { id: 3, name: 'Exercise', emoji: '🏃', description: 'Physical activity releases endorphins' },
-    { id: 4, name: 'Meditation', emoji: '🧘', description: 'Mindfulness and calm breathing' },
-    { id: 5, name: 'Nature Walk', emoji: '🌳', description: 'Spend time in natural surroundings' }
+    { id: 1, name: 'Talk to Friend', emoji: '👫',  },
+    { id: 2, name: 'Sleep', emoji: '😴',  },
+    { id: 3, name: 'Exercise', emoji: '🏃',  },
+    { id: 4, name: 'Meditation', emoji: '🧘',  },
+    { id: 5, name: 'Nature Walk', emoji: '🌳',  }
   ];
 
   // Relief effects (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Refresh', emoji: '🌙', description: 'Restores energy and mental clarity' }, // Matches Sleep (left position 2, right position 1)
-    { id: 1, name: 'Support', emoji: '❤️', description: 'Emotional connection and understanding' }, // Matches Talk to Friend (left position 1, right position 2)
-    { id: 4, name: 'Calm', emoji: '🧘', description: 'Reduces anxiety and promotes peace' }, // Matches Meditation (left position 4, right position 3)
-    { id: 3, name: 'Energy', emoji: '⚡', description: 'Boosts mood and reduces tension' }, // Matches Exercise (left position 3, right position 4)
-    { id: 5, name: 'Peace', emoji: '🌿', description: 'Lowers cortisol and stress levels' } // Matches Nature Walk (left position 5, right position 5)
+    { id: 2, name: 'Refresh', emoji: '🌙',  },
+    { id: 1, name: 'Support', emoji: '❤️',  },
+    { id: 4, name: 'Calm', emoji: '🧘',  },
+    { id: 3, name: 'Energy', emoji: '⚡',  },
+    { id: 5, name: 'Peace', emoji: '🌿',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

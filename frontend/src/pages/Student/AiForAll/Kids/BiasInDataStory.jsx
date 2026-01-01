@@ -32,21 +32,20 @@ const BiasInDataStory = () => {
           id: "add", 
           text: "Add many girls' faces to the training data so the robot learns both boys and girls", 
           emoji: "📸", 
-          description: "The robot failed because its training data wasn't diverse - adding girls' faces helps it recognize everyone equally",
+          
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore the problem — only boys need to use the robot", 
           emoji: "🙅‍♂️", 
-          description: "Robots should work for everyone - we need diverse training data",
+          
           isCorrect: false
         },
         { 
           id: "remove", 
           text: "Remove girls from the system so it never makes mistakes again", 
           emoji: "🗑️", 
-          description: "We should add diverse data, not remove users",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const BiasInDataStory = () => {
           id: "continue", 
           text: "Continue with the same region since it's easier", 
           emoji: "🚫", 
-          description: "We need balanced data from all regions for fairness",
           isCorrect: false
         },
         { 
           id: "add", 
           text: "Add balanced data from all regions so the AI treats everyone fairly", 
           emoji: "🌍", 
-          description: "Balanced data ensures fairness for everyone, no matter where they live",
           isCorrect: true
         },
         { 
           id: "delete", 
           text: "Delete all data from that region", 
           emoji: "❌", 
-          description: "We should add diverse data, not delete existing data",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const BiasInDataStory = () => {
           id: "allow", 
           text: "Only allow users with deep voices", 
           emoji: "🙄", 
-          description: "Voice assistants should work for everyone",
           isCorrect: false
         },
         { 
           id: "train", 
           text: "Train it with voices of different pitches and accents", 
           emoji: "🔊", 
-          description: "Training with varied voices helps it understand everyone",
           isCorrect: true
         },
         { 
           id: "off", 
           text: "Turn off voice recognition", 
           emoji: "📴", 
-          description: "Training with diverse voices is better than turning it off",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const BiasInDataStory = () => {
           id: "ai", 
           text: "Review the AI and include essays from many writing styles in training", 
           emoji: "📝", 
-          description: "Fair grading comes from training the AI with diverse examples",
           isCorrect: true
         },
         { 
           id: "ban", 
           text: "Ban students with those writing styles", 
           emoji: "🚷", 
-          description: "We should fix the AI, not ban students",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore the issue — AI knows best", 
           emoji: "🤖", 
-          description: "We should review and fix biased AI systems",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const BiasInDataStory = () => {
           id: "continue", 
           text: "Continue as is — it's working", 
           emoji: "😐", 
-          description: "We need to fix bias in AI systems",
           isCorrect: false
         },
         { 
           id: "fix", 
           text: "Fix the training data to include all genders equally", 
           emoji: "⚖️", 
-          description: "Fixing training data ensures fair job recommendations for everyone",
           isCorrect: true
         },
         { 
           id: "delete", 
           text: "Delete the app", 
           emoji: "🗑️", 
-          description: "Fixing the data is better than deleting the app",
           isCorrect: false
         }
       ]

@@ -32,21 +32,20 @@ const RobotHelperStory = () => {
           id: "thank", 
           text: "Thank the robot", 
           emoji: "🙏", 
-          description: "Even though robots are machines, it's good to be polite and thankful",
+          
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it - it's just a machine", 
           emoji: "😐", 
-          description: "Being kind to AI helpers teaches good manners and empathy",
+          
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain it missed a corner", 
           emoji: "😒", 
-          description: "Showing appreciation teaches kindness, even to machines",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const RobotHelperStory = () => {
           id: "copy", 
           text: "Copy the answers blindly", 
           emoji: "📋", 
-          description: "You should review what AI teaches to understand better",
           isCorrect: false
         },
         { 
           id: "review", 
           text: "Say thank you and review the steps", 
           emoji: "🙏", 
-          description: "Learning with AI responsibly helps you understand, not just finish fast",
           isCorrect: true
         },
         { 
           id: "forget", 
           text: "Forget to check the work", 
           emoji: "😶", 
-          description: "Reviewing what AI teaches makes you smarter",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const RobotHelperStory = () => {
           id: "delete", 
           text: "Delete it right away", 
           emoji: "🗑️", 
-          description: "AI can be creative too - it learns from art and music",
           isCorrect: false
         },
         { 
           id: "complain", 
           text: "Complain it's not perfect", 
           emoji: "😤", 
-          description: "AI can be creative - appreciating it encourages curiosity",
           isCorrect: false
         },
         { 
           id: "appreciate", 
           text: "Appreciate its creativity", 
           emoji: "🎧", 
-          description: "Appreciating AI's creative work encourages curiosity and imagination",
           isCorrect: true
         }
       ]
@@ -113,21 +106,18 @@ const RobotHelperStory = () => {
           id: "avoid", 
           text: "Avoid the link immediately", 
           emoji: "🛑", 
-          description: "AI safety alerts protect you from scams - always trust warnings",
           isCorrect: true
         },
         { 
           id: "click", 
           text: "Click it to check", 
           emoji: "🖱️", 
-          description: "AI safety systems help you avoid dangerous websites",
           isCorrect: false
         },
         { 
           id: "share", 
           text: "Share it with friends", 
           emoji: "📤", 
-          description: "AI safety alerts protect you - avoid dangerous links",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const RobotHelperStory = () => {
           id: "throw", 
           text: "Throw it away", 
           emoji: "🚮", 
-          description: "Showing gratitude builds empathy and respect",
           isCorrect: false
         },
         { 
           id: "thank", 
           text: "Say thank you to the robot", 
           emoji: "😊", 
-          description: "Showing gratitude, even to AI, builds empathy and respect",
           isCorrect: true
         },
         { 
           id: "complain", 
           text: "Complain about taste", 
           emoji: "😤", 
-          description: "Gratitude makes every helper - human or AI - valued",
           isCorrect: false
         }
       ]

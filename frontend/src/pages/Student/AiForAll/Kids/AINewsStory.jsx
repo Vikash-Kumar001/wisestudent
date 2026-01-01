@@ -32,21 +32,20 @@ const AINewsStory = () => {
           id: "ai", 
           text: "AI News Recommender", 
           emoji: "🧠", 
-          description: "AI studies what you read and shows news you're interested in",
+          
           isCorrect: true
         },
         { 
           id: "teacher", 
           text: "School Teacher", 
           emoji: "👩‍🏫", 
-          description: "AI, not teachers, recommends app articles automatically",
+          
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random Newspapers", 
           emoji: "🗞️", 
-          description: "AI personalizes news based on your interests",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const AINewsStory = () => {
           id: "manual", 
           text: "Manual updates by teachers", 
           emoji: "🧑‍🏫", 
-          description: "AI scans for trending topics automatically",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI detects trending topics", 
           emoji: "🤖", 
-          description: "AI scans social media and websites to find trending events fast",
           isCorrect: true
         },
         { 
           id: "friends", 
           text: "Friends send the alerts", 
           emoji: "💬", 
-          description: "AI automatically detects and alerts about breaking news",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const AINewsStory = () => {
           id: "manual", 
           text: "Manual Translator", 
           emoji: "🧑‍🏫", 
-          description: "AI translation models convert news into your language instantly",
           isCorrect: false
         },
         { 
           id: "maps", 
           text: "Google Maps", 
           emoji: "🗺️", 
-          description: "AI language translation handles this automatically",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI Language Translator", 
           emoji: "🌎", 
-          description: "AI translation models convert news into your language instantly",
           isCorrect: true
         }
       ]
@@ -113,21 +106,18 @@ const AINewsStory = () => {
           id: "ai", 
           text: "AI Fact Checker", 
           emoji: "🤖", 
-          description: "AI checks articles for misinformation using data and patterns",
           isCorrect: true
         },
         { 
           id: "reader", 
           text: "Newsreader", 
           emoji: "👀", 
-          description: "AI, not humans, verifies fake or real news automatically",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random Algorithm", 
           emoji: "🎲", 
-          description: "AI uses data and patterns to detect fake news",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const AINewsStory = () => {
           id: "random", 
           text: "Random headlines", 
           emoji: "🎯", 
-          description: "AI learns your reading behavior to personalize news",
           isCorrect: false
         },
         { 
           id: "manual", 
           text: "Manual selection", 
           emoji: "🧑‍💻", 
-          description: "AI tracks your reading habits automatically",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI tracks your reading habits", 
           emoji: "📖", 
-          description: "AI learns your reading behavior to show stories you'll enjoy",
           isCorrect: true
         }
       ]

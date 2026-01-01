@@ -62,21 +62,21 @@ const SmartMapsStory = () => {
           id: "ai", 
           text: "Use Google Maps AI", 
           emoji: "🤖", 
-          description: "AI navigation systems like Google Maps analyze real-time traffic, road conditions, accidents, and historical data to calculate the fastest route",
+          // description: "AI navigation systems like Google Maps analyze real-time traffic, road conditions, accidents, and historical data to calculate the fastest route",
           isCorrect: true
         },
          { 
           id: "guess", 
           text: "Guess the route yourself", 
           emoji: "❓", 
-          description: "Guessing may lead to traffic jams, construction zones, or longer routes that waste valuable time",
+          // description: "Guessing may lead to traffic jams, construction zones, or longer routes that waste valuable time",
           isCorrect: false
         },
         { 
           id: "paper", 
           text: "Use a paper map", 
           emoji: "🗺️", 
-          description: "Paper maps don't provide real-time traffic updates or dynamic route optimization that AI systems offer",
+          // description: "Paper maps don't provide real-time traffic updates or dynamic route optimization that AI systems offer",
           isCorrect: false
         }
       ]
@@ -91,21 +91,21 @@ const SmartMapsStory = () => {
           id: "random", 
           text: "Random route selection", 
           emoji: "🎲", 
-          description: "AI systems use data-driven approaches rather than random selections to optimize routes",
+          // description: "AI systems use data-driven approaches rather than random selections to optimize routes",
           isCorrect: false
         },
          { 
           id: "mistake", 
           text: "It made a mistake", 
           emoji: "❌", 
-          description: "AI navigation systems are designed to optimize for time, not distance, using sophisticated algorithms",
+          // description: "AI navigation systems are designed to optimize for time, not distance, using sophisticated algorithms",
           isCorrect: false
         },
         { 
           id: "traffic", 
           text: "Avoiding traffic congestion", 
           emoji: "🚦", 
-          description: "AI considers real-time traffic data and predicts delays to save you time even if the route looks longer",
+          // description: "AI considers real-time traffic data and predicts delays to save you time even if the route looks longer",
           isCorrect: true
         },
       ]
@@ -120,21 +120,21 @@ const SmartMapsStory = () => {
           id: "magic", 
           text: "Magical prediction", 
           emoji: "🔮", 
-          description: "Navigation systems use real data sources rather than supernatural abilities",
+          // description: "Navigation systems use real data sources rather than supernatural abilities",
           isCorrect: false
         },
         { 
           id: "data", 
           text: "Real-time data integration", 
           emoji: "📡", 
-          description: "AI navigation systems collect data from traffic cameras, police reports, user reports, and connected vehicles to stay updated",
+          // description: "AI navigation systems collect data from traffic cameras, police reports, user reports, and connected vehicles to stay updated",
           isCorrect: true
         },
         { 
           id: "guess", 
           text: "It guessed correctly", 
           emoji: "💭", 
-          description: "Modern navigation systems rely on data aggregation rather than guesswork for accuracy",
+          // description: "Modern navigation systems rely on data aggregation rather than guesswork for accuracy",
           isCorrect: false
         }
       ]
@@ -148,21 +148,21 @@ const SmartMapsStory = () => {
           id: "patterns", 
           text: "Traffic patterns change", 
           emoji: "⏰", 
-          description: "AI systems learn daily traffic patterns and adjust routes based on time-of-day traffic predictions",
+          // description: "AI systems learn daily traffic patterns and adjust routes based on time-of-day traffic predictions",
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Random route generator", 
           emoji: "🔄", 
-          description: "Route variations are based on predictive analytics, not randomness",
+          // description: "Route variations are based on predictive analytics, not randomness",
           isCorrect: false
         },
         { 
           id: "broken", 
           text: "The app is broken", 
           emoji: "🔧", 
-          description: "Variations in route suggestions reflect intelligent adaptation rather than malfunction",
+          // description: "Variations in route suggestions reflect intelligent adaptation rather than malfunction",
           isCorrect: false
         },
       ]
@@ -175,21 +175,21 @@ const SmartMapsStory = () => {
           id: "hardware", 
           text: "Better satellite hardware", 
           emoji: "🛰️", 
-          description: "Both use similar GPS satellites; the improvement comes from software intelligence",
+          // description: "Both use similar GPS satellites; the improvement comes from software intelligence",
           isCorrect: false
         },
         { 
           id: "intelligence", 
           text: "Machine learning intelligence", 
           emoji: "🧠", 
-          description: "AI navigation uses machine learning to analyze traffic patterns, user behavior, and real-time data for smarter routing",
+          // description: "AI navigation uses machine learning to analyze traffic patterns, user behavior, and real-time data for smarter routing",
           isCorrect: true
         },
         { 
           id: "maps", 
           text: "Prettier map visuals", 
           emoji: "🎨", 
-          description: "Visual improvements are secondary to the core intelligence improvements in routing",
+          // description: "Visual improvements are secondary to the core intelligence improvements in routing",
           isCorrect: false
         }
       ]

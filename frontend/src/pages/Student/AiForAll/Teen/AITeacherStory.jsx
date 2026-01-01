@@ -62,21 +62,20 @@ const AITeacherStory = () => {
           id: "teacher", 
           text: "Manual Teacher", 
           emoji: "👩‍🏫", 
-          description: "Manual teachers can't continuously monitor and adjust difficulty for each individual student simultaneously",
+          
           isCorrect: false
         },
          { 
           id: "ai", 
           text: "AI Tutor", 
           emoji: "🤖", 
-          description: "AI tutors analyze student responses in real-time to dynamically adjust lesson difficulty for optimal learning",
+          
           isCorrect: true
         },
         { 
           id: "student", 
           text: "Student Choice", 
           emoji: "🙋", 
-          description: "Students may not accurately assess their own learning needs or appropriate difficulty levels",
           isCorrect: false
         }
       ]
@@ -89,21 +88,18 @@ const AITeacherStory = () => {
           id: "system", 
           text: "AI System", 
           emoji: "🤖", 
-          description: "AI systems can instantly analyze responses and provide personalized feedback tailored to each student's needs",
           isCorrect: true
         },
         { 
           id: "comments", 
           text: "Random Comments", 
           emoji: "✏️", 
-          description: "Random comments lack the specificity and relevance needed for effective learning improvement",
           isCorrect: false
         },
         { 
           id: "peer", 
           text: "Peer Review", 
           emoji: "👥", 
-          description: "Peer review is valuable but can't provide instant, consistent feedback like AI systems",
           isCorrect: false
         }
       ]
@@ -117,21 +113,18 @@ const AITeacherStory = () => {
           id: "logs", 
           text: "Manual Logs", 
           emoji: "🗂️", 
-          description: "Manual logs are time-consuming and don't provide real-time adaptation to learning needs",
           isCorrect: false
         },
          { 
           id: "engine", 
           text: "AI Engine", 
           emoji: "🤖", 
-          description: "AI engines continuously track learning patterns and adapt exercise recommendations for optimal progress",
           isCorrect: true
         },
         { 
           id: "schedule", 
           text: "Fixed Schedule", 
           emoji: "📅", 
-          description: "Fixed schedules don't account for individual learning differences and progress rates",
           isCorrect: false
         }
       ]
@@ -145,21 +138,18 @@ const AITeacherStory = () => {
           id: "copy", 
           text: "Teacher Copy-Paste", 
           emoji: "👩‍🏫", 
-          description: "Copy-pasting provides limited variety and doesn't adapt to individual student needs",
           isCorrect: false
         },
         { 
           id: "book", 
           text: "Textbook Questions", 
           emoji: "📚", 
-          description: "Textbook questions are static and don't provide personalized practice for each student",
           isCorrect: false
         },
          { 
           id: "algorithm", 
           text: "AI Algorithm", 
           emoji: "🤖", 
-          description: "AI algorithms generate customized questions that match each student's current skill level and learning gaps",
           isCorrect: true
         },
       ]
@@ -173,21 +163,18 @@ const AITeacherStory = () => {
           id: "random", 
           text: "Random Choice", 
           emoji: "🎲", 
-          description: "Random selection doesn't follow logical learning progressions or address knowledge gaps",
           isCorrect: false
         },
         { 
           id: "curriculum", 
           text: "Fixed Curriculum", 
           emoji: "📋", 
-          description: "Fixed curricula don't account for individual learning speeds and mastery levels",
           isCorrect: false
         },
         { 
           id: "recommendation", 
           text: "AI Recommendation", 
           emoji: "🤖", 
-          description: "AI recommendation engines analyze learning progress to suggest optimal next topics for each student",
           isCorrect: true
         },
       ]

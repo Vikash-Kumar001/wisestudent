@@ -61,21 +61,21 @@ const SmallDataVsBigDataStory = () => {
           id: "confuse", 
           text: "AI Confuses Dogs with Cats", 
           emoji: "🐶", 
-          description: "With limited examples, AI struggles to distinguish between similar animals",
+          
           isCorrect: true
         },
         { 
           id: "perfect", 
           text: "AI Learns Perfectly", 
           emoji: "🧠", 
-          description: "Limited data prevents AI from learning comprehensively",
+          
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "AI Ignores Cat Photos", 
           emoji: "😾", 
-          description: "AI tries to learn but makes mistakes due to insufficient data",
+          
           isCorrect: false
         }
       ]
@@ -88,21 +88,18 @@ const SmallDataVsBigDataStory = () => {
           id: "recognize", 
           text: "AI Recognizes Cats Better", 
           emoji: "🐱", 
-          description: "Large datasets help AI learn patterns and distinguish features more accurately",
           isCorrect: true
         },
         { 
           id: "confused", 
           text: "AI Gets Confused", 
           emoji: "😵", 
-          description: "More data typically improves rather than hinders AI performance",
           isCorrect: false
         },
         { 
           id: "slow", 
           text: "AI Works Slower", 
           emoji: "🐢", 
-          description: "More data usually improves accuracy without necessarily slowing performance",
           isCorrect: false
         }
       ]
@@ -116,21 +113,18 @@ const SmallDataVsBigDataStory = () => {
           id: "three", 
           text: "AI with 3 Voices", 
           emoji: "🗣️", 
-          description: "Limited voice samples restrict AI's ability to understand diverse speech patterns",
           isCorrect: false
         },
          { 
           id: "thousand", 
           text: "AI with 3000 Voices", 
           emoji: "🔊", 
-          description: "More voice samples help AI recognize accents, tones, and speech variations",
           isCorrect: true
         },
         { 
           id: "same", 
           text: "Both Perform Equally", 
           emoji: "⚖️", 
-          description: "Quantity of training data significantly affects AI performance",
           isCorrect: false
         }
       ]
@@ -143,22 +137,19 @@ const SmallDataVsBigDataStory = () => {
         { 
           id: "accurate", 
           text: "Detects Cars Accurately", 
-          emoji: "✅", 
-          description: "Too few examples prevent AI from learning reliable detection patterns",
+          emoji: "🚗", 
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random Guessing", 
           emoji: "🎲", 
-          description: "AI attempts pattern recognition but lacks sufficient data for accuracy",
           isCorrect: false
         },
         { 
           id: "fail", 
           text: "Fails to Detect Cars", 
-          emoji: "❌", 
-          description: "Insufficient training data leads to poor real-world performance",
+          emoji: "🚗", 
           isCorrect: true
         },
       ]
@@ -171,21 +162,18 @@ const SmallDataVsBigDataStory = () => {
           id: "better", 
           text: "Better Accuracy & Learning", 
           emoji: "🎯", 
-          description: "More diverse examples help AI generalize and make better predictions",
           isCorrect: true
         },
         { 
           id: "no-diff", 
           text: "No Difference", 
           emoji: "🙃", 
-          description: "Data quantity significantly impacts AI learning effectiveness",
           isCorrect: false
         },
         { 
           id: "worse", 
           text: "Worse Performance", 
           emoji: "📉", 
-          description: "More quality data typically improves rather than degrades AI performance",
           isCorrect: false
         }
       ]

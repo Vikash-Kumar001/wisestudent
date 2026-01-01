@@ -20,20 +20,20 @@ const ServiceDesignPuzzle = () => {
 
   // Service design factors (left side) - 5 items with hints
   const factors = [
-    { id: 1, name: "Cost Efficiency", emoji: "💰", hint: "Financial sustainability of the service" },
-    { id: 2, name: "User Reach", emoji: "🌍", hint: "Number of people who can access the service" },
-    { id: 3, name: "Resource Effort", emoji: "💪", hint: "Human and material resources required" },
-    { id: 4, name: "Social Impact", emoji: "📈", hint: "Positive change created in the community" },
-    { id: 5, name: "Longevity", emoji: "♻️", hint: "Continuity and ongoing effectiveness" }
+    { id: 1, name: "Cost Efficiency", emoji: "💰", },
+    { id: 2, name: "User Reach", emoji: "🌍", },
+    { id: 3, name: "Resource Effort", emoji: "💪", },
+    { id: 4, name: "Social Impact", emoji: "📈", },
+    { id: 5, name: "Longevity", emoji: "♻️", }
   ];
 
   // Sustainable solutions (right side) - 5 items with descriptions
   const solutions = [
-    { id: 6, name: "Volunteer Networks", emoji: "🤝", description: "Leverage community support for staffing" },
-    { id: 7, name: "Scalable Models", emoji: "🏗️", description: "Design for growth and wider reach" },
-    { id: 8, name: "Streamlined Processes", emoji: "⚙️", description: "Optimize workflows for efficiency" },
-    { id: 9, name: "Measurable Outcomes", emoji: "📊", description: "Track and demonstrate real impact" },
-    { id: 10, name: "Partnership Programs", emoji: "🔗", description: "Collaborate for sustained resources" }
+    { id: 6, name: "Volunteer Networks", emoji: "🤝",  },
+    { id: 7, name: "Scalable Models", emoji: "🏗️",  },
+    { id: 8, name: "Streamlined Processes", emoji: "⚙️",  },
+    { id: 9, name: "Measurable Outcomes", emoji: "📊",  },
+    { id: 10, name: "Partnership Programs", emoji: "🔗",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

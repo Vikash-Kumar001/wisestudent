@@ -61,21 +61,20 @@ const DebateBrainVsBody = () => {
           id: "brain", 
           text: "Brain health is more important", 
           emoji: "🧠", 
-          description: "Both brain and body health matter",
+          
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Both are equally important", 
           emoji: "⚖️", 
-          description: "Both are essential and connected",
+          
           isCorrect: true
         },
         { 
           id: "body", 
           text: "Body health is more important", 
           emoji: "💪", 
-          description: "Body health is important too",
           isCorrect: false
         }
       ]
@@ -87,22 +86,19 @@ const DebateBrainVsBody = () => {
         { 
           id: "no", 
           text: "No, multitasking reduces efficiency", 
-          emoji: "❌", 
-          description: "Focus on one task at a time",
+          emoji: "👎", 
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, multitasking boosts productivity", 
-          emoji: "✅", 
-          description: "Actually reduces productivity",
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: "sometimes", 
           text: "Sometimes, depends on the tasks", 
           emoji: "🤔", 
-          description: "Reduces efficiency",
           isCorrect: false
         }
       ]
@@ -115,21 +111,18 @@ const DebateBrainVsBody = () => {
           id: "long", 
           text: "Study for long hours without breaks", 
           emoji: "⏰", 
-          description: "Causes mental fatigue",
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Both approaches work equally well", 
           emoji: "⚖️", 
-          description: "Breaks are more effective",
           isCorrect: false
         },
         { 
           id: "breaks", 
           text: "Take regular breaks during study", 
           emoji: "☕", 
-          description: "Improves focus and memory",
           isCorrect: true
         }
       ]
@@ -142,21 +135,18 @@ const DebateBrainVsBody = () => {
           id: "help", 
           text: "Yes, music always helps concentration", 
           emoji: "🎵", 
-          description: "Depends on task and music",
           isCorrect: false
         },
         { 
           id: "hurt", 
           text: "No, music always hurts concentration", 
           emoji: "🔇", 
-          description: "Depends on task and music",
           isCorrect: false
         },
         { 
           id: "depends", 
           text: "Depends on the type of music and task", 
           emoji: "🎧", 
-          description: "Instrumental helps, lyrics hurt focus",
           isCorrect: true
         }
       ]
@@ -169,21 +159,18 @@ const DebateBrainVsBody = () => {
           id: "vary", 
           text: "Vary subjects during study sessions", 
           emoji: "🔄", 
-          description: "Helps strengthen memory",
           isCorrect: true
         },
         { 
           id: "same", 
           text: "Study the same subject every day", 
           emoji: "📚", 
-          description: "Varying improves learning",
           isCorrect: false
         },
         { 
           id: "either", 
           text: "Either approach works the same", 
           emoji: "⚖️", 
-          description: "Varying is more effective",
           isCorrect: false
         }
       ]

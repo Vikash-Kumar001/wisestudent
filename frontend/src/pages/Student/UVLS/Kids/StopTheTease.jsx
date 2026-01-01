@@ -35,21 +35,21 @@ const StopTheTease = () => {
           id: "a", 
           text: "Tell the teaser to stop kindly", 
           emoji: "🛑", 
-          description: "Stand up for them politely",
+          // description: "Stand up for them politely",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Fight the teaser", 
           emoji: "👊", 
-          description: "Use violence",
+          // description: "Use violence",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Do nothing",
+          // description: "Do nothing",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const StopTheTease = () => {
           id: "a", 
           text: "Yell at the teaser", 
           emoji: "😠", 
-          description: "Respond with anger",
+          // description: "Respond with anger",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Distract by changing topic", 
           emoji: "🔄", 
-          description: "Redirect the conversation",
+          // description: "Redirect the conversation",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Laugh along", 
           emoji: "😂", 
-          description: "Join the teasing",
+          // description: "Join the teasing",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const StopTheTease = () => {
           id: "a", 
           text: "Support friend and report", 
           emoji: "🤝", 
-          description: "Help and tell an adult",
+          // description: "Help and tell an adult",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Tease back", 
           emoji: "😏", 
-          description: "Fight fire with fire",
+          // description: "Fight fire with fire",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Walk away alone", 
           emoji: "🚶", 
-          description: "Leave your friend",
+          // description: "Leave your friend",
           isCorrect: false 
         }
       ]
@@ -116,21 +116,21 @@ const StopTheTease = () => {
           id: "a", 
           text: "Push the teaser", 
           emoji: "🤜", 
-          description: "Use physical force",
+          // description: "Use physical force",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Pretend not to see", 
           emoji: "🙄", 
-          description: "Ignore the situation",
+          // description: "Ignore the situation",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Encourage positively", 
           emoji: "👍", 
-          description: "Support the person",
+          // description: "Support the person",
           isCorrect: true 
         }
       ]
@@ -143,21 +143,21 @@ const StopTheTease = () => {
           id: "a", 
           text: "Call names back", 
           emoji: "🗣️", 
-          description: "Retaliate with names",
+          // description: "Retaliate with names",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Do nothing", 
           emoji: "🫥", 
-          description: "Stay silent",
+          // description: "Stay silent",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Include everyone fairly", 
           emoji: "👥", 
-          description: "Make sure all are included",
+          // description: "Make sure all are included",
           isCorrect: true 
         }
       ]

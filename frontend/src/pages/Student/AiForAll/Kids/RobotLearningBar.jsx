@@ -25,21 +25,20 @@ const RobotLearningBar = () => {
           id: "supervised", 
           text: "Supervised Learning", 
           emoji: "📚", 
-          description: "Teaching the robot with labeled examples of cats, dogs, birds",
+          
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Random Guessing", 
           emoji: "❓", 
-          description: "Making guesses without any training data",
+          
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore Examples", 
           emoji: "🚫", 
-          description: "Skipping training examples reduces learning effectiveness",
           isCorrect: false
         }
       ],
@@ -53,21 +52,18 @@ const RobotLearningBar = () => {
           id: "same", 
           text: "Call it a Dog", 
           emoji: "🐕", 
-          description: "Assuming everything is a dog ignores diversity",
           isCorrect: false
         },
         { 
           id: "patterns", 
           text: "Recognize Patterns", 
           emoji: "🔍", 
-          description: "Compare features with learned examples to classify",
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip Classification", 
           emoji: "⏭️", 
-          description: "Skipping prevents the robot from learning new things",
           isCorrect: false
         }
       ],
@@ -81,21 +77,18 @@ const RobotLearningBar = () => {
           id: "learn", 
           text: "Learn from Mistake", 
           emoji: "🧠", 
-          description: "Use the error to improve future identifications",
           isCorrect: true
         },
         { 
           id: "repeat", 
           text: "Repeat Same Error", 
           emoji: "🔄", 
-          description: "Repeating errors prevents learning progress",
           isCorrect: false
         },
         { 
           id: "stop", 
           text: "Stop Learning", 
           emoji: "⏹️", 
-          description: "Stopping prevents improvement from mistakes",
           isCorrect: false
         }
       ],
@@ -109,21 +102,18 @@ const RobotLearningBar = () => {
           id: "guess", 
           text: "Force a Guess", 
           emoji: "🎯", 
-          description: "Forced guessing leads to incorrect classifications",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore Completely", 
           emoji: "🙈", 
-          description: "Ignoring prevents learning about rare animals",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask for Help", 
           emoji: "🙋", 
-          description: "Request assistance to correctly identify unusual cases",
           isCorrect: true
         }
       ],
@@ -137,21 +127,18 @@ const RobotLearningBar = () => {
           id: "practice", 
           text: "More Practice Examples", 
           emoji: "📈", 
-          description: "Additional diverse examples improve recognition skills",
           isCorrect: true
         },
         { 
           id: "same", 
           text: "Repeat Same Images", 
           emoji: "🔂", 
-          description: "Repetition without variety doesn't expand knowledge",
           isCorrect: false
         },
         { 
           id: "reduce", 
           text: "Reduce Training", 
           emoji: "📉", 
-          description: "Less training reduces the robot's capability",
           isCorrect: false
         }
       ],

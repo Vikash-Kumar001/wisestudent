@@ -63,50 +63,50 @@ const ReflexSolutionMode = () => {
       id: 1,
       text: "Which action shows solution-focused thinking?",
       options: [
-        { id: "solution", text: "Find Solution", emoji: "💡", description: "Problem-solving approach", isCorrect: true },
-        { id: "complain", text: "Complain", emoji: "😤", description: "Negative reaction", isCorrect: false },
-        { id: "blame", text: "Blame Others", emoji: "👉", description: "Avoids responsibility", isCorrect: false },
-        { id: "giveup", text: "Give Up", emoji: "🚫", description: "No action", isCorrect: false }
+        { id: "solution", text: "Find Solution", emoji: "💡",  isCorrect: true },
+        { id: "complain", text: "Complain", emoji: "😤",  isCorrect: false },
+        { id: "blame", text: "Blame Others", emoji: "👉",  isCorrect: false },
+        { id: "giveup", text: "Give Up", emoji: "🚫",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "What's the best response to a problem?",
       options: [
-        { id: "ignore", text: "Ignore the Problem", emoji: "🙈", description: "Avoids addressing issue", isCorrect: false },
-        { id: "analyze", text: "Analyze and Solve", emoji: "🔍", description: "Active problem-solving", isCorrect: true },
-        { id: "panic", text: "Panic", emoji: "😰", description: "Unproductive reaction", isCorrect: false },
-        { id: "quit", text: "Quit Immediately", emoji: "🏃", description: "No persistence", isCorrect: false }
+        { id: "ignore", text: "Ignore the Problem", emoji: "🙈",  isCorrect: false },
+        { id: "analyze", text: "Analyze and Solve", emoji: "🔍",  isCorrect: true },
+        { id: "panic", text: "Panic", emoji: "😰",  isCorrect: false },
+        { id: "quit", text: "Quit Immediately", emoji: "🏃",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "How should you approach challenges?",
       options: [
-        { id: "same", text: "Do Same Thing", emoji: "🔄", description: "No innovation", isCorrect: false },
-        { id: "avoid", text: "Avoid Challenges", emoji: "🚫", description: "No growth", isCorrect: false },
-        { id: "creative", text: "Think Creatively", emoji: "🎨", description: "Innovative solutions", isCorrect: true },
-        { id: "fear", text: "Fear Challenges", emoji: "😨", description: "Limiting mindset", isCorrect: false }
+        { id: "same", text: "Do Same Thing", emoji: "🔄",  isCorrect: false },
+        { id: "avoid", text: "Avoid Challenges", emoji: "🚫",  isCorrect: false },
+        { id: "creative", text: "Think Creatively", emoji: "🎨",  isCorrect: true },
+        { id: "fear", text: "Fear Challenges", emoji: "😨",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "What helps solve problems effectively?",
       options: [
-        { id: "brainstorm", text: "Brainstorm Solutions", emoji: "🧠", description: "Multiple ideas", isCorrect: true },
-        { id: "complain", text: "Complain Only", emoji: "😤", description: "No solutions", isCorrect: false },
-        { id: "blame", text: "Blame Everything", emoji: "👆", description: "Unproductive", isCorrect: false },
-        { id: "wait", text: "Wait for Others", emoji: "⏳", description: "No initiative", isCorrect: false }
+        { id: "brainstorm", text: "Brainstorm Solutions", emoji: "🧠",  isCorrect: true },
+        { id: "complain", text: "Complain Only", emoji: "😤",  isCorrect: false },
+        { id: "blame", text: "Blame Everything", emoji: "👆",  isCorrect: false },
+        { id: "wait", text: "Wait for Others", emoji: "⏳",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "Which mindset leads to success?",
       options: [
-        { id: "problem", text: "Problem-Focused", emoji: "❌", description: "Only sees problems", isCorrect: false },
-        { id: "solve", text: "Solution-Oriented", emoji: "✅", description: "Focused on solving", isCorrect: true },
-        { id: "negative", text: "Negative Thinking", emoji: "😔", description: "Defeatist attitude", isCorrect: false },
-        { id: "avoid", text: "Avoidance", emoji: "🙈", description: "Runs from problems", isCorrect: false }
+        { id: "problem", text: "Problem-Focused", emoji: "🥲",  isCorrect: false },
+        { id: "solve", text: "Solution-Oriented", emoji: "✊",  isCorrect: true },
+        { id: "negative", text: "Negative Thinking", emoji: "😔",  isCorrect: false },
+        { id: "avoid", text: "Avoidance", emoji: "🙈",  isCorrect: false }
       ]
     }
   ];

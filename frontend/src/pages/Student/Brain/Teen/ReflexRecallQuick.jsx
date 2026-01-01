@@ -30,50 +30,50 @@ const ReflexRecallQuick = () => {
       id: 1,
       text: "Which action helps strengthen memory recall?",
       options: [
-        { id: "repeat", text: "Repeat", emoji: "🔁", description: "Repeating strengthens memory", isCorrect: true },
-        { id: "forget", text: "Forget Fast", emoji: "⚡🗑️", description: "Not actively remembering", isCorrect: false },
-        { id: "ignore", text: "Ignore", emoji: "🙈", description: "Passive learning", isCorrect: false },
-        { id: "skip", text: "Skip", emoji: "⏭️", description: "Avoiding practice", isCorrect: false }
+        { id: "repeat", text: "Repeat", emoji: "🔁",  isCorrect: true },
+        { id: "forget", text: "Forget Fast", emoji: "⚡🗑️",  isCorrect: false },
+        { id: "ignore", text: "Ignore", emoji: "🙈",  isCorrect: false },
+        { id: "skip", text: "Skip", emoji: "⏭️",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which action helps quick recall?",
       options: [
-        { id: "watch", text: "Watch TV", emoji: "📺", description: "Passive activity", isCorrect: false },
-        { id: "procrastinate", text: "Procrastinate", emoji: "⏰", description: "Delays learning", isCorrect: false },
-        { id: "quiz", text: "Quiz Yourself", emoji: "❓", description: "Active recall practice", isCorrect: true },
-        { id: "distract", text: "Get Distracted", emoji: "📱", description: "Interferes with memory", isCorrect: false }
+        { id: "watch", text: "Watch TV", emoji: "📺",  isCorrect: false },
+        { id: "procrastinate", text: "Procrastinate", emoji: "⏰",  isCorrect: false },
+        { id: "quiz", text: "Quiz Yourself", emoji: "❓",  isCorrect: true },
+        { id: "distract", text: "Get Distracted", emoji: "📱",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What boosts quick memory recall?",
       options: [
-        { id: "procrastination", text: "Procrastination", emoji: "⌛", description: "Delays learning", isCorrect: false },
-        { id: "cramming", text: "Cramming", emoji: "📚", description: "Poor for retention", isCorrect: false },
-        { id: "associations", text: "Associations", emoji: "🔗", description: "Links new to known info", isCorrect: true },
-        { id: "forgetting", text: "Forgetting", emoji: "🧠", description: "Opposite of recall", isCorrect: false }
+        { id: "procrastination", text: "Procrastination", emoji: "⌛",  isCorrect: false },
+        { id: "cramming", text: "Cramming", emoji: "📚",  isCorrect: false },
+        { id: "associations", text: "Associations", emoji: "🔗",  isCorrect: true },
+        { id: "forgetting", text: "Forgetting", emoji: "🧠",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "Which helps memory formation?",
       options: [
-        { id: "ignore", text: "Ignore Information", emoji: "🚫", description: "No memory formation", isCorrect: false },
-        { id: "spaced", text: "Spaced Repetition", emoji: "🔄", description: "Strengthens memory over time", isCorrect: true },
-        { id: "rush", text: "Rush Through", emoji: "⚡", description: "Superficial learning", isCorrect: false },
-        { id: "skip", text: "Skip Practice", emoji: "⏭️", description: "No reinforcement", isCorrect: false }
+        { id: "ignore", text: "Ignore Information", emoji: "🚫",  isCorrect: false },
+        { id: "spaced", text: "Spaced Repetition", emoji: "🔄",  isCorrect: true },
+        { id: "rush", text: "Rush Through", emoji: "⚡",  isCorrect: false },
+        { id: "skip", text: "Skip Practice", emoji: "⏭️",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What improves recall speed?",
       options: [
-        { id: "avoid", text: "Avoid Challenges", emoji: "🏃", description: "No skill development", isCorrect: false },
-        { id: "forget", text: "Forget Regularly", emoji: "🗑️", description: "Weakens memory", isCorrect: false },
-        { id: "distract", text: "Stay Distracted", emoji: "📱", description: "Interferes with focus", isCorrect: false },
-        { id: "practice", text: "Regular Practice", emoji: "🎯", description: "Builds retrieval pathways", isCorrect: true }
+        { id: "avoid", text: "Avoid Challenges", emoji: "🏃",  isCorrect: false },
+        { id: "forget", text: "Forget Regularly", emoji: "🗑️",  isCorrect: false },
+        { id: "distract", text: "Stay Distracted", emoji: "📱",  isCorrect: false },
+        { id: "practice", text: "Regular Practice", emoji: "🎯",  isCorrect: true }
       ]
     }
   ];

@@ -29,28 +29,26 @@ const AICreativitySimulation = () => {
           id: "speed", 
           text: "Processing speed", 
           emoji: "⚡", 
-          description: "Rate of generating outputs",
+          
           isCorrect: false
         },
         { 
           id: "data", 
           text: "Data availability", 
           emoji: "💾", 
-          description: "Amount of information accessed",
+          
           isCorrect: false
         },
         { 
           id: "patterns", 
           text: "Pattern recognition", 
           emoji: "🔍", 
-          description: "Identifying recurring structures",
           isCorrect: false
         },
          { 
           id: "experience", 
           text: "Personal experiences", 
           emoji: "👤", 
-          description: "Unique life events shaping creativity",
           isCorrect: true
         },
       ]
@@ -64,28 +62,24 @@ const AICreativitySimulation = () => {
           id: "rules", 
           text: "Following strict rules", 
           emoji: "📏", 
-          description: "Adhering to fixed guidelines",
           isCorrect: false
         },
          { 
           id: "training", 
           text: "Training on diverse datasets", 
           emoji: "📚", 
-          description: "Learning from varied examples",
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Pure randomness", 
           emoji: "🎲", 
-          description: "Completely unpredictable outputs",
           isCorrect: false
         },
         { 
           id: "copy", 
           text: "Copying existing works", 
           emoji: "📋", 
-          description: "Duplicating known content",
           isCorrect: false
         }
       ]
@@ -99,28 +93,24 @@ const AICreativitySimulation = () => {
           id: "speed", 
           text: "Generation speed", 
           emoji: "⏱️", 
-          description: "Time to produce content",
           isCorrect: false
         },
         { 
           id: "originality", 
           text: "True originality", 
           emoji: "🆕", 
-          description: "Creating genuinely new concepts",
           isCorrect: true
         },
         { 
           id: "volume", 
           text: "Output volume", 
           emoji: "📊", 
-          description: "Quantity of creations",
           isCorrect: false
         },
         { 
           id: "format", 
           text: "Format variety", 
           emoji: "📁", 
-          description: "Different content types",
           isCorrect: false
         }
       ]
@@ -133,28 +123,24 @@ const AICreativitySimulation = () => {
           id: "partnership", 
           text: "Partnership approach", 
           emoji: "🤝", 
-          description: "Working together synergistically",
           isCorrect: true
         },
         { 
           id: "competition", 
           text: "Competitive rivalry", 
           emoji: "⚔️", 
-          description: "Opposing each other",
           isCorrect: false
         },
         { 
           id: "replacement", 
           text: "Full replacement", 
           emoji: "🔄", 
-          description: "AI substituting humans",
           isCorrect: false
         },
         { 
           id: "isolation", 
           text: "Working in isolation", 
           emoji: "🔇", 
-          description: "Independent operations",
           isCorrect: false
         }
       ]
@@ -168,28 +154,24 @@ const AICreativitySimulation = () => {
           id: "quantity", 
           text: "High quantity", 
           emoji: "🔢", 
-          description: "Large volume of outputs",
           isCorrect: false
         },
         { 
           id: "criteria", 
           text: "Clear evaluation criteria", 
-          emoji: "✅", 
-          description: "Defined standards for assessment",
+          emoji: "😝", 
           isCorrect: true
         },
         { 
           id: "speed", 
           text: "Fast production", 
           emoji: "🏃", 
-          description: "Quick generation times",
           isCorrect: false
         },
         { 
           id: "automation", 
           text: "Full automation", 
           emoji: "🤖", 
-          description: "No human involvement",
           isCorrect: false
         }
       ]

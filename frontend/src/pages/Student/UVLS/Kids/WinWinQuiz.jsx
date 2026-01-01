@@ -30,21 +30,21 @@ const WinWinQuiz = () => {
           id: "a", 
           text: "Take turns", 
           emoji: "🔄", 
-          description: "Everyone gets to play",
+          // description: "Everyone gets to play",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "One swings all day", 
           emoji: "🏞️", 
-          description: "The other friend loses",
+          // description: "The other friend loses",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "No one swings", 
           emoji: "🚫", 
-          description: "Everyone loses",
+          // description: "Everyone loses",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const WinWinQuiz = () => {
           id: "b", 
           text: "Eat it alone", 
           emoji: "😋", 
-          description: "The other person loses",
+          // description: "The other person loses",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Split it in half", 
           emoji: "🍪", 
-          description: "Both get to enjoy",
+          // description: "Both get to enjoy",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Throw it away", 
           emoji: "🗑️", 
-          description: "Everyone loses",
+          // description: "Everyone loses",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const WinWinQuiz = () => {
           id: "b", 
           text: "Play only one", 
           emoji: "1️⃣", 
-          description: "One person loses",
+          // description: "One person loses",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Don't play any", 
           emoji: "😔", 
-          description: "Everyone loses",
+          // description: "Everyone loses",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Play both games", 
           emoji: "🎲", 
-          description: "Everyone gets what they want",
+          // description: "Everyone gets what they want",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const WinWinQuiz = () => {
           id: "b", 
           text: "Watch nothing", 
           emoji: "🚫", 
-          description: "Everyone loses",
+          // description: "Everyone loses",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Watch one then the other", 
           emoji: "📺", 
-          description: "Both get to watch their show",
+          // description: "Both get to watch their show",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Argue about it", 
           emoji: "🗣️", 
-          description: "This doesn't solve anything",
+          // description: "This doesn't solve anything",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const WinWinQuiz = () => {
           id: "b", 
           text: "Keep all for yourself", 
           emoji: "🤲", 
-          description: "The other person loses",
+          // description: "The other person loses",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Break them", 
           emoji: "💥", 
-          description: "Everyone loses",
+          // description: "Everyone loses",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Share and trade colors", 
           emoji: "🖍️", 
-          description: "Everyone gets what they need",
+          // description: "Everyone gets what they need",
           isCorrect: true 
         }
       ]

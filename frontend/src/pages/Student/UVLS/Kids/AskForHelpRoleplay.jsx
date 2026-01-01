@@ -30,21 +30,21 @@ const AskForHelpRoleplay = () => {
           id: "a", 
           text: "Can you please help me?", 
           emoji: "🙏", 
-          description: "Polite and respectful",
+          // description: "Polite and respectful",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Do it for me!", 
           emoji: "😠", 
-          description: "Demanding and rude",
+          // description: "Demanding and rude",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Never mind", 
           emoji: "🤷", 
-          description: "Not asking for help",
+          // description: "Not asking for help",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const AskForHelpRoleplay = () => {
           id: "b", 
           text: "Leave me alone!", 
           emoji: "🚫", 
-          description: "Pushing people away",
+          // description: "Pushing people away",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Can we talk? I'm feeling sad", 
           emoji: "🗣️", 
-          description: "Polite and clear",
+          // description: "Polite and clear",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Ignore everyone", 
           emoji: "🙈", 
-          description: "Not asking for help",
+          // description: "Not asking for help",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const AskForHelpRoleplay = () => {
           id: "b", 
           text: "Handle it yourself!", 
           emoji: "👊", 
-          description: "Not safe",
+          // description: "Not safe",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Forget about it", 
           emoji: "🫥", 
-          description: "Not responsible",
+          // description: "Not responsible",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "I need to report this to an adult", 
           emoji: "🚨", 
-          description: "Responsible and clear",
+          // description: "Responsible and clear",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const AskForHelpRoleplay = () => {
           id: "b", 
           text: "This is stupid!", 
           emoji: "🤬", 
-          description: "Rude and disrespectful",
+          // description: "Rude and disrespectful",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Can you explain that again, please?", 
           emoji: "🤔", 
-          description: "Polite and respectful",
+          // description: "Polite and respectful",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Give up and don't ask", 
           emoji: "😔", 
-          description: "Not asking for help",
+          // description: "Not asking for help",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const AskForHelpRoleplay = () => {
           id: "b", 
           text: "Fix this for me now!", 
           emoji: "😡", 
-          description: "Demanding and rude",
+          // description: "Demanding and rude",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Don't care about it", 
           emoji: "🙄", 
-          description: "Not asking for help",
+          // description: "Not asking for help",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Can I get some advice, please?", 
           emoji: "💡", 
-          description: "Polite and respectful",
+          // description: "Polite and respectful",
           isCorrect: true 
         }
       ]

@@ -20,20 +20,20 @@ const ResolveStepsPuzzle = () => {
 
   // Conflict resolution steps (left side) - 5 items
   const steps = [
-    { id: 1, name: "Listen", emoji: "👂", hint: "Hear all perspectives" },
-    { id: 2, name: "Understand", emoji: "🧠", hint: "Grasp the issue" },
-    { id: 3, name: "Propose", emoji: "💡", hint: "Suggest solutions" },
-    { id: 4, name: "Agree", emoji: "🤝", hint: "Reach consensus" },
-    { id: 5, name: "Follow-up", emoji: "📅", hint: "Check effectiveness" }
+    { id: 1, name: "Listen", emoji: "👂",  },
+    { id: 2, name: "Understand", emoji: "🧠",  },
+    { id: 3, name: "Propose", emoji: "💡",  },
+    { id: 4, name: "Agree", emoji: "🤝",  },
+    { id: 5, name: "Follow-up", emoji: "📅",  }
   ];
 
   // Resolution outcomes (right side) - 5 items
   const outcomes = [
-    { id: 6, name: "Clear Communication", emoji: "📢", description: "Everyone heard and understood" },
-    { id: 7, name: "Problem Clarity", emoji: "🔍", description: "Issue properly identified" },
-    { id: 8, name: "Solution Ideas", emoji: "✨", description: "Creative options generated" },
-    { id: 9, name: "Mutual Agreement", emoji: "✅", description: "Consensus reached" },
-    { id: 10, name: "Implementation Check", emoji: "🔁", description: "Verify solution works" }
+    { id: 6, name: "Clear Communication", emoji: "📢",  },
+    { id: 7, name: "Problem Clarity", emoji: "🔍",  },
+    { id: 8, name: "Solution Ideas", emoji: "✨",  },
+    { id: 9, name: "Mutual Agreement", emoji: "😶",  },
+    { id: 10, name: "Implementation Check", emoji: "🔁",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

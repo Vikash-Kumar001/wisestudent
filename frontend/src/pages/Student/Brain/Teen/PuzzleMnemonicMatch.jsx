@@ -55,20 +55,20 @@ const PuzzleMnemonicMatch = () => {
 
   // Mnemonics (left side)
   const leftItems = [
-    { id: 1, name: 'VIBGYOR', emoji: '🌈', description: 'Memory aid for colors' },
-    { id: 2, name: 'BODMAS', emoji: '🧮', description: 'Math order of operations' },
-    { id: 3, name: 'PEMDAS', emoji: '📐', description: 'Math operations order' },
-    { id: 4, name: 'ROYGBIV', emoji: '🎨', description: 'Rainbow color sequence' },
-    { id: 5, name: 'HOMES', emoji: '🌊', description: 'Great Lakes memory aid' }
+    { id: 1, name: 'VIBGYOR', emoji: '🌈',  },
+    { id: 2, name: 'BODMAS', emoji: '🧮',  },
+    { id: 3, name: 'PEMDAS', emoji: '📐',  },
+    { id: 4, name: 'ROYGBIV', emoji: '🎨',  },
+    { id: 5, name: 'HOMES', emoji: '🌊',  }
   ];
 
   // Meanings (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Math Order', emoji: '➗', description: 'Bracket, Of, Division, Multiplication, Addition, Subtraction' }, // Matches BODMAS (left position 2, right position 1)
-    { id: 3, name: 'Math Operations', emoji: '📊', description: 'Parentheses, Exponents, Multiplication, Division, Addition, Subtraction' }, // Matches PEMDAS (left position 3, right position 2)
-    { id: 1, name: 'Rainbow Colors', emoji: '🌈', description: 'Violet, Indigo, Blue, Green, Yellow, Orange, Red' }, // Matches VIBGYOR (left position 1, right position 3)
-    { id: 5, name: 'Great Lakes', emoji: '🏞️', description: 'Huron, Ontario, Michigan, Erie, Superior' }, // Matches HOMES (left position 5, right position 4)
-    { id: 4, name: 'Color Sequence', emoji: '🎨', description: 'Red, Orange, Yellow, Green, Blue, Indigo, Violet' } // Matches ROYGBIV (left position 4, right position 5)
+    { id: 2, name: 'Math Order', emoji: '➗',  },
+    { id: 3, name: 'Math Operations', emoji: '📊',  },
+    { id: 1, name: 'Rainbow Colors', emoji: '🌈',  },
+    { id: 5, name: 'Great Lakes', emoji: '🏞️',  },
+    { id: 4, name: 'Color Sequence', emoji: '🎨',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

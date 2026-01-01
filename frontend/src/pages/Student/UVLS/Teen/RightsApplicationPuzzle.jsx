@@ -20,20 +20,20 @@ const RightsApplicationPuzzle = () => {
 
   // Human rights (left side) - 5 items with hints
   const rights = [
-    { id: 1, name: "Equal Education", emoji: "📚", hint: "Right to learn without discrimination" },
-    { id: 2, name: "Personal Safety", emoji: "🛡️", hint: "Protection from harm and violence" },
-    { id: 3, name: "Fair Pay", emoji: "💰", hint: "Equal compensation for equal work" },
-    { id: 4, name: "Non-Discrimination", emoji: "⚖️", hint: "Equal treatment regardless of differences" },
-    { id: 5, name: "Healthcare Access", emoji: "🏥", hint: "Right to medical care and wellness" }
+    { id: 1, name: "Equal Education", emoji: "📚",  },
+    { id: 2, name: "Personal Safety", emoji: "🛡️",  },
+    { id: 3, name: "Fair Pay", emoji: "💰",  },
+    { id: 4, name: "Non-Discrimination", emoji: "⚖️",  },
+    { id: 5, name: "Healthcare Access", emoji: "🏥",  }
   ];
 
   // Protective actions (right side) - 5 items with descriptions
   const actions = [
-    { id: 6, name: "Advocacy & Reporting", emoji: "📢", description: "Speak up and inform authorities" },
-    { id: 7, name: "Legal Protection", emoji: "👮", description: "Use law enforcement for safety" },
-    { id: 8, name: "Formal Complaint", emoji: "📝", description: "Official documentation of issues" },
-    { id: 9, name: "HR Intervention", emoji: "👔", description: "Workplace policy enforcement" },
-    { id: 10, name: "Medical Advocacy", emoji: "💉", description: "Demand healthcare services" }
+    { id: 6, name: "Advocacy & Reporting", emoji: "📢",  },
+    { id: 7, name: "Legal Protection", emoji: "👮",  },
+    { id: 8, name: "Formal Complaint", emoji: "📝",  },
+    { id: 9, name: "HR Intervention", emoji: "👔",  },
+    { id: 10, name: "Medical Advocacy", emoji: "💉",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

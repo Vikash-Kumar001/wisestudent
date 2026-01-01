@@ -40,28 +40,25 @@ const ReflexBrainBoost = () => {
           id: "fish", 
           text: "Fish (Omega-3)", 
           emoji: "🐟", 
-          description: "Supports brain function and development",
+          
           isCorrect: true
         },
         { 
           id: "candy", 
           text: "Candy", 
           emoji: "🍬", 
-          description: "Causes energy crashes and poor concentration",
           isCorrect: false
         },
         { 
           id: "carrots", 
           text: "Carrots (Vitamins)", 
           emoji: "🥕", 
-          description: "Rich in antioxidants for brain health",
           isCorrect: false
         },
         { 
           id: "burger", 
           text: "Fast Food Burger", 
           emoji: "🍔", 
-          description: "High in unhealthy fats that slow brain function",
           isCorrect: false
         }
       ]
@@ -74,28 +71,24 @@ const ReflexBrainBoost = () => {
           id: "energy", 
           text: "Energy Drink", 
           emoji: "⚡", 
-          description: "Leads to crashes and disrupts sleep patterns",
           isCorrect: false
         },
         { 
           id: "greens", 
           text: "Leafy Greens", 
           emoji: "🥬", 
-          description: "Contains folate which improves cognitive function",
           isCorrect: true
         },
         { 
           id: "apples", 
           text: "Apples (Fiber)", 
           emoji: "🍎", 
-          description: "Steady energy source for sustained focus",
           isCorrect: false
         },
         { 
           id: "coffee", 
           text: "Coffee (Too much)", 
           emoji: "☕", 
-          description: "Excess caffeine causes jitters and anxiety",
           isCorrect: false
         }
       ]
@@ -108,28 +101,24 @@ const ReflexBrainBoost = () => {
           id: "junk", 
           text: "Processed Junk Food", 
           emoji: "🍟", 
-          description: "High in trans fats that impair memory",
           isCorrect: false
         },
         { 
           id: "soda", 
           text: "Sugary Soda", 
           emoji: "🥤", 
-          description: "Causes blood sugar spikes and crashes",
           isCorrect: false
         },
         { 
           id: "nuts", 
           text: "Nuts and Seeds", 
           emoji: "🥜", 
-          description: "Rich in healthy fats and vitamin E",
           isCorrect: true
         },
         { 
           id: "berries", 
           text: "Berries", 
           emoji: "🫐", 
-          description: "Antioxidants protect brain cells",
           isCorrect: false
         }
       ]
@@ -142,28 +131,24 @@ const ReflexBrainBoost = () => {
           id: "chips", 
           text: "Potato Chips", 
           emoji: "🍟", 
-          description: "High in sodium and unhealthy fats",
           isCorrect: false
         },
         { 
           id: "ice", 
           text: "Ice Cream", 
           emoji: "🍦", 
-          description: "High sugar content causes brain fog",
           isCorrect: false
         },
         { 
           id: "water", 
           text: "Water", 
           emoji: "💧", 
-          description: "Essential for optimal brain function",
           isCorrect: false
         },
         { 
           id: "dark", 
           text: "Dark Chocolate", 
           emoji: "🍫", 
-          description: "Contains flavonoids that improve blood flow to brain",
           isCorrect: true
         }
       ]
@@ -176,28 +161,24 @@ const ReflexBrainBoost = () => {
           id: "whole", 
           text: "Whole Grains", 
           emoji: "🌾", 
-          description: "Provides steady glucose for brain energy",
           isCorrect: true
         },
         { 
           id: "pizza", 
           text: "Pizza", 
           emoji: "🍕", 
-          description: "High in processed ingredients",
           isCorrect: false
         },
         { 
           id: "eggs", 
           text: "Eggs", 
           emoji: "🥚", 
-          description: "Rich in choline for memory and learning",
           isCorrect: false
         },
         { 
           id: "donut", 
           text: "Donuts", 
           emoji: "🍩", 
-          description: "Causes rapid blood sugar spikes",
           isCorrect: false
         }
       ]

@@ -68,28 +68,25 @@ const ReflexConcentration = () => {
           id: "focused", 
           text: "Focused Study", 
           emoji: "📚", 
-          description: "Deep focus improves learning and retention",
+          
           isCorrect: true
         },
         { 
           id: "social", 
           text: "Social Media Scrolling", 
           emoji: "📱", 
-          description: "Multitasking reduces efficiency and focus",
           isCorrect: false
         },
         { 
           id: "breaks", 
           text: "Taking Short Breaks", 
           emoji: "⏰", 
-          description: "Brief rests prevent mental fatigue",
           isCorrect: false
         },
         { 
           id: "gaming", 
           text: "Playing Video Games", 
           emoji: "🎮", 
-          description: "Gaming during study reduces performance",
           isCorrect: false
         }
       ]
@@ -102,28 +99,24 @@ const ReflexConcentration = () => {
           id: "daydream", 
           text: "Daydreaming", 
           emoji: "☁️", 
-          description: "Uncontrolled thoughts reduce productivity",
           isCorrect: false
         },
         { 
           id: "organized", 
           text: "Organized Study Space", 
           emoji: "✨", 
-          description: "Clean environment reduces distractions",
           isCorrect: false
         },
         { 
           id: "meditation", 
           text: "Mindfulness Meditation", 
           emoji: "🧘", 
-          description: "Enhances attention and emotional regulation",
           isCorrect: true
         },
         { 
           id: "allnight", 
           text: "Studying All Night", 
           emoji: "🌙", 
-          description: "Sleep deprivation impairs cognitive function",
           isCorrect: false
         }
       ]
@@ -136,28 +129,24 @@ const ReflexConcentration = () => {
           id: "phone", 
           text: "Phone Notifications On", 
           emoji: "🔔", 
-          description: "Constant interruptions break focus",
           isCorrect: false
         },
         { 
           id: "multitask", 
           text: "Multitasking", 
           emoji: "📱", 
-          description: "Reduces efficiency and increases errors",
           isCorrect: false
         },
         { 
           id: "pomodoro", 
           text: "Pomodoro Technique", 
           emoji: "⏱️", 
-          description: "Structured breaks maintain focus",
           isCorrect: false
         },
         { 
           id: "quiet", 
           text: "Quiet Environment", 
           emoji: "🔇", 
-          description: "Minimizes distractions and improves focus",
           isCorrect: true
         }
       ]
@@ -170,28 +159,24 @@ const ReflexConcentration = () => {
           id: "sleep", 
           text: "Adequate Sleep", 
           emoji: "😴", 
-          description: "Essential for optimal cognitive function",
           isCorrect: true
         },
         { 
           id: "noise", 
           text: "Loud Music", 
           emoji: "🔊", 
-          description: "Can break concentration and reduce learning",
           isCorrect: false
         },
         { 
           id: "cram", 
           text: "Cramming Sessions", 
           emoji: "📖", 
-          description: "Leads to mental fatigue and poor retention",
           isCorrect: false
         },
         { 
           id: "hydration", 
           text: "Staying Hydrated", 
           emoji: "💧", 
-          description: "Maintains brain function and focus",
           isCorrect: false
         }
       ]
@@ -204,28 +189,24 @@ const ReflexConcentration = () => {
           id: "distractions", 
           text: "Multiple Distractions", 
           emoji: "📺", 
-          description: "Fragments attention and reduces productivity",
           isCorrect: false
         },
         { 
           id: "single", 
           text: "Single Task Focus", 
           emoji: "🎯", 
-          description: "Improves concentration and productivity",
           isCorrect: true
         },
         { 
           id: "chaos", 
           text: "Chaotic Environment", 
           emoji: "🌪️", 
-          description: "Increases stress and reduces focus",
           isCorrect: false
         },
         { 
           id: "routine", 
           text: "Consistent Routine", 
           emoji: "📅", 
-          description: "Helps train the brain for better focus",
           isCorrect: false
         }
       ]

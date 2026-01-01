@@ -59,13 +59,13 @@ const TrueFalseAIQuiz = () => {
         { 
           id: 1, 
           text: "True", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 2, 
           text: "False", 
-          emoji: "✗", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
@@ -85,13 +85,13 @@ const TrueFalseAIQuiz = () => {
         { 
           id: 1, 
           text: "True", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "False", 
-          emoji: "❌",
+          emoji: "👎",
           isCorrect: false
         },
         { 
@@ -111,13 +111,13 @@ const TrueFalseAIQuiz = () => {
         { 
           id: 1, 
           text: "True", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 2, 
           text: "False", 
-          emoji: "❌",
+          emoji: "👎",
           isCorrect: true
         },
         { 
@@ -137,13 +137,13 @@ const TrueFalseAIQuiz = () => {
         { 
           id: 1, 
           text: "True", 
-          emoji: "✅",
+          emoji: "👍",
           isCorrect: true
         },
         { 
           id: 2, 
           text: "False", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -163,13 +163,13 @@ const TrueFalseAIQuiz = () => {
         { 
           id: 1, 
           text: "True", 
-          emoji: "✅",
+          emoji: "👍",
           isCorrect: false
         },
         { 
           id: 2, 
           text: "False", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 

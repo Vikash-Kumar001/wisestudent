@@ -20,20 +20,20 @@ const CommunityRolesPuzzle = () => {
 
   // Community helpers (left side) - 5 items
   const helpers = [
-    { id: 1, name: "Doctor", emoji: "👨‍⚕️", hint: "Heals people" },
-    { id: 2, name: "Teacher", emoji: "👩‍🏫", hint: "Educates students" },
-    { id: 3, name: "Firefighter", emoji: "👨‍🚒", hint: "Fights fires" },
-    { id: 4, name: "Farmer", emoji: "👨‍🌾", hint: "Grows crops" },
-    { id: 5, name: "Librarian", emoji: "👩‍💼", hint: "Manages books" }
+    { id: 1, name: "Doctor", emoji: "👨‍⚕️",  },
+    { id: 2, name: "Teacher", emoji: "👩‍🏫",  },
+    { id: 3, name: "Firefighter", emoji: "👨‍🚒",  },
+    { id: 4, name: "Farmer", emoji: "👨‍🌾",  },
+    { id: 5, name: "Librarian", emoji: "👩‍💼",  }
   ];
 
   // Community jobs (right side) - 5 items
   const jobs = [
-    { id: 6, name: "Heal Sick", emoji: "🩺", description: "Treat ill patients" },
-    { id: 7, name: "Teach Kids", emoji: "📚", description: "Educate children" },
-    { id: 8, name: "Fight Fires", emoji: "🔥", description: "Extinguish blazes" },
-    { id: 9, name: "Grow Food", emoji: "🌽", description: "Cultivate crops" },
-    { id: 10, name: "Manage Books", emoji: "📖", description: "Organize library" }
+    { id: 6, name: "Heal Sick", emoji: "🩺",  },
+    { id: 7, name: "Teach Kids", emoji: "📚",  },
+    { id: 8, name: "Fight Fires", emoji: "🔥",  },
+    { id: 9, name: "Grow Food", emoji: "🌽",  },
+    { id: 10, name: "Manage Books", emoji: "📖",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

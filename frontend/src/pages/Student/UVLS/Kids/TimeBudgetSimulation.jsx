@@ -104,7 +104,7 @@ const TimeBudgetSimulation = () => {
         },
         { 
           text: "Do homework for 1 hour, play for 1 hour, help with chores for 1 hour - Balanced approach", 
-          emoji: "✅", 
+          emoji: "📚", 
           isCorrect: true
         },
         { 

@@ -20,20 +20,20 @@ const PuzzleSystemMatch = () => {
   
   // Reproductive System Parts (left side) - 5 items
   const parts = [
-    { id: 1, name: "Ovaries", emoji: "🥚", hint: "Female reproductive organs" },
-    { id: 2, name: "Uterus", emoji: "🤰", hint: "Womb where baby develops" },
-    { id: 3, name: "Hormones", emoji: "⚗️", hint: "Chemical messengers in body" },
-    { id: 4, name: "Fallopian Tubes", emoji: "🧪", hint: "Pathway for egg transport" },
-    { id: 5, name: "Vagina", emoji: "🚺", hint: "Birth canal and entry point" }
+    { id: 1, name: "Ovaries", emoji: "🥚",  },
+    { id: 2, name: "Uterus", emoji: "🤰",  },
+    { id: 3, name: "Hormones", emoji: "⚗️",  },
+    { id: 4, name: "Fallopian Tubes", emoji: "🧪",  },
+    { id: 5, name: "Vagina", emoji: "🚺",  }
   ];
   
   // Functions (right side) - 5 items (shuffled order)
   const functions = [
-    { id: 3, text: "Regulate menstrual cycle and mood", hint: "Chemical control system" },
-    { id: 5, text: "Passageway for menstrual flow", hint: "Exit route for fluids" },
-    { id: 1, text: "Produce eggs and female hormones", hint: "Egg-making organs" },
-    { id: 4, text: "Transport eggs from ovaries to uterus", hint: "Egg travel pathway" },
-    { id: 2, text: "House and nourish developing fetus", hint: "Baby-growing chamber" }
+    { id: 3, text: "Regulate menstrual cycle and mood",  },
+    { id: 5, text: "Passageway for menstrual flow",  },
+    { id: 1, text: "Produce eggs and female hormones",  },
+    { id: 4, text: "Transport eggs from ovaries to uterus",  },
+    { id: 2, text: "House and nourish developing fetus",  }
   ];
   
   // Correct matches

@@ -62,21 +62,19 @@ const CyberbullyingStoryy = () => {
           id: "like", 
           text: "Like the post", 
           emoji: "👍", 
-          description: "Engaging with harmful content, even seemingly positively, can encourage more of it",
+          
           isCorrect: false
         },
                 { 
           id: "report", 
           text: "Report the post", 
           emoji: "📣", 
-          description: "Reporting cyberbullying helps platform moderators take action to stop harassment",
           isCorrect: true
         },
         { 
           id: "share", 
           text: "Ignore and share it", 
           emoji: "📤", 
-          description: "Sharing harmful content spreads the bullying to more people",
           isCorrect: false
         }
       ]
@@ -89,21 +87,18 @@ const CyberbullyingStoryy = () => {
           id: "report", 
           text: "Report the robot", 
           emoji: "📣", 
-          description: "Reporting malicious accounts helps protect others from similar harassment",
           isCorrect: true
         },
         { 
           id: "forward", 
           text: "Forward the rumors", 
           emoji: "📤", 
-          description: "Spreading rumors, even unintentionally, contributes to the harm",
           isCorrect: false
         },
         { 
           id: "laugh", 
           text: "Laugh at it", 
           emoji: "😂", 
-          description: "Laughing at someone else's expense can encourage the bully to continue",
           isCorrect: false
         }
       ]
@@ -117,21 +112,18 @@ const CyberbullyingStoryy = () => {
           id: "join", 
           text: "Join the bullying", 
           emoji: "👎", 
-          description: "Participating in harassment makes you complicit in the harm",
           isCorrect: false
         },
         { 
           id: "platform", 
           text: "Report to platform", 
           emoji: "📣", 
-          description: "Platform reporting systems are designed to handle cyberbullying effectively",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Ignoring cyberbullying allows it to continue unchecked",
           isCorrect: false
         }
       ]
@@ -145,21 +137,18 @@ const CyberbullyingStoryy = () => {
           id: "comment", 
           text: "Comment negatively too", 
           emoji: "💬", 
-          description: "Responding with negativity often escalates conflicts rather than resolving them",
           isCorrect: false
         },
         { 
           id: "share", 
           text: "Share to others", 
           emoji: "📤", 
-          description: "Sharing harmful content amplifies its reach and impact",
           isCorrect: false
         },
         { 
           id: "report", 
           text: "Report the post", 
           emoji: "📣", 
-          description: "Reporting false reviews helps maintain the integrity of online platforms",
           isCorrect: true
         },
       ]
@@ -172,21 +161,18 @@ const CyberbullyingStoryy = () => {
           id: "report", 
           text: "Report the robot", 
           emoji: "📣", 
-          description: "Reporting abusive accounts helps platforms identify and stop systematic harassment",
           isCorrect: true
         },
         { 
           id: "copy", 
           text: "Copy the messages", 
           emoji: "📤", 
-          description: "Copying harmful content, even to expose it, can spread the bullying further",
           isCorrect: false
         },
         { 
           id: "react", 
           text: "React angrily", 
           emoji: "😡", 
-          description: "Angry reactions can escalate situations and may be used against you later",
           isCorrect: false
         }
       ]

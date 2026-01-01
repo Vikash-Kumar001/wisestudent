@@ -31,13 +31,13 @@ const AIBankingQuiz = () => {
         { 
           id: "yes", 
           text: "Yes, it uses AI ", 
-          emoji: "✅", 
+          emoji: "🙂", 
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, it's not AI ", 
-          emoji: "❌", 
+          emoji: "🙃", 
           isCorrect: false
         },
         { 
@@ -139,7 +139,7 @@ const AIBankingQuiz = () => {
         { 
           id: "no", 
           text: "By guessing passwords ", 
-          emoji: "❌", 
+          emoji: "🤷‍♂️", 
           isCorrect: false
         }
       ]

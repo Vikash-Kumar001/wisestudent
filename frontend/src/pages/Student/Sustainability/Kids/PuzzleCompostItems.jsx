@@ -51,20 +51,20 @@ const PuzzleCompostItems = () => {
 
   // Compost Items (left side) - 5 items
   const compostItems = [
-    { id: 1, name: "Apple Core", emoji: "🍎", description: "Organic food waste" },
-    { id: 2, name: "Banana Peel", emoji: "🍌", description: "Biodegradable waste" },
-    { id: 3, name: "Newspaper", emoji: "📰", description: "Paper waste" },
-    { id: 4, name: "Coffee Grounds", emoji: "☕", description: "Organic kitchen waste" },
-    { id: 5, name: "Grass Clippings", emoji: "🌿", description: "Garden waste" }
+    { id: 1, name: "Apple Core", emoji: "🍎",  },
+    { id: 2, name: "Banana Peel", emoji: "🍌",  },
+    { id: 3, name: "Newspaper", emoji: "📰",  },
+    { id: 4, name: "Coffee Grounds", emoji: "☕",  },
+    { id: 5, name: "Grass Clippings", emoji: "🌿",  }
   ];
 
   // Disposal Methods (right side) - 5 items
   const disposalMethods = [
-      { id: 5, name: "Compost", emoji: "🪴", description: "Garden fertilizer" },
-      { id: 2, name: "Compost", emoji: "🍂", description: "Biodegradable matter" },
-      { id: 4, name: "Compost", emoji: "🌱", description: "Organic breakdown" },
-      { id: 1, name: "Compost", emoji: "🌿", description: "Organic decomposition" },
-      { id: 3, name: "Recycle", emoji: "♻️", description: "Material recovery" },
+      { id: 5, name: "Compost", emoji: "🪴",  },
+      { id: 2, name: "Compost", emoji: "🍂",  },
+      { id: 4, name: "Compost", emoji: "🌱",  },
+      { id: 1, name: "Compost", emoji: "🌿",  },
+      { id: 3, name: "Recycle", emoji: "♻️",  },
   ];
 
   // Correct matches

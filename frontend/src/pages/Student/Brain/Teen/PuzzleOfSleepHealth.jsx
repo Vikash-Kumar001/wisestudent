@@ -54,20 +54,20 @@ const PuzzleOfSleepHealth = () => {
 
   // Sleep Factors (left side)
   const leftItems = [
-    { id: 1, name: 'Screen Off', emoji: '📱', description: 'Turning off devices before bed' },
-    { id: 2, name: 'Noise', emoji: '🔊', description: 'Loud sounds during sleep' },
-    { id: 3, name: 'Regular Schedule', emoji: '⏰', description: 'Consistent bedtime routine' },
-    { id: 4, name: 'Caffeine Late', emoji: '☕', description: 'Drinking coffee before bed' },
-    { id: 5, name: 'Dark Room', emoji: '🌙', description: 'Sleeping in darkness' }
+    { id: 1, name: 'Screen Off', emoji: '📱',  },
+    { id: 2, name: 'Noise', emoji: '🔊',  },
+    { id: 3, name: 'Regular Schedule', emoji: '⏰',  },
+    { id: 4, name: 'Caffeine Late', emoji: '☕',  },
+    { id: 5, name: 'Dark Room', emoji: '🌙',  }
   ];
 
   // Sleep Effects (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Bad Sleep', emoji: '😴', description: 'Disrupted and poor quality sleep' }, // Matches Noise (left position 2, right position 1)
-    { id: 1, name: 'Good Sleep', emoji: '😌', description: 'Restful and quality sleep' }, // Matches Screen Off (left position 1, right position 2)
-    { id: 4, name: 'Restless Sleep', emoji: '😰', description: 'Difficulty falling asleep' }, // Matches Caffeine Late (left position 4, right position 3)
-    { id: 3, name: 'Better Sleep', emoji: '✨', description: 'Improved sleep quality' }, // Matches Regular Schedule (left position 3, right position 4)
-    { id: 5, name: 'Deep Sleep', emoji: '🌊', description: 'Restorative and deep rest' } // Matches Dark Room (left position 5, right position 5)
+    { id: 2, name: 'Bad Sleep', emoji: '😴',  },
+    { id: 1, name: 'Good Sleep', emoji: '😌',  },
+    { id: 4, name: 'Restless Sleep', emoji: '😰',  },
+    { id: 3, name: 'Better Sleep', emoji: '✨',  },
+    { id: 5, name: 'Deep Sleep', emoji: '🌊',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

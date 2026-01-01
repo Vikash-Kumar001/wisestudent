@@ -20,20 +20,20 @@ const AccessibilityPuzzle = () => {
 
   // Disabilities/Impairments (left side) - 5 items with hints
   const impairments = [
-    { id: 1, name: "Visual Impairment", emoji: "👁️", hint: "Difficulty seeing clearly" },
-    { id: 2, name: "Hearing Impairment", emoji: "👂", hint: "Difficulty hearing sounds" },
-    { id: 3, name: "Mobility Limitation", emoji: "🦽", hint: "Difficulty moving around" },
-    { id: 4, name: "ADHD", emoji: "🧠", hint: "Attention and focus challenges" },
-    { id: 5, name: "Dyslexia", emoji: "🔤", hint: "Reading and writing difficulties" }
+    { id: 1, name: "Visual Impairment", emoji: "👁️",  },
+    { id: 2, name: "Hearing Impairment", emoji: "👂",  },
+    { id: 3, name: "Mobility Limitation", emoji: "🦽",  },
+    { id: 4, name: "ADHD", emoji: "🧠",  },
+    { id: 5, name: "Dyslexia", emoji: "🔤",  }
   ];
 
   // Accommodations (right side) - 5 items with descriptions
   const accommodations = [
-    { id: 6, name: "Screen Reader Software", emoji: "🔊", description: "Converts text to speech" },
-    { id: 7, name: "Sign Language Interpreter", emoji: "🤟", description: "Facilitates communication" },
-    { id: 8, name: "Ramps and Elevators", emoji: "♿", description: "Enables physical access" },
-    { id: 9, name: "Fidget Tools", emoji: "🧘", description: "Helps with focus and attention" },
-    { id: 10, name: "Audiobooks", emoji: "🎧", description: "Alternative to traditional reading" }
+    { id: 6, name: "Screen Reader Software", emoji: "🔊",  },
+    { id: 7, name: "Sign Language Interpreter", emoji: "🤟",  },
+    { id: 8, name: "Ramps and Elevators", emoji: "♿",  },
+    { id: 9, name: "Fidget Tools", emoji: "🧘",  },
+    { id: 10, name: "Audiobooks", emoji: "🎧",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

@@ -61,14 +61,14 @@ const AIHumanRolesStory = () => {
           id: "human", 
           text: "Human Judge", 
           emoji: "👨‍⚖️", 
-          description: "Humans bring empathy, moral reasoning, and contextual understanding essential for fair judgments",
+          
           isCorrect: true
         },
         { 
           id: "ai", 
           text: "AI Judge", 
           emoji: "🤖", 
-          description: "AI lacks the emotional intelligence and moral reasoning required for justice decisions",
+          
           isCorrect: false
         },
         
@@ -76,7 +76,6 @@ const AIHumanRolesStory = () => {
           id: "both", 
           text: "Both together", 
           emoji: "🤝", 
-          description: "While AI can assist with research, ultimate responsibility should rest with human judgment",
           isCorrect: false
         }
       ]
@@ -89,21 +88,18 @@ const AIHumanRolesStory = () => {
           id: "ai", 
           text: "AI System", 
           emoji: "💻", 
-          description: "AI cannot account for patient-specific factors or ethical considerations in critical moments",
           isCorrect: false
         },
         { 
           id: "doctor", 
           text: "Doctor", 
           emoji: "👩‍⚕️", 
-          description: "Doctors combine medical expertise with ethical judgment and patient empathy for critical decisions",
           isCorrect: true
         },
         { 
           id: "committee", 
           text: "Medical Committee", 
           emoji: "👥", 
-          description: "While collaborative decisions can be valuable, immediate decisions require trained professional judgment",
           isCorrect: false
         }
       ]
@@ -117,21 +113,18 @@ const AIHumanRolesStory = () => {
           id: "manager", 
           text: "Human Manager", 
           emoji: "🧑‍💼", 
-          description: "Managers can evaluate interpersonal skills, company culture fit, and nuanced qualifications",
           isCorrect: true
         },
         { 
           id: "ai", 
           text: "HR AI Tool", 
           emoji: "🤖", 
-          description: "AI can introduce bias and cannot assess soft skills or cultural fit effectively",
           isCorrect: false
         },
         { 
           id: "hr", 
           text: "HR Department", 
           emoji: "🏢", 
-          description: "HR departments often use both human judgment and AI tools for comprehensive evaluation",
           isCorrect: false
         }
       ]
@@ -144,21 +137,18 @@ const AIHumanRolesStory = () => {
           id: "ai", 
           text: "AI Software", 
           emoji: "🧠", 
-          description: "AI struggles to evaluate subjective qualities like originality, emotional depth, and creative expression",
           isCorrect: false
         },
         { 
           id: "teacher", 
           text: "Teacher", 
           emoji: "👩‍🏫", 
-          description: "Teachers understand educational goals and can appreciate diverse forms of creative expression",
           isCorrect: true
         },
         { 
           id: "peer", 
           text: "Peer Review", 
           emoji: "👥", 
-          description: "Peer review can provide valuable perspectives but shouldn't replace professional educational assessment",
           isCorrect: false
         }
       ]
@@ -171,7 +161,6 @@ const AIHumanRolesStory = () => {
           id: "ai", 
           text: "AI Algorithm", 
           emoji: "💻", 
-          description: "AI can be fooled by sophisticated misinformation and lacks contextual understanding of complex events",
           isCorrect: false
         },
         
@@ -179,14 +168,12 @@ const AIHumanRolesStory = () => {
           id: "public", 
           text: "Public Voting", 
           emoji: "🗳️", 
-          description: "Public opinion can be influenced by misinformation, making expert verification essential",
           isCorrect: false
         },
         { 
           id: "journalist", 
           text: "Human Journalist", 
           emoji: "🧑‍💻", 
-          description: "Journalists apply critical thinking, source verification, and ethical judgment to confirm news accuracy",
           isCorrect: true
         },
       ]

@@ -34,21 +34,21 @@ const AiGetsSmarter = () => {
           id: "clear", 
           text: "Use clear, high-quality photos of cats ", 
           emoji: "📷", 
-          description: "High-quality images with different angles help AI learn better patterns.",
+          
           isCorrect: true
         },
         { 
           id: "blurry", 
           text: "Use blurry, low-quality photos ", 
           emoji: "🌫️", 
-          description: "Blurry images make it harder for AI to learn the right features.",
+          
           isCorrect: false
         },
         { 
           id: "mixed", 
           text: "Mix cat photos with random objects ", 
           emoji: "🎲", 
-          description: "Mixed images confuse AI. It's better to focus on one subject at a time.",
+          
           isCorrect: false
         }
       ]
@@ -61,21 +61,18 @@ const AiGetsSmarter = () => {
           id: "random", 
           text: "Label randomly without checking ", 
           emoji: "🎲", 
-          description: "Random labels will confuse AI and make it perform poorly.",
           isCorrect: false
         },
         { 
           id: "correct", 
           text: "Label everything accurately ", 
-          emoji: "✅", 
-          description: "Correct labels are essential for AI to learn the right associations.",
+          emoji: "🎯", 
           isCorrect: true
         },
         { 
           id: "skip", 
           text: "Skip labeling to save time ⏭", 
           emoji: "⏭️", 
-          description: "AI needs labeled data to learn. Skipping labels means no learning happens.",
           isCorrect: false
         }
       ]
@@ -88,21 +85,18 @@ const AiGetsSmarter = () => {
           id: "varied", 
           text: "Show many variations of the same object ", 
           emoji: "🔄", 
-          description: "Different angles, lighting, and backgrounds help AI work in any situation.",
           isCorrect: true
         },
         { 
           id: "same", 
           text: "Show the exact same photo repeatedly ", 
           emoji: "📷", 
-          description: "Repetition of the same image doesn't help AI generalize to new situations.",
           isCorrect: false
         },
         { 
           id: "few", 
           text: "Use only a few examples ", 
           emoji: "📉", 
-          description: "Few examples aren't enough for AI to learn robust patterns.",
           isCorrect: false
         }
       ]
@@ -115,21 +109,18 @@ const AiGetsSmarter = () => {
           id: "never", 
           text: "Never retrain after initial setup ", 
           emoji: "🛑", 
-          description: "AI models degrade over time without retraining on new data.",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Train randomly without schedule ", 
           emoji: "🎲", 
-          description: "Unscheduled training lacks consistency needed for good performance.",
           isCorrect: false
         },
         { 
           id: "consistent", 
           text: "Train regularly with new data ", 
           emoji: "📅", 
-          description: "Regular training with fresh data keeps AI models up-to-date and accurate.",
           isCorrect: true
         }
       ]
@@ -142,21 +133,18 @@ const AiGetsSmarter = () => {
           id: "worse", 
           text: "Performance gets worse ", 
           emoji: "😡", 
-          description: "Wrong data teaches AI incorrect patterns, making it perform poorly.",
           isCorrect: true
         },
         { 
           id: "better", 
           text: "Performance improves magically ", 
           emoji: "✨", 
-          description: "AI can't magically overcome poor training data. Quality data is essential.",
           isCorrect: false
         },
         { 
           id: "same", 
           text: "Nothing changes ", 
           emoji: "🟰", 
-          description: "Wrong data definitely affects AI performance - usually negatively.",
           isCorrect: false
         }
       ]

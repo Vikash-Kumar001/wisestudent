@@ -30,21 +30,21 @@ const ToyDispute = () => {
           id: "a", 
           text: "Take turns", 
           emoji: "🔄", 
-          description: "Share fairly",
+          // description: "Share fairly",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Fight for it", 
           emoji: "👊", 
-          description: "This causes problems",
+          // description: "This causes problems",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "One keeps it", 
           emoji: "🤷", 
-          description: "Not fair",
+          // description: "Not fair",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const ToyDispute = () => {
           id: "b", 
           text: "Hide it", 
           emoji: "🕳️", 
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Share by time", 
           emoji: "⏰", 
-          description: "Take turns fairly",
+          // description: "Take turns fairly",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Break it", 
           emoji: "💥", 
-          description: "Destructive",
+          // description: "Destructive",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const ToyDispute = () => {
           id: "b", 
           text: "Tear pages", 
           emoji: "📄", 
-          description: "Destructive",
+          // description: "Destructive",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "One reads all", 
           emoji: "👤", 
-          description: "Not fair",
+          // description: "Not fair",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Read together", 
           emoji: "📖", 
-          description: "Share and cooperate",
+          // description: "Share and cooperate",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const ToyDispute = () => {
           id: "b", 
           text: "Quit game", 
           emoji: "🚫", 
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Play in turns", 
           emoji: "🎲", 
-          description: "Share fairly",
+          // description: "Share fairly",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Argue loudly", 
           emoji: "🗣️", 
-          description: "Makes it worse",
+          // description: "Makes it worse",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const ToyDispute = () => {
           id: "b", 
           text: "Throw pieces", 
           emoji: "🤬", 
-          description: "Destructive",
+          // description: "Destructive",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "One does all", 
           emoji: "🤦", 
-          description: "Not fair",
+          // description: "Not fair",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Solve together", 
           emoji: "🧩", 
-          description: "Cooperate and share",
+          // description: "Cooperate and share",
           isCorrect: true 
         }
       ]

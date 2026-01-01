@@ -20,20 +20,20 @@ const PuzzleSubstanceEffects = () => {
   
   // Substances (left side) - 5 items
   const substances = [
-    { id: 1, name: "Smoking", emoji: "💨", hint: "Inhalation of tobacco smoke" },
-    { id: 2, name: "Alcohol", emoji: "🍺", hint: "Ethanol-based beverage" },
-    { id: 3, name: "Drugs", emoji: "💊", hint: "Psychoactive substances" },
-    { id: 4, name: "Nicotine", emoji: "🚬", hint: "Addictive chemical compound" },
-    { id: 5, name: "Marijuana", emoji: "🌿", hint: "Cannabis plant derivative" }
+    { id: 1, name: "Smoking", emoji: "💨",  },
+    { id: 2, name: "Alcohol", emoji: "🍺",  },
+    { id: 3, name: "Drugs", emoji: "💊",  },
+    { id: 4, name: "Nicotine", emoji: "🚬",  },
+    { id: 5, name: "Marijuana", emoji: "🌿",  }
   ];
   
   // Effects (right side) - 5 items (shuffled order)
   const effects = [
-    { id: 3, text: "Impairs cognitive function and judgment", hint: "Brain chemistry disruption" },
-    { id: 5, text: "Interferes with short-term memory formation", hint: "Neural pathway disruption" },
-    { id: 1, text: "Damages respiratory system tissues", hint: "Lung tissue deterioration" },
-    { id: 4, text: "Creates chemical dependency in brain", hint: "Neurotransmitter alteration" },
-    { id: 2, text: "Overworks liver detoxification process", hint: "Organ stress from metabolism" }
+    { id: 3, text: "Impairs cognitive function and judgment",  },
+    { id: 5, text: "Interferes with short-term memory formation",  },
+    { id: 1, text: "Damages respiratory system tissues",  },
+    { id: 4, text: "Creates chemical dependency in brain",  },
+    { id: 2, text: "Overworks liver detoxification process",  }
   ];
   
   // Correct matches

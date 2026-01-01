@@ -20,20 +20,20 @@ const NutrientsMatchPuzzle = () => {
   
   // Nutrients (left side) - 5 items
   const nutrients = [
-    { id: 1, name: "Iron", emoji: "🩸", hint: "Essential mineral for blood health" },
-    { id: 2, name: "Vitamin C", emoji: "🍊", hint: "Antioxidant for immune system" },
-    { id: 3, name: "Protein", emoji: "🥚", hint: "Building blocks for muscles" },
-    { id: 4, name: "Calcium", emoji: "🥛", hint: "Mineral for strong bones" },
-    { id: 5, name: "Fiber", emoji: "🌾", hint: "Digestive health support" }
+    { id: 1, name: "Iron", emoji: "🩸",  },
+    { id: 2, name: "Vitamin C", emoji: "🍊",  },
+    { id: 3, name: "Protein", emoji: "🥚",  },
+    { id: 4, name: "Calcium", emoji: "🥛",  },
+    { id: 5, name: "Fiber", emoji: "🌾",  }
   ];
   
   // Food Sources (right side) - 5 items (shuffled order)
   const sources = [
-    { id: 3, text: "Eggs and lean meats", hint: "Complete protein sources" },
-    { id: 5, text: "Whole grains and vegetables", hint: "Rich in dietary fiber" },
-    { id: 1, text: "Spinach and red meat", hint: "High in iron content" },
-    { id: 4, text: "Dairy products and leafy greens", hint: "Excellent calcium sources" },
-    { id: 2, text: "Citrus fruits and berries", hint: "Abundant vitamin C sources" }
+    { id: 3, text: "Eggs and lean meats",  },
+    { id: 5, text: "Whole grains and vegetables",  },
+    { id: 1, text: "Spinach and red meat",  },
+    { id: 4, text: "Dairy products and leafy greens",  },
+    { id: 2, text: "Citrus fruits and berries",  }
   ];
   
   // Correct matches

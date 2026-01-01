@@ -23,8 +23,8 @@ const AIArtistGame = () => {
       text: "Can AI help you draw creative pictures from your ideas?",
       emoji: "🎨",
       choices: [
-        { id: 1, text: "Yes", emoji: "✅", isCorrect: true },
-        { id: 2, text: "No", emoji: "❌", isCorrect: false },
+        { id: 1, text: "Yes", emoji: "👍", isCorrect: true },
+        { id: 2, text: "No", emoji: "👎", isCorrect: false },
         { id: 3, text: "Maybe", emoji: "🤔", isCorrect: false }
       ],
       explanation:
@@ -34,8 +34,8 @@ const AIArtistGame = () => {
       text: "Can AI draw a flying cat if you tell it to?",
       emoji: "🐱✨",
       choices: [
-        { id: 1, text: "No", emoji: "❌", isCorrect: false },
-        { id: 2, text: "Yes", emoji: "✅", isCorrect: true },
+        { id: 1, text: "No", emoji: "👎", isCorrect: false },
+        { id: 2, text: "Yes", emoji: "👍", isCorrect: true },
         { id: 3, text: "Only on weekends", emoji: "📅", isCorrect: false }
       ],
       explanation:
@@ -45,8 +45,8 @@ const AIArtistGame = () => {
       text: "Does AI use data from artists to learn how to draw?",
       emoji: "🧠🖌️",
       choices: [
-        { id: 1, text: "Yes", emoji: "✅", isCorrect: true },
-        { id: 2, text: "No", emoji: "❌", isCorrect: false },
+        { id: 1, text: "Yes", emoji: "👍", isCorrect: true },
+        { id: 2, text: "No", emoji: "👎", isCorrect: false },
         { id: 3, text: "Only famous artists", emoji: "🌟", isCorrect: false }
       ],
       explanation:
@@ -56,8 +56,8 @@ const AIArtistGame = () => {
       text: "Can AI draw emotions, like a happy or sad face?",
       emoji: "😊😢",
       choices: [
-        { id: 1, text: "No", emoji: "❌", isCorrect: false },
-        { id: 2, text: "Yes", emoji: "✅", isCorrect: true },
+        { id: 1, text: "No", emoji: "👎", isCorrect: false },
+        { id: 2, text: "Yes", emoji: "👍", isCorrect: true },
         { id: 3, text: "Only basic emotions", emoji: "😐", isCorrect: false }
       ],
       explanation:
@@ -67,8 +67,8 @@ const AIArtistGame = () => {
       text: "Can humans and AI work together to make art?",
       emoji: "🤝🎨",
       choices: [
-        { id: 1, text: "Yes", emoji: "✅", isCorrect: true },
-        { id: 2, text: "No", emoji: "❌", isCorrect: false },
+        { id: 1, text: "Yes", emoji: "👍", isCorrect: true },
+        { id: 2, text: "No", emoji: "👎", isCorrect: false },
         { id: 3, text: "Only professionals", emoji: "👩‍🎨", isCorrect: false }
       ],
       explanation:

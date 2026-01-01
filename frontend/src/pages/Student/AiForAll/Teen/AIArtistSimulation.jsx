@@ -28,28 +28,27 @@ const AIArtistSimulation = () => {
           id: "copy", 
           text: "Copy existing artworks", 
           emoji: "🖼️", 
-          description: "Replicate famous paintings",
+          
           isCorrect: false
         },
         { 
           id: "create", 
           text: "Create new artistic content", 
           emoji: "✨", 
-          description: "Generate original artwork from prompts",
+          
           isCorrect: true
         },
         { 
           id: "analyze", 
           text: "Analyze art styles", 
           emoji: "🔍", 
-          description: "Examine artistic techniques",
+          
           isCorrect: false
         },
         { 
           id: "sell", 
           text: "Sell digital art", 
           emoji: "💰", 
-          description: "Marketplace for NFTs",
           isCorrect: false
         }
       ]
@@ -62,28 +61,24 @@ const AIArtistSimulation = () => {
           id: "nlp", 
           text: "Natural Language Processing", 
           emoji: "🔤", 
-          description: "Interpret human language",
           isCorrect: true
         },
         { 
           id: "cv", 
           text: "Computer Vision", 
           emoji: "👁️", 
-          description: "Analyze visual content",
           isCorrect: false
         },
         { 
           id: "ml", 
           text: "Machine Learning", 
           emoji: "🤖", 
-          description: "Learn from data patterns",
           isCorrect: false
         },
         { 
           id: "dl", 
           text: "Deep Learning", 
           emoji: "🧠", 
-          description: "Neural networks with multiple layers",
           isCorrect: false
         }
       ]
@@ -96,28 +91,24 @@ const AIArtistSimulation = () => {
           id: "quality", 
           text: "Image quality", 
           emoji: "📷", 
-          description: "Resolution and clarity",
           isCorrect: false
         },
         { 
           id: "attribution", 
           text: "Proper attribution and ownership", 
           emoji: "📝", 
-          description: "Credit and copyright considerations",
           isCorrect: true
         },
         { 
           id: "speed", 
           text: "Generation speed", 
           emoji: "⏱️", 
-          description: "Time to create images",
           isCorrect: false
         },
         { 
           id: "cost", 
           text: "Computational cost", 
           emoji: "💸", 
-          description: "Resource requirements",
           isCorrect: false
         }
       ]
@@ -130,28 +121,24 @@ const AIArtistSimulation = () => {
           id: "examples", 
           text: "Training on vast image datasets", 
           emoji: "📚", 
-          description: "Learning from millions of examples",
           isCorrect: true
         },
         { 
           id: "programming", 
           text: "Explicit programming rules", 
           emoji: "⌨️", 
-          description: "Manual coding of artistic rules",
           isCorrect: false
         },
         { 
           id: "internet", 
           text: "Browsing the internet", 
           emoji: "🌐", 
-          description: "Searching online content",
           isCorrect: false
         },
         { 
           id: "humans", 
           text: "Direct human instruction", 
           emoji: "👩‍🏫", 
-          description: "Being taught by artists",
           isCorrect: false
         }
       ]
@@ -164,28 +151,24 @@ const AIArtistSimulation = () => {
           id: "creativity", 
           text: "Lack of true creativity", 
           emoji: "🤔", 
-          description: "Cannot originate truly novel concepts",
           isCorrect: true
         },
         { 
           id: "interface", 
           text: "Complex user interfaces", 
           emoji: "🖥️", 
-          description: "Difficult to use platforms",
           isCorrect: false
         },
         { 
           id: "hardware", 
           text: "Hardware requirements", 
           emoji: "💻", 
-          description: "Need powerful computers",
           isCorrect: false
         },
         { 
           id: "cost", 
           text: "High subscription fees", 
           emoji: "💳", 
-          description: "Expensive service costs",
           isCorrect: false
         }
       ]

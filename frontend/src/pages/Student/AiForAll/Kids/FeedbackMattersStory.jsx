@@ -31,13 +31,13 @@ const FeedbackMattersStory = () => {
         { 
           id: "correct", 
           text: "Correct it with the right answer", 
-          emoji: "✅", 
+          emoji: "👊", 
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignore it and move on", 
-          emoji: "❌", 
+          emoji: "🙈", 
           isCorrect: false
         },
         { 

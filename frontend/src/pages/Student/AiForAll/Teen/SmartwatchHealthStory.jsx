@@ -62,21 +62,21 @@ const SmartwatchHealthStory = () => {
           id: "friend", 
           text: "Friend", 
           emoji: "👨‍👩‍👧", 
-          description: "Friends can't continuously monitor vital signs or detect subtle changes in heart rate patterns",
+          // description: "Friends can't continuously monitor vital signs or detect subtle changes in heart rate patterns",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI Health Monitor", 
           emoji: "🤖", 
-          description: "AI algorithms continuously analyze heart rate patterns and can detect abnormalities in real-time",
+          // description: "AI algorithms continuously analyze heart rate patterns and can detect abnormalities in real-time",
           isCorrect: true
         },
         { 
           id: "guess", 
           text: "User Guess", 
           emoji: "❓", 
-          description: "Guessing isn't reliable for detecting medical conditions that require precise monitoring",
+          // description: "Guessing isn't reliable for detecting medical conditions that require precise monitoring",
           isCorrect: false
         }
       ]
@@ -89,21 +89,21 @@ const SmartwatchHealthStory = () => {
           id: "analyzer", 
           text: "AI Sleep Analyzer", 
           emoji: "🤖", 
-          description: "AI analyzes sleep patterns, duration, and quality to provide personalized insights",
+          // description: "AI analyzes sleep patterns, duration, and quality to provide personalized insights",
           isCorrect: true
         },
         { 
           id: "manual", 
           text: "Manual Log", 
           emoji: "📓", 
-          description: "Manual logs depend on user memory and aren't as accurate as continuous AI monitoring",
+          // description: "Manual logs depend on user memory and aren't as accurate as continuous AI monitoring",
           isCorrect: false
         },
         { 
           id: "alarm", 
           text: "Alarm Clock", 
           emoji: "⏰", 
-          description: "Alarm clocks only wake you up but don't analyze sleep quality or patterns",
+          // description: "Alarm clocks only wake you up but don't analyze sleep quality or patterns",
           isCorrect: false
         }
       ]
@@ -117,21 +117,21 @@ const SmartwatchHealthStory = () => {
           id: "user", 
           text: "User Counting", 
           emoji: "🧮", 
-          description: "Manual counting is prone to errors and doesn't provide personalized fitness recommendations",
+          // description: "Manual counting is prone to errors and doesn't provide personalized fitness recommendations",
           isCorrect: false
         },
          { 
           id: "coach", 
           text: "AI Fitness Coach", 
           emoji: "🤖", 
-          description: "AI personalizes fitness goals based on user data and adjusts targets for optimal results",
+          // description: "AI personalizes fitness goals based on user data and adjusts targets for optimal results",
           isCorrect: true
         },
         { 
           id: "pedometer", 
           text: "Basic Pedometer", 
           emoji: "👟", 
-          description: "Basic pedometers only count steps but don't provide personalized goals or insights",
+          // description: "Basic pedometers only count steps but don't provide personalized goals or insights",
           isCorrect: false
         }
       ]
@@ -145,21 +145,21 @@ const SmartwatchHealthStory = () => {
           id: "scale", 
           text: "Kitchen Scale", 
           emoji: "🥣", 
-          description: "Kitchen scales measure food weight but can't calculate calories burned during activities",
+          // description: "Kitchen scales measure food weight but can't calculate calories burned during activities",
           isCorrect: false
         },
         { 
           id: "app", 
           text: "Generic App", 
           emoji: "📱", 
-          description: "Generic apps often use rough estimates rather than personalized AI calculations",
+          // description: "Generic apps often use rough estimates rather than personalized AI calculations",
           isCorrect: false
         },
         { 
           id: "tracker", 
           text: "AI Nutrition Tracker", 
           emoji: "🤖", 
-          description: "AI combines activity data, heart rate, and user profile to accurately estimate calorie expenditure",
+          // description: "AI combines activity data, heart rate, and user profile to accurately estimate calorie expenditure",
           isCorrect: true
         },
       ]
@@ -172,21 +172,21 @@ const SmartwatchHealthStory = () => {
           id: "monitor", 
           text: "AI Wellness Monitor", 
           emoji: "🤖", 
-          description: "AI analyzes heart rate variability, activity patterns, and other biometrics to detect stress",
+          // description: "AI analyzes heart rate variability, activity patterns, and other biometrics to detect stress",
           isCorrect: true
         },
         { 
           id: "advice", 
           text: "Friend Advice", 
           emoji: "🗣️", 
-          description: "Friends can offer support but can't continuously monitor physiological stress indicators",
+          // description: "Friends can offer support but can't continuously monitor physiological stress indicators",
           isCorrect: false
         },
         { 
           id: "feeling", 
           text: "User Feeling", 
           emoji: "💭", 
-          description: "Subjective feelings are important but AI can detect stress before users are consciously aware",
+          // description: "Subjective feelings are important but AI can detect stress before users are consciously aware",
           isCorrect: false
         }
       ]

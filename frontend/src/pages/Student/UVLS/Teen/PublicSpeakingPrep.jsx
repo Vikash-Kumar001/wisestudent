@@ -37,21 +37,21 @@ const PublicSpeakingPrep = () => {
           id: "b", 
           text: "Start with your conclusion", 
           emoji: "🔚", 
-          description: "This is confusing for the audience",
+          // description: "This is confusing for the audience",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Include a hook, main point, and preview", 
           emoji: "🎤", 
-          description: "This structure captures attention and sets expectations",
+          // description: "This structure captures attention and sets expectations",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Skip the preview", 
           emoji: "❓", 
-          description: "The preview helps the audience follow your speech",
+          // description: "The preview helps the audience follow your speech",
           isCorrect: false
         }
       ]
@@ -64,21 +64,21 @@ const PublicSpeakingPrep = () => {
           id: "a", 
           text: "Use facts, examples, or personal stories", 
           emoji: "📊", 
-          description: "These provide supporting evidence for your points",
+          // description: "These provide supporting evidence for your points",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Just state your opinion", 
           emoji: "💭", 
-          description: "Opinions need to be supported with evidence",
+          // description: "Opinions need to be supported with evidence",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Skip supporting details", 
           emoji: "🚫", 
-          description: "Supporting details strengthen your argument",
+          // description: "Supporting details strengthen your argument",
           isCorrect: false
         }
       ]
@@ -92,21 +92,21 @@ const PublicSpeakingPrep = () => {
           id: "b", 
           text: "Introduce new information", 
           emoji: "🆕", 
-          description: "This confuses the audience at the end",
+          // description: "This confuses the audience at the end",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "End abruptly without summary", 
           emoji: "💨", 
-          description: "The audience needs closure and key takeaways",
+          // description: "The audience needs closure and key takeaways",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Summarize key points and inspire action", 
           emoji: "✨", 
-          description: "This reinforces your message and motivates the audience",
+          // description: "This reinforces your message and motivates the audience",
           isCorrect: true
         },
       ]
@@ -120,21 +120,21 @@ const PublicSpeakingPrep = () => {
           id: "b", 
           text: "Introduce a completely different topic", 
           emoji: "🔀", 
-          description: "This disrupts the flow of your speech",
+          // description: "This disrupts the flow of your speech",
           isCorrect: false
         },
          { 
           id: "a", 
           text: "Smoothly connect ideas", 
           emoji: "🔗", 
-          description: "Transitions help the audience follow your logic",
+          // description: "Transitions help the audience follow your logic",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "End the speech", 
           emoji: "⏹️", 
-          description: "Transitions connect, not end, sections",
+          // description: "Transitions connect, not end, sections",
           isCorrect: false
         }
       ]
@@ -147,21 +147,21 @@ const PublicSpeakingPrep = () => {
           id: "a", 
           text: "Leave a lasting impression", 
           emoji: "🎯", 
-          description: "A strong conclusion reinforces your message",
+          // description: "A strong conclusion reinforces your message",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Apologize for your mistakes", 
           emoji: "🙇", 
-          description: "This undermines your credibility",
+          // description: "This undermines your credibility",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Thank the audience briefly", 
           emoji: "🙏", 
-          description: "While polite, this doesn't reinforce your message",
+          // description: "While polite, this doesn't reinforce your message",
           isCorrect: false
         }
       ]

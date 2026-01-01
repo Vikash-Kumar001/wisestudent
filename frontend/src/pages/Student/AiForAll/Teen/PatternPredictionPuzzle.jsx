@@ -24,11 +24,11 @@ const PatternPredictionPuzzle = () => {
 
   // Pattern sequences (left side) - 6 items
   const leftItems = [
-    { id: 1, name: "2, 4, 8, 16, ?", emoji: "🔢", description: "Powers of 2" },
-    { id: 2, name: "1, 4, 7, 10, ?", emoji: "🔢", description: "Arithmetic sequence +3" },
-    { id: 3, name: "1, 8, 27, 64, ?", emoji: "🔢", description: "Cubes of natural numbers" },
-    { id: 4, name: "100, 96, 92, 88, ?", emoji: "🔢", description: "Decreasing arithmetic -4" },
-    { id: 5, name: "2, 6, 18, 54, ?", emoji: "🔢", description: "Geometric sequence ×3" }
+    { id: 1, name: "2, 4, 8, 16, ?", emoji: "🔢",  },
+    { id: 2, name: "1, 4, 7, 10, ?", emoji: "🔢",  },
+    { id: 3, name: "1, 8, 27, 64, ?", emoji: "🔢",  },
+    { id: 4, name: "100, 96, 92, 88, ?", emoji: "🔢",  },
+    { id: 5, name: "2, 6, 18, 54, ?", emoji: "🔢",  }
     
   ];
 

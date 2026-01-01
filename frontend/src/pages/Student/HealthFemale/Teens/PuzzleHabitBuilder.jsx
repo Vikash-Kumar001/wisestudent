@@ -20,20 +20,20 @@ const PuzzleHabitBuilder = () => {
   
   // Habits (left side) - 5 items
   const habits = [
-    { id: 1, name: "Water", emoji: "💧", hint: "Essential liquid for bodily functions" },
-    { id: 2, name: "Exercise", emoji: "🏃", hint: "Physical activity for fitness" },
-    { id: 3, name: "Study", emoji: "📚", hint: "Learning activity for knowledge" },
-    { id: 4, name: "Sleep", emoji: "😴", hint: "Rest period for recovery" },
-    { id: 5, name: "Nutrition", emoji: "🍎", hint: "Consumption of healthy foods" }
+    { id: 1, name: "Water", emoji: "💧",  },
+    { id: 2, name: "Exercise", emoji: "🏃",  },
+    { id: 3, name: "Study", emoji: "📚",  },
+    { id: 4, name: "Sleep", emoji: "😴",  },
+    { id: 5, name: "Nutrition", emoji: "🍎",  }
   ];
   
   // Benefits (right side) - 5 items (shuffled order)
   const benefits = [
-    { id: 3, text: "Enhances concentration and learning", hint: "Mental sharpness improvement" },
-    { id: 5, text: "Supports overall physical wellbeing", hint: "Foundation for good health" },
-    { id: 1, text: "Maintains fluid balance in body", hint: "Prevents dehydration effects" },
-    { id: 4, text: "Allows body and mind to recover", hint: "Essential restorative process" },
-    { id: 2, text: "Strengthens muscles and cardiovascular system", hint: "Physical conditioning benefit" }
+    { id: 3, text: "Enhances concentration and learning",  },
+    { id: 5, text: "Supports overall physical wellbeing",  },
+    { id: 1, text: "Maintains fluid balance in body",  },
+    { id: 4, text: "Allows body and mind to recover",  },
+    { id: 2, text: "Strengthens muscles and cardiovascular system",  }
   ];
   
   // Correct matches

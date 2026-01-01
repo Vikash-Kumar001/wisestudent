@@ -28,28 +28,27 @@ const ChatbotSimulation = () => {
           id: "translate", 
           text: "Translate languages only", 
           emoji: "🌐", 
-          description: "Convert text between different languages",
+          
           isCorrect: false
         },
         { 
           id: "understand", 
           text: "Understand and interpret human language", 
           emoji: "🧠", 
-          description: "Process and comprehend user inputs",
+          
           isCorrect: true
         },
         { 
           id: "voice", 
           text: "Generate voice responses", 
           emoji: "🔊", 
-          description: "Convert text to speech",
+          
           isCorrect: false
         },
         { 
           id: "store", 
           text: "Store conversation data", 
           emoji: "💾", 
-          description: "Save chat history",
           isCorrect: false
         }
       ]
@@ -62,14 +61,12 @@ const ChatbotSimulation = () => {
           id: "context", 
           text: "Remembering conversation context", 
           emoji: "💭", 
-          description: "Maintain topic continuity",
           isCorrect: true
         },
         { 
           id: "speed", 
           text: "Responding instantly", 
           emoji: "⚡", 
-          description: "Immediate responses to all queries",
           isCorrect: false
         },
         
@@ -77,14 +74,12 @@ const ChatbotSimulation = () => {
           id: "caps", 
           text: "Using all caps", 
           emoji: "🔤", 
-          description: "Emphasize all words",
           isCorrect: false
         },
         { 
           id: "emoji", 
           text: "Using many emojis", 
           emoji: "😀", 
-          description: "Add emotional icons",
           isCorrect: false
         }
       ]
@@ -98,28 +93,24 @@ const ChatbotSimulation = () => {
           id: "short", 
           text: "Keep responses concise and clear", 
           emoji: "✂️", 
-          description: "Be brief and understandable",
           isCorrect: true
         },
         { 
           id: "long", 
           text: "Make responses as detailed as possible", 
           emoji: "📚", 
-          description: "Provide extensive information",
           isCorrect: false
         },
         { 
           id: "repeat", 
           text: "Repeat the user's question", 
           emoji: "🔄", 
-          description: "Echo back inputs",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Use random responses", 
           emoji: "🎲", 
-          description: "Unpredictable answers",
           isCorrect: false
         }
       ]
@@ -132,7 +123,6 @@ const ChatbotSimulation = () => {
           id: "fun", 
           text: "To entertain users", 
           emoji: "🎭", 
-          description: "Provide comedy relief",
           isCorrect: false
         },
         
@@ -140,21 +130,18 @@ const ChatbotSimulation = () => {
           id: "ads", 
           text: "To show advertisements", 
           emoji: "📢", 
-          description: "Promote products",
           isCorrect: false
         },
         { 
           id: "stats", 
           text: "To collect user statistics", 
           emoji: "📊", 
-          description: "Gather analytics",
           isCorrect: false
         },
         { 
           id: "help", 
           text: "To assist when the bot doesn't understand", 
           emoji: "🆘", 
-          description: "Handle unrecognized inputs gracefully",
           isCorrect: true
         },
       ]
@@ -167,28 +154,24 @@ const ChatbotSimulation = () => {
           id: "cost", 
           text: "Reduce operational costs", 
           emoji: "💰", 
-          description: "Lower staffing expenses",
           isCorrect: true
         },
         { 
           id: "complex", 
           text: "Handle complex technical issues", 
           emoji: "🔧", 
-          description: "Solve advanced problems",
           isCorrect: false
         },
         { 
           id: "human", 
           text: "Replace all human agents", 
           emoji: "🤖", 
-          description: "Eliminate human workforce",
           isCorrect: false
         },
         { 
           id: "slow", 
           text: "Slow down response times", 
           emoji: "🐌", 
-          description: "Decrease service speed",
           isCorrect: false
         }
       ]

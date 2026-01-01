@@ -72,7 +72,7 @@ const AIBiasRoleplay = () => {
          { 
           id: 3, 
           text: "Hire boys + girls", 
-          emoji: "👦👧", 
+          emoji: "👧", 
           isCorrect: true
         },
       ],
@@ -92,7 +92,7 @@ const AIBiasRoleplay = () => {
         { 
           id: 2, 
           text: "Adjust for fairness", 
-          emoji: "👩👨", 
+          emoji: "👩", 
           isCorrect: true
         },
         { 
@@ -145,7 +145,7 @@ const AIBiasRoleplay = () => {
         { 
           id: 2, 
           text: "Balance male + female leads", 
-          emoji: "👨👩", 
+          emoji: "👩", 
           isCorrect: true
         },
         { 

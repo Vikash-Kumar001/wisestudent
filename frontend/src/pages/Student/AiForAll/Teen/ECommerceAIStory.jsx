@@ -61,21 +61,20 @@ const ECommerceAIStory = () => {
           id: "ai", 
           text: "Artificial Intelligence", 
           emoji: "🤖", 
-          description: "AI analyzes your purchase history, browsing behavior, and preferences to predict what complementary products you might need",
+          
           isCorrect: true
         },
         { 
           id: "human", 
           text: "Customer Service Representative", 
           emoji: "👩‍💻", 
-          description: "While customer service reps can make recommendations, e-commerce platforms use AI for automated, personalized suggestions at scale",
+          
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random automated script", 
           emoji: "📜", 
-          description: "Recommendations are based on sophisticated algorithms that analyze patterns, not random selections",
           isCorrect: false
         }
       ]
@@ -88,21 +87,18 @@ const ECommerceAIStory = () => {
           id: "personalized", 
           text: "Personalized user experience", 
           emoji: "🎯", 
-          description: "AI creates personalized experiences by analyzing each user's unique preferences, purchase history, and browsing patterns",
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Random product display", 
           emoji: "🎲", 
-          description: "E-commerce platforms use data-driven approaches rather than randomness to increase sales and user satisfaction",
           isCorrect: false
         },
         { 
           id: "limited", 
           text: "Limited product inventory", 
           emoji: "📦", 
-          description: "Recommendations are based on user preferences rather than inventory limitations",
           isCorrect: false
         }
       ]
@@ -116,21 +112,18 @@ const ECommerceAIStory = () => {
           id: "coincidence", 
           text: "Pure coincidence", 
           emoji: "🍀", 
-          description: "Product recommendations are based on data analysis of purchasing patterns, not chance",
           isCorrect: false
         },
         { 
           id: "manual", 
           text: "Manual staff input", 
           emoji: "✍️", 
-          description: "While staff might curate some collections, AI automatically identifies product relationships at scale",
           isCorrect: false
         },
         { 
           id: "pattern", 
           text: "Pattern recognition", 
           emoji: "🔍", 
-          description: "AI recognizes patterns between related products and understands that people who buy ski equipment often need winter clothing",
           isCorrect: true
         },
       ]
@@ -144,21 +137,18 @@ const ECommerceAIStory = () => {
           id: "forgetful", 
           text: "System malfunction", 
           emoji: "🔧", 
-          description: "AI systems are designed to adapt recommendations based on changing interests, not due to malfunctions",
           isCorrect: false
         },
         { 
           id: "adaptive", 
           text: "Adaptive learning", 
           emoji: "🧠", 
-          description: "AI continuously learns from your behavior and adapts recommendations based on recent interests and purchases",
           isCorrect: true
         },
         { 
           id: "policy", 
           text: "Company policy", 
           emoji: "📜", 
-          description: "Recommendation changes are algorithmic responses to user behavior rather than arbitrary policies",
           isCorrect: false
         }
       ]
@@ -171,21 +161,19 @@ const ECommerceAIStory = () => {
           id: "complex", 
           text: "Complex data analysis", 
           emoji: "📊", 
-          description: "AI analyzes multiple factors including purchase history, browsing time, seasonal trends, demographics, and user similarities for precise recommendations",
+         
           isCorrect: true
         },
         { 
           id: "simple", 
           text: "Simple categorization", 
           emoji: "🏷️", 
-          description: "Basic categorization is less effective than AI's multifaceted approach to understanding user preferences",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Random assortment", 
           emoji: "🔀", 
-          description: "Effective recommendations are based on data patterns rather than random selections",
           isCorrect: false
         }
       ]

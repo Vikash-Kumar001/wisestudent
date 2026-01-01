@@ -62,21 +62,21 @@ const PredictionStory = () => {
           id: "meteorologist", 
           text: "A meteorologist typing it manually", 
           emoji: "👨‍🔬", 
-          description: "While meteorologists contribute expertise, modern weather predictions are primarily made by AI systems processing vast data sets",
+          
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "Artificial Intelligence analyzing weather patterns", 
           emoji: "🤖", 
-          description: "Weather apps use AI to analyze massive amounts of data - temperature, humidity, wind patterns, historical data - to make accurate predictions",
+          
           isCorrect: true
         },
         { 
           id: "guessing", 
           text: "Random guessing", 
           emoji: "🎲", 
-          description: "Weather prediction requires analysis of complex data patterns, not random guesses",
+          
           isCorrect: false
         }
       ]
@@ -90,21 +90,18 @@ const PredictionStory = () => {
           id: "friends", 
           text: "Your friends told the app", 
           emoji: "👥", 
-          description: "While social features exist, recommendations are primarily algorithm-driven based on your behavior",
           isCorrect: false
         },
         { 
           id: "random", 
           text: "Pure luck", 
           emoji: "🍀", 
-          description: "Recommendations are based on data analysis, not chance",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI analyzing your viewing history", 
           emoji: "🤖", 
-          description: "Recommendation systems use machine learning to analyze your preferences and suggest content you're likely to enjoy",
           isCorrect: true
         },
       ]
@@ -117,21 +114,18 @@ const PredictionStory = () => {
           id: "ai", 
           text: "AI trained to recognize spam patterns", 
           emoji: "🤖", 
-          description: "Spam filters use machine learning models trained on millions of emails to identify and block unwanted messages",
           isCorrect: true
         },
         { 
           id: "person", 
           text: "A person checking each email", 
           emoji: "🧑", 
-          description: "Manual checking would be impossible given the volume of emails, so AI handles this task",
           isCorrect: false
         },
         { 
           id: "magic", 
           text: "Magical filtering", 
           emoji: "✨", 
-          description: "Email filtering is based on data analysis and pattern recognition, not magic",
           isCorrect: false
         }
       ]
@@ -145,21 +139,18 @@ const PredictionStory = () => {
           id: "telepathy", 
           text: "Telepathic connection", 
           emoji: "🧠", 
-          description: "Voice recognition is based on analyzing sound waves and linguistic patterns, not telepathy",
           isCorrect: false
         },
          { 
           id: "ai", 
           text: "Natural Language Processing AI", 
           emoji: "🤖", 
-          description: "Voice assistants use AI technologies like speech recognition and natural language processing to understand and respond to commands",
           isCorrect: true
         },
         { 
           id: "person", 
           text: "A person listening remotely", 
           emoji: "👂", 
-          description: "Voice assistants process commands locally or in data centers using AI, not human listeners",
           isCorrect: false
         }
       ]
@@ -173,21 +164,18 @@ const PredictionStory = () => {
           id: "psychic", 
           text: "Psychic powers", 
           emoji: "🔮", 
-          description: "Product suggestions are based on data analysis, not supernatural abilities",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "AI predicting your interests", 
           emoji: "🤖", 
-          description: "E-commerce platforms use AI to analyze your behavior and recommend products based on predictive modeling",
           isCorrect: true
         },
         { 
           id: "coincidence", 
           text: "Random coincidence", 
           emoji: "🎲", 
-          description: "Recommendations are calculated based on your behavior patterns, not random chance",
           isCorrect: false
         }
       ]

@@ -35,21 +35,21 @@ const SnackChoice = () => {
           id: "a", 
           text: "Apple", 
           emoji: "🍎", 
-          description: "Healthy fruit snack",
+          // description: "Healthy fruit snack",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Candy", 
           emoji: "🍬", 
-          description: "Sugary treat",
+          // description: "Sugary treat",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Chips", 
           emoji: "🥔", 
-          description: "Salty snack",
+          // description: "Salty snack",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const SnackChoice = () => {
           id: "b", 
           text: "Soda", 
           emoji: "🥤", 
-          description: "Sugary drink",
+          // description: "Sugary drink",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Banana", 
           emoji: "🍌", 
-          description: "Natural energy boost",
+          // description: "Natural energy boost",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Cookies", 
           emoji: "🍪", 
-          description: "Sweet treat",
+          // description: "Sweet treat",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const SnackChoice = () => {
           id: "b", 
           text: "Ice cream", 
           emoji: "🍨", 
-          description: "Cold dessert",
+          // description: "Cold dessert",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Cake", 
           emoji: "🍰", 
-          description: "Sweet dessert",
+          // description: "Sweet dessert",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Yogurt", 
           emoji: "🥛", 
-          description: "Protein-rich snack",
+          // description: "Protein-rich snack",
           isCorrect: true 
         }
       ]
@@ -116,21 +116,21 @@ const SnackChoice = () => {
           id: "b", 
           text: "Chocolate", 
           emoji: "🍫", 
-          description: "Sugary treat",
+          // description: "Sugary treat",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Milk", 
           emoji: "🥛", 
-          description: "Calming drink",
+          // description: "Calming drink",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Gum", 
           emoji: "🍬", 
-          description: "Chewy candy",
+          // description: "Chewy candy",
           isCorrect: false 
         }
       ]
@@ -143,21 +143,21 @@ const SnackChoice = () => {
           id: "b", 
           text: "Donut", 
           emoji: "🍩", 
-          description: "Sugary pastry",
+          // description: "Sugary pastry",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Pizza", 
           emoji: "🍕", 
-          description: "Heavy meal",
+          // description: "Heavy meal",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Orange", 
           emoji: "🍊", 
-          description: "Vitamin C and hydration",
+          // description: "Vitamin C and hydration",
           isCorrect: true 
         }
       ]

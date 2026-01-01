@@ -32,21 +32,19 @@ const AirportScannerStory = () => {
           id: "ai", 
           text: "AI Scanner", 
           emoji: "🛡️", 
-          description: "AI scanners help detect dangerous items to keep airports safe",
+          
           isCorrect: true
         },
         { 
           id: "guard", 
           text: "Random Security Guard", 
           emoji: "👤", 
-          description: "AI scanners work with security to detect threats",
           isCorrect: false
         },
         { 
           id: "traveler", 
           text: "Traveler Himself", 
           emoji: "🧳", 
-          description: "AI scanners detect threats automatically",
           isCorrect: false
         }
       ]
@@ -59,21 +57,18 @@ const AirportScannerStory = () => {
           id: "guess", 
           text: "Guessing randomly", 
           emoji: "❌", 
-          description: "AI learns from patterns to identify suspicious items",
           isCorrect: false
         },
         { 
           id: "ai", 
           text: "Learning from patterns", 
           emoji: "🤖", 
-          description: "AI learns from patterns to identify suspicious items accurately",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Ignoring it", 
           emoji: "🙈", 
-          description: "AI actively flags suspicious items for review",
           isCorrect: false
         }
       ]
@@ -86,21 +81,18 @@ const AirportScannerStory = () => {
           id: "paperwork", 
           text: "More paperwork", 
           emoji: "📄", 
-          description: "AI facial recognition speeds up check-in",
           isCorrect: false
         },
         { 
           id: "queues", 
           text: "Longer queues", 
           emoji: "⏳", 
-          description: "AI makes check-in faster, not slower",
           isCorrect: false
         },
         { 
           id: "faster", 
           text: "Faster check-in", 
           emoji: "🚀", 
-          description: "AI facial recognition speeds up check-in and improves security",
           isCorrect: true
         }
       ]
@@ -113,21 +105,18 @@ const AirportScannerStory = () => {
           id: "ai", 
           text: "Security team reviews it", 
           emoji: "👮‍♂️", 
-          description: "AI alerts security teams to review suspicious items",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "AI ignores the alert", 
           emoji: "🤷‍♂️", 
-          description: "AI alerts security when suspicious items are detected",
           isCorrect: false
         },
         { 
           id: "lost", 
           text: "Cargo gets lost", 
           emoji: "📦", 
-          description: "AI helps security review items, not lose them",
           isCorrect: false
         }
       ]
@@ -140,21 +129,19 @@ const AirportScannerStory = () => {
           id: "waiting", 
           text: "Waiting time", 
           emoji: "⌛", 
-          description: "AI gates reduce waiting time",
           isCorrect: false
         },
         { 
           id: "confusion", 
           text: "Confusion for travelers", 
           emoji: "😵", 
-          description: "AI gates make travel easier, not more confusing",
           isCorrect: false
         },
         { 
           id: "speed", 
           text: "Speed and accuracy", 
           emoji: "⚙️", 
-          description: "AI-powered gates improve speed and accuracy of boarding",
+          
           isCorrect: true
         }
       ]

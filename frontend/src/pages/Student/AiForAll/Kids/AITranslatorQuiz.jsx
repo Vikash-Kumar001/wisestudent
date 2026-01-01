@@ -37,7 +37,7 @@ const AITranslatorQuiz = () => {
         { 
           id: "no", 
           text: "No, it doesn't ", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

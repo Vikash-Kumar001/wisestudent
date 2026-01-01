@@ -56,20 +56,20 @@ const PuzzleOfDistractions = () => {
 
   // Environments (left side)
   const leftItems = [
-    { id: 1, name: 'Silent Room', emoji: '🔇', description: 'A quiet environment for studying' },
-    { id: 2, name: 'Loud Music', emoji: '🔊', description: 'Noisy background while studying' },
-    { id: 3, name: 'Phone Notifications', emoji: '📱', description: 'Constant alerts and messages' },
-    { id: 4, name: 'Organized Desk', emoji: '✨', description: 'Clean and tidy workspace' },
-    { id: 5, name: 'Natural Light', emoji: '☀️', description: 'Well-lit study area' }
+    { id: 1, name: 'Silent Room', emoji: '🔇',  },
+    { id: 2, name: 'Loud Music', emoji: '🔊',  },
+    { id: 3, name: 'Phone Notifications', emoji: '📱',  },
+    { id: 4, name: 'Organized Desk', emoji: '✨',  },
+    { id: 5, name: 'Natural Light', emoji: '☀️',  }
   ];
 
   // Effects (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Distraction', emoji: '😵', description: 'Loud music can break concentration' }, // Matches Loud Music (left position 2, right position 1)
-    { id: 3, name: 'Interruption', emoji: '🔔', description: 'Constant notifications fragment attention' }, // Matches Phone Notifications (left position 3, right position 2)
-    { id: 1, name: 'Focus', emoji: '🎯', description: 'A quiet environment helps you concentrate' }, // Matches Silent Room (left position 1, right position 3)
-    { id: 5, name: 'Alertness', emoji: '⚡', description: 'Natural lighting boosts mood and focus' }, // Matches Natural Light (left position 5, right position 4)
-    { id: 4, name: 'Clarity', emoji: '💡', description: 'An organized space reduces mental clutter' } // Matches Organized Desk (left position 4, right position 5)
+    { id: 2, name: 'Distraction', emoji: '😵',  },
+    { id: 3, name: 'Interruption', emoji: '🔔',  },
+    { id: 1, name: 'Focus', emoji: '🎯',  },
+    { id: 5, name: 'Alertness', emoji: '⚡',  },
+    { id: 4, name: 'Clarity', emoji: '💡',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

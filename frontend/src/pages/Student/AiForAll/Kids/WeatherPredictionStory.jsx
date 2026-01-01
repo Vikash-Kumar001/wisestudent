@@ -79,7 +79,7 @@ const WeatherPredictionStory = () => {
         { 
           id: "guess", 
           text: "Guessing randomly", 
-          emoji: "❌", 
+          emoji: "🤷‍♂️", 
           isCorrect: false
         },
         { 
@@ -103,7 +103,7 @@ const WeatherPredictionStory = () => {
         { 
           id: "ai", 
           text: "Yes, using data & patterns", 
-          emoji: "✅", 
+          emoji: "🤖", 
           isCorrect: true
         },
         { 

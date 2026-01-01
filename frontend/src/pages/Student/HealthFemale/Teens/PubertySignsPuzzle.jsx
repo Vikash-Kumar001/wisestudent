@@ -20,20 +20,20 @@ const PubertySignsPuzzle = () => {
   
   // Puberty Signs (left side) - 5 items
   const signs = [
-    { id: 1, name: "Acne", emoji: "🔴", hint: "Skin condition with red spots" },
-    { id: 2, name: "Periods", emoji: "🩸", hint: "Monthly menstrual cycle" },
-    { id: 3, name: "Mood Swings", emoji: "🎭", hint: "Rapid emotional changes" },
-    { id: 4, name: "Body Hair", emoji: "🦰", hint: "Growth of hair in new areas" },
-    { id: 5, name: "Growth Spurt", emoji: "📏", hint: "Rapid increase in height" }
+    { id: 1, name: "Acne", emoji: "🔴",  },
+    { id: 2, name: "Periods", emoji: "🩸",  },
+    { id: 3, name: "Mood Swings", emoji: "🎭",  },
+    { id: 4, name: "Body Hair", emoji: "🦰",  },
+    { id: 5, name: "Growth Spurt", emoji: "📏",  }
   ];
   
   // Causes (right side) - 5 items (shuffled order)
   const causes = [
-    { id: 3, text: "Hormonal changes affecting emotions", hint: "Chemical messengers influence feelings" },
-    { id: 5, text: "Hormones stimulating bone growth", hint: "Growth plates activated by chemicals" },
-    { id: 1, text: "Hormones increasing oil production", hint: "Sebaceous glands become active" },
-    { id: 4, text: "Hormones triggering hair follicles", hint: "Androgens activate new growth" },
-    { id: 2, text: "Hormones regulating reproductive cycle", hint: "Estrogen and progesterone control flow" }
+    { id: 3, text: "Hormonal changes affecting emotions",  },
+    { id: 5, text: "Hormones stimulating bone growth",  },
+    { id: 1, text: "Hormones increasing oil production",  },
+    { id: 4, text: "Hormones triggering hair follicles",  },
+    { id: 2, text: "Hormones regulating reproductive cycle",  }
   ];
   
   // Correct matches

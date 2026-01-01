@@ -40,28 +40,25 @@ const ReflexDistractionAlert = () => {
           id: "notifications", 
           text: "Shut Notifications", 
           emoji: "🔕", 
-          description: "Eliminates interruptions and maintains focus",
+          
           isCorrect: true
         },
         { 
           id: "phone", 
           text: "Keep Phone On", 
           emoji: "📱", 
-          description: "Constant notifications fragment attention",
           isCorrect: false
         },
         { 
           id: "quiet", 
           text: "Study in Quiet Room", 
           emoji: "🔇", 
-          description: "Minimizes auditory distractions",
           isCorrect: false
         },
         { 
           id: "music", 
           text: "Study with Loud Music", 
           emoji: "🔊", 
-          description: "Music with lyrics interferes with comprehension",
           isCorrect: false
         }
       ]
@@ -74,28 +71,24 @@ const ReflexDistractionAlert = () => {
           id: "chat", 
           text: "Chat with Friends", 
           emoji: "💬", 
-          description: "Social conversations reduce academic focus",
           isCorrect: false
         },
         { 
           id: "breaks", 
           text: "Take Scheduled Breaks", 
           emoji: "⏰", 
-          description: "Planned breaks prevent mental fatigue",
           isCorrect: true
         },
         { 
           id: "organize", 
           text: "Organize Study Materials", 
           emoji: "📚", 
-          description: "Preparation increases efficiency",
           isCorrect: false
         },
         { 
           id: "gaming", 
           text: "Play Video Games", 
           emoji: "🎮", 
-          description: "Gaming during study reduces performance",
           isCorrect: false
         }
       ]
@@ -108,28 +101,24 @@ const ReflexDistractionAlert = () => {
           id: "distractions", 
           text: "Multiple Distractions", 
           emoji: "📺", 
-          description: "Fragments attention and reduces productivity",
           isCorrect: false
         },
         { 
           id: "multitask", 
           text: "Multitasking", 
           emoji: "📱", 
-          description: "Reduces efficiency and increases errors",
           isCorrect: false
         },
         { 
           id: "single", 
           text: "Single Task Focus", 
           emoji: "🎯", 
-          description: "Improves concentration and productivity",
           isCorrect: true
         },
         { 
           id: "routine", 
           text: "Consistent Routine", 
           emoji: "📅", 
-          description: "Helps train the brain for better focus",
           isCorrect: false
         }
       ]
@@ -142,28 +131,24 @@ const ReflexDistractionAlert = () => {
           id: "noise", 
           text: "Loud Environment", 
           emoji: "🔊", 
-          description: "Can break concentration and reduce learning",
           isCorrect: false
         },
         { 
           id: "cram", 
           text: "Cramming Sessions", 
           emoji: "📖", 
-          description: "Leads to mental fatigue and poor retention",
           isCorrect: false
         },
         { 
           id: "sleep", 
           text: "Adequate Sleep", 
           emoji: "😴", 
-          description: "Essential for optimal cognitive function",
           isCorrect: true
         },
         { 
           id: "hydration", 
           text: "Staying Hydrated", 
           emoji: "💧", 
-          description: "Maintains brain function and focus",
           isCorrect: false
         }
       ]
@@ -176,28 +161,24 @@ const ReflexDistractionAlert = () => {
           id: "phone", 
           text: "Phone Notifications On", 
           emoji: "🔔", 
-          description: "Constant interruptions break focus",
           isCorrect: false
         },
         { 
           id: "social", 
           text: "Social Media Open", 
           emoji: "📱", 
-          description: "Temptation to check reduces focus",
           isCorrect: false
         },
         { 
           id: "silent", 
           text: "Silent Mode", 
           emoji: "🔇", 
-          description: "Minimizes interruptions and improves focus",
           isCorrect: true
         },
         { 
           id: "clean", 
           text: "Clean Workspace", 
           emoji: "✨", 
-          description: "Reduces visual clutter and distractions",
           isCorrect: false
         }
       ]

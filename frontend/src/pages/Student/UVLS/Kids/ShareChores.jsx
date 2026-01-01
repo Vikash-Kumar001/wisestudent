@@ -36,21 +36,21 @@ const ShareChores = () => {
           id: "fair", 
           text: "Everyone helps equally", 
           emoji: "⚖️", 
-          description: "Fair distribution of work",
+          // description: "Fair distribution of work",
           isCorrect: true 
         },
         { 
           id: "one", 
           text: "Only one person does everything", 
           emoji: "😤", 
-          description: "Unfair and exhausting",
+          // description: "Unfair and exhausting",
           isCorrect: false 
         },
         { 
           id: "none", 
           text: "No one does chores", 
           emoji: "😴", 
-          description: "Creates a messy home",
+          // description: "Creates a messy home",
           isCorrect: false 
         }
       ]
@@ -64,21 +64,21 @@ const ShareChores = () => {
           id: "gender", 
           text: "Based on gender stereotypes", 
           emoji: "🚫", 
-          description: "Unfair and outdated",
+          // description: "Unfair and outdated",
           isCorrect: false 
         },
         { 
           id: "equal", 
           text: "Share tasks fairly among everyone", 
           emoji: "🤝", 
-          description: "Fair and inclusive approach",
+          // description: "Fair and inclusive approach",
           isCorrect: true 
         },
         { 
           id: "age", 
           text: "Only older kids do chores", 
           emoji: "👴", 
-          description: "Unfair to older children",
+          // description: "Unfair to older children",
           isCorrect: false 
         }
       ]
@@ -92,21 +92,21 @@ const ShareChores = () => {
           id: "one", 
           text: "One person does all 3", 
           emoji: "😓", 
-          description: "Unfair and overwhelming",
+          // description: "Unfair and overwhelming",
           isCorrect: false 
         },
         { 
           id: "skip", 
           text: "Skip the chores", 
           emoji: "🙈", 
-          description: "Not responsible",
+          // description: "Not responsible",
           isCorrect: false 
         },
         { 
           id: "each", 
           text: "Each person does 1 chore", 
-          emoji: "✅", 
-          description: "Fair and balanced",
+          emoji: "😀", 
+          // description: "Fair and balanced",
           isCorrect: true 
         }
       ]
@@ -120,21 +120,21 @@ const ShareChores = () => {
           id: "redistribute", 
           text: "Redistribute to make it fair", 
           emoji: "🔄", 
-          description: "Ensures fairness for everyone",
+          // description: "Ensures fairness for everyone",
           isCorrect: true 
         },
         { 
           id: "ignore", 
           text: "Ignore the unfairness", 
           emoji: "😐", 
-          description: "Doesn't solve the problem",
+          // description: "Doesn't solve the problem",
           isCorrect: false 
         },
         { 
           id: "add", 
           text: "Give them even more chores", 
           emoji: "😤", 
-          description: "Makes it more unfair",
+          // description: "Makes it more unfair",
           isCorrect: false 
         }
       ]
@@ -148,21 +148,21 @@ const ShareChores = () => {
           id: "easy", 
           text: "So chores are easier", 
           emoji: "😊", 
-          description: "Chores still need to be done",
+          // description: "Chores still need to be done",
           isCorrect: false 
         },
         { 
           id: "unfair", 
           text: "So one person doesn't get overwhelmed", 
           emoji: "😰", 
-          description: "Prevents burnout and stress",
+          // description: "Prevents burnout and stress",
           isCorrect: true 
         },
         { 
           id: "avoid", 
           text: "To avoid doing chores", 
           emoji: "🙈", 
-          description: "Chores still need to be done",
+          // description: "Chores still need to be done",
           isCorrect: false 
         }
       ]

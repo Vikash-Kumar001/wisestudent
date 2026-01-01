@@ -59,7 +59,7 @@ const BiasSpotReflex = () => {
       correctAnswer: "Yes, Biased",
       options: [
         { text: "Yes, Biased", isCorrect: true, emoji: "🚫" },
-        { text: "No, Not Biased", isCorrect: false, emoji: "✅" },
+        { text: "No, Not Biased", isCorrect: false, emoji: "🙅" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" }
       ]
@@ -69,7 +69,7 @@ const BiasSpotReflex = () => {
       question: "Is this statement biased? 'Math is fun for everyone.'",
       correctAnswer: "No, Not Biased",
       options: [
-        { text: "No, Not Biased", isCorrect: true, emoji: "✅" },
+        { text: "No, Not Biased", isCorrect: true, emoji: "🙅" },
         { text: "Yes, Biased", isCorrect: false, emoji: "🚫" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" }
@@ -82,7 +82,7 @@ const BiasSpotReflex = () => {
       options: [
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
         { text: "Yes, Biased", isCorrect: true, emoji: "🚫" },
-        { text: "No, Not Biased", isCorrect: false, emoji: "✅" },
+        { text: "No, Not Biased", isCorrect: false, emoji: "🙂" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" }
       ]
     },
@@ -93,7 +93,7 @@ const BiasSpotReflex = () => {
       options: [
         { text: "Don't Know", isCorrect: false, emoji: "❓" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
-        { text: "No, Not Biased", isCorrect: true, emoji: "✅" },
+        { text: "No, Not Biased", isCorrect: true, emoji: "🙃" },
         { text: "Yes, Biased", isCorrect: false, emoji: "🚫" }
       ]
     },
@@ -104,7 +104,7 @@ const BiasSpotReflex = () => {
       options: [
         { text: "Yes, Biased", isCorrect: true, emoji: "🚫" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" },
-        { text: "No, Not Biased", isCorrect: false, emoji: "✅" },
+        { text: "No, Not Biased", isCorrect: false, emoji: "🙂" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" }
       ]
     }

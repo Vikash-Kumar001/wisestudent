@@ -36,21 +36,21 @@ const BreatheWithMe = () => {
           id: "a", 
           text: "Breathe in for 4, hold 4, out 4.", 
           emoji: "😮‍💨", 
-          description: "4-4-4 breathing helps calm your nervous system",
+          // description: "4-4-4 breathing helps calm your nervous system",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Breathe as fast as you can", 
           emoji: "💨", 
-          description: "Fast breathing can make you feel dizzy",
+          // description: "Fast breathing can make you feel dizzy",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Hold your breath for 30 seconds", 
           emoji: "😰", 
-          description: "Holding breath for too long is not helpful",
+          // description: "Holding breath for too long is not helpful",
           isCorrect: false
         }
       ]
@@ -63,21 +63,21 @@ const BreatheWithMe = () => {
           id: "a", 
           text: "Inhale slowly, exhale longer.", 
           emoji: "😌", 
-          description: "Longer exhales activate your body's relaxation response",
+          // description: "Longer exhales activate your body's relaxation response",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Take short, quick breaths", 
           emoji: "😮", 
-          description: "Quick breaths can increase anxiety",
+          // description: "Quick breaths can increase anxiety",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Breathe only through your mouth", 
           emoji: "😮", 
-          description: "Nose breathing is more calming",
+          // description: "Nose breathing is more calming",
           isCorrect: false
         }
       ]
@@ -90,21 +90,21 @@ const BreatheWithMe = () => {
           id: "a", 
           text: "Breathe like a balloon expanding in your belly", 
           emoji: "🎈", 
-          description: "Feel your belly rise and fall with each breath",
+          // description: "Feel your belly rise and fall with each breath",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Keep your chest moving only", 
           emoji: "👕", 
-          description: "Chest breathing is shallow and less effective",
+          // description: "Chest breathing is shallow and less effective",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Don't move your belly at all", 
           emoji: "😴", 
-          description: "Belly movement shows proper deep breathing",
+          // description: "Belly movement shows proper deep breathing",
           isCorrect: false
         }
       ]
@@ -117,21 +117,21 @@ const BreatheWithMe = () => {
           id: "a", 
           text: "Count breaths to 5", 
           emoji: "5️⃣", 
-          description: "Counting helps maintain focus and rhythm",
+          // description: "Counting helps maintain focus and rhythm",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Count to 100 quickly", 
           emoji: "1️⃣0️⃣0️⃣", 
-          description: "This is too distracting and long",
+          // description: "This is too distracting and long",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Don't count anything", 
           emoji: "0️⃣", 
-          description: "Counting helps maintain focus on breathing",
+          // description: "Counting helps maintain focus on breathing",
           isCorrect: false
         }
       ]
@@ -144,21 +144,21 @@ const BreatheWithMe = () => {
           id: "a", 
           text: "Imagine a calm place while breathing", 
           emoji: "🌊", 
-          description: "Visualization helps deepen relaxation",
+          // description: "Visualization helps deepen relaxation",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Think about your problems", 
           emoji: "🤯", 
-          description: "This increases stress instead of relaxation",
+          // description: "This increases stress instead of relaxation",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Listen to loud music", 
           emoji: "🔊", 
-          description: "Quiet environment is better for breathing exercises",
+          // description: "Quiet environment is better for breathing exercises",
           isCorrect: false
         }
       ]

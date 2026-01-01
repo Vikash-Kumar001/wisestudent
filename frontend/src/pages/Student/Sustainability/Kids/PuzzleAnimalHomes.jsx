@@ -53,20 +53,20 @@ const PuzzleAnimalHomes = () => {
 
   // Animals (left side) - 5 items
   const animals = [
-    { id: 1, name: "Bird", emoji: "🐦", description: "A flying creature" },
-    { id: 2, name: "Bee", emoji: "🐝", description: "A buzzing insect" },
-    { id: 3, name: "Fish", emoji: "🐟", description: "A swimming creature" },
-    { id: 4, name: "Rabbit", emoji: "🐰", description: "A hopping animal" },
-    { id: 5, name: "Bear", emoji: "🐻", description: "A large forest animal" }
+    { id: 1, name: "Bird", emoji: "🐦",  },
+    { id: 2, name: "Bee", emoji: "🐝",  },
+    { id: 3, name: "Fish", emoji: "🐟",  },
+    { id: 4, name: "Rabbit", emoji: "🐰",  },
+    { id: 5, name: "Bear", emoji: "🐻",  }
   ];
 
   // Animal Homes (right side) - 5 items
   const animalHomes = [
-    { id: 3, name: "Ocean", emoji: "🌊", description: "Water habitat" },
-    { id: 2, name: "Cave", emoji: "⛰️", description: "Rocky shelter" },
-    { id: 5, name: "Hive", emoji: "🪲", description: "Bee's home" },
-    { id: 1, name: "Nest", emoji: "🪹", description: "Bird's home" },
-    { id: 4, name: "Burrow", emoji: "🕳️", description: "Underground home" },
+    { id: 3, name: "Ocean", emoji: "🌊",  },
+    { id: 2, name: "Cave", emoji: "⛰️",  },
+    { id: 5, name: "Hive", emoji: "🪲",  },
+    { id: 1, name: "Nest", emoji: "🪹",  },
+    { id: 4, name: "Burrow", emoji: "🕳️",  },
   ];
 
   // Correct matches

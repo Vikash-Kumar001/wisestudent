@@ -20,20 +20,20 @@ const PuzzleSelfValueMatch = () => {
   
   // Personal Values (left side) - 5 items
   const values = [
-    { id: 1, name: "Courage", emoji: "🦁", hint: "Bravery in facing challenges" },
-    { id: 2, name: "Self-Respect", emoji: "👸", hint: "Valuing oneself appropriately" },
-    { id: 3, name: "Kindness", emoji: "😇", hint: "Considerate treatment of others" },
-    { id: 4, name: "Perseverance", emoji: "🧗", hint: "Persistence despite difficulties" },
-    { id: 5, name: "Empathy", emoji: "🤗", hint: "Understanding others' feelings" }
+    { id: 1, name: "Courage", emoji: "🦁",  },
+    { id: 2, name: "Self-Respect", emoji: "👸",  },
+    { id: 3, name: "Kindness", emoji: "😇",  },
+    { id: 4, name: "Perseverance", emoji: "🧗",  },
+    { id: 5, name: "Empathy", emoji: "🤗",  }
   ];
   
   // Positive Expressions (right side) - 5 items (shuffled order)
   const expressions = [
-    { id: 3, text: "Treat others with compassion", hint: "Demonstrating care for others" },
-    { id: 5, text: "Recognize and share others' emotions", hint: "Emotional intelligence skill" },
-    { id: 1, text: "Face fears and stand up for beliefs", hint: "Bravery in action" },
-    { id: 4, text: "Continue efforts despite setbacks", hint: "Resilience in challenges" },
-    { id: 2, text: "Maintain personal boundaries", hint: "Self-worth protection" }
+    { id: 3, text: "Treat others with compassion",  },
+    { id: 5, text: "Recognize and share others' emotions",  },
+    { id: 1, text: "Face fears and stand up for beliefs",  },
+    { id: 4, text: "Continue efforts despite setbacks",  },
+    { id: 2, text: "Maintain personal boundaries",  }
   ];
   
   // Correct matches

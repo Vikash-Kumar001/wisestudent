@@ -20,20 +20,20 @@ const PuzzleDoctorTools = () => {
   
   // Medical Tools (left side) - 5 items
   const tools = [
-    { id: 1, name: "Stethoscope", emoji: "🎧", hint: "Listening device for heartbeats" },
-    { id: 2, name: "Thermometer", emoji: "🌡️", hint: "Measures body temperature" },
-    { id: 3, name: "Vaccine", emoji: "💉", hint: "Prevents infectious diseases" },
-    { id: 4, name: "Blood Pressure Cuff", emoji: "🩺", hint: "Measures arterial pressure" },
-    { id: 5, name: "Reflex Hammer", emoji: "🔨", hint: "Tests nervous system responses" }
+    { id: 1, name: "Stethoscope", emoji: "🎧",  },
+    { id: 2, name: "Thermometer", emoji: "🌡️",  },
+    { id: 3, name: "Vaccine", emoji: "💉",  },
+    { id: 4, name: "Blood Pressure Cuff", emoji: "🩺",  },
+    { id: 5, name: "Reflex Hammer", emoji: "🔨",  }
   ];
   
   // Functions (right side) - 5 items (shuffled order)
   const functions = [
-    { id: 3, text: "Prevents diseases by building immunity", hint: "Prophylactic medical intervention" },
-    { id: 5, text: "Tests automatic nervous responses", hint: "Neurological examination tool" },
-    { id: 1, text: "Listens to heart and lung sounds", hint: "Auscultation medical device" },
-    { id: 4, text: "Measures systolic and diastolic pressure", hint: "Cardiovascular monitoring equipment" },
-    { id: 2, text: "Detects elevated body temperature", hint: "Pyrexia diagnostic instrument" }
+    { id: 3, text: "Prevents diseases by building immunity",  },
+    { id: 5, text: "Tests automatic nervous responses",  },
+    { id: 1, text: "Listens to heart and lung sounds",  },
+    { id: 4, text: "Measures systolic and diastolic pressure",  },
+    { id: 2, text: "Detects elevated body temperature",  }
   ];
   
   // Correct matches

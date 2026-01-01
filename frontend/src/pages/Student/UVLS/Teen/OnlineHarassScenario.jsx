@@ -56,21 +56,21 @@ const OnlineHarassScenario = () => {
           id: "a", 
           text: "Report the post and block the user", 
           emoji: "🛡️",
-          description: "Safe and responsible action",
+          // description: "Safe and responsible action",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Insult back", 
           emoji: "😠",
-          description: "Escalates conflict",
+          // description: "Escalates conflict",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ignore it completely", 
           emoji: "🙈",
-          description: "Doesn't stop the harassment",
+          // description: "Doesn't stop the harassment",
           isCorrect: false
         }
       ]
@@ -83,21 +83,21 @@ const OnlineHarassScenario = () => {
           id: "b", 
           text: "Spread counter rumors", 
           emoji: "📢",
-          description: "Makes things worse",
+          // description: "Makes things worse",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Report to platform admin and tell trusted friends the truth", 
-          emoji: "✅",
-          description: "Safe response that addresses the issue",
+          emoji: "🙂",
+          // description: "Safe response that addresses the issue",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Delete your account", 
           emoji: "🚫",
-          description: "Extreme reaction",
+          // description: "Extreme reaction",
           isCorrect: false
         }
       ]
@@ -110,21 +110,21 @@ const OnlineHarassScenario = () => {
           id: "a", 
           text: "Save evidence, report to police, and inform a trusted adult", 
           emoji: "🚨",
-          description: "Most safe and responsible action",
+          // description: "Most safe and responsible action",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Threaten back", 
           emoji: "👊",
-          description: "Dangerous escalation",
+          // description: "Dangerous escalation",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Reply jokingly", 
           emoji: "😄",
-          description: "Doesn't take threat seriously",
+          // description: "Doesn't take threat seriously",
           isCorrect: false
         }
       ]
@@ -137,21 +137,21 @@ const OnlineHarassScenario = () => {
           id: "b", 
           text: "Confront the stalker directly", 
           emoji: "👆",
-          description: "Can be dangerous",
+          // description: "Can be dangerous",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Share more personal information", 
           emoji: "📱",
-          description: "Makes stalking worse",
+          // description: "Makes stalking worse",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Block them, update privacy settings, and report to platform", 
           emoji: "🔒",
-          description: "Protects your safety",
+          // description: "Protects your safety",
           isCorrect: true
         }
       ]
@@ -164,21 +164,21 @@ const OnlineHarassScenario = () => {
           id: "a", 
           text: "Report the group, seek support from trusted adults, and document everything", 
           emoji: "🛡️",
-          description: "Comprehensive safe response",
+          // description: "Comprehensive safe response",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Join the group and argue", 
           emoji: "💬",
-          description: "Engages with bullies",
+          // description: "Engages with bullies",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Ignore it completely", 
           emoji: "🙈",
-          description: "Doesn't stop the bullying",
+          // description: "Doesn't stop the bullying",
           isCorrect: false
         }
       ]

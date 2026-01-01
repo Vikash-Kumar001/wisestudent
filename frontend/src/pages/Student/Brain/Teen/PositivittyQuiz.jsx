@@ -60,21 +60,19 @@ const PositivittyQuiz = () => {
           id: 'a', 
           text: "I'll try again", 
           emoji: "💪", 
-          description: "Positive self-talk builds resilience and growth mindset",
+          
           isCorrect: true
         },
         { 
           id: 'b', 
           text: "I'm useless", 
           emoji: "😞", 
-          description: "Negative self-talk reduces confidence",
           isCorrect: false
         },
         { 
           id: 'c', 
           text: "I always fail", 
           emoji: "😔", 
-          description: "This is a negative mindset that limits growth",
           isCorrect: false
         }
       ]
@@ -87,21 +85,18 @@ const PositivittyQuiz = () => {
           id: 'b', 
           text: "I'm just not good at this", 
           emoji: "❌", 
-          description: "This is a fixed mindset that limits growth",
           isCorrect: false
         },
         { 
           id: 'a', 
           text: "I can learn and improve", 
           emoji: "🌟", 
-          description: "Growth mindset believes in improvement through effort",
           isCorrect: true
         },
         { 
           id: 'c', 
           text: "This is too hard for me", 
           emoji: "😰", 
-          description: "Gives up before trying",
           isCorrect: false
         }
       ]
@@ -114,21 +109,18 @@ const PositivittyQuiz = () => {
           id: 'b', 
           text: "Challenges prove I'm weak", 
           emoji: "😔", 
-          description: "This is a negative perspective on challenges",
           isCorrect: false
         },
         { 
           id: 'c', 
           text: "Challenges should be avoided", 
           emoji: "🏃", 
-          description: "Avoiding challenges limits growth",
           isCorrect: false
         },
         { 
           id: 'a', 
           text: "Challenges help me grow", 
           emoji: "🌱", 
-          description: "Growth mindset sees challenges as opportunities",
           isCorrect: true
         }
       ]
@@ -141,21 +133,18 @@ const PositivittyQuiz = () => {
           id: 'b', 
           text: "I never get what I want", 
           emoji: "😢", 
-          description: "Victim mentality that focuses on negatives",
           isCorrect: false
         },
         { 
           id: 'c', 
           text: "Life is unfair to me", 
           emoji: "⚖️", 
-          description: "Blaming external factors doesn't help",
           isCorrect: false
         },
         { 
           id: 'a', 
           text: "I'm grateful for what I have", 
           emoji: "🙏", 
-          description: "Gratitude builds positive emotions and perspective",
           isCorrect: true
         }
       ]
@@ -168,21 +157,18 @@ const PositivittyQuiz = () => {
           id: 'b', 
           text: "They're just being mean", 
           emoji: "😠", 
-          description: "Defensive response blocks learning",
           isCorrect: false
         },
         { 
           id: 'a', 
           text: "I can learn from this feedback", 
           emoji: "📚", 
-          description: "Growth mindset sees feedback as helpful",
           isCorrect: true
         },
         { 
           id: 'c', 
           text: "I'm a failure", 
           emoji: "💔", 
-          description: "Taking criticism personally damages self-esteem",
           isCorrect: false
         },
         

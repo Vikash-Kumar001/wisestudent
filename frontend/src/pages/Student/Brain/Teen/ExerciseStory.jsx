@@ -61,21 +61,20 @@ const ExerciseStory = () => {
           id: "yes", 
           text: "Yes, it boosts brain function", 
           emoji: "🧠", 
-          description: "Regular physical activity increases blood flow to the brain and promotes the growth of new brain cells",
+          
           isCorrect: true
         },
         { 
           id: "no", 
           text: "No, exercise has no effect", 
           emoji: "❌", 
-          description: "Exercise actually has significant positive effects on brain health",
+          
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends on the sport", 
           emoji: "🤔", 
-          description: "All types of exercise benefit the brain, though some may have different effects",
           isCorrect: false
         }
       ]
@@ -88,21 +87,18 @@ const ExerciseStory = () => {
           id: "weight", 
           text: "Only weight lifting", 
           emoji: "💪", 
-          description: "Weight lifting alone doesn't provide comprehensive brain benefits",
           isCorrect: false
         },
         { 
           id: "mix", 
           text: "A mix of cardio and strength training", 
           emoji: "🏃", 
-          description: "A combination provides the most comprehensive benefits for brain health",
           isCorrect: true
         },
         { 
           id: "running", 
           text: "Only running", 
           emoji: "🏃‍♂️", 
-          description: "Running is good, but a mix of exercises is better",
           isCorrect: false
         }
       ]
@@ -115,21 +111,18 @@ const ExerciseStory = () => {
           id: "worsens", 
           text: "It worsens memory", 
           emoji: "📉", 
-          description: "Exercise actually improves memory, not worsens it",
           isCorrect: false
         },
         { 
           id: "noeffect", 
           text: "It has no effect on memory", 
           emoji: "➡️", 
-          description: "Exercise has significant positive effects on memory",
           isCorrect: false
         },
         { 
           id: "improves", 
           text: "It improves memory formation", 
           emoji: "📈", 
-          description: "Exercise promotes the growth of new brain cells and strengthens connections, enhancing memory",
           isCorrect: true
         }
       ]
@@ -142,21 +135,18 @@ const ExerciseStory = () => {
           id: "night", 
           text: "Late at night", 
           emoji: "🌙", 
-          description: "Late night exercise can disrupt sleep patterns",
           isCorrect: false
         },
         { 
           id: "morning", 
           text: "Early morning", 
           emoji: "🌅", 
-          description: "Morning is good, but consistency matters more than timing",
           isCorrect: false
         },
         { 
           id: "consistent", 
           text: "Any consistent time", 
           emoji: "⏰", 
-          description: "Consistency matters more than timing - regular exercise at any time provides brain benefits",
           isCorrect: true
         }
       ]
@@ -169,21 +159,18 @@ const ExerciseStory = () => {
           id: "weekends", 
           text: "Only on weekends", 
           emoji: "📅", 
-          description: "Regular daily exercise is more beneficial than only weekend workouts",
           isCorrect: false
         },
         { 
           id: "minutes", 
           text: "Just 5 minutes weekly", 
           emoji: "⏱️", 
-          description: "This is too little to see significant brain health benefits",
           isCorrect: false
         },
         { 
           id: "daily", 
           text: "At least 30 minutes daily", 
-          emoji: "✅", 
-          description: "Research shows that at least 30 minutes of moderate exercise daily provides significant brain health benefits",
+          emoji: "💪", 
           isCorrect: true
         }
       ]

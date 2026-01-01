@@ -35,21 +35,21 @@ const BullyingQuiz = () => {
           id: "a", 
           text: "Bullying", 
           emoji: "🚫", 
-          description: "Repeated harmful behavior",
+          // description: "Repeated harmful behavior",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Accident", 
           emoji: "🤕", 
-          description: "Unintentional mistake",
+          // description: "Unintentional mistake",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Joke", 
           emoji: "😄", 
-          description: "Playful behavior",
+          // description: "Playful behavior",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const BullyingQuiz = () => {
           id: "a", 
           text: "Bullying", 
           emoji: "🚫", 
-          description: "Repeated harmful behavior",
+          // description: "Repeated harmful behavior",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Joke", 
           emoji: "😄", 
-          description: "Playful teasing",
+          // description: "Playful teasing",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Accident", 
           emoji: "🤕", 
-          description: "Unintentional mistake",
+          // description: "Unintentional mistake",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const BullyingQuiz = () => {
           id: "a", 
           text: "Bullying", 
           emoji: "🚫", 
-          description: "Repeated harmful behavior",
+          // description: "Repeated harmful behavior",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Joke", 
           emoji: "😄", 
-          description: "Playful behavior",
+          // description: "Playful behavior",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Accident", 
           emoji: "🤕", 
-          description: "Unintentional mistake",
+          // description: "Unintentional mistake",
           isCorrect: false 
         }
       ]
@@ -116,21 +116,21 @@ const BullyingQuiz = () => {
           id: "a", 
           text: "Bullying", 
           emoji: "🚫", 
-          description: "Repeated harmful behavior",
+          // description: "Repeated harmful behavior",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Accident", 
           emoji: "🤕", 
-          description: "Unintentional mistake",
+          // description: "Unintentional mistake",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Joke", 
           emoji: "😄", 
-          description: "Playful behavior",
+          // description: "Playful behavior",
           isCorrect: false 
         }
       ]
@@ -143,21 +143,21 @@ const BullyingQuiz = () => {
           id: "a", 
           text: "Bullying", 
           emoji: "🚫", 
-          description: "Repeated harmful behavior",
+          // description: "Repeated harmful behavior",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Joke", 
           emoji: "😄", 
-          description: "Shared fun moment",
+          // description: "Shared fun moment",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Accident", 
           emoji: "🤕", 
-          description: "Unintentional mistake",
+          // description: "Unintentional mistake",
           isCorrect: false 
         }
       ]

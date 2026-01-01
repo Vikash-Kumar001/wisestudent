@@ -59,13 +59,13 @@ const HumanVsAIQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

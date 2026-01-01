@@ -51,20 +51,20 @@ const PuzzleWaterSources = () => {
 
   // Water Sources (left side) - 5 items
   const waterSources = [
-    { id: 1, name: "Rain", emoji: "🌧️", description: "Natural water from clouds" },
-    { id: 2, name: "Ocean", emoji: "🌊", description: "Salt water body" },
-    { id: 3, name: "Tap", emoji: "🚰", description: "Treated drinking water" },
-    { id: 4, name: "River", emoji: "🏞️", description: "Flowing fresh water" },
-    { id: 5, name: "Well", emoji: "🕳️", description: "Ground water source" }
+    { id: 1, name: "Rain", emoji: "🌧️",  },
+    { id: 2, name: "Ocean", emoji: "🌊",  },
+    { id: 3, name: "Tap", emoji: "🚰",  },
+    { id: 4, name: "River", emoji: "🏞️",  },
+    { id: 5, name: "Well", emoji: "🕳️",  }
   ];
 
   // Water Types (right side) - 5 items
   const waterTypes = [
-      { id: 5, name: "Underground", emoji: "🌍", description: "Water from ground" },
-      { id: 3, name: "Drinkable", emoji: "🚰", description: "Safe to drink" },
-      { id: 2, name: "Salty", emoji: "🧂", description: "Salt water" },
-      { id: 1, name: "Water", emoji: "💧", description: "Fresh, clean water" },
-    { id: 4, name: "Fresh", emoji: "🌱", description: "Clean water" },
+      { id: 5, name: "Underground", emoji: "🌍",  },
+      { id: 3, name: "Drinkable", emoji: "🚰",  },
+      { id: 2, name: "Salty", emoji: "🧂",  },
+      { id: 1, name: "Water", emoji: "💧",  },
+    { id: 4, name: "Fresh", emoji: "🌱",  },
   ];
 
   // Correct matches

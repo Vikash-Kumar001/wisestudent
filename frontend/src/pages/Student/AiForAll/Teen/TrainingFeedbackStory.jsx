@@ -61,22 +61,22 @@ const TrainingFeedbackStory = () => {
         { 
           id: "ignore", 
           text: "Ignore Errors", 
-          emoji: "❌", 
-          description: "Ignoring errors prevents AI from learning and correcting its behavior",
+          emoji: "🚫", 
+          // description: "Ignoring errors prevents AI from learning and correcting its behavior",
           isCorrect: false
         },
          { 
           id: "feedback", 
           text: "Give Feedback", 
           emoji: "📝", 
-          description: "Providing corrective feedback helps AI learn from mistakes and improve performance",
+          // description: "Providing corrective feedback helps AI learn from mistakes and improve performance",
           isCorrect: true
         },
         { 
           id: "restart", 
           text: "Restart Completely", 
           emoji: "🔄", 
-          description: "While sometimes necessary, restarting completely misses the opportunity to teach AI from mistakes",
+          // description: "While sometimes necessary, restarting completely misses the opportunity to teach AI from mistakes",
           isCorrect: false
         }
       ]
@@ -89,21 +89,21 @@ const TrainingFeedbackStory = () => {
           id: "correction", 
           text: "Needs Teacher Correction", 
           emoji: "👨‍🏫", 
-          description: "AI needs human guidance and correction to overcome persistent errors",
+          // description: "AI needs human guidance and correction to overcome persistent errors",
           isCorrect: true
         },
         { 
           id: "lazy", 
           text: "Robot is Lazy", 
           emoji: "😴", 
-          description: "AI doesn't have feelings like laziness - it needs proper training and feedback",
+          // description: "AI doesn't have feelings like laziness - it needs proper training and feedback",
           isCorrect: false
         },
         { 
           id: "broken", 
           text: "Robot is Broken", 
           emoji: "🔧", 
-          description: "Most AI errors aren't hardware issues but rather training or feedback problems",
+          // description: "Most AI errors aren't hardware issues but rather training or feedback problems",
           isCorrect: false
         }
       ]
@@ -116,21 +116,21 @@ const TrainingFeedbackStory = () => {
           id: "improve", 
           text: "Robot improves faster", 
           emoji: "⚡", 
-          description: "Structured, incremental guidance helps AI learn complex tasks more effectively",
+          // description: "Structured, incremental guidance helps AI learn complex tasks more effectively",
           isCorrect: true
         },
         { 
           id: "ignore", 
           text: "Robot ignores instructions", 
           emoji: "🔇", 
-          description: "Well-formatted instructions are typically followed by properly designed AI systems",
+          // description: "Well-formatted instructions are typically followed by properly designed AI systems",
           isCorrect: false
         },
         { 
           id: "confused", 
           text: "Robot gets confused", 
           emoji: "😵", 
-          description: "Clear, step-by-step instructions reduce confusion rather than increase it",
+          // description: "Clear, step-by-step instructions reduce confusion rather than increase it",
           isCorrect: false
         }
       ]
@@ -144,21 +144,21 @@ const TrainingFeedbackStory = () => {
           id: "nomatter", 
           text: "Rewards don't matter", 
           emoji: "❌", 
-          description: "Reinforcement learning shows that rewards significantly impact AI behavior",
+          // description: "Reinforcement learning shows that rewards significantly impact AI behavior",
           isCorrect: false
         },
         { 
           id: "negative", 
           text: "Negative feedback works better", 
           emoji: "😞", 
-          description: "Both positive and negative feedback are important, but rewards encourage desired behaviors",
+          // description: "Both positive and negative feedback are important, but rewards encourage desired behaviors",
           isCorrect: false
         },
         { 
           id: "reward", 
           text: "Feedback + Reward = Better Learning", 
           emoji: "🏆", 
-          description: "Positive reinforcement combined with feedback accelerates AI learning",
+          // description: "Positive reinforcement combined with feedback accelerates AI learning",
           isCorrect: true
         },
       ]
@@ -172,21 +172,21 @@ const TrainingFeedbackStory = () => {
           id: "alone", 
           text: "Let AI learn alone", 
           emoji: "👤", 
-          description: "Unsupervised learning has limitations without human guidance",
+          // description: "Unsupervised learning has limitations without human guidance",
           isCorrect: false
         },
         { 
           id: "retrain", 
           text: "Retraining with guidance is key", 
-          emoji: "✅", 
-          description: "Continuous feedback and retraining are essential for AI improvement",
+          emoji: "🔁", 
+          // description: "Continuous feedback and retraining are essential for AI improvement",
           isCorrect: true
         },
         { 
           id: "replace", 
           text: "Replace the AI", 
           emoji: "🗑️", 
-          description: "Improvement through feedback is more sustainable than constant replacement",
+          // description: "Improvement through feedback is more sustainable than constant replacement",
           isCorrect: false
         }
       ]

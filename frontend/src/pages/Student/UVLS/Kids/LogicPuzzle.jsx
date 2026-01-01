@@ -21,20 +21,20 @@ const LogicPuzzle = () => {
 
   // Logic patterns (left side) - 5 items with hints
   const patterns = [
-    { id: 1, name: "Color Sequence", emoji: "🌈", hint: "Red, Blue, Green pattern" },
-    { id: 2, name: "Number Order", emoji: "🔢", hint: "1, 2, 3 counting sequence" },
-    { id: 3, name: "Shape Rotation", emoji: "🔺", hint: "Circle, Square, Triangle series" },
-    { id: 4, name: "Category Chain", emoji: "🍎", hint: "Apple, Banana, Cherry fruits" },
-    { id: 5, name: "Animal Group", emoji: "🐶", hint: "Dog, Cat, Bird pets" }
+    { id: 1, name: "Color Sequence", emoji: "🌈",  },
+    { id: 2, name: "Number Order", emoji: "🔢",  },
+    { id: 3, name: "Shape Rotation", emoji: "🔺",  },
+    { id: 4, name: "Category Chain", emoji: "🍎",  },
+    { id: 5, name: "Animal Group", emoji: "🐶",  }
   ];
 
   // Logic rules (right side) - 5 items with descriptions
   const rules = [
-    { id: 6, name: "Rainbow Progression", emoji: "🎨", description: "Follows color spectrum order" },
-    { id: 7, name: "Numerical Sequence", emoji: "📈", description: "Counts in ascending order" },
-    { id: 8, name: "Geometric Cycle", emoji: "🔄", description: "Rotates through shape types" },
-    { id: 9, name: "Fruit Family", emoji: "🍒", description: "Groups by food category" },
-    { id: 10, name: "Pet Classification", emoji: "🐾", description: "Common domestic animals" }
+    { id: 6, name: "Rainbow Progression", emoji: "🎨",  },
+    { id: 7, name: "Numerical Sequence", emoji: "📈",  },
+    { id: 8, name: "Geometric Cycle", emoji: "🔄",  },
+    { id: 9, name: "Fruit Family", emoji: "🍒",  },
+    { id: 10, name: "Pet Classification", emoji: "🐾",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

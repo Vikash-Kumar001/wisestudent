@@ -32,21 +32,20 @@ const GarbageInGarbageOutStory = () => {
           id: "fix", 
           text: "Fix the data and correct labels", 
           emoji: "🛠️", 
-          description: "AI learns from data - if data is wrong, AI's output will be wrong too",
+          
           isCorrect: true
         },
         { 
           id: "continue", 
           text: "Let it continue using wrong data", 
           emoji: "😐", 
-          description: "We should fix wrong data to help AI learn correctly",
+          
           isCorrect: false
         },
         { 
           id: "off", 
           text: "Turn the robot off permanently", 
           emoji: "⏻", 
-          description: "Fixing data is better than turning off the robot",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const GarbageInGarbageOutStory = () => {
           id: "blurry", 
           text: "Use blurry ones anyway", 
           emoji: "😶", 
-          description: "Better quality data leads to better AI results",
           isCorrect: false
         },
         { 
           id: "collect", 
           text: "Collect clear and complete images", 
           emoji: "🖼️", 
-          description: "Better quality data leads to better AI results - clear images help AI learn",
           isCorrect: true
         },
         { 
           id: "stop", 
           text: "Stop using images", 
           emoji: "🚫", 
-          description: "Using clear images is better than stopping",
           isCorrect: false
         }
       ]
@@ -86,21 +82,18 @@ const GarbageInGarbageOutStory = () => {
           id: "ignore", 
           text: "Ignore errors", 
           emoji: "🙈", 
-          description: "Cleaning data before training helps AI learn correctly",
           isCorrect: false
         },
         { 
           id: "clean", 
           text: "Clean and verify all data", 
           emoji: "🧹", 
-          description: "Always clean data before training AI - bad data leads to bad predictions",
           isCorrect: true
         },
         { 
           id: "guess", 
           text: "Guess random values", 
           emoji: "🎲", 
-          description: "Cleaning and verifying data is better than guessing",
           isCorrect: false
         }
       ]
@@ -113,21 +106,18 @@ const GarbageInGarbageOutStory = () => {
           id: "ai", 
           text: "Add balanced happy + sad comments", 
           emoji: "⚖️", 
-          description: "Balanced data helps AI understand all emotions - too much bias leads to wrong predictions",
           isCorrect: true
         },
         { 
           id: "keep", 
           text: "Keep angry comments only", 
           emoji: "😡", 
-          description: "We need balanced data to help AI understand all emotions",
           isCorrect: false
         },
         { 
           id: "stop", 
           text: "Stop emotion analysis", 
           emoji: "🚫", 
-          description: "Adding balanced data is better than stopping",
           isCorrect: false
         }
       ]
@@ -140,21 +130,18 @@ const GarbageInGarbageOutStory = () => {
           id: "serve", 
           text: "Let it serve salty desserts", 
           emoji: "🍰🧂", 
-          description: "Training with correct recipes helps AI learn properly",
           isCorrect: false
         },
         { 
           id: "train", 
           text: "Train again with correct recipes", 
           emoji: "📚", 
-          description: "Garbage in = Garbage out - correct data helps AI cook perfectly",
           isCorrect: true
         },
         { 
           id: "delete", 
           text: "Delete all recipes", 
           emoji: "🗑️", 
-          description: "Training with correct recipes is better than deleting everything",
           isCorrect: false
         }
       ]

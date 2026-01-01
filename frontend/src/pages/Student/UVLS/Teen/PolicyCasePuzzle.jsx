@@ -20,20 +20,20 @@ const PolicyCasePuzzle = () => {
 
   // Inclusion challenges (left side) - 5 items with hints
   const challenges = [
-    { id: 1, name: "Student Exclusion", emoji: "🚫", hint: "Peers feeling left out of activities" },
-    { id: 2, name: "Lack of Representation", emoji: "👥", hint: "Missing diverse voices in leadership" },
-    { id: 3, name: "Discrimination Cases", emoji: "⚖️", hint: "Unfair treatment based on identity" },
-    { id: 4, name: "Accessibility Barriers", emoji: "♿", hint: "Physical or digital obstacles" },
-    { id: 5, name: "Cultural Insensitivity", emoji: "🌍", hint: "Lack of appreciation for differences" }
+    { id: 1, name: "Student Exclusion", emoji: "🚫",  },
+    { id: 2, name: "Lack of Representation", emoji: "👥",  },
+    { id: 3, name: "Discrimination Cases", emoji: "⚖️",  },
+    { id: 4, name: "Accessibility Barriers", emoji: "♿",  },
+    { id: 5, name: "Cultural Insensitivity", emoji: "🌍",  }
   ];
 
   // Policy solutions (right side) - 5 items with descriptions
   const policies = [
-    { id: 6, name: "Inclusion Training", emoji: "🎓", description: "Educational programs to build awareness" },
-    { id: 7, name: "Diverse Committees", emoji: "🏛️", description: "Representative decision-making groups" },
-    { id: 8, name: "Anti-Discrimination Rules", emoji: "🛡️", description: "Clear consequences for unfair treatment" },
-    { id: 9, name: "Accessible Materials", emoji: "📘", description: "Multiple formats for different needs" },
-    { id: 10, name: "Cultural Events", emoji: "🎊", description: "Celebrations that honor diversity" }
+    { id: 6, name: "Inclusion Training", emoji: "🎓",  },
+    { id: 7, name: "Diverse Committees", emoji: "🏛️",  },
+    { id: 8, name: "Anti-Discrimination Rules", emoji: "🛡️",  },
+    { id: 9, name: "Accessible Materials", emoji: "📘",  },
+    { id: 10, name: "Cultural Events", emoji: "🎊",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

@@ -59,13 +59,13 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -86,13 +86,13 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
@@ -113,7 +113,7 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
@@ -125,7 +125,7 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
       ],
@@ -140,13 +140,13 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅",
+          emoji: "👍",
           isCorrect: true
         },
         { 
@@ -166,13 +166,13 @@ const GlobalFairnessQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✅", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "❌", 
+          emoji: "👎", 
           isCorrect: false
         },
         { 

@@ -26,20 +26,20 @@ const PrivacyPuzzle = () => {
 
   // Actions (left side) - reordered to vary correct answer positions
   const leftItems = [
-    { id: 1, name: 'Sharing password', emoji: '🔓', description: 'Telling others your password' },
-    { id: 2, name: 'Keeping password secret', emoji: '🔒', description: 'Not sharing your password' },
-    { id: 3, name: 'Giving personal info to strangers', emoji: '⚠️', description: 'Sharing private details online' },
-    { id: 4, name: 'Using strong passwords', emoji: '🛡️', description: 'Creating secure passwords' },
-    { id: 5, name: 'Sharing location with everyone', emoji: '📍', description: 'Making location public' }
+    { id: 1, name: 'Sharing password', emoji: '🔓',  },
+    { id: 2, name: 'Keeping password secret', emoji: '🔒',  },
+    { id: 3, name: 'Giving personal info to strangers', emoji: '⚠️',  },
+    { id: 4, name: 'Using strong passwords', emoji: '🛡️',  },
+    { id: 5, name: 'Sharing location with everyone', emoji: '📍',  }
   ];
 
   // Safety levels (right side) - shuffled to prevent direct correspondence with left items
   const rightItems = [
-    { id: 4, name: 'Protected', emoji: '🛡️', description: 'Provides good security' }, // Originally matches left 4
-    { id: 1, name: 'Risky', emoji: '⚠️', description: 'Could put your information at risk' }, // Originally matches left 1
-    { id: 5, name: 'Unsafe', emoji: '❌', description: 'Not safe for your privacy' }, // Originally matches left 5
-    { id: 3, name: 'Dangerous', emoji: '❗', description: 'May lead to serious problems' }, // Originally matches left 3
-    { id: 2, name: 'Secure', emoji: '🔒', description: 'Keeps your information safe' }  // Originally matches left 2
+    { id: 4, name: 'Protected', emoji: '🛡️',  },
+    { id: 1, name: 'Risky', emoji: '⚠️',  },
+    { id: 5, name: 'Unsafe', emoji: '❌',  },
+    { id: 3, name: 'Dangerous', emoji: '❗',  },
+    { id: 2, name: 'Secure', emoji: '🔒',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

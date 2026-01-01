@@ -35,10 +35,10 @@ const FraudDetectorReflex = () => {
       message: "Win 1 lakh now!",
       correctAnswer: "Fraudulent",
       options: [
-        { text: "Fraudulent", isCorrect: true, emoji: "🚨" },
-        { text: "Safe", isCorrect: false, emoji: "✅" },
+        { text: "Safe", isCorrect: false, emoji: "🦺" },
         { text: "Marketing", isCorrect: false, emoji: "📢" },
-        { text: "Important", isCorrect: false, emoji: "❗" }
+        { text: "Important", isCorrect: false, emoji: "❗" },
+        { text: "Fraudulent", isCorrect: true, emoji: "🚨" },
       ]
     },
     {
@@ -48,7 +48,7 @@ const FraudDetectorReflex = () => {
       correctAnswer: "Safe",
       options: [
         { text: "Fraudulent", isCorrect: false, emoji: "🚨" },
-        { text: "Safe", isCorrect: true, emoji: "✅" },
+        { text: "Safe", isCorrect: true, emoji: "🦺" },
         { text: "Spam", isCorrect: false, emoji: "📧" },
         { text: "Urgent", isCorrect: false, emoji: "⏰" }
       ]
@@ -59,9 +59,9 @@ const FraudDetectorReflex = () => {
       message: "You won a lottery!",
       correctAnswer: "Fraudulent",
       options: [
-        { text: "Fraudulent", isCorrect: true, emoji: "🚨" },
-        { text: "Safe", isCorrect: false, emoji: "✅" },
+        { text: "Safe", isCorrect: false, emoji: "🦺" },
         { text: "Advertisement", isCorrect: false, emoji: "📰" },
+        { text: "Fraudulent", isCorrect: true, emoji: "🚨" },
         { text: "Official", isCorrect: false, emoji: "🏛️" }
       ]
     },
@@ -72,7 +72,7 @@ const FraudDetectorReflex = () => {
       correctAnswer: "Safe",
       options: [
         { text: "Fraudulent", isCorrect: false, emoji: "🚨" },
-        { text: "Safe", isCorrect: true, emoji: "✅" },
+        { text: "Safe", isCorrect: true, emoji: "🦺" },
         { text: "Phishing", isCorrect: false, emoji: "🎣" },
         { text: "Suspicious", isCorrect: false, emoji: "🔍" }
       ]
@@ -84,7 +84,7 @@ const FraudDetectorReflex = () => {
       correctAnswer: "Fraudulent",
       options: [
         { text: "Fraudulent", isCorrect: true, emoji: "🚨" },
-        { text: "Safe", isCorrect: false, emoji: "✅" },
+        { text: "Safe", isCorrect: false, emoji: "🦺" },
         { text: "Promotional", isCorrect: false, emoji: "🎉" },
         { text: "Genuine", isCorrect: false, emoji: "💯" }
       ]

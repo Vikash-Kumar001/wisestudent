@@ -60,22 +60,20 @@ const DataDiversityStory = () => {
         { 
           id: "diverse", 
           text: "Add diverse data", 
-          emoji: "👧👦", 
-          description: "Including data from all genders helps AI systems recognize and treat everyone fairly",
+          emoji: "👦", 
+          
           isCorrect: true
         },
         { 
           id: "boys", 
           text: "Keep only boys' faces", 
           emoji: "👦", 
-          description: "Excluding certain groups from training data perpetuates bias and unfairness",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Ignore the issue", 
           emoji: "🙈", 
-          description: "Ignoring bias leads to discriminatory AI systems that don't work for everyone",
           isCorrect: false
         }
       ]
@@ -88,21 +86,18 @@ const DataDiversityStory = () => {
           id: "include", 
           text: "Include girls' faces", 
           emoji: "👩", 
-          description: "Adding representative data from all groups ensures equal performance across demographics",
           isCorrect: true
         },
         { 
           id: "dismiss", 
           text: "Dismiss concern", 
           emoji: "🤷", 
-          description: "Dismissing concerns about bias leads to AI systems that work poorly for underrepresented groups",
           isCorrect: false
         },
         { 
           id: "boys-only", 
           text: "Focus only on boys", 
           emoji: "👦", 
-          description: "Focusing on only one group reinforces existing biases in AI systems",
           isCorrect: false
         }
       ]
@@ -116,21 +111,18 @@ const DataDiversityStory = () => {
           id: "same", 
           text: "Use same dataset only", 
           emoji: "🏷️", 
-          description: "Using homogeneous datasets leads to AI that performs poorly on underrepresented groups",
           isCorrect: false
         },
         { 
           id: "accept", 
           text: "Accept limitations", 
           emoji: "😐", 
-          description: "Accepting limitations perpetuates discrimination in AI applications",
           isCorrect: false
         },
          { 
           id: "tones", 
           text: "Add varied skin tones", 
           emoji: "🌈", 
-          description: "Including diverse skin tones in training data helps AI work fairly across all ethnicities",
           isCorrect: true
         },
       ]
@@ -144,21 +136,18 @@ const DataDiversityStory = () => {
           id: "kids", 
           text: "Train only on kids", 
           emoji: "👦", 
-          description: "Training on limited age groups creates AI that discriminates against other age groups",
           isCorrect: false
         },
          { 
           id: "ages", 
           text: "Include all age groups", 
-          emoji: "👵👴", 
-          description: "Representing all age groups in training data ensures AI works for everyone",
+          emoji: "👴", 
           isCorrect: true
         },
         { 
           id: "complex", 
           text: "Make model more complex", 
           emoji: "🌀", 
-          description: "Increasing complexity without addressing data diversity won't solve representation issues",
           isCorrect: false
         }
       ]
@@ -172,21 +161,18 @@ const DataDiversityStory = () => {
           id: "diversity", 
           text: "Ignore diversity", 
           emoji: "❌", 
-          description: "Ignoring diversity perpetuates bias and leads to discriminatory AI outcomes",
           isCorrect: false
         },
         { 
           id: "exclude", 
           text: "Exclude problematic data", 
           emoji: "🗑️", 
-          description: "Excluding data rather than diversifying it doesn't address the root cause of bias",
           isCorrect: false
         },
         { 
           id: "samples", 
           text: "Add diverse samples", 
-          emoji: "🧑👩", 
-          description: "Balanced datasets with diverse representation reduce bias and improve fairness",
+          emoji: "👩", 
           isCorrect: true
         },
       ]

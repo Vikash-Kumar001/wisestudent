@@ -32,19 +32,19 @@ const GoodDataBadDataGame = () => {
         { 
           id: "clear", 
           text: "Clear photo", 
-          description: "Clear photos help AI learn better because they show details clearly",
+          
           isCorrect: true
         },
         { 
           id: "blurry", 
           text: "Blurry photo", 
-          description: "Blurry photos confuse AI because important details are unclear",
+          
           isCorrect: false
         },
         { 
           id: "notsure", 
           text: "I'm not sure", 
-          description: "Clear photos with good lighting are best for training AI",
+          
           isCorrect: false
         }
       ]
@@ -56,19 +56,16 @@ const GoodDataBadDataGame = () => {
         { 
           id: "lq", 
           text: "Low-resolution video", 
-          description: "Low-resolution videos lack detail, making it harder for AI to understand",
           isCorrect: false
         },
         { 
           id: "hq", 
           text: "High-quality video", 
-          description: "High-quality videos provide clear movement for AI to learn from",
           isCorrect: true
         },
         { 
           id: "notsure2", 
           text: "I'm not sure", 
-          description: "High-quality videos with clear movement are best for training AI",
           isCorrect: false
         }
       ]
@@ -80,19 +77,16 @@ const GoodDataBadDataGame = () => {
         { 
           id: "organized", 
           text: "Neat handwriting", 
-          description: "Neat handwriting is easier for AI to read and understand correctly",
           isCorrect: true
         },
         { 
           id: "messy", 
           text: "Messy handwriting", 
-          description: "Messy handwriting is difficult for AI to read and understand correctly",
           isCorrect: false
         },
         { 
           id: "notsure3", 
           text: "I'm not sure", 
-          description: "Clear, neat handwriting helps AI learn better",
           isCorrect: false
         }
       ]
@@ -104,19 +98,16 @@ const GoodDataBadDataGame = () => {
         { 
           id: "dark", 
           text: "Dark photos", 
-          description: "Dark photos hide details that AI needs to learn properly",
           isCorrect: false
         },
         { 
           id: "notsure4", 
           text: "I'm not sure", 
-          description: "Well-lit photos with good contrast help AI learn better",
           isCorrect: false
         },
         { 
           id: "welllit", 
           text: "Well-lit photos", 
-          description: "Well-lit images help AI see colors and details accurately",
           isCorrect: true
         }
       ]
@@ -128,19 +119,16 @@ const GoodDataBadDataGame = () => {
         { 
           id: "structured", 
           text: "Organized data", 
-          description: "Organized data helps AI find patterns and make accurate predictions",
           isCorrect: true
         },
         { 
           id: "random", 
           text: "Random data", 
-          description: "Random data without organization makes it hard for AI to find patterns",
           isCorrect: false
         },
         { 
           id: "notsure5", 
           text: "I'm not sure", 
-          description: "Structured, organized data helps AI learn patterns better",
           isCorrect: false
         }
       ]

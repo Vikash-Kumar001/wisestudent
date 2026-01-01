@@ -20,20 +20,20 @@ const PuzzleMindBodyMatch = () => {
   
   // Wellness Practices (left side) - 5 items
   const practices = [
-    { id: 1, name: "Sleep", emoji: "😴", hint: "Rest period for recovery" },
-    { id: 2, name: "Deep Breath", emoji: "💨", hint: "Controlled breathing technique" },
-    { id: 3, name: "Exercise", emoji: "🏃", hint: "Physical activity for fitness" },
-    { id: 4, name: "Meditation", emoji: "🧘", hint: "Mindfulness practice" },
-    { id: 5, name: "Healthy Diet", emoji: "🥗", hint: "Nutritious food consumption" }
+    { id: 1, name: "Sleep", emoji: "😴",  },
+    { id: 2, name: "Deep Breath", emoji: "💨",  },
+    { id: 3, name: "Exercise", emoji: "🏃",  },
+    { id: 4, name: "Meditation", emoji: "🧘",  },
+    { id: 5, name: "Healthy Diet", emoji: "🥗",  }
   ];
   
   // Benefits (right side) - 5 items (shuffled order)
   const benefits = [
-    { id: 3, text: "Boosts energy and mood", hint: "Physical vitality enhancement" },
-    { id: 5, text: "Promotes overall wellbeing", hint: "Holistic health improvement" },
-    { id: 1, text: "Restores mental and physical energy", hint: "Recovery process benefit" },
-    { id: 4, text: "Improves concentration and clarity", hint: "Mental focus enhancement" },
-    { id: 2, text: "Reduces stress and tension", hint: "Anxiety relief benefit" }
+    { id: 3, text: "Boosts energy and mood",  },
+    { id: 5, text: "Promotes overall wellbeing",  },
+    { id: 1, text: "Restores mental and physical energy",  },
+    { id: 4, text: "Improves concentration and clarity",  },
+    { id: 2, text: "Reduces stress and tension",  }
   ];
   
   // Correct matches

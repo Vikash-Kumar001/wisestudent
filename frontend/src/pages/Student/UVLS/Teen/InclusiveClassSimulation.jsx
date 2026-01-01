@@ -59,28 +59,28 @@ const InclusiveClassSimulation = () => {
           id: "a", 
           text: "Different roles for different strengths", 
           emoji: "👥",
-          description: "Leverages everyone's abilities",
+          // description: "Leverages everyone's abilities",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Everyone does the exact same role", 
           emoji: "🔄",
-          description: "Doesn't accommodate different abilities",
+          // description: "Doesn't accommodate different abilities",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Only high achievers get lead roles", 
           emoji: "⭐",
-          description: "Excludes many students",
+          // description: "Excludes many students",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "Let students pick their own roles", 
           emoji: "🎲",
-          description: "May lead to exclusion",
+          // description: "May lead to exclusion",
           isCorrect: false
         }
       ]
@@ -93,28 +93,28 @@ const InclusiveClassSimulation = () => {
           id: "b", 
           text: "Strict time limit for everyone", 
           emoji: "⏱️",
-          description: "Doesn't accommodate different paces",
+          // description: "Doesn't accommodate different paces",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Flexible timing with breaks", 
           emoji: "⏰",
-          description: "Accommodates different needs",
+          // description: "Accommodates different needs",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Unlimited time only for some", 
           emoji: "🚫",
-          description: "Creates unfair advantage",
+          // description: "Creates unfair advantage",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "No time structure at all", 
           emoji: "❌",
-          description: "Lacks organization",
+          // description: "Lacks organization",
           isCorrect: false
         }
       ]
@@ -127,28 +127,28 @@ const InclusiveClassSimulation = () => {
           id: "a", 
           text: "Multiple format options (text, audio, visual)", 
           emoji: "📚",
-          description: "Accommodates different learning styles",
+          // description: "Accommodates different learning styles",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Only textbooks provided", 
           emoji: "📖",
-          description: "Limits accessibility",
+          // description: "Limits accessibility",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Digital only (no alternatives)", 
           emoji: "💻",
-          description: "Excludes those without access",
+          // description: "Excludes those without access",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "No materials provided", 
           emoji: "🚫",
-          description: "Not helpful for learning",
+          // description: "Not helpful for learning",
           isCorrect: false
         }
       ]
@@ -161,28 +161,28 @@ const InclusiveClassSimulation = () => {
           id: "b", 
           text: "Let popular students choose teams", 
           emoji: "👑",
-          description: "Leads to exclusion",
+          // description: "Leads to exclusion",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Group only similar students", 
           emoji: "👥",
-          description: "Limits diversity",
+          // description: "Limits diversity",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Diverse groups with mixed abilities", 
           emoji: "🌈",
-          description: "Promotes inclusion and learning",
+          // description: "Promotes inclusion and learning",
           isCorrect: true
         },
         { 
           id: "d", 
           text: "Let students work alone", 
           emoji: "🚶",
-          description: "Misses collaboration benefits",
+          // description: "Misses collaboration benefits",
           isCorrect: false
         }
       ]
@@ -195,28 +195,28 @@ const InclusiveClassSimulation = () => {
           id: "a", 
           text: "Multiple communication methods (verbal, written, visual)", 
           emoji: "💬",
-          description: "Accommodates different communication needs",
+          // description: "Accommodates different communication needs",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Only spoken instructions", 
           emoji: "🗣️",
-          description: "Excludes those with hearing difficulties",
+          // description: "Excludes those with hearing difficulties",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Only written instructions", 
           emoji: "📝",
-          description: "Excludes those with reading difficulties",
+          // description: "Excludes those with reading difficulties",
           isCorrect: false
         },
         { 
           id: "d", 
           text: "No instructions given", 
           emoji: "🤷",
-          description: "Not helpful for anyone",
+          // description: "Not helpful for anyone",
           isCorrect: false
         }
       ]

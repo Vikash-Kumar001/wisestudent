@@ -63,50 +63,50 @@ const ReflexTechControl = () => {
       id: 1,
       text: "Which action shows healthy tech control?",
       options: [
-        { id: "switch", text: "Switch Off at Night", emoji: "🌙", description: "Healthy sleep routine", isCorrect: true },
-        { id: "always", text: "Always On", emoji: "📱", description: "Constant device use", isCorrect: false },
-        { id: "ignore", text: "Ignore Limits", emoji: "🚫", description: "No boundaries", isCorrect: false },
-        { id: "addict", text: "Addictive Use", emoji: "😵", description: "Unhealthy pattern", isCorrect: false }
+        { id: "switch", text: "Switch Off at Night", emoji: "🌙",  isCorrect: true },
+        { id: "always", text: "Always On", emoji: "📱",  isCorrect: false },
+        { id: "ignore", text: "Ignore Limits", emoji: "🚫",  isCorrect: false },
+        { id: "addict", text: "Addictive Use", emoji: "😵",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "What's the best practice for nighttime device use?",
       options: [
-        { id: "late", text: "Use Until Late", emoji: "🌃", description: "Disrupts sleep", isCorrect: false },
-        { id: "off", text: "Turn Off Before Bed", emoji: "😴", description: "Better sleep quality", isCorrect: true },
-        { id: "notify", text: "Keep Notifications On", emoji: "🔔", description: "Sleep disruption", isCorrect: false },
-        { id: "bright", text: "Use Bright Screen", emoji: "💡", description: "Affects melatonin", isCorrect: false }
+        { id: "late", text: "Use Until Late", emoji: "🌃",  isCorrect: false },
+        { id: "off", text: "Turn Off Before Bed", emoji: "😴",  isCorrect: true },
+        { id: "notify", text: "Keep Notifications On", emoji: "🔔",  isCorrect: false },
+        { id: "bright", text: "Use Bright Screen", emoji: "💡",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "How should you manage screen time?",
       options: [
-        { id: "limitless", text: "No Limits", emoji: "♾️", description: "Uncontrolled use", isCorrect: false },
-        { id: "set", text: "Set Time Limits", emoji: "⏰", description: "Healthy boundaries", isCorrect: true },
-        { id: "ignore", text: "Ignore Recommendations", emoji: "🙈", description: "No self-control", isCorrect: false },
-        { id: "excessive", text: "Excessive Use", emoji: "📱", description: "Harmful pattern", isCorrect: false }
+        { id: "limitless", text: "No Limits", emoji: "♾️",  isCorrect: false },
+        { id: "set", text: "Set Time Limits", emoji: "⏰",  isCorrect: true },
+        { id: "ignore", text: "Ignore Recommendations", emoji: "🙈",  isCorrect: false },
+        { id: "excessive", text: "Excessive Use", emoji: "📱",  isCorrect: false }
       ]
     },
     {
       id: 4,
       text: "What helps maintain tech-life balance?",
       options: [
-        { id: "balance", text: "Scheduled Breaks", emoji: "⏸️", description: "Regular disconnection", isCorrect: true },
-        { id: "constant", text: "Constant Connection", emoji: "📶", description: "No balance", isCorrect: false },
-        { id: "never", text: "Never Take Breaks", emoji: "🚫", description: "Unhealthy habit", isCorrect: false },
-        { id: "addict", text: "Addictive Patterns", emoji: "😵", description: "Harmful behavior", isCorrect: false }
+        { id: "balance", text: "Scheduled Breaks", emoji: "⏸️",  isCorrect: true },
+        { id: "constant", text: "Constant Connection", emoji: "📶",  isCorrect: false },
+        { id: "never", text: "Never Take Breaks", emoji: "🚫",  isCorrect: false },
+        { id: "addict", text: "Addictive Patterns", emoji: "😵",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "Which habit promotes healthy tech use?",
       options: [
-        { id: "all", text: "Use All Day", emoji: "📱", description: "Excessive use", isCorrect: false },
-        { id: "detox", text: "Regular Digital Detox", emoji: "🧘", description: "Mental refresh", isCorrect: true },
-        { id: "ignore", text: "Ignore Health Warnings", emoji: "⚠️", description: "Risky behavior", isCorrect: false },
-        { id: "addict", text: "Addictive Behavior", emoji: "😵", description: "Unhealthy pattern", isCorrect: false }
+        { id: "all", text: "Use All Day", emoji: "📱",  isCorrect: false },
+        { id: "detox", text: "Regular Digital Detox", emoji: "🧘",  isCorrect: true },
+        { id: "ignore", text: "Ignore Health Warnings", emoji: "⚠️",  isCorrect: false },
+        { id: "addict", text: "Addictive Behavior", emoji: "😵",  isCorrect: false }
       ]
     }
   ];

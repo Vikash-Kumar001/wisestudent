@@ -52,20 +52,20 @@ const PuzzleEarthSolutions = () => {
 
   // Earth Solutions (left side) - 5 items
   const solutions = [
-    { id: 1, name: "Recycle", emoji: "♻️", description: "Turn waste into new products" },
-    { id: 2, name: "Save Energy", emoji: "💡", description: "Use less electricity and fuel" },
-    { id: 3, name: "Plant Trees", emoji: "🌱", description: "Grow more green life" },
-    { id: 4, name: "Reduce Waste", emoji: "🗑️", description: "Make less trash" },
-    { id: 5, name: "Conserve Water", emoji: "💧", description: "Use water wisely" }
+    { id: 1, name: "Recycle", emoji: "♻️",  },
+    { id: 2, name: "Save Energy", emoji: "💡",  },
+    { id: 3, name: "Plant Trees", emoji: "🌱",  },
+    { id: 4, name: "Reduce Waste", emoji: "🗑️",  },
+    { id: 5, name: "Conserve Water", emoji: "💧",  }
   ];
 
   // Earth Actions (right side) - 5 items
   const actions = [
-    { id: 2, name: "Less Pollution", emoji: "🌍", description: "Cleaner air and environment" },
-    { id: 3, name: "More Oxygen", emoji: "💨", description: "Fresh air for all" },
-    { id: 1, name: "Less Waste", emoji: "✅", description: "Cleaner planet" },
-    { id: 5, name: "Sustainable Life", emoji: "🌿", description: "Healthy ecosystems" },
-    { id: 4, name: "Less Trash", emoji: "🌱", description: "Cleaner surroundings" }
+    { id: 2, name: "Less Pollution", emoji: "🌍",  },
+    { id: 3, name: "More Oxygen", emoji: "💨",  },
+    { id: 1, name: "Less Waste", emoji: "✅",  },
+    { id: 5, name: "Sustainable Life", emoji: "🌿",  },
+    { id: 4, name: "Less Trash", emoji: "🌱",  }
   ];
 
   // Correct matches

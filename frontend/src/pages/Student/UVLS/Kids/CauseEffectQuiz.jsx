@@ -30,21 +30,21 @@ const CauseEffectQuiz = () => {
           id: "a", 
           text: "Cavities", 
           emoji: "🦷", 
-          description: "Teeth can get damaged",
+          // description: "Teeth can get damaged",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Strong teeth", 
           emoji: "💪", 
-          description: "This doesn't happen",
+          // description: "This doesn't happen",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "No change", 
           emoji: "🤷", 
-          description: "Teeth need care",
+          // description: "Teeth need care",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const CauseEffectQuiz = () => {
           id: "b", 
           text: "Lose toys", 
           emoji: "😢", 
-          description: "Sharing doesn't mean losing",
+          // description: "Sharing doesn't mean losing",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Make friends", 
           emoji: "👭", 
-          description: "Sharing builds friendships",
+          // description: "Sharing builds friendships",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Get bored", 
           emoji: "😴", 
-          description: "Sharing is fun",
+          // description: "Sharing is fun",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const CauseEffectQuiz = () => {
           id: "b", 
           text: "Win race", 
           emoji: "🏆", 
-          description: "Hallways aren't for racing",
+          // description: "Hallways aren't for racing",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Fly", 
           emoji: "🕊️", 
-          description: "This is impossible",
+          // description: "This is impossible",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Fall down", 
           emoji: "🤕", 
-          description: "Running can cause accidents",
+          // description: "Running can cause accidents",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const CauseEffectQuiz = () => {
           id: "b", 
           text: "Messy house", 
           emoji: "🗑️", 
-          description: "Helping keeps things clean",
+          // description: "Helping keeps things clean",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Happy family", 
           emoji: "🏡", 
-          description: "Helping makes everyone happy",
+          // description: "Helping makes everyone happy",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "No dinner", 
           emoji: "🍽️", 
-          description: "Helping doesn't cause this",
+          // description: "Helping doesn't cause this",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const CauseEffectQuiz = () => {
           id: "b", 
           text: "Bad test", 
           emoji: "😞", 
-          description: "Studying helps you do better",
+          // description: "Studying helps you do better",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "No school", 
           emoji: "🏫", 
-          description: "Studying helps you stay in school",
+          // description: "Studying helps you stay in school",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Good grades", 
           emoji: "📚", 
-          description: "Studying leads to success",
+          // description: "Studying leads to success",
           isCorrect: true 
         }
       ]

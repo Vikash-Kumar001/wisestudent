@@ -35,10 +35,10 @@ const FeedbackLoopReflex = () => {
       item: { emoji: "🐶", text: "Actual image: Dog" },
       correctAnswer: "Mark as incorrect",
       options: [
-        { text: "Mark as correct", isCorrect: false, emoji: "✅" },
-        { text: "Mark as incorrect", isCorrect: true, emoji: "❌" },
+        { text: "Mark as correct", isCorrect: false, emoji: "👍" },
         { text: "Ignore the response", isCorrect: false, emoji: "🙈" },
-        { text: "Ask for explanation", isCorrect: false, emoji: "❓" }
+        { text: "Ask for explanation", isCorrect: false, emoji: "❓" },
+        { text: "Mark as incorrect", isCorrect: true, emoji: "👎" },
       ]
     },
     {
@@ -47,10 +47,10 @@ const FeedbackLoopReflex = () => {
       item: { emoji: "🚗", text: "Actual image: Car" },
       correctAnswer: "Mark as correct",
       options: [
-        { text: "Mark as correct", isCorrect: true, emoji: "✅" },
-        { text: "Mark as incorrect", isCorrect: false, emoji: "❌" },
+        { text: "Mark as incorrect", isCorrect: false, emoji: "👎" },
         { text: "Request more details", isCorrect: false, emoji: "🔍" },
-        { text: "Skip this item", isCorrect: false, emoji: "⏭️" }
+        { text: "Mark as correct", isCorrect: true, emoji: "👍" },
+        { text: "Skip this item", isCorrect: false, emoji: "⏭️" },
       ]
     },
     {
@@ -59,8 +59,8 @@ const FeedbackLoopReflex = () => {
       item: { emoji: "🍎", text: "Actual image: Apple" },
       correctAnswer: "Mark as incorrect",
       options: [
-        { text: "Mark as correct", isCorrect: false, emoji: "✅" },
-        { text: "Mark as incorrect", isCorrect: true, emoji: "❌" },
+        { text: "Mark as correct", isCorrect: false, emoji: "👍" },
+        { text: "Mark as incorrect", isCorrect: true, emoji: "👎" },
         { text: "Provide correction", isCorrect: false, emoji: "✏️" },
         { text: "Report the AI", isCorrect: false, emoji: "🚩" }
       ]
@@ -71,10 +71,10 @@ const FeedbackLoopReflex = () => {
       item: { emoji: "🐱", text: "Actual image: Cat" },
       correctAnswer: "Mark as correct",
       options: [
-        { text: "Mark as correct", isCorrect: true, emoji: "✅" },
-        { text: "Mark as incorrect", isCorrect: false, emoji: "❌" },
+        { text: "Mark as correct", isCorrect: true, emoji: "👍" },
+        { text: "Mark as incorrect", isCorrect: false, emoji: "👎" },
         { text: "Add to training data", isCorrect: false, emoji: "📚" },
-        { text: "Move to next item", isCorrect: false, emoji: "➡️" }
+        { text: "Move to next item", isCorrect: false, emoji: "➡️" },
       ]
     },
     {
@@ -83,9 +83,9 @@ const FeedbackLoopReflex = () => {
       item: { emoji: "🌧️", text: "Actual weather: Rainy" },
       correctAnswer: "Mark as incorrect",
       options: [
-        { text: "Mark as correct", isCorrect: false, emoji: "✅" },
-        { text: "Mark as incorrect", isCorrect: true, emoji: "❌" },
+        { text: "Mark as correct", isCorrect: false, emoji: "👍" },
         { text: "Suggest improvement", isCorrect: false, emoji: "💡" },
+        { text: "Mark as incorrect", isCorrect: true, emoji: "👎" },
         { text: "End the session", isCorrect: false, emoji: "⏹️" }
       ]
     }

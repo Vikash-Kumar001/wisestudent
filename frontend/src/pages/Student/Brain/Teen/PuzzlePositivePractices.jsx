@@ -54,20 +54,20 @@ const PuzzlePositivePractices = () => {
 
   // Positive Practices (left side)
   const leftItems = [
-    { id: 1, name: 'Meditation', emoji: '🧘', description: 'Mindful practice for inner peace' },
-    { id: 2, name: 'Affirmation', emoji: '💪', description: 'Positive self-statements' },
-    { id: 3, name: 'Gratitude Journal', emoji: '📔', description: 'Writing what you\'re thankful for' },
-    { id: 4, name: 'Exercise', emoji: '🏃', description: 'Physical activity for well-being' },
-    { id: 5, name: 'Deep Breathing', emoji: '🌬️', description: 'Calming breath techniques' }
+    { id: 1, name: 'Meditation', emoji: '🧘',  },
+    { id: 2, name: 'Affirmation', emoji: '💪',  },
+    { id: 3, name: 'Gratitude Journal', emoji: '📔',  },
+    { id: 4, name: 'Exercise', emoji: '🏃',  },
+    { id: 5, name: 'Deep Breathing', emoji: '🌬️',  }
   ];
 
   // Benefits/Outcomes (right side) - manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 2, name: 'Confidence', emoji: '✨', description: 'Belief in your abilities' }, // Matches Affirmation (left position 2, right position 1)
-    { id: 1, name: 'Calm', emoji: '😌', description: 'Peaceful and relaxed state' }, // Matches Meditation (left position 1, right position 2)
-    { id: 4, name: 'Energy', emoji: '⚡', description: 'Physical and mental vitality' }, // Matches Exercise (left position 4, right position 3)
-    { id: 3, name: 'Appreciation', emoji: '🙏', description: 'Recognizing life\'s blessings' }, // Matches Gratitude Journal (left position 3, right position 4)
-    { id: 5, name: 'Relaxation', emoji: '🌊', description: 'Reduced stress and tension' } // Matches Deep Breathing (left position 5, right position 5)
+    { id: 2, name: 'Confidence', emoji: '✨',  },
+    { id: 1, name: 'Calm', emoji: '😌',  },
+    { id: 4, name: 'Energy', emoji: '⚡',  },
+    { id: 3, name: 'Appreciation', emoji: '🙏',  },
+    { id: 5, name: 'Relaxation', emoji: '🌊',  }
   ];
 
   // Correct matches - manually defined to split correct answers across different positions

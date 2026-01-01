@@ -52,20 +52,20 @@ const PuzzleGreenTransportation = () => {
 
   // Transportation Methods (left side) - 5 items
   const transports = [
-    { id: 1, name: "Bike", emoji: "🚲", description: "Two-wheeled vehicle" },
-    { id: 2, name: "Car", emoji: "🚗", description: "Motorized vehicle" },
-    { id: 3, name: "Walk", emoji: "🚶", description: "Human-powered movement" },
-    { id: 4, name: "Bus", emoji: "🚌", description: "Public transit" },
-    { id: 5, name: "Train", emoji: "🚂", description: "Rail transport" }
+    { id: 1, name: "Bike", emoji: "🚲",  },
+    { id: 2, name: "Car", emoji: "🚗",  },
+    { id: 3, name: "Walk", emoji: "🚶",  },
+    { id: 4, name: "Bus", emoji: "🚌",  },
+    { id: 5, name: "Train", emoji: "🚂",  }
   ];
 
   // Environmental Impacts (right side) - 5 items
   const impacts = [
-    { id: 3, name: "Zero Emissions", emoji: "🍃", description: "No harmful output" },
-    { id: 5, name: "Reduced Carbon", emoji: "🚆", description: "Lower footprint" },
-    { id: 1, name: "Low Pollution", emoji: "🚴", description: "Minimal contaminants" },
-    { id: 4, name: "Shared Resources", emoji: "👥", description: "Collective efficiency" },
-    { id: 2, name: "High Emissions", emoji: "🌫️", description: "Significant pollutants" }
+    { id: 3, name: "Zero Emissions", emoji: "🍃",  },
+    { id: 5, name: "Reduced Carbon", emoji: "🚆",  },
+    { id: 1, name: "Low Pollution", emoji: "🚴",  },
+    { id: 4, name: "Shared Resources", emoji: "👥",  },
+    { id: 2, name: "High Emissions", emoji: "🌫️",  }
   ];
 
   // Correct matches

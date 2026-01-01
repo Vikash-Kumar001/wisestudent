@@ -24,20 +24,20 @@ const MissingDataPuzzlee = () => {
 
   // Data sets with missing information (left side) - 6 items
   const leftItems = [
-    { id: 1, name: "Name: Alice\nAge: ?\nCity: NY", emoji: "👤", description: "Person profile with missing age" },
-    { id: 2, name: "Product: Laptop\nPrice: ?\nStock: 50", emoji: "💻", description: "Product info with missing price" },
-    { id: 3, name: "Temperature: ?\nHumidity: 60%\nWind: 10km/h", emoji: "🌡️", description: "Weather data with missing temperature" },
-    { id: 4, name: "Student: Bob\nGrade: ?\nSection: A", emoji: "📚", description: "Student record with missing grade" },
-    { id: 5, name: "Item: Apple\nQuantity: ?\nPrice: $2", emoji: "🍎", description: "Shopping item with missing quantity" }
+    { id: 1, name: "Name: Alice\nAge: ?\nCity: NY", emoji: "👤", },
+    { id: 2, name: "Product: Laptop\nPrice: ?\nStock: 50", emoji: "💻", },
+    { id: 3, name: "Temperature: ?\nHumidity: 60%\nWind: 10km/h", emoji: "🌡️", },
+    { id: 4, name: "Student: Bob\nGrade: ?\nSection: A", emoji: "📚", },
+    { id: 5, name: "Item: Apple\nQuantity: ?\nPrice: $2", emoji: "🍎", },
   ];
 
   // Possible values to fill in missing data (right side) - 6 items, rearranged to split matches
   const rightItems = [
-    { id: 1, name: "10", emoji: "🔢", description: "Quantity value" },
-    { id: 2, name: "$1000", emoji: "💰", description: "Price value" },
-    { id: 3, name: "25°C", emoji: "🌡️", description: "Temperature value" },
-    { id: 4, name: "25", emoji: "🔢", description: "Age value" },
-    { id: 5, name: "B", emoji: "📊", description: "Grade value" },
+    { id: 1, name: "10", emoji: "🔢", },
+    { id: 2, name: "$1000", emoji: "💰", },
+    { id: 3, name: "25°C", emoji: "🌡️", },
+    { id: 4, name: "25", emoji: "🔢", },
+    { id: 5, name: "B", emoji: "📊", },
   ];
 
   // Correct matches (split across different positions for variety)

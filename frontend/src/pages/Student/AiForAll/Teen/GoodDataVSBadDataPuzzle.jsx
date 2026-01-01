@@ -24,20 +24,20 @@ const GoodDataVSBadDataPuzzle = () => {
 
   // Data samples (left side) - 5 items
   const leftItems = [
-    { id: 1, name: " Survey with Age, Income, Education", emoji: "📋", description: "Complete demographic information" },
-    { id: 2, name: " Form with Blank Fields", emoji: "📄", description: "Application missing required info" },
-    { id: 3, name: " Sales Records from Last Year", emoji: "📊", description: "Verified transaction data" },
-    { id: 4, name: " Handwritten Notes with Scribbles", emoji: "📝", description: "Illegible information" },
-    { id: 5, name: " Digital Photos from Security Cameras", emoji: "💾", description: "High-resolution images" }
+    { id: 1, name: " Survey with Age, Income, Education", emoji: "📋",  },
+    { id: 2, name: " Form with Blank Fields", emoji: "📄",  },
+    { id: 3, name: " Sales Records from Last Year", emoji: "📊",  },
+    { id: 4, name: " Handwritten Notes with Scribbles", emoji: "📝",  },
+    { id: 5, name: " Digital Photos from Security Cameras", emoji: "💾",  }
   ];
 
   // Data quality labels (right side) - 5 items
   const rightItems = [
-    { id: 7, name: "Missing Key Details", emoji: "❌", description: "Important fields left blank" },
-    { id: 8, name: "Verified & Timestamped", emoji: "✅", description: "Confirmed data with dates" },
-    { id: 10, name: "High Resolution & Clear", emoji: "✅", description: "Quality images with metadata" },
-    { id: 6, name: "Complete & Accurate", emoji: "✅", description: "Full information, no errors" },
-    { id: 9, name: "Illegible & Unclear", emoji: "❌", description: "Hard to read or understand" },
+    { id: 7, name: "Missing Key Details", emoji: "❌",  },
+    { id: 8, name: "Verified & Timestamped", emoji: "✅",  },
+    { id: 10, name: "High Resolution & Clear", emoji: "✅",  },
+    { id: 6, name: "Complete & Accurate", emoji: "✅",  },
+    { id: 9, name: "Illegible & Unclear", emoji: "❌",  },
   ];
 
   // Correct matches (one-to-one mapping between left and right)

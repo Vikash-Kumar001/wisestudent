@@ -35,21 +35,21 @@ const NameThatFeeling = () => {
           id: "a", 
           text: "Happy", 
           emoji: "😊", 
-          description: "Feeling joyful and pleased",
+          // description: "Feeling joyful and pleased",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Sad", 
           emoji: "😢", 
-          description: "Feeling down or upset",
+          // description: "Feeling down or upset",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Angry", 
           emoji: "😠", 
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const NameThatFeeling = () => {
           id: "b", 
           text: "Happy", 
           emoji: "😊", 
-          description: "Feeling joyful and pleased",
+          // description: "Feeling joyful and pleased",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Sad", 
           emoji: "😢", 
-          description: "Feeling down or upset",
+          // description: "Feeling down or upset",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Scared", 
           emoji: "😱", 
-          description: "Feeling afraid or worried",
+          // description: "Feeling afraid or worried",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const NameThatFeeling = () => {
           id: "b", 
           text: "Excited", 
           emoji: "🤩", 
-          description: "Feeling thrilled and eager",
+          // description: "Feeling thrilled and eager",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Calm", 
           emoji: "😌", 
-          description: "Feeling peaceful and relaxed",
+          // description: "Feeling peaceful and relaxed",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Scared", 
           emoji: "😱", 
-          description: "Feeling afraid or worried",
+          // description: "Feeling afraid or worried",
           isCorrect: true 
         }
       ]
@@ -116,21 +116,21 @@ const NameThatFeeling = () => {
           id: "b", 
           text: "Angry", 
           emoji: "😠", 
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Happy", 
           emoji: "😊", 
-          description: "Feeling joyful and pleased",
+          // description: "Feeling joyful and pleased",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Tired", 
           emoji: "😴", 
-          description: "Feeling sleepy or exhausted",
+          // description: "Feeling sleepy or exhausted",
           isCorrect: false 
         }
       ]
@@ -143,21 +143,21 @@ const NameThatFeeling = () => {
           id: "b", 
           text: "Happy", 
           emoji: "😊", 
-          description: "Feeling joyful and pleased",
+          // description: "Feeling joyful and pleased",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Sad", 
           emoji: "😢", 
-          description: "Feeling down or upset",
+          // description: "Feeling down or upset",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Angry", 
           emoji: "😠", 
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: true 
         }
       ]

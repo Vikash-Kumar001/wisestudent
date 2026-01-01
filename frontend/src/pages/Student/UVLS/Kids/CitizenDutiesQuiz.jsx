@@ -31,21 +31,21 @@ const CitizenDutiesQuiz = () => {
           id: "b", 
           text: "No, others will do it", 
           emoji: "🤷", 
-          description: "Everyone should help",
+          // description: "Everyone should help",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Litter more", 
           emoji: "🚮", 
-          description: "This makes things worse",
+          // description: "This makes things worse",
           isCorrect: false 
         },
          { 
           id: "a", 
           text: "Yes, it's my duty", 
           emoji: "🛝", 
-          description: "We all share public spaces",
+          // description: "We all share public spaces",
           isCorrect: true 
         },
       ]
@@ -58,21 +58,21 @@ const CitizenDutiesQuiz = () => {
           id: "b", 
           text: "Ignore them", 
           emoji: "🙈", 
-          description: "We should help each other",
+          // description: "We should help each other",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Yes, good citizens help", 
           emoji: "🤝", 
-          description: "Helping builds community",
+          // description: "Helping builds community",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Make a mess", 
           emoji: "😈", 
-          description: "This is not helpful",
+          // description: "This is not helpful",
           isCorrect: false 
         }
       ]
@@ -85,21 +85,21 @@ const CitizenDutiesQuiz = () => {
           id: "b", 
           text: "Sometimes", 
           emoji: "🤔", 
-          description: "Rules should always be followed",
+          // description: "Rules should always be followed",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Never", 
           emoji: "🚫", 
-          description: "This causes problems",
+          // description: "This causes problems",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Always", 
           emoji: "📜", 
-          description: "Rules keep us safe",
+          // description: "Rules keep us safe",
           isCorrect: true 
         }
       ]
@@ -112,14 +112,14 @@ const CitizenDutiesQuiz = () => {
           id: "a", 
           text: "Yes, it's an important duty", 
           emoji: "🗳️", 
-          description: "Voting is a citizen's right and duty",
+          // description: "Voting is a citizen's right and duty",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Skip it", 
           emoji: "😴", 
-          description: "Voting matters for everyone",
+          // description: "Voting matters for everyone",
           isCorrect: false 
         },
         
@@ -127,7 +127,7 @@ const CitizenDutiesQuiz = () => {
           id: "c", 
           text: "Don't care", 
           emoji: "🤷", 
-          description: "Voting affects our future",
+          // description: "Voting affects our future",
           isCorrect: false 
         }
       ]
@@ -140,21 +140,21 @@ const CitizenDutiesQuiz = () => {
           id: "b", 
           text: "Throw anywhere", 
           emoji: "🗑️", 
-          description: "We should recycle properly",
+          // description: "We should recycle properly",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Yes, help the earth", 
           emoji: "♻️", 
-          description: "Recycling protects our planet",
+          // description: "Recycling protects our planet",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Burn it", 
           emoji: "🔥", 
-          description: "This harms the environment",
+          // description: "This harms the environment",
           isCorrect: false 
         },
         

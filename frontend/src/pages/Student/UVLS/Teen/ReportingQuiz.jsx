@@ -56,21 +56,21 @@ const ReportingQuiz = () => {
           id: "a", 
           text: "Teacher or counselor", 
           emoji: "👩‍🏫",
-          description: "Trusted adult at school",
+          // description: "Trusted adult at school",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Social media", 
           emoji: "📱",
-          description: "Not appropriate for school bullying",
+          // description: "Not appropriate for school bullying",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Friend only", 
           emoji: "👥",
-          description: "Need adult intervention",
+          // description: "Need adult intervention",
           isCorrect: false
         }
       ]
@@ -83,21 +83,21 @@ const ReportingQuiz = () => {
           id: "b", 
           text: "Reply back to the bully", 
           emoji: "💬",
-          description: "Escalates the situation",
+          // description: "Escalates the situation",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Report to the platform and tell a trusted adult", 
           emoji: "🛡️",
-          description: "Proper reporting channels",
+          // description: "Proper reporting channels",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Ignore it", 
           emoji: "🙈",
-          description: "Doesn't stop the bullying",
+          // description: "Doesn't stop the bullying",
           isCorrect: false
         }
       ]
@@ -110,21 +110,21 @@ const ReportingQuiz = () => {
           id: "a", 
           text: "Tell a trusted adult immediately", 
           emoji: "🚨",
-          description: "Gets help quickly",
+          // description: "Gets help quickly",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Fight back", 
           emoji: "👊",
-          description: "Dangerous and can make it worse",
+          // description: "Dangerous and can make it worse",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Hide and hope it stops", 
           emoji: "🙈",
-          description: "Doesn't solve the problem",
+          // description: "Doesn't solve the problem",
           isCorrect: false
         }
       ]
@@ -137,21 +137,21 @@ const ReportingQuiz = () => {
           id: "c", 
           text: "Blame yourself", 
           emoji: "😞",
-          description: "Not helpful",
+          // description: "Not helpful",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Seek help from a counselor or trusted adult", 
           emoji: "💙",
-          description: "Gets professional support",
+          // description: "Gets professional support",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Ignore your feelings", 
           emoji: "😐",
-          description: "Doesn't address the problem",
+          // description: "Doesn't address the problem",
           isCorrect: false
         }
       ]
@@ -164,21 +164,21 @@ const ReportingQuiz = () => {
           id: "a", 
           text: "Use a reporting hotline or online anonymous reporting system", 
           emoji: "📞",
-          description: "Safe anonymous reporting",
+          // description: "Safe anonymous reporting",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Tell the bully directly", 
           emoji: "👆",
-          description: "Not safe",
+          // description: "Not safe",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Do nothing", 
           emoji: "❌",
-          description: "Doesn't help",
+          // description: "Doesn't help",
           isCorrect: false
         }
       ]

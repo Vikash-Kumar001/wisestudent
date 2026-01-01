@@ -26,21 +26,21 @@ const WrongLabelsPuzzle = () => {
 
   // Actual items (left side) - what the items really are
   const leftItems = [
-    { id: 1, name: ' Red Apple', emoji: '🍎', description: 'Grows on trees, sweet and crunchy' },
-    { id: 2, name: ' Yellow Banana', emoji: '🍌', description: 'Tropical fruit, rich in potassium' },
-    { id: 3, name: ' Red Strawberry', emoji: '🍓', description: 'Berry with seeds on the outside' },
-    { id: 4, name: ' Red Cherry', emoji: '🍒', description: 'Small round stone fruit' },
-    { id: 5, name: ' Yellow Lemon', emoji: '🍋', description: 'Sour citrus fruit' }
+    { id: 1, name: ' Red Apple', emoji: '🍎',  },
+    { id: 2, name: ' Yellow Banana', emoji: '🍌',  },
+    { id: 3, name: ' Red Strawberry', emoji: '🍓',  },
+    { id: 4, name: ' Red Cherry', emoji: '🍒',  },
+    { id: 5, name: ' Yellow Lemon', emoji: '🍋',  }
   ];
 
   // Labels (right side) - some correct, some incorrect
   // Manually arranged to vary correct answer positions
   const rightItems = [
-    { id: 6, name: 'Citrus Fruit', description: 'Sour yellow fruit with juice' }, // Correct for Lemon
-    { id: 7, name: 'Tropical Berry',  description: 'Red fruit with seeds on outside' }, // Correct for Strawberry
-    { id: 8, name: 'Tree Apple',  description: 'Grows on trees in orchards' }, // Correct for Apple
-    { id: 9, name: 'Stone Fruit', description: 'Small round fruit with pit' }, // Correct for Cherry
-    { id: 10, name: 'Potassium Fruit', description: 'Yellow curved tropical fruit' } // Correct for Banana
+    { id: 6, name: 'Citrus Fruit',  },
+    { id: 7, name: 'Tropical Berry',  },
+    { id: 8, name: 'Tree Apple',  },
+    { id: 9, name: 'Stone Fruit',  },
+    { id: 10, name: 'Potassium Fruit',  }
   ];
 
   // Correct matches - each item with its correct label

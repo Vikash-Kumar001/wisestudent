@@ -30,21 +30,21 @@ const PriorityQuiz = () => {
           id: "a", 
           text: "Do homework first", 
           emoji: "📚", 
-          description: "Important tasks come first",
+          // description: "Important tasks come first",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Play all day", 
           emoji: "🎮", 
-          description: "Work before play",
+          // description: "Work before play",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Sleep", 
           emoji: "😴", 
-          description: "Do work when awake",
+          // description: "Do work when awake",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const PriorityQuiz = () => {
           id: "b", 
           text: "Watch TV first", 
           emoji: "📺", 
-          description: "Work should come first",
+          // description: "Work should come first",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Study then have fun", 
           emoji: "🧠", 
-          description: "Balance work and play",
+          // description: "Balance work and play",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Eat candy only", 
           emoji: "🍬", 
-          description: "Need balanced activities",
+          // description: "Need balanced activities",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const PriorityQuiz = () => {
           id: "b", 
           text: "Play only", 
           emoji: "🏃", 
-          description: "Chores are important too",
+          // description: "Chores are important too",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Do nothing", 
           emoji: "🤷", 
-          description: "Stay productive",
+          // description: "Stay productive",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Do chores then play", 
           emoji: "🧹", 
-          description: "Responsibilities first",
+          // description: "Responsibilities first",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const PriorityQuiz = () => {
           id: "b", 
           text: "Watch videos", 
           emoji: "📱", 
-          description: "Health is more important",
+          // description: "Health is more important",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Brush your teeth", 
           emoji: "🦷", 
-          description: "Health comes first",
+          // description: "Health comes first",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Eat snacks", 
           emoji: "🍪", 
-          description: "Not good before bed",
+          // description: "Not good before bed",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const PriorityQuiz = () => {
           id: "b", 
           text: "Play games", 
           emoji: "🎲", 
-          description: "Breakfast is important",
+          // description: "Breakfast is important",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Watch TV", 
           emoji: "📺", 
-          description: "Eat first, then play",
+          // description: "Eat first, then play",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Eat breakfast", 
           emoji: "🍳", 
-          description: "Start the day right",
+          // description: "Start the day right",
           isCorrect: true 
         }
       ]

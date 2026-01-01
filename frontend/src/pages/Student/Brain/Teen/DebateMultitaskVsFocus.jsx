@@ -61,21 +61,19 @@ const DebateMultitaskVsFocus = () => {
           id: "no", 
           text: "No, focus on one task", 
           emoji: "🎯", 
-          description: "Single-tasking is more effective",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, multitasking is effective", 
           emoji: "📱", 
-          description: "Decreases productivity",
           isCorrect: false
         },
         { 
           id: "sometimes", 
           text: "Sometimes it depends", 
           emoji: "🤔", 
-          description: "Reduces efficiency",
           isCorrect: false
         }
       ]
@@ -88,21 +86,18 @@ const DebateMultitaskVsFocus = () => {
           id: "music", 
           text: "Music helps with studying", 
           emoji: "🎵", 
-          description: "Depends on task and music",
           isCorrect: false
         },
         { 
           id: "depends", 
           text: "Depends on the type of music", 
           emoji: "🎧", 
-          description: "Instrumental helps, lyrics hurt",
           isCorrect: true
         },
         { 
           id: "silence", 
           text: "Silence is better for focus", 
           emoji: "🔇", 
-          description: "Some music can help",
           isCorrect: false
         }
       ]
@@ -115,21 +110,18 @@ const DebateMultitaskVsFocus = () => {
           id: "same", 
           text: "Study same subject for hours", 
           emoji: "📚", 
-          description: "Switching improves learning",
           isCorrect: false
         },
         { 
           id: "either", 
           text: "Either approach works equally well", 
           emoji: "⚖️", 
-          description: "Switching is more effective",
           isCorrect: false
         },
         { 
           id: "switch", 
           text: "Switch between different subjects", 
           emoji: "🔄", 
-          description: "Strengthens memory",
           isCorrect: true
         }
       ]
@@ -142,21 +134,18 @@ const DebateMultitaskVsFocus = () => {
           id: "short", 
           text: "Take frequent short breaks", 
           emoji: "☕", 
-          description: "Prevents mental fatigue",
           isCorrect: true
         },
         { 
           id: "long", 
           text: "Study for long periods without breaks", 
           emoji: "⏰", 
-          description: "Causes mental fatigue",
           isCorrect: false
         },
         { 
           id: "no", 
           text: "Don't take any breaks at all", 
           emoji: "🚫", 
-          description: "Essential for focus",
           isCorrect: false
         }
       ]
@@ -169,21 +158,18 @@ const DebateMultitaskVsFocus = () => {
           id: "digital", 
           text: "Digital note-taking is more effective", 
           emoji: "💻", 
-          description: "Less effective for learning",
           isCorrect: false
         },
         { 
           id: "both", 
           text: "Both methods work equally well", 
           emoji: "⚖️", 
-          description: "More effective for learning",
           isCorrect: false
         },
         { 
           id: "hand", 
           text: "Handwriting notes is more effective", 
           emoji: "✍️", 
-          description: "Engages the brain more",
           isCorrect: true
         }
       ]

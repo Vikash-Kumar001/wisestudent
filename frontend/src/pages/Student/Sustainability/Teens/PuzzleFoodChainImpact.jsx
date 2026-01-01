@@ -52,20 +52,20 @@ const PuzzleFoodChainImpact = () => {
 
   // Foods (left side) - 5 items
   const foods = [
-    { id: 1, name: "Organic Vegetables", emoji: "🥬", description: "Locally grown, no pesticides" },
-    { id: 2, name: "Imported Beef", emoji: "🥩", description: "Long transport, high emissions" },
-    { id: 3, name: "Processed Snacks", emoji: "🍪", description: "Packaged, processed" },
-    { id: 4, name: "Seasonal Fruits", emoji: "🍎", description: "In season, minimal processing" },
-    { id: 5, name: "Factory Farmed Fish", emoji: "🐟", description: "High resource use" }
+    { id: 1, name: "Organic Vegetables", emoji: "🥬",  },
+    { id: 2, name: "Imported Beef", emoji: "🥩",  },
+    { id: 3, name: "Processed Snacks", emoji: "🍪",  },
+    { id: 4, name: "Seasonal Fruits", emoji: "🍎",  },
+    { id: 5, name: "Factory Farmed Fish", emoji: "🐟",  }
   ];
 
   // Environmental Footprints (right side) - 5 items
   const footprints = [
-    { id: 2, name: "High Emissions", emoji: "🏭", description: "Transport & production" },
-    { id: 3, name: "Waste Generation", emoji: "🗑️", description: "Packaging & processing" },
-    { id: 1, name: "Low Impact", emoji: "🌱", description: "Sustainable farming" },
-    { id: 5, name: "Resource Intensive", emoji: "💧", description: "Water & energy use" },
-    { id: 4, name: "Moderate Impact", emoji: "🌿", description: "Seasonal, local" },
+    { id: 2, name: "High Emissions", emoji: "🏭",  },
+    { id: 3, name: "Waste Generation", emoji: "🗑️",  },
+    { id: 1, name: "Low Impact", emoji: "🌱",  },
+    { id: 5, name: "Resource Intensive", emoji: "💧",  },
+    { id: 4, name: "Moderate Impact", emoji: "🌿",  },
   ];
 
   // Correct matches

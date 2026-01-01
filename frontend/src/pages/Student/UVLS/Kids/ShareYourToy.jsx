@@ -35,21 +35,21 @@ const ShareYourToy = () => {
           id: "share", 
           text: "Share Toys", 
           emoji: "🤝", 
-          description: "Invite them to play with your toys",
+          // description: "Invite them to play with your toys",
           isCorrect: true
         },
         { 
           id: "maybe", 
           text: "Maybe Later", 
           emoji: "🤔", 
-          description: "Think about it later",
+          // description: "Think about it later",
           isCorrect: false
         },
         { 
           id: "ignore", 
           text: "Play Alone", 
           emoji: "🙅", 
-          description: "Keep playing by yourself",
+          // description: "Keep playing by yourself",
           isCorrect: false
         }
       ]
@@ -62,21 +62,21 @@ const ShareYourToy = () => {
           id: "keep", 
           text: "Keep All", 
           emoji: "❌", 
-          description: "Keep all crayons for yourself",
+          // description: "Keep all crayons for yourself",
           isCorrect: false
         },
         { 
           id: "share", 
           text: "Share Crayons", 
           emoji: "🎨", 
-          description: "Give them some of your crayons",
+          // description: "Give them some of your crayons",
           isCorrect: true
         },
         { 
           id: "wait", 
           text: "Wait and See", 
           emoji: "👀", 
-          description: "See if they ask first",
+          // description: "See if they ask first",
           isCorrect: false
         }
       ]
@@ -89,21 +89,21 @@ const ShareYourToy = () => {
           id: "include", 
           text: "Let Them Join", 
           emoji: "👫", 
-          description: "Welcome them to play",
+          // description: "Welcome them to play",
           isCorrect: true
         },
         { 
           id: "exclude", 
           text: "Say No", 
           emoji: "🚫", 
-          description: "Tell them to go away",
+          // description: "Tell them to go away",
           isCorrect: false
         },
         { 
           id: "ask", 
           text: "Ask Others First", 
           emoji: "🤷", 
-          description: "Check with your friends first",
+          // description: "Check with your friends first",
           isCorrect: false
         }
       ]
@@ -116,21 +116,21 @@ const ShareYourToy = () => {
           id: "hoard", 
           text: "Keep It", 
           emoji: "😠", 
-          description: "Refuse to share",
+          // description: "Refuse to share",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe Later", 
           emoji: "⏰", 
-          description: "Tell them to wait",
+          // description: "Tell them to wait",
           isCorrect: false
         },
         { 
           id: "share", 
           text: "Take Turns", 
           emoji: "🔄", 
-          description: "Share and take turns playing",
+          // description: "Share and take turns playing",
           isCorrect: true
         }
       ]
@@ -143,21 +143,21 @@ const ShareYourToy = () => {
           id: "lend", 
           text: "Lend Pencil", 
           emoji: "🤲", 
-          description: "Let them borrow it",
+          // description: "Let them borrow it",
           isCorrect: true
         },
         { 
           id: "refuse", 
           text: "Say No", 
           emoji: "🙅‍♂️", 
-          description: "Don't let them use it",
+          // description: "Don't let them use it",
           isCorrect: false
         },
         { 
           id: "hesitate", 
           text: "Hesitate", 
           emoji: "😕", 
-          description: "Not sure what to do",
+          // description: "Not sure what to do",
           isCorrect: false
         }
       ]

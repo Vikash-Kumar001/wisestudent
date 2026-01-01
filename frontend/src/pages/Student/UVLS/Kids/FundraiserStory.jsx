@@ -32,21 +32,21 @@ const FundraiserStory = () => {
           id: "a", 
           text: "Sell Cookies", 
           emoji: "🍪", 
-          description: "Organize a cookie sale",
+          // description: "Organize a cookie sale",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Do Nothing", 
           emoji: "😴", 
-          description: "Wait and hope for money",
+          // description: "Wait and hope for money",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Make Poster", 
           emoji: "🖼️", 
-          description: "Create a fundraising poster",
+          // description: "Create a fundraising poster",
           isCorrect: false
         }
       ]
@@ -59,21 +59,21 @@ const FundraiserStory = () => {
           id: "b", 
           text: "Wait for Magic", 
           emoji: "🪄", 
-          description: "Hope money appears magically",
+          // description: "Hope money appears magically",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Lemonade Stand", 
           emoji: "🍋", 
-          description: "Set up a lemonade stand",
+          // description: "Set up a lemonade stand",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Car Wash", 
           emoji: "🚗", 
-          description: "Organize a car wash event",
+          // description: "Organize a car wash event",
           isCorrect: false
         }
       ]
@@ -87,21 +87,21 @@ const FundraiserStory = () => {
           id: "b", 
           text: "Sleep All Day", 
           emoji: "🛌", 
-          description: "Do nothing to help",
+          // description: "Do nothing to help",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Yard Sale", 
           emoji: "🏡", 
-          description: "Organize a yard sale",
+          // description: "Organize a yard sale",
           isCorrect: false
         },
          { 
           id: "a", 
           text: "Bake Sale", 
           emoji: "🥧", 
-          description: "Host a bake sale",
+          // description: "Host a bake sale",
           isCorrect: true
         },
       ]
@@ -114,21 +114,21 @@ const FundraiserStory = () => {
           id: "b", 
           text: "Ignore Goal", 
           emoji: "🤷", 
-          description: "Give up on the goal",
+          // description: "Give up on the goal",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Craft Sale", 
           emoji: "🎨", 
-          description: "Sell handmade crafts",
+          // description: "Sell handmade crafts",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Dance Show", 
           emoji: "💃", 
-          description: "Organize a dance performance",
+          // description: "Organize a dance performance",
           isCorrect: false
         }
       ]
@@ -141,21 +141,21 @@ const FundraiserStory = () => {
           id: "a", 
           text: "Seek Sponsors", 
           emoji: "🏃", 
-          description: "Find sponsors for runners",
+          // description: "Find sponsors for runners",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Stay Home", 
           emoji: "🏠", 
-          description: "Don't organize anything",
+          // description: "Don't organize anything",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Sell Raffle Tickets", 
           emoji: "🎟️", 
-          description: "Sell raffle tickets for prizes",
+          // description: "Sell raffle tickets for prizes",
           isCorrect: false
         }
       ]

@@ -69,7 +69,7 @@ const CyberSafetyReflex = () => {
       question: "Is this post abusive? 'Friendly post sharing positive news.'",
       correctAnswer: "No, Ignore",
       options: [
-        { text: "No, Ignore", isCorrect: true, emoji: "✅" },
+        { text: "No, Ignore", isCorrect: true, emoji: "🙃" },
         { text: "Yes, Report", isCorrect: false, emoji: "🚨" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" }
@@ -82,7 +82,7 @@ const CyberSafetyReflex = () => {
       options: [
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
         { text: "Yes, Report", isCorrect: true, emoji: "🚨" },
-        { text: "No, Ignore", isCorrect: false, emoji: "✅" },
+        { text: "No, Ignore", isCorrect: false, emoji: "🙂" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" }
       ]
     },
@@ -93,7 +93,7 @@ const CyberSafetyReflex = () => {
       options: [
         { text: "Don't Know", isCorrect: false, emoji: "❓" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" },
-        { text: "No, Ignore", isCorrect: true, emoji: "✅" },
+        { text: "No, Ignore", isCorrect: true, emoji: "🙃" },
         { text: "Yes, Report", isCorrect: false, emoji: "🚨" }
       ]
     },
@@ -104,7 +104,7 @@ const CyberSafetyReflex = () => {
       options: [
         { text: "Yes, Report", isCorrect: true, emoji: "🚨" },
         { text: "Don't Know", isCorrect: false, emoji: "❓" },
-        { text: "No, Ignore", isCorrect: false, emoji: "✅" },
+        { text: "No, Ignore", isCorrect: false, emoji: "🙂" },
         { text: "Maybe", isCorrect: false, emoji: "🤷" }
       ]
     }

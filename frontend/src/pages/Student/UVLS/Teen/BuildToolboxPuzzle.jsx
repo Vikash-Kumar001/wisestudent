@@ -20,20 +20,20 @@ const BuildToolboxPuzzle = () => {
 
   // Emotions/Stressors (left side) - 5 items with hints
   const emotions = [
-    { id: 1, name: "Anxiety", emoji: "😰", hint: "Feeling worried or nervous" },
-    { id: 2, name: "Anger", emoji: "😠", hint: "Feeling mad or frustrated" },
-    { id: 3, name: "Sadness", emoji: "😢", hint: "Feeling down or upset" },
-    { id: 4, name: "Overwhelm", emoji: "😵", hint: "Feeling overloaded or stressed" },
-    { id: 5, name: "Loneliness", emoji: "😔", hint: "Feeling isolated or alone" }
+    { id: 1, name: "Anxiety", emoji: "😰",  },
+    { id: 2, name: "Anger", emoji: "😠",  },
+    { id: 3, name: "Sadness", emoji: "😢",  },
+    { id: 4, name: "Overwhelm", emoji: "😵",  },
+    { id: 5, name: "Loneliness", emoji: "😔",  }
   ];
 
   // Regulation Techniques (right side) - 5 items with descriptions
   const techniques = [
-    { id: 6, name: "Deep Breathing", emoji: "💨", description: "Slow, controlled breaths to calm nerves" },
-    { id: 7, name: "Physical Exercise", emoji: "🏃", description: "Movement to release tension and energy" },
-    { id: 8, name: "Journal Writing", emoji: "📝", description: "Writing thoughts to process emotions" },
-    { id: 9, name: "Mindfulness Meditation", emoji: "🧘", description: "Focusing on the present moment" },
-    { id: 10, name: "Social Connection", emoji: "👥", description: "Reaching out to friends or family" }
+    { id: 6, name: "Deep Breathing", emoji: "💨",  },
+    { id: 7, name: "Physical Exercise", emoji: "🏃",  },
+    { id: 8, name: "Journal Writing", emoji: "📝",  },
+    { id: 9, name: "Mindfulness Meditation", emoji: "🧘",  },
+    { id: 10, name: "Social Connection", emoji: "👥",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

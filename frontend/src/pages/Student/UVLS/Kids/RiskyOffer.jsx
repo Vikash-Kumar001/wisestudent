@@ -30,21 +30,21 @@ const RiskyOffer = () => {
           id: "a", 
           text: "Do it myself", 
           emoji: "📝", 
-          description: "Do your own work",
+          // description: "Do your own work",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Copy quickly", 
           emoji: "📋", 
-          description: "This is cheating",
+          // description: "This is cheating",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore", 
           emoji: "🙈", 
-          description: "Not a good choice",
+          // description: "Not a good choice",
           isCorrect: false 
         }
       ]
@@ -57,21 +57,21 @@ const RiskyOffer = () => {
           id: "b", 
           text: "Take it", 
           emoji: "🍬", 
-          description: "This is dangerous",
+          // description: "This is dangerous",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Say no and tell an adult", 
           emoji: "🛑", 
-          description: "Stay safe and get help",
+          // description: "Stay safe and get help",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Run away silently", 
           emoji: "🏃", 
-          description: "Tell an adult first",
+          // description: "Tell an adult first",
           isCorrect: false 
         }
       ]
@@ -84,21 +84,21 @@ const RiskyOffer = () => {
           id: "b", 
           text: "Climb anyway", 
           emoji: "🌳", 
-          description: "This is dangerous",
+          // description: "This is dangerous",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Watch others", 
           emoji: "👀", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Choose safe play", 
           emoji: "🛝", 
-          description: "Stay safe",
+          // description: "Stay safe",
           isCorrect: true 
         }
       ]
@@ -111,21 +111,21 @@ const RiskyOffer = () => {
           id: "b", 
           text: "Share with friend", 
           emoji: "🔑", 
-          description: "This is not safe",
+          // description: "This is not safe",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Keep it private", 
           emoji: "🔒", 
-          description: "Protect your privacy",
+          // description: "Protect your privacy",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Change password", 
           emoji: "🔄", 
-          description: "Not necessary here",
+          // description: "Not necessary here",
           isCorrect: false 
         }
       ]
@@ -138,21 +138,21 @@ const RiskyOffer = () => {
           id: "b", 
           text: "Run across", 
           emoji: "🏃", 
-          description: "This is dangerous",
+          // description: "This is dangerous",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Follow others", 
           emoji: "👥", 
-          description: "Not safe",
+          // description: "Not safe",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Wait and look both ways", 
           emoji: "👀", 
-          description: "Stay safe",
+          // description: "Stay safe",
           isCorrect: true 
         }
       ]

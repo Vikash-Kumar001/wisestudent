@@ -61,21 +61,19 @@ const ExamRecallStory = () => {
           id: "no", 
           text: "No, spaced repetition is better", 
           emoji: "📚", 
-          description: "Spaced repetition is better",
+          
           isCorrect: true
         },
         { 
           id: "yes", 
           text: "Yes, cramming works well", 
           emoji: "⏰", 
-          description: "Creates short-term memory",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends on the person", 
           emoji: "🤔", 
-          description: "Less effective",
           isCorrect: false
         }
       ]
@@ -88,21 +86,18 @@ const ExamRecallStory = () => {
           id: "a", 
           text: "Guessing randomly", 
           emoji: "🎲", 
-          description: "Doesn't improve recall",
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Using associations and mnemonics", 
           emoji: "🧠", 
-          description: "Strengthens recall pathways",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Skipping questions", 
           emoji: "⏭️", 
-          description: "Doesn't help recall",
           isCorrect: false
         }
       ]
@@ -115,21 +110,18 @@ const ExamRecallStory = () => {
           id: "a", 
           text: "Always improves recall", 
           emoji: "😰", 
-          description: "Impairs memory",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "In moderation can sharpen focus", 
           emoji: "⚡", 
-          description: "Moderate stress helps, too much harms",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Never helps", 
           emoji: "❌", 
-          description: "Stress moderation is key",
           isCorrect: false
         }
       ]
@@ -142,21 +134,18 @@ const ExamRecallStory = () => {
           id: "a", 
           text: "By creating mental images", 
           emoji: "🖼️", 
-          description: "Makes information memorable",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "By ignoring details", 
           emoji: "🙈", 
-          description: "Reduces recall",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "By multitasking", 
           emoji: "📱", 
-          description: "Reduces focus",
           isCorrect: false
         }
       ]
@@ -169,21 +158,18 @@ const ExamRecallStory = () => {
           id: "no", 
           text: "No, it disrupts sleep", 
           emoji: "🌙", 
-          description: "Helps memory consolidation",
           isCorrect: false
         },
         { 
           id: "maybe", 
           text: "Maybe, depends on the content", 
           emoji: "🤔", 
-          description: "Works for all content",
           isCorrect: false
         },
         { 
           id: "yes", 
           text: "Yes, sleep consolidates memories", 
           emoji: "😴", 
-          description: "Enhances long-term retention",
           isCorrect: true
         }
       ]

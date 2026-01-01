@@ -52,20 +52,20 @@ const PuzzleEnergySources = () => {
 
   // Energy Sources (left side) - 5 items
   const sources = [
-    { id: 1, name: "Sun", emoji: "☀️", description: "Solar power" },
-    { id: 2, name: "Wind", emoji: "💨", description: "Air movement" },
-    { id: 3, name: "Coal", emoji: "🪨", description: "Solid fossil fuel" },
-    { id: 4, name: "Water", emoji: "💧", description: "Hydro power" },
-    { id: 5, name: "Oil", emoji: "🛢️", description: " liquid energy" }
+    { id: 1, name: "Sun", emoji: "☀️",  },
+    { id: 2, name: "Wind", emoji: "💨",  },
+    { id: 3, name: "Coal", emoji: "🪨",  },
+    { id: 4, name: "Water", emoji: "💧",  },
+    { id: 5, name: "Oil", emoji: "🛢️",  }
   ];
 
   // Energy Types (right side) - 5 items
   const types = [
-    { id: 4, name: "Hydroelectric", emoji: "🌊", description: "Water-based energy" },
-    { id: 5, name: "Non-Renewable", emoji: "⚠️", description: "Finite resource" },
-    { id: 1, name: "Solar Power", emoji: "🔆", description: "Sunlight energy" },
-    { id: 3, name: "Polluting Fuel", emoji: "🌫️", description: "Environmental hazard" },
-    { id: 2, name: "Wind Energy", emoji: "🌪️", description: "Air-based power" }
+    { id: 4, name: "Hydroelectric", emoji: "🌊",  },
+    { id: 5, name: "Non-Renewable", emoji: "⚠️",  },
+    { id: 1, name: "Solar Power", emoji: "🔆",  },
+    { id: 3, name: "Polluting Fuel", emoji: "🌫️",  },
+    { id: 2, name: "Wind Energy", emoji: "🌪️",  }
   ];
 
   // Correct matches

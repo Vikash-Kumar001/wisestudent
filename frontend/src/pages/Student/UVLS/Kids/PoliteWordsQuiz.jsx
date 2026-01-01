@@ -35,21 +35,21 @@ const PoliteWordsQuiz = () => {
           id: "a", 
           text: "Thank you!", 
           emoji: "🙏", 
-          description: "Express gratitude",
+          // description: "Express gratitude",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Finally!", 
           emoji: "😤", 
-          description: "Show impatience",
+          // description: "Show impatience",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Nothing", 
           emoji: "😐", 
-          description: "Don't respond",
+          // description: "Don't respond",
           isCorrect: false 
         }
       ]
@@ -62,21 +62,21 @@ const PoliteWordsQuiz = () => {
           id: "a", 
           text: "Give me that!", 
           emoji: "😠", 
-          description: "Demand rudely",
+          // description: "Demand rudely",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Please help me", 
           emoji: "🙏", 
-          description: "Ask politely with please",
+          // description: "Ask politely with please",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "I need this now!", 
           emoji: "😡", 
-          description: "Be demanding",
+          // description: "Be demanding",
           isCorrect: false 
         }
       ]
@@ -89,21 +89,21 @@ const PoliteWordsQuiz = () => {
           id: "a", 
           text: "Watch where you're going!", 
           emoji: "😠", 
-          description: "Blame them",
+          // description: "Blame them",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "It's your fault", 
           emoji: "👆", 
-          description: "Be accusatory",
+          // description: "Be accusatory",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Sorry! Excuse me", 
           emoji: "😔", 
-          description: "Apologize politely",
+          // description: "Apologize politely",
           isCorrect: true 
         }
       ]
@@ -116,21 +116,21 @@ const PoliteWordsQuiz = () => {
           id: "a", 
           text: "Good morning!", 
           emoji: "☀️", 
-          description: "Greet respectfully",
+          // description: "Greet respectfully",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Hey!", 
           emoji: "👋", 
-          description: "Casual greeting",
+          // description: "Casual greeting",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Yo!", 
           emoji: "🤙", 
-          description: "Very casual greeting",
+          // description: "Very casual greeting",
           isCorrect: false 
         }
       ]
@@ -143,21 +143,21 @@ const PoliteWordsQuiz = () => {
           id: "a", 
           text: "Stop talking!", 
           emoji: "🛑", 
-          description: "Be rude",
+          // description: "Be rude",
           isCorrect: false 
         },
         { 
           id: "b", 
           text: "Excuse me, may I say something?", 
           emoji: "🙋", 
-          description: "Ask politely",
+          // description: "Ask politely",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Be quiet!", 
           emoji: "🤫", 
-          description: "Demand silence",
+          // description: "Demand silence",
           isCorrect: false 
         }
       ]

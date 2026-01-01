@@ -36,21 +36,21 @@ const RespectSignals = () => {
           id: "eye", 
           text: "Making eye contact and listening", 
           emoji: "👁️", 
-          description: "Shows you're paying attention",
+          // description: "Shows you're paying attention",
           isCorrect: true 
         },
         { 
           id: "phone", 
           text: "Looking at your phone", 
           emoji: "📱", 
-          description: "Shows you're not interested",
+          // description: "Shows you're not interested",
           isCorrect: false 
         },
         { 
           id: "walk", 
           text: "Walking away mid-conversation", 
           emoji: "🚶", 
-          description: "Very disrespectful behavior",
+          // description: "Very disrespectful behavior",
           isCorrect: false 
         }
       ]
@@ -64,21 +64,21 @@ const RespectSignals = () => {
           id: "roll", 
           text: "Rolling your eyes", 
           emoji: "🙄", 
-          description: "Shows disrespect and annoyance",
+          // description: "Shows disrespect and annoyance",
           isCorrect: false 
         },
         { 
           id: "face", 
           text: "Turning to face the speaker", 
           emoji: "👂", 
-          description: "Shows you're engaged and listening",
+          // description: "Shows you're engaged and listening",
           isCorrect: true 
         },
         { 
           id: "yawn", 
           text: "Yawning without covering mouth", 
           emoji: "😴", 
-          description: "Shows boredom and disrespect",
+          // description: "Shows boredom and disrespect",
           isCorrect: false 
         }
       ]
@@ -92,21 +92,21 @@ const RespectSignals = () => {
           id: "nod", 
           text: "Nodding to show understanding", 
           emoji: "🙌", 
-          description: "Shows you're listening",
+          // description: "Shows you're listening",
           isCorrect: false 
         },
         { 
           id: "interrupt", 
           text: "Interrupting constantly", 
           emoji: "🗣️", 
-          description: "Doesn't let others speak",
+          // description: "Doesn't let others speak",
           isCorrect: true 
         },
         { 
           id: "smile", 
           text: "Smiling when someone talks", 
           emoji: "😊", 
-          description: "Shows friendliness and respect",
+          // description: "Shows friendliness and respect",
           isCorrect: false 
         }
       ]
@@ -120,21 +120,21 @@ const RespectSignals = () => {
           id: "open", 
           text: "Open body language and facing the person", 
           emoji: "🤲", 
-          description: "Shows you're welcoming and attentive",
+          // description: "Shows you're welcoming and attentive",
           isCorrect: true 
         },
         { 
           id: "crossed", 
           text: "Arms crossed defensively", 
           emoji: "🙅", 
-          description: "Shows you're closed off",
+          // description: "Shows you're closed off",
           isCorrect: false 
         },
         { 
           id: "frown", 
           text: "Frowning and looking bored", 
           emoji: "😒", 
-          description: "Shows disinterest",
+          // description: "Shows disinterest",
           isCorrect: false 
         }
       ]
@@ -148,21 +148,21 @@ const RespectSignals = () => {
           id: "ignore", 
           text: "Ignoring them completely", 
           emoji: "🙈", 
-          description: "Very disrespectful",
+          // description: "Very disrespectful",
           isCorrect: false 
         },
         { 
           id: "turn", 
           text: "Turning your back to them", 
           emoji: "🚶", 
-          description: "Shows disrespect",
+          // description: "Shows disrespect",
           isCorrect: false 
         },
         { 
           id: "handshake", 
           text: "Proper handshake or friendly greeting", 
           emoji: "🤝", 
-          description: "Shows respect and friendliness",
+          // description: "Shows respect and friendliness",
           isCorrect: true 
         }
       ]

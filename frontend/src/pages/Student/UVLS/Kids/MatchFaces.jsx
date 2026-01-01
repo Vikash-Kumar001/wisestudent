@@ -37,21 +37,21 @@ const MatchFaces = () => {
           id: "happy", 
           text: "Happy", 
         
-          description: "Feeling joyful and cheerful",
+          // description: "Feeling joyful and cheerful",
           isCorrect: true 
         },
         { 
           id: "sad", 
           text: "Sad", 
        
-          description: "Feeling down or upset",
+          // description: "Feeling down or upset",
           isCorrect: false 
         },
         { 
           id: "angry", 
           text: "Angry", 
         
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: false 
         }
       ]
@@ -66,21 +66,21 @@ const MatchFaces = () => {
           id: "excited", 
           text: "Excited", 
          
-          description: "Feeling thrilled and energetic",
+          // description: "Feeling thrilled and energetic",
           isCorrect: false 
         },
         { 
           id: "sad", 
           text: "Sad", 
           
-          description: "Feeling down or upset",
+          // description: "Feeling down or upset",
           isCorrect: true 
         },
         { 
           id: "sleepy", 
           text: "Sleepy", 
         
-          description: "Feeling tired and drowsy",
+          // description: "Feeling tired and drowsy",
           isCorrect: false 
         }
       ]
@@ -95,19 +95,19 @@ const MatchFaces = () => {
           id: "angry", 
           text: "Angry", 
           
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: true 
         },
         { 
           id: "happy", 
           text: "Happy", 
-          description: "Feeling joyful and cheerful",
+          // description: "Feeling joyful and cheerful",
           isCorrect: false 
         },
         { 
           id: "scared", 
           text: "Scared", 
-          description: "Feeling afraid or worried",
+          // description: "Feeling afraid or worried",
           isCorrect: false 
         }
       ]
@@ -121,20 +121,20 @@ const MatchFaces = () => {
         { 
           id: "bored", 
           text: "Bored", 
-          description: "Feeling uninterested",
+          // description: "Feeling uninterested",
           isCorrect: false 
         },
         { 
           id: "happy", 
           text: "Happy", 
-            description: "Feeling joyful and cheerful",
+            // description: "Feeling joyful and cheerful",
           isCorrect: false 
         },
         { 
           id: "scared", 
           text: "Scared", 
          
-          description: "Feeling afraid or worried",
+          // description: "Feeling afraid or worried",
           isCorrect: true 
         }
       ]
@@ -148,19 +148,19 @@ const MatchFaces = () => {
         { 
           id: "sleepy", 
           text: "Sleepy", 
-          description: "Feeling tired and drowsy",
+          // description: "Feeling tired and drowsy",
           isCorrect: true 
         },
         { 
           id: "angry", 
           text: "Angry", 
-          description: "Feeling mad or frustrated",
+          // description: "Feeling mad or frustrated",
           isCorrect: false 
         },
         { 
           id: "excited", 
           text: "Excited", 
-          description: "Feeling thrilled and energetic",
+          // description: "Feeling thrilled and energetic",
           isCorrect: false 
         }
       ]

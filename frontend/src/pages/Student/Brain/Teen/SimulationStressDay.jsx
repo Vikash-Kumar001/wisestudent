@@ -59,10 +59,10 @@ const SimulationStressDay = () => {
       id: 1,
       text: "You feel stressed. What should you do?",
       options: [
-        { id: 'walk', text: 'Walk & breathe', description: 'Physical activity and deep breathing', isCorrect: true },
-        { id: 'junk', text: 'Eat junk food', description: 'Temporary comfort, long-term harm', isCorrect: false },
-        { id: 'sleep', text: 'Sleep all day', description: 'Avoids problem, doesn\'t solve it', isCorrect: false },
-        { id: 'ignore', text: 'Ignore the stress', description: 'Bottles up feelings', isCorrect: false }
+        { id: 'walk', text: 'Walk & breathe',  isCorrect: true },
+        { id: 'junk', text: 'Eat junk food',  isCorrect: false },
+        { id: 'sleep', text: 'Sleep all day',  isCorrect: false },
+        { id: 'ignore', text: 'Ignore the stress',  isCorrect: false }
       ],
       correct: 'walk',
       explanation: 'Walking and breathing fresh air calms the nervous system, reduces cortisol, and provides natural stress relief!'
@@ -71,10 +71,10 @@ const SimulationStressDay = () => {
       id: 2,
       text: "You're in an argument. How should you handle it?",
       options: [
-        { id: 'yell', text: 'Yell back', description: 'Increases conflict', isCorrect: false },
-        { id: 'step', text: 'Step away & cool down', description: 'Prevents escalation', isCorrect: true },
-        { id: 'ignore', text: 'Ignore completely', description: 'Doesn\'t address issue', isCorrect: false },
-        { id: 'blame', text: 'Blame the other person', description: 'Creates more tension', isCorrect: false }
+        { id: 'yell', text: 'Yell back',  isCorrect: false },
+        { id: 'step', text: 'Step away & cool down',  isCorrect: true },
+        { id: 'ignore', text: 'Ignore completely',  isCorrect: false },
+        { id: 'blame', text: 'Blame the other person',  isCorrect: false }
       ],
       correct: 'step',
       explanation: 'Taking space allows emotions to settle and enables more productive communication later!'
@@ -83,10 +83,10 @@ const SimulationStressDay = () => {
       id: 3,
       text: "You have a busy, overwhelming day. What should you do?",
       options: [
-        { id: 'multitask', text: 'Try to do everything at once', description: 'Increases overwhelm', isCorrect: false },
-        { id: 'panic', text: 'Panic and rush', description: 'Creates more stress', isCorrect: false },
-        { id: 'avoid', text: 'Avoid all tasks', description: 'Makes situation worse', isCorrect: false },
-        { id: 'prioritize', text: 'Prioritize and make a list', description: 'Organizes thoughts', isCorrect: true }
+        { id: 'multitask', text: 'Try to do everything at once',  isCorrect: false },
+        { id: 'panic', text: 'Panic and rush',  isCorrect: false },
+        { id: 'avoid', text: 'Avoid all tasks',  isCorrect: false },
+        { id: 'prioritize', text: 'Prioritize and make a list',  isCorrect: true }
       ],
       correct: 'prioritize',
       explanation: 'Making a prioritized list helps organize thoughts, reduces overwhelm, and makes tasks more manageable!'
@@ -95,10 +95,10 @@ const SimulationStressDay = () => {
       id: 4,
       text: "It's evening after a stressful day. What's the best way to unwind?",
       options: [
-        { id: 'bath', text: 'Take a relaxing bath', description: 'Promotes relaxation', isCorrect: true },
-        { id: 'screen', text: 'Scroll on phone for hours', description: 'Can increase stress', isCorrect: false },
-        { id: 'work', text: 'Continue working', description: 'Prevents recovery', isCorrect: false },
-        { id: 'worry', text: 'Worry about tomorrow', description: 'Maintains stress', isCorrect: false }
+        { id: 'bath', text: 'Take a relaxing bath',  isCorrect: true },
+        { id: 'screen', text: 'Scroll on phone for hours',  isCorrect: false },
+        { id: 'work', text: 'Continue working',  isCorrect: false },
+        { id: 'worry', text: 'Worry about tomorrow',  isCorrect: false }
       ],
       correct: 'bath',
       explanation: 'A warm bath promotes relaxation, reduces muscle tension, and prepares your body for better sleep!'
@@ -107,10 +107,10 @@ const SimulationStressDay = () => {
       id: 5,
       text: "At the end of a stressful day, how should you reflect?",
       options: [
-        { id: 'negative', text: 'Dwell on negatives only', description: 'Increases stress', isCorrect: false },
-        { id: 'ignore', text: 'Ignore the day completely', description: 'Misses learning', isCorrect: false },
-        { id: 'blame', text: 'Blame others for everything', description: 'Creates resentment', isCorrect: false },
-        { id: 'positive', text: 'Reflect on what went well', description: 'Builds resilience', isCorrect: true }
+        { id: 'negative', text: 'Dwell on negatives only', isCorrect: false },
+        { id: 'ignore', text: 'Ignore the day completely', isCorrect: false },
+        { id: 'blame', text: 'Blame others for everything', isCorrect: false },
+        { id: 'positive', text: 'Reflect on what went well', isCorrect: true }
       ],
       correct: 'positive',
       explanation: 'Positive reflection helps build resilience, improves mood, and sets a better tone for the next day!'

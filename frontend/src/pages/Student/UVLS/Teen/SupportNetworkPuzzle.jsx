@@ -20,20 +20,20 @@ const SupportNetworkPuzzle = () => {
 
   // Support network members (left side) - 5 items with hints
   const supporters = [
-    { id: 1, name: "Teacher", emoji: "👩‍🏫", hint: "Educational authority figure" },
-    { id: 2, name: "Counselor", emoji: "🛋️", hint: "Emotional guidance provider" },
-    { id: 3, name: "Parent", emoji: "👪", hint: "Family guardian and advocate" },
-    { id: 4, name: "Peer", emoji: "👭", hint: "Same-age companion and ally" },
-    { id: 5, name: "Helpline", emoji: "☎️", hint: "Anonymous professional assistance" }
+    { id: 1, name: "Teacher", emoji: "👩‍🏫", },
+    { id: 2, name: "Counselor", emoji: "🛋️", },
+    { id: 3, name: "Parent", emoji: "👪", },
+    { id: 4, name: "Peer", emoji: "👭", },
+    { id: 5, name: "Helpline", emoji: "☎️", }
   ];
 
   // Support roles (right side) - 5 items with descriptions
   const roles = [
-    { id: 6, name: "Conflict Mediator", emoji: "🤝", description: "Resolves disputes fairly" },
-    { id: 7, name: "Emotional Guide", emoji: "💬", description: "Provides mental health support" },
-    { id: 8, name: "Advocate Protector", emoji: "🛡️", description: "Defends and takes action" },
-    { id: 9, name: "Ally Defender", emoji: "✊", description: "Stands up and supports you" },
-    { id: 10, name: "Anonymous Advisor", emoji: "🕵️", description: "Offers confidential guidance" }
+    { id: 6, name: "Conflict Mediator", emoji: "🤝", },
+    { id: 7, name: "Emotional Guide", emoji: "💬", },
+    { id: 8, name: "Advocate Protector", emoji: "🛡️", },
+    { id: 9, name: "Ally Defender", emoji: "✊", },
+    { id: 10, name: "Anonymous Advisor", emoji: "🕵️", }
   ];
 
   // Manually rearrange positions to prevent positional matching

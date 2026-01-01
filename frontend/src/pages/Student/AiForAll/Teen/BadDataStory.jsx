@@ -134,7 +134,7 @@ const BadDataStory = () => {
         { 
           id: "improve", 
           text: "Improve Training Data", 
-          emoji: "✅",
+          emoji: "🙂",
           isCorrect: true
         },
         { 

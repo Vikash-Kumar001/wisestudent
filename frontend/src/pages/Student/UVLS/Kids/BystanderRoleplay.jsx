@@ -31,21 +31,21 @@ const BystanderRoleplay = () => {
           id: "a", 
           text: "Say 'Stop, that's not nice!'", 
           emoji: "🛑", 
-          description: "Stand up for the person",
+          // description: "Stand up for the person",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Fight the bully", 
           emoji: "👊", 
-          description: "Violence makes it worse",
+          // description: "Violence makes it worse",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Watch silently", 
           emoji: "👀", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         }
       ]
@@ -58,21 +58,21 @@ const BystanderRoleplay = () => {
           id: "b", 
           text: "Yell at the group", 
           emoji: "😠", 
-          description: "Aggressive response",
+          // description: "Aggressive response",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Invite the excluded person to join", 
           emoji: "👋", 
-          description: "Include them",
+          // description: "Include them",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Leave the game", 
           emoji: "🚶", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         }
       ]
@@ -85,21 +85,21 @@ const BystanderRoleplay = () => {
           id: "b", 
           text: "Name-call back", 
           emoji: "🗣️", 
-          description: "This makes it worse",
+          // description: "This makes it worse",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Ignore it", 
           emoji: "🙈", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Tell the teacher quietly", 
           emoji: "🧑‍🏫", 
-          description: "Get help from an adult",
+          // description: "Get help from an adult",
           isCorrect: true 
         }
       ]
@@ -112,21 +112,21 @@ const BystanderRoleplay = () => {
           id: "b", 
           text: "Comment meanly too", 
           emoji: "😈", 
-          description: "This makes it worse",
+          // description: "This makes it worse",
           isCorrect: false 
         },
         { 
           id: "a", 
           text: "Support the victim online", 
           emoji: "❤️", 
-          description: "Show support",
+          // description: "Show support",
           isCorrect: true 
         },
         { 
           id: "c", 
           text: "Scroll past", 
           emoji: "📱", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         }
       ]
@@ -139,21 +139,21 @@ const BystanderRoleplay = () => {
           id: "a", 
           text: "Get an adult to help", 
           emoji: "🆘", 
-          description: "Get help from an adult",
+          // description: "Get help from an adult",
           isCorrect: true 
         },
         { 
           id: "b", 
           text: "Push back", 
           emoji: "🤜", 
-          description: "Violence makes it worse",
+          // description: "Violence makes it worse",
           isCorrect: false 
         },
         { 
           id: "c", 
           text: "Do nothing", 
           emoji: "🫥", 
-          description: "Not helping",
+          // description: "Not helping",
           isCorrect: false 
         }
       ]

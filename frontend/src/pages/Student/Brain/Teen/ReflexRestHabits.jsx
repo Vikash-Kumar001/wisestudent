@@ -63,50 +63,50 @@ const ReflexRestHabits = () => {
       id: 1,
       text: "Tap for 'Consistent Sleep,' avoid 'All-nighter.'",
       options: [
-        { id: "consistent", text: "Consistent Sleep", emoji: "😴", description: "Regular sleep schedule", isCorrect: true },
-        { id: "allnighter", text: "All-nighter", emoji: "🌙", description: "Staying up all night", isCorrect: false },
-        { id: "irregular", text: "Irregular Sleep", emoji: "🔄", description: "Inconsistent schedule", isCorrect: false },
-        { id: "skip", text: "Skip Sleep", emoji: "⏰", description: "Missing sleep", isCorrect: false }
+        { id: "consistent", text: "Consistent Sleep", emoji: "😴",  isCorrect: true },
+        { id: "allnighter", text: "All-nighter", emoji: "🌙",  isCorrect: false },
+        { id: "irregular", text: "Irregular Sleep", emoji: "🔄",  isCorrect: false },
+        { id: "skip", text: "Skip Sleep", emoji: "⏰",  isCorrect: false }
       ]
     },
     {
       id: 2,
       text: "Which sleep habit is healthy?",
       options: [
-        { id: "late", text: "Sleep Very Late", emoji: "🌃", description: "Irregular timing", isCorrect: false },
-        { id: "routine", text: "Regular Bedtime Routine", emoji: "🛏️", description: "Consistent sleep schedule", isCorrect: true },
-        { id: "random", text: "Random Sleep Times", emoji: "🎲", description: "No schedule", isCorrect: false },
-        { id: "skip", text: "Skip Sleep Often", emoji: "😴", description: "Insufficient rest", isCorrect: false }
+        { id: "late", text: "Sleep Very Late", emoji: "🌃",  isCorrect: false },
+        { id: "routine", text: "Regular Bedtime Routine", emoji: "🛏️",  isCorrect: true },
+        { id: "random", text: "Random Sleep Times", emoji: "🎲",  isCorrect: false },
+        { id: "skip", text: "Skip Sleep Often", emoji: "😴",  isCorrect: false }
       ]
     },
     {
       id: 3,
       text: "What helps you get better sleep?",
       options: [
-        { id: "phone", text: "Use Phone Until Sleep", emoji: "📲", description: "Disrupts sleep", isCorrect: false },
-        { id: "bright", text: "Bright Lights Before Bed", emoji: "💡", description: "Interferes with sleep", isCorrect: false },
-        { id: "caffeine", text: "Drink Caffeine Late", emoji: "☕", description: "Keeps you awake", isCorrect: false },
-        { id: "screen", text: "Turn Off Screens Before Bed", emoji: "📱", description: "Reduces blue light", isCorrect: true }
+        { id: "phone", text: "Use Phone Until Sleep", emoji: "📲",  isCorrect: false },
+        { id: "bright", text: "Bright Lights Before Bed", emoji: "💡",  isCorrect: false },
+        { id: "caffeine", text: "Drink Caffeine Late", emoji: "☕",  isCorrect: false },
+        { id: "screen", text: "Turn Off Screens Before Bed", emoji: "📱",  isCorrect: true }
       ]
     },
     {
       id: 4,
       text: "Which promotes restful sleep?",
       options: [
-        { id: "relax", text: "Relaxing Activities Before Bed", emoji: "🧘", description: "Calms the mind", isCorrect: true },
-        { id: "exercise", text: "Intense Exercise Before Bed", emoji: "🏋️", description: "Too stimulating", isCorrect: false },
-        { id: "stress", text: "Stressful Activities", emoji: "😰", description: "Prevents relaxation", isCorrect: false },
-        { id: "loud", text: "Loud Music", emoji: "🔊", description: "Overstimulating", isCorrect: false }
+        { id: "relax", text: "Relaxing Activities Before Bed", emoji: "🧘",  isCorrect: true },
+        { id: "exercise", text: "Intense Exercise Before Bed", emoji: "🏋️",  isCorrect: false },
+        { id: "stress", text: "Stressful Activities", emoji: "😰",  isCorrect: false },
+        { id: "loud", text: "Loud Music", emoji: "🔊",  isCorrect: false }
       ]
     },
     {
       id: 5,
       text: "What's the best sleep environment?",
       options: [
-        { id: "dark", text: "Dark, Quiet, Cool Room", emoji: "🌙", description: "Optimal conditions", isCorrect: true },
-        { id: "bright", text: "Bright and Noisy", emoji: "💡", description: "Disrupts sleep", isCorrect: false },
-        { id: "hot", text: "Very Hot Room", emoji: "🔥", description: "Uncomfortable", isCorrect: false },
-        { id: "loud", text: "Loud Environment", emoji: "📢", description: "Distracting", isCorrect: false }
+        { id: "dark", text: "Dark, Quiet, Cool Room", emoji: "🌙",  isCorrect: true },
+        { id: "bright", text: "Bright and Noisy", emoji: "💡",  isCorrect: false },
+        { id: "hot", text: "Very Hot Room", emoji: "🔥",  isCorrect: false },
+        { id: "loud", text: "Loud Environment", emoji: "📢",  isCorrect: false }
       ]
     }
   ];

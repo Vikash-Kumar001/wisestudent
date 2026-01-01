@@ -59,13 +59,13 @@ const AIVsToolsQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
@@ -85,13 +85,13 @@ const AIVsToolsQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: false
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗", 
+          emoji: "👎", 
           isCorrect: true
         },
         { 
@@ -111,13 +111,13 @@ const AIVsToolsQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗",
+          emoji: "👎",
           isCorrect: false
         },
         { 
@@ -137,13 +137,13 @@ const AIVsToolsQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓",
+          emoji: "👍",
           isCorrect: false
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗",
+          emoji: "👎",
           isCorrect: true
         },
         { 
@@ -163,13 +163,13 @@ const AIVsToolsQuiz = () => {
         { 
           id: 1, 
           text: "Yes", 
-          emoji: "✓", 
+          emoji: "👍", 
           isCorrect: true
         },
         { 
           id: 2, 
           text: "No", 
-          emoji: "✗",
+          emoji: "👎",
           isCorrect: false
         },
         { 

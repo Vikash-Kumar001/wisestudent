@@ -20,20 +20,20 @@ const PerspectivePuzzle = () => {
 
   // Social situations (left side) - 5 items with hints
   const situations = [
-    { id: 1, name: "Struggling Student", emoji: "📚", hint: "Classmate having difficulty with studies" },
-    { id: 2, name: "Excluded Peer", emoji: "👥", hint: "Someone left out of group activities" },
-    { id: 3, name: "Upset Friend", emoji: "😔", hint: "Person dealing with personal issues" },
-    { id: 4, name: "Public Mistake", emoji: "😳", hint: "Someone embarrassed in front of others" },
-    { id: 5, name: "Language Barrier", emoji: "🗣️", hint: "New student struggling with communication" }
+    { id: 1, name: "Struggling Student", emoji: "📚",  },
+    { id: 2, name: "Excluded Peer", emoji: "👥",  },
+    { id: 3, name: "Upset Friend", emoji: "😔",  },
+    { id: 4, name: "Public Mistake", emoji: "😳",  },
+    { id: 5, name: "Language Barrier", emoji: "🗣️",  },
   ];
 
   // Empathetic responses (right side) - 5 items with descriptions
   const responses = [
-    { id: 6, name: "Offer Help", emoji: "🤝", description: "Provide assistance without judgment" },
-    { id: 7, name: "Include Them", emoji: "🤗", description: "Make them feel welcomed and valued" },
-    { id: 8, name: "Listen Supportively", emoji: "👂", description: "Give attention without trying to fix" },
-    { id: 9, name: "Reassure Kindly", emoji: "💪", description: "Provide comfort and encouragement" },
-    { id: 10, name: "Communicate Clearly", emoji: "💬", description: "Adjust communication for understanding" }
+    { id: 6, name: "Offer Help", emoji: "🤝",  },
+    { id: 7, name: "Include Them", emoji: "🤗",  },
+    { id: 8, name: "Listen Supportively", emoji: "👂",  },
+    { id: 9, name: "Reassure Kindly", emoji: "💪",  },
+    { id: 10, name: "Communicate Clearly", emoji: "💬",  }
   ];
 
   // Manually rearrange positions to prevent positional matching

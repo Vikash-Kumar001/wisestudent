@@ -52,20 +52,20 @@ const PuzzleWaterCycle = () => {
 
   // Water Sources (left side) - 5 items
   const sources = [
-    { id: 1, name: "Groundwater", emoji: "💧", description: "Underground water reserves" },
-    { id: 2, name: "Rainwater", emoji: "🌧️", description: "Precipitation from clouds" },
-    { id: 3, name: "Surface Water", emoji: "🌊", description: "Rivers, lakes, streams" },
-    { id: 4, name: "Greywater", emoji: "💧", description: "Recycled household wastewater" },
-    { id: 5, name: "Ocean Water", emoji: "🌊", description: "Saltwater from seas" }
+    { id: 1, name: "Groundwater", emoji: "💧",  },
+    { id: 2, name: "Rainwater", emoji: "🌧️",  },
+    { id: 3, name: "Surface Water", emoji: "🌊",  },
+    { id: 4, name: "Greywater", emoji: "💧",  },
+    { id: 5, name: "Ocean Water", emoji: "🌊",  }
   ];
 
   // Sustainable Usage Practices (right side) - 5 items
   const practices = [
-    { id: 4, name: "Reuse", emoji: "♻️", description: "Recycle water for other uses" },
-    { id: 1, name: "Conservation", emoji: "🌱", description: "Reduce water usage" },
-    { id: 3, name: "Efficient Irrigation", emoji: "💧", description: "Smart watering systems" },
-    { id: 2, name: "Harvesting", emoji: "🌧️", description: "Collect rainwater" },
-    { id: 5, name: "Desalination", emoji: "💧", description: "Remove salt from seawater" }
+    { id: 4, name: "Reuse", emoji: "♻️",  },
+    { id: 1, name: "Conservation", emoji: "🌱",  },
+    { id: 3, name: "Efficient Irrigation", emoji: "💧",  },
+    { id: 2, name: "Harvesting", emoji: "🌧️",  },
+    { id: 5, name: "Desalination", emoji: "💧",  }
   ];
 
   // Correct matches
