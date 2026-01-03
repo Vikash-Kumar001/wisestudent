@@ -52,12 +52,7 @@ const CampaignStory = () => {
       id: 1,
       text: "You're planning a campaign. What should be your first step?",
       options: [
-        { 
-          id: "a", 
-          text: "Set Specific Goals", 
-          emoji: "🎯", 
-          isCorrect: true
-        },
+        
         { 
           id: "b", 
           text: "Vague Awareness", 
@@ -69,7 +64,13 @@ const CampaignStory = () => {
           text: "No Goal", 
           emoji: "❌", 
           isCorrect: false
-        }
+        },
+        { 
+          id: "a", 
+          text: "Set Specific Goals", 
+          emoji: "🎯", 
+          isCorrect: true
+        },
       ]
     },
     {
@@ -100,17 +101,18 @@ const CampaignStory = () => {
       id: 3,
       text: "How will you spread your message?",
       options: [
-        { 
-          id: "a", 
-          text: "Multi-Channel", 
-          emoji: "📱", 
-          isCorrect: true
-        },
+        
         { 
           id: "b", 
           text: "One Channel", 
           emoji: "📺", 
           isCorrect: false
+        },
+        { 
+          id: "a", 
+          text: "Multi-Channel", 
+          emoji: "📱", 
+          isCorrect: true
         },
         { 
           id: "c", 
@@ -148,12 +150,7 @@ const CampaignStory = () => {
       id: 5,
       text: "How will you measure the success of your campaign?",
       options: [
-        { 
-          id: "a", 
-          text: "KPI Tracking", 
-          emoji: "📊", 
-          isCorrect: true
-        },
+        
         { 
           id: "b", 
           text: "Guess", 
@@ -165,7 +162,13 @@ const CampaignStory = () => {
           text: "No Measurement", 
           emoji: "🙈", 
           isCorrect: false
-        }
+        },
+        { 
+          id: "a", 
+          text: "KPI Tracking", 
+          emoji: "📊", 
+          isCorrect: true
+        },
       ]
     }
   ];

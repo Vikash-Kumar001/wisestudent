@@ -23,145 +23,143 @@ const AILeaderBadge = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const challenges = [
-    {
-      id: 1,
-      title: "AI Bias Detection",
-      question: "What should you do when you notice AI bias?",
-      options: [
-        { 
-          text: "Identify and report AI bias", 
-          emoji: "🔍", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore AI bias", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Use biased AI anyway", 
-          emoji: "🤖", 
-          isCorrect: false
-        },
-        { 
-          text: "Share biased AI results", 
-          emoji: "📤", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "AI in Exams",
-      question: "What should you do when AI offers to help with exams?",
-      options: [
-        
-        { 
-          text: "Use AI to cheat on exams", 
-          emoji: "📝", 
-          isCorrect: false
-        },
-        { 
-          text: "Use AI for all answers", 
-          emoji: "✅", 
-          isCorrect: false
-        },
-        { 
-          text: "Reject AI help during exams", 
-          emoji: "🚫", 
-          isCorrect: true
-        },
-        { 
-          text: "Share AI answers with others", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "AI Privacy",
-      question: "What should you do with personal data in AI?",
-      options: [
-        { 
-          text: "Protect personal data when using AI", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          text: "Share all personal data with AI", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore privacy concerns", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Share others' data with AI", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "AI Ethics",
-      question: "What should you consider when using AI?",
-      options: [
-        
-        { 
-          text: "Use AI without thinking", 
-          emoji: "🤖", 
-          isCorrect: false
-        },
-        { 
-          text: "Consider ethical implications of AI use", 
-          emoji: "⚖️", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore ethics completely", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Use AI for harmful purposes", 
-          emoji: "❌", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "AI Responsibility",
-      question: "How should you use AI responsibly?",
-      options: [
-        
-        { 
-          text: "Use AI without responsibility", 
-          emoji: "⛑️", 
-          isCorrect: false
-        },
-        { 
-          text: "Use AI to harm others", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore AI responsibility", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Use AI responsibly and ethically", 
-          emoji: "🤖", 
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    title: "AI Bias Detection",
+    question: "What should you do when you notice AI bias?",
+    options: [
+      { 
+        text: "Identify and report AI bias", 
+        emoji: "🔍", 
+        isCorrect: true
+      },
+      { 
+        text: "Ignore AI bias", 
+        emoji: "😐", 
+        isCorrect: false
+      },
+      { 
+        text: "Use biased AI anyway", 
+        emoji: "🤖", 
+        isCorrect: false
+      },
+      { 
+        text: "Share biased AI results", 
+        emoji: "📤", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "AI in Exams",
+    question: "What should you do when AI offers to help during exams?",
+    options: [
+      { 
+        text: "Use AI to cheat on exams", 
+        emoji: "📝", 
+        isCorrect: false
+      },
+      { 
+        text: "Use AI for all answers", 
+        emoji: "🤖", 
+        isCorrect: false
+      },
+      { 
+        text: "Reject AI help during exams", 
+        emoji: "🚫", 
+        isCorrect: true
+      },
+      { 
+        text: "Share AI answers with others", 
+        emoji: "👥", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "AI Privacy",
+    question: "What should you do with personal data when using AI?",
+    options: [
+      { 
+        text: "Protect personal data when using AI", 
+        emoji: "🔒", 
+        isCorrect: true
+      },
+      { 
+        text: "Share all personal data with AI", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore privacy concerns", 
+        emoji: "🙈", 
+        isCorrect: false
+      },
+      { 
+        text: "Share others' data with AI", 
+        emoji: "👥", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "AI Ethics",
+    question: "What should you consider when using AI?",
+    options: [
+      { 
+        text: "Use AI without thinking", 
+        emoji: "🤖", 
+        isCorrect: false
+      },
+      { 
+        text: "Consider the ethical implications of using AI", 
+        emoji: "⚖️", 
+        isCorrect: true
+      },
+      { 
+        text: "Ignore ethics completely", 
+        emoji: "🙈", 
+        isCorrect: false
+      },
+      { 
+        text: "Use AI for harmful purposes", 
+        emoji: "❌", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "AI Responsibility",
+    question: "How should you use AI responsibly?",
+    options: [
+      { 
+        text: "Use AI without responsibility", 
+        emoji: "⛑️", 
+        isCorrect: false
+      },
+      { 
+        text: "Use AI to harm others", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore responsibility when using AI", 
+        emoji: "🙈", 
+        isCorrect: false
+      },
+      { 
+        text: "Use AI responsibly and ethically", 
+        emoji: "🤖", 
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

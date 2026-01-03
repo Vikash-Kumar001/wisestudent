@@ -24,128 +24,53 @@ const FamilyRulesStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "It's 9:00 PM. Mom says, 'Time to turn off all devices and get ready for bed.' But you're in the middle of an exciting game. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Follow Mom's Rule", 
-          emoji: "😊", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Keep Playing Secretly", 
-          emoji: "😈", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Argue with Mom", 
-          emoji: "😠", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Dad says, 'No devices at dinner table.' You want to check a message. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Check Message Secretly", 
-          emoji: "😈", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Follow the Rule", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Argue About It", 
-          emoji: "😠", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Parent says, 'Ask before downloading apps.' You see a fun game. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Download Without Asking", 
-          emoji: "😈", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Ask Parent First", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ignore the Rule", 
-          emoji: "😔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Family rule: 'No devices after 8 PM.' It's 8:30 PM and you want to watch a video. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Follow the Rule", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Watch Secretly", 
-          emoji: "😈", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Complain Loudly", 
-          emoji: "😠", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Parent says, 'Share passwords with us for safety.' You want privacy. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Refuse to Share", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Share with Parents", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Give Fake Password", 
-          emoji: "😈", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You finish homework early and have free time. A family rule says screens are allowed only after chores. What is the best choice?",
+    options: [
+      { id: "b", text: "Pretend chores are done", emoji: "🫥", isCorrect: false },
+      { id: "a", text: "Finish chores first", emoji: "📋", isCorrect: true },
+      { id: "c", text: "Use screen quickly and stop", emoji: "⏱️", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    text: "Your family agreed to keep phones outside bedrooms at night. You hear a message alert. What should you do?",
+    options: [
+      { id: "a", text: "Check the phone quietly", emoji: "📱", isCorrect: false },
+      { id: "c", text: "Take the phone inside anyway", emoji: "🚪", isCorrect: false },
+      { id: "b", text: "Wait until morning", emoji: "🌅", isCorrect: true },
+    ]
+  },
+  {
+    id: 3,
+    text: "A new app asks for location access. Your family rule says to discuss permissions together. What is the right step?",
+    options: [
+      { id: "a", text: "Allow access without reading", emoji: "⚙️", isCorrect: false },
+      { id: "b", text: "Talk with family about it", emoji: "🙂", isCorrect: true },
+      { id: "c", text: "Deny everything and delete", emoji: "🗑️", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    text: "During family time, everyone keeps devices away. Your friend sends a fun video. What should you choose?",
+    options: [
+      { id: "a", text: "Reply later politely", emoji: "✉️", isCorrect: true },
+      { id: "b", text: "Watch it secretly", emoji: "👀", isCorrect: false },
+      { id: "c", text: "Leave family time", emoji: "🚶", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    text: "Your family rule says online problems should be shared, not hidden. Something online makes you uncomfortable. What should you do?",
+    options: [
+      { id: "a", text: "Handle it alone", emoji: "🤐", isCorrect: false },
+      { id: "c", text: "Delete the app silently", emoji: "❌", isCorrect: false },
+      { id: "b", text: "Tell a trusted family member", emoji: "🤝", isCorrect: true },
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {

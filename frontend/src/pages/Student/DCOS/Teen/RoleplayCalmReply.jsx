@@ -38,130 +38,131 @@ const RoleplayCalmReply = () => {
 
 
   const questions = [
-    {
-      id: 1,
-      text: "A peer posts a rude comment on your post saying 'This is so stupid!' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Reply with an angry comment back", 
-          emoji: "😠",
-          
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Reply calmly or ignore it", 
-          emoji: "😌",
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Delete your post", 
-          emoji: "🗑️",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Someone comments 'You're wrong!' on your opinion post. What should you do?",
-      options: [
-        { 
-          id: "b", 
-          text: "Reply calmly or ignore", 
-          emoji: "😌",
-          isCorrect: true
-        },
-        { 
-          id: "a", 
-          text: "Argue back aggressively", 
-          emoji: "😠",
-          isCorrect: false
-        },
-        
-        { 
-          id: "c", 
-          text: "Block them immediately", 
-          emoji: "🚫",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "A classmate makes a mean comment about your photo. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Post mean comments about them", 
-          emoji: "😠",
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Reply calmly or ignore it", 
-          emoji: "😌",
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Delete all your photos", 
-          emoji: "🗑️",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Someone trolls your post with negative comments. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Engage in a heated argument", 
-          emoji: "😠",
-          isCorrect: false
-        },
-        
-        { 
-          id: "c", 
-          text: "Report and block immediately", 
-          emoji: "🚫",
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Reply calmly or ignore", 
-          emoji: "😌",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 5,
-      text: "A peer posts a disrespectful comment on your achievement post. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Respond with insults", 
-          emoji: "😠",
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Reply calmly or ignore", 
-          emoji: "😌",
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Delete the achievement post", 
-          emoji: "🗑️",
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "A peer posts 'Nobody likes your ideas!' under your class project. How should you respond?",
+    options: [
+      { 
+        id: "a", 
+        text: "Reply with sarcasm to embarrass them", 
+        emoji: "😏",
+        isCorrect: false
+      },
+      { 
+        id: "b", 
+        text: "Acknowledge calmly and explain your perspective", 
+        emoji: "🧘", 
+        isCorrect: true
+      },
+      { 
+        id: "c", 
+        text: "Delete your project post immediately", 
+        emoji: "🗑️", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "Someone comments 'Your drawing is terrible' on your art post. What is the best response?",
+    options: [
+      { 
+        id: "b", 
+        text: "Respond politely with what you learned from the drawing", 
+        emoji: "😄", 
+        isCorrect: true
+      },
+      { 
+        id: "a", 
+        text: "Reply with a critical comment about their work", 
+        emoji: "😤", 
+        isCorrect: false
+      },
+      
+      { 
+        id: "c", 
+        text: "Share your post in private groups only", 
+        emoji: "🔒", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "A classmate writes 'You’ll never succeed!' on your coding project post. How do you act?",
+    options: [
+      { 
+        id: "a", 
+        text: "Attack their project online", 
+        emoji: "💥", 
+        isCorrect: false
+      },
+     
+      { 
+        id: "c", 
+        text: "Delete your project and stop posting", 
+        emoji: "🗑️", 
+        isCorrect: false
+      },
+       { 
+        id: "b", 
+        text: "Explain calmly how you plan to improve your project", 
+        emoji: "🤔", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 4,
+    text: "Someone posts 'This is pointless, why even try?' on your science experiment update. What should you do?",
+    options: [
+      { 
+        id: "b", 
+        text: "Acknowledge feedback calmly and share your learning process", 
+        emoji: "🤨", 
+        isCorrect: true
+      },
+      { 
+        id: "a", 
+        text: "Reply angrily and defend yourself aggressively", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      
+      { 
+        id: "c", 
+        text: "Remove the experiment post completely", 
+        emoji: "🗑️", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "A peer posts 'Your achievements are useless' on your academic update. What’s the smart response?",
+    options: [
+      { 
+        id: "a", 
+        text: "Insult them back to prove a point", 
+        emoji: "💢", 
+        isCorrect: false
+      },
+      { 
+        id: "b", 
+        text: "Reply with facts calmly, showing your progress", 
+        emoji: "🙂", 
+        isCorrect: true
+      },
+      { 
+        id: "c", 
+        text: "Hide your academic updates from everyone", 
+        emoji: "🔒", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

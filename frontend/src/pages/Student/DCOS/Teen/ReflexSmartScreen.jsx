@@ -34,62 +34,63 @@ const ReflexSmartScreen = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "A video teaches you how to code a website. What should you do?",
-      correctAnswer: "Watch Skill Video",
-      options: [
-        { text: "Watch Skill Video", isCorrect: true, emoji: "💻" },
-        { text: "Skip It", isCorrect: false, emoji: "⏭️" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    },
-    {
-      id: 2,
-      question: "A video spreads hate and discrimination. What should you do?",
-      correctAnswer: "Skip Hate Video",
-      options: [
-        { text: "Watch It", isCorrect: false, emoji: "👀" },
-        { text: "Skip Hate Video", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Like It", isCorrect: false, emoji: "👍" }
-      ]
-    },
-    {
-      id: 3,
-      question: "A video shows cooking skills and recipes. What should you do?",
-      correctAnswer: "Watch Skill Video",
-      options: [
-        { text: "Watch Skill Video", isCorrect: true, emoji: "👨‍🍳" },
-        { text: "Skip It", isCorrect: false, emoji: "⏭️" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    },
-    {
-      id: 4,
-      question: "A video promotes violence and bullying. What should you do?",
-      correctAnswer: "Skip Hate Video",
-      options: [
-        { text: "Watch It", isCorrect: false, emoji: "👀" },
-        { text: "Skip Hate Video", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Like It", isCorrect: false, emoji: "👍" }
-      ]
-    },
-    {
-      id: 5,
-      question: "A video teaches you a new language. What should you do?",
-      correctAnswer: "Watch Skill Video",
-      options: [
-        { text: "Watch Skill Video", isCorrect: true, emoji: "🌐" },
-        { text: "Skip It", isCorrect: false, emoji: "⏭️" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "A video teaches you how to code a website. What should you do?",
+    correctAnswer: "Watch Skill Video",
+    options: [
+      { text: "Watch a skill video", isCorrect: true, emoji: "💻" },
+      { text: "Skip it", isCorrect: false, emoji: "⏭️" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" }
+    ]
+  },
+  {
+    id: 2,
+    question: "A video spreads hate and discrimination. What should you do?",
+    correctAnswer: "Skip Hate Video",
+    options: [
+      { text: "Watch it", isCorrect: false, emoji: "👀" },
+      { text: "Skip the hate video", isCorrect: true, emoji: "🚫" },
+      { text: "Share it", isCorrect: false, emoji: "📤" },
+      { text: "Like it", isCorrect: false, emoji: "👍" }
+    ]
+  },
+  {
+    id: 3,
+    question: "A video shows cooking skills and recipes. What should you do?",
+    correctAnswer: "Watch Skill Video",
+    options: [
+      { text: "Watch a skill video", isCorrect: true, emoji: "👨‍🍳" },
+      { text: "Skip it", isCorrect: false, emoji: "⏭️" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" }
+    ]
+  },
+  {
+    id: 4,
+    question: "A video promotes violence and bullying. What should you do?",
+    correctAnswer: "Skip Hate Video",
+    options: [
+      { text: "Watch it", isCorrect: false, emoji: "👀" },
+      { text: "Skip the hate video", isCorrect: true, emoji: "🚫" },
+      { text: "Share it", isCorrect: false, emoji: "📤" },
+      { text: "Like it", isCorrect: false, emoji: "👍" }
+    ]
+  },
+  {
+    id: 5,
+    question: "A video teaches you a new language. What should you do?",
+    correctAnswer: "Watch Skill Video",
+    options: [
+      { text: "Watch a skill video", isCorrect: true, emoji: "🌐" },
+      { text: "Skip it", isCorrect: false, emoji: "⏭️" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

@@ -29,19 +29,19 @@ const DebateStage2 = () => {
       options: [
         { 
           id: "yes-allowed", 
-          text: "Yes - free speech allows it", 
+          text: "free speech allows it", 
           emoji: "🗣️", 
           isCorrect: false
         },
         { 
           id: "no-banned", 
-          text: "No - hate speech should be banned", 
+          text: "hate speech should be banned", 
           emoji: "🔒", 
           isCorrect: true
         },
         { 
           id: "maybe", 
-          text: "Maybe - depends on the context", 
+          text: "depends on the context", 
           emoji: "🤔", 
           isCorrect: false
         }
@@ -78,20 +78,20 @@ const DebateStage2 = () => {
       options: [
         { 
           id: "no-moderation", 
-          text: "No - platforms should moderate", 
+          text: "No ", 
           emoji: "🔒", 
           isCorrect: true
         },
         { 
           id: "yes-platforms", 
-          text: "Yes - platforms should allow it", 
+          text: "Yes  ", 
           emoji: "🌐", 
           isCorrect: false
         },
         
         { 
           id: "maybe", 
-          text: "Maybe - only moderate extreme cases", 
+          text: "Maybe ", 
           emoji: "🤔", 
           isCorrect: false
         }
@@ -103,20 +103,20 @@ const DebateStage2 = () => {
       options: [
         { 
           id: "no-consequences", 
-          text: "No - it's just words", 
+          text: "it's just words", 
           emoji: "💬", 
           isCorrect: false
         },
         
         { 
           id: "maybe", 
-          text: "Maybe - only for some people", 
+          text: "only for some people", 
           emoji: "🤷", 
           isCorrect: false
         },
         { 
           id: "yes-serious", 
-          text: "Yes - it has serious consequences", 
+          text: "it has serious consequences", 
           emoji: "🔒", 
           isCorrect: true
         },
@@ -128,19 +128,19 @@ const DebateStage2 = () => {
       options: [
         { 
           id: "no-report", 
-          text: "No - just ignore it", 
+          text: "just ignore it", 
           emoji: "😐", 
           isCorrect: false
         },
         { 
           id: "yes-report", 
-          text: "Yes - always report hate speech", 
+          text: "always report hate speech", 
           emoji: "🔒", 
           isCorrect: true
         },
         { 
           id: "sometimes", 
-          text: "Sometimes - only if it's directed at you", 
+          text: "only if it's directed at you", 
           emoji: "🤔", 
           isCorrect: false
         }

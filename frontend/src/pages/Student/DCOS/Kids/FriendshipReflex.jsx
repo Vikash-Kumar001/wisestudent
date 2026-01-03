@@ -29,62 +29,63 @@ const FriendshipReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "A classmate is being teased online. What should you do?",
-      correctAnswer: "Stand with Friend",
-      options: [
-        { text: "Stand with Friend", isCorrect: true, emoji: "🛡️" },
-        { text: "Celebrate", isCorrect: false, emoji: "🎉" },
-        { text: "Ignore It", isCorrect: false, emoji: "😐" },
-        { text: "Join the Teasing", isCorrect: false, emoji: "😈" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Your friend got a new haircut. What should you do?",
-      correctAnswer: "Celebrate",
-      options: [
-        { text: "Stand with Friend", isCorrect: false, emoji: "🛡️" },
-        { text: "Celebrate", isCorrect: true, emoji: "🎉" },
-        { text: "Make Fun of It", isCorrect: false, emoji: "😄" },
-        { text: "Ignore Them", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Someone is spreading rumors about a friend. What should you do?",
-      correctAnswer: "Stand with Friend",
-      options: [
-        { text: "Stand with Friend", isCorrect: true, emoji: "🛡️" },
-        { text: "Celebrate", isCorrect: false, emoji: "🎉" },
-        { text: "Spread More Rumors", isCorrect: false, emoji: "🗣️" },
-        { text: "Ignore It", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "A friend shares good news with you. What should you do?",
-      correctAnswer: "Celebrate",
-      options: [
-        { text: "Stand with Friend", isCorrect: false, emoji: "🛡️" },
-        { text: "Celebrate", isCorrect: true, emoji: "🎉" },
-        { text: "Ignore Them", isCorrect: false, emoji: "😐" },
-        { text: "Make Fun", isCorrect: false, emoji: "😄" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Someone is left out of a game. What should you do?",
-      correctAnswer: "Stand with Friend",
-      options: [
-        { text: "Stand with Friend", isCorrect: true, emoji: "🛡️" },
-        { text: "Celebrate", isCorrect: false, emoji: "🎉" },
-        { text: "Ignore Them", isCorrect: false, emoji: "😐" },
-        { text: "Leave Them Out", isCorrect: false, emoji: "🚶" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Your friend looks nervous before giving a class presentation. What is the best thing to do?",
+    correctAnswer: "Encourage Your Friend",
+    options: [
+      { text: "Laugh at Them", isCorrect: false, emoji: "😄" },
+      { text: "Ignore Them", isCorrect: false, emoji: "😐" },
+      { text: "Give Wrong Advice", isCorrect: false, emoji: "⚠️" },
+      { text: "Encourage Your Friend", isCorrect: true, emoji: "🌟" },
+    ]
+  },
+  {
+    id: 2,
+    question: "Your friend lost their notebook. How should you help?",
+    correctAnswer: "Help Find It",
+    options: [
+      { text: "Help Find It", isCorrect: true, emoji: "🙂" },
+      { text: "Take Advantage", isCorrect: false, emoji: "😈" },
+      { text: "Ignore Their Problem", isCorrect: false, emoji: "😶" },
+      { text: "Blame Them", isCorrect: false, emoji: "🙄" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Someone is posting mean comments about your friend online. What should you do?",
+    correctAnswer: "Support Your Friend",
+    options: [
+      { text: "Post Mean Comments Too", isCorrect: false, emoji: "😈" },
+      { text: "Ignore It", isCorrect: false, emoji: "😐" },
+      { text: "Support Your Friend", isCorrect: true, emoji: "🤔" },
+      { text: "Laugh With Others", isCorrect: false, emoji: "😂" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Your friend is shy and didn’t get picked for a game. How should you respond?",
+    correctAnswer: "Invite Them to Play",
+    options: [
+      { text: "Play Without Them", isCorrect: false, emoji: "🙂" },
+      { text: "Invite Them to Play", isCorrect: true, emoji: "😄" },
+      { text: "Tease Them", isCorrect: false, emoji: "😄" },
+      { text: "Ignore Them", isCorrect: false, emoji: "😐" }
+    ]
+  },
+  {
+    id: 5,
+    question: "A new student joins your class and seems lonely. What’s the best way to be a friend?",
+    correctAnswer: "Include Them in Activities",
+    options: [
+      { text: "Include Them in Activities", isCorrect: true, emoji: "🎯" },
+      { text: "Ignore Them", isCorrect: false, emoji: "😶" },
+      { text: "Tell Others Not to Talk", isCorrect: false, emoji: "🙅" },
+      { text: "Make Fun of Them", isCorrect: false, emoji: "😈" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

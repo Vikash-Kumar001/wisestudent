@@ -58,17 +58,18 @@ const FairnessQuiz1 = () => {
       text: "A game gives extra points only to boys. Fair or unfair?",
       options: [
         { 
-          id: "a", 
-          text: "Fair", 
-          emoji: "😇", 
-          isCorrect: false
-        },
-        { 
           id: "b", 
           text: "Unfair", 
           emoji: "😈", 
           isCorrect: true
         },
+        { 
+          id: "a", 
+          text: "Fair", 
+          emoji: "😇", 
+          isCorrect: false
+        },
+        
         { 
           id: "c", 
           text: "Depends on the game", 
@@ -105,12 +106,7 @@ const FairnessQuiz1 = () => {
       id: 4,
       text: "AI gives random rewards to everyone equally. Fair or unfair?",
       options: [
-        { 
-          id: "a", 
-          text: "Fair", 
-          emoji: "🎉", 
-          isCorrect: true
-        },
+        
         { 
           id: "b", 
           text: "Unfair", 
@@ -122,7 +118,13 @@ const FairnessQuiz1 = () => {
           text: "Only for some players", 
           emoji: "👥", 
           isCorrect: false
-        }
+        },
+        { 
+          id: "a", 
+          text: "Fair", 
+          emoji: "🎉", 
+          isCorrect: true
+        },
       ]
     },
     {
@@ -130,17 +132,18 @@ const FairnessQuiz1 = () => {
       text: "AI blocks a player just because of their name. Fair?",
       options: [
         { 
-          id: "a", 
-          text: "Fair", 
-          emoji: "😇", 
-          isCorrect: false
-        },
-        { 
           id: "b", 
           text: "Unfair", 
           emoji: "⚠️", 
           isCorrect: true
         },
+        { 
+          id: "a", 
+          text: "Fair", 
+          emoji: "😇", 
+          isCorrect: false
+        },
+        
         { 
           id: "c", 
           text: "Depends on the name", 

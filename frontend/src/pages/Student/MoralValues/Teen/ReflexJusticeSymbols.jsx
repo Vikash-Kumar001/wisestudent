@@ -27,63 +27,63 @@ const ReflexJusticeSymbols = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "⚖️ Scales of Justice",
-      correctAnswer: "Justice",
-      options: [
-        { text: "Justice", isCorrect: true, emoji: "⚖️" },
-        { text: "Peace", isCorrect: false, emoji: "🕊️" },
-        { text: "Authority", isCorrect: false, emoji: "👑" },
-        { text: "Balance", isCorrect: false, emoji: "⚖️" }
-      ]
-    },
-    {
-      id: 2,
-      question: "💣 Bomb",
-      correctAnswer: "Not Justice",
-      options: [
-        { text: "Justice", isCorrect: false, emoji: "⚖️" },
-        { text: "Violence", isCorrect: true, emoji: "💥" },
-        { text: "War", isCorrect: false, emoji: "⚔️" },
-        { text: "Chaos", isCorrect: false, emoji: "🌪️" }
-      ]
-    },
-    {
-      id: 3,
-      question: "🔨 Judge's Gavel",
-      correctAnswer: "Justice",
-      options: [
-        { text: "Order", isCorrect: false, emoji: "🛒" },
-        { text: "Authority", isCorrect: false, emoji: "👑" },
-        { text: "Justice", isCorrect: true, emoji: "⚖️" },
-        { text: "Decision", isCorrect: false, emoji: "✅" }
-      ]
-    },
-    {
-      id: 4,
-      question: "👩‍⚖️ Judge",
-      correctAnswer: "Justice",
-      options: [
-        { text: "Authority", isCorrect: false, emoji: "👑" },
-        { text: "Justice", isCorrect: true, emoji: "⚖️" },
-        { text: "Law", isCorrect: false, emoji: "📜" },
-        { text: "Power", isCorrect: false, emoji: "⚡" }
-      ]
-    },
-    {
-      id: 5,
-      question: "🕊️ Peace Dove",
-      correctAnswer: "Not Justice",
-      options: [
-        { text: "Justice", isCorrect: false, emoji: "⚖️" },
-        
-        { text: "Harmony", isCorrect: false, emoji: "☯️" },
-        { text: "Tolerance", isCorrect: false, emoji: "🤝" },
-        { text: "Peace", isCorrect: true, emoji: "🕊️" },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "⚖️ The scales tilt in favor of the powerful in a courtroom. What principle of justice is violated?",
+    correctAnswer: "Equality before the law",
+    options: [
+      { text: "Punishment", isCorrect: false, emoji: "⛓️" },
+      { text: "Authority", isCorrect: false, emoji: "👑" },
+      { text: "Peacekeeping", isCorrect: false, emoji: "🕊️" },
+      { text: "Equality before the law", isCorrect: true, emoji: "🟰" },
+    ]
+  },
+  {
+    id: 2,
+    question: "💣 A group uses fear and destruction to force people to obey rules. What does this symbol represent in terms of justice?",
+    correctAnswer: "Abuse of power",
+    options: [
+      { text: "Law enforcement", isCorrect: false, emoji: "🚓" },
+      { text: "Fair punishment", isCorrect: false, emoji: "⚖️" },
+      { text: "Abuse of power", isCorrect: true, emoji: "💥" },
+      { text: "Public safety", isCorrect: false, emoji: "🛡️" }
+    ]
+  },
+  {
+    id: 3,
+    question: "🔨 A gavel is used to silence one side before they speak. What justice value is missing?",
+    correctAnswer: "Right to be heard",
+    options: [
+      { text: "Quick decision-making", isCorrect: false, emoji: "⏱️" },
+      { text: "Right to be heard", isCorrect: true, emoji: "🗣️" },
+      { text: "Strict discipline", isCorrect: false, emoji: "📏" },
+      { text: "Order", isCorrect: false, emoji: "📋" }
+    ]
+  },
+  {
+    id: 4,
+    question: "👩‍⚖️ A judge follows personal beliefs instead of evidence. What principle is compromised?",
+    correctAnswer: "Impartiality",
+    options: [
+      { text: "Impartiality", isCorrect: true, emoji: "🤔" },
+      { text: "Authority", isCorrect: false, emoji: "👑" },
+      { text: "Leadership", isCorrect: false, emoji: "🧭" },
+      { text: "Efficiency", isCorrect: false, emoji: "⚡" }
+    ]
+  },
+  {
+    id: 5,
+    question: "🕊️ A conflict ends peacefully, but victims never receive fairness. What does this symbol fail to guarantee?",
+    correctAnswer: "Justice for harm done",
+    options: [
+      { text: "Silence", isCorrect: false, emoji: "🤫" },
+      { text: "Unity", isCorrect: false, emoji: "🤝" },
+      { text: "Justice for harm done", isCorrect: true, emoji: "⚖️" },
+      { text: "Forgiveness", isCorrect: false, emoji: "💙" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

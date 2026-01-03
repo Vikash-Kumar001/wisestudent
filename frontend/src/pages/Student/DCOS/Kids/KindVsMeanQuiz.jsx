@@ -27,131 +27,132 @@ const KindVsMeanQuiz = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Which word is kind?",
-      options: [
-        { 
-          id: "a", 
-          text: "Stupid", 
-          emoji: "😠", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Friend", 
-          emoji: "👫", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ugly", 
-          emoji: "😞", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Choose the kind word:",
-      options: [
-        { 
-          id: "a", 
-          text: "Nice", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Loser", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Hate", 
-          emoji: "😠", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "What's the kind word to call someone?",
-      options: [
-        
-        { 
-          id: "b", 
-          text: "Idiot", 
-          emoji: "😤", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Dumb", 
-          emoji: "😒", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Buddy", 
-          emoji: "👋", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "Pick the kind expression:",
-      options: [
-        { 
-          id: "a", 
-          text: "You can do it!", 
-          emoji: "💪", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "You're useless", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Go away", 
-          emoji: "🚫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Which word spreads kindness?",
-      options: [
-        
-        { 
-          id: "b", 
-          text: "Mean", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Kind", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Rude", 
-          emoji: "😤", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You see a classmate make a mistake in an online class. What message is kind to send?",
+    options: [
+      
+      {
+        id: "b",
+        text: "That was so embarrassing",
+        emoji: "📱",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "You should leave the class",
+        emoji: "💻",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Everyone messes up sometimes, keep trying",
+        emoji: "💬",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "Someone shares their drawing in a group chat. What is the kind response?",
+    options: [
+      {
+        id: "a",
+        text: "I like how you used colors",
+        emoji: "🖍️",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Mine is better than this",
+        emoji: "📷",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Why did you even post this?",
+        emoji: "🗂️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "During an online game, a player is new and learning. What shows kindness?",
+    options: [
+      
+      {
+        id: "b",
+        text: "You are slowing everyone down",
+        emoji: "🕹️",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Let me explain the rules",
+        emoji: "🎯",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Quit the game now",
+        emoji: "📊",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "You disagree with someone’s opinion in an online discussion. What is the kind way to reply?",
+    options: [
+      
+      {
+        id: "b",
+        text: "That idea makes no sense",
+        emoji: "📢",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Only silly people think like that",
+        emoji: "🧩",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "I think differently, and here’s why",
+        emoji: "🧠",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "You notice someone being teased in a group chat. What action supports kindness?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Share the messages with more people",
+        emoji: "📨",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Ask others to stop and support the person",
+        emoji: "🛡️",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Ignore it and add a laughing reply",
+        emoji: "📎",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

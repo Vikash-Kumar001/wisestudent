@@ -67,7 +67,7 @@ const EncourageRoleplay = () => {
         { 
           id: "b", 
           text: "Support them and report the trolling", 
-          emoji: "🤗", 
+          emoji: "🙂", 
           isCorrect: true
         },
         { 
@@ -97,7 +97,7 @@ const EncourageRoleplay = () => {
         { 
           id: "c", 
           text: "Include them and report the bullying", 
-          emoji: "🤗", 
+          emoji: "😑", 
           isCorrect: true
         }
       ]
@@ -109,7 +109,7 @@ const EncourageRoleplay = () => {
         { 
           id: "a", 
           text: "Encourage them and report harassment", 
-          emoji: "🤗", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 
@@ -139,7 +139,7 @@ const EncourageRoleplay = () => {
         { 
           id: "b", 
           text: "Support them and report the bullying", 
-          emoji: "🤗", 
+          emoji: "😄", 
           isCorrect: true
         },
         { 

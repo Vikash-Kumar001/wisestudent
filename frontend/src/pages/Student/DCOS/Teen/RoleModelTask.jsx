@@ -38,132 +38,129 @@ const RoleModelTask = () => {
 
 
   const questions = [
-    {
-      id: 1,
-      text: "You want to help your peers with their studies. You can share a blog post with study tips. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Share the helpful blog post with your peers", 
-          emoji: "📚",
-          
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Keep it to yourself - they should figure it out", 
-          emoji: " selfish",
-          
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only share with close friends", 
-          emoji: "👥",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "You found a great resource about online safety. Your classmates could benefit from it. What should you do?",
-      options: [
-       
-        { 
-          id: "b", 
-          text: "Don't share - it's not your responsibility", 
-          emoji: "❓",
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Share only if asked", 
-          emoji: "🤔",
-          isCorrect: false
-        },
-         { 
-          id: "a", 
-          text: "Share the resource to help others stay safe", 
-          emoji: "🛡️",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 3,
-      text: "You created helpful notes for an upcoming exam. Others are struggling with the same subject. What should you do?",
-      options: [
-       
-        { 
-          id: "b", 
-          text: "Keep your notes private", 
-          emoji: "🔒",
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Charge money for your notes", 
-          emoji: "💰",
-          isCorrect: false
-        },
-         { 
-          id: "a", 
-          text: "Share your notes to help classmates succeed", 
-          emoji: "📝",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "You learned about mental health resources. Some peers might need this information. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Share mental health resources to help others", 
-          emoji: "💚",
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "It's personal - don't share", 
-          emoji: "🤫",
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only share if someone asks directly", 
-          emoji: "❓",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "You discovered useful productivity tips. Your friends are struggling with time management. What should you do?",
-      options: [
-       
-        { 
-          id: "b", 
-          text: "Keep your productivity secrets", 
-          emoji: "🤫",
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Share only with best friends", 
-          emoji: "👥",
-          isCorrect: false
-        },
-         { 
-          id: "a", 
-          text: "Share productivity tips to help others", 
-          emoji: "⏰",
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You want to help your peers with their studies. You can share a blog post with study tips. What should you do?",
+    options: [
+      { 
+        id: "a", 
+        text: "Share the helpful blog post with your peers", 
+        emoji: "📚",
+        isCorrect: true
+      },
+      { 
+        id: "b", 
+        text: "Keep it to yourself – they should figure it out", 
+        emoji: "🙈",
+        isCorrect: false
+      },
+      { 
+        id: "c", 
+        text: "Only share with close friends", 
+        emoji: "👥",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "You found a great resource about online safety. Your classmates could benefit from it. What should you do?",
+    options: [
+      { 
+        id: "b", 
+        text: "Don't share – it's not your responsibility", 
+        emoji: "❓",
+        isCorrect: false
+      },
+      { 
+        id: "a", 
+        text: "Share the resource to help others stay safe", 
+        emoji: "🛡️",
+        isCorrect: true
+      },
+      { 
+        id: "c", 
+        text: "Share only if asked", 
+        emoji: "🤔",
+        isCorrect: false
+      },
+      
+    ]
+  },
+  {
+    id: 3,
+    text: "You created helpful notes for an upcoming exam. Others are struggling with the same subject. What should you do?",
+    options: [
+      { 
+        id: "b", 
+        text: "Keep your notes private", 
+        emoji: "🔒",
+        isCorrect: false
+      },
+      { 
+        id: "c", 
+        text: "Charge money for your notes", 
+        emoji: "💰",
+        isCorrect: false
+      },
+      { 
+        id: "a", 
+        text: "Share your notes to help classmates succeed", 
+        emoji: "📝",
+        isCorrect: true
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "You learned about mental health resources. Some peers might need this information. What should you do?",
+    options: [
+      { 
+        id: "a", 
+        text: "Share mental health resources to help others", 
+        emoji: "💚",
+        isCorrect: true
+      },
+      { 
+        id: "b", 
+        text: "It's personal – don't share", 
+        emoji: "🤫",
+        isCorrect: false
+      },
+      { 
+        id: "c", 
+        text: "Only share if someone asks directly", 
+        emoji: "❓",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You discovered useful productivity tips. Your friends are struggling with time management. What should you do?",
+    options: [
+      { 
+        id: "b", 
+        text: "Keep your productivity secrets", 
+        emoji: "🤫",
+        isCorrect: false
+      },
+      { 
+        id: "c", 
+        text: "Share only with best friends", 
+        emoji: "👥",
+        isCorrect: false
+      },
+      { 
+        id: "a", 
+        text: "Share productivity tips to help others", 
+        emoji: "⏰",
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

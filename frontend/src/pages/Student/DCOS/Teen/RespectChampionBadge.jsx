@@ -23,145 +23,144 @@ const RespectChampionBadge = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const challenges = [
-    {
-      id: 1,
-      title: "Respecting Differences",
-      question: "What should you do when you see different opinions?",
-      options: [
-        { 
-          text: "Respect different opinions and beliefs", 
-          emoji: "🤝", 
-          isCorrect: true
-        },
-        { 
-          text: "Insult different opinions", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Mock different beliefs", 
-          emoji: "😞", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore different opinions", 
-          emoji: "😐", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "Standing Against Hate",
-      question: "What should you do when you see hateful comments?",
-      options: [
-       
-        { 
-          text: "Join in the hate", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore hateful comments", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-         { 
-          text: "Stand up against hateful comments", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          text: "Share hateful comments", 
-          emoji: "📤", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "Inclusive Behavior",
-      question: "How should you treat others online?",
-      options: [
-        
-        { 
-          text: "Exclude certain people", 
-          emoji: "🚫", 
-          isCorrect: false
-        },
-        { 
-          text: "Include everyone respectfully", 
-          emoji: "👥", 
-          isCorrect: true
-        },
-        { 
-          text: "Be disrespectful to others", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore others' feelings", 
-          emoji: "😐", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Promoting Respect",
-      question: "What should you do to promote respect?",
-      options: [
-        
-        { 
-          text: "Promote disrespect", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore respect", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Promote respect in online spaces", 
-          emoji: "🌟", 
-          isCorrect: true
-        },
-        { 
-          text: "Share disrespectful content", 
-          emoji: "📤", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "Building Community",
-      question: "How can you help build a respectful community?",
-      options: [
-        { 
-          text: "Help build a respectful online community", 
-          emoji: "🤝", 
-          isCorrect: true
-        },
-        { 
-          text: "Create division in community", 
-          emoji: "😡", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore community building", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Promote conflict", 
-          emoji: "⚔️", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    title: "Respecting Differences",
+    question: "What should you do when you see different opinions?",
+    options: [
+      { 
+        text: "Respect different opinions and beliefs", 
+        emoji: "🤝", 
+        isCorrect: true
+      },
+      { 
+        text: "Insult different opinions", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Mock different beliefs", 
+        emoji: "😞", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore different opinions", 
+        emoji: "😐", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Standing Against Hate",
+    question: "What should you do when you see hateful comments?",
+    options: [
+      { 
+        text: "Join in the hate", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore hateful comments", 
+        emoji: "😐", 
+        isCorrect: false
+      },
+      { 
+        text: "Stand up against hateful comments", 
+        emoji: "🛡️", 
+        isCorrect: true
+      },
+      { 
+        text: "Share hateful comments", 
+        emoji: "📤", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Inclusive Behavior",
+    question: "How should you treat others online?",
+    options: [
+      { 
+        text: "Exclude certain people", 
+        emoji: "🚫", 
+        isCorrect: false
+      },
+      { 
+        text: "Include everyone respectfully", 
+        emoji: "👥", 
+        isCorrect: true
+      },
+      { 
+        text: "Be disrespectful to others", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore others' feelings", 
+        emoji: "😐", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Promoting Respect",
+    question: "What should you do to promote respect?",
+    options: [
+      { 
+        text: "Promote disrespect", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore respect", 
+        emoji: "😐", 
+        isCorrect: false
+      },
+      { 
+        text: "Promote respect in online spaces", 
+        emoji: "🌟", 
+        isCorrect: true
+      },
+      { 
+        text: "Share disrespectful content", 
+        emoji: "📤", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Building Community",
+    question: "How can you help build a respectful community?",
+    options: [
+     
+      { 
+        text: "Create division in the community", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore community building", 
+        emoji: "😐", 
+        isCorrect: false
+      },
+      { 
+        text: "Promote conflict", 
+        emoji: "⚔️", 
+        isCorrect: false
+      },
+       { 
+        text: "Help build a respectful online community", 
+        emoji: "🤝", 
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

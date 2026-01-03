@@ -35,7 +35,7 @@ const DataConsentQuiz = () => {
         { 
           id: "b", 
           text: "No - only grant necessary permissions", 
-          emoji: "🛡️", 
+          emoji: "🔒", 
           
           isCorrect: true
         },
@@ -67,7 +67,7 @@ const DataConsentQuiz = () => {
         { 
           id: "b", 
           text: "No - calculator doesn't need contacts", 
-          emoji: "🛡️", 
+          emoji: "😄", 
           isCorrect: true
         },
         { 
@@ -97,7 +97,7 @@ const DataConsentQuiz = () => {
         { 
           id: "b", 
           text: "No - flashlight doesn't need location", 
-          emoji: "🛡️", 
+          emoji: "🙂", 
           isCorrect: true
         }
       ]
@@ -109,7 +109,7 @@ const DataConsentQuiz = () => {
         { 
           id: "b", 
           text: "Only if it's a voice chat game", 
-          emoji: "🛡️", 
+          emoji: "�", 
           isCorrect: true
         },
         { 
@@ -139,7 +139,7 @@ const DataConsentQuiz = () => {
         { 
           id: "b", 
           text: "Yes - it needs photos to edit them", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 

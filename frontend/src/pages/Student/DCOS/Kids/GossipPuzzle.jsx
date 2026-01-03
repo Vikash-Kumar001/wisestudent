@@ -29,30 +29,33 @@ const GossipPuzzle = () => {
 
   // Actions (left side)
   const leftItems = [
-    { id: 1, name: "Spreading rumors", emoji: "💬",  },
-    { id: 2, name: "Telling someone's secrets", emoji: "🤫",  },
-    { id: 3, name: "Gossiping about a friend", emoji: "👥",  },
-    { id: 4, name: "Making fun behind their back", emoji: "😈",  },
-    { id: 5, name: "Sharing private info without permission", emoji: "🔓",  }
-  ];
+  { id: 1, name: "Whispering rumors in class", emoji: "🗣️" },
+  { id: 2, name: "Sharing a friend's secret online", emoji: "📱" },
+  { id: 3, name: "Laughing about someone with others", emoji: "😂" },
+  { id: 4, name: "Spreading half-true stories", emoji: "🧩" },
+  { id: 5, name: "Posting private messages publicly", emoji: "📸" }
+];
+
 
   // Consequences (right side)
-  const rightItems = [
-    { id: 1, name: "Hurt Feelings", emoji: "😢",  },
-    { id: 2, name: "Broken Trust", emoji: "💔",  },
-    { id: 3, name: "Damaged Friendships", emoji: "👥",  },
-    { id: 4, name: "Hurt Feelings", emoji: "😢",  },
-    { id: 5, name: "Broken Trust", emoji: "💔",  }
-  ];
+ const rightItems = [
+  { id: 1, name: "Friend Feels Sad", emoji: "😢" },
+  { id: 2, name: "Trust Is Lost", emoji: "🔒" },
+  { id: 3, name: "Arguments Start", emoji: "⚡" },
+  { id: 5, name: "Friendship Breaks", emoji: "🧱" },
+  { id: 4, name: "Reputation Gets Harmed", emoji: "📉" },
+];
+
 
   // Correct matches (mapped to different positions like PuzzleOfSavingGoals)
-  const correctMatches = [
-    { leftId: 1, rightId: 2 }, // Spreading rumors → Hurt Feelings (id: 2)
-    { leftId: 2, rightId: 1 }, // Telling someone's secrets → Broken Trust (id: 1)
-    { leftId: 3, rightId: 3 }, // Gossiping about a friend → Damaged Friendships (id: 3)
-    { leftId: 4, rightId: 5 }, // Making fun behind their back → Hurt Feelings (id: 5)
-    { leftId: 5, rightId: 4 }  // Sharing private info without permission → Broken Trust (id: 4)
-  ];
+ const correctMatches = [
+  { leftId: 1, rightId: 3 }, // Whispering rumors → Arguments Start
+  { leftId: 2, rightId: 2 }, // Sharing secret online → Trust Is Lost
+  { leftId: 3, rightId: 1 }, // Laughing about someone → Friend Feels Sad
+  { leftId: 4, rightId: 4 }, // Half-true stories → Reputation Gets Harmed
+  { leftId: 5, rightId: 5 }  // Posting private messages → Friendship Breaks
+];
+
 
   const handleLeftSelect = (item) => {
     if (showResult) return;

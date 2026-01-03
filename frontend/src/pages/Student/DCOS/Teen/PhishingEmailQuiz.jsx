@@ -42,21 +42,21 @@ const PhishingEmailQuiz = () => {
       options: [
         { 
           id: "b", 
-          text: "No - it's a phishing scam", 
+          text: "it's a phishing scam", 
           emoji: "🚫",
           
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Yes - click the link", 
+          text: "click the link", 
           emoji: "🖱️",
           isCorrect: false
         },
         
         { 
           id: "c", 
-          text: "Maybe - check first", 
+          text: "check first", 
           emoji: "🤔",
           isCorrect: false
         }
@@ -68,7 +68,7 @@ const PhishingEmailQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - click to verify", 
+          text: "click to verify", 
           emoji: "🔗",
           isCorrect: false
         },
@@ -81,7 +81,7 @@ const PhishingEmailQuiz = () => {
         },
          { 
           id: "b", 
-          text: "No - it's phishing, go to official site", 
+          text: "it's phishing, go to official site", 
           emoji: "🌐",
           isCorrect: true
         },
@@ -93,13 +93,13 @@ const PhishingEmailQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - provide the info", 
+          text: "provide the info", 
           emoji: "🔒",
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - it's a phishing scam", 
+          text: "it's a phishing scam", 
           emoji: "⚠️",
           isCorrect: true
         },
@@ -117,13 +117,13 @@ const PhishingEmailQuiz = () => {
       options: [
          { 
           id: "b", 
-          text: "No - go to official website directly", 
+          text: "go to official website directly", 
           emoji: "🌐",
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Yes - click and update", 
+          text: "click and update", 
           emoji: "🔐",
           isCorrect: false
         },
@@ -142,7 +142,7 @@ const PhishingEmailQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - click for free gift", 
+          text: "click for free gift", 
           emoji: "🎁",
           isCorrect: false
         },
@@ -155,7 +155,7 @@ const PhishingEmailQuiz = () => {
         },
          { 
           id: "b", 
-          text: "No - it's a phishing scam", 
+          text: "it's a phishing scam", 
           emoji: "🚫",
           isCorrect: true
         },

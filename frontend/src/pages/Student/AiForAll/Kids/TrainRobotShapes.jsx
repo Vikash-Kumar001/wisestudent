@@ -65,9 +65,9 @@ const TrainRobotShapes = () => {
       emoji: "⏳",
       question: "The robot is organizing time tools! This hourglass has two triangle shapes stacked together. Where should it go?",
       choices: [
-        { id: 2, text: "Rectangle Box", shape: "rectangle", isCorrect: false },
-        { id: 1, text: "Two-Triangle Box", shape: "two-triangles", isCorrect: true },
-        { id: 3, text: "Circle Box", shape: "circle", isCorrect: false }
+        { id: 2, text: "Rectangle", shape: "rectangle", isCorrect: false },
+        { id: 1, text: "Two-Triangle", shape: "two-triangles", isCorrect: true },
+        { id: 3, text: "Circle ", shape: "circle", isCorrect: false }
       ]
     },
     {
@@ -77,9 +77,9 @@ const TrainRobotShapes = () => {
       question: "The robot is organizing sea creatures! This starfish has five arms. What shape box should it go in?",
       choices: [
        
-        { id: 2, text: "Pentagon Box", shape: "pentagon", isCorrect: false },
-        { id: 3, text: "Circle Box", shape: "circle", isCorrect: false },
-         { id: 1, text: "Star Box", shape: "star", isCorrect: true },
+        { id: 2, text: "Pentagon", shape: "pentagon", isCorrect: false },
+        { id: 3, text: "Circle", shape: "circle", isCorrect: false },
+         { id: 1, text: "Star", shape: "star", isCorrect: true },
       ]
     }
   ];

@@ -29,62 +29,63 @@ const OnlineFriendReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "A stranger online says: 'Hi! I'm your age. Want to meet at the park?' What should you do?",
-      correctAnswer: "Say No and Tell Parent",
-      options: [
-        { text: "Say No and Tell Parent", isCorrect: true, emoji: "🛡️" },
-        { text: "Say Yes and Meet", isCorrect: false, emoji: "😊" },
-        { text: "Ask for More Info", isCorrect: false, emoji: "🤔" },
-        { text: "Share Your Location", isCorrect: false, emoji: "📍" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Someone online says: 'I know your friend. Let's meet after school.' What's the safe choice?",
-      correctAnswer: "Refuse and Tell Adult",
-      options: [
-        { text: "Agree to Meet", isCorrect: false, emoji: "😊" },
-        { text: "Refuse and Tell Adult", isCorrect: true, emoji: "🛡️" },
-        { text: "Ask Where to Meet", isCorrect: false, emoji: "🤔" },
-        { text: "Go Alone", isCorrect: false, emoji: "🚶" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Online person says: 'I'm a kid too. Want to play at my house?' What should you do?",
-      correctAnswer: "Say No and Block",
-      options: [
-        { text: "Say No and Block", isCorrect: true, emoji: "🛡️" },
-        { text: "Say Yes", isCorrect: false, emoji: "😊" },
-        { text: "Ask for Address", isCorrect: false, emoji: "📍" },
-        { text: "Share Your Address", isCorrect: false, emoji: "🏠" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Stranger says: 'I have candy. Come meet me at the park.' What's the right response?",
-      correctAnswer: "Refuse and Tell Parent",
-      options: [
-        { text: "Go Meet Them", isCorrect: false, emoji: "😊" },
-        { text: "Refuse and Tell Parent", isCorrect: true, emoji: "🛡️" },
-        { text: "Ask What Kind of Candy", isCorrect: false, emoji: "🤔" },
-        { text: "Bring Friends", isCorrect: false, emoji: "👥" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Online friend says: 'Let's meet in person. I'll bring my parents.' What should you do?",
-      correctAnswer: "Tell Parent First",
-      options: [
-        { text: "Tell Parent First", isCorrect: true, emoji: "🛡️" },
-        { text: "Go Alone", isCorrect: false, emoji: "😊" },
-        { text: "Go with Friends Only", isCorrect: false, emoji: "👥" },
-        { text: "Don't Tell Anyone", isCorrect: false, emoji: "🤫" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "An online gamer you met wants to video call you and says: 'We can talk about games all day!' What should you do?",
+    correctAnswer: "Ask Parent Before Any Call",
+    options: [
+      { text: "Agree to Call Alone", isCorrect: false, emoji: "📹" },
+      { text: "Share Your Webcam Link", isCorrect: false, emoji: "💻" },
+      { text: "Ask Parent Before Any Call", isCorrect: true, emoji: "🛡️" },
+      { text: "Ignore Them", isCorrect: false, emoji: "🙈" }
+    ]
+  },
+  {
+    id: 2,
+    question: "A new online friend asks for your home address to 'send a gift'. How should you respond?",
+    correctAnswer: "Never Share Personal Address",
+    options: [
+      { text: "Share Email Instead", isCorrect: false, emoji: "📧" },
+      { text: "Ask Their Address First", isCorrect: false, emoji: "🔄" },
+      { text: "Give Street Name Only", isCorrect: false, emoji: "🗺️" },
+      { text: "Never Share Personal Address", isCorrect: true, emoji: "🤔" },
+    ]
+  },
+  {
+    id: 3,
+    question: "Someone online says they know your school friends and invites you to join a chat group. What is the safe choice?",
+    correctAnswer: "Check With Parent Before Joining",
+    options: [
+      { text: "Join Quickly to Not Miss Out", isCorrect: false, emoji: "💬" },
+      { text: "Check With Parent Before Joining", isCorrect: true, emoji: "👨‍👩‍👧" },
+      { text: "Share Your Details to Join", isCorrect: false, emoji: "📝" },
+      { text: "Ignore Them and Block", isCorrect: false, emoji: "🚫" }
+    ]
+  },
+  {
+    id: 4,
+    question: "An online friend sends a link: 'Click this to see cool pictures!' What is the responsible action?",
+    correctAnswer: "Ask Adult Before Clicking",
+    options: [
+      { text: "Ask Adult Before Clicking", isCorrect: true, emoji: "❓" },
+      { text: "Click Immediately", isCorrect: false, emoji: "👆" },
+      { text: "Share Link With Friends", isCorrect: false, emoji: "👫" },
+      { text: "Ignore Message Without Telling", isCorrect: false, emoji: "🙊" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Your online friend wants to exchange photos of yourselves. What is the safest choice?",
+    correctAnswer: "Do Not Share Photos",
+    options: [
+      { text: "Share Only With Friend", isCorrect: false, emoji: "👤" },
+      { text: "Send Random Pictures", isCorrect: false, emoji: "🖼️" },
+      { text: "Do Not Share Photos", isCorrect: true, emoji: "🔒" },
+      { text: "Ask Them to Send First", isCorrect: false, emoji: "📤" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

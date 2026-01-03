@@ -128,7 +128,7 @@ const CommunicationProBadge = () => {
         },
         { 
           text: "Use slang and informal language", 
-          emoji: " informal", 
+          emoji: "💬", 
           isCorrect: false
         }
       ]

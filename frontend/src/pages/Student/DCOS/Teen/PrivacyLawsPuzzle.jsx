@@ -64,9 +64,9 @@ const PrivacyLawsPuzzle = () => {
 
   // Regions/Protection - shuffled order to make it harder
   const rightItems = [
-    { id: 1, name: "India", emoji: "🇮🇳🏛️",  },
+    { id: 1, name: "India", emoji: "🏛️",  },
     { id: 4, name: "California", emoji: "🏔️",  },
-    { id: 2, name: "Europe", emoji: "🇪🇺🏛️",  },
+    { id: 2, name: "Europe", emoji: "🏛️",  },
     { id: 3, name: "Kids", emoji: "👶",  },
     { id: 5, name: "Canada", emoji: "🍁",  }
   ];

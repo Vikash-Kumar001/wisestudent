@@ -28,128 +28,131 @@ const SleepHealthQuiz = () => {
   const [answered, setAnswered] = useState(false);
 
   const questions = [
-    {
-      id: 1,
-      text: "Using mobile at midnight affects sleep. Is this healthy?",
-      options: [
-        { 
-          id: "a", 
-          text: "No - screens before bed disrupt sleep", 
-          emoji: "🙃", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Yes - it helps me relax", 
-          emoji: "😴", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Maybe - depends on the person", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Is it okay to use your phone right before sleeping?",
-      options: [
-        { 
-          id: "a", 
-          text: "Yes - it's fine", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "No - blue light affects sleep quality", 
-          emoji: "📱", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Sometimes - not a big deal", 
-          emoji: "🤷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Does screen time before bed affect your sleep schedule?",
-      options: [
-        { 
-          id: "a", 
-          text: "No - it doesn't matter", 
-          emoji: "😑", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Only if you use it for hours", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Yes - it disrupts your sleep cycle", 
-          emoji: "📱", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Should you check notifications right before bed?",
-      options: [
-        { 
-          id: "a", 
-          text: "No - it can keep you awake", 
-          emoji: "😐", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Yes - to stay updated", 
-          emoji: "📱", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only important ones", 
-          emoji: "🤷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Is using devices in bed good for sleep hygiene?",
-      options: [
-        { 
-          id: "a", 
-          text: "Yes - it's comfortable", 
-          emoji: "😴", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "No - bed should be for sleep only", 
-          emoji: "🙂", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Sometimes - not harmful", 
-          emoji: "😐", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You stay up late watching videos and feel tired in school the next day. What's the healthy choice?",
+    options: [
+     
+      { 
+        id: "watch-more", 
+        text: "Keep watching videos anyway", 
+        emoji: "🎬", 
+        isCorrect: false
+      },
+      { 
+        id: "drink-coffee", 
+        text: "Drink coffee to stay awake", 
+        emoji: "☕", 
+        isCorrect: false
+      },
+       { 
+        id: "sleep-early", 
+        text: "Go to bed earlier to get enough rest", 
+        emoji: "🌙", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "You feel sleepy while doing homework at 9 PM. What helps you stay productive and healthy?",
+    options: [
+      { 
+        id: "rest-first", 
+        text: "Take a short rest and finish homework after proper sleep", 
+        emoji: "😑", 
+        isCorrect: true
+      },
+      { 
+        id: "push-through", 
+        text: "Stay awake and push through without rest", 
+        emoji: "💪", 
+        isCorrect: false
+      },
+      { 
+        id: "snack-time", 
+        text: "Eat snacks to stay awake", 
+        emoji: "🍪", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "You play games late at night and feel stressed the next morning. What is the healthier habit?",
+    options: [
+     
+      { 
+        id: "late-play", 
+        text: "Play games whenever you want", 
+        emoji: "🕹️", 
+        isCorrect: false
+      },
+       { 
+        id: "schedule-games", 
+        text: "Play games earlier and keep bedtime consistent", 
+        emoji: "🙂", 
+        isCorrect: true
+      },
+      { 
+        id: "skip-sleep", 
+        text: "Skip sleep to continue playing", 
+        emoji: "⏰", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "Your phone buzzes with messages at 11 PM. What should you do for good sleep health?",
+    options: [
+      
+      { 
+        id: "check-messages", 
+        text: "Check all messages immediately", 
+        emoji: "📲", 
+        isCorrect: false
+      },
+      { 
+        id: "reply-fast", 
+        text: "Reply quickly to stay connected", 
+        emoji: "💬", 
+        isCorrect: false
+      },
+      { 
+        id: "ignore-phone", 
+        text: "Ignore notifications and sleep", 
+        emoji: "🔕", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "You feel restless in bed. What routine can help improve your sleep quality?",
+    options: [
+      { 
+        id: "relax-routine", 
+        text: "Do a calming bedtime routine before sleeping", 
+        emoji: "🕯️", 
+        isCorrect: true
+      },
+      { 
+        id: "scroll-phone", 
+        text: "Scroll social media until you fall asleep", 
+        emoji: "📱", 
+        isCorrect: false
+      },
+      { 
+        id: "eat-late", 
+        text: "Eat heavy snacks right before bed", 
+        emoji: "🍫", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

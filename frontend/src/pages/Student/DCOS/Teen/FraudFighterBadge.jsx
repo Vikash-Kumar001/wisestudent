@@ -23,123 +23,124 @@ const FraudFighterBadge = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const challenges = [
-    {
-      id: 1,
-      title: "Phishing Emails",
-      question: "What should you do with suspicious emails?",
-      options: [
-        { 
-          text: "Click links in suspicious emails", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore suspicious emails", 
-          isCorrect: true
-        },
-        { 
-          text: "Reply to suspicious emails", 
-          isCorrect: false
-        },
-        { 
-          text: "Forward to others", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "OTP Security",
-      question: "What should you do when someone asks for your OTP?",
-      options: [
-        { 
-          text: "Share OTP if they claim to be from bank", 
-          isCorrect: false
-        },
-        { 
-          text: "Share OTP with friends", 
-          isCorrect: false
-        },
-        { 
-          text: "Refuse to share OTP", 
-          isCorrect: true
-        },
-        { 
-          text: "Save OTP in notes", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "Job Scams",
-      question: "What should you do with job offers that seem too good?",
-      options: [
-        { 
-          text: "Apply immediately", 
-          isCorrect: false
-        },
-        { 
-          text: "Avoid job offers that seem too good", 
-          isCorrect: true
-        },
-        { 
-          text: "Pay money to get the job", 
-          isCorrect: false
-        },
-        { 
-          text: "Share with friends", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Scam Pop-ups",
-      question: "What should you do with suspicious pop-ups?",
-      options: [
-        { 
-          text: "Ignore suspicious pop-ups", 
-          isCorrect: true
-        },
-        { 
-          text: "Click on suspicious pop-ups", 
-          isCorrect: false
-        },
-        
-        { 
-          text: "Enter information in pop-ups", 
-          isCorrect: false
-        },
-        { 
-          text: "Take screenshot first", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "Information Verification",
-      question: "What should you do before sharing personal information?",
-      options: [
-        { 
-          text: "Share information immediately", 
-          isCorrect: false
-        },
-        { 
-          text: "Share if they seem friendly", 
-          isCorrect: false
-        },
-        { 
-          text: "Verify before sharing information", 
-          isCorrect: true
-        },
-        { 
-          text: "Share if they ask nicely", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    title: "Phishing Emails",
+    question: "What should you do with suspicious emails?",
+    options: [
+      { 
+        text: "Click on links in suspicious emails", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore suspicious emails", 
+        isCorrect: true
+      },
+      { 
+        text: "Reply to suspicious emails", 
+        isCorrect: false
+      },
+      { 
+        text: "Forward them to others", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "OTP Security",
+    question: "What should you do when someone asks for your OTP?",
+    options: [
+      { 
+        text: "Share the OTP if they claim to be from the bank", 
+        isCorrect: false
+      },
+      { 
+        text: "Share the OTP with friends", 
+        isCorrect: false
+      },
+      { 
+        text: "Refuse to share the OTP", 
+        isCorrect: true
+      },
+      { 
+        text: "Save the OTP in notes", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Job Scams",
+    question: "What should you do with job offers that seem too good to be true?",
+    options: [
+      { 
+        text: "Apply immediately", 
+        isCorrect: false
+      },
+      
+      { 
+        text: "Pay money to get the job", 
+        isCorrect: false
+      },
+      { 
+        text: "Share them with friends", 
+        isCorrect: false
+      },
+      { 
+        text: "Avoid job offers that seem too good", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 4,
+    title: "Scam Pop-ups",
+    question: "What should you do with suspicious pop-ups?",
+    options: [
+      { 
+        text: "Ignore suspicious pop-ups", 
+        isCorrect: true
+      },
+      { 
+        text: "Click on suspicious pop-ups", 
+        isCorrect: false
+      },
+      { 
+        text: "Enter information in pop-ups", 
+        isCorrect: false
+      },
+      { 
+        text: "Take a screenshot first", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Information Verification",
+    question: "What should you do before sharing personal information?",
+    options: [
+      { 
+        text: "Share information immediately", 
+        isCorrect: false
+      },
+      { 
+        text: "Share it if they seem friendly", 
+        isCorrect: false
+      },
+      { 
+        text: "Verify before sharing information", 
+        isCorrect: true
+      },
+      { 
+        text: "Share it if they ask nicely", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

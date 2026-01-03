@@ -29,7 +29,7 @@ const UpstanderSimulation = () => {
       options: [
         { 
           text: "Defend the victim and report the bullying", 
-          emoji: "🛡️", 
+          emoji: "😶", 
           isCorrect: true
         },
         { 
@@ -60,7 +60,7 @@ const UpstanderSimulation = () => {
         },
         { 
           text: "Stand up and report the bullying", 
-          emoji: "🛡️", 
+          emoji: "🙂", 
           isCorrect: true
         },
         { 
@@ -91,7 +91,7 @@ const UpstanderSimulation = () => {
         },
         { 
           text: "Defend them and report the hate", 
-          emoji: "🛡️", 
+          emoji: "🤓", 
           isCorrect: true
         },
         { 
@@ -107,7 +107,7 @@ const UpstanderSimulation = () => {
       options: [
         { 
           text: "Include them and report the bullying", 
-          emoji: "🛡️", 
+          emoji: "😄", 
           isCorrect: true
         },
         { 
@@ -144,12 +144,12 @@ const UpstanderSimulation = () => {
         },
         { 
           text: "Verify and share the truth", 
-          emoji: "✅", 
+          emoji: "🙂", 
           isCorrect: false
         },
         { 
           text: "Defend them and stop the rumor", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
       ]

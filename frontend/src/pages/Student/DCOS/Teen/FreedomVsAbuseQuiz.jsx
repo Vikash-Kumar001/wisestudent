@@ -42,21 +42,21 @@ const FreedomVsAbuseQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - free speech allows it", 
+          text: "free speech allows it", 
           emoji: "🗣️", 
           
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - it's harassment and abuse", 
+          text: "it's harassment and abuse", 
           emoji: "🙅", 
           
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - depends on context", 
+          text: "depends on context", 
           emoji: "🤔", 
           
           isCorrect: false
@@ -69,20 +69,20 @@ const FreedomVsAbuseQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - you can say anything", 
+          text: "you can say anything", 
           emoji: "🗣️", 
           isCorrect: false
         },
         
         { 
           id: "c", 
-          text: "Maybe - if it's true", 
+          text: "if it's true", 
           emoji: "🤔", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - it's defamation and harmful", 
+          text: "it's defamation and harmful", 
           emoji: "🙅", 
           isCorrect: true
         },
@@ -94,19 +94,19 @@ const FreedomVsAbuseQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - it's just words", 
+          text: "it's just words", 
           emoji: "🗣️", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - threats are illegal", 
+          text: "threats are illegal", 
           emoji: "🙅", 
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - if it's a joke", 
+          text: "if it's a joke", 
           emoji: "😏", 
           isCorrect: false
         }
@@ -118,20 +118,20 @@ const FreedomVsAbuseQuiz = () => {
       options: [
          { 
           id: "b", 
-          text: "No - it causes real harm", 
+          text: "it causes real harm", 
           emoji: "🙅", 
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Yes - it's just online", 
+          text: "it's just online", 
           emoji: "🗣️", 
           isCorrect: false
         },
        
         { 
           id: "c", 
-          text: "Maybe - depends on severity", 
+          text: "depends on severity", 
           emoji: "🤔", 
           isCorrect: false
         }
@@ -143,19 +143,19 @@ const FreedomVsAbuseQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - free speech protects everything", 
+          text: "free speech protects everything", 
           emoji: "🗣️", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - it causes harm and is not protected", 
+          text: "it causes harm and is not protected", 
           emoji: "🙅", 
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - if it's your opinion", 
+          text: "if it's your opinion", 
           emoji: "🤔", 
           isCorrect: false
         }

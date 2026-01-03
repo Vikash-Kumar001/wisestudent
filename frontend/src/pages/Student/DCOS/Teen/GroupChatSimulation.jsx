@@ -39,7 +39,7 @@ const GroupChatSimulation = () => {
         },
         { 
           text: "Defend the classmate", 
-          emoji: "🛡️",
+          emoji: "✊",
           isCorrect: true
         },
         { 
@@ -58,11 +58,7 @@ const GroupChatSimulation = () => {
           emoji: "😐",
           isCorrect: false
         },
-        { 
-          text: "Defend and report", 
-          emoji: "🛡️",
-          isCorrect: true
-        },
+        
         { 
           text: "Leave the chat", 
           emoji: "🚪",
@@ -72,7 +68,12 @@ const GroupChatSimulation = () => {
           text: "Laugh along", 
           emoji: "😂",
           isCorrect: false
-        }
+        },
+        { 
+          text: "Defend and report", 
+          emoji: "😄",
+          isCorrect: true
+        },
       ]
     },
     {
@@ -81,7 +82,7 @@ const GroupChatSimulation = () => {
       options: [
         { 
           text: "Stand up for them", 
-          emoji: "🛡️",
+          emoji: "🤔",
           isCorrect: true
         },
         { 
@@ -112,7 +113,7 @@ const GroupChatSimulation = () => {
         },
         { 
           text: "Defend and report discrimination", 
-          emoji: "🛡️",
+          emoji: "�",
           isCorrect: true
         },
         { 
@@ -143,7 +144,7 @@ const GroupChatSimulation = () => {
         },
         { 
           text: "Defend them and report", 
-          emoji: "🛡️",
+          emoji: "💪",
           isCorrect: true
         },
         { 

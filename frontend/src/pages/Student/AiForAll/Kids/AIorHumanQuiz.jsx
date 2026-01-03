@@ -77,16 +77,17 @@ const AIorHumanQuiz = () => {
       id: 3,
       text: "Who writes most news headlines today?",
       options: [
-        { 
-          id: "maybe", 
-          text: "Maybe", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
+        
         { 
           id: "human", 
           text: "Human", 
           emoji: "🧑", 
+          isCorrect: false
+        },
+        { 
+          id: "both", 
+          text: "both", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 

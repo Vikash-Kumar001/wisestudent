@@ -55,7 +55,7 @@ const EncourageAmbition = () => {
         { 
           id: "a", 
           text: "That's ambitious! Go for it and explore space careers.", 
-          emoji: "🚀",
+          emoji: "🙂",
           isCorrect: true
         },
         { 
@@ -85,13 +85,13 @@ const EncourageAmbition = () => {
         { 
           id: "a", 
           text: "Great! That's a creative career. Explore cooking and culinary school.", 
-          emoji: "👩‍🍳",
+          emoji: "👩",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Not a real job.", 
-          emoji: "❌",
+          emoji: "😐",
           isCorrect: false
         }
       ]
@@ -103,7 +103,7 @@ const EncourageAmbition = () => {
         { 
           id: "a", 
           text: "Wonderful! Teaching makes a real difference. Help others learn and grow.", 
-          emoji: "👩‍🏫",
+          emoji: "🤔",
           isCorrect: true
         },
         { 
@@ -130,18 +130,19 @@ const EncourageAmbition = () => {
           emoji: "💻",
           isCorrect: false
         },
-        { 
-          id: "a", 
-          text: "Cool! Tech is exciting. Learn coding and build projects.", 
-          emoji: "💻",
-          isCorrect: true
-        },
+        
         { 
           id: "c", 
           text: "Too complicated.", 
           emoji: "😕",
           isCorrect: false
-        }
+        },
+        { 
+          id: "a", 
+          text: "Cool! Tech is exciting. Learn coding and build projects.", 
+          emoji: "😎",
+          isCorrect: true
+        },
       ]
     },
     {
@@ -151,7 +152,7 @@ const EncourageAmbition = () => {
         { 
           id: "a", 
           text: "Amazing! Medicine helps people. Study hard and pursue your dream.", 
-          emoji: "👩‍⚕️",
+          emoji: "🙂",
           isCorrect: true
         },
         { 

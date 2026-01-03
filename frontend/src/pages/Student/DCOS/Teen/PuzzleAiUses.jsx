@@ -64,11 +64,11 @@ const PuzzleAiUses = () => {
 
   // Uses - shuffled order to make it harder
   const rightItems = [
-    { id: 1, name: "Medical Help", emoji: "🏥",  },
-    { id: 2, name: "Translate", emoji: "🌐",  },
+    { id: 1, name: "Medical Help", emoji: "🙂",  },
+    { id: 2, name: "Translate", emoji: "🤓",  },
     { id: 3, name: "Fake Video", emoji: "⚠️",  },
-    { id: 4, name: "Customer Service", emoji: "💬",  },
-    { id: 5, name: "Creative Art", emoji: "🎨",  }
+    { id: 5, name: "Creative Art", emoji: "😄",  },
+    { id: 4, name: "Customer Service", emoji: "😑",  },
   ];
 
   // Correct matches

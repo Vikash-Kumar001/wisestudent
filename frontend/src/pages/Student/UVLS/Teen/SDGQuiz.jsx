@@ -55,7 +55,7 @@ const SDGQuiz = () => {
         { 
           id: "a", 
           text: "Clean Water and Sanitation", 
-          emoji: "💧",
+          emoji: "😄",
           isCorrect: true
         },
         { 
@@ -85,7 +85,7 @@ const SDGQuiz = () => {
         { 
           id: "a", 
           text: "Climate Action", 
-          emoji: "🌳",
+          emoji: "🌐",
           isCorrect: true
         },
         { 
@@ -103,7 +103,7 @@ const SDGQuiz = () => {
         { 
           id: "a", 
           text: "Zero Hunger", 
-          emoji: "🍽️",
+          emoji: "0️⃣",
           isCorrect: true
         },
         { 
@@ -133,7 +133,7 @@ const SDGQuiz = () => {
         { 
           id: "a", 
           text: "Quality Education", 
-          emoji: "📚",
+          emoji: "🤓",
           isCorrect: true
         },
         { 
@@ -151,7 +151,7 @@ const SDGQuiz = () => {
         { 
           id: "a", 
           text: "Gender Equality", 
-          emoji: "⚖️",
+          emoji: "🟰",
           isCorrect: true
         },
         { 

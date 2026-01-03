@@ -27,47 +27,48 @@ const PosterTask2 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const stages = [
-    {
-      question: 'Which poster would best show "Use AI Wisely"?',
-      choices: [
-        { text: "Poster showing using AI for everything ⚡", correct: false },
-        { text: "Poster showing responsible and wise use of AI 🤖", correct: true },
-        { text: "Poster showing never using AI 🚫", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Think Before You Click"?',
-      choices: [
-        { text: "Poster showing clicking everything 🖱️", correct: false },
-        { text: "Poster showing never clicking ❌", correct: false },
-        { text: "Poster showing thinking carefully before clicking 🧠", correct: true },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Humans Guide AI"?',
-      choices: [
-        { text: "Poster showing humans controlling and guiding AI 👩‍🏫", correct: true },
-        { text: "Poster showing AI controlling everything 🤖", correct: false },
-        { text: "Poster showing ignoring AI 🙈", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "AI is a Tool, Not a Rule"?',
-      choices: [
-        { text: "Poster showing AI making all decisions 🎯", correct: false },
-        { text: "Poster showing AI as a helpful tool 🛠️", correct: true },
-        { text: "Poster showing never using tools 🚫", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Be Smart, Not Just Smart Bot"?',
-      choices: [
-        { text: "Poster showing only using bots 🤖", correct: false },
-        { text: "Poster showing never being smart 😴", correct: false },
-        { text: "Poster showing human intelligence and smart thinking ⚡", correct: true },
-      ],
-    },
-  ];
+  {
+    question: 'Which poster would best show "Protect Your Privacy Online"?',
+    choices: [
+      { text: "Poster showing sharing everything publicly 🌐", correct: false },
+      { text: "Poster showing keeping personal info safe 🔒", correct: true },
+      { text: "Poster showing ignoring privacy settings ⚙️", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Be Kind in Comments"?',
+    choices: [
+      { text: "Poster showing mean and rude comments 😡", correct: false },
+      { text: "Poster showing ignoring everyone online 👀", correct: false },
+      { text: "Poster showing positive and helpful comments 💬", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Verify Before Sharing"?',
+    choices: [
+      { text: "Poster showing checking facts first 🔍", correct: true },
+      { text: "Poster showing sharing without checking 🏃", correct: false },
+      { text: "Poster showing deleting all messages 🗑️", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Respect Everyone’s Work Online"?',
+    choices: [
+      { text: "Poster showing copying work without credit 📋", correct: false },
+      { text: "Poster showing ignoring creative work 🚫", correct: false },
+      { text: "Poster showing giving credit to creators ✨", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Think Before You Post"?',
+    choices: [
+      { text: "Poster showing reflecting before posting 🧠", correct: true },
+      { text: "Poster showing posting immediately without thinking ⚡", correct: false },
+      { text: "Poster showing deleting posts randomly 🗑️", correct: false },
+    ],
+  },
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

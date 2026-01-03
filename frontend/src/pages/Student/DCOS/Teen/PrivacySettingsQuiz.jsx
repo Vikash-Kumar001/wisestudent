@@ -68,7 +68,7 @@ const PrivacySettingsQuiz = () => {
         { 
           id: "b", 
           text: "No - keep location private", 
-          emoji: "🔒", 
+          emoji: "🙂", 
           isCorrect: true
         },
         { 
@@ -98,7 +98,7 @@ const PrivacySettingsQuiz = () => {
         { 
           id: "b", 
           text: "Only approved friends", 
-          emoji: "🔐", 
+          emoji: "😐", 
           isCorrect: true
         }
       ]
@@ -110,7 +110,7 @@ const PrivacySettingsQuiz = () => {
         { 
           id: "b", 
           text: "No - keep posts private", 
-          emoji: "🔒", 
+          emoji: "😑", 
           isCorrect: true
         },
         { 
@@ -146,7 +146,7 @@ const PrivacySettingsQuiz = () => {
         { 
           id: "b", 
           text: "Private - only approved friends", 
-          emoji: "🔐", 
+          emoji: "🤔", 
           isCorrect: true
         }
       ]

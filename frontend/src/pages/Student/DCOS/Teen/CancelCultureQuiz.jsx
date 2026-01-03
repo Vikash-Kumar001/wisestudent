@@ -49,14 +49,14 @@ const CancelCultureQuiz = () => {
         },
         { 
           id: "b", 
-          text: "Risky - old posts can resurface and cause problems", 
+          text: "old posts can resurface and cause problems", 
           emoji: "⚠️",
           
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - depends on context", 
+          text: "depends on context", 
           emoji: "❓",
           isCorrect: false
         }
@@ -68,13 +68,13 @@ const CancelCultureQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Safe - it's in the past", 
+          text: "it's in the past", 
           emoji: "🕐",
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "Risky - old posts can damage your reputation", 
+          text: "old posts can damage your reputation", 
           emoji: "⚠️",
           isCorrect: true
         },
@@ -92,20 +92,20 @@ const CancelCultureQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Safe - people forget", 
+          text: "people forget", 
           emoji: "😪",
           isCorrect: false
         },
        
         { 
           id: "c", 
-          text: "Maybe - if it's not too bad", 
+          text: "if it's not too bad", 
           emoji: "🤔",
           isCorrect: false
         },
          { 
           id: "b", 
-          text: "Risky - can affect your opportunities", 
+          text: "can affect your opportunities", 
           emoji: "⚠️",
           isCorrect: true
         },
@@ -117,13 +117,13 @@ const CancelCultureQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Safe - you deleted it", 
+          text: "you deleted it", 
           emoji: "🗑️",
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "Risky - deleted posts can still be found and shared", 
+          text: "deleted posts can still be found and shared", 
           emoji: "⚠️",
           isCorrect: true
         },
@@ -139,25 +139,26 @@ const CancelCultureQuiz = () => {
       id: 5,
       text: "An old post that could be seen as offensive is discovered. Safe or risky?",
       options: [
-        { 
-          id: "b", 
-          text: "Risky - can lead to serious consequences", 
-          emoji: "⚠️",
-          isCorrect: true
-        },
+        
         { 
           id: "a", 
-          text: "Safe - it's just one post", 
+          text: "it's just one post", 
           emoji: "📝",
           isCorrect: false
         },
         
         { 
           id: "c", 
-          text: "Maybe - depends on who sees it", 
+          text: "depends on who sees it", 
           emoji: "👀",
           isCorrect: false
-        }
+        },
+        { 
+          id: "b", 
+          text: "can lead to serious consequences", 
+          emoji: "⚠️",
+          isCorrect: true
+        },
       ]
     }
   ];

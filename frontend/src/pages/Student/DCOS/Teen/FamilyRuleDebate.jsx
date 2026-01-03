@@ -23,131 +23,131 @@ const FamilyRuleDebate = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Are parents right to set screen limits?",
-      options: [
-        { 
-          id: "yes-healthy", 
-          text: "Yes - limits are healthy", 
-          emoji: "🙂", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "no-decide", 
-          text: "No - I should decide", 
-          emoji: "😤", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - depends on the rules", 
-          emoji: "🤔", 
-          
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Should there be screen-free times?",
-      options: [
-        { 
-          id: "sometimes", 
-          text: "Sometimes - only when parents say", 
-          emoji: "🤷", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "yes-meals-bed", 
-          text: "Yes - like during meals and before bed", 
-          emoji: "🙂", 
-          isCorrect: true
-        },
-        { 
-          id: "no-always", 
-          text: "No - I need my phone always", 
-          emoji: "📱", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Is it fair for parents to monitor screen time?",
-      options: [
-        { 
-          id: "maybe", 
-          text: "Maybe - depends on the method", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "no-privacy", 
-          text: "No - it's my privacy", 
-          emoji: "🔒", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-care", 
-          text: "Yes - they care about my wellbeing", 
-          emoji: "🙂", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Should devices be off during homework?",
-      options: [
-        { 
-          id: "sometimes", 
-          text: "Sometimes - for hard subjects", 
-          emoji: "📚", 
-          isCorrect: false
-        },
-        { 
-          id: "no-multitask", 
-          text: "No - I can multitask", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-focus", 
-          text: "Yes - it helps focus", 
-          emoji: "🙃", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Are family rules about screens helpful?",
-      options: [
-        { 
-          id: "maybe", 
-          text: "Maybe - if they're reasonable", 
-          emoji: "🤷", 
-          isCorrect: false
-        },
-        { 
-          id: "no-strict", 
-          text: "No - they're too strict", 
-          emoji: "😑", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-balance", 
-          text: "Yes - they teach balance", 
-          emoji: "🙂", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Your parents say no social media after 9 PM. You want to chat with friends. What’s the healthiest response?",
+    options: [
+     
+      { 
+        id: "sneak-chat", 
+        text: "Sneak messages without telling", 
+        emoji: "🤫", 
+        isCorrect: false
+      },
+       { 
+        id: "follow-rule", 
+        text: "Follow the rule and chat tomorrow", 
+        emoji: "😑", 
+        isCorrect: true
+      },
+      { 
+        id: "argue", 
+        text: "Argue why you should stay online", 
+        emoji: "😠", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "Family rule: Screens off during meals. You see something funny online. What should you do?",
+    options: [
+      { 
+        id: "respect-rule", 
+        text: "Wait until the meal ends", 
+        emoji: "🤔", 
+        isCorrect: true
+      },
+      { 
+        id: "check-anyway", 
+        text: "Quickly check while eating", 
+        emoji: "📱", 
+        isCorrect: false
+      },
+      { 
+        id: "share-story", 
+        text: "Tell friends online about your meal instead", 
+        emoji: "💬", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "Your parents ask you to limit gaming to 1 hour a day. You have homework and also want to play. What’s the best approach?",
+    options: [
+      
+      { 
+        id: "ignore-limit", 
+        text: "Play longer anyway", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "skip-homework", 
+        text: "Skip homework to play", 
+        emoji: "📝", 
+        isCorrect: false
+      },
+      { 
+        id: "balance", 
+        text: "Finish homework first, then play for 1 hour", 
+        emoji: "⚖️", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 4,
+    text: "Parents say no devices in your bedroom. You want privacy for study. What’s a smart choice?",
+    options: [
+      
+      { 
+        id: "hide-device", 
+        text: "Hide device in bedroom anyway", 
+        emoji: "🙈", 
+        isCorrect: false
+      },
+      { 
+        id: "study-common-area", 
+        text: "Use a shared area to study quietly", 
+        emoji: "🙂", 
+        isCorrect: true
+      },
+      { 
+        id: "complain", 
+        text: "Complain that rules are unfair", 
+        emoji: "😡", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "Family rule: Share online passwords only with parents. A friend asks for yours to play a game. What’s correct?",
+    options: [
+      { 
+        id: "tell-parent", 
+        text: "Tell parent instead of sharing", 
+        emoji: "🤓", 
+        isCorrect: true
+      },
+      { 
+        id: "share-friend", 
+        text: "Share just this once", 
+        emoji: "🤝", 
+        isCorrect: false
+      },
+      { 
+        id: "ignore-rule", 
+        text: "Ignore the rule and share", 
+        emoji: "🙃", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

@@ -133,7 +133,7 @@ const DebateStageTrolling = () => {
         { 
           id: "no-stand-up", 
           text: "No - stand up for what's right", 
-          emoji: "🛡️", 
+          emoji: "💪", 
           isCorrect: true
         },
         { 

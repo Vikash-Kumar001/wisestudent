@@ -23,123 +23,123 @@ const IdentityBadge = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const challenges = [
-    {
-      id: 1,
-      title: "Positive Achievements",
-      question: "What should you share on social media?",
-      options: [
-        { 
-          text: "Share only negative things", 
-          isCorrect: false
-        },
-        { 
-          text: "Post a positive achievement", 
-          isCorrect: true
-        },
-        { 
-          text: "Share everything", 
-          isCorrect: false
-        },
-        { 
-          text: "Don't share anything", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "Encouraging Messages",
-      question: "What kind of messages should you share?",
-      options: [
-        { 
-          text: "Share discouraging messages", 
-          isCorrect: false
-        },
-        { 
-          text: "Share mean comments", 
-          isCorrect: false
-        },
-        { 
-          text: "Share an encouraging message", 
-          isCorrect: true
-        },
-        { 
-          text: "Share negative thoughts", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "Negative Content",
-      question: "What should you do with negative content?",
-      options: [
-        { 
-          text: "Post negative content regularly", 
-          isCorrect: false
-        },
-        { 
-          text: "Avoid posting negative content", 
-          isCorrect: true
-        },
-        { 
-          text: "Share complaints publicly", 
-          isCorrect: false
-        },
-        { 
-          text: "Post mean comments", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Online Presence",
-      question: "How should you build your online presence?",
-      options: [
-        { 
-          text: "Build a respectful online presence", 
-          isCorrect: true
-        },
-        { 
-          text: "Build a negative presence", 
-          isCorrect: false
-        },
-        
-        { 
-          text: "Post disrespectful content", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore your online presence", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "Helping Others",
-      question: "How can you help others build positive identity?",
-      options: [
-        { 
-          text: "Discourage others", 
-          isCorrect: false
-        },
-        { 
-          text: "Share negative comments about others", 
-          isCorrect: false
-        },
-        { 
-          text: "Help others build positive identity", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore others' identity", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    title: "Positive Achievements",
+    question: "What should you share on social media?",
+    options: [
+      { 
+        text: "Share only negative things", 
+        isCorrect: false
+      },
+      { 
+        text: "Post a positive achievement", 
+        isCorrect: true
+      },
+      { 
+        text: "Share everything", 
+        isCorrect: false
+      },
+      { 
+        text: "Do not share anything", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Encouraging Messages",
+    question: "What kind of messages should you share?",
+    options: [
+      { 
+        text: "Share discouraging messages", 
+        isCorrect: false
+      },
+      { 
+        text: "Share mean comments", 
+        isCorrect: false
+      },
+      { 
+        text: "Share an encouraging message", 
+        isCorrect: true
+      },
+      { 
+        text: "Share negative thoughts", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Negative Content",
+    question: "What should you do with negative content?",
+    options: [
+      { 
+        text: "Post negative content regularly", 
+        isCorrect: false
+      },
+      { 
+        text: "Avoid posting negative content", 
+        isCorrect: true
+      },
+      { 
+        text: "Share complaints publicly", 
+        isCorrect: false
+      },
+      { 
+        text: "Post mean comments", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Online Presence",
+    question: "How should you build your online presence?",
+    options: [
+      { 
+        text: "Build a respectful online presence", 
+        isCorrect: true
+      },
+      { 
+        text: "Build a negative presence", 
+        isCorrect: false
+      },
+      { 
+        text: "Post disrespectful content", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore your online presence", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Helping Others",
+    question: "How can you help others build a positive identity?",
+    options: [
+      { 
+        text: "Discourage others", 
+        isCorrect: false
+      },
+      { 
+        text: "Share negative comments about others", 
+        isCorrect: false
+      },
+      { 
+        text: "Help others build a positive identity", 
+        isCorrect: true
+      },
+      { 
+        text: "Ignore others' identity", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

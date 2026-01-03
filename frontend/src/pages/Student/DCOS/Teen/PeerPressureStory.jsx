@@ -31,7 +31,7 @@ const PeerPressureStory = () => {
         { 
           id: "refuse", 
           text: "Refuse and stand up against trolling", 
-          emoji: "🛡️", 
+          emoji: "🙂", 
           
           isCorrect: true
         },
@@ -62,7 +62,7 @@ const PeerPressureStory = () => {
         { 
           id: "stop", 
           text: "Refuse and stop the rumor", 
-          emoji: "🛡️", 
+          emoji: "😐", 
           isCorrect: true
         },
         { 
@@ -92,7 +92,7 @@ const PeerPressureStory = () => {
         { 
           id: "defend", 
           text: "Refuse and defend the person", 
-          emoji: "🛡️", 
+          emoji: "🙂", 
           isCorrect: true
         }
       ]
@@ -104,7 +104,7 @@ const PeerPressureStory = () => {
         { 
           id: "include", 
           text: "Refuse and include everyone", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 
@@ -134,7 +134,7 @@ const PeerPressureStory = () => {
         { 
           id: "report", 
           text: "Refuse and report the bullying", 
-          emoji: "🛡️", 
+          emoji: "😑", 
           isCorrect: true
         },
         { 

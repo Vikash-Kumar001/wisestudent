@@ -26,48 +26,49 @@ const PosterTask4 = () => {
   const [answered, setAnswered] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const stages = [
-    {
-      question: 'Which poster would best show "Use Tech to Learn"?',
-      choices: [
-        { text: "Poster showing tech is only for games 🎮", correct: false },
-        { text: "Poster showing using technology for learning and education 📚", correct: true },
-        { text: "Poster showing not using tech at all 🚫", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Be Smart, Learn Online"?',
-      choices: [
-        { text: "Poster showing online is only for fun 😄", correct: false },
-        { text: "Poster showing never learning online 🙅", correct: false },
-        { text: "Poster showing learning and being smart online 💡", correct: true },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Technology = Knowledge"?',
-      choices: [
-        { text: "Poster showing technology as a tool for knowledge 🌐", correct: true },
-        { text: "Poster showing tech is useless 😒", correct: false },
-        { text: "Poster showing only books matter 📖", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Explore the World with Tech"?',
-      choices: [
-        { text: "Poster showing staying home only 🏠", correct: false },
-        { text: "Poster showing exploring and learning with technology 🌍", correct: true },
-        { text: "Poster showing tech is dangerous ⚠️", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Learn, Create, Inspire"?',
-      choices: [
-        { text: "Poster showing just watching videos 📺", correct: false },
-        { text: "Poster showing not creating anything 🚫", correct: false },
-        { text: "Poster showing learning, creating, and inspiring with tech 💻", correct: true },
-      ],
-    },
-  ];
+const stages = [
+  {
+    question: 'Which poster would best show "Protect Your Personal Information"?',
+    choices: [
+      { text: "Poster showing sharing passwords with friends", correct: false },
+      { text: "Poster showing posting phone numbers publicly", correct: false },
+      { text: "Poster showing keeping personal details private", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Ask an Adult When Unsure Online"?',
+    choices: [
+      { text: "Poster showing asking a trusted adult for help", correct: true },
+      { text: "Poster showing handling problems alone online", correct: false },
+      { text: "Poster showing ignoring confusing situations", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Choose Games That Are Right for Your Age"?',
+    choices: [
+      { text: "Poster showing playing any game without checking", correct: false },
+      { text: "Poster showing selecting age-appropriate games", correct: true },
+      { text: "Poster showing avoiding all games completely", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Technology Can Help Solve Problems"?',
+    choices: [
+      { text: "Poster showing technology creating problems only", correct: false },
+      { text: "Poster showing problems should never use technology", correct: false },
+      { text: "Poster showing using technology to solve daily problems", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Be Responsible in Digital Spaces"?',
+    choices: [
+      { text: "Poster showing careless behavior online", correct: false },
+      { text: "Poster showing thoughtful and responsible online actions", correct: true },
+      { text: "Poster showing copying others without thinking", correct: false },
+    ],
+  },
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;
