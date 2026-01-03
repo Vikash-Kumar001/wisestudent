@@ -27,62 +27,62 @@ const ReflexPeaceSymbols = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "🕊️ Dove",
-      correctAnswer: "Peaceful",
-      options: [
-        { text: "Peaceful", isCorrect: true, emoji: "☮️" },
-        { text: "Violent", isCorrect: false, emoji: "⚔️" },
-        { text: "Neutral", isCorrect: false, emoji: "😐" },
-        { text: "Uncertain", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 2,
-      question: "💣 Bomb",
-      correctAnswer: "Violent",
-      options: [
-        { text: "Peaceful", isCorrect: false, emoji: "☮️" },
-        { text: "Violent", isCorrect: true, emoji: "⚔️" },
-        { text: "Neutral", isCorrect: false, emoji: "😐" },
-        { text: "Uncertain", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 3,
-      question: "☮️ Peace Sign",
-      correctAnswer: "Peaceful",
-      options: [
-        { text: "Neutral", isCorrect: false, emoji: "😐" },
-        { text: "Uncertain", isCorrect: false, emoji: "🤷" },
-        { text: "Peaceful", isCorrect: true, emoji: "☮️" },
-        { text: "Violent", isCorrect: false, emoji: "⚔️" }
-      ]
-    },
-    {
-      id: 4,
-      question: "🤝 Handshake",
-      correctAnswer: "Peaceful",
-      options: [
-        { text: "Peaceful", isCorrect: true, emoji: "☮️" },
-        { text: "Violent", isCorrect: false, emoji: "⚔️" },
-        { text: "Neutral", isCorrect: false, emoji: "😐" },
-        { text: "Uncertain", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 5,
-      question: "⚔️ Swords",
-      correctAnswer: "Violent",
-      options: [
-        { text: "Neutral", isCorrect: false, emoji: "😐" },
-        { text: "Uncertain", isCorrect: false, emoji: "🤷" },
-        { text: "Peaceful", isCorrect: false, emoji: "☮️" },
-        { text: "Violent", isCorrect: true, emoji: "⚔️" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "A group raises white flags during a conflict. What does this action represent?",
+    correctAnswer: "A request to stop fighting and communicate",
+    options: [
+      { text: "A sign of weakness that invites attack", isCorrect: false, emoji: "⚔️" },
+      { text: "A symbol of surrender without discussion", isCorrect: false, emoji: "🚩" },
+      { text: "A request to stop fighting and communicate", isCorrect: true, emoji: "🕊️" },
+      { text: "An unclear action with no meaning", isCorrect: false, emoji: "❓" }
+    ]
+  },
+  {
+    id: 2,
+    question: "A protest remains silent but blocks a road to demand justice. What kind of peace message does this send?",
+    correctAnswer: "Non-violent resistance to highlight injustice",
+    options: [
+      { text: "Aggressive behavior that promotes chaos", isCorrect: false, emoji: "🔥" },
+      { text: "Non-violent resistance to highlight injustice", isCorrect: true, emoji: "✊" },
+      { text: "Neutral action without moral impact", isCorrect: false, emoji: "😐" },
+      { text: "Violence without physical harm", isCorrect: false, emoji: "⚠️" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Two rival groups agree to a handshake after a heated argument. What does this most strongly symbolize?",
+    correctAnswer: "A willingness to resolve conflict peacefully",
+    options: [
+      { text: "A willingness to resolve conflict peacefully", isCorrect: true, emoji: "🤝" },
+      { text: "Pretending to agree while planning revenge", isCorrect: false, emoji: "🗡️" },
+      { text: "A neutral social gesture without meaning", isCorrect: false, emoji: "😶" },
+      { text: "An act that avoids responsibility", isCorrect: false, emoji: "🚪" }
+    ]
+  },
+  {
+    id: 4,
+    question: "A mural shows broken chains instead of weapons. What peace-related idea does this most likely express?",
+    correctAnswer: "Freedom from oppression through non-violence",
+    options: [
+      { text: "Encouragement to destroy authority", isCorrect: false, emoji: "💣" },
+      { text: "Celebration of past violence", isCorrect: false, emoji: "⚔️" },
+      { text: "Unclear artistic decoration", isCorrect: false, emoji: "🎨" },
+      { text: "Freedom from oppression through non-violence", isCorrect: true, emoji: "🔗" },
+    ]
+  },
+  {
+    id: 5,
+    question: "A leader chooses dialogue instead of retaliation after an attack. What does this decision reflect?",
+    correctAnswer: "Peace as a strategic and moral choice",
+    options: [
+      { text: "Peace as a strategic and moral choice", isCorrect: true, emoji: "☮️" },
+      { text: "Fear of confrontation", isCorrect: false, emoji: "😨" },
+      { text: "Avoidance of responsibility", isCorrect: false, emoji: "🙈" },
+      { text: "Lack of leadership strength", isCorrect: false, emoji: "❌" }
+    ]
+  }
+];
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

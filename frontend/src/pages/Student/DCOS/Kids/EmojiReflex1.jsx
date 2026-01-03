@@ -29,62 +29,63 @@ const EmojiReflex1 = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "I love playing with my friends! - Is this positive or rude?",
-      correctAnswer: "Positive - Tap",
-      options: [
-        { text: "Positive - Tap", isCorrect: true, emoji: "😊" },
-        { text: "Rude - Ignore", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "You look so weird today! - Is this positive or rude?",
-      correctAnswer: "Rude - Ignore",
-      options: [
-        { text: "Positive - Tap", isCorrect: false, emoji: "😊" },
-        { text: "Rude - Ignore", isCorrect: true, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Congrats on your new puppy! - Is this positive or rude?",
-      correctAnswer: "Positive - Tap",
-      options: [
-        { text: "Positive - Tap", isCorrect: true, emoji: "😊" },
-        { text: "Rude - Ignore", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "That's such a dumb idea! - Is this positive or rude?",
-      correctAnswer: "Rude - Ignore",
-      options: [
-        { text: "Positive - Tap", isCorrect: false, emoji: "😊" },
-        { text: "Rude - Ignore", isCorrect: true, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Had a great match today! ⚽ - Is this positive or rude?",
-      correctAnswer: "Positive - Tap",
-      options: [
-        { text: "Positive - Tap", isCorrect: true, emoji: "😊" },
-        { text: "Rude - Ignore", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Your friend shares their art online. How should you respond?",
+    correctAnswer: "Encourage them politely",
+    options: [
+      { text: "Make fun of it", isCorrect: false, emoji: "😏" },
+      { text: "Ignore it completely", isCorrect: false, emoji: "🙈" },
+      { text: "Encourage them politely", isCorrect: true, emoji: "🎨" },
+      { text: "Copy their art", isCorrect: false, emoji: "✏️" }
+    ]
+  },
+  {
+    id: 2,
+    question: "Someone sends you a link asking for your password. What should you do?",
+    correctAnswer: "Do not share and report",
+    options: [
+      { text: "Do not share and report", isCorrect: true, emoji: "🛡️" },
+      { text: "Share it quickly", isCorrect: false, emoji: "💻" },
+      { text: "Ignore but click the link", isCorrect: false, emoji: "🔗" },
+      { text: "Tell a friend only", isCorrect: false, emoji: "👥" }
+    ]
+  },
+  {
+    id: 3,
+    question: "A classmate posts something mean about you online. What is the right action?",
+    correctAnswer: "Talk to a trusted adult",
+    options: [
+      { text: "Post something mean back", isCorrect: false, emoji: "😡" },
+      { text: "Share their post with others", isCorrect: false, emoji: "📤" },
+      { text: "Block them silently", isCorrect: false, emoji: "🚫" },
+      { text: "Talk to a trusted adult", isCorrect: true, emoji: "👨‍🏫" },
+    ]
+  },
+  {
+    id: 4,
+    question: "You see a friend struggling with homework online. How do you respond?",
+    correctAnswer: "Offer help respectfully",
+    options: [
+      { text: "Laugh at their mistake", isCorrect: false, emoji: "😂" },
+      { text: "Offer help respectfully", isCorrect: true, emoji: "✏️" },
+      { text: "Ignore them", isCorrect: false, emoji: "🙈" },
+      { text: "Do it for them without asking", isCorrect: false, emoji: "📝" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Someone shares exciting news about their achievement. How should you react online?",
+    correctAnswer: "Celebrate with them",
+    options: [
+      { text: "Ignore and scroll past", isCorrect: false, emoji: "📱" },
+      { text: "Say it’s not a big deal", isCorrect: false, emoji: "😐" },
+      { text: "Celebrate with them", isCorrect: true, emoji: "🎉" },
+      { text: "Compare your achievements", isCorrect: false, emoji: "📊" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

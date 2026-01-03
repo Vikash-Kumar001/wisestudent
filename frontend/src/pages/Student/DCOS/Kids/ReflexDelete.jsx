@@ -29,62 +29,63 @@ const ReflexDelete = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "You see a silly selfie with toothpaste on face 😜 - Should you delete it before posting?",
-      correctAnswer: "Yes, Delete",
-      options: [
-        { text: "No, Post it", isCorrect: false, emoji: "📤" },
-        { text: "Yes, Delete", isCorrect: true, emoji: "🗑️" },
-        { text: "Ask friends first", isCorrect: false, emoji: "💬" },
-        { text: "Save for later", isCorrect: false, emoji: "💾" }
-      ]
-    },
-    {
-      id: 2,
-      question: "You see a weird dance pose caught on camera 🥴 - Should you delete it before posting?",
-      correctAnswer: "Yes, Delete",
-      options: [
-        { text: "No, Post it", isCorrect: false, emoji: "📤" },
-        { text: "Edit it first", isCorrect: false, emoji: "✂️" },
-        { text: "Share privately", isCorrect: false, emoji: "🔒" },
-        { text: "Yes, Delete", isCorrect: true, emoji: "🗑️" }
-      ]
-    },
-    {
-      id: 3,
-      question: "You see a funny face photo before school 🤪 - Should you delete it before posting?",
-      correctAnswer: "Yes, Delete",
-      options: [
-        { text: "Yes, Delete", isCorrect: true, emoji: "🗑️" },
-        { text: "No, Post it", isCorrect: false, emoji: "📤" },
-        { text: "Post with filter", isCorrect: false, emoji: "🎨" },
-        { text: "Ask permission", isCorrect: false, emoji: "🙏" }
-      ]
-    },
-    {
-      id: 4,
-      question: "You see a messy hair Monday picture 😅 - Should you delete it before posting?",
-      correctAnswer: "Yes, Delete",
-      options: [
-        { text: "No, Post it", isCorrect: false, emoji: "📤" },
-        { text: "Post as joke", isCorrect: false, emoji: "😆" },
-        { text: "Yes, Delete", isCorrect: true, emoji: "🗑️" },
-        { text: "Tag friends", isCorrect: false, emoji: "🏷️" }
-      ]
-    },
-    {
-      id: 5,
-      question: "You see a goofy group photo with friends 🙈 - Should you delete it before posting?",
-      correctAnswer: "Yes, Delete",
-      options: [
-        { text: "No, Post it", isCorrect: false, emoji: "📤" },
-        { text: "Post with caption", isCorrect: false, emoji: "✍️" },
-        { text: "Ask everyone first", isCorrect: false, emoji: "👥" },
-        { text: "Yes, Delete", isCorrect: true, emoji: "🗑️" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "You find a screenshot showing a classmate’s private chat. What is the safest action?",
+    correctAnswer: "Remove it immediately",
+    options: [
+      { text: "Share it for fun", isCorrect: false, emoji: "📤" },
+      { text: "Remove it immediately", isCorrect: true, emoji: "🗂️" },
+      { text: "Keep it as proof", isCorrect: false, emoji: "📁" },
+      { text: "Send to others", isCorrect: false, emoji: "🔁" }
+    ]
+  },
+  {
+    id: 2,
+    question: "You typed an angry comment but haven’t posted it yet. What should you do?",
+    correctAnswer: "Clear the message",
+    options: [
+      { text: "Post it quickly", isCorrect: false, emoji: "⚡" },
+      { text: "Rewrite it stronger", isCorrect: false, emoji: "✍️" },
+      { text: "Clear the message", isCorrect: true, emoji: "🧹" },
+      { text: "Save it for later", isCorrect: false, emoji: "💾" }
+    ]
+  },
+  {
+    id: 3,
+    question: "You see an old post that shares your school name publicly. What’s the smart reflex?",
+    correctAnswer: "Delete the post",
+    options: [
+      { text: "Ignore it forever", isCorrect: false, emoji: "🙈" },
+      { text: "Edit comments only", isCorrect: false, emoji: "🛠️" },
+      { text: "Add more details", isCorrect: false, emoji: "➕" },
+      { text: "Delete the post", isCorrect: true, emoji: "📄" },
+    ]
+  },
+  {
+    id: 4,
+    question: "A photo includes a friend who didn’t agree to be posted. What is the right choice?",
+    correctAnswer: "Remove the image",
+    options: [
+      { text: "Remove the image", isCorrect: true, emoji: "🧺" },
+      { text: "Post without tagging", isCorrect: false, emoji: "🏷️" },
+      { text: "Blur nothing", isCorrect: false, emoji: "👀" },
+      { text: "Wait and forget", isCorrect: false, emoji: "⏳" },
+    ]
+  },
+  {
+    id: 5,
+    question: "You saved a file from an unknown sender. It feels unsafe. What should you do?",
+    correctAnswer: "Delete without opening",
+    options: [
+      { text: "Open out of curiosity", isCorrect: false, emoji: "🔍" },
+      { text: "Forward to friends", isCorrect: false, emoji: "📨" },
+      { text: "Delete without opening", isCorrect: true, emoji: "🚫" },
+      { text: "Rename and keep", isCorrect: false, emoji: "📝" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

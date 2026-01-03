@@ -42,14 +42,14 @@ const DeepfakeQuiz = () => {
       options: [
         { 
           id: "b", 
-          text: "Fake - verify with official sources", 
+          text: "verify with official sources", 
           emoji: "⚠️", 
           
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Real - politicians say things", 
+          text: "politicians say things", 
           emoji: "🙂", 
           
           isCorrect: false
@@ -57,7 +57,7 @@ const DeepfakeQuiz = () => {
         
         { 
           id: "c", 
-          text: "Share it - it's interesting", 
+          text: "it's interesting", 
           emoji: "📤", 
           
           isCorrect: false
@@ -70,19 +70,19 @@ const DeepfakeQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Real - it looks real", 
+          text: "it looks real", 
           emoji: "🙂", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "Fake - it's a deepfake", 
+          text: "it's a deepfake", 
           emoji: "⚠️", 
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - check later", 
+          text: "check later", 
           emoji: "🤔", 
           isCorrect: false
         }
@@ -94,20 +94,20 @@ const DeepfakeQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Real - people move weird", 
+          text: "people move weird", 
           emoji: "🙂", 
           isCorrect: false
         },
         
         { 
           id: "c", 
-          text: "Not sure - share anyway", 
+          text: "share anyway", 
           emoji: "📤", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "Fake - unnatural movements indicate deepfake", 
+          text: "unnatural movements indicate deepfake", 
           emoji: "⚠️", 
           isCorrect: true
         },
@@ -119,20 +119,20 @@ const DeepfakeQuiz = () => {
       options: [
          { 
           id: "b", 
-          text: "Fake - verify with official news sources", 
+          text: "verify with official news sources", 
           emoji: "⚠️", 
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Real - news anchors say things", 
+          text: "news anchors say things", 
           emoji: "🙂", 
           isCorrect: false
         },
        
         { 
           id: "c", 
-          text: "Share it - it's news", 
+          text: "it's news", 
           emoji: "📤", 
           isCorrect: false
         }
@@ -144,22 +144,23 @@ const DeepfakeQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Real - technical glitch", 
+          text: "technical glitch", 
           emoji: "🙂", 
+          isCorrect: false
+        },
+        
+        { 
+          id: "c", 
+          text: "depends on quality", 
+          emoji: "🤔", 
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "Fake - mismatched lips indicate deepfake", 
+          text: "mismatched lips indicate deepfake", 
           emoji: "⚠️", 
           isCorrect: true
         },
-        { 
-          id: "c", 
-          text: "Maybe - depends on quality", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
       ]
     }
   ];

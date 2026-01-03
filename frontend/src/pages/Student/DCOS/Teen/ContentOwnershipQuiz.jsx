@@ -42,21 +42,21 @@ const ContentOwnershipQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - it's fine", 
+          text: "it's fine", 
           emoji: "🙂",
           
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - that's copyright violation", 
+          text: "that's copyright violation", 
           emoji: "🚫",
           
           isCorrect: true
         },
         { 
           id: "c", 
-          text: "Maybe - if you credit them", 
+          text: "if you credit them", 
           emoji: "❓",
           
           isCorrect: false
@@ -69,7 +69,7 @@ const ContentOwnershipQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - photos are free to use", 
+          text: "photos are free to use", 
           emoji: "📷",
           isCorrect: false
         },
@@ -82,7 +82,7 @@ const ContentOwnershipQuiz = () => {
         },
         { 
           id: "b", 
-          text: "No - you need permission", 
+          text: "you need permission", 
           emoji: "🔐",
           isCorrect: true
         },
@@ -94,20 +94,20 @@ const ContentOwnershipQuiz = () => {
       options: [
          { 
           id: "b", 
-          text: "No - that's stealing their work", 
+          text: "that's stealing their work", 
           emoji: "🚫",
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Yes - if it's good", 
+          text: "if it's good", 
           emoji: "🎨",
           isCorrect: false
         },
        
         { 
           id: "c", 
-          text: "Maybe - if no one sees", 
+          text: "if no one sees", 
           emoji: "🙈",
           isCorrect: false
         }
@@ -119,13 +119,13 @@ const ContentOwnershipQuiz = () => {
       options: [
         { 
           id: "a", 
-          text: "Yes - music is free", 
+          text: "music is free", 
           emoji: "🎵",
           isCorrect: false
         },
         { 
           id: "b", 
-          text: "No - that's copyright infringement", 
+          text: "that's copyright infringement", 
           emoji: "🚫",
           isCorrect: true
         },
@@ -143,13 +143,13 @@ const ContentOwnershipQuiz = () => {
       options: [
         { 
           id: "b", 
-          text: "No - always credit the creator", 
+          text: "always credit the creator", 
           emoji: "✍️",
           isCorrect: true
         },
         { 
           id: "a", 
-          text: "Yes - words are free", 
+          text: "words are free", 
           emoji: "📝",
           isCorrect: false
         },

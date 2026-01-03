@@ -24,132 +24,128 @@ const EntrepreneurStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "You want to sell handmade crafts online. What's the smart approach?",
-      options: [
-        { 
-          id: "share-personal", 
-          text: "Share personal details with all buyers", 
-          emoji: "📤", 
-          
-          isCorrect: false
-        },
-       
-        { 
-          id: "meet-strangers", 
-          text: "Meet buyers in person alone", 
-          emoji: "👤", 
-          
-          isCorrect: false
-        },
-         { 
-          id: "use-safe-platform", 
-          text: "Use a safe platform and protect your privacy", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 2,
-      text: "A buyer asks for your home address to pick up items. What should you do?",
-      options: [
-        { 
-          id: "give-address", 
-          text: "Give your home address", 
-          emoji: "🏠", 
-          isCorrect: false
-        },
-        { 
-          id: "use-public-meeting", 
-          text: "Suggest a public meeting place", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "give-partial", 
-          text: "Give partial address", 
-          emoji: "📍", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Someone wants to pay you outside the platform and asks for your bank details. What's the right choice?",
-      options: [
-         { 
-          id: "use-platform-payment", 
-          text: "Use platform's secure payment system", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "share-bank", 
-          text: "Share bank details directly", 
-          emoji: "🏦", 
-          isCorrect: false
-        },
-       
-        { 
-          id: "cash-only", 
-          text: "Accept cash only", 
-          emoji: "💵", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "A buyer wants to communicate outside the platform and asks for your phone number. What should you do?",
-      options: [
-        { 
-          id: "give-phone", 
-          text: "Give your phone number", 
-          emoji: "📱", 
-          isCorrect: false
-        },
-        { 
-          id: "keep-on-platform", 
-          text: "Keep communication on the platform", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "give-email", 
-          text: "Give email instead", 
-          emoji: "📧", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "You're setting up your online shop. What's the safest approach?",
-      options: [
-        { 
-          id: "share-everything", 
-          text: "Share all personal information", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-       
-        { 
-          id: "trust-everyone", 
-          text: "Trust everyone who contacts you", 
-          emoji: "🤝", 
-          isCorrect: false
-        },
-         { 
-          id: "protect-privacy", 
-          text: "Protect your privacy and use safe practices", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You want to sell handmade crafts online. What is the smart approach?",
+    options: [
+      { 
+        id: "share-personal", 
+        text: "Share personal details with all buyers", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        id: "meet-strangers", 
+        text: "Meet buyers alone in person", 
+        emoji: "👤", 
+        isCorrect: false
+      },
+      { 
+        id: "use-safe-platform", 
+        text: "Use a safe platform and protect your privacy", 
+        emoji: "🔒", 
+        isCorrect: true
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "A buyer asks for your home address to pick up items. What should you do?",
+    options: [
+      { 
+        id: "give-address", 
+        text: "Give your home address", 
+        emoji: "🏠", 
+        isCorrect: false
+      },
+      { 
+        id: "use-public-meeting", 
+        text: "Suggest meeting in a public place", 
+        emoji: "😄", 
+        isCorrect: true
+      },
+      { 
+        id: "give-partial", 
+        text: "Give a partial address", 
+        emoji: "📍", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "Someone wants to pay you outside the platform and asks for your bank details. What is the right choice?",
+    options: [
+      { 
+        id: "use-platform-payment", 
+        text: "Use the platform's secure payment system", 
+        emoji: "💳", 
+        isCorrect: true
+      },
+      { 
+        id: "share-bank", 
+        text: "Share bank details directly", 
+        emoji: "🏦", 
+        isCorrect: false
+      },
+      { 
+        id: "cash-only", 
+        text: "Accept cash only", 
+        emoji: "💵", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "A buyer wants to communicate outside the platform and asks for your phone number. What should you do?",
+    options: [
+      { 
+        id: "give-phone", 
+        text: "Give your phone number", 
+        emoji: "📱", 
+        isCorrect: false
+      },
+      { 
+        id: "keep-on-platform", 
+        text: "Keep communication on the platform", 
+        emoji: "💬", 
+        isCorrect: true
+      },
+      { 
+        id: "give-email", 
+        text: "Give your email instead", 
+        emoji: "📧", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You are setting up your online shop. What is the safest approach?",
+    options: [
+      { 
+        id: "share-everything", 
+        text: "Share all personal information", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        id: "trust-everyone", 
+        text: "Trust everyone who contacts you", 
+        emoji: "🤝", 
+        isCorrect: false
+      },
+      { 
+        id: "protect-privacy", 
+        text: "Protect your privacy and use safe practices", 
+        emoji: "🔒", 
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

@@ -56,62 +56,63 @@ const SpotDistressReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "You see someone with hunched shoulders, avoiding eye contact, and looking sad. Is this a distress cue?",
-      correctAnswer: "Yes, distress",
-      options: [
-        { text: "Yes, distress", isCorrect: true, emoji: "😔" },
-        { text: "No distress", isCorrect: false, emoji: "😊" },
-        { text: "Not sure", isCorrect: false, emoji: "🤷" },
-        { text: "Maybe later", isCorrect: false, emoji: "⏰" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Someone is sweating, fidgeting with hands, and breathing rapidly. Is this a distress cue?",
-      correctAnswer: "Yes, distress",
-      options: [
-        { text: "No distress", isCorrect: false, emoji: "😌" },
-        { text: "Yes, distress", isCorrect: true, emoji: "😰" },
-        { text: "Just nervous", isCorrect: false, emoji: "😐" },
-        { text: "Maybe", isCorrect: false, emoji: "🤔" }
-      ]
-    },
-    {
-      id: 3,
-      question: "A peer has tears in their eyes and withdrawn body language. Is this a distress cue?",
-      correctAnswer: "Yes, distress",
-      options: [
-        { text: "Maybe", isCorrect: false, emoji: "🤔" },
-        { text: "No distress", isCorrect: false, emoji: "😊" },
-        { text: "Yes, distress", isCorrect: true, emoji: "😢" },
-        { text: "Not sure", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Someone has clenched fists, tense jaw, and furrowed brow. Is this a distress cue?",
-      correctAnswer: "Yes, distress",
-      options: [
-        { text: "Yes, distress", isCorrect: true, emoji: "😣" },
-        { text: "No distress", isCorrect: false, emoji: "😌" },
-        { text: "Just tired", isCorrect: false, emoji: "😴" },
-        { text: "Maybe", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 5,
-      question: "A student is biting nails, pacing, and looking worried. Is this a distress cue?",
-      correctAnswer: "Yes, distress",
-      options: [
-        { text: "No distress", isCorrect: false, emoji: "😊" },
-        { text: "Just thinking", isCorrect: false, emoji: "💭" },
-        { text: "Maybe", isCorrect: false, emoji: "🤔" },
-        { text: "Yes, distress", isCorrect: true, emoji: "😟" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "During a group discussion, a student suddenly goes silent, stops contributing, and keeps staring at the table while others speak. What does this behavior most likely signal?",
+    correctAnswer: "Emotional withdrawal indicating distress",
+    options: [
+      { text: "Focused listening", isCorrect: false, emoji: "👂" },
+      { text: "Emotional withdrawal indicating distress", isCorrect: true, emoji: "😶‍🌫️" },
+      { text: "Respect for others’ opinions", isCorrect: false, emoji: "🤝" },
+      { text: "Confidence and patience", isCorrect: false, emoji: "🧘" }
+    ]
+  },
+  {
+    id: 2,
+    question: "A classmate keeps checking the door, avoids sitting down, and reacts sharply to small noises during class. How should this be interpreted?",
+    correctAnswer: "Heightened anxiety or stress response",
+    options: [
+      { text: "High energy and excitement", isCorrect: false, emoji: "⚡" },
+      { text: "Lack of interest in class", isCorrect: false, emoji: "😑" },
+      { text: "Heightened anxiety or stress response", isCorrect: true, emoji: "😰" },
+      { text: "Habitual restlessness", isCorrect: false, emoji: "🔄" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Someone makes jokes about themselves failing or being useless and laughs it off when others react. What is the most concerning interpretation?",
+    correctAnswer: "Masked emotional distress using humor",
+    options: [
+      { text: "Masked emotional distress using humor", isCorrect: true, emoji: "🎭" },
+      { text: "Strong self-confidence", isCorrect: false, emoji: "😎" },
+      { text: "Attention-seeking behavior only", isCorrect: false, emoji: "📢" },
+      { text: "Healthy self-criticism", isCorrect: false, emoji: "🪞" }
+    ]
+  },
+  {
+    id: 4,
+    question: "A peer agrees to everything, avoids disagreement, and apologizes excessively even when not at fault. What does this pattern most likely reflect?",
+    correctAnswer: "Fear-driven distress and low emotional safety",
+    options: [
+      { text: "Strong teamwork skills", isCorrect: false, emoji: "🤝" },
+      { text: "Mature conflict management", isCorrect: false, emoji: "⚖️" },
+      { text: "Respectful communication style", isCorrect: false, emoji: "💬" },
+      { text: "Fear-driven distress and low emotional safety", isCorrect: true, emoji: "😟" },
+    ]
+  },
+  {
+    id: 5,
+    question: "A student suddenly shows a drop in academic performance, stops interacting with friends, and appears emotionally flat. What is the most accurate reflex response?",
+    correctAnswer: "Possible internal distress requiring attention",
+    options: [
+      { text: "Possible internal distress requiring attention", isCorrect: true, emoji: "🧠" },
+      { text: "Normal phase of independence", isCorrect: false, emoji: "🚶" },
+      { text: "Laziness or lack of effort", isCorrect: false, emoji: "😴" },
+      { text: "Temporary boredom with routine", isCorrect: false, emoji: "📆" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

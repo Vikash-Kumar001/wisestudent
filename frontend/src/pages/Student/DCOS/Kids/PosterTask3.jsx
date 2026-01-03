@@ -27,47 +27,48 @@ const PosterTask3 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const stages = [
-    {
-      question: 'Which poster would best show "Words Can Hurt or Heal"?',
-      choices: [
-        { text: "Poster showing words don't matter 😐", correct: false },
-        { text: "Poster showing the power of words to help or harm 💬", correct: true },
-        { text: "Poster showing only actions count 🤷", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Respect Everyone"?',
-      choices: [
-        { text: "Poster showing respecting only friends 👥", correct: false },
-        { text: "Poster showing respect doesn't matter 😒", correct: false },
-        { text: "Poster showing respecting all people equally 🌍", correct: true },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Online Kindness"?',
-      choices: [
-        { text: "Poster showing being kind and respectful online 💻", correct: true },
-        { text: "Poster showing being anonymous and mean 😈", correct: false },
-        { text: "Poster showing online doesn't count 🤷", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Think Before You Post"?',
-      choices: [
-        { text: "Poster showing posting everything 📤", correct: false },
-        { text: "Poster showing posting without thinking ⚡", correct: false },
-        { text: "Poster showing thinking carefully before posting 💭", correct: true },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Help Others Shine"?',
-      choices: [
-        { text: "Poster showing only helping yourself 😎", correct: false },
-        { text: "Poster showing not helping anyone 😤", correct: false },
-        { text: "Poster showing helping and supporting others ✨", correct: true },
-      ],
-    },
-  ];
+  {
+    question: 'Which poster would best show "Pause and Ask Before Sharing Photos"?',
+    choices: [
+      { text: "Poster showing sharing photos without asking", correct: false },
+      { text: "Poster showing never using photos online", correct: false },
+      { text: "Poster showing asking permission before sharing", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Not Everything Online Is True"?',
+    choices: [
+      { text: "Poster showing questioning and checking information", correct: true },
+      { text: "Poster showing believing every post", correct: false },
+      { text: "Poster showing ignoring all information", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Screens Need Balance"?',
+    choices: [
+      { text: "Poster showing screen use all day", correct: false },
+      { text: "Poster showing mixing screen time with offline activities", correct: true },
+      { text: "Poster showing avoiding screens forever", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Speak Up Against Online Bullying"?',
+    choices: [
+      { text: "Poster showing watching bullying silently", correct: false },
+      { text: "Poster showing joining the bullying", correct: false },
+      { text: "Poster showing reporting or telling a trusted adult", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster would best show "Your Digital Footprint Lasts"?',
+    choices: [
+      { text: "Poster showing thinking long-term before posting", correct: true },
+      { text: "Poster showing posts disappearing forever", correct: false },
+      { text: "Poster showing posting without care", correct: false },
+    ],
+  },
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

@@ -35,14 +35,14 @@ const DiversityQuiz = () => {
         { 
           id: "a", 
           text: "Defend them publicly and report the harassment", 
-          emoji: "🛡️", 
+          emoji: "🙂", 
           
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Ignore it - it's their problem", 
-          emoji: "😐", 
+          emoji: "�", 
           isCorrect: false
         },
         { 
@@ -66,7 +66,7 @@ const DiversityQuiz = () => {
         { 
           id: "b", 
           text: "Stand up and report the discrimination", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 
@@ -96,7 +96,7 @@ const DiversityQuiz = () => {
         { 
           id: "c", 
           text: "Defend them and report the bullying", 
-          emoji: "🛡️", 
+          emoji: "😑", 
           isCorrect: true
         }
       ]
@@ -108,7 +108,7 @@ const DiversityQuiz = () => {
         { 
           id: "a", 
           text: "Include them and stand against exclusion", 
-          emoji: "🛡️", 
+          emoji: "�", 
           isCorrect: true
         },
         { 
@@ -138,7 +138,7 @@ const DiversityQuiz = () => {
         { 
           id: "b", 
           text: "Support them publicly and report harassment", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 

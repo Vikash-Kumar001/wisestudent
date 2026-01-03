@@ -30,11 +30,7 @@ const AIDoctorSimulation = () => {
       title: "AI Medical Imaging",
       description: "An AI doctor looks at X-ray images to find problems. What is this AI most likely helping doctors find?",
       choices: [
-        { 
-          text: "Broken bones", 
-          emoji: "🦴",
-          isCorrect: true
-        },
+        
         { 
           text: "Weather patterns", 
           emoji: "☀️",
@@ -44,7 +40,17 @@ const AIDoctorSimulation = () => {
           text: "Car problems", 
           emoji: "🚗",
           isCorrect: false
-        }
+        },
+        { 
+          text: "Traffic signs", 
+          emoji: "🚦",
+          isCorrect: false
+        },
+        { 
+          text: "Broken bones", 
+          emoji: "🦴",
+          isCorrect: true
+        },
       ]
     },
     {
@@ -66,6 +72,11 @@ const AIDoctorSimulation = () => {
           text: "Playing video games", 
           emoji: "🎮",
           isCorrect: false
+        },
+        { 
+          text: "Planning vacation trips", 
+          emoji: "✈️",
+          isCorrect: false
         }
       ]
     },
@@ -74,7 +85,6 @@ const AIDoctorSimulation = () => {
       title: "AI Disease Detection",
       description: "A hospital uses AI to look at blood test results. What can the AI help doctors do better?",
       choices: [
-       
         { 
           text: "Cook meals for patients", 
           emoji: "🍲",
@@ -85,11 +95,16 @@ const AIDoctorSimulation = () => {
           emoji: "🧹",
           isCorrect: false
         },
-         { 
+        { 
           text: "Predict diseases early", 
           emoji: "🔬",
           isCorrect: true
         },
+        { 
+          text: "Organize patient appointments", 
+          emoji: "📅",
+          isCorrect: false
+        }
       ]
     },
     {
@@ -111,6 +126,11 @@ const AIDoctorSimulation = () => {
           text: "Write music for hospitals", 
           emoji: "🎵",
           isCorrect: false
+        },
+        { 
+          text: "Schedule doctor meetings", 
+          emoji: "📋",
+          isCorrect: false
         }
       ]
     },
@@ -119,7 +139,6 @@ const AIDoctorSimulation = () => {
       title: "AI Health Monitoring",
       description: "Smart watches can track your heart rate, sleep, and steps. How can AI help with this health data?",
       choices: [
-        
         { 
           text: "Make phone calls for you", 
           emoji: "📞",
@@ -135,6 +154,11 @@ const AIDoctorSimulation = () => {
           emoji: "📊",
           isCorrect: true
         },
+        { 
+          text: "Send messages to friends", 
+          emoji: "💬",
+          isCorrect: false
+        }
       ]
     }
   ];

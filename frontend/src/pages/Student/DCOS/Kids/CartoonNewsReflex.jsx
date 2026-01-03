@@ -29,62 +29,58 @@ const CartoonNewsReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "Duck becomes mayor of a city 🦆🏛️ - Is this real or fake news?",
-      correctAnswer: "Fake",
-      options: [
-        { text: "Real", isCorrect: false, emoji: "🙂" },
-        { text: "Fake", isCorrect: true, emoji: "🚫" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Kids plant trees to save local park 🌳 - Is this real or fake news?",
-      correctAnswer: "Real",
-      options: [
-        { text: "Real", isCorrect: true, emoji: "🙂" },
-        { text: "Fake", isCorrect: false, emoji: "🚫" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Robot eats 100 pizzas in one hour 🤖🍕 - Is this real or fake news?",
-      correctAnswer: "Fake",
-      options: [
-        { text: "Real", isCorrect: false, emoji: "🙂" },
-        { text: "Fake", isCorrect: true, emoji: "🚫" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "School wins award for clean energy project ⚡ - Is this real or fake news?",
-      correctAnswer: "Real",
-      options: [
-        { text: "Real", isCorrect: true, emoji: "🙂" },
-        { text: "Fake", isCorrect: false, emoji: "🚫" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Fish learns to play video games 🎮🐠 - Is this real or fake news?",
-      correctAnswer: "Fake",
-      options: [
-        { text: "Real", isCorrect: false, emoji: "🙂" },
-        { text: "Fake", isCorrect: true, emoji: "🚫" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "News Flash: A talking pencil gives homework advice on TV. Is this news believable?",
+    options: [
+      { text: "Must be true if on television", isCorrect: false, emoji: "📡" },
+      { text: "Could happen in every school", isCorrect: false, emoji: "🏫" },
+      { text: "Hard to tell without thinking", isCorrect: false, emoji: "🧩" },
+      { text: "Sounds made-up for fun", isCorrect: true, emoji: "😄" },
+    ]
+  },
+  {
+    id: 2,
+    question: "Cartoon Report: Students design an app to help classmates recycle better. Is this real news?",
+    options: [
+      { text: "Only adults can make apps", isCorrect: false, emoji: "🧓" },
+      { text: "Too boring to be news", isCorrect: false, emoji: "📰" },
+      { text: "Possible and helpful idea", isCorrect: true, emoji: "💡" },
+      { text: "Sounds like a cartoon joke", isCorrect: false, emoji: "🎨" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Breaking Cartoon News: A school bus grows wings and flies to class. What should you think?",
+    options: [
+      { text: "New buses can do anything", isCorrect: false, emoji: "🛠️" },
+      { text: "Clearly an imagination story", isCorrect: true, emoji: "🤔" },
+      { text: "Maybe it happens every morning", isCorrect: false, emoji: "⏰" },
+      { text: "Worth believing without doubt", isCorrect: false, emoji: "📢" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Daily News: Children organize a kindness day to stop online bullying. Is this realistic?",
+    options: [
+      { text: "Yes, kids can create change", isCorrect: true, emoji: "🙂" },
+      { text: "Only grown-ups solve problems", isCorrect: false, emoji: "🏢" },
+      { text: "Online kindness never works", isCorrect: false, emoji: "💬" },
+      { text: "News should be only about adults", isCorrect: false, emoji: "📖" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Cartoon Headline: A phone starts giving detention to students. How should you react?",
+    options: [
+      { text: "Technology decides all rules now", isCorrect: false, emoji: "⚙️" },
+      { text: "Devices can punish people", isCorrect: false, emoji: "📲" },
+      { text: "Phones cannot control schools", isCorrect: true, emoji: "📵" },
+      { text: "Sounds like normal school news", isCorrect: false, emoji: "🎒" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

@@ -91,7 +91,7 @@ const GossipChainSimulation = () => {
         },
         { 
           text: "Defend Alex and stop rumor", 
-          emoji: "🛡️", 
+          emoji: "💪", 
           isCorrect: true
         },
         { 

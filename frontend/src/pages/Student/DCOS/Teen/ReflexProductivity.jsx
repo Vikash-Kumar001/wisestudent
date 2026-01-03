@@ -34,62 +34,63 @@ const ReflexProductivity = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "An app helps you organize your school projects and deadlines. What should you do?",
-      correctAnswer: "Use Project Tool",
-      options: [
-        { text: "Use Project Tool", isCorrect: true, emoji: "📋" },
-        { text: "Avoid It", isCorrect: false, emoji: "🚫" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    },
-    {
-      id: 2,
-      question: "An app shows endless scrolling videos with no purpose. What should you do?",
-      correctAnswer: "Skip Endless Scroll",
-      options: [
-        { text: "Use It", isCorrect: false, emoji: "🙂" },
-        { text: "Skip Endless Scroll", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Like It", isCorrect: false, emoji: "👍" }
-      ]
-    },
-    {
-      id: 3,
-      question: "An app helps you learn coding skills step by step. What should you do?",
-      correctAnswer: "Use Project Tool",
-      options: [
-        { text: "Use Project Tool", isCorrect: true, emoji: "💻" },
-        { text: "Avoid It", isCorrect: false, emoji: "🚫" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    },
-    {
-      id: 4,
-      question: "An app shows random memes for hours with no learning value. What should you do?",
-      correctAnswer: "Skip Endless Scroll",
-      options: [
-        { text: "Use It", isCorrect: false, emoji: "🙂" },
-        { text: "Skip Endless Scroll", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Like It", isCorrect: false, emoji: "👍" }
-      ]
-    },
-    {
-      id: 5,
-      question: "An app helps you create a study schedule and track progress. What should you do?",
-      correctAnswer: "Use Project Tool",
-      options: [
-        { text: "Use Project Tool", isCorrect: true, emoji: "📚" },
-        { text: "Avoid It", isCorrect: false, emoji: "🚫" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "An app helps you organize your school projects and deadlines. What should you do?",
+    correctAnswer: "Use the project tool",
+    options: [
+      { text: "Avoid it", isCorrect: false, emoji: "🚫" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" },
+      { text: "Use the project tool", isCorrect: true, emoji: "📋" },
+    ]
+  },
+  {
+    id: 2,
+    question: "An app shows endless scrolling videos with no purpose. What should you do?",
+    correctAnswer: "Skip endless scrolling",
+    options: [
+      { text: "Use it", isCorrect: false, emoji: "🙂" },
+      { text: "Skip endless scrolling", isCorrect: true, emoji: "🚫" },
+      { text: "Share it", isCorrect: false, emoji: "📤" },
+      { text: "Like it", isCorrect: false, emoji: "👍" }
+    ]
+  },
+  {
+    id: 3,
+    question: "An app helps you learn coding skills step by step. What should you do?",
+    correctAnswer: "Use the learning tool",
+    options: [
+      { text: "Use the learning tool", isCorrect: true, emoji: "💻" },
+      { text: "Avoid it", isCorrect: false, emoji: "🚫" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" }
+    ]
+  },
+  {
+    id: 4,
+    question: "An app shows random memes for hours with no learning value. What should you do?",
+    correctAnswer: "Skip endless scrolling",
+    options: [
+      { text: "Use it", isCorrect: false, emoji: "🙂" },
+      { text: "Share it", isCorrect: false, emoji: "📤" },
+      { text: "Skip endless scrolling", isCorrect: true, emoji: "🚫" },
+      { text: "Like it", isCorrect: false, emoji: "👍" }
+    ]
+  },
+  {
+    id: 5,
+    question: "An app helps you create a study schedule and track progress. What should you do?",
+    correctAnswer: "Use the study tool",
+    options: [
+      { text: "Use the study tool", isCorrect: true, emoji: "📚" },
+      { text: "Avoid it", isCorrect: false, emoji: "🚫" },
+      { text: "Report it", isCorrect: false, emoji: "📢" },
+      { text: "Ignore it", isCorrect: false, emoji: "🙈" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

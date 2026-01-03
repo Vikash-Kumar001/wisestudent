@@ -23,143 +23,64 @@ const ProductivityHeroBadge = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const challenges = [
-    {
-      id: 1,
-      title: "Learning Tools",
-      question: "What should you use technology for?",
-      options: [
-        { 
-          text: "Only use tech for entertainment", 
-          emoji: "📺", 
-          isCorrect: false
-        },
-        { 
-          text: "Use tech for learning and skill-building", 
-          emoji: "📚", 
-          isCorrect: true
-        },
-        { 
-          text: "Waste time on tech", 
-          emoji: "⏰", 
-          isCorrect: false
-        },
-        { 
-          text: "Use tech without purpose", 
-          emoji: "😐", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "Online Courses",
-      question: "What should you do with online learning opportunities?",
-      options: [
-        { 
-          text: "Ignore learning opportunities", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Only watch entertainment", 
-          emoji: "📺", 
-          isCorrect: false
-        },
-        { 
-          text: "Enroll in productive online courses", 
-          emoji: "🎓", 
-          isCorrect: true
-        },
-        { 
-          text: "Don't use online courses", 
-          emoji: "❌", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "Productive Apps",
-      question: "What kind of apps should you use?",
-      options: [
-        { 
-          text: "Only use entertainment apps", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        { 
-          text: "Use productive apps for growth", 
-          emoji: "📱", 
-          isCorrect: true
-        },
-        { 
-          text: "Use apps without purpose", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore productive apps", 
-          emoji: "🙈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Time Management",
-      question: "How should you manage your tech time?",
-      options: [
-        { 
-          text: "Waste time on tech", 
-          emoji: "⏳", 
-          isCorrect: false
-        },
-       
-        { 
-          text: "Use tech without limits", 
-          emoji: "📱", 
-          isCorrect: false
-        },
-         { 
-          text: "Manage tech time productively", 
-          emoji: "⏰", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore time management", 
-          emoji: "🙈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "Growth Focus",
-      question: "What should be your focus with technology?",
-      options: [
-        { 
-          text: "Focus only on entertainment", 
-          emoji: "📺", 
-          isCorrect: false
-        },
-        { 
-          text: "No focus at all", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Ignore growth opportunities", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Focus on growth and productivity", 
-          emoji: "📈", 
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    title: "Learning Tools",
+    question: "How should you use technology?",
+    options: [
+      { text: "Only for entertainment", emoji: "📺", isCorrect: false },
+      { text: "For learning and skill-building", emoji: "📚", isCorrect: true },
+      { text: "Just waste time", emoji: "⏰", isCorrect: false },
+      { text: "Without any purpose", emoji: "😐", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    title: "Online Courses",
+    question: "What should you do with online learning opportunities?",
+    options: [
+      { text: "Ignore them", emoji: "🙈", isCorrect: false },
+      { text: "Only watch entertainment", emoji: "📺", isCorrect: false },
+      { text: "Enroll in useful courses", emoji: "🎓", isCorrect: true },
+      { text: "Don't try online courses", emoji: "❌", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    title: "Productive Apps",
+    question: "Which apps should you use?",
+    options: [
+      { text: "Only fun apps", emoji: "🎮", isCorrect: false },
+      { text: "Apps for learning and growth", emoji: "📱", isCorrect: true },
+      { text: "Apps with no purpose", emoji: "😐", isCorrect: false },
+      { text: "Ignore helpful apps", emoji: "🙈", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    title: "Time Management",
+    question: "How should you spend your time on tech?",
+    options: [
+      { text: "Manage time wisely", emoji: "⏰", isCorrect: true },
+      { text: "Waste it", emoji: "⏳", isCorrect: false },
+      { text: "Use without limits", emoji: "📱", isCorrect: false },
+      
+      { text: "Ignore time management", emoji: "🙈", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    title: "Growth Focus",
+    question: "What's the best focus when using technology?",
+    options: [
+      { text: "Only entertainment", emoji: "📺", isCorrect: false },
+      { text: "No focus", emoji: "😐", isCorrect: false },
+      { text: "Ignore growth opportunities", emoji: "🙈", isCorrect: false },
+      { text: "Focus on learning and productivity", emoji: "📈", isCorrect: true }
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

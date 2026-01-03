@@ -44,7 +44,7 @@ const CopyrightStory = () => {
         { 
           id: "no-credit", 
           text: "No - you should credit AI or the original", 
-          emoji: "🚫", 
+          emoji: "😐", 
           isCorrect: true
         },
       ]
@@ -62,7 +62,7 @@ const CopyrightStory = () => {
         { 
           id: "not-acceptable", 
           text: "No - this is copyright violation", 
-          emoji: "🚫", 
+          emoji: "😶", 
           isCorrect: true
         },
         { 
@@ -93,7 +93,7 @@ const CopyrightStory = () => {
         { 
           id: "not-ethical", 
           text: "No - you should disclose AI use", 
-          emoji: "🚫", 
+          emoji: "🤔", 
           isCorrect: true
         },
       ]
@@ -111,7 +111,7 @@ const CopyrightStory = () => {
         { 
           id: "wrong", 
           text: "No - this is plagiarism", 
-          emoji: "🚫", 
+          emoji: "😄", 
           isCorrect: true
         },
         { 
@@ -129,7 +129,7 @@ const CopyrightStory = () => {
         { 
           id: "not-ethical-sell", 
           text: "No - you should credit AI and be transparent", 
-          emoji: "🚫", 
+          emoji: "🙂", 
           isCorrect: true
         },
         { 

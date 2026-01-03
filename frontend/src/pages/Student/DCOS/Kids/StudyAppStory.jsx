@@ -24,127 +24,53 @@ const StudyAppStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "You open your tablet for study time. You see the Math App and a Random Ads Game. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Open Math App", 
-          emoji: "🧮", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Play Random Ads Game", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Close Tablet and Sleep", 
-          emoji: "😴", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Your teacher gave math homework. You can use the Math App or watch game videos. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Watch Game Videos", 
-          emoji: "📺", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Use Math App", 
-          emoji: "📲", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ask Friend to Do It", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Dad asks you to practice math before dinner. You can open Math App or play games. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Play Random Ads Game", 
-          emoji: "🎰", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Ignore and Keep Playing", 
-          emoji: "🙉", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Practice on Math App", 
-          emoji: "📘", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "You need to make a chart with numbers. The Math App can help calculate fast! What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Use Math App", 
-          emoji: "🧮", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Skip and Play Games", 
-          emoji: "🕹️", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Guess the Numbers", 
-          emoji: "🎲", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Before bedtime, you decide what to open one last time. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Play Random Ads Game", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Do Quiz on Math App", 
-          emoji: "📲", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Watch Videos All Night", 
-          emoji: "🌙", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "It’s afternoon study time. Your tablet shows a science learning app and a loud popup app asking to play. What is the smarter choice?",
+    options: [
+      { id: "b", text: "Tap the popup to see what happens", emoji: "📢", isCorrect: false },
+      { id: "a", text: "Open the learning app to continue lessons", emoji: "📘", isCorrect: true },
+      { id: "c", text: "Switch off the tablet without checking", emoji: "🔌", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    text: "You don’t understand a homework question. Your study app has examples and hints. What should you do first?",
+    options: [
+      { id: "a", text: "Use the app to review examples", emoji: "🧩", isCorrect: true },
+      { id: "b", text: "Skip the question completely", emoji: "⏭️", isCorrect: false },
+      { id: "c", text: "Wait and hope it disappears", emoji: "⌛", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    text: "While studying, a message notification appears. Your lesson timer is still running. What is the best decision?",
+    options: [
+      { id: "b", text: "Reply immediately to every message", emoji: "💬", isCorrect: false },
+      { id: "c", text: "Exit the app and scroll freely", emoji: "📱", isCorrect: false },
+      { id: "a", text: "Finish the lesson before checking messages", emoji: "⏱️", isCorrect: true },
+    ]
+  },
+  {
+    id: 4,
+    text: "Your study app shows progress stars and suggests a short break. What should you do?",
+    options: [
+      { id: "b", text: "Ignore breaks and keep tapping randomly", emoji: "🔄", isCorrect: false },
+      { id: "a", text: "Take a short break and return later", emoji: "🌿", isCorrect: true },
+      { id: "c", text: "Close the app for the whole day", emoji: "📴", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    text: "You finish your work early using the study app. What is a balanced next step?",
+    options: [
+      { id: "a", text: "Review what you learned today", emoji: "📝", isCorrect: true },
+      { id: "b", text: "Download many apps without checking", emoji: "⬇️", isCorrect: false },
+      { id: "c", text: "Keep screen on until sleep time", emoji: "🌙", isCorrect: false }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {

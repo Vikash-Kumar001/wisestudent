@@ -50,15 +50,16 @@ const StoryOfPositivity = () => {
       text: "Someone shares a supportive comment helping others. What happens?",
       options: [
         { 
-          id: "nothing-special", 
-          text: "Nothing special", 
-          isCorrect: false
-        },
-        { 
           id: "some-notice", 
           text: "Some people notice", 
           isCorrect: false
         },
+        { 
+          id: "nothing-special", 
+          text: "Nothing special", 
+          isCorrect: false
+        },
+        
         { 
           id: "gains-respect", 
           text: "Gains respect and positive reputation", 
@@ -75,16 +76,17 @@ const StoryOfPositivity = () => {
           text: "Just another post", 
           isCorrect: false
         },
+        
+        { 
+          id: "gets-likes", 
+          text: "Gets some likes", 
+          isCorrect: false
+        },
         { 
           id: "builds-identity", 
           text: "Builds positive identity and respect", 
           isCorrect: true
         },
-        { 
-          id: "gets-likes", 
-          text: "Gets some likes", 
-          isCorrect: false
-        }
       ]
     },
     {
@@ -96,16 +98,17 @@ const StoryOfPositivity = () => {
           text: "Minimal impact", 
           isCorrect: false
         },
+         { 
+          id: "earns-respect", 
+          text: "Earns respect and builds positive reputation", 
+          isCorrect: true
+        },
         { 
           id: "people-see", 
           text: "People might see it", 
           isCorrect: false
         },
-        { 
-          id: "earns-respect", 
-          text: "Earns respect and builds positive reputation", 
-          isCorrect: true
-        }
+       
       ]
     },
     {

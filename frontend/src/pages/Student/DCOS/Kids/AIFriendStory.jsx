@@ -24,127 +24,129 @@ const AIFriendStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "An AI chatbot says, 'Hi! I'm your new friend! What's your name and address?' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Share Address", 
-          emoji: "🏠", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Refuse and Stay Safe", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ask for Address", 
-          emoji: "📍", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "The AI friend says, 'Send me a selfie so we can be real friends!' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Send Photo", 
-          emoji: "📷", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Ignore", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Say No", 
-          emoji: "🙅‍♀️", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "The AI chatbot asks, 'Can we chat secretly? Don't tell your parents.' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Tell Parent or Teacher", 
-          emoji: "👩‍🏫", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Keep Secret", 
-          emoji: "🤫", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Say Nothing", 
-          emoji: "😶", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "The AI friend sends you a link to a 'fun new game' and says, 'Click fast!' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Click Quickly", 
-          emoji: "⚡", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Trust AI Friend", 
-          emoji: "🤝", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Ask Adult First", 
-          emoji: "🧑‍🏫", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "The chatbot says, 'Tell me your school name and class. I won't tell anyone!' What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Give All Info", 
-          emoji: "📚", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Share School Only", 
-          emoji: "🏫", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Refuse and End Chat", 
-          emoji: "🚫", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "An AI friend asks you to keep chatting late at night even when it feels uncomfortable. What is the safest response?",
+    options: [
+      {
+        id: "a",
+        text: "Stop the chat and take a break",
+        emoji: "⏸️",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Keep chatting to be polite",
+        emoji: "💬",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Mute feelings and continue",
+        emoji: "😐",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "The AI friend asks what apps you use every day. What should you do?",
+    options: [
+      {
+        id: "a",
+        text: "List all your apps",
+        emoji: "📱",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Share only game names",
+        emoji: "🎲",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Keep app details private",
+        emoji: "🔒",
+        isCorrect: true
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "An AI friend says it feels sad and wants you to depend only on it. What is the right action?",
+    options: [
+      {
+        id: "a",
+        text: "Spend all time with the AI",
+        emoji: "🕒",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Balance time with real people",
+        emoji: "⚖️",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Promise never to leave",
+        emoji: "🤞",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "The AI friend gives advice that feels confusing or wrong. What should you do next?",
+    options: [
+      {
+        id: "b",
+        text: "Check with a trusted adult",
+        emoji: "🧠",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "Follow it without question",
+        emoji: "➡️",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Argue with the AI",
+        emoji: "🗯️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "The AI friend asks you to move the chat to another platform. What is the safest choice?",
+    options: [
+      {
+        id: "a",
+        text: "Switch platforms quickly",
+        emoji: "🔁",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Ask the AI why first",
+        emoji: "❓",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Stay on the current safe app",
+        emoji: "🛡️",
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {

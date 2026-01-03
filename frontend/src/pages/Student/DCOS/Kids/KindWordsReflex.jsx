@@ -28,63 +28,64 @@ const KindWordsReflex = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
-    {
-      id: 1,
-      question: "Is the word 'Friend' a kind word or a rude word?",
-      correctAnswer: "Kind Word",
-      options: [
-        { text: "Kind Word", isCorrect: true, emoji: "🤝" },
-        { text: "Rude Word", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Both", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Is the word 'Stupid' a kind word or a rude word?",
-      correctAnswer: "Rude Word",
-      options: [
-        { text: "Kind Word", isCorrect: false, emoji: "😊" },
-        { text: "Rude Word", isCorrect: true, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Neither", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Is the word 'Respect' a kind word or a rude word?",
-      correctAnswer: "Kind Word",
-      options: [
-        { text: "Kind Word", isCorrect: true, emoji: "🙏" },
-        { text: "Rude Word", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Both", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Is the word 'Loser' a kind word or a rude word?",
-      correctAnswer: "Rude Word",
-      options: [
-        { text: "Kind Word", isCorrect: false, emoji: "😊" },
-        { text: "Rude Word", isCorrect: true, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Neither", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Is the word 'Helpful' a kind word or a rude word?",
-      correctAnswer: "Kind Word",
-      options: [
-        { text: "Kind Word", isCorrect: true, emoji: "🤗" },
-        { text: "Rude Word", isCorrect: false, emoji: "😠" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Both", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+ const questions = [
+  {
+    id: 1,
+    question: "You see a classmate feeling sad. Which word would be kind to say?",
+    correctAnswer: "Cheer Up",
+    options: [
+      { text: "Cheer Up", isCorrect: true, emoji: "🌟" },
+      { text: "You’re Boring", isCorrect: false, emoji: "😐" },
+      { text: "I Don’t Care", isCorrect: false, emoji: "🙃" },
+      { text: "Leave Me Alone", isCorrect: false, emoji: "😶" }
+    ]
+  },
+  {
+    id: 2,
+    question: "Someone shows you their drawing. Which word shows kindness?",
+    correctAnswer: "Nice Work",
+    options: [
+      { text: "Ugly Drawing", isCorrect: false, emoji: "😕" },
+      { text: "I Don’t Like It", isCorrect: false, emoji: "🙁" },
+      { text: "Nice Work", isCorrect: true, emoji: "🙂" },
+      { text: "Throw It Away", isCorrect: false, emoji: "🗑️" }
+    ]
+  },
+  {
+    id: 3,
+    question: "A friend helped you with homework. Which word would be kind to say?",
+    correctAnswer: "Thank You",
+    options: [
+      { text: "I Could Do It Alone", isCorrect: false, emoji: "😏" },
+      { text: "Thank You", isCorrect: true, emoji: "🙏" },
+      { text: "Why Help Me?", isCorrect: false, emoji: "😕" },
+      { text: "Stop Helping", isCorrect: false, emoji: "🙄" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Your sibling is learning to ride a bike. Which word shows kindness?",
+    correctAnswer: "You Can Do It",
+    options: [
+      { text: "You Can Do It", isCorrect: true, emoji: "😄" },
+      { text: "You’ll Fail", isCorrect: false, emoji: "😟" },
+      { text: "Stop Wasting Time", isCorrect: false, emoji: "⏰" },
+      { text: "Why Try?", isCorrect: false, emoji: "🤔" }
+    ]
+  },
+  {
+    id: 5,
+    question: "A friend is nervous before a school presentation. Which word is kind?",
+    correctAnswer: "Good Luck",
+    options: [
+      { text: "You’ll Mess Up", isCorrect: false, emoji: "😬" },
+      { text: "No One Will Care", isCorrect: false, emoji: "😐" },
+      { text: "Hurry Up", isCorrect: false, emoji: "⏳" },
+      { text: "Good Luck", isCorrect: true, emoji: "🍀" },
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

@@ -29,62 +29,58 @@ const ReflexRespect1 = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "Thank you 🙏 - Is this kind or mean?",
-      correctAnswer: "Kind",
-      options: [
-        { text: "Kind", isCorrect: true, emoji: "👍" },
-        { text: "Mean", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Idiot 😠 - Is this kind or mean?",
-      correctAnswer: "Mean",
-      options: [
-        { text: "Kind", isCorrect: false, emoji: "👍" },
-        { text: "Mean", isCorrect: true, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Good job 👏 - Is this kind or mean?",
-      correctAnswer: "Kind",
-      options: [
-        { text: "Kind", isCorrect: true, emoji: "👍" },
-        { text: "Mean", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Loser 😞 - Is this kind or mean?",
-      correctAnswer: "Mean",
-      options: [
-        { text: "Kind", isCorrect: false, emoji: "👍" },
-        { text: "Mean", isCorrect: true, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Nice work 🌟 - Is this kind or mean?",
-      correctAnswer: "Kind",
-      options: [
-        { text: "Kind", isCorrect: true, emoji: "👍" },
-        { text: "Mean", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "During an online class, a student is speaking and others are laughing loudly in chat. What shows respect?",
+    options: [
+      { text: "Send laughing messages", isCorrect: false, emoji: "💬" },
+      { text: "Post random stickers", isCorrect: false, emoji: "🖼️" },
+      { text: "Leave the class suddenly", isCorrect: false, emoji: "🚪" },
+      { text: "Mute chat and listen quietly", isCorrect: true, emoji: "🙂" },
+    ]
+  },
+  {
+    id: 2,
+    question: "A classmate makes a small mistake while answering online. What is the respectful response?",
+    options: [
+      { text: "Share the mistake screenshot", isCorrect: false, emoji: "📸" },
+      { text: "Encourage them to try again", isCorrect: true, emoji: "🔁" },
+      { text: "Type a sarcastic comment", isCorrect: false, emoji: "📝" },
+      { text: "Ignore and tease later", isCorrect: false, emoji: "⏳" }
+    ]
+  },
+  {
+    id: 3,
+    question: "You disagree with a friend’s opinion in a group chat. What shows respectful behavior?",
+    options: [
+      { text: "Use capital letters to argue", isCorrect: false, emoji: "🔠" },
+      { text: "Call their idea silly", isCorrect: false, emoji: "🎭" },
+      { text: "Share your view politely", isCorrect: true, emoji: "🗨️" },
+      { text: "Remove them from the group", isCorrect: false, emoji: "👥" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Someone posts artwork they worked hard on. What is the respectful action?",
+    options: [
+      { text: "Give kind and honest feedback", isCorrect: true, emoji: "👍" },
+      { text: "Compare it to others negatively", isCorrect: false, emoji: "⚖️" },
+      { text: "Post unrelated jokes below it", isCorrect: false, emoji: "🎲" },
+      { text: "Pretend it does not exist", isCorrect: false, emoji: "🙈" }
+    ]
+  },
+  {
+    id: 5,
+    question: "You see rude comments under a video made by a younger student. What shows digital respect?",
+    options: [
+      { text: "Add another rude comment", isCorrect: false, emoji: "✍️" },
+      { text: "Share the video to mock it", isCorrect: false, emoji: "🔄" },
+      { text: "Report or inform a trusted adult", isCorrect: true, emoji: "😶" },
+      { text: "Save the comments for fun", isCorrect: false, emoji: "📂" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

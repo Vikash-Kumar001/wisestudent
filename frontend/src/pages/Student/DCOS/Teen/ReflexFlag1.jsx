@@ -37,9 +37,9 @@ const ReflexFlag1 = () => {
     {
       id: 1,
       question: "A comment says 'Go back to your country!'. What should you do?",
-      correctAnswer: "Flag Hate Comment",
+      correctAnswer: "Hate Comment",
       options: [
-        { text: "Flag Hate Comment", isCorrect: true, emoji: "🚩" },
+        { text: "Hate Comment", isCorrect: true, emoji: "🤨" },
         { text: "Like It", isCorrect: false, emoji: "👍" },
         { text: "Share It", isCorrect: false, emoji: "📤" },
         { text: "Ignore It", isCorrect: false, emoji: "🙈" }
@@ -59,12 +59,12 @@ const ReflexFlag1 = () => {
     {
       id: 3,
       question: "A comment says 'You don't belong here!'. What should you do?",
-      correctAnswer: "Flag Hate Comment",
+      correctAnswer: "Hate Comment",
       options: [
         { text: "Like It", isCorrect: false, emoji: "👍" },
         { text: "Share It", isCorrect: false, emoji: "📤" },
         { text: "Ignore It", isCorrect: false, emoji: "🙈" },
-        { text: "Flag Hate Comment", isCorrect: true, emoji: "🚩" },
+        { text: "Hate Comment", isCorrect: true, emoji: "😕" },
       ]
     },
     {
@@ -81,9 +81,9 @@ const ReflexFlag1 = () => {
     {
       id: 5,
       question: "A comment says 'People like you are the problem!'. What should you do?",
-      correctAnswer: "Flag Hate Comment",
+      correctAnswer: "Hate Comment",
       options: [
-        { text: "Flag Hate Comment", isCorrect: true, emoji: "🚩" },
+        { text: "Hate Comment", isCorrect: true, emoji: "🤔" },
         { text: "Like It", isCorrect: false, emoji: "👍" },
         { text: "Share It", isCorrect: false, emoji: "📤" },
         { text: "Ignore It", isCorrect: false, emoji: "🙈" }

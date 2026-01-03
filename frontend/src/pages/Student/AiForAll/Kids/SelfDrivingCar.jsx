@@ -146,8 +146,9 @@ const SelfDrivingCar = () => {
             <h3 className="text-white text-xl font-bold mb-6 text-center">What should the self-driving car do?</h3>
             <div className="text-6xl mb-4 text-center">🚗</div>
             
-            <div className="bg-gray-800/50 rounded-xl p-12 mb-6 flex justify-center items-center">
-              <div className="text-9xl animate-pulse">{currentSignalData.emoji}</div>
+            <div className="bg-gray-800/50 rounded-xl p-12 mb-6 flex flex-col justify-center items-center">
+              <div className="text-5xl mb-4">{currentSignalData.emoji}</div>
+              <div className="text-2xl font-bold text-white bg-gray-900/70 px-4 py-2 rounded-lg capitalize">{currentSignalData.light.replace('-', ' ')}</div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

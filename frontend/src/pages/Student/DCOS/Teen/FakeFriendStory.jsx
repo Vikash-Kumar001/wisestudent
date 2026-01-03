@@ -31,7 +31,7 @@ const FakeFriendStory = () => {
         { 
           id: "verify", 
           text: "Don't trust - verify with Sarah first", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 
@@ -61,7 +61,7 @@ const FakeFriendStory = () => {
         { 
           id: "verify-mutual", 
           text: "Verify with mutual friends first", 
-          emoji: "🛡️", 
+          emoji: "😑", 
           isCorrect: true
         },
         { 
@@ -91,7 +91,7 @@ const FakeFriendStory = () => {
         { 
           id: "contact-direct", 
           text: "Contact Mike directly to verify", 
-          emoji: "🛡️", 
+          emoji: "📞", 
           isCorrect: true
         }
       ]
@@ -103,7 +103,7 @@ const FakeFriendStory = () => {
         { 
           id: "verify-school", 
           text: "Verify they actually go to your school", 
-          emoji: "🛡️", 
+          emoji: "🤓", 
           isCorrect: true
         },
         { 
@@ -133,7 +133,7 @@ const FakeFriendStory = () => {
         { 
           id: "verify-identity", 
           text: "Don't add - verify their identity first", 
-          emoji: "🛡️", 
+          emoji: "😶", 
           isCorrect: true
         },
         { 

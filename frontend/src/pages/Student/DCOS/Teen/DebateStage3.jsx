@@ -23,132 +23,128 @@ const DebateStage3 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Is tech only for entertainment or also for growth?",
-      options: [
-        { 
-          id: "only-entertainment", 
-          text: "Only for entertainment", 
-          emoji: "📺", 
-          
-          isCorrect: false
-        },
-       
-        { 
-          id: "only-growth", 
-          text: "Only for growth and learning", 
-          emoji: "📚", 
-          
-          isCorrect: false
-        },
-         { 
-          id: "growth-too", 
-          text: "Growth too - balance both", 
-          emoji: "💹", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 2,
-      text: "Should we use technology only for fun?",
-      options: [
-        { 
-          id: "yes-fun", 
-          text: "Yes - only for fun", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        { 
-          id: "no-balance", 
-          text: "No - balance fun and learning", 
-          emoji: "⛔", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - depends on the device", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Can technology help you grow and learn?",
-      options: [
-         { 
-          id: "yes-learning", 
-          text: "Yes - tech enables learning and growth", 
-          emoji: "🚀", 
-          isCorrect: true
-        },
-        { 
-          id: "no-only-fun", 
-          text: "No - tech is only for fun", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-       
-        { 
-          id: "maybe", 
-          text: "Maybe - only educational apps", 
-          emoji: "📱", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "What's the best way to use technology?",
-      options: [
-        { 
-          id: "only-entertain", 
-          text: "Only for entertainment", 
-          emoji: "📺", 
-          isCorrect: false
-        },
-        { 
-          id: "balance-both", 
-          text: "Balance entertainment and productivity", 
-          emoji: "⚖️", 
-          isCorrect: true
-        },
-        { 
-          id: "only-work", 
-          text: "Only for work and learning", 
-          emoji: "💼", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Should teens use tech for both fun and learning?",
-      options: [
-        { 
-          id: "no-only-fun", 
-          text: "No - only for fun", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "maybe", 
-          text: "Maybe - only on weekends", 
-          emoji: "📅", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-both", 
-          text: "Yes - use for both fun and growth", 
-          emoji: "🙂", 
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Is technology only for entertainment, or also for growth?",
+    options: [
+      { 
+        id: "only-entertainment", 
+        text: "Only for entertainment", 
+        emoji: "📺", 
+        isCorrect: false
+      },
+      { 
+        id: "only-growth", 
+        text: "Only for growth and learning", 
+        emoji: "📚", 
+        isCorrect: false
+      },
+      { 
+        id: "growth-too", 
+        text: "For growth too — balance both", 
+        emoji: "💹", 
+        isCorrect: true
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "Should we use technology only for fun?",
+    options: [
+      { 
+        id: "yes-fun", 
+        text: "Yes — only for fun", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "no-balance", 
+        text: "No — balance fun and learning", 
+        emoji: "⛔", 
+        isCorrect: true
+      },
+      { 
+        id: "maybe", 
+        text: "Maybe — it depends on the device", 
+        emoji: "🤔", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "Can technology help you grow and learn?",
+    options: [
+      { 
+        id: "yes-learning", 
+        text: "technology supports learning and growth", 
+        emoji: "🚀", 
+        isCorrect: true
+      },
+      { 
+        id: "no-only-fun", 
+        text: "technology is only for fun", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "maybe", 
+        text: "only educational apps", 
+        emoji: "📱", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "What is the best way to use technology?",
+    options: [
+      { 
+        id: "only-entertain", 
+        text: "Only for entertainment", 
+        emoji: "📺", 
+        isCorrect: false
+      },
+      { 
+        id: "balance-both", 
+        text: "Balance entertainment and productivity", 
+        emoji: "⚖️", 
+        isCorrect: true
+      },
+      { 
+        id: "only-work", 
+        text: "Only for work and learning", 
+        emoji: "💼", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "Should teens use technology for both fun and learning?",
+    options: [
+      { 
+        id: "no-only-fun", 
+        text: "only for fun", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "maybe", 
+        text: "only on weekends", 
+        emoji: "📅", 
+        isCorrect: false
+      },
+      { 
+        id: "yes-both", 
+        text: "use it for both fun and growth", 
+        emoji: "🙂", 
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

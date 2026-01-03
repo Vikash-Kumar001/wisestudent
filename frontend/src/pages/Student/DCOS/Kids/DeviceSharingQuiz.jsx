@@ -27,128 +27,130 @@ const DeviceSharingQuiz = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Is it safe to share your phone or tablet with a stranger?",
-      options: [
-        { 
-          id: "a", 
-          text: "No, Never Share", 
-          emoji: "🛡️", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Yes, It's Okay", 
-          emoji: "👍", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only If They Ask Nicely", 
-          emoji: "😊", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Should you let a classmate use your device without asking?",
-      options: [
-        { 
-          id: "a", 
-          text: "Yes, Classmates Are Safe", 
-          emoji: "👍", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Ask Parent First", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Only for a Minute", 
-          emoji: "⏰", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Can you share your device password with friends?",
-      options: [
-        { 
-          id: "a", 
-          text: "No, Passwords Are Private", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Yes, Friends Are Safe", 
-          emoji: "👍", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only Best Friends", 
-          emoji: "👫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Should you let someone you just met use your device?",
-      options: [
-        { 
-          id: "a", 
-          text: "Yes, If They Seem Nice", 
-          emoji: "😊", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "No, Never Share", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Only for Games", 
-          emoji: "🎮", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Is it safe to leave your device unlocked around strangers?",
-      options: [
-        { 
-          id: "a", 
-          text: "Always Lock Device", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Yes, It's Fine", 
-          emoji: "👍", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Only at Home", 
-          emoji: "🏠", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Your cousin wants to use your tablet to watch videos while you are away. The tablet has your photos and apps open. What is the safest choice?",
+    options: [
+      {
+        id: "a",
+        text: "Hand it over without checking settings",
+        emoji: "📱",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Switch to a limited profile before sharing",
+        emoji: "🧭",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Let them use it only for a short time",
+        emoji: "⏳",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "At school, a friend asks to borrow your device to finish an activity. There is no teacher nearby. What should you do?",
+    options: [
+      {
+        id: "b",
+        text: "Wait and ask an adult for permission",
+        emoji: "📘",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "Say yes so the friend is not upset",
+        emoji: "🎈",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Share it but keep watching closely",
+        emoji: "👀",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "You lend your device to someone, and they start opening apps you did not agree to. What follows good device-sharing rules?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Let them explore freely",
+        emoji: "🌀",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Ignore it to avoid a problem",
+        emoji: "🌫️",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Take the device back calmly",
+        emoji: "🧩",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 4,
+    text: "Your sibling asks to use your device, but your screen time is almost over. What is the responsible action?",
+    options: [
+      {
+        id: "a",
+        text: "Hand it over even if rules break",
+        emoji: "🎭",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Explain and wait until rules allow",
+        emoji: "📏",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Extend time secretly",
+        emoji: "🕳️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You shared your device earlier and later notice settings have changed. What should you do next?",
+    options: [
+      {
+        id: "a",
+        text: "Change settings back and inform an adult",
+        emoji: "🔧",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Leave it as it is",
+        emoji: "📂",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Stop sharing forever without telling anyone",
+        emoji: "🚪",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

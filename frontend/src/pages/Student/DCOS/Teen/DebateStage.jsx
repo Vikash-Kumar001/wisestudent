@@ -23,112 +23,130 @@ const DebateStage = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Should schools teach privacy rights?",
-      options: [
-        { 
-          id: "no-necessary", 
-          text: "No - not necessary", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-important", 
-          text: "Yes - it's important to learn", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - only for older students", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Should privacy be taught in schools?",
-      options: [
-        { 
-          id: "no-important", 
-          text: "No - it's not important", 
-          isCorrect: false
-        },
-        { 
-          id: "sometimes", 
-          text: "Sometimes - as an optional topic", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-need", 
-          text: "Yes - students need to know", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Is teaching privacy rights important?",
-      options: [
-        { 
-          id: "no-needed", 
-          text: "No - not needed", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-protects", 
-          text: "Yes - protects students", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - only if students ask", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Should students learn about data privacy?",
-      options: [
-        { 
-          id: "yes-essential", 
-          text: "Yes - essential knowledge", 
-          isCorrect: true
-        },
-        { 
-          id: "no-relevant", 
-          text: "No - not relevant", 
-          isCorrect: false
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - only for tech students", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Is privacy education necessary in schools?",
-      options: [
-        { 
-          id: "no-unnecessary", 
-          text: "No - unnecessary", 
-          isCorrect: false
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - only in high school", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-helps", 
-          text: "Yes - helps protect students", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "A classmate wants to share your online post without asking. How should you respond to maintain respect and privacy?",
+    options: [
+      { 
+        id: "express-concern", 
+        text: "Explain why permission is important before sharing", 
+        emoji: "💬", 
+        isCorrect: true
+      },
+      { 
+        id: "ignore", 
+        text: "Ignore it and hope they understand later", 
+        emoji: "🙃", 
+        isCorrect: false
+      },
+      { 
+        id: "share-back", 
+        text: "Share one of their posts without asking as a joke", 
+        emoji: "😏", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "You notice a group spreading rumors online about another student. What is the most responsible action?",
+    options: [
+     
+      { 
+        id: "join-joke", 
+        text: "Join the group to fit in", 
+        emoji: "😄", 
+        isCorrect: false
+      },
+      { 
+        id: "ignore-event", 
+        text: "Ignore it and scroll past", 
+        emoji: "📱", 
+        isCorrect: false
+      },
+       { 
+        id: "intervene-positively", 
+        text: "Message them to stop and support the student privately", 
+        emoji: "🤝", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 3,
+    text: "During a school debate, you are asked if using someone else’s online work without credit is fair. What’s the most thoughtful response?",
+    options: [
+      { 
+        id: "credit-author", 
+        text: "Credit the original creator and explain why it matters", 
+        emoji: "✍️", 
+        isCorrect: true
+      },
+      { 
+        id: "pretend-original", 
+        text: "Present it as your own to save time", 
+        emoji: "🤫", 
+        isCorrect: false
+      },
+      { 
+        id: "skip-topic", 
+        text: "Change the subject to avoid confrontation", 
+        emoji: "😐", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "A friend wants to share their password with you so you can play together. How do you handle it responsibly?",
+    options: [
+      
+      { 
+        id: "use-password", 
+        text: "Use it quickly to help them", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "advise-safety", 
+        text: "Explain why passwords should remain private and suggest alternatives", 
+        emoji: "🙂", 
+        isCorrect: true
+      },
+      { 
+        id: "ignore-request", 
+        text: "Ignore their request and move on", 
+        emoji: "😶", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "During an online group project, one member posts inappropriate content in the shared chat. What’s the best approach?",
+    options: [
+      { 
+        id: "address-respectfully", 
+        text: "Politely ask them to remove it and remind the group of guidelines", 
+        emoji: "📝", 
+        isCorrect: true
+      },
+      { 
+        id: "reply-angrily", 
+        text: "Respond with anger to make them stop", 
+        emoji: "😡", 
+        isCorrect: false
+      },
+      { 
+        id: "leave-group", 
+        text: "Leave the group and avoid participation", 
+        emoji: "🚪", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

@@ -24,129 +24,131 @@ const FamilyRulesStory1 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Your parents say, 'No phones at dinner.' Everyone should talk together instead. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Hide Phone", 
-          emoji: "📱", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Put Phone Away", 
-          emoji: "😊", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Complain", 
-          emoji: "🙄", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Your family rule says: 'Homework before games.' What do you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Play Games First", 
-          emoji: "🎮", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Finish Homework", 
-          emoji: "📝", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ask Friend", 
-          emoji: "🤫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Family rule: No TV before breakfast. You wake up early and want to watch cartoons. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Wait for Breakfast", 
-          emoji: "🍳", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Turn TV Secretly", 
-          emoji: "🤫", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Ignore Rule", 
-          emoji: "😒", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Your parents ask you to clean your room before playing outside. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Go Outside First", 
-          emoji: "🏃", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Clean First", 
-          emoji: "🌟", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Complain", 
-          emoji: "😠", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Family rule: Lights out by 9 PM. You're reading your comic under the blanket. What should you do?",
-      options: [
-        { 
-          id: "a", 
-          text: "Turn Off Lights", 
-          emoji: "😴", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Keep Reading", 
-          emoji: "📖", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Argue", 
-          emoji: "😤", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Your family has a rule that devices must stay in the living room at night. You want to take your tablet to your bedroom. What is the best choice?",
+    options: [
+      {
+        id: "a",
+        text: "Take it quietly so no one notices",
+        emoji: "🌙",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Leave it where the rule says",
+        emoji: "📦",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Use it only for a few minutes",
+        emoji: "⏱️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "Your family rule says you must ask before downloading new apps or games. You see a fun new game your friends are playing. What should you do?",
+    options: [
+      {
+        id: "a",
+        text: "Download it later when adults are busy",
+        emoji: "🎯",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Ask a friend to download it for you",
+        emoji: "🔄",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Check the game rules with an adult first",
+        emoji: "📄",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 3,
+    text: "There is a family rule about being kind online. You see a rude comment in a group chat. What action follows the family rule?",
+    options: [
+       {
+        id: "b",
+        text: "Ignore the message and move on",
+        emoji: "➡️",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "Reply with another rude message",
+        emoji: "💬",
+        isCorrect: false
+      },
+     
+      {
+        id: "c",
+        text: "Share the comment to others",
+        emoji: "📣",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "Your family rule says screen time ends after a timer. The timer rings while you are in the middle of a level. What should you do?",
+    options: [
+      {
+        id: "a",
+        text: "Finish the level before stopping",
+        emoji: "🎮",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Pause and stop when the timer rings",
+        emoji: "⏰",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Lower the volume and continue",
+        emoji: "🔉",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "Your family has a rule about sharing problems openly. You receive a strange message online that makes you uncomfortable. What is the right step?",
+    options: [
+      {
+        id: "a",
+        text: "Delete the message and forget it",
+        emoji: "🗑️",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Reply to see what happens next",
+        emoji: "❓",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Tell a trusted adult in your family",
+        emoji: "🤗",
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {

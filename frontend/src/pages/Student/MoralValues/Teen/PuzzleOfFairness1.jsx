@@ -33,9 +33,9 @@ const PuzzleOfFairness1 = () => {
   const rightItems = [
     { id: 7, name: "Harm to Others", emoji: "😢" },
     { id: 10, name: "Biased Preference", emoji: "🎭" },
-    { id: 9, name: "Teamwork Success", emoji: "🤝" },
+    { id: 9, name: "Teamwork Success", emoji: "☺️" },
     { id: 8, name: "Unfair Advantage", emoji: "⚠️" },
-    { id: 6, name: "Equal Rights", emoji: "⚖️" },
+    { id: 6, name: "Equal Rights", emoji: "🟰" },
   ];
 
   const correctMatches = [

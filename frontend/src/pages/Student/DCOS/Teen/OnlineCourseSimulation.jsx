@@ -22,141 +22,139 @@ const OnlineCourseSimulation = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const questions = [
-    {
-      id: 1,
-      text: "You have free time. What should you do?",
-      options: [
-        { 
-          text: "Random video binge", 
-          emoji: "📺",
-          isCorrect: false
-        },
-        { 
-          text: "Enroll in coding course", 
-          emoji: "💻",
-          isCorrect: true
-        },
-        { 
-          text: "Scroll social media", 
-          emoji: "📱",
-          isCorrect: false
-        },
-        { 
-          text: "Play mobile games", 
-          emoji: "🎮",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "What's the best use of your time online?",
-      options: [
-        { 
-          text: "Watch entertainment shows", 
-          emoji: "📺",
-          isCorrect: false
-        },
-       
-        { 
-          text: "Play games all day", 
-          emoji: "🎮",
-          isCorrect: false
-        },
-         { 
-          text: "Take an online course to learn skills", 
-          emoji: "📔",
-          isCorrect: true
-        },
-        { 
-          text: "Chat with friends", 
-          emoji: "💬",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "How should you use technology for growth?",
-      options: [
-        { 
-          text: "Mindless scrolling", 
-          emoji: "📱",
-          isCorrect: false
-        },
-        { 
-          text: "Enroll in educational course", 
-          emoji: "🎓",
-          isCorrect: true
-        },
-        { 
-          text: "Watch random videos", 
-          emoji: "📺",
-          isCorrect: false
-        },
-        { 
-          text: "Online shopping", 
-          emoji: "🛒",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "What helps you grow and develop?",
-      options: [
-        { 
-          text: "Take a skill-building course", 
-          emoji: "🏢",
-          isCorrect: true
-        },
-        { 
-          text: "Binge watch shows", 
-          emoji: "📺",
-          isCorrect: false
-        },
-        
-        { 
-          text: "Spend time on social media", 
-          emoji: "📱",
-          isCorrect: false
-        },
-        { 
-          text: "Listen to music", 
-          emoji: "🎵",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "What's the smart choice for your future?",
-      options: [
-        { 
-          text: "Only entertainment content", 
-          emoji: "📺",
-          isCorrect: false
-        },
-        
-        { 
-          text: "Waste time online", 
-          emoji: "⏰",
-          isCorrect: false
-        },
-        { 
-          text: "Virtual hangout", 
-          emoji: "👥",
-          isCorrect: false
-        },
-        { 
-          text: "Online courses for learning", 
-          emoji: "🎓",
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+ const questions = [
+  {
+    id: 1,
+    text: "You have free time. What should you do?",
+    options: [
+      { 
+        text: "Watch random videos", 
+        emoji: "📺",
+        isCorrect: false
+      },
+      { 
+        text: "Enroll in a coding course", 
+        emoji: "💻",
+        isCorrect: true
+      },
+      { 
+        text: "Scroll through social media", 
+        emoji: "📱",
+        isCorrect: false
+      },
+      { 
+        text: "Play mobile games", 
+        emoji: "🎮",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "What is the best use of your time online?",
+    options: [
+      { 
+        text: "Watch entertainment shows", 
+        emoji: "📺",
+        isCorrect: false
+      },
+      { 
+        text: "Play games all day", 
+        emoji: "🎮",
+        isCorrect: false
+      },
+      { 
+        text: "Take an online course to learn new skills", 
+        emoji: "📔",
+        isCorrect: true
+      },
+      { 
+        text: "Chat with friends", 
+        emoji: "💬",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "How should you use technology for growth?",
+    options: [
+      { 
+        text: "Mindless scrolling", 
+        emoji: "📱",
+        isCorrect: false
+      },
+      { 
+        text: "Enroll in an educational course", 
+        emoji: "🎓",
+        isCorrect: true
+      },
+      { 
+        text: "Watch random videos", 
+        emoji: "📺",
+        isCorrect: false
+      },
+      { 
+        text: "Shop online", 
+        emoji: "🛒",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "What helps you grow and develop?",
+    options: [
+      { 
+        text: "Take a skill-building course", 
+        emoji: "🏢",
+        isCorrect: true
+      },
+      { 
+        text: "Binge-watch shows", 
+        emoji: "📺",
+        isCorrect: false
+      },
+      { 
+        text: "Spend time on social media", 
+        emoji: "📱",
+        isCorrect: false
+      },
+      { 
+        text: "Listen to music", 
+        emoji: "🎵",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "What is the smart choice for your future?",
+    options: [
+      { 
+        text: "Only entertainment content", 
+        emoji: "📺",
+        isCorrect: false
+      },
+      { 
+        text: "Waste time online", 
+        emoji: "⏰",
+        isCorrect: false
+      },
+      { 
+        text: "Virtual hangouts", 
+        emoji: "👥",
+        isCorrect: false
+      },
+      { 
+        text: "Take online courses to learn", 
+        emoji: "🎓",
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

@@ -22,144 +22,145 @@ const RightsDefenderBadge = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const challenges = [
-    {
-      id: 1,
-      title: "Consent",
-      question: "What should you do before sharing someone's content?",
-      options: [
-        { 
-          text: "Share without asking", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Ask for consent before sharing", 
-          emoji: "💬", 
-          isCorrect: true
-        },
-        { 
-          text: "Share if it's interesting", 
-          emoji: "👀", 
-          isCorrect: false
-        },
-        { 
-          text: "Share if they're a friend", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: "Personal Information",
-      question: "What should you do with personal information?",
-      options: [
-        { 
-          text: "Protect personal information", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          text: "Share personal information publicly", 
-          emoji: "🌐", 
-          isCorrect: false
-        },
-        { 
-          text: "Share with everyone", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        
-        { 
-          text: "Ignore privacy concerns", 
-          emoji: "🙈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "Content Ownership",
-      question: "What should you do with others' content?",
-      options: [
-        { 
-          text: "Use others' content without permission", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Claim others' work as your own", 
-          emoji: "❌", 
-          isCorrect: false
-        },
-        { 
-          text: "Respect content ownership", 
-          emoji: "©️", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore copyright", 
-          emoji: "🙈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Privacy Settings",
-      question: "What should you do with privacy settings?",
-      options: [
-        { 
-          text: "Leave everything public", 
-          emoji: "🌐", 
-          isCorrect: false
-        },
-        { 
-          text: "Use privacy settings", 
-          emoji: "⚙️", 
-          isCorrect: true
-        },
-        { 
-          text: "Ignore privacy settings", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          text: "Share settings with others", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      title: "Helping Others",
-      question: "How can you help others with privacy?",
-      options: [
-        { 
-          text: "Ignore others' privacy concerns", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Share others' private information", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Help others learn about privacy", 
-          emoji: "🤝", 
-          isCorrect: true
-        },
-        { 
-          text: "Don't help with privacy", 
-          emoji: "❌", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+ const challenges = [
+  {
+    id: 1,
+    title: "Consent",
+    question: "What should you do before sharing someone's content?",
+    options: [
+      { 
+        text: "Share without asking", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        text: "Ask for consent before sharing", 
+        emoji: "💬", 
+        isCorrect: true
+      },
+      { 
+        text: "Share it if it's interesting", 
+        emoji: "👀", 
+        isCorrect: false
+      },
+      { 
+        text: "Share it if they are a friend", 
+        emoji: "👥", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Personal Information",
+    question: "What should you do with personal information?",
+    options: [
+      { 
+        text: "Protect personal information", 
+        emoji: "🔒", 
+        isCorrect: true
+      },
+      { 
+        text: "Share personal information publicly", 
+        emoji: "🌐", 
+        isCorrect: false
+      },
+      { 
+        text: "Share it with everyone", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        text: "Ignore privacy concerns", 
+        emoji: "🙈", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Content Ownership",
+    question: "What should you do with others' content?",
+    options: [
+      { 
+        text: "Use others' content without permission", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        text: "Claim others' work as your own", 
+        emoji: "❌", 
+        isCorrect: false
+      },
+      { 
+        text: "Respect content ownership", 
+        emoji: "©️", 
+        isCorrect: true
+      },
+      { 
+        text: "Ignore copyright rules", 
+        emoji: "🙈", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Privacy Settings",
+    question: "What should you do with privacy settings?",
+    options: [
+      { 
+        text: "Leave everything public", 
+        emoji: "🌐", 
+        isCorrect: false
+      },
+      { 
+        text: "Use privacy settings", 
+        emoji: "⚙️", 
+        isCorrect: true
+      },
+      { 
+        text: "Ignore privacy settings", 
+        emoji: "🙈", 
+        isCorrect: false
+      },
+      { 
+        text: "Share settings with others", 
+        emoji: "👥", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Helping Others",
+    question: "How can you help others with privacy?",
+    options: [
+      { 
+        text: "Ignore others' privacy concerns", 
+        emoji: "😐", 
+        isCorrect: false
+      },
+      { 
+        text: "Share others' private information", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      
+      { 
+        text: "Do not help with privacy", 
+        emoji: "❌", 
+        isCorrect: false
+      },
+      { 
+        text: "Help others learn about privacy", 
+        emoji: "🤝", 
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleAnswer = (isCorrect) => {
     if (answered) return;

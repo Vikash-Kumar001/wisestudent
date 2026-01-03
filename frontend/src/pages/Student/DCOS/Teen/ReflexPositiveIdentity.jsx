@@ -34,62 +34,63 @@ const ReflexPositiveIdentity = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "A post says 'I achieved my goal today! 🎉'. What should you do?",
-      correctAnswer: "Like Positive Post",
-      options: [
-        { text: "Like Positive Post", isCorrect: true, emoji: "👍" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Delete It", isCorrect: false, emoji: "🗑️" }
-      ]
-    },
-    {
-      id: 2,
-      question: "A post says 'You're so stupid!'. What should you do?",
-      correctAnswer: "Avoid Negative Post",
-      options: [
-        { text: "Like It", isCorrect: false, emoji: "👍" },
-        { text: "Avoid Negative Post", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Comment Positively", isCorrect: false, emoji: "💬" }
-      ]
-    },
-    {
-      id: 3,
-      question: "A post says 'Helped a friend with homework today'. What should you do?",
-      correctAnswer: "Like Positive Post",
-      options: [
-        { text: "Like Positive Post", isCorrect: true, emoji: "👍" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Delete It", isCorrect: false, emoji: "🗑️" }
-      ]
-    },
-    {
-      id: 4,
-      question: "A post says 'Everyone is so annoying'. What should you do?",
-      correctAnswer: "Avoid Negative Post",
-      options: [
-        { text: "Like It", isCorrect: false, emoji: "👍" },
-        { text: "Avoid Negative Post", isCorrect: true, emoji: "🚫" },
-        { text: "Share It", isCorrect: false, emoji: "📤" },
-        { text: "Comment Positively", isCorrect: false, emoji: "💬" }
-      ]
-    },
-    {
-      id: 5,
-      question: "A post says 'Grateful for my supportive friends'. What should you do?",
-      correctAnswer: "Like Positive Post",
-      options: [
-        { text: "Like Positive Post", isCorrect: true, emoji: "👍" },
-        { text: "Ignore It", isCorrect: false, emoji: "🙈" },
-        { text: "Report It", isCorrect: false, emoji: "📢" },
-        { text: "Delete It", isCorrect: false, emoji: "🗑️" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Your friend posts about finishing a tough project online. How can you support their achievement?",
+    correctAnswer: "Congratulate or Comment Positively",
+    options: [
+      { text: "Share It Without Commenting", isCorrect: false, emoji: "📤" },
+      { text: "React With a Joke", isCorrect: false, emoji: "😂" },
+      { text: "Congratulate or Comment Positively", isCorrect: true, emoji: "😄" },
+      { text: "Ignore Post Entirely", isCorrect: false, emoji: "🛑" }
+    ]
+  },
+  {
+    id: 2,
+    question: "Someone posts feeling sad about a mistake. What is a thoughtful response?",
+    correctAnswer: "Offer Encouragement",
+    options: [
+      { text: "Offer Encouragement", isCorrect: true, emoji: "🤓" },
+      { text: "Point Out Their Mistake Publicly", isCorrect: false, emoji: "🔍" },
+      { text: "Share Memes to Distract Them", isCorrect: false, emoji: "🎭" },
+      { text: "React with a Laughing Emoji", isCorrect: false, emoji: "😂" }
+    ]
+  },
+  {
+    id: 3,
+    question: "A peer posts about helping in a community event. How can you respond to promote positive identity?",
+    correctAnswer: "Acknowledge Effort and Share Support",
+    options: [
+      { text: "Critique Their Choice of Event", isCorrect: false, emoji: "🧐" },
+      { text: "Acknowledge Effort and Share Support", isCorrect: true, emoji: "🌟" },
+      { text: "Copy Their Post as Your Own", isCorrect: false, emoji: "📋" },
+      { text: "React with a Neutral Emoji Only", isCorrect: false, emoji: "😐" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Someone writes about a failure they faced online. What promotes positive digital identity?",
+    correctAnswer: "Comment on Resilience and Learning",
+    options: [
+      { text: "Ignore Them to Avoid Drama", isCorrect: false, emoji: "🙈" },
+      { text: "Mock the Failure Lightly", isCorrect: false, emoji: "😏" },
+      { text: "Comment on Resilience and Learning", isCorrect: true, emoji: "🙂" },
+      { text: "Share the Post as a Funny Example", isCorrect: false, emoji: "🎭" }
+    ]
+  },
+  {
+    id: 5,
+    question: "A friend shares that they are proud of a creative project. How can you help them build a positive online image?",
+    correctAnswer: "Celebrate Their Creativity Publicly or Privately",
+    options: [
+      { text: "Ignore Their Post and Scroll Past", isCorrect: false, emoji: "🛑" },
+      { text: "Comment Critically on Minor Flaws", isCorrect: false, emoji: "🔍" },
+      { text: "Copy Their Idea for Yourself", isCorrect: false, emoji: "📋" },
+      { text: "Celebrate Their Creativity Publicly or Privately", isCorrect: true, emoji: "🥳" },
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

@@ -58,7 +58,7 @@ const CulturalGreeting = () => {
         { 
           id: "a", 
           text: "Bow slightly and say 'Konnichiwa'", 
-          emoji: "🇯🇵",
+          emoji: "👋",
           // description: "Shows respect for their culture",
           isCorrect: true
         },

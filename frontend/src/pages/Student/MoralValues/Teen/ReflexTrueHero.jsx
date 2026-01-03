@@ -32,9 +32,9 @@ const ReflexTrueHero = () => {
       question: "Your friend asks if her new haircut looks good, but you think it looks awkward. What do you do? 💬",
       correctAnswer: "Be tactful and supportive",
       options: [
-        { text: "Tell the harsh truth", isCorrect: false, emoji: "💔" },
-        { text: "Be tactful and supportive", isCorrect: true, emoji: "💚" },
-        { text: "Lie to hurt her feelings", isCorrect: false, emoji: "🙈" },
+        { text: "Tell the harsh truth", isCorrect: false, emoji: "😐" },
+        { text: "Be tactful and supportive", isCorrect: true, emoji: "☺️" },
+        { text: "Lie to hurt her feelings", isCorrect: false, emoji: "🤔" },
         { text: "Avoid the conversation", isCorrect: false, emoji: "🙊" }
       ]
     },
@@ -43,10 +43,10 @@ const ReflexTrueHero = () => {
       question: "You see a classmate being cyberbullied in a group chat. What is your response? 📱",
       correctAnswer: "Stand up for the classmate",
       options: [
-        { text: "Stand up for the classmate", isCorrect: true, emoji: "💚" },
-        { text: "Ignore it completely", isCorrect: false, emoji: "💔" },
+        { text: "Stand up for the classmate", isCorrect: true, emoji: "🤔" },
+        { text: "Ignore it completely", isCorrect: false, emoji: "👎" },
         { text: "Join in to fit in", isCorrect: false, emoji: "🙈" },
-        { text: "Stay silent to avoid conflict", isCorrect: false, emoji: "🙊" }
+        { text: "Stay silent to avoid conflict", isCorrect: false, emoji: "😶" }
       ]
     },
     {
@@ -54,10 +54,10 @@ const ReflexTrueHero = () => {
       question: "You accidentally overhear your parents talking about financial problems. How do you handle this? 🗣️",
       correctAnswer: "Respect their privacy but offer support",
       options: [
-        { text: "Gossip about it at school", isCorrect: false, emoji: "🙈" },
-        { text: "Pretend you didn't hear and stay quiet", isCorrect: false, emoji: "🙊" },
-        { text: "Respect their privacy but offer support", isCorrect: true, emoji: "💚" },
-        { text: "Confront them immediately", isCorrect: false, emoji: "💔" }
+        { text: "Gossip about it at school", isCorrect: false, emoji: "😐" },
+        { text: "Pretend you didn't hear and stay quiet", isCorrect: false, emoji: "�" },
+        { text: "Respect their privacy but offer support", isCorrect: true, emoji: "🙂" },
+        { text: "Confront them immediately", isCorrect: false, emoji: "🤔" }
       ]
     },
     {
@@ -79,7 +79,7 @@ const ReflexTrueHero = () => {
         { text: "Help them cheat to stay loyal", isCorrect: false, emoji: "🙈" },
         { text: "Tell the teacher immediately", isCorrect: false, emoji: "🙊" },
         { text: "Pretend you don't know anything", isCorrect: false, emoji: "💔" },
-        { text: "Encourage them to study and be honest", isCorrect: true, emoji: "💚" },
+        { text: "Encourage them to study and be honest", isCorrect: true, emoji: "🙂" },
       ]
     }
   ];

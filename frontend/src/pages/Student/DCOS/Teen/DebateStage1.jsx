@@ -29,17 +29,17 @@ const DebateStage1 = () => {
       options: [
         { 
           id: "no-matter", 
-          text: "No - it doesn't matter", 
+          text: "it doesn't matter", 
           isCorrect: false
         },
         { 
           id: "yes-opportunities", 
-          text: "Yes - it affects opportunities", 
+          text: "it affects opportunities", 
           isCorrect: true
         },
         { 
           id: "maybe", 
-          text: "Maybe - only for some careers", 
+          text: "only for some careers", 
           isCorrect: false
         }
       ]
@@ -50,17 +50,17 @@ const DebateStage1 = () => {
       options: [
         { 
           id: "no-skills", 
-          text: "No - only skills matter", 
+          text: "only skills matter", 
           isCorrect: false
         },
         { 
           id: "sometimes", 
-          text: "Sometimes - depends on the field", 
+          text: "depends on the field", 
           isCorrect: false
         },
         { 
           id: "yes-check", 
-          text: "Yes - employers and colleges check", 
+          text: "employers and colleges check", 
           isCorrect: true
         }
       ]
@@ -71,17 +71,17 @@ const DebateStage1 = () => {
       options: [
         { 
           id: "no-separate", 
-          text: "No - online doesn't affect real life", 
+          text: "online doesn't affect real life", 
           isCorrect: false
         },
         { 
           id: "yes-help-hurt", 
-          text: "Yes - it can help or hurt", 
+          text: "it can help or hurt", 
           isCorrect: true
         },
         { 
           id: "maybe", 
-          text: "Maybe - only if it's negative", 
+          text: "only if it's negative", 
           isCorrect: false
         }
       ]
@@ -92,18 +92,18 @@ const DebateStage1 = () => {
       options: [
         { 
           id: "yes-identity", 
-          text: "Yes - it's part of your identity", 
+          text: "it's part of your identity", 
           isCorrect: true
         },
         { 
           id: "no-separate-success", 
-          text: "No - it's separate from success", 
+          text: "it's separate from success", 
           isCorrect: false
         },
         
         { 
           id: "maybe", 
-          text: "Maybe - only for public figures", 
+          text: "only for public figures", 
           isCorrect: false
         }
       ]
@@ -114,17 +114,17 @@ const DebateStage1 = () => {
       options: [
         { 
           id: "no-necessary", 
-          text: "No - not necessary", 
+          text: "not necessary", 
           isCorrect: false
         },
         { 
           id: "maybe", 
-          text: "Maybe - only if you want to be famous", 
+          text: "only if you want to be famous", 
           isCorrect: false
         },
         { 
           id: "yes-doors", 
-          text: "Yes - it opens doors", 
+          text: "it opens doors", 
           isCorrect: true
         }
       ]

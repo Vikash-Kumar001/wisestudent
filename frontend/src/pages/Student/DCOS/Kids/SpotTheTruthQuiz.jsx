@@ -27,129 +27,130 @@ const SpotTheTruthQuiz = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Headline: 'Dogs can fly!' Real or Fake?",
-      options: [
-        { 
-          id: "a", 
-          text: "Real", 
-          emoji: "🙂", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Fake", 
-          emoji: "🙃", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Maybe", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Headline: 'Water is wet.' Real or Fake?",
-      options: [
-        { 
-          id: "a", 
-          text: "Real", 
-          emoji: "🙂", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Fake", 
-          emoji: "🙃", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Not Sure", 
-          emoji: "🤷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Headline: 'A robot became the school principal.' Real or Fake?",
-      options: [
-        
-        { 
-          id: "b", 
-          text: "Real", 
-          emoji: "🙂", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Could Be", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Fake", 
-          emoji: "🙃", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "Headline: 'The sun rises in the east.' Real or Fake?",
-      options: [
-        { 
-          id: "a", 
-          text: "Real", 
-          emoji: "🙂", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Fake", 
-          emoji: "🙃", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Sometimes", 
-          emoji: "🌅", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Headline: 'Chocolate grows on trees.' Real or Fake?",
-      options: [
-        
-        { 
-          id: "b", 
-          text: "Real", 
-          emoji: "🙂", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Fake", 
-          emoji: " 🙃", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Maybe", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "A message says: 'Click this link to win a free phone today.' What is the most truthful choice?",
+    options: [
+      {
+        id: "a",
+        text: "It is always safe because prizes are real",
+        emoji: "📩",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "It could be a trick and should be checked first",
+        emoji: "🔍",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Sharing it quickly makes it true",
+        emoji: "📢",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "You see a post saying: 'Drinking only juice can replace all meals.' What should you believe?",
+    options: [
+      {
+        id: "a",
+        text: "Health advice should come from trusted sources",
+        emoji: "📚",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "If it is online, it must be correct",
+        emoji: "💻",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "One post works for everyone",
+        emoji: "🗂️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "A video claims: 'One app can read your mind.' How can you spot the truth?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Believe it because many people liked it",
+        emoji: "👍",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Trust it without asking questions",
+        emoji: "🎬",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Check if it sounds too strange to be real",
+        emoji: "🧠",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 4,
+    text: "A news post says: 'Homework is banned forever.' What is the smartest reaction?",
+    options: [
+      {
+        id: "a",
+        text: "Ask a teacher or check a reliable website",
+        emoji: "🧑‍🏫",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Celebrate and stop doing homework",
+        emoji: "🎉",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Forward it to all friends immediately",
+        emoji: "📤",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "Someone comments: 'Everyone online agrees with me, so I am right.' What shows truth thinking?",
+    options: [
+      
+      {
+        id: "b",
+        text: "More comments always mean more truth",
+        emoji: "💬",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Truth depends on facts, not just opinions",
+        emoji: "⚖️",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "The loudest voice is always correct",
+        emoji: "📣",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

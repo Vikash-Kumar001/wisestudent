@@ -24,132 +24,128 @@ const SocialMediaStory1 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "You want to use Instagram to promote your school project. What's the smart approach?",
-      options: [
-        { 
-          id: "share-everything", 
-          text: "Share all personal details", 
-          emoji: "📤", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "smart-promotion", 
-          text: "Promote the project while protecting privacy", 
-          emoji: "🛡️", 
-         
-          isCorrect: true
-        },
-        { 
-          id: "don't-share", 
-          text: "Don't share anything online", 
-          emoji: "🚫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "You want to showcase your project achievements. What should you do?",
-      options: [
-        { 
-          id: "share-achievements", 
-          text: "Share achievements without revealing location", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "post-location", 
-          text: "Post with your exact location", 
-          emoji: "📍", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "never-post", 
-          text: "Never post anything", 
-          emoji: "🚫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "You want to connect with others interested in your project. What's the best way?",
-      options: [
-        { 
-          id: "share-contact", 
-          text: "Share your personal phone number", 
-          emoji: "📱", 
-          isCorrect: false
-        },
-       
-        { 
-          id: "no-connection", 
-          text: "Don't connect with anyone", 
-          emoji: "🚫", 
-          isCorrect: false
-        },
-         { 
-          id: "use-platform-messaging", 
-          text: "Use platform messaging and keep contact private", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "You want to build a portfolio of your work. What's the smart approach?",
-      options: [
-        { 
-          id: "share-all-info", 
-          text: "Share all your personal information", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          id: "showcase-work-safely", 
-          text: "Showcase your work while protecting privacy", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "no-portfolio", 
-          text: "Don't create a portfolio", 
-          emoji: "🚫", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "You want to use social media to grow your skills and network. What's the right way?",
-      options: [
-        { 
-          id: "use-smartly", 
-          text: "Use social media smartly for growth while staying safe", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "share-everything-public", 
-          text: "Share everything publicly", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "avoid-completely", 
-          text: "Avoid social media completely", 
-          emoji: "🚫", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You want to use Instagram to promote your school project. What is the smart approach?",
+    options: [
+      { 
+        id: "share-everything", 
+        text: "Share all personal details", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        id: "smart-promotion", 
+        text: "Promote the project while protecting your privacy", 
+        emoji: "🙂", 
+        isCorrect: true
+      },
+      { 
+        id: "don't-share", 
+        text: "Do not share anything online", 
+        emoji: "🚫", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: "You want to showcase your project achievements. What should you do?",
+    options: [
+      { 
+        id: "share-achievements", 
+        text: "Share achievements without revealing your location", 
+        emoji: "🏆", 
+        isCorrect: true
+      },
+      { 
+        id: "post-location", 
+        text: "Post with your exact location", 
+        emoji: "📍", 
+        isCorrect: false
+      },
+      { 
+        id: "never-post", 
+        text: "Never post anything", 
+        emoji: "🚫", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "You want to connect with others who are interested in your project. What is the best way?",
+    options: [
+      { 
+        id: "share-contact", 
+        text: "Share your personal phone number", 
+        emoji: "📱", 
+        isCorrect: false
+      },
+      { 
+        id: "no-connection", 
+        text: "Do not connect with anyone", 
+        emoji: "🚫", 
+        isCorrect: false
+      },
+      { 
+        id: "use-platform-messaging", 
+        text: "Use platform messaging and keep your contact private", 
+        emoji: "💬", 
+        isCorrect: true
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "You want to build a portfolio of your work. What is the smart approach?",
+    options: [
+      { 
+        id: "share-all-info", 
+        text: "Share all your personal information", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        id: "showcase-work-safely", 
+        text: "Showcase your work while protecting your privacy", 
+        emoji: "😐", 
+        isCorrect: true
+      },
+      { 
+        id: "no-portfolio", 
+        text: "Do not create a portfolio", 
+        emoji: "🚫", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You want to use social media to grow your skills and network. What is the right way?",
+    options: [
+      { 
+        id: "use-smartly", 
+        text: "Use social media smartly for growth while staying safe", 
+        emoji: "🛡️", 
+        isCorrect: true
+      },
+      { 
+        id: "share-everything-public", 
+        text: "Share everything publicly", 
+        emoji: "📤", 
+        isCorrect: false
+      },
+      { 
+        id: "avoid-completely", 
+        text: "Avoid social media completely", 
+        emoji: "🚫", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

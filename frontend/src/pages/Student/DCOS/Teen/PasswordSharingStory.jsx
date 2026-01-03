@@ -56,128 +56,132 @@ const PasswordSharingStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Your best friend asks: 'Can I borrow your password to check something on your account? I promise I'll just look quickly and won't change anything.'",
-      options: [
-        { 
-          id: "never", 
-          text: "Never share passwords with anyone", 
-          emoji: "🛡️", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "share", 
-          text: "Share it - they're my best friend", 
-          emoji: "🤝", 
-          isCorrect: false
-        },
-        { 
-          id: "share-later", 
-          text: "Share it but change it later", 
-          emoji: "🔄", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Your sibling says: 'I need to use your account for a game. Just tell me your password, I won't mess with anything.'",
-      options: [
-        { 
-          id: "share-family", 
-          text: "Share it - they're family", 
-          emoji: "👨‍👩‍👧", 
-          isCorrect: false
-        },
-        { 
-          id: "never-family", 
-          text: "Never share passwords, even with family", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "temporary", 
-          text: "Share it temporarily", 
-          emoji: "⏰", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "A classmate asks: 'Can I use your account to submit my assignment? I'll just log in once.'",
-      options: [
-        { 
-          id: "help", 
-          text: "Share it to help them", 
-          emoji: "🤝", 
-          isCorrect: false
-        },
-        { 
-          id: "monitor", 
-          text: "Share it but monitor the account", 
-          emoji: "👀", 
-          isCorrect: false
-        },
-        { 
-          id: "never-classmate", 
-          text: "Never share passwords with anyone", 
-          emoji: "🛡️", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Someone you've chatted with online asks: 'Can I access your account to help you with something?'",
-      options: [
-        { 
-          id: "never-online", 
-          text: "Never share passwords with anyone", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "trust", 
-          text: "Share it - they seem trustworthy", 
-          emoji: "😊", 
-          isCorrect: false
-        },
-        { 
-          id: "change-after", 
-          text: "Share it but change it immediately after", 
-          emoji: "🔄", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Someone claiming to be tech support calls: 'We need your password to fix your account. Can you share it?'",
-      options: [
-        { 
-          id: "tech-support", 
-          text: "Share it - they're tech support", 
-          emoji: "🔧", 
-          isCorrect: false
-        },
-        { 
-          id: "scam", 
-          text: "Never share passwords - this is a scam", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "verify-first", 
-          text: "Share it but verify first", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "Your best friend says: 'I forgot my password. Can I use yours just this once to check messages?' What should you do?",
+    options: [
+      
+      { 
+        id: "share-friend", 
+        text: "Share it this once quickly", 
+        emoji: "🤝", 
+        isCorrect: false
+      },
+      { 
+        id: "write-down", 
+        text: "Write it down and give it to them", 
+        emoji: "📝", 
+        isCorrect: false
+      },
+      { 
+        id: "never-friend", 
+        text: "Never share your password, even with friends", 
+        emoji: "🛡️", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "Your teacher says you can use their account to access an online study platform. What should you do?",
+    options: [
+      
+      { 
+        id: "use-their-account", 
+        text: "Use their account, they said it’s okay", 
+        emoji: "📚", 
+        isCorrect: false
+      },
+      { 
+        id: "use-teacher", 
+        text: "Ask to use your own account, never share passwords", 
+        emoji: "💻", 
+        isCorrect: true
+      },
+      { 
+        id: "guess-password", 
+        text: "Try to guess it yourself", 
+        emoji: "🔍", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "A family member asks: 'Can I use your gaming account? I promise I won’t change anything.' What should you do?",
+    options: [
+      { 
+        id: "never-family", 
+        text: "Keep your password private, even with family", 
+        emoji: "🔒", 
+        isCorrect: true
+      },
+      { 
+        id: "share-family", 
+        text: "Share it since they are family", 
+        emoji: "👨‍👩‍👧", 
+        isCorrect: false
+      },
+      { 
+        id: "share-later", 
+        text: "Share but change it after they use it", 
+        emoji: "🔄", 
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "An online gaming friend says: 'Let me log in using your account so we can team up.' What is the safe choice?",
+    options: [
+     
+      { 
+        id: "share-online", 
+        text: "Share it since we are friends online", 
+        emoji: "🎮", 
+        isCorrect: false
+      },
+      { 
+        id: "temporary-login", 
+        text: "Share it temporarily and then change it", 
+        emoji: "⏳", 
+        isCorrect: false
+      },
+       { 
+        id: "never-online", 
+        text: "Never share your password online", 
+        emoji: "⚠️", 
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "You get an email saying: 'Your account has a problem. Please send your password to fix it.' What should you do?",
+    options: [
+      
+      { 
+        id: "send-password", 
+        text: "Send it quickly to fix the issue", 
+        emoji: "✉️", 
+        isCorrect: false
+      },
+      { 
+        id: "phishing", 
+        text: "Never share passwords - this could be a phishing scam", 
+        emoji: "📧", 
+        isCorrect: true
+      },
+      { 
+        id: "verify-email", 
+        text: "Verify first, then share", 
+        emoji: "🔍", 
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

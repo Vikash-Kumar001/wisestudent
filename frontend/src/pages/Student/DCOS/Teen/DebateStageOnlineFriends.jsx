@@ -30,7 +30,7 @@ const DebateStageOnlineFriends = () => {
         { 
           id: "no-dangerous", 
           text: "No - it's dangerous and should be avoided", 
-          emoji: "🛡️", 
+          emoji: "🤓", 
           isCorrect: true
         },
         { 
@@ -60,7 +60,7 @@ const DebateStageOnlineFriends = () => {
         { 
           id: "no-never", 
           text: "No - never share personal info", 
-          emoji: "🛡️", 
+          emoji: "🔒", 
           isCorrect: true
         },
         { 
@@ -90,7 +90,7 @@ const DebateStageOnlineFriends = () => {
         { 
           id: "only-verified", 
           text: "Only with verified identity", 
-          emoji: "🛡️", 
+          emoji: "�", 
           isCorrect: true
         }
       ]
@@ -102,7 +102,7 @@ const DebateStageOnlineFriends = () => {
         { 
           id: "no-only-known", 
           text: "No - only accept known people", 
-          emoji: "🛡️", 
+          emoji: "🤔", 
           isCorrect: true
         },
         { 
@@ -132,7 +132,7 @@ const DebateStageOnlineFriends = () => {
         { 
           id: "be-cautious", 
           text: "Be cautious - verify identity first", 
-          emoji: "🛡️", 
+          emoji: "😑", 
           isCorrect: true
         },
         { 

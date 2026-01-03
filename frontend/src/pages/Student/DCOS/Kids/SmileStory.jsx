@@ -32,21 +32,20 @@ const SmileStory = () => {
           id: "a", 
           text: "Join In and Laugh", 
           emoji: "😄", 
-          description: "Laugh along with the other kids",
+          
           isCorrect: false
         },
         { 
           id: "b", 
           text: "Say Something Nice", 
           emoji: "😊", 
-          description: "Say something nice about the drawing",
+          
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Ignore and Scroll Away", 
           emoji: "😐", 
-          description: "Ignore it and scroll past",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const SmileStory = () => {
           id: "a", 
           text: "Introduce Yourself", 
           emoji: "🤝", 
-          description: "Introduce yourself and offer to help",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Ignore Like Others", 
           emoji: "😐", 
-          description: "Ignore them like everyone else",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Make Fun of Them", 
           emoji: "😄", 
-          description: "Make fun of their nervousness",
           isCorrect: false
         }
       ]
@@ -87,21 +83,18 @@ const SmileStory = () => {
           id: "b", 
           text: "Laugh at Their Mistake", 
           emoji: "😄", 
-          description: "Laugh at them for forgetting",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Pretend You Didn't Notice", 
           emoji: "🙈", 
-          description: "Act like you didn't see them",
           isCorrect: false
         },
         { 
           id: "a", 
           text: "Share Your Lunch", 
           emoji: "🍽️", 
-          description: "Share your lunch with them",
           isCorrect: true
         },
       ]
@@ -114,21 +107,18 @@ const SmileStory = () => {
           id: "a", 
           text: "Help or Comfort Them", 
           emoji: "🤗", 
-          description: "Help them fix it or comfort them",
           isCorrect: true
         },
         { 
           id: "b", 
           text: "Laugh Along", 
           emoji: "😄", 
-          description: "Laugh along with the other kids",
           isCorrect: false
         },
         { 
           id: "c", 
           text: "Walk Away", 
           emoji: "🚶", 
-          description: "Walk away and ignore",
           isCorrect: false
         }
       ]
@@ -142,21 +132,18 @@ const SmileStory = () => {
           id: "b", 
           text: "Make Jealous Comments", 
           emoji: "😒", 
-          description: "Make jealous comments too",
           isCorrect: false
         },
          { 
           id: "a", 
           text: "Congratulate Them", 
           emoji: "🎉", 
-          description: "Congratulate them and celebrate",
           isCorrect: true
         },
         { 
           id: "c", 
           text: "Ignore Their Post", 
           emoji: "😐", 
-          description: "Ignore their post completely",
           isCorrect: false
         }
       ]

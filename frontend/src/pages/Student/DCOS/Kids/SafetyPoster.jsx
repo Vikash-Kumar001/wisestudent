@@ -27,47 +27,49 @@ const SafetyPoster = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const stages = [
-    {
-      question: 'Which poster would best show "Don\'t Share Your Password"?',
-      choices: [
-        { text: "Poster showing sharing passwords with everyone 📤", correct: false },
-        { text: "Poster showing password protection and privacy 🔒", correct: true },
-        { text: "Poster showing passwords don't matter 🚫", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Stranger Danger Online"?',
-      choices: [
-        { text: "Poster showing trusting all strangers online 👥", correct: false },
-        { text: "Poster showing meeting strangers in person 🤝", correct: false },
-        { text: "Poster showing being careful with strangers online ⚠️", correct: true },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Keep Personal Info Private"?',
-      choices: [
-        { text: "Poster showing protecting personal information 🛡️", correct: true },
-        { text: "Poster showing sharing all personal info 📢", correct: false },
-        { text: "Poster showing privacy doesn't matter 😔", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Ask Parent Before Clicking"?',
-      choices: [
-        { text: "Poster showing clicking on all links 🔗", correct: false },
-        { text: "Poster showing asking parents before clicking links 👨‍👩‍👧", correct: true },
-        { text: "Poster showing never asking parents 🙈", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster would best show "Stay Safe Online"?',
-      choices: [
-        { text: "Poster showing safety doesn't matter ❌", correct: false },
-        { text: "Poster showing ignoring safety rules 🚫", correct: false },
-        { text: "Poster showing always being safe when using the internet 🛡️", correct: true },
-      ],
-    },
-  ];
+  {
+    question: 'Which poster would best show a child using the internet wisely at home?',
+    choices: [
+      { text: "Poster showing a child clicking random popups", correct: false },
+      { text: "Poster showing a child using a device with guidance nearby", correct: true },
+      { text: "Poster showing a device used all night without rules", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster best explains what to do when something online feels confusing or scary?',
+    choices: [
+      { text: "Poster showing asking a trusted adult for help", correct: true },
+      { text: "Poster showing keeping problems secret", correct: false },
+      { text: "Poster showing ignoring the screen forever", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would help kids understand safe chatting habits?',
+    choices: [
+      { text: "Poster showing chatting with anyone anytime", correct: false },
+      { text: "Poster showing sending messages without thinking", correct: false },
+      { text: "Poster showing choosing who to chat with carefully", correct: true },
+    ],
+  },
+  {
+    question: 'Which poster best shows smart behavior when downloading apps?',
+    choices: [
+      { text: "Poster showing downloading every colorful app", correct: false },
+      { text: "Poster showing checking app details before installing", correct: true },
+      { text: "Poster showing apps installing automatically", correct: false },
+    ],
+  },
+  {
+    question: 'Which poster would best represent balanced and safe screen use?',
+    choices: [
+      { text: "Poster showing screen time mixed with play and rest", correct: true },
+      { text: "Poster showing screen use during every activity", correct: false },
+      { text: "Poster showing screens replacing all outdoor play", correct: false },
+    ],
+  },
+];
+
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

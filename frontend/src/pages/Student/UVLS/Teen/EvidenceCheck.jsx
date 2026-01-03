@@ -55,7 +55,7 @@ const EvidenceCheck = () => {
         { 
           id: "a", 
           text: "Peer-reviewed scientific studies and government health sites", 
-          emoji: "💉",
+          emoji: "🔬",
           isCorrect: true
         },
         { 
@@ -85,7 +85,7 @@ const EvidenceCheck = () => {
         { 
           id: "a", 
           text: "Scientific consensus reports and news articles with data", 
-          emoji: "🌍",
+          emoji: "📈",
           isCorrect: true
         },
         { 
@@ -103,7 +103,7 @@ const EvidenceCheck = () => {
         { 
           id: "a", 
           text: "Medical journals and expert interviews", 
-          emoji: "🥕",
+          emoji: "🤔",
           isCorrect: true
         },
         { 
@@ -139,7 +139,7 @@ const EvidenceCheck = () => {
         { 
           id: "a", 
           text: "NASA documents and historical records", 
-          emoji: "🌕",
+          emoji: "📃",
           isCorrect: true
         }
       ]

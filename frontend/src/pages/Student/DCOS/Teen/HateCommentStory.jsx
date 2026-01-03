@@ -30,7 +30,7 @@ const HateCommentStory = () => {
       options: [
         { 
           id: "ignore", 
-          text: "Ignore it - don't get involved", 
+          text: "don't get involved", 
           emoji: "😐", 
           
           isCorrect: false
@@ -84,13 +84,13 @@ const HateCommentStory = () => {
       options: [
         { 
           id: "ignore-comment", 
-          text: "Ignore it - it's just words", 
+          text: "it's just words", 
           emoji: "😐", 
           isCorrect: false
         },
         { 
           id: "report-discrimination", 
-          text: "Report it - this is discrimination", 
+          text: "this is discrimination", 
           emoji: "🚫", 
           isCorrect: true
         },
@@ -114,7 +114,7 @@ const HateCommentStory = () => {
         },
         { 
           id: "report-religious-hate", 
-          text: "Report it - religious hate is wrong", 
+          text: "religious hate is wrong", 
           emoji: "🚫", 
           isCorrect: true
         },
@@ -132,7 +132,7 @@ const HateCommentStory = () => {
       options: [
         { 
           id: "ignore-stereotype", 
-          text: "Ignore it - just a stereotype", 
+          text: "just a stereotype", 
           emoji: "😐", 
           isCorrect: false
         },
@@ -145,7 +145,7 @@ const HateCommentStory = () => {
         },
          { 
           id: "report-stereotype", 
-          text: "Report it - this is hateful stereotyping", 
+          text: "this is hateful stereotyping", 
           emoji: "🚫", 
           isCorrect: true
         },
