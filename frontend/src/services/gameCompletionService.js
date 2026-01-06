@@ -143,7 +143,7 @@ class GameCompletionService {
         toast.success(`🎮 +${result.coinsEarned} HealCoins earned!`);
       } else if (result.isReplay) {
         // Show message for replay completion
-        toast.success(result.message || 'Game replayed! Pay 2 HealCoins to unlock replay again.', {
+        toast.success(result.message || 'Game replayed! Pay the replay cost to unlock replay again.', {
           duration: 4000
         });
       }

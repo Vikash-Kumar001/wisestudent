@@ -38,8 +38,8 @@ export const getStudentStats = async (req, res) => {
       });
     }
 
-    // Calculate next level XP (100 XP per level)
-    const nextLevelXp = userProgress.level * 100;
+    // Calculate next level XP (1000 XP per level)
+    const nextLevelXp = userProgress.level * 1000;
 
     // Mood logs for check-ins and today's mood
     const moodLogs = await MoodLog.find({ userId }).sort({ date: -1 });
@@ -777,7 +777,7 @@ export const getLeaderboardSnippet = async (req, res) => {
             username: displayUsername,
             avatar: user.avatar,
             xp: progress.xp || 0,
-            level: progress.level || Math.floor((progress.xp || 0) / 100) + 1,
+            level: progress.level || Math.floor((progress.xp || 0) / 1000) + 1,
             isCurrentUser: user._id && userId && user._id.toString() === userId.toString()
           };
       });
@@ -848,7 +848,7 @@ export const getLeaderboardSnippet = async (req, res) => {
           username: displayUsername,
           avatar: userData.avatar,
           xp: item.totalXP || 0,
-          level: Math.floor((item.totalXP || 0) / 100) + 1,
+          level: Math.floor((item.totalXP || 0) / 1000) + 1,
           isCurrentUser: userData._id && userId && userData._id.toString() === userId.toString()
         };
       }).filter(Boolean);
@@ -890,7 +890,7 @@ export const getLeaderboardSnippet = async (req, res) => {
             username: displayUsername,
             avatar: user.avatar,
             xp: currentUserXP,
-            level: userProgress?.level || Math.floor(currentUserXP / 100) + 1,
+            level: userProgress?.level || Math.floor(currentUserXP / 1000) + 1,
             isCurrentUser: true
           };
         }
@@ -976,7 +976,7 @@ export const getLeaderboardSnippet = async (req, res) => {
             username: displayUsername,
             avatar: user.avatar,
             xp: currentUserXP,
-            level: Math.floor(currentUserXP / 100) + 1,
+            level: Math.floor(currentUserXP / 1000) + 1,
             isCurrentUser: true
           };
         }

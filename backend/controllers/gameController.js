@@ -1,4 +1,4 @@
-import FinancialMission from '../models/FinancialMission.js';
+﻿import FinancialMission from '../models/FinancialMission.js';
 import MissionProgress from '../models/MissionProgress.js';
 import Game from '../models/Game.js';
 import GameProgress from '../models/GameProgress.js';
@@ -72,7 +72,7 @@ const canAccessGameByAge = (userAge, gameAgeGroup) => {
   return true;
 };
 
-// 📥 GET /api/game/missions/:level
+// ðŸ“¥ GET /api/game/missions/:level
 export const getMissionsByLevel = async (req, res) => {
   const { level } = req.params;
 
@@ -80,12 +80,12 @@ export const getMissionsByLevel = async (req, res) => {
     const missions = await FinancialMission.find({ level });
     res.status(200).json(missions);
   } catch (err) {
-    console.error('❌ Failed to fetch missions:', err);
+    console.error('âŒ Failed to fetch missions:', err);
     res.status(500).json({ error: 'Server error while fetching missions' });
   }
 };
 
-// ✅ POST /api/game/complete/:missionId
+// âœ… POST /api/game/complete/:missionId
 export const completeMission = async (req, res) => {
   const userId = req.user?._id;
   const { missionId } = req.params;
@@ -126,18 +126,18 @@ export const completeMission = async (req, res) => {
     await progress.save();
 
     res.status(200).json({
-      message: '🎉 Mission completed!',
+      message: 'ðŸŽ‰ Mission completed!',
       newXP: progress.xp,
       newCoins: progress.healCoins,
       badges: progress.badges,
     });
   } catch (err) {
-    console.error('❌ Mission completion error:', err);
+    console.error('âŒ Mission completion error:', err);
     res.status(500).json({ error: 'Failed to complete mission' });
   }
 };
 
-// 📊 GET /api/game/progress
+// ðŸ“Š GET /api/game/progress
 export const getUserProgress = async (req, res) => {
   try {
     const progress = await MissionProgress.findOne({ userId: req.user._id })
@@ -145,12 +145,12 @@ export const getUserProgress = async (req, res) => {
 
     res.status(200).json(progress || {});
   } catch (err) {
-    console.error('❌ Progress fetch error:', err);
+    console.error('âŒ Progress fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch progress' });
   }
 };
 
-// 🎮 GET /api/game/games
+// ðŸŽ® GET /api/game/games
 export const getAllGames = async (req, res) => {
   try {
     const userId = req.user?._id;
@@ -199,12 +199,12 @@ export const getAllGames = async (req, res) => {
     
     res.status(200).json(games);
   } catch (err) {
-    console.error('❌ Failed to fetch games:', err);
+    console.error('âŒ Failed to fetch games:', err);
     res.status(500).json({ error: 'Server error while fetching games' });
   }
 };
 
-// 🎮 GET /api/game/games/:category
+// ðŸŽ® GET /api/game/games/:category
 export const getGamesByCategory = async (req, res) => {
   const { category } = req.params;
   
@@ -212,12 +212,12 @@ export const getGamesByCategory = async (req, res) => {
     const games = await Game.find({ category });
     res.status(200).json(games);
   } catch (err) {
-    console.error('❌ Failed to fetch games by category:', err);
+    console.error('âŒ Failed to fetch games by category:', err);
     res.status(500).json({ error: 'Server error while fetching games' });
   }
 };
 
-// 🎮 GET /api/game/games/type/:type
+// ðŸŽ® GET /api/game/games/type/:type
 export const getGamesByType = async (req, res) => {
   const { type } = req.params;
   
@@ -225,12 +225,12 @@ export const getGamesByType = async (req, res) => {
     const games = await Game.find({ type });
     res.status(200).json(games);
   } catch (err) {
-    console.error('❌ Failed to fetch games by type:', err);
+    console.error('âŒ Failed to fetch games by type:', err);
     res.status(500).json({ error: 'Server error while fetching games' });
   }
 };
 
-// 🎮 GET /api/game/games/age/:ageGroup
+// ðŸŽ® GET /api/game/games/age/:ageGroup
 export const getGamesByAgeGroup = async (req, res) => {
   const { ageGroup } = req.params;
   const userId = req.user?._id;
@@ -272,12 +272,12 @@ export const getGamesByAgeGroup = async (req, res) => {
     
     res.status(200).json(games);
   } catch (err) {
-    console.error('❌ Failed to fetch games by age group:', err);
+    console.error('âŒ Failed to fetch games by age group:', err);
     res.status(500).json({ error: 'Server error while fetching games' });
   }
 };
 
-// 🎮 POST /api/game/complete-game/:gameId
+// ðŸŽ® POST /api/game/complete-game/:gameId
 export const completeGame = async (req, res) => {
   const userId = req.user?._id;
   const { gameId } = req.params;
@@ -428,7 +428,7 @@ export const completeGame = async (req, res) => {
     // Save game progress
     await gameProgress.save();
     
-    // ✨ UPDATE USERPROGRESS FOR DASHBOARD
+    // âœ¨ UPDATE USERPROGRESS FOR DASHBOARD
     let userProgress = await UserProgress.findOne({ userId });
     
     if (!userProgress) {
@@ -445,8 +445,8 @@ export const completeGame = async (req, res) => {
     const xpEarned = Math.floor(coinsEarned * 2); // 2 XP per coin
     userProgress.xp += xpEarned;
     
-    // Calculate level (100 XP per level)
-    userProgress.level = Math.floor(userProgress.xp / 100) + 1;
+    // Calculate level (1000 XP per level)
+    userProgress.level = Math.floor(userProgress.xp / 1000) + 1;
     
     // Update streak
     const lastCheckIn = userProgress.lastCheckIn ? new Date(userProgress.lastCheckIn) : null;
@@ -527,19 +527,19 @@ export const completeGame = async (req, res) => {
     }
     
     res.status(200).json({
-      message: '🎉 Game completed successfully!',
+      message: 'ðŸŽ‰ Game completed successfully!',
       gameProgress,
       coinsEarned,
       newBalance: wallet.balance,
       streak: gameProgress.streak
     });
   } catch (err) {
-    console.error('❌ Game completion error:', err);
+    console.error('âŒ Game completion error:', err);
     res.status(500).json({ error: 'Failed to complete game' });
   }
 };
 
-// 🏆 GET /api/game/achievements
+// ðŸ† GET /api/game/achievements
 export const getUserAchievements = async (req, res) => {
   const userId = req.user?._id;
   
@@ -558,12 +558,12 @@ export const getUserAchievements = async (req, res) => {
     
     res.status(200).json(achievements);
   } catch (err) {
-    console.error('❌ Failed to fetch achievements:', err);
+    console.error('âŒ Failed to fetch achievements:', err);
     res.status(500).json({ error: 'Server error while fetching achievements' });
   }
 };
 
-// 📊 GET /api/game/user-stats
+// ðŸ“Š GET /api/game/user-stats
 export const getUserGameStats = async (req, res) => {
   const userId = req.user?._id;
   
@@ -601,12 +601,12 @@ export const getUserGameStats = async (req, res) => {
       currentBalance: wallet ? wallet.balance : 0
     });
   } catch (err) {
-    console.error('❌ Failed to fetch user game stats:', err);
+    console.error('âŒ Failed to fetch user game stats:', err);
     res.status(500).json({ error: 'Server error while fetching user game stats' });
   }
 };
 
-// 🏆 GET /api/game/leaderboard
+// ðŸ† GET /api/game/leaderboard
 export const getLeaderboard = async (req, res) => {
   const { period = 'daily' } = req.query;
   
@@ -687,12 +687,12 @@ export const getLeaderboard = async (req, res) => {
     
     res.status(200).json(leaderboard);
   } catch (err) {
-    console.error('❌ Failed to fetch leaderboard:', err);
+    console.error('âŒ Failed to fetch leaderboard:', err);
     res.status(500).json({ error: 'Server error while fetching leaderboard' });
   }
 };
 
-// 🎮 POST /api/game/complete-unified/:gameId - Unified game completion with heal coins
+// ðŸŽ® POST /api/game/complete-unified/:gameId - Unified game completion with heal coins
 // Get Brain Teaser Games
 export const getBrainTeaserGames = async (req, res) => {
   try {
@@ -704,7 +704,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'memory-matrix',
         title: 'Memory Matrix',
         description: 'Remember and match the pattern in this visual memory challenge',
-        icon: '🧩',
+        icon: 'ðŸ§©',
         color: 'from-purple-500 to-pink-500',
         difficulty: 'medium',
         duration: '7 min',
@@ -716,7 +716,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'logic-puzzle',
         title: 'Logic Puzzle Master',
         description: 'Solve complex logic puzzles to unlock your analytical thinking',
-        icon: '🎯',
+        icon: 'ðŸŽ¯',
         color: 'from-blue-500 to-cyan-500',
         difficulty: 'hard',
         duration: '10 min',
@@ -728,7 +728,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'word-wizard',
         title: 'Word Wizard',
         description: 'Challenge your vocabulary and word-finding abilities',
-        icon: '📝',
+        icon: 'ðŸ“',
         color: 'from-green-500 to-emerald-500',
         difficulty: 'easy',
         duration: '5 min',
@@ -740,7 +740,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'number-ninja',
         title: 'Number Ninja',
         description: 'Master quick mental math and number patterns',
-        icon: '🔢',
+        icon: 'ðŸ”¢',
         color: 'from-orange-500 to-red-500',
         difficulty: 'medium',
         duration: '6 min',
@@ -752,7 +752,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'shape-shifter',
         title: 'Shape Shifter',
         description: 'Identify shapes and spatial relationships',
-        icon: '🔷',
+        icon: 'ðŸ”·',
         color: 'from-teal-500 to-cyan-500',
         difficulty: 'easy',
         duration: '5 min',
@@ -764,7 +764,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'speed-think',
         title: 'Speed Think',
         description: 'Quick decision-making under time pressure',
-        icon: '⚡',
+        icon: 'âš¡',
         color: 'from-yellow-500 to-amber-500',
         difficulty: 'hard',
         duration: '8 min',
@@ -776,7 +776,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'pattern-pro',
         title: 'Pattern Pro',
         description: 'Complete sequences and predict the next element',
-        icon: '🔮',
+        icon: 'ðŸ”®',
         color: 'from-indigo-500 to-purple-500',
         difficulty: 'medium',
         duration: '7 min',
@@ -788,7 +788,7 @@ export const getBrainTeaserGames = async (req, res) => {
         id: 'attention-ace',
         title: 'Attention Ace',
         description: 'Focus and spot differences in complex scenarios',
-        icon: '👁️',
+        icon: 'ðŸ‘ï¸',
         color: 'from-pink-500 to-rose-500',
         difficulty: 'easy',
         duration: '6 min',
@@ -827,7 +827,7 @@ export const getBrainTeaserGames = async (req, res) => {
       totalXPAvailable: brainGames.reduce((sum, g) => sum + g.xpReward, 0)
     });
   } catch (err) {
-    console.error('❌ Failed to get Brain Teaser games:', err);
+    console.error('âŒ Failed to get Brain Teaser games:', err);
     res.status(500).json({ error: 'Failed to fetch Brain Teaser games' });
   }
 };
@@ -843,7 +843,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'password-master',
         title: 'Password Master',
         description: 'Learn to create strong, secure passwords',
-        icon: '🔐',
+        icon: 'ðŸ”',
         color: 'from-blue-500 to-cyan-500',
         difficulty: 'easy',
         duration: '5 min',
@@ -854,7 +854,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'phishing-detective',
         title: 'Phishing Detective',
         description: 'Identify and avoid phishing scams',
-        icon: '🕵️',
+        icon: 'ðŸ•µï¸',
         color: 'from-red-500 to-orange-500',
         difficulty: 'medium',
         duration: '8 min',
@@ -865,7 +865,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'privacy-guardian',
         title: 'Privacy Guardian',
         description: 'Protect your personal information online',
-        icon: '🛡️',
+        icon: 'ðŸ›¡ï¸',
         color: 'from-purple-500 to-pink-500',
         difficulty: 'medium',
         duration: '7 min',
@@ -876,7 +876,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'social-media-hero',
         title: 'Social Media Hero',
         description: 'Navigate social media safely and responsibly',
-        icon: '📱',
+        icon: 'ðŸ“±',
         color: 'from-green-500 to-emerald-500',
         difficulty: 'easy',
         duration: '6 min',
@@ -887,7 +887,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'cyberbully-stopper',
         title: 'Cyberbully Stopper',
         description: 'Recognize and respond to cyberbullying',
-        icon: '🚫',
+        icon: 'ðŸš«',
         color: 'from-orange-500 to-red-500',
         difficulty: 'medium',
         duration: '10 min',
@@ -898,7 +898,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'digital-footprint',
         title: 'Digital Footprint',
         description: 'Understand your online presence',
-        icon: '👣',
+        icon: 'ðŸ‘£',
         color: 'from-indigo-500 to-purple-500',
         difficulty: 'easy',
         duration: '5 min',
@@ -909,7 +909,7 @@ export const getDCOSGames = async (req, res) => {
         id: 'safe-browsing',
         title: 'Safe Browsing Quest',
         description: 'Browse the internet safely and securely',
-        icon: '🌐',
+        icon: 'ðŸŒ',
         color: 'from-teal-500 to-cyan-500',
         difficulty: 'easy',
         duration: '6 min',
@@ -945,7 +945,7 @@ export const getDCOSGames = async (req, res) => {
       completedGames: gameProgress.filter(g => g.fullyCompleted).length
     });
   } catch (err) {
-    console.error('❌ Failed to get DCOS games:', err);
+    console.error('âŒ Failed to get DCOS games:', err);
     res.status(500).json({ error: 'Failed to fetch DCOS games' });
   }
 };
@@ -971,7 +971,7 @@ export const completeUnifiedGame = async (req, res) => {
   } = req.body;
   
   // Log the received values for debugging
-  console.log(`🎮 Received game completion request - gameId: ${gameId}, totalCoins: ${totalCoins}, coinsPerLevel: ${coinsPerLevel}, totalLevels: ${totalLevels}, isFullCompletion: ${isFullCompletion}`);
+  console.log(`ðŸŽ® Received game completion request - gameId: ${gameId}, totalCoins: ${totalCoins}, coinsPerLevel: ${coinsPerLevel}, totalLevels: ${totalLevels}, isFullCompletion: ${isFullCompletion}`);
 
   try {
     // Check age restrictions
@@ -1029,7 +1029,7 @@ export const completeUnifiedGame = async (req, res) => {
     // A replay is when: isReplay flag is true OR game is fully completed AND replay is unlocked
     const isReplayAttempt = isReplay === true || (gameProgress.fullyCompleted && gameProgress.replayUnlocked === true);
     
-    console.log('🎮 Game completion check:', {
+    console.log('ðŸŽ® Game completion check:', {
       gameId,
       isReplay: isReplay,
       fullyCompleted: gameProgress.fullyCompleted,
@@ -1039,7 +1039,7 @@ export const completeUnifiedGame = async (req, res) => {
     
     // If it's a replay, don't award coins and lock the game again
     if (isReplayAttempt && gameProgress.fullyCompleted) {
-      console.log('🔄 Processing replay completion - will lock game after replay');
+      console.log('ðŸ”„ Processing replay completion - will lock game after replay');
       // Update progress but don't award coins
       gameProgress.levelsCompleted = Math.max(gameProgress.levelsCompleted, levelsCompleted);
       gameProgress.totalLevels = Math.max(gameProgress.totalLevels, totalLevels);
@@ -1048,7 +1048,7 @@ export const completeUnifiedGame = async (req, res) => {
       gameProgress.totalTimePlayed += timePlayed;
       gameProgress.lastPlayedAt = new Date();
       
-      // Lock the game again after replay (user needs to pay 2 HealCoins again to replay)
+      // Lock the game again after replay (user needs to pay the tiered replay cost again to replay)
       gameProgress.replayUnlocked = false;
       gameProgress.replayUnlockedAt = null;
       
@@ -1056,7 +1056,7 @@ export const completeUnifiedGame = async (req, res) => {
       
       // Verify the save was successful
       const savedProgress = await UnifiedGameProgress.findOne({ userId, gameId });
-      console.log('🔒 Game locked after replay - verification:', {
+      console.log('ðŸ”’ Game locked after replay - verification:', {
         gameId,
         replayUnlocked: savedProgress?.replayUnlocked,
         fullyCompleted: savedProgress?.fullyCompleted
@@ -1073,7 +1073,7 @@ export const completeUnifiedGame = async (req, res) => {
       }
 
       return res.status(200).json({
-        message: '🎮 Game replayed! No coins awarded for replays. Pay 2 HealCoins to unlock replay again.',
+        message: 'dYZr Game replayed! No coins awarded for replays. Pay the replay cost to unlock replay again.',
         coinsEarned: 0,
         xpEarned: 0,
         totalCoinsEarned: gameProgress.totalCoinsEarned,
@@ -1093,7 +1093,7 @@ export const completeUnifiedGame = async (req, res) => {
     const gameDefinition = await Game.findOne({ category: gameId });
     const defaultCoinsPerLevel = coinsPerLevel || (gameDefinition?.coinsPerLevel) || 5;
     
-    // Use formula: totalLevels × coinsPerLevel for full completion
+    // Use formula: totalLevels Ã— coinsPerLevel for full completion
     // If coinsPerLevel is provided, use it; otherwise fall back to game definition or default
     const coinsPerQuestion = coinsPerLevel || (gameDefinition?.coinsPerLevel) || 5;
 
@@ -1110,7 +1110,7 @@ export const completeUnifiedGame = async (req, res) => {
     const targetCoins = totalCoins !== null && totalCoins !== undefined ? totalCoins : (coinsPerLevel || 5);
     const allAnswersCorrect = targetCoins > 0 && coinsPerformance >= targetCoins;
     
-    console.log(`💰 Performance check - gameId: ${gameId}, coinsPerformance: ${coinsPerformance}, targetCoins: ${targetCoins}, allAnswersCorrect: ${allAnswersCorrect}`);
+    console.log(`ðŸ’° Performance check - gameId: ${gameId}, coinsPerformance: ${coinsPerformance}, targetCoins: ${targetCoins}, allAnswersCorrect: ${allAnswersCorrect}`);
     
     // Calculate expected total coins
     const expectedTotalCoins = totalCoins !== null && totalCoins !== undefined ? totalCoins : (coinsPerLevel || 5);
@@ -1121,7 +1121,7 @@ export const completeUnifiedGame = async (req, res) => {
     const maxReasonableCoins = expectedTotalCoins * 10;
     let adjustedCoinsEarned = currentCoinsEarned;
     if (currentCoinsEarned > maxReasonableCoins) {
-      console.warn(`⚠️ totalCoinsEarned (${currentCoinsEarned}) is unreasonably high for game ${gameId}. Expected: ${expectedTotalCoins}. Resetting to 0.`);
+      console.warn(`âš ï¸ totalCoinsEarned (${currentCoinsEarned}) is unreasonably high for game ${gameId}. Expected: ${expectedTotalCoins}. Resetting to 0.`);
       adjustedCoinsEarned = 0;
       gameProgress.totalCoinsEarned = 0;
       // Clear coins history to prevent confusion
@@ -1131,7 +1131,7 @@ export const completeUnifiedGame = async (req, res) => {
     const hasEarnedFullCoins = adjustedCoinsEarned >= expectedTotalCoins;
     
     // Debug logging
-    console.log(`💰 Coin award decision - gameId: ${gameId}, isFullCompletion: ${isFullCompletion}, allAnswersCorrect: ${allAnswersCorrect}, fullyCompleted: ${gameProgress.fullyCompleted}, totalCoinsEarned: ${currentCoinsEarned} (adjusted: ${adjustedCoinsEarned}), expectedTotalCoins: ${expectedTotalCoins}, hasEarnedFullCoins: ${hasEarnedFullCoins}`);
+    console.log(`ðŸ’° Coin award decision - gameId: ${gameId}, isFullCompletion: ${isFullCompletion}, allAnswersCorrect: ${allAnswersCorrect}, fullyCompleted: ${gameProgress.fullyCompleted}, totalCoinsEarned: ${currentCoinsEarned} (adjusted: ${adjustedCoinsEarned}), expectedTotalCoins: ${expectedTotalCoins}, hasEarnedFullCoins: ${hasEarnedFullCoins}`);
     
     // Award coins if:
     // 1. All answers are correct AND it's a full completion AND not already fully completed, OR
@@ -1141,17 +1141,17 @@ export const completeUnifiedGame = async (req, res) => {
       !gameProgress.fullyCompleted || !hasEarnedFullCoins
     );
     
-    console.log(`💰 shouldAwardCoins: ${shouldAwardCoins} (isFullCompletion: ${isFullCompletion}, allAnswersCorrect: ${allAnswersCorrect}, !fullyCompleted: ${!gameProgress.fullyCompleted}, !hasEarnedFullCoins: ${!hasEarnedFullCoins})`);
+    console.log(`ðŸ’° shouldAwardCoins: ${shouldAwardCoins} (isFullCompletion: ${isFullCompletion}, allAnswersCorrect: ${allAnswersCorrect}, !fullyCompleted: ${!gameProgress.fullyCompleted}, !hasEarnedFullCoins: ${!hasEarnedFullCoins})`);
     
     // CRITICAL FIX: If game is fully completed but coins weren't earned, force award coins
     if (gameProgress.fullyCompleted && !hasEarnedFullCoins && isFullCompletion && allAnswersCorrect) {
-      console.log(`🔧 FORCING coin award - game is fully completed but coins not earned. Current: ${adjustedCoinsEarned}, Expected: ${expectedTotalCoins}`);
+      console.log(`ðŸ”§ FORCING coin award - game is fully completed but coins not earned. Current: ${adjustedCoinsEarned}, Expected: ${expectedTotalCoins}`);
     }
     
     if (shouldAwardCoins) {
       // Always use totalCoins from game card - DO NOT use any fallback calculations
       // totalCoins should always be provided from game card via navigation state (typically 5)
-      console.log(`💰 Game completion - gameId: ${gameId}, totalCoins: ${totalCoins}, coinsPerLevel: ${coinsPerLevel}, totalLevels: ${totalLevels}, allAnswersCorrect: ${allAnswersCorrect}, fullyCompleted: ${gameProgress.fullyCompleted}, totalCoinsEarned: ${gameProgress.totalCoinsEarned || 0}, expectedTotalCoins: ${expectedTotalCoins}`);
+      console.log(`ðŸ’° Game completion - gameId: ${gameId}, totalCoins: ${totalCoins}, coinsPerLevel: ${coinsPerLevel}, totalLevels: ${totalLevels}, allAnswersCorrect: ${allAnswersCorrect}, fullyCompleted: ${gameProgress.fullyCompleted}, totalCoinsEarned: ${gameProgress.totalCoinsEarned || 0}, expectedTotalCoins: ${expectedTotalCoins}`);
       
       // STRICT: Use totalCoins if provided (even if 0), otherwise use coinsPerLevel, otherwise default to 5
       // DO NOT calculate coins based on totalLevels * coinsPerLevel or any other multiplication
@@ -1159,39 +1159,39 @@ export const completeUnifiedGame = async (req, res) => {
         // If game is already fully completed but coins weren't earned, award the remaining coins
         if (gameProgress.fullyCompleted && !hasEarnedFullCoins) {
           coinsToAward = Math.max(0, expectedTotalCoins - adjustedCoinsEarned);
-          console.log(`✅ Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward} (expected: ${expectedTotalCoins}, already earned: ${adjustedCoinsEarned})`);
+          console.log(`âœ… Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward} (expected: ${expectedTotalCoins}, already earned: ${adjustedCoinsEarned})`);
         } else {
           // Use the exact value from totalCoins (should be 5 from game card)
           coinsToAward = Math.max(0, totalCoins); // Ensure non-negative
-          console.log(`✅ Using totalCoins from game card: ${coinsToAward}`);
+          console.log(`âœ… Using totalCoins from game card: ${coinsToAward}`);
         }
       } else if (coinsPerLevel !== null && coinsPerLevel !== undefined && coinsPerLevel > 0) {
         // Fallback: use coinsPerLevel as single value (NOT multiplied by totalLevels)
         if (gameProgress.fullyCompleted && !hasEarnedFullCoins) {
           coinsToAward = Math.max(0, coinsPerLevel - adjustedCoinsEarned);
-          console.log(`✅ Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward}`);
+          console.log(`âœ… Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward}`);
         } else {
           coinsToAward = coinsPerLevel;
-          console.warn(`⚠️ totalCoins not provided for game ${gameId}, using coinsPerLevel: ${coinsToAward}`);
+          console.warn(`âš ï¸ totalCoins not provided for game ${gameId}, using coinsPerLevel: ${coinsToAward}`);
         }
       } else {
         // Final fallback: default to 5 coins (should not normally happen)
         if (gameProgress.fullyCompleted && !hasEarnedFullCoins) {
           coinsToAward = Math.max(0, 5 - adjustedCoinsEarned);
-          console.log(`✅ Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward}`);
+          console.log(`âœ… Game already completed but coins not fully earned. Awarding remaining coins: ${coinsToAward}`);
         } else {
           coinsToAward = 5;
-          console.warn(`⚠️ Neither totalCoins nor coinsPerLevel provided for game ${gameId}, using default: ${coinsToAward}`);
+          console.warn(`âš ï¸ Neither totalCoins nor coinsPerLevel provided for game ${gameId}, using default: ${coinsToAward}`);
         }
       }
       
-      console.log(`💰 Final coinsToAward: ${coinsToAward}`);
+      console.log(`ðŸ’° Final coinsToAward: ${coinsToAward}`);
     } else if (!allAnswersCorrect && isFullCompletion && !gameProgress.fullyCompleted) {
       // Game completed but not all answers correct - no coins awarded
-      console.log(`⚠️ Game completed but not all answers correct - gameId: ${gameId}, coinsPerformance: ${coinsPerformance}, targetCoins: ${targetCoins}`);
+      console.log(`âš ï¸ Game completed but not all answers correct - gameId: ${gameId}, coinsPerformance: ${coinsPerformance}, targetCoins: ${targetCoins}`);
       coinsToAward = 0;
     } else if (coinsPerLevel && newLevelsCompleted > 0 && allAnswersCorrect) {
-      // Award coins for new levels completed: newLevelsCompleted × coinsPerLevel (only if all answers correct)
+      // Award coins for new levels completed: newLevelsCompleted Ã— coinsPerLevel (only if all answers correct)
       coinsToAward = newLevelsCompleted * coinsPerLevel;
     } else if (newLevelsCompleted > 0 && allAnswersCorrect) {
       // Fallback: award coins for new levels completed (only if all answers correct)
@@ -1251,7 +1251,7 @@ export const completeUnifiedGame = async (req, res) => {
       }
     }
 
-    // ✨ UPDATE USERPROGRESS FOR DASHBOARD
+    // âœ¨ UPDATE USERPROGRESS FOR DASHBOARD
     let userProgress = await UserProgress.findOne({ userId });
     
     if (!userProgress) {
@@ -1286,8 +1286,8 @@ export const completeUnifiedGame = async (req, res) => {
       }
       userProgress.xp += xpEarned;
       
-      // Calculate level (100 XP per level)
-      userProgress.level = Math.floor(userProgress.xp / 100) + 1;
+      // Calculate level (1000 XP per level)
+      userProgress.level = Math.floor(userProgress.xp / 1000) + 1;
       
       // Update global streak
       const lastCheckIn = userProgress.lastCheckIn ? new Date(userProgress.lastCheckIn) : null;
@@ -1433,7 +1433,7 @@ export const completeUnifiedGame = async (req, res) => {
     }
 
     res.status(200).json({
-      message: coinsToAward > 0 ? '🎉 Game completed successfully!' : (allAnswersCorrect ? 'Game completed! Thanks for playing again!' : 'Game completed! Try again to earn all rewards!'),
+      message: coinsToAward > 0 ? 'ðŸŽ‰ Game completed successfully!' : (allAnswersCorrect ? 'Game completed! Thanks for playing again!' : 'Game completed! Try again to earn all rewards!'),
       coinsEarned: coinsToAward,
       xpEarned,
       totalCoinsEarned: gameProgress.totalCoinsEarned,
@@ -1451,24 +1451,37 @@ export const completeUnifiedGame = async (req, res) => {
       achievements: gameProgress.achievements
     });
   } catch (err) {
-    console.error('❌ Unified game completion error:', err);
+    console.error('âŒ Unified game completion error:', err);
     res.status(500).json({ error: 'Failed to complete game' });
   }
 };
 
-// 🔄 POST /api/game/unlock-replay/:gameId - Unlock replay for a completed game (costs 2 HealCoins)
+// ðŸ”„ POST /api/game/unlock-replay/:gameId - Unlock replay for a completed game (tiered HealCoins cost)
 export const unlockGameReplay = async (req, res) => {
   const userId = req.user?._id;
   const { gameId } = req.params;
-  const REPLAY_COST = 2;
+  
+  // Determine replay cost based on game index
+  const getReplayCost = (index) => {
+    if (!index || isNaN(index)) return 2;
+    if (index <= 25) return 2;
+    if (index <= 50) return 4;
+    if (index <= 75) return 6;
+    return 8; // 76-100 (and above)
+  };
 
   try {
-    console.log('🔓 Unlock replay request:', { userId, gameId });
+    console.log('dY"" Unlock replay request:', { userId, gameId });
+    
+    // Extract game index from gameId (format: pillar-ageGroup-index)
+    const gameIdParts = gameId.split('-');
+    const gameIndex = gameIdParts.length >= 3 ? parseInt(gameIdParts[gameIdParts.length - 1], 10) : null;
+    const REPLAY_COST = getReplayCost(gameIndex);
     
     // Check if game progress exists and is completed
     const gameProgress = await UnifiedGameProgress.findOne({ userId, gameId });
     
-    console.log('📊 Game progress found:', {
+    console.log('dY"S Game progress found:', {
       exists: !!gameProgress,
       fullyCompleted: gameProgress?.fullyCompleted,
       replayUnlocked: gameProgress?.replayUnlocked
@@ -1502,25 +1515,16 @@ export const unlockGameReplay = async (req, res) => {
     // Premium users (fullAccess) can unlock replay for any game
     if (features.fullAccess !== true) {
       // For freemium users, check if game is beyond the first 5 games
-      // Extract game index from gameId (format: pillar-ageGroup-index, e.g., "finance-kids-6")
-      // Game IDs are typically in format: "pillar-ageGroup-index" where index is 1-based
-      const gameIdParts = gameId.split('-');
-      if (gameIdParts.length >= 3) {
-        const gameIndex = parseInt(gameIdParts[gameIdParts.length - 1], 10);
-        const gamesPerPillar = features.gamesPerPillar || 5;
-        
-        // Game index in ID is 1-based (e.g., "finance-kids-6" means 6th game)
-        // But we need to check if it's beyond the allowed limit (first 5 games = indices 1-5)
-        // So if gameIndex > gamesPerPillar, it's beyond the limit
-        if (!isNaN(gameIndex) && gameIndex > gamesPerPillar) {
-          console.log(`🔒 Blocking replay unlock for freemium user: gameId=${gameId}, gameIndex=${gameIndex}, gamesPerPillar=${gamesPerPillar}`);
-          return res.status(403).json({ 
-            error: `This game is not available in your current plan. You can only unlock replay for the first ${gamesPerPillar} games per pillar. Upgrade to premium to access all games.`,
-            reason: 'subscription_restricted',
-            gamesAllowed: gamesPerPillar,
-            gameIndex: gameIndex
-          });
-        }
+      const gamesPerPillar = features.gamesPerPillar || 5;
+      
+      if (!isNaN(gameIndex) && gameIndex > gamesPerPillar) {
+        console.log(`dY"' Blocking replay unlock for freemium user: gameId=${gameId}, gameIndex=${gameIndex}, gamesPerPillar=${gamesPerPillar}`);
+        return res.status(403).json({ 
+          error: `This game is not available in your current plan. You can only unlock replay for the first ${gamesPerPillar} games per pillar. Upgrade to premium to access all games.`,
+          reason: 'subscription_restricted',
+          gamesAllowed: gamesPerPillar,
+          gameIndex: gameIndex
+        });
       }
     }
 
@@ -1573,13 +1577,13 @@ export const unlockGameReplay = async (req, res) => {
     }
 
     res.status(200).json({
-      message: '🎮 Replay unlocked! You can now play this game again (no coins will be awarded).',
+      message: 'dYZr Replay unlocked! You can now play this game again (no coins will be awarded).',
       replayUnlocked: true,
       newBalance: wallet.balance,
       coinsSpent: REPLAY_COST
     });
   } catch (err) {
-    console.error('❌ Failed to unlock replay:', err);
+    console.error('ƒ?O Failed to unlock replay:', err);
     console.error('Error stack:', err.stack);
     res.status(500).json({ 
       error: 'Failed to unlock replay',
@@ -1588,7 +1592,7 @@ export const unlockGameReplay = async (req, res) => {
   }
 };
 
-// 📊 GET /api/game/progress/:gameId - Get specific game progress
+// ðŸ“Š GET /api/game/progress/:gameId - Get specific game progress
 export const getUnifiedGameProgress = async (req, res) => {
   const userId = req.user?._id;
   const { gameId } = req.params;
@@ -1614,12 +1618,12 @@ export const getUnifiedGameProgress = async (req, res) => {
       replayUnlocked: progress.replayUnlocked || false
     });
   } catch (err) {
-    console.error('❌ Failed to fetch game progress:', err);
+    console.error('âŒ Failed to fetch game progress:', err);
     res.status(500).json({ error: 'Failed to fetch game progress' });
   }
 };
 
-// 📊 GET /api/game/progress/batch/:categoryPrefix - Get all game progress for a category (e.g., finance-kids)
+// ðŸ“Š GET /api/game/progress/batch/:categoryPrefix - Get all game progress for a category (e.g., finance-kids)
 export const getBatchGameProgress = async (req, res) => {
   const userId = req.user?._id;
   const { categoryPrefix } = req.params; // e.g., "finance-kids", "brain-health-teens"
@@ -1664,14 +1668,14 @@ export const getBatchGameProgress = async (req, res) => {
     // Match either normalized or original prefix
     const regex = new RegExp(`^(${escapedPrefix}|${escapedOriginal})-\\d+$`);
     
-    console.log(`🔍 Batch progress query - categoryPrefix: ${categoryPrefix}, normalizedPrefix: ${normalizedPrefix}, regex: ${regex}`);
+    console.log(`ðŸ” Batch progress query - categoryPrefix: ${categoryPrefix}, normalizedPrefix: ${normalizedPrefix}, regex: ${regex}`);
     
     const allProgress = await UnifiedGameProgress.find({
       userId,
       gameId: { $regex: regex }
     });
     
-    console.log(`📊 Found ${allProgress.length} progress records for prefix ${categoryPrefix} (normalized: ${normalizedPrefix})`);
+    console.log(`ðŸ“Š Found ${allProgress.length} progress records for prefix ${categoryPrefix} (normalized: ${normalizedPrefix})`);
     
     // Convert array to object keyed by gameId for easy frontend access
     const progressMap = {};
@@ -1687,12 +1691,12 @@ export const getBatchGameProgress = async (req, res) => {
     // Return progress map keyed by gameId
     res.status(200).json(progressMap);
   } catch (err) {
-    console.error('❌ Failed to fetch batch game progress:', err);
+    console.error('âŒ Failed to fetch batch game progress:', err);
     res.status(500).json({ error: 'Failed to fetch batch game progress' });
   }
 };
 
-// 📊 PUT /api/game/progress/:gameId - Update game progress
+// ðŸ“Š PUT /api/game/progress/:gameId - Update game progress
 export const updateUnifiedGameProgress = async (req, res) => {
   const userId = req.user?._id;
   const { gameId } = req.params;
@@ -1710,12 +1714,12 @@ export const updateUnifiedGameProgress = async (req, res) => {
     
     res.status(200).json(progress);
   } catch (err) {
-    console.error('❌ Failed to update game progress:', err);
+    console.error('âŒ Failed to update game progress:', err);
     res.status(500).json({ error: 'Failed to update game progress' });
   }
 };
 
-// 📊 GET /api/game/completed-games - Get all completed games for user
+// ðŸ“Š GET /api/game/completed-games - Get all completed games for user
 export const getCompletedGames = async (req, res) => {
   const userId = req.user?._id;
   
@@ -1730,7 +1734,8 @@ export const getCompletedGames = async (req, res) => {
     
     res.status(200).json(completedGames);
   } catch (err) {
-    console.error('❌ Failed to fetch completed games:', err);
+    console.error('âŒ Failed to fetch completed games:', err);
     res.status(500).json({ error: 'Failed to fetch completed games' });
   }
 };
+

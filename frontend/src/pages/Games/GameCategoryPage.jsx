@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+﻿import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"; // eslint-disable-line no-unused-vars
 import {
@@ -1205,6 +1205,27 @@ const GameCategoryPage = () => {
     }
   }, [category, ageGroup]);
 
+  // Get 1-based game index from game object or ID
+  const getGameIndex = (game) => {
+    if (game?.index !== undefined) return game.index;
+    if (game?.id) {
+      const parts = game.id.split("-");
+      const parsed = parseInt(parts[parts.length - 1], 10);
+      if (!isNaN(parsed)) return parsed;
+    }
+    return null;
+  };
+
+  // Tiered replay cost based on game index
+  const getReplayCost = (game) => {
+    const index = getGameIndex(game);
+    if (!index) return 2;
+    if (index <= 25) return 2;
+    if (index <= 50) return 4;
+    if (index <= 75) return 6;
+    return 8;
+  };
+
   // Find the currently open/active game (first unlocked, not completed game)
   const getCurrentlyOpenGameIndex = useCallback(() => {
     if (games.length === 0) return -1;
@@ -1305,7 +1326,7 @@ const GameCategoryPage = () => {
           block: 'center',
           inline: 'nearest'
         });
-        
+
         console.log('✅ Scrolled to current game:', currentGame.title, 'at index', currentGameIndex);
       } else {
         // Retry once if element not found (cards might still be rendering)
@@ -1518,7 +1539,7 @@ const GameCategoryPage = () => {
     
     if (processingReplay) return;
     
-    const REPLAY_COST = 2;
+    const replayCost = getReplayCost(game);
     
     // Check if game is subscription-locked (freemium users beyond first 5 games)
     const gamesCompleted = categoryStats.completedGames || 0;
@@ -1536,9 +1557,9 @@ const GameCategoryPage = () => {
     }
     
     // Check wallet balance
-    if (!wallet || wallet.balance < REPLAY_COST) {
+    if (!wallet || wallet.balance < replayCost) {
       toast.error(
-        `Insufficient balance! You need ${REPLAY_COST} HealCoins to unlock replay.`,
+        `Insufficient balance! You need ${replayCost} HealCoins to unlock replay.`,
         {
           duration: 4000,
           position: "bottom-center",
@@ -1558,7 +1579,7 @@ const GameCategoryPage = () => {
     if (!selectedGameForReplay) return;
     
     const game = selectedGameForReplay;
-    const REPLAY_COST = 2;
+    const replayCost = getReplayCost(game);
     
     setProcessingReplay(true);
     setShowReplayConfirmModal(false);
@@ -1568,7 +1589,7 @@ const GameCategoryPage = () => {
         gameId: game.id,
         gameTitle: game.title,
         walletBalance: wallet?.balance,
-        required: REPLAY_COST
+        required: replayCost
       });
       
       const response = await api.post(`/api/game/unlock-replay/${game.id}`);
@@ -1795,7 +1816,7 @@ const GameCategoryPage = () => {
                     <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-4 mb-4 border border-yellow-200">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-gray-700 font-medium">Cost:</span>
-                        <span className="text-2xl font-bold text-amber-600">2 HealCoins</span>
+                        <span className="text-2xl font-bold text-amber-600">{getReplayCost(selectedGameForReplay)} HealCoins</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-gray-700 font-medium">Your Balance:</span>
@@ -2031,6 +2052,7 @@ const GameCategoryPage = () => {
             // Only show replay unlock button if game is fully completed, replay is not unlocked, AND game is not subscription-locked
             // Freemium users cannot unlock replay for games beyond the first 5 per pillar
             const needsReplayUnlock = isFullyCompleted && (!progress || progress.replayUnlocked !== true) && !isSubscriptionLocked;
+            const replayCost = getReplayCost(game);
             // Game is locked if:
             // 1. Fully completed AND replay is not unlocked, OR
             // 2. Not unlocked (sequential or subscription lock), OR
@@ -2303,18 +2325,18 @@ const GameCategoryPage = () => {
                         e.stopPropagation();
                         handleUnlockReplayClick(game, e);
                       }}
-                      disabled={processingReplay || !wallet || wallet.balance < 2}
+                      disabled={processingReplay || !wallet || wallet.balance < replayCost}
                       className={`w-full py-2 px-4 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 relative z-20 ${
-                        processingReplay || !wallet || wallet.balance < 2
+                        processingReplay || !wallet || wallet.balance < replayCost
                           ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                           : "bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white shadow-md hover:shadow-lg"
                       }`}
                       style={{ pointerEvents: 'auto' }}
                     >
                       <RefreshCw className="w-4 h-4" />
-                      <span>Unlock Replay (2 HealCoins)</span>
+                      <span>Unlock Replay ({replayCost} HealCoins)</span>
                     </button>
-                    {wallet && wallet.balance < 2 && (
+                    {wallet && wallet.balance < replayCost && (
                       <p className="text-xs text-red-500 mt-1 text-center">
                         Insufficient balance
                       </p>

@@ -60,7 +60,7 @@ router.get('/leaderboard', requireAuth, getLeaderboard);
 // 🎮 POST /api/game/complete-unified/:gameId — Complete any game with unified heal coin system
 router.post('/complete-unified/:gameId', requireAuth, completeUnifiedGame);
 
-// 🔄 POST /api/game/unlock-replay/:gameId — Unlock replay for completed game (costs 2 HealCoins)
+// 🔄 POST /api/game/unlock-replay/:gameId - Unlock replay for completed game (tiered HealCoins cost)
 router.post('/unlock-replay/:gameId', requireAuth, unlockGameReplay);
 
 // 📊 GET /api/game/progress/:gameId — Get specific game progress

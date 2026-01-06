@@ -233,7 +233,7 @@ const Chatbot = () => {
         const reactions = moodReactions[msgMood] || moodReactions.happy;
         return reactions[Math.floor(Math.random() * reactions.length)];
     };
-    const getLevel = () => Math.floor(userXP / 100) + 1;
+    const getLevel = () => Math.floor(userXP / 1000) + 1;
 
     return (
         <>
@@ -325,10 +325,10 @@ const Chatbot = () => {
                             <div className="relative z-10 bg-white/80 px-4 sm:px-6 py-2">
                                 <div className="flex items-center justify-between text-xs text-gray-600 mb-1">
                                     <span className="truncate">Chat Streak: {chatStreak}</span>
-                                    <span className="truncate hidden sm:inline">Next reward: {100 - (userXP % 100)} XP</span>
+                                    <span className="truncate hidden sm:inline">Next reward: {1000 - (userXP % 1000)} XP</span>
                                 </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2">
-                                    <motion.div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full" initial={{ width: 0 }} animate={{ width: `${(userXP % 100)}%` }} transition={{ duration: 0.5 }} />
+                                    <motion.div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full" initial={{ width: 0 }} animate={{ width: `${(userXP % 1000) / 10}%` }} transition={{ duration: 0.5 }} />
                                 </div>
                             </div>
                             {/* Messages */}

@@ -42,7 +42,7 @@ export const broadcastLeaderboardUpdate = async (io) => {
             username: displayUsername,
             avatar: userData.avatar,
             xp: entry.xp || 0,
-            level: entry.level || Math.floor((entry.xp || 0) / 100) + 1,
+            level: entry.level || Math.floor((entry.xp || 0) / 1000) + 1,
             // Note: isCurrentUser will be set on the client side based on their own user ID
             isCurrentUser: false
           };
@@ -113,7 +113,7 @@ export const broadcastLeaderboardUpdate = async (io) => {
             username: displayUsername,
             avatar: userData.avatar,
             xp: item.totalXP || 0,
-            level: Math.floor((item.totalXP || 0) / 100) + 1,
+            level: Math.floor((item.totalXP || 0) / 1000) + 1,
             // Note: isCurrentUser will be set on the client side based on their own user ID
             isCurrentUser: false
           };

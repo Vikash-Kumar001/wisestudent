@@ -98,7 +98,7 @@ export default function StudentDashboard() {
     const [stats, setStats] = useState({
         xp: 0,
         level: 1,
-        nextLevelXp: 100,
+        nextLevelXp: 1000,
         todayMood: "😊",
         streak: 0,
         rank: 0,
@@ -283,7 +283,7 @@ export default function StudentDashboard() {
                 setStats({
                     xp: data.stats.xp || 0,
                     level: data.stats.level || 1,
-                    nextLevelXp: data.stats.nextLevelXp || 100,
+                    nextLevelXp: data.stats.nextLevelXp || 1000,
                     todayMood: data.stats.todayMood || "😊",
                     streak: data.stats.streak || 0,
                     rank: userRank,
@@ -294,7 +294,7 @@ export default function StudentDashboard() {
                 setStats({
                     xp: 0,
                     level: 1,
-                    nextLevelXp: 100,
+                    nextLevelXp: 1000,
                     todayMood: "😊",
                     streak: 0,
                     rank: 0,
@@ -337,7 +337,7 @@ export default function StudentDashboard() {
             setStats({
                 xp: 0,
                 level: 1,
-                nextLevelXp: 100,
+                nextLevelXp: 1000,
                 todayMood: "😊",
                 streak: 0,
                 rank: 0,
@@ -722,7 +722,7 @@ export default function StudentDashboard() {
                 ...prev, 
                 xp: data.totalXP || prev.xp,
                 level: data.level || prev.level,
-                nextLevelXp: (data.level || prev.level) * 100,
+                nextLevelXp: (data.level || prev.level) * 1000,
                 streak: data.streak || prev.streak,
                 weeklyXP: data.weeklyXP !== undefined ? data.weeklyXP : prev.weeklyXP,
                 rank: data.rank !== undefined ? data.rank : prev.rank

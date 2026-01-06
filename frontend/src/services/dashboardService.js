@@ -36,7 +36,7 @@ export const fetchStudentStats = async () => {
     return {
       xp: 0,
       level: 1,
-      nextLevelXp: 100,
+      nextLevelXp: 1000,
       todayMood: "😊",
       streak: 0,
       rank: 0,

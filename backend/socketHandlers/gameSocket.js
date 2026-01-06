@@ -226,7 +226,7 @@ export const setupGameSocket = (io, socket, user) => {
             username: displayUsername,
             avatar: userData.avatar,
             xp: entry.xp || 0,
-            level: entry.level || Math.floor((entry.xp || 0) / 100) + 1,
+            level: entry.level || Math.floor((entry.xp || 0) / 1000) + 1,
             isCurrentUser: userData._id && user._id && userData._id.toString() === user._id.toString()
           };
         });
@@ -297,7 +297,7 @@ export const setupGameSocket = (io, socket, user) => {
             username: displayUsername,
             avatar: userData.avatar,
             xp: item.totalXP || 0,
-            level: Math.floor((item.totalXP || 0) / 100) + 1,
+            level: Math.floor((item.totalXP || 0) / 1000) + 1,
             isCurrentUser: userData._id && user._id && userData._id.toString() === user._id.toString()
           };
         }).filter(Boolean);

@@ -164,9 +164,9 @@ export const updateStreak = async (req, res, next) => {
 
 // Helper function to calculate level based on XP
 const calculateLevel = (xp) => {
-  // Simple level calculation: level = 1 + floor(xp / 100)
-  // This means 100 XP per level
-  return Math.floor(xp / 100) + 1;
+  // Simple level calculation: level = 1 + floor(xp / 1000)
+  // This means 1000 XP per level
+  return Math.floor(xp / 1000) + 1;
 };
 
 // ⬆️ POST /api/progress/add-xp - Add XP to user (HTTP endpoint)

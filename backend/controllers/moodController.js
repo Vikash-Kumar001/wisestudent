@@ -71,7 +71,7 @@ export const logMood = async (req, res) => {
     }
 
     userProgress.xp += XP_REWARD;
-    userProgress.level = Math.floor(userProgress.xp / 100) + 1;
+    userProgress.level = Math.floor(userProgress.xp / 1000) + 1;
     await userProgress.save();
 
     // Log XP gain
