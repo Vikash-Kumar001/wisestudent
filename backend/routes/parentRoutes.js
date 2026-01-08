@@ -2471,4 +2471,108 @@ const formatTimeAgo = (date) => {
   return `${days}d ago`;
 };
 
+// Parent Game Routes
+import {
+  completeParentGame,
+  getParentGameProgress,
+  unlockParentGameReplay
+} from '../controllers/parentGameController.js';
+
+// POST /api/parent/game/complete - Complete a parent game
+router.post('/game/complete', completeParentGame);
+
+// GET /api/parent/game/progress/:gameId - Get parent game progress
+router.get('/game/progress/:gameId', getParentGameProgress);
+
+// POST /api/parent/game/unlock-replay/:gameId - Unlock replay for parent game
+router.post('/game/unlock-replay/:gameId', unlockParentGameReplay);
+
+// Parent Badge Routes
+import {
+  getSelfAwareBadgeStatus,
+  getCalmParentBadgeStatus,
+  getCompassionateParentBadgeStatus,
+  getPresentParentBadgeStatus,
+  getMindfulParentBadgeStatus,
+  getResilientParentBadgeStatus,
+  getParentBadges,
+  collectSelfAwareBadgeEndpoint,
+  collectCalmParentBadgeEndpoint,
+  collectCompassionateParentBadgeEndpoint,
+  collectPresentParentBadgeEndpoint,
+  collectMindfulParentBadgeEndpoint,
+  collectResilientParentBadgeEndpoint,
+  getPeacefulCommunicatorBadgeStatus,
+  collectPeacefulCommunicatorBadgeEndpoint,
+  getConnectedParentBadgeStatus,
+  collectConnectedParentBadgeEndpoint,
+  getPurposefulParentBadgeStatus,
+  collectPurposefulParentBadgeEndpoint,
+  getSelfCareChampionBadgeStatusEndpoint,
+  collectSelfCareChampionBadgeEndpoint
+} from '../controllers/parentBadgeController.js';
+
+// GET /api/parent/badge/self-aware-parent - Get Self-Aware Parent Badge status
+router.get('/badge/self-aware-parent', getSelfAwareBadgeStatus);
+
+// POST /api/parent/badge/self-aware-parent/collect - Collect Self-Aware Parent Badge
+router.post('/badge/self-aware-parent/collect', collectSelfAwareBadgeEndpoint);
+
+// GET /api/parent/badge/calm-parent - Get Calm Parent Badge status
+router.get('/badge/calm-parent', getCalmParentBadgeStatus);
+
+// POST /api/parent/badge/calm-parent/collect - Collect Calm Parent Badge
+router.post('/badge/calm-parent/collect', collectCalmParentBadgeEndpoint);
+
+// GET /api/parent/badge/compassionate-parent - Get Compassionate Parent Badge status
+router.get('/badge/compassionate-parent', getCompassionateParentBadgeStatus);
+
+// POST /api/parent/badge/compassionate-parent/collect - Collect Compassionate Parent Badge
+router.post('/badge/compassionate-parent/collect', collectCompassionateParentBadgeEndpoint);
+
+// GET /api/parent/badge/present-parent - Get Present Parent Badge status
+router.get('/badge/present-parent', getPresentParentBadgeStatus);
+
+// POST /api/parent/badge/present-parent/collect - Collect Present Parent Badge
+router.post('/badge/present-parent/collect', collectPresentParentBadgeEndpoint);
+
+// GET /api/parent/badge/mindful-parent - Get Mindful Parent Badge status
+router.get('/badge/mindful-parent', getMindfulParentBadgeStatus);
+
+// POST /api/parent/badge/mindful-parent/collect - Collect Mindful Parent Badge
+router.post('/badge/mindful-parent/collect', collectMindfulParentBadgeEndpoint);
+
+// GET /api/parent/badge/resilient-parent - Get Resilient Parent Badge status
+router.get('/badge/resilient-parent', getResilientParentBadgeStatus);
+
+// POST /api/parent/badge/resilient-parent/collect - Collect Resilient Parent Badge
+router.post('/badge/resilient-parent/collect', collectResilientParentBadgeEndpoint);
+
+// GET /api/parent/badge/peaceful-communicator - Get Peaceful Communicator Badge status
+router.get('/badge/peaceful-communicator', getPeacefulCommunicatorBadgeStatus);
+
+// POST /api/parent/badge/peaceful-communicator/collect - Collect Peaceful Communicator Badge
+router.post('/badge/peaceful-communicator/collect', collectPeacefulCommunicatorBadgeEndpoint);
+
+// GET /api/parent/badge/connected-parent - Get Connected Parent Badge status
+router.get('/badge/connected-parent', getConnectedParentBadgeStatus);
+
+// POST /api/parent/badge/connected-parent/collect - Collect Connected Parent Badge
+router.post('/badge/connected-parent/collect', collectConnectedParentBadgeEndpoint);
+
+// GET /api/parent/badge/purposeful-parent - Get Purposeful Parent Badge status
+router.get('/badge/purposeful-parent', getPurposefulParentBadgeStatus);
+
+// POST /api/parent/badge/purposeful-parent/collect - Collect Purposeful Parent Badge
+router.post('/badge/purposeful-parent/collect', collectPurposefulParentBadgeEndpoint);
+
+// GET /api/parent/badge/self-care-champion - Get Self-Care Champion Badge status
+router.get('/badge/self-care-champion', getSelfCareChampionBadgeStatusEndpoint);
+
+// POST /api/parent/badge/self-care-champion/collect - Collect Self-Care Champion Badge
+router.post('/badge/self-care-champion/collect', collectSelfCareChampionBadgeEndpoint);
+
+// GET /api/parent/badges - Get all parent badges
+router.get('/badges', getParentBadges);
+
 export default router;

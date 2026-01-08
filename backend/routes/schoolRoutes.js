@@ -183,6 +183,11 @@ import { requireAuth, requireSchoolAdmin, requireSchoolTeacher, requireSchoolRol
 import { requirePermission } from '../utils/permissionChecker.js';
 import { getAdminProfileStats } from '../controllers/userController.js';
 import { checkTeacherAccess } from '../controllers/teacherAccessController.js';
+import {
+  completeTeacherGame,
+  getTeacherGameProgress,
+  unlockTeacherGameReplay
+} from '../controllers/teacherGameController.js';
 import multer from 'multer';
 
 // Configure multer for CSV upload
@@ -429,5 +434,15 @@ router.get('/parent/announcements', requireAuth, requireSchoolRole, getParentAnn
 router.post('/student', requireAuth, requireSchoolAdmin, createSchoolStudent);
 router.post('/teacher', requireAuth, requireSchoolAdmin, createSchoolTeacher);
 router.post('/parent', requireAuth, requireSchoolAdmin, createSchoolParent);
+
+// Teacher Game Routes
+// POST /api/school/teacher/game/complete - Complete a teacher game
+router.post('/teacher/game/complete', requireAuth, requireSchoolRole, completeTeacherGame);
+
+// GET /api/school/teacher/game/progress/:gameId - Get teacher game progress
+router.get('/teacher/game/progress/:gameId', requireAuth, requireSchoolRole, getTeacherGameProgress);
+
+// POST /api/school/teacher/game/unlock-replay/:gameId - Unlock replay for teacher game
+router.post('/teacher/game/unlock-replay/:gameId', requireAuth, requireSchoolRole, unlockTeacherGameReplay);
 
 export default router;

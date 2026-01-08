@@ -28,6 +28,11 @@ const transactionSchema = new mongoose.Schema(
     upiId: {
       type: String, // only used in redeem requests
     },
+    coinType: {
+      type: String,
+      enum: ['healcoins', 'calmcoins'],
+      default: 'healcoins' // Default to HealCoins for backward compatibility
+    },
   },
   { timestamps: true }
 );

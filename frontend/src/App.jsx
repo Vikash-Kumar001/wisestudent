@@ -101,6 +101,12 @@ import ParentMessages from "./pages/Parent/ParentMessages";
 import ParentSettings from "./pages/Parent/ParentSettings";
 import ParentUpgrade from "./pages/Parent/ParentUpgrade";
 import ParentProfile from "./pages/Parent/ParentProfile";
+import ParentGameCategoryPage from "./pages/Parent/Games/ParentGameCategoryPage";
+import UniversalParentGameRenderer from "./pages/Parent/Games/UniversalParentGameRenderer";
+import ParentGamesHub from "./pages/Parent/Games/ParentGamesHub";
+import TeacherGamesHub from "./pages/Teacher/Games/TeacherGamesHub";
+import TeacherGameCategoryPage from "./pages/Teacher/Games/TeacherGameCategoryPage";
+import UniversalTeacherGameRenderer from "./pages/Teacher/Games/UniversalTeacherGameRenderer";
 
 // Seller Pages
 import SellerDashboard from "./pages/Seller/SellerDashboard";
@@ -485,6 +491,7 @@ const App = () => {
     location.pathname.startsWith("/games/") ||
     location.pathname.startsWith("/tools/") ||
     location.pathname.startsWith("/learn/") ||
+    location.pathname.startsWith("/parent/games/") || // Hide navbar on parent game pages
     location.pathname === "/student/breathing";
 
   // Hide navbar on chat pages
@@ -1631,6 +1638,58 @@ const App = () => {
               <ProtectedRoute roles={["parent"]} requireApproved={true}>
                 <ParentDashboard />
               </ProtectedRoute>
+            }
+          />
+
+          {/* Parent Game Routes */}
+          <Route
+            path="/parent/games"
+            element={
+              <ProtectedRoute roles={["parent"]} requireApproved={true}>
+                <ParentGamesHub />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/parent/games/:category"
+            element={
+              <ProtectedRoute roles={["parent"]} requireApproved={true}>
+                <ParentGameCategoryPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/parent/games/:category/:gameId"
+            element={
+              <ProtectedRoute roles={["parent"]} requireApproved={true}>
+                <UniversalParentGameRenderer />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Teacher Game Routes */}
+          <Route
+            path="/school-teacher/games"
+            element={
+              <TeacherProtectedRoute>
+                <TeacherGamesHub />
+              </TeacherProtectedRoute>
+            }
+          />
+          <Route
+            path="/school-teacher/games/:category"
+            element={
+              <TeacherProtectedRoute>
+                <TeacherGameCategoryPage />
+              </TeacherProtectedRoute>
+            }
+          />
+          <Route
+            path="/school-teacher/games/:category/:gameId"
+            element={
+              <TeacherProtectedRoute>
+                <UniversalTeacherGameRenderer />
+              </TeacherProtectedRoute>
             }
           />
 

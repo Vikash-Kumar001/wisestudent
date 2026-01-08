@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import Avatar from "./Avatar";
 import {
-    Bell, Wallet, ChevronDown, Settings, User, LogOut, Menu, X, Home, BarChart3, TrendingUp, Gift, MessageSquare, AlertCircle, Zap, Users, Mail, CheckCircle, FileText, Target, DollarSign, Activity, CreditCard, Presentation, Building2, Calendar
+    Bell, Wallet, ChevronDown, Settings, User, LogOut, Menu, X, Home, BarChart3, TrendingUp, Gift, MessageSquare, AlertCircle, Zap, Users, Mail, CheckCircle, FileText, Target, DollarSign, Activity, CreditCard, Presentation, Building2, Calendar, Gamepad2
 } from "lucide-react";
 
 
@@ -74,6 +74,7 @@ const Navbar = () => {
         { icon: <Presentation className="w-5 h-5" />, label: "Presentation", onClick: () => navigate("/student/presentation") }
     ] : user?.role === "parent" ? [
         { icon: <Users className="w-5 h-5" />, label: "Children", onClick: () => navigate("/parent/children") },
+        { icon: <Gamepad2 className="w-5 h-5" />, label: "Games", onClick: () => navigate("/parent/games") },
         { icon: <Bell className="w-5 h-5" />, label: "Announcements", onClick: () => navigate("/parent/announcements") },
         { icon: <Mail className="w-5 h-5" />, label: "Messages", onClick: () => navigate("/parent/messages") },
         { icon: <CreditCard className="w-5 h-5" />, label: "Upgrade", onClick: () => navigate("/parent/upgrade") }
@@ -94,6 +95,7 @@ const Navbar = () => {
     ] : user?.role === "school_teacher" ? [
         { icon: <Users className="w-5 h-5" />, label: "Students", onClick: () => navigate("/school-teacher/students") },
         { icon: <BarChart3 className="w-5 h-5" />, label: "Analytics", onClick: () => navigate("/school-teacher/analytics") },
+        { icon: <Gamepad2 className="w-5 h-5" />, label: "Games", onClick: () => navigate("/school-teacher/games") },
         { icon: <Bell className="w-5 h-5" />, label: "Announcements", onClick: () => navigate("/school-teacher/announcements") },
         { icon: <Mail className="w-5 h-5" />, label: "Messages", onClick: () => navigate("/school-teacher/messages") },
         { icon: <CheckCircle className="w-5 h-5" />, label: "Tasks", onClick: () => navigate("/school-teacher/tasks") },

@@ -310,6 +310,19 @@ const userSchema = new mongoose.Schema(
         max: 100,
       },
     }],
+    // Parent badges
+    badges: [{
+      badgeId: String,
+      name: String,
+      description: String,
+      earnedAt: {
+        type: Date,
+        default: Date.now
+      },
+      category: String,
+      icon: String,
+      message: String
+    }],
   },
   { timestamps: true }
 );
