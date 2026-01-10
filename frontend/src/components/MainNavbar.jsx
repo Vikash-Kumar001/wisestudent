@@ -62,7 +62,7 @@ const MainNavbar = ({
                         >
                             <Zap className="w-4 h-4 sm:w-6 sm:h-6" />
                         </motion.div>
-                        <div className="ml-0 sm:ml-3">
+                        <div className="ml-2 sm:ml-3">
                             <h1 className="text-lg sm:text-xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-tight">
                                 WiseStudent
                             </h1>

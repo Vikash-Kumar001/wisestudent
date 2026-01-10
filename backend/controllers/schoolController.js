@@ -380,27 +380,36 @@ export const getSchoolTeachers = async (req, res) => {
     const { status } = req.query;
 
     const query = { tenantId, role: 'school_teacher' };
-    // Note: isActive field doesn't exist in User model, so we'll skip status filtering for now
-
     const teachers = await User.find(query)
-      .select('name email avatar phone createdAt metadata')
+      .select('name email avatar phone createdAt metadata lastActive')
       .lean();
 
-    // Enhance with additional data
+    const teacherIds = teachers.map((teacher) => teacher._id);
+    const recentActivity = teacherIds.length > 0 ? await ActivityLog.aggregate([
+      { $match: { userId: { $in: teacherIds }, createdAt: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } } },
+      { $group: { _id: '$userId' } }
+    ]) : [];
+    const activeSet = new Set(recentActivity.map((row) => row._id?.toString()).filter(Boolean));
+    const activeThreshold = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
     const enhancedTeachers = await Promise.all(teachers.map(async (teacher) => {
       const [totalClasses, totalStudents] = await Promise.all([
-        SchoolClass.countDocuments({ 
+        SchoolClass.countDocuments({
           tenantId,
           'sections.classTeacher': teacher._id
         }),
-        SchoolStudent.countDocuments({ 
+        SchoolStudent.countDocuments({
           tenantId,
           classId: { $in: teacher.assignedClasses || [] }
         })
       ]);
 
+      const isActive = (teacher.lastActive && teacher.lastActive >= activeThreshold)
+        || activeSet.has(teacher._id.toString());
+
       return {
         ...teacher,
+        isActive,
         totalClasses,
         totalStudents,
         experience: teacher.metadata?.experience || 0,
@@ -409,7 +418,13 @@ export const getSchoolTeachers = async (req, res) => {
       };
     }));
 
-    res.json({ teachers: enhancedTeachers });
+    const filteredTeachers = status === 'active'
+      ? enhancedTeachers.filter((teacher) => teacher.isActive)
+      : status === 'inactive'
+        ? enhancedTeachers.filter((teacher) => !teacher.isActive)
+        : enhancedTeachers;
+
+    res.json({ teachers: filteredTeachers });
   } catch (error) {
     console.error('Error fetching school teachers:', error);
     res.status(500).json({ message: 'Server error' });
@@ -489,12 +504,22 @@ export const getAdminTeacherStats = async (req, res) => {
   try {
     const { tenantId } = req;
 
-    const [total, activeTeachers, totalClasses, teachersData] = await Promise.all([
+    const [total, totalClasses, teachersData, teachersActivity] = await Promise.all([
       User.countDocuments({ tenantId, role: 'school_teacher' }),
-      User.countDocuments({ tenantId, role: 'school_teacher', isActive: true }),
       SchoolClass.countDocuments({ tenantId }),
-      User.find({ tenantId, role: 'school_teacher' }).select('metadata').lean()
+      User.find({ tenantId, role: 'school_teacher' }).select('_id lastActive metadata').lean(),
+      ActivityLog.aggregate([
+        { $match: { tenantId, createdAt: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } } },
+        { $group: { _id: '$userId' } }
+      ])
     ]);
+
+    const activeThreshold = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const activeSet = new Set(teachersActivity.map((row) => row._id?.toString()).filter(Boolean));
+    const activeTeachers = teachersData.filter((teacher) => {
+      if (teacher.lastActive && teacher.lastActive >= activeThreshold) return true;
+      return activeSet.has(teacher._id?.toString());
+    }).length;
 
     // Calculate average experience
     const avgExperience = teachersData.length > 0 
@@ -504,7 +529,7 @@ export const getAdminTeacherStats = async (req, res) => {
     res.json({
       total,
       active: activeTeachers,
-      inactive: total - activeTeachers,
+      inactive: Math.max(0, total - activeTeachers),
       totalClasses,
       avgExperience
     });
@@ -3676,6 +3701,416 @@ const buildTeacherAnalyticsPdf = (reportData, options = {}) => {
   });
 };
 
+const buildSchoolAnalyticsPdf = (reportData, options = {}) => {
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument({
+        size: 'A4',
+        margins: { top: 40, bottom: 40, left: 40, right: 40 }
+      });
+
+      const buffers = [];
+      doc.on('data', buffers.push.bind(buffers));
+      doc.on('end', () => resolve(Buffer.concat(buffers)));
+
+      const colors = {
+        primary: '#4F46E5',
+        accent: '#EC4899',
+        deep: '#312E81',
+        text: '#0F172A',
+        subText: '#475569',
+        muted: '#E2E8F0',
+        light: '#F8FAFC',
+        border: '#CBD5F5'
+      };
+
+      const pageWidth = doc.page.width;
+      const pageHeight = doc.page.height;
+      const marginX = 40;
+      const marginBottom = 40;
+      let y = 40;
+
+      const hexToRgb = (hex) => {
+        const clean = hex.replace('#', '');
+        const num = parseInt(clean, 16);
+        return {
+          r: (num >> 16) & 255,
+          g: (num >> 8) & 255,
+          b: num & 255
+        };
+      };
+
+      const mixColor = (startHex, endHex, ratio) => {
+        const start = hexToRgb(startHex);
+        const end = hexToRgb(endHex);
+        const mix = (a, b) => Math.round(a + (b - a) * ratio);
+        const r = mix(start.r, end.r);
+        const g = mix(start.g, end.g);
+        const b = mix(start.b, end.b);
+        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+      };
+
+      const drawGradientBand = (startY, height, startColor, endColor) => {
+        const steps = 8;
+        const stepHeight = height / steps;
+        for (let i = 0; i < steps; i += 1) {
+          const color = mixColor(startColor, endColor, i / (steps - 1));
+          doc.rect(0, startY + i * stepHeight, pageWidth, stepHeight).fill(color);
+        }
+      };
+
+      const addPageHeader = () => {
+        doc.rect(0, 0, pageWidth, 30).fill(colors.light);
+        doc.rect(0, 30, pageWidth, 2).fill(colors.muted);
+        doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(9).text('School Analytics Report', marginX, 10);
+      };
+
+      const ensureSpace = (needed) => {
+        if (y + needed > pageHeight - marginBottom) {
+          doc.addPage();
+          y = 40;
+          addPageHeader();
+          y = 50;
+        }
+      };
+
+      const addSectionHeader = (title) => {
+        y += 16;
+        ensureSpace(48);
+        doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(14).text(title, marginX, y);
+        doc.rect(marginX, y + 18, 48, 3).fill(colors.accent);
+        y += 42;
+      };
+
+      const drawHeader = () => {
+        drawGradientBand(0, 110, colors.primary, colors.accent);
+        doc.rect(0, 110, pageWidth, 8).fill(colors.deep);
+        doc.fillColor('white').font('Helvetica-Bold').fontSize(20).text('School Analytics Report', marginX, 30);
+        const subtitle = `${options.schoolName || 'School'} | ${reportData.timeRange} | ${new Date(reportData.generatedAt).toLocaleDateString()}`;
+        doc.font('Helvetica').fontSize(11).text(subtitle, marginX, 58);
+        doc.fillColor('white').font('Helvetica').fontSize(9).text('Generated by WiseStudent Analytics', marginX, 78);
+        y = 130;
+      };
+
+      const drawSummaryCards = () => {
+        const cards = [
+          { label: 'Total Students', value: reportData.summary.totalStudents },
+          { label: 'Active Students', value: reportData.summary.activeStudents },
+          { label: 'Adoption Rate', value: `${reportData.summary.adoptionRate}%` },
+          { label: 'Total Teachers', value: reportData.summary.totalTeachers },
+          { label: 'Avg Pillar Mastery', value: `${reportData.summary.avgPillarMastery}%` }
+        ];
+
+        const cardWidth = (pageWidth - marginX * 2 - 20) / 2;
+        const cardHeight = 64;
+        const rowGap = 12;
+        const colGap = 20;
+        const rows = Math.ceil(cards.length / 2);
+
+        ensureSpace(rows * (cardHeight + rowGap));
+
+        cards.forEach((card, index) => {
+          const col = index % 2;
+          const row = Math.floor(index / 2);
+          const x = marginX + col * (cardWidth + colGap);
+          const yCard = y + row * (cardHeight + rowGap);
+
+          doc.roundedRect(x, yCard, cardWidth, cardHeight, 10).fill(colors.light).stroke(colors.border);
+          doc.rect(x, yCard, 6, cardHeight).fill(colors.accent);
+          doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(10).text(card.label, x + 16, yCard + 12);
+          doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(18).text(String(card.value), x + 16, yCard + 32);
+        });
+
+        y += rows * (cardHeight + rowGap);
+      };
+
+      const pillarLabelMap = {
+        finance: 'Financial Literacy',
+        brain: 'Brain Health',
+        uvls: 'UVLS (Life Skills & Values)',
+        dcos: 'Digital Citizenship & Online Safety',
+        moral: 'Moral Values',
+        ai: 'AI for All',
+        'health-male': 'Health - Male',
+        'health-female': 'Health - Female',
+        ehe: 'Entrepreneurship & Higher Education',
+        crgc: 'Civic Responsibility & Global Citizenship',
+        sustainability: 'Sustainability'
+      };
+
+      const pillarStyles = {
+        'Financial Literacy': { short: 'FL', color: '#2563EB' },
+        'Brain Health': { short: 'BH', color: '#16A34A' },
+        'UVLS (Life Skills & Values)': { short: 'UV', color: '#F97316' },
+        'Digital Citizenship & Online Safety': { short: 'DC', color: '#0EA5E9' },
+        'Moral Values': { short: 'MV', color: '#8B5CF6' },
+        'AI for All': { short: 'AI', color: '#EC4899' },
+        'Health - Male': { short: 'HM', color: '#14B8A6' },
+        'Health - Female': { short: 'HF', color: '#F43F5E' },
+        'Entrepreneurship & Higher Education': { short: 'EH', color: '#6366F1' },
+        'Civic Responsibility & Global Citizenship': { short: 'CG', color: '#22C55E' },
+        'Sustainability': { short: 'SU', color: '#84CC16' }
+      };
+
+      const drawPillarBars = () => {
+        addSectionHeader('Pillar Mastery');
+        const pillarEntries = Object.entries(reportData.pillars || {});
+        if (!pillarEntries.length) {
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(10).text('No pillar mastery data available.', marginX, y);
+          y += 20;
+          return;
+        }
+
+        pillarEntries.forEach(([pillar, value]) => {
+          ensureSpace(40);
+          const label = pillarLabelMap[pillar] || pillar;
+          const percent = Math.max(0, Math.min(100, value || 0));
+          const style = pillarStyles[label] || { short: label.slice(0, 2).toUpperCase(), color: colors.primary };
+
+          const iconX = marginX;
+          const iconY = y + 6;
+          doc.circle(iconX + 10, iconY + 10, 10).fill(style.color);
+          doc.fillColor('white').font('Helvetica-Bold').fontSize(8).text(style.short, iconX + 3, iconY + 6);
+          doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(10).text(label, iconX + 28, y + 4);
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text(`${percent}%`, pageWidth - marginX - 28, y + 4, { align: 'right' });
+
+          const barY = y + 20;
+          const barX = iconX + 28;
+          const barWidth = pageWidth - marginX - barX;
+          doc.roundedRect(barX, barY, barWidth, 10, 5).fill(colors.muted);
+          const fillWidth = (percent / 100) * barWidth;
+          const fillColor = percent >= 75 ? '#16A34A' : percent >= 50 ? colors.primary : '#D97706';
+          doc.roundedRect(barX, barY, fillWidth, 10, 5).fill(fillColor);
+          y += 36;
+        });
+      };
+
+      const drawEngagementTrend = () => {
+        addSectionHeader('Engagement Trend');
+        const trend = reportData.engagementTrend || [];
+        if (!trend.length) {
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(10).text('No engagement data available.', marginX, y);
+          y += 20;
+          return;
+        }
+
+        const chartHeight = 170;
+        const chartWidth = pageWidth - marginX * 2;
+        ensureSpace(chartHeight + 38);
+        const chartX = marginX;
+        const chartY = y;
+        const studentColor = '#3B82F6';
+        const teacherColor = '#8B5CF6';
+
+        const maxValue = Math.max(
+          1,
+          ...trend.map((point) => Math.max(point.students || 0, point.teachers || 0))
+        );
+
+        const plotPoint = (value, index) => {
+          const x = chartX + (chartWidth * index) / Math.max(1, trend.length - 1);
+          const yPoint = chartY + chartHeight - (value / maxValue) * chartHeight;
+          return { x, y: yPoint };
+        };
+
+        const buildSmoothPath = (points) => {
+          if (points.length < 2) return;
+          for (let i = 0; i < points.length - 1; i += 1) {
+            const p0 = i > 0 ? points[i - 1] : points[i];
+            const p1 = points[i];
+            const p2 = points[i + 1];
+            const p3 = i + 2 < points.length ? points[i + 2] : p2;
+
+            const c1 = {
+              x: p1.x + (p2.x - p0.x) / 6,
+              y: p1.y + (p2.y - p0.y) / 6
+            };
+            const c2 = {
+              x: p2.x - (p3.x - p1.x) / 6,
+              y: p2.y - (p3.y - p1.y) / 6
+            };
+
+            doc.bezierCurveTo(c1.x, c1.y, c2.x, c2.y, p2.x, p2.y);
+          }
+        };
+
+        // Grid lines
+        doc.strokeColor(colors.muted).lineWidth(1);
+        [0.25, 0.5, 0.75].forEach((ratio) => {
+          const yLine = chartY + chartHeight * ratio;
+          doc.moveTo(chartX, yLine).lineTo(chartX + chartWidth, yLine).stroke();
+        });
+
+        // Axes
+        doc.moveTo(chartX, chartY).lineTo(chartX, chartY + chartHeight).stroke();
+        doc.moveTo(chartX, chartY + chartHeight).lineTo(chartX + chartWidth, chartY + chartHeight).stroke();
+
+        const drawSeries = (key, color) => {
+          const points = trend.map((point, index) => plotPoint(point[key] || 0, index));
+          if (!points.length) return;
+
+          doc.save();
+          doc.fillColor(color).fillOpacity(0.12);
+          doc.moveTo(points[0].x, chartY + chartHeight);
+          doc.lineTo(points[0].x, points[0].y);
+          if (points.length > 1) {
+            buildSmoothPath(points);
+          }
+          doc.lineTo(points[points.length - 1].x, chartY + chartHeight);
+          doc.closePath().fill();
+          doc.fillOpacity(1);
+          doc.restore();
+
+          doc.strokeColor(color).lineWidth(2).lineCap('round').lineJoin('round');
+          doc.moveTo(points[0].x, points[0].y);
+          if (points.length > 1) {
+            buildSmoothPath(points);
+          }
+          doc.stroke();
+
+          points.forEach((point) => {
+            doc.circle(point.x, point.y, 2.5).fill(color);
+          });
+        };
+
+        drawSeries('students', studentColor);
+        drawSeries('teachers', teacherColor);
+
+        // Legend
+        const legendY = chartY + chartHeight + 12;
+        doc.fillColor(studentColor).circle(chartX + 4, legendY + 4, 4).fill();
+        doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('Students', chartX + 14, legendY);
+        doc.fillColor(teacherColor).circle(chartX + 90, legendY + 4, 4).fill();
+        doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('Teachers', chartX + 100, legendY);
+
+        // X labels (first, mid, last)
+        const labelIndices = [0, Math.floor(trend.length / 2), trend.length - 1].filter(
+          (value, index, self) => self.indexOf(value) === index
+        );
+        labelIndices.forEach((idx) => {
+          const point = trend[idx];
+          const label = point.label || point.date || '';
+          const x = chartX + (chartWidth * idx) / Math.max(1, trend.length - 1);
+          const textWidth = doc.widthOfString(label);
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(8).text(label, x - textWidth / 2, chartY + chartHeight + 4, {
+            lineBreak: false
+          });
+        });
+
+        y += chartHeight + 30;
+      };
+
+      const drawPerformanceByGrade = () => {
+        addSectionHeader('Performance by Grade');
+        const grades = reportData.performanceByGrade || [];
+        if (!grades.length) {
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(10).text('No grade performance data available.', marginX, y);
+          y += 20;
+          return;
+        }
+
+        const chartHeight = 160;
+        const chartWidth = pageWidth - marginX * 2;
+        ensureSpace(chartHeight + 36);
+        const chartX = marginX;
+        const chartY = y;
+        const maxValue = Math.max(1, ...grades.map((item) => item.avgScore || 0));
+
+        doc.strokeColor(colors.muted).lineWidth(1);
+        doc.moveTo(chartX, chartY).lineTo(chartX, chartY + chartHeight).stroke();
+        doc.moveTo(chartX, chartY + chartHeight).lineTo(chartX + chartWidth, chartY + chartHeight).stroke();
+
+        const barColor = '#8B5CF6';
+        const barCount = grades.length;
+        const slotWidth = chartWidth / Math.max(1, barCount);
+        const barWidth = Math.min(36, slotWidth * 0.6);
+
+        grades.forEach((grade, index) => {
+          const value = Math.max(0, grade.avgScore || 0);
+          const barHeight = (value / maxValue) * (chartHeight - 12);
+          const barX = chartX + index * slotWidth + (slotWidth - barWidth) / 2;
+          const barY = chartY + chartHeight - barHeight;
+
+          doc.roundedRect(barX, barY, barWidth, barHeight, 4).fill(barColor);
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(8).text(`${Math.round(value)}%`, barX - 4, barY - 12, { width: barWidth + 8, align: 'center' });
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(8).text(`Grade ${grade.grade}`, barX - 8, chartY + chartHeight + 4, { width: barWidth + 16, align: 'center' });
+        });
+
+        y += chartHeight + 26;
+      };
+
+      const drawTable = (headers, rows, columnWidths) => {
+        ensureSpace(24);
+        const headerHeight = 18;
+        const rowHeight = 18;
+        let x = marginX;
+        doc.rect(marginX, y, pageWidth - marginX * 2, headerHeight).fill(colors.light).stroke(colors.muted);
+        headers.forEach((header, index) => {
+          doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(9).text(header, x + 6, y + 5);
+          x += columnWidths[index];
+        });
+        y += headerHeight;
+
+        rows.forEach((row, index) => {
+          ensureSpace(rowHeight + 6);
+          const rowColor = index % 2 === 0 ? '#FFFFFF' : colors.light;
+          doc.rect(marginX, y, pageWidth - marginX * 2, rowHeight).fill(rowColor).stroke(colors.muted);
+          let cellX = marginX;
+          row.forEach((cell, colIndex) => {
+            doc.fillColor(colors.text).font('Helvetica').fontSize(9).text(String(cell), cellX + 6, y + 5, {
+              width: columnWidths[colIndex] - 8,
+              ellipsis: true
+            });
+            cellX += columnWidths[colIndex];
+          });
+          y += rowHeight;
+        });
+        y += 10;
+      };
+
+      const drawTopPerformers = () => {
+        const performers = reportData.topPerformers || [];
+        addSectionHeader('Top Performers');
+        const rows = performers.slice(0, 10).map((student, index) => ([
+          `${index + 1}`,
+          student.name,
+          `Grade ${student.grade}${student.section ? ` ${student.section}` : ''}`.trim(),
+          `${student.score}%`
+        ]));
+
+        if (!rows.length) {
+          ensureSpace(18);
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('No top performer data available.', marginX, y);
+          y += 16;
+          return;
+        }
+
+        drawTable(
+          ['#', 'Student', 'Grade', 'Score'],
+          rows,
+          [24, 210, 120, 70]
+        );
+      };
+
+      addPageHeader();
+      drawHeader();
+      drawSummaryCards();
+      drawPillarBars();
+      drawEngagementTrend();
+      drawPerformanceByGrade();
+      drawTopPerformers();
+
+      const footerY = pageHeight - marginBottom - 12;
+      doc.fillColor(colors.subText).font('Helvetica').fontSize(8).text('Confidential - WiseStudent School Analytics', marginX, footerY);
+      doc.text(`Generated ${new Date(reportData.generatedAt).toLocaleString()}`, marginX, footerY, { align: 'right' });
+
+      doc.end();
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
   // Export teacher analytics report
 export const exportTeacherAnalytics = async (req, res) => {
   try {
@@ -6146,62 +6581,8 @@ export const getSchoolPillarMastery = async (req, res) => {
       });
     }
 
-    // Define pillars with their game types
-    const pillars = [
-      { key: 'uvls', name: 'UVLS', totalGames: 42 },
-      { key: 'dcos', name: 'DCOS', totalGames: 42 },
-      { key: 'moral', name: 'Moral Values', totalGames: 42 },
-      { key: 'ehe', name: 'EHE', totalGames: 42 },
-      { key: 'crgc', name: 'CRGC', totalGames: 42 }
-    ];
-
-    // Calculate real-time mastery for each student
-    const studentMasteries = await Promise.all(
-      students.map(async (student) => {
-        if (!student.userId?._id) return null;
-
-        const userId = student.userId._id;
-
-        // Fetch real-time game progress
-        const gameProgress = await UnifiedGameProgress.find({ userId }).lean();
-
-        // Calculate mastery for each pillar
-        const pillarMasteryData = pillars.map(pillar => {
-          const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
-          
-          if (pillarGames.length === 0) {
-            return { pillar: pillar.key, mastery: 0 };
-          }
-
-          // Calculate mastery based on games completed vs total games
-          const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
-          const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
-
-          return { pillar: pillar.key, mastery };
-        });
-
-        // Calculate overall mastery
-        const overallMastery = pillarMasteryData.length > 0
-          ? Math.round(pillarMasteryData.reduce((sum, p) => sum + p.mastery, 0) / pillarMasteryData.length)
-          : 0;
-
-        return {
-          classId: student.classId?._id,
-          section: student.section,
-          uvls: pillarMasteryData.find(p => p.pillar === 'uvls')?.mastery || 0,
-          dcos: pillarMasteryData.find(p => p.pillar === 'dcos')?.mastery || 0,
-          moral: pillarMasteryData.find(p => p.pillar === 'moral')?.mastery || 0,
-          ehe: pillarMasteryData.find(p => p.pillar === 'ehe')?.mastery || 0,
-          crgc: pillarMasteryData.find(p => p.pillar === 'crgc')?.mastery || 0,
-          overall: overallMastery
-        };
-      })
-    );
-
-    // Filter out null values
-    const validMasteries = studentMasteries.filter(m => m !== null);
-
-    if (validMasteries.length === 0) {
+    const studentIds = students.map((student) => student.userId?._id).filter(Boolean);
+    if (studentIds.length === 0) {
       return res.json({
         averages: {
           uvls: 0,
@@ -6224,86 +6605,197 @@ export const getSchoolPillarMastery = async (req, res) => {
       });
     }
 
-    // Calculate school-wide averages
-    const totals = {
-      uvls: 0,
-      dcos: 0,
-      moral: 0,
-      ehe: 0,
-      crgc: 0,
-      overall: 0
-    };
-
-    const classTotals = {};
-
-    validMasteries.forEach(mastery => {
-      totals.uvls += mastery.uvls;
-      totals.dcos += mastery.dcos;
-      totals.moral += mastery.moral;
-      totals.ehe += mastery.ehe;
-      totals.crgc += mastery.crgc;
-      totals.overall += mastery.overall;
-
-      // Track by class
-      const classKey = mastery.classId?.toString() || 'unassigned';
-      if (!classTotals[classKey]) {
-        classTotals[classKey] = {
-          classId: mastery.classId,
-          section: mastery.section,
-          count: 0,
-          uvls: 0,
-          dcos: 0,
-          moral: 0,
-          ehe: 0,
-          crgc: 0,
-          overall: 0
+    const userClassMap = students.reduce((acc, student) => {
+      if (student.userId?._id) {
+        acc[student.userId._id.toString()] = {
+          classId: student.classId?._id,
+          section: student.section
         };
       }
-      classTotals[classKey].count++;
-      classTotals[classKey].uvls += mastery.uvls;
-      classTotals[classKey].dcos += mastery.dcos;
-      classTotals[classKey].moral += mastery.moral;
-      classTotals[classKey].ehe += mastery.ehe;
-      classTotals[classKey].crgc += mastery.crgc;
-      classTotals[classKey].overall += mastery.overall;
-    });
+      return acc;
+    }, {});
 
-    const count = validMasteries.length;
-    const averages = {
-      uvls: parseFloat((totals.uvls / count).toFixed(2)),
-      dcos: parseFloat((totals.dcos / count).toFixed(2)),
-      moral: parseFloat((totals.moral / count).toFixed(2)),
-      ehe: parseFloat((totals.ehe / count).toFixed(2)),
-      crgc: parseFloat((totals.crgc / count).toFixed(2)),
-      overall: parseFloat((totals.overall / count).toFixed(2)),
-      pillars: {
-        uvls: parseFloat((totals.uvls / count).toFixed(2)),
-        dcos: parseFloat((totals.dcos / count).toFixed(2)),
-        moral: parseFloat((totals.moral / count).toFixed(2)),
-        ehe: parseFloat((totals.ehe / count).toFixed(2)),
-        crgc: parseFloat((totals.crgc / count).toFixed(2)),
-        overall: parseFloat((totals.overall / count).toFixed(2))
+    const mapGameTypeToPillarKey = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'finance';
+        case 'brain':
+        case 'mental':
+          return 'brain';
+        case 'uvls':
+          return 'uvls';
+        case 'dcos':
+          return 'dcos';
+        case 'moral':
+          return 'moral';
+        case 'ai':
+          return 'ai';
+        case 'health-male':
+          return 'health-male';
+        case 'health-female':
+          return 'health-female';
+        case 'ehe':
+          return 'ehe';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'crgc';
+        case 'sustainability':
+          return 'sustainability';
+        default:
+          return null;
       }
     };
 
-    // Calculate class averages
-    const byClass = Object.values(classTotals).map(cls => ({
-      classId: cls.classId,
-      section: cls.section,
-      studentCount: cls.count,
-      averages: {
-        uvls: parseFloat((cls.uvls / cls.count).toFixed(2)),
-        dcos: parseFloat((cls.dcos / cls.count).toFixed(2)),
-        moral: parseFloat((cls.moral / cls.count).toFixed(2)),
-        ehe: parseFloat((cls.ehe / cls.count).toFixed(2)),
-        crgc: parseFloat((cls.crgc / cls.count).toFixed(2)),
-        overall: parseFloat((cls.overall / cls.count).toFixed(2))
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
       }
-    }));
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+
+    const pillarKeys = [
+      'finance',
+      'brain',
+      'uvls',
+      'dcos',
+      'moral',
+      'ai',
+      'health-male',
+      'health-female',
+      'ehe',
+      'crgc',
+      'sustainability'
+    ];
+    const pillarLabelMap = {
+      finance: 'Financial Literacy',
+      brain: 'Brain Health',
+      uvls: 'UVLS (Life Skills & Values)',
+      dcos: 'Digital Citizenship & Online Safety',
+      moral: 'Moral Values',
+      ai: 'AI for All',
+      'health-male': 'Health - Male',
+      'health-female': 'Health - Female',
+      ehe: 'Entrepreneurship & Higher Education',
+      crgc: 'Civic Responsibility & Global Citizenship',
+      sustainability: 'Sustainability'
+    };
+
+    const totals = pillarKeys.reduce((acc, key) => {
+      acc[key] = { completed: 0 };
+      return acc;
+    }, {});
+
+    const classTotals = {};
+    students.forEach((student) => {
+      if (!student.userId?._id) return;
+      const classKey = student.classId?._id?.toString() || 'unassigned';
+      if (!classTotals[classKey]) {
+        classTotals[classKey] = {
+          classId: student.classId?._id || null,
+          section: student.section || null,
+          studentIds: new Set(),
+          totals: pillarKeys.reduce((acc, key) => {
+            acc[key] = { completed: 0 };
+            return acc;
+          }, {})
+        };
+      }
+      classTotals[classKey].studentIds.add(student.userId._id.toString());
+    });
+
+    const gameProgress = await UnifiedGameProgress.find({
+      userId: { $in: studentIds }
+    }).lean();
+
+    (gameProgress || []).forEach((game) => {
+      const pillarKey = mapGameTypeToPillarKey(game.gameType);
+      if (!pillarKey) return;
+
+      const isCompleted = getProgressPercent(game) >= 100;
+      if (!isCompleted) return;
+      totals[pillarKey].completed += 1;
+
+      const userKey = game.userId?.toString();
+      const classInfo = userClassMap[userKey];
+      const classKey = classInfo?.classId?.toString() || 'unassigned';
+
+      if (!classTotals[classKey]) {
+        classTotals[classKey] = {
+          classId: classInfo?.classId || null,
+          section: classInfo?.section || null,
+          studentIds: new Set(),
+          totals: pillarKeys.reduce((acc, key) => {
+            acc[key] = { completed: 0 };
+            return acc;
+          }, {})
+        };
+      }
+      classTotals[classKey].totals[pillarKey].completed += 1;
+    });
+
+    const averages = pillarKeys.reduce((acc, key) => {
+      const totalGames = pillarGameCounts[key] || 0;
+      const totalStudents = studentIds.length;
+      const denominator = totalGames * totalStudents;
+      acc[key] = denominator > 0
+        ? parseFloat(((totals[key].completed / denominator) * 100).toFixed(2))
+        : 0;
+      return acc;
+    }, {});
+
+    const overallValues = pillarKeys
+      .map((key) => ((pillarGameCounts[key] || 0) > 0 ? averages[key] : null))
+      .filter((value) => value !== null);
+
+    const overall = overallValues.length > 0
+      ? parseFloat((overallValues.reduce((sum, value) => sum + value, 0) / overallValues.length).toFixed(2))
+      : 0;
+
+    const byClass = Object.values(classTotals).map((cls) => {
+      const classStudentCount = cls.studentIds?.size || 0;
+      const classAverages = pillarKeys.reduce((acc, key) => {
+        const totalGames = pillarGameCounts[key] || 0;
+        const denominator = totalGames * classStudentCount;
+        acc[key] = denominator > 0
+          ? parseFloat(((cls.totals[key].completed / denominator) * 100).toFixed(2))
+          : 0;
+        return acc;
+      }, {});
+      const classOverallValues = pillarKeys
+        .map((key) => ((pillarGameCounts[key] || 0) > 0 ? classAverages[key] : null))
+        .filter((value) => value !== null);
+      const classOverall = classOverallValues.length > 0
+        ? parseFloat((classOverallValues.reduce((sum, value) => sum + value, 0) / classOverallValues.length).toFixed(2))
+        : 0;
+
+      return {
+        classId: cls.classId,
+        section: cls.section,
+        studentCount: cls.studentIds?.size || 0,
+        averages: {
+          ...classAverages,
+          overall: classOverall
+        }
+      };
+    });
 
     res.json({
-      averages,
-      totalStudents: count,
+      averages: {
+        ...averages,
+        overall,
+        pillars: {
+          ...averages,
+          overall
+        }
+      },
+      totalStudents: studentIds.length,
       byClass
     });
   } catch (error) {
@@ -6830,10 +7322,18 @@ export const getComprehensiveKPIs = async (req, res) => {
       ? ((activeTeachers30d / totalTeachers) * 100).toFixed(2)
       : 0;
 
-    const avgPillar = avgPillarMastery[0] || {};
-    const overallPillarMastery = avgPillar._id
-      ? ((avgPillar.avgUvls + avgPillar.avgDcos + avgPillar.avgMoral + avgPillar.avgEhe + avgPillar.avgCrgc) / 5).toFixed(2)
-      : 0;
+      const avgPillar = avgPillarMastery[0] || {};
+      const overallPillarMastery = avgPillar._id
+        ? ((avgPillar.avgUvls + avgPillar.avgDcos + avgPillar.avgMoral + avgPillar.avgEhe + avgPillar.avgCrgc) / 5).toFixed(2)
+        : 0;
+
+      const attendanceAverageRaw = avgAttendance[0]?.avg || 0;
+      const attendanceFallback = totalStudents > 0
+        ? (activeStudents30d / totalStudents) * 100
+        : 0;
+      const attendanceAverage = attendanceAverageRaw > 0
+        ? attendanceAverageRaw
+        : attendanceFallback;
 
     res.json({
       students: {
@@ -6849,9 +7349,9 @@ export const getComprehensiveKPIs = async (req, res) => {
       classes: {
         total: totalClasses,
       },
-      attendance: {
-        average: avgAttendance[0]?.avg ? avgAttendance[0].avg.toFixed(2) : 0,
-      },
+        attendance: {
+          average: parseFloat(attendanceAverage.toFixed(2)),
+        },
       pendingApprovals: pendingAssignments,
       wellbeingCases: wellbeingFlags[0]?.total || 0,
       pillarMastery: {
@@ -10844,78 +11344,142 @@ export const getTopPerformers = async (req, res) => {
       .populate('classId', 'classNumber stream')
       .lean();
 
-    // Define pillars with their game types
-    const pillars = [
-      { key: 'uvls', name: 'UVLS', totalGames: 42 },
-      { key: 'dcos', name: 'DCOS', totalGames: 42 },
-      { key: 'moral', name: 'Moral Values', totalGames: 42 },
-      { key: 'ehe', name: 'EHE', totalGames: 42 },
-      { key: 'crgc', name: 'CRGC', totalGames: 42 },
-      { key: 'financial', name: 'Financial Literacy', totalGames: 42 },
-      { key: 'brain', name: 'Brain Health', totalGames: 42 },
-      { key: 'ai', name: 'AI for All', totalGames: 42 },
-      { key: 'entrepreneurship', name: 'Entrepreneurship', totalGames: 42 },
-      { key: 'educational', name: 'Education', totalGames: 42 }
+    if (students.length === 0) {
+      return res.json({
+        success: true,
+        students: []
+      });
+    }
+
+    const studentIds = students.map((student) => student.userId?._id).filter(Boolean);
+    if (studentIds.length === 0) {
+      return res.json({
+        success: true,
+        students: []
+      });
+    }
+
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+    const pillarKeys = [
+      'finance',
+      'brain',
+      'uvls',
+      'dcos',
+      'moral',
+      'ai',
+      'health-male',
+      'health-female',
+      'ehe',
+      'crgc',
+      'sustainability'
     ];
 
-    // Calculate real-time mastery for each student
-    const performersWithScores = await Promise.all(
-      students.map(async (student) => {
-        if (!student.userId?._id) return null;
+    const mapGameTypeToPillarKey = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'finance';
+        case 'brain':
+        case 'mental':
+          return 'brain';
+        case 'uvls':
+          return 'uvls';
+        case 'dcos':
+          return 'dcos';
+        case 'moral':
+          return 'moral';
+        case 'ai':
+          return 'ai';
+        case 'health-male':
+          return 'health-male';
+        case 'health-female':
+          return 'health-female';
+        case 'ehe':
+          return 'ehe';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'crgc';
+        case 'sustainability':
+          return 'sustainability';
+        default:
+          return null;
+      }
+    };
 
-        const userId = student.userId._id;
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
 
-        // Fetch real-time game progress
-        const gameProgress = await UnifiedGameProgress.find({ userId }).lean();
+    const progressDocs = await UnifiedGameProgress.find({
+      userId: { $in: studentIds }
+    }).lean();
 
-        // Calculate mastery for each pillar
-        const pillarMasteryData = pillars.map(pillar => {
-          const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
-          
-          if (pillarGames.length === 0) {
-            return {
-              pillar: pillar.name,
-              mastery: 0,
-              gamesCompleted: 0,
-              totalGames: pillar.totalGames
-            };
-          }
+    const completedByStudent = new Map();
+    studentIds.forEach((id) => {
+      const key = id.toString();
+      const totals = pillarKeys.reduce((acc, pillar) => {
+        acc[pillar] = 0;
+        return acc;
+      }, {});
+      completedByStudent.set(key, totals);
+    });
 
-          // Calculate mastery based on games completed vs total games
-          const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
-          const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
+    (progressDocs || []).forEach((game) => {
+      const pillarKey = mapGameTypeToPillarKey(game.gameType);
+      if (!pillarKey) return;
+      if (getProgressPercent(game) < 100) return;
+      const userKey = game.userId?.toString();
+      if (!completedByStudent.has(userKey)) return;
+      completedByStudent.get(userKey)[pillarKey] += 1;
+    });
 
-          return {
-            pillar: pillar.name,
-            mastery: mastery,
-            gamesCompleted,
-            totalGames: pillar.totalGames
-          };
-        });
+    const performersWithScores = students.map((student) => {
+      if (!student.userId?._id) return null;
 
-        // Calculate overall mastery (average of all pillars with games)
-        const pillarsWithGames = pillarMasteryData.filter(p => p.totalGames > 0);
-        const overallMastery = pillarsWithGames.length > 0
-          ? Math.round(pillarsWithGames.reduce((sum, p) => sum + p.mastery, 0) / pillarsWithGames.length)
-          : 0;
+      const userId = student.userId._id;
+      const userKey = userId.toString();
+      const completedCounts = completedByStudent.get(userKey) || {};
 
-        return {
-          _id: student._id,
-          name: student.userId?.name || 'Unknown',
-          grade: student.classId?.classNumber || student.grade || 0,
-          section: student.section || 'A',
-          score: overallMastery,
-          userId: userId
-        };
-      })
-    );
+      const pillarMasteryValues = pillarKeys
+        .map((pillar) => {
+          const totalGames = pillarGameCounts[pillar] || 0;
+          if (totalGames === 0) return null;
+          const completed = completedCounts[pillar] || 0;
+          return Math.round((completed / totalGames) * 100);
+        })
+        .filter((value) => value !== null);
+
+      const overallMastery = pillarMasteryValues.length > 0
+        ? Math.round(pillarMasteryValues.reduce((sum, value) => sum + value, 0) / pillarMasteryValues.length)
+        : 0;
+
+      return {
+        _id: student._id,
+        name: student.userId?.name || 'Unknown',
+        grade: student.classId?.classNumber || student.grade || 0,
+        section: student.section || 'A',
+        score: overallMastery,
+        userId
+      };
+    });
 
     // Filter out null values and sort by score (descending)
     const performers = performersWithScores
       .filter(p => p !== null)
       .sort((a, b) => b.score - a.score)
       .slice(0, limit)
-      .map(({ _id, userId, ...rest }) => rest); // Remove _id and userId from response
+      .map(({ _id, userId, ...rest }) => ({
+        studentId: _id,
+        userId,
+        ...rest
+      }));
 
     res.json({
       success: true,
@@ -12163,6 +12727,7 @@ export const getStudentsWithFilters = async (req, res) => {
   try {
     const { tenantId } = req;
     const { classId, grade, section, status } = req.query;
+    const limit = Math.min(parseInt(req.query.limit, 10) || 100, 200);
 
     const filter = { tenantId };
     if (section && section !== 'all') filter.section = section;
@@ -12188,12 +12753,49 @@ export const getStudentsWithFilters = async (req, res) => {
     }
 
     const students = await SchoolStudent.find(filter)
-      .populate('userId', 'name email phone gender dateOfBirth lastActive linkedIds')
+      .populate('userId', 'name email phone gender dateOfBirth lastActive linkedIds flaggedForCounselor flaggedReason flaggedAt')
       .populate('classId', 'classNumber stream')
       .populate('parentIds', 'name email phone avatar')
       .select('userId personalInfo pillars parentIds rollNumber section classId wellbeingFlags')
-      .limit(100)
+      .limit(limit)
       .sort({ createdAt: -1 }); // Show newest first
+
+    const studentUserIds = students
+      .map((s) => s.userId?._id)
+      .filter(Boolean);
+
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const [activityAgg7, activityAgg30, moodAgg] = studentUserIds.length > 0
+      ? await Promise.all([
+          ActivityLog.aggregate([
+            { $match: { userId: { $in: studentUserIds }, createdAt: { $gte: sevenDaysAgo } } },
+            { $group: { _id: '$userId', totalMinutes: { $sum: { $ifNull: ['$duration', 0] } } } }
+          ]),
+          ActivityLog.aggregate([
+            { $match: { userId: { $in: studentUserIds }, createdAt: { $gte: thirtyDaysAgo } } },
+            { $group: { _id: '$userId', activityCount: { $sum: 1 } } }
+          ]),
+          MoodLog.aggregate([
+            { $match: { userId: { $in: studentUserIds }, createdAt: { $gte: sevenDaysAgo } } },
+            { $group: { _id: '$userId', avgMood: { $avg: { $ifNull: ['$score', 3] } } } }
+          ])
+        ])
+      : [[], []];
+
+    const activityMap = new Map(
+      (activityAgg7 || []).map((entry) => [entry._id.toString(), entry.totalMinutes || 0])
+    );
+    const activityCountMap = new Map(
+      (activityAgg30 || []).map((entry) => [entry._id.toString(), entry.activityCount || 0])
+    );
+    const moodMap = new Map(
+      (moodAgg || []).map((entry) => [entry._id.toString(), entry.avgMood])
+    );
+    const hasActivityData = (activityAgg30 || []).length > 0;
 
     // Fetch parent data for all students, checking both SchoolStudent.parentIds and User.linkedIds.parentIds
     let filteredStudents = await Promise.all(students.map(async (s) => {
@@ -12227,6 +12829,29 @@ export const getStudentsWithFilters = async (req, res) => {
         }));
       }
       
+      const totalMinutes = activityMap.get(s.userId?._id?.toString()) || 0;
+      const avgMood = moodMap.get(s.userId?._id?.toString()) ?? 3;
+      const wellbeingFlags = s.wellbeingFlags || [];
+      const activeWellbeingFlags = wellbeingFlags.filter(
+        (flag) => flag.status !== 'resolved'
+      );
+      const hasHighSeverityOpenFlag = activeWellbeingFlags.some(
+        (flag) => flag.severity === 'high'
+      );
+      const counselorFlag = Boolean(s.userId?.flaggedForCounselor);
+      const lowEngagement = totalMinutes < 15;
+      const lowMood = avgMood < 2.0;
+      const riskSignals = [hasHighSeverityOpenFlag, counselorFlag, lowEngagement, lowMood].filter(Boolean).length;
+      const highRisk = hasHighSeverityOpenFlag || (lowEngagement && lowMood);
+      const flagged = activeWellbeingFlags.length > 0 || counselorFlag;
+
+      const activityCount = activityCountMap.get(s.userId?._id?.toString()) || 0;
+      const isActive = hasActivityData
+        ? activityCount > 0
+        : s.userId?.lastActive
+          ? s.userId.lastActive >= thirtyDaysAgo
+          : false;
+
       return {
         ...s.toObject(),
         _id: s._id,
@@ -12238,10 +12863,15 @@ export const getStudentsWithFilters = async (req, res) => {
         section: s.section || 'A',
         grade: s.classId?.classNumber || 0,
         lastActive: s.userId?.lastActive || null,
-        isActive: s.userId?.lastActive ? s.userId.lastActive >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) : false,
+        isActive,
         avgScore: Math.round(
           ((s.pillars?.uvls || 0) + (s.pillars?.dcos || 0) + (s.pillars?.moral || 0) + (s.pillars?.ehe || 0) + (s.pillars?.crgc || 0)) / 5
         ),
+        totalMinutes,
+        avgMood,
+        flagged,
+        riskSignals,
+        highRisk,
         parents: parents,
       };
     }));
@@ -12251,7 +12881,9 @@ export const getStudentsWithFilters = async (req, res) => {
     } else if (status === 'inactive') {
       filteredStudents = filteredStudents.filter(s => !s.isActive);
     } else if (status === 'flagged') {
-      filteredStudents = filteredStudents.filter(s => s.wellbeingFlags?.length > 0);
+      filteredStudents = filteredStudents.filter(s => s.flagged);
+    } else if (status === 'at-risk') {
+      filteredStudents = filteredStudents.filter(s => s.highRisk);
     }
 
     res.json({
@@ -12269,18 +12901,32 @@ export const getAdminStudentStats = async (req, res) => {
   try {
     const { tenantId } = req;
 
-    const [total, active, flagged] = await Promise.all([
-      SchoolStudent.countDocuments({ tenantId }),
-      SchoolStudent.find({ tenantId }).populate('userId').then(students =>
-        students.filter(s => s.userId?.lastActive >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)).length
-      ),
+    const total = await SchoolStudent.countDocuments({ tenantId });
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const studentIds = await SchoolStudent.find({ tenantId }).distinct('userId');
+    const activityAgg = await ActivityLog.aggregate([
+      { $match: { userId: { $in: studentIds }, createdAt: { $gte: thirtyDaysAgo } } },
+      { $group: { _id: '$userId' } }
+    ]);
+    const hasActivityData = activityAgg.length > 0;
+    const active = hasActivityData
+      ? activityAgg.length
+      : await User.countDocuments({
+          _id: { $in: studentIds },
+          lastActive: { $gte: thirtyDaysAgo }
+        });
+
+    const [flaggedFlags, flaggedCounselor] = await Promise.all([
       SchoolStudent.countDocuments({ tenantId, 'wellbeingFlags.0': { $exists: true } }),
+      User.countDocuments({ tenantId, role: 'school_student', flaggedForCounselor: true })
     ]);
 
     res.json({
       total,
       active,
-      flagged,
+      flagged: flaggedFlags + flaggedCounselor,
       inactive: total - active,
     });
   } catch (error) {
@@ -12938,35 +13584,76 @@ export const getEngagementTrend = async (req, res) => {
     const { tenantId } = req;
     const { days = 7 } = req.query;
 
-    const daysNum = parseInt(days);
-    const trend = [];
-    
-    for (let i = daysNum - 1; i >= 0; i--) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      date.setHours(0, 0, 0, 0);
-      
-      const nextDay = new Date(date);
-      nextDay.setDate(nextDay.getDate() + 1);
+    const daysNum = Math.max(parseInt(days, 10) || 7, 1);
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - (daysNum - 1));
+    startDate.setHours(0, 0, 0, 0);
+    const endDate = new Date();
+    endDate.setHours(23, 59, 59, 999);
 
-      const [studentCount, teacherCount] = await Promise.all([
-        User.countDocuments({
-          tenantId,
-          role: { $in: ['student', 'school_student'] },
-          lastActive: { $gte: date, $lt: nextDay }
-        }),
-        User.countDocuments({
-          tenantId,
-          role: 'school_teacher',
-          lastActive: { $gte: date, $lt: nextDay }
-        })
+    const [studentUsers, teacherUsers] = await Promise.all([
+      User.find({ tenantId, role: { $in: ['student', 'school_student'] } }).select('_id').lean(),
+      User.find({ tenantId, role: 'school_teacher' }).select('_id').lean()
+    ]);
+
+    const studentIds = studentUsers.map((u) => u._id);
+    const teacherIds = teacherUsers.map((u) => u._id);
+
+    const aggregateEngagement = async (userIds) => {
+      if (!userIds.length) return new Map();
+      const results = await ActivityLog.aggregate([
+        {
+          $match: {
+            userId: { $in: userIds }
+          }
+        },
+        {
+          $addFields: {
+            activityDate: { $ifNull: ['$timestamp', '$createdAt'] }
+          }
+        },
+        {
+          $match: {
+            activityDate: { $gte: startDate, $lte: endDate }
+          }
+        },
+        {
+          $group: {
+            _id: {
+              date: {
+                $dateToString: { format: '%Y-%m-%d', date: '$activityDate' }
+              },
+              userId: '$userId'
+            }
+          }
+        },
+        {
+          $group: {
+            _id: '$_id.date',
+            users: { $sum: 1 }
+          }
+        }
       ]);
 
+      return new Map(results.map((row) => [row._id, row.users]));
+    };
+
+    const [studentEngagement, teacherEngagement] = await Promise.all([
+      aggregateEngagement(studentIds),
+      aggregateEngagement(teacherIds)
+    ]);
+
+    const trend = [];
+    for (let i = 0; i < daysNum; i++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + i);
+      const dateKey = date.toISOString().split('T')[0];
+
       trend.push({
-        date: date.toISOString().split('T')[0],
+        date: dateKey,
         label: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-        students: studentCount,
-        teachers: teacherCount
+        students: studentEngagement.get(dateKey) || 0,
+        teachers: teacherEngagement.get(dateKey) || 0
       });
     }
 
@@ -12985,36 +13672,137 @@ export const getPerformanceByGrade = async (req, res) => {
   try {
     const { tenantId } = req;
 
-    const grades = await SchoolStudent.aggregate([
-      { $match: { tenantId, isActive: true } },
-      {
-        $group: {
-          _id: '$grade',
-          count: { $sum: 1 },
-          avgUvls: { $avg: '$pillars.uvls' },
-          avgDcos: { $avg: '$pillars.dcos' },
-          avgMoral: { $avg: '$pillars.moral' },
-          avgEhe: { $avg: '$pillars.ehe' },
-          avgCrgc: { $avg: '$pillars.crgc' }
-        }
-      },
-      { $sort: { _id: 1 } }
-    ]);
+    const students = await SchoolStudent.find({ tenantId, isActive: true })
+      .populate('classId', 'classNumber')
+      .select('userId classId')
+      .lean();
 
-    const gradesData = grades.map(g => ({
-      grade: g._id,
-      studentCount: g.count,
-      avgScore: Math.round(
-        ((g.avgUvls || 0) + (g.avgDcos || 0) + (g.avgMoral || 0) + (g.avgEhe || 0) + (g.avgCrgc || 0)) / 5
-      ),
-      pillars: {
-        uvls: Math.round(g.avgUvls || 0),
-        dcos: Math.round(g.avgDcos || 0),
-        moral: Math.round(g.avgMoral || 0),
-        ehe: Math.round(g.avgEhe || 0),
-        crgc: Math.round(g.avgCrgc || 0)
+    const gradeMap = new Map();
+    const studentGradeMap = new Map();
+
+    students.forEach((student) => {
+      const gradeKey = student.classId?.classNumber;
+      const userId = student.userId?.toString();
+      if (!gradeKey || !userId) return;
+
+      if (!gradeMap.has(gradeKey)) {
+        gradeMap.set(gradeKey, {
+          studentIds: new Set(),
+          completedByPillar: {}
+        });
       }
-    }));
+      gradeMap.get(gradeKey).studentIds.add(userId);
+      studentGradeMap.set(userId, gradeKey);
+    });
+
+    if (gradeMap.size === 0) {
+      return res.json({
+        success: true,
+        grades: []
+      });
+    }
+
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+    const pillarKeys = [
+      'finance',
+      'brain',
+      'uvls',
+      'dcos',
+      'moral',
+      'ai',
+      'health-male',
+      'health-female',
+      'ehe',
+      'crgc',
+      'sustainability'
+    ];
+
+    const mapGameTypeToPillarKey = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'finance';
+        case 'brain':
+        case 'mental':
+          return 'brain';
+        case 'uvls':
+          return 'uvls';
+        case 'dcos':
+          return 'dcos';
+        case 'moral':
+          return 'moral';
+        case 'ai':
+          return 'ai';
+        case 'health-male':
+          return 'health-male';
+        case 'health-female':
+          return 'health-female';
+        case 'ehe':
+          return 'ehe';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'crgc';
+        case 'sustainability':
+          return 'sustainability';
+        default:
+          return null;
+      }
+    };
+
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
+    const allStudentIds = Array.from(studentGradeMap.keys());
+    const gameProgress = await UnifiedGameProgress.find({
+      userId: { $in: allStudentIds }
+    }).lean();
+
+    gameProgress.forEach((game) => {
+      const userId = game.userId?.toString();
+      const gradeKey = studentGradeMap.get(userId);
+      if (!gradeKey) return;
+      const pillarKey = mapGameTypeToPillarKey(game.gameType);
+      if (!pillarKey) return;
+
+      if (getProgressPercent(game) < 100) return;
+      const gradeEntry = gradeMap.get(gradeKey);
+      if (!gradeEntry.completedByPillar[pillarKey]) {
+        gradeEntry.completedByPillar[pillarKey] = 0;
+      }
+      gradeEntry.completedByPillar[pillarKey] += 1;
+    });
+
+    const gradesData = Array.from(gradeMap.entries()).map(([grade, data]) => {
+      const studentCount = data.studentIds.size;
+      const pillarPercentages = {};
+      const pillarValues = pillarKeys.map((pillar) => {
+        const totalGames = pillarGameCounts[pillar] || 0;
+        const completed = data.completedByPillar[pillar] || 0;
+        const denominator = totalGames * studentCount;
+        const percent = denominator > 0 ? (completed / denominator) * 100 : 0;
+        pillarPercentages[pillar] = Math.round(percent);
+        return totalGames > 0 ? percent : null;
+      }).filter((value) => value !== null);
+
+      const avgScore = pillarValues.length > 0
+        ? Math.round(pillarValues.reduce((sum, value) => sum + value, 0) / pillarValues.length)
+        : 0;
+
+      return {
+        grade,
+        studentCount,
+        avgScore,
+        pillars: pillarPercentages
+      };
+    }).sort((a, b) => a.grade - b.grade);
 
     res.json({
       success: true,
@@ -13034,24 +13822,23 @@ export const exportAnalyticsReport = async (req, res) => {
 
     const filter = { tenantId, isActive: true };
     if (campusId && campusId !== 'all') filter.campusId = campusId;
-    if (grade && grade !== 'all') filter.grade = parseInt(grade);
+    let gradeClassIds = null;
+    if (grade && grade !== 'all') {
+      const gradeClasses = await SchoolClass.find({
+        tenantId,
+        classNumber: parseInt(grade, 10)
+      }).select('_id').lean();
+      gradeClassIds = gradeClasses.map((cls) => cls._id);
+      if (gradeClassIds.length > 0) {
+        filter.classId = { $in: gradeClassIds };
+      } else {
+        filter.classId = { $in: [] };
+      }
+    }
 
     // Fetch comprehensive analytics data
-    const [students, pillarMastery, wellbeing, adoption, teachers] = await Promise.all([
-      SchoolStudent.countDocuments(filter),
-      SchoolStudent.aggregate([
-        { $match: filter },
-        {
-          $group: {
-            _id: null,
-            avgUvls: { $avg: '$pillars.uvls' },
-            avgDcos: { $avg: '$pillars.dcos' },
-            avgMoral: { $avg: '$pillars.moral' },
-            avgEhe: { $avg: '$pillars.ehe' },
-            avgCrgc: { $avg: '$pillars.crgc' }
-          }
-        }
-      ]),
+    const [students, wellbeing, adoption, teachers] = await Promise.all([
+      SchoolStudent.find(filter).select('userId').lean(),
       SchoolStudent.aggregate([
         { $match: filter },
         { $unwind: '$wellbeingFlags' },
@@ -13068,11 +13855,340 @@ export const exportAnalyticsReport = async (req, res) => {
       User.countDocuments({ tenantId, role: 'school_teacher' })
     ]);
 
-    const pillars = pillarMastery[0] || {};
-    const avgPillarScore = Math.round(
-      ((pillars.avgUvls || 0) + (pillars.avgDcos || 0) + (pillars.avgMoral || 0) + 
-       (pillars.avgEhe || 0) + (pillars.avgCrgc || 0)) / 5
-    );
+    const studentIds = students.map((s) => s.userId).filter(Boolean);
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+    const pillarKeys = [
+      'finance',
+      'brain',
+      'uvls',
+      'dcos',
+      'moral',
+      'ai',
+      'health-male',
+      'health-female',
+      'ehe',
+      'crgc',
+      'sustainability'
+    ];
+
+    const mapGameTypeToPillarKey = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'finance';
+        case 'brain':
+        case 'mental':
+          return 'brain';
+        case 'uvls':
+          return 'uvls';
+        case 'dcos':
+          return 'dcos';
+        case 'moral':
+          return 'moral';
+        case 'ai':
+          return 'ai';
+        case 'health-male':
+          return 'health-male';
+        case 'health-female':
+          return 'health-female';
+        case 'ehe':
+          return 'ehe';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'crgc';
+        case 'sustainability':
+          return 'sustainability';
+        default:
+          return null;
+      }
+    };
+
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
+    const totals = pillarKeys.reduce((acc, key) => {
+      acc[key] = 0;
+      return acc;
+    }, {});
+
+    const gameProgressAll = studentIds.length > 0 ? await UnifiedGameProgress.find({
+      userId: { $in: studentIds }
+    }).lean() : [];
+
+    gameProgressAll.forEach((game) => {
+      const pillarKey = mapGameTypeToPillarKey(game.gameType);
+      if (!pillarKey) return;
+      if (getProgressPercent(game) < 100) return;
+      totals[pillarKey] += 1;
+    });
+
+    const totalStudents = studentIds.length;
+    const pillars = pillarKeys.reduce((acc, key) => {
+      const totalGames = pillarGameCounts[key] || 0;
+      const denominator = totalGames * totalStudents;
+      acc[key] = denominator > 0 ? Math.round((totals[key] / denominator) * 100) : 0;
+      return acc;
+    }, {});
+
+    const pillarValues = pillarKeys
+      .map((key) => (pillarGameCounts[key] ? pillars[key] : null))
+      .filter((value) => value !== null);
+    const avgPillarScore = pillarValues.length > 0
+      ? Math.round(pillarValues.reduce((sum, value) => sum + value, 0) / pillarValues.length)
+      : 0;
+
+    const timeRangeToDays = (range) => {
+      switch (range) {
+        case 'week':
+          return 7;
+        case 'month':
+          return 30;
+        case 'semester':
+          return 180;
+        case 'year':
+          return 365;
+        default:
+          return 30;
+      }
+    };
+
+    const daysNum = timeRangeToDays(timeRange);
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - (daysNum - 1));
+    startDate.setHours(0, 0, 0, 0);
+    const endDate = new Date();
+    endDate.setHours(23, 59, 59, 999);
+
+    const aggregateEngagement = async (userIds) => {
+      if (!userIds.length) return new Map();
+      const results = await ActivityLog.aggregate([
+        { $match: { userId: { $in: userIds } } },
+        { $addFields: { activityDate: { $ifNull: ['$timestamp', '$createdAt'] } } },
+        { $match: { activityDate: { $gte: startDate, $lte: endDate } } },
+        { $group: { _id: { date: { $dateToString: { format: '%Y-%m-%d', date: '$activityDate' } }, userId: '$userId' } } },
+        { $group: { _id: '$_id.date', users: { $sum: 1 } } }
+      ]);
+      return new Map(results.map((row) => [row._id, row.users]));
+    };
+
+    const teacherIds = await User.find({ tenantId, role: 'school_teacher' }).distinct('_id');
+    const [studentEngagement, teacherEngagement] = await Promise.all([
+      aggregateEngagement(studentIds),
+      aggregateEngagement(teacherIds)
+    ]);
+
+    const engagementTrend = [];
+    for (let i = 0; i < daysNum; i++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + i);
+      const dateKey = date.toISOString().split('T')[0];
+      engagementTrend.push({
+        date: dateKey,
+        label: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        students: studentEngagement.get(dateKey) || 0,
+        teachers: teacherEngagement.get(dateKey) || 0
+      });
+    }
+
+    const studentsWithClasses = await SchoolStudent.find(filter)
+      .populate('classId', 'classNumber')
+      .select('userId classId')
+      .lean();
+
+    const gradeMap = new Map();
+    const studentGradeMap = new Map();
+
+    studentsWithClasses.forEach((student) => {
+      const gradeKey = student.classId?.classNumber;
+      const userId = student.userId?.toString();
+      if (!gradeKey || !userId) return;
+
+      if (!gradeMap.has(gradeKey)) {
+        gradeMap.set(gradeKey, {
+          studentIds: new Set(),
+          completedByPillar: {}
+        });
+      }
+      gradeMap.get(gradeKey).studentIds.add(userId);
+      studentGradeMap.set(userId, gradeKey);
+    });
+
+    if (gradeMap.size > 0) {
+      gameProgressAll.forEach((game) => {
+        const userId = game.userId?.toString();
+        const gradeKey = studentGradeMap.get(userId);
+        if (!gradeKey) return;
+        const pillarKey = mapGameTypeToPillarKey(game.gameType);
+        if (!pillarKey) return;
+        if (getProgressPercent(game) < 100) return;
+
+        const gradeEntry = gradeMap.get(gradeKey);
+        if (!gradeEntry.completedByPillar[pillarKey]) {
+          gradeEntry.completedByPillar[pillarKey] = 0;
+        }
+        gradeEntry.completedByPillar[pillarKey] += 1;
+      });
+    }
+
+    const performanceByGrade = Array.from(gradeMap.entries()).map(([gradeKey, data]) => {
+      const studentCount = data.studentIds.size;
+      const pillarValuesForGrade = pillarKeys.map((pillar) => {
+        const totalGames = pillarGameCounts[pillar] || 0;
+        const completed = data.completedByPillar[pillar] || 0;
+        const denominator = totalGames * studentCount;
+        const percent = denominator > 0 ? (completed / denominator) * 100 : 0;
+        return totalGames > 0 ? percent : null;
+      }).filter((value) => value !== null);
+
+      const avgScore = pillarValuesForGrade.length > 0
+        ? Math.round(pillarValuesForGrade.reduce((sum, value) => sum + value, 0) / pillarValuesForGrade.length)
+        : 0;
+
+      return {
+        grade: gradeKey,
+        studentCount,
+        avgScore
+      };
+    }).sort((a, b) => a.grade - b.grade);
+
+    const topPerformerFilter = { tenantId };
+    if (campusId && campusId !== 'all') topPerformerFilter.campusId = campusId;
+    if (gradeClassIds) {
+      topPerformerFilter.classId = gradeClassIds.length > 0 ? { $in: gradeClassIds } : { $in: [] };
+    }
+
+    const topPerformerStudents = await SchoolStudent.find(topPerformerFilter)
+      .populate('classId', 'classNumber')
+      .populate('userId', 'name avatar')
+      .select('userId classId section grade')
+      .lean();
+
+    const topPerformerIds = topPerformerStudents
+      .map((student) => student.userId?._id)
+      .filter(Boolean);
+    const topPerformerProgress = topPerformerIds.length > 0 ? await UnifiedGameProgress.find({
+      userId: { $in: topPerformerIds }
+    }).lean() : [];
+
+    const completedByStudent = new Map();
+    topPerformerStudents.forEach((student) => {
+      const userId = student.userId?._id?.toString();
+      if (!userId) return;
+      completedByStudent.set(
+        userId,
+        pillarKeys.reduce((acc, pillar) => {
+          acc[pillar] = 0;
+          return acc;
+        }, {})
+      );
+    });
+
+    topPerformerProgress.forEach((game) => {
+      const userKey = game.userId?.toString();
+      if (!userKey || !completedByStudent.has(userKey)) return;
+      const pillarKey = mapGameTypeToPillarKey(game.gameType);
+      if (!pillarKey) return;
+      if (getProgressPercent(game) < 100) return;
+      completedByStudent.get(userKey)[pillarKey] += 1;
+    });
+
+    const topPerformers = topPerformerStudents
+      .map((student) => {
+        const userId = student.userId?._id?.toString();
+        if (!userId) return null;
+        const completedCounts = completedByStudent.get(userId) || {};
+        const pillarMasteryValues = pillarKeys
+          .map((pillar) => {
+            const totalGames = pillarGameCounts[pillar] || 0;
+            if (totalGames === 0) return null;
+            const completed = completedCounts[pillar] || 0;
+            return Math.round((completed / totalGames) * 100);
+          })
+          .filter((value) => value !== null);
+        const overallMastery = pillarMasteryValues.length > 0
+          ? Math.round(pillarMasteryValues.reduce((sum, value) => sum + value, 0) / pillarMasteryValues.length)
+          : 0;
+
+        return {
+          studentId: student._id,
+          userId: student.userId?._id,
+          name: student.userId?.name || 'Unknown',
+          grade: student.classId?.classNumber || student.grade || 0,
+          section: student.section || 'A',
+          score: overallMastery
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10);
+
+    if (format === 'pdf') {
+      const reportData = {
+        generatedAt: new Date().toISOString(),
+        timeRange: timeRange || 'All Time',
+        summary: {
+          totalStudents,
+          activeStudents: adoption,
+          adoptionRate: totalStudents > 0 ? parseFloat(((adoption / totalStudents) * 100).toFixed(2)) : 0,
+          totalTeachers: teachers,
+          avgPillarMastery: avgPillarScore,
+          studentsAtRiskCount: 0
+        },
+        pillars,
+        engagementTrend,
+        performanceByGrade,
+        topPerformers,
+        wellbeing: wellbeing.reduce((acc, w) => {
+          acc[w._id] = w.count;
+          return acc;
+        }, {})
+      };
+
+      const pdfBuffer = await buildSchoolAnalyticsPdf(reportData, {
+        schoolName: req.user?.organization || req.user?.name
+      });
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${Date.now()}.pdf`);
+      return res.send(pdfBuffer);
+    }
+
+    if (format === 'json') {
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${Date.now()}.json`);
+      return res.json({
+        success: true,
+        report: {
+          generated: new Date(),
+          timeRange: timeRange || 'All Time',
+          filters: { campusId, grade },
+          summary: {
+            totalStudents,
+            activeStudents: adoption,
+            adoptionRate: totalStudents > 0 ? parseFloat(((adoption / totalStudents) * 100).toFixed(2)) : 0,
+            totalTeachers: teachers,
+            avgPillarMastery: avgPillarScore,
+            studentsAtRiskCount: 0
+          },
+          pillars,
+          engagementTrend,
+          performanceByGrade,
+          topPerformers,
+          wellbeing: wellbeing.reduce((acc, w) => {
+            acc[w._id] = w.count;
+            return acc;
+          }, {})
+        }
+      });
+    }
 
     if (format === 'csv') {
       const csv = `School Analytics Report
@@ -13082,18 +14198,14 @@ ${campusId && campusId !== 'all' ? `Campus ID: ${campusId}` : 'All Campuses'}
 ${grade && grade !== 'all' ? `Grade: ${grade}` : 'All Grades'}
 
 SUMMARY METRICS
-Total Students,${students}
+Total Students,${totalStudents}
 Active Students (30 days),${adoption}
-Student Adoption Rate,${students > 0 ? ((adoption / students) * 100).toFixed(2) : 0}%
+Student Adoption Rate,${totalStudents > 0 ? ((adoption / totalStudents) * 100).toFixed(2) : 0}%
 Total Teachers,${teachers}
 Average Pillar Mastery,${avgPillarScore}%
 
 PILLAR BREAKDOWN
-UVLS,${Math.round(pillars.avgUvls || 0)}%
-DCOS,${Math.round(pillars.avgDcos || 0)}%
-Moral,${Math.round(pillars.avgMoral || 0)}%
-EHE,${Math.round(pillars.avgEhe || 0)}%
-CRGC,${Math.round(pillars.avgCrgc || 0)}%
+${pillarKeys.map((key) => `${pillarLabelMap[key] || key},${Math.round(pillars[key] || 0)}%`).join('\n')}
 
 WELLBEING CASES
 ${wellbeing.map(w => `${w._id},${w.count}`).join('\n')}
@@ -13102,34 +14214,10 @@ ${wellbeing.map(w => `${w._id},${w.count}`).join('\n')}
       res.setHeader('Content-Type', 'text/csv');
       res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${Date.now()}.csv`);
       res.send(csv);
-    } else {
-      res.json({
-        success: true,
-        report: {
-          generated: new Date(),
-          timeRange: timeRange || 'All Time',
-          filters: { campusId, grade },
-          summary: {
-            totalStudents: students,
-            activeStudents: adoption,
-            adoptionRate: students > 0 ? parseFloat(((adoption / students) * 100).toFixed(2)) : 0,
-            totalTeachers: teachers,
-            avgPillarMastery: avgPillarScore
-          },
-          pillars: {
-            uvls: Math.round(pillars.avgUvls || 0),
-            dcos: Math.round(pillars.avgDcos || 0),
-            moral: Math.round(pillars.avgMoral || 0),
-            ehe: Math.round(pillars.avgEhe || 0),
-            crgc: Math.round(pillars.avgCrgc || 0)
-          },
-          wellbeing: wellbeing.reduce((acc, w) => {
-            acc[w._id] = w.count;
-            return acc;
-          }, {})
-        }
-      });
+      return;
     }
+
+    res.status(400).json({ message: 'Unsupported export format' });
   } catch (error) {
     console.error('Error exporting analytics:', error);
     res.status(500).json({ message: 'Server error' });

@@ -26,6 +26,35 @@ const SchoolAdminDashboard = () => {
   const [adminProfile, setAdminProfile] = useState(null);
   const [pillarMastery, setPillarMastery] = useState({});
   const [wellbeingCases, setWellbeingCases] = useState({});
+
+  const getPillarLabel = (pillarKey) => {
+    switch (String(pillarKey || '').toLowerCase()) {
+      case 'finance':
+        return 'Financial Literacy';
+      case 'brain':
+        return 'Brain Health';
+      case 'uvls':
+        return 'UVLS (Life Skills & Values)';
+      case 'dcos':
+        return 'Digital Citizenship & Online Safety';
+      case 'moral':
+        return 'Moral Values';
+      case 'ai':
+        return 'AI for All';
+      case 'health-male':
+        return 'Health - Male';
+      case 'health-female':
+        return 'Health - Female';
+      case 'ehe':
+        return 'Entrepreneurship & Higher Education';
+      case 'crgc':
+        return 'Civic Responsibility & Global Citizenship';
+      case 'sustainability':
+        return 'Sustainability';
+      default:
+        return pillarKey || 'General';
+    }
+  };
   
   // Subscription expiration modal
   const [showExpiredModal, setShowExpiredModal] = useState(false);
@@ -194,7 +223,7 @@ const SchoolAdminDashboard = () => {
         messagesRes, profileRes, masteryRes, wellbeingRes
       ] = await Promise.all([
         api.get("/api/school/admin/kpis"),
-        api.get("/api/school/admin/students?status=flagged&limit=5"),
+        api.get("/api/school/admin/students?status=at-risk&limit=5"),
         api.get("/api/school/admin/top-performers"),
         api.get("/api/school/admin/pending-approvals"),
         api.get("/api/school/admin/recent-activity").catch(() => ({ data: { activities: [] } })),
@@ -674,7 +703,7 @@ const SchoolAdminDashboard = () => {
         </motion.div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <StatCard
             title="Total Students"
             value={stats.students?.total || 0}
@@ -701,14 +730,6 @@ const SchoolAdminDashboard = () => {
             trend={(pendingApprovals.assignments?.length || 0) > 5 ? "+3" : "-2"}
             subtitle="Needs attention"
             onClick={() => navigate("/school/admin/approvals")}
-          />
-          <StatCard
-            title="Wellbeing Cases"
-            value={wellbeingCases.open || 0}
-            icon={Heart}
-            color="from-amber-500 to-orange-600"
-            subtitle={`${wellbeingCases.resolved || 0} resolved`}
-            onClick={() => navigate("/school/admin/emergency")}
           />
         </div>
 
@@ -740,35 +761,67 @@ const SchoolAdminDashboard = () => {
                   const entries = typeof pillars === 'object' && !Array.isArray(pillars)
                     ? Object.entries(pillars).filter(([key, value]) => typeof value === 'number')
                     : [['UVLS', 75], ['DCOS', 80], ['Moral', 70], ['EHE', 85], ['CRGC', 78]];
+
+                  const overallEntry = entries.find(([key]) => String(key).toLowerCase() === 'overall');
+                  const pillarEntries = entries.filter(([key]) => String(key).toLowerCase() !== 'overall');
                   
-                  return entries.slice(0, 6).map(([pillar, percentage], idx) => (
-                    <motion.div
-                      key={pillar}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                      className="group"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-semibold text-gray-700 uppercase">{pillar}</span>
-                        <span className="text-sm font-bold text-gray-900">{Math.round(percentage)}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  return (
+                    <>
+                      {pillarEntries.map(([pillar, percentage], idx) => (
                         <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${percentage}%` }}
-                          transition={{ duration: 1, delay: idx * 0.1 }}
-                          className={`h-full rounded-full ${
-                            percentage >= 75
-                              ? "bg-gradient-to-r from-green-500 to-emerald-600"
-                              : percentage >= 50
-                              ? "bg-gradient-to-r from-blue-500 to-cyan-600"
-                              : "bg-gradient-to-r from-amber-500 to-orange-600"
-                          }`}
-                        />
-                      </div>
-                    </motion.div>
-                  ));
+                          key={pillar}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: idx * 0.05 }}
+                          className="group"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm font-semibold text-gray-700">{getPillarLabel(pillar)}</span>
+                            <span className="text-sm font-bold text-gray-900">{Math.round(percentage)}%</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: `${percentage}%` }}
+                              transition={{ duration: 1, delay: idx * 0.1 }}
+                              className={`h-full rounded-full ${
+                                percentage >= 75
+                                  ? "bg-gradient-to-r from-green-500 to-emerald-600"
+                                  : percentage >= 50
+                                  ? "bg-gradient-to-r from-blue-500 to-cyan-600"
+                                  : "bg-gradient-to-r from-amber-500 to-orange-600"
+                              }`}
+                            />
+                          </div>
+                        </motion.div>
+                      ))}
+                      {overallEntry && (
+                        <motion.div
+                          key="overall"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: pillarEntries.length * 0.05 }}
+                          className="mt-4 rounded-xl border border-emerald-200 bg-gradient-to-r from-emerald-50 via-amber-50 to-orange-50 p-4 shadow-sm"
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">Overall</p>
+                              <p className="text-sm text-slate-700">School-wide mastery</p>
+                            </div>
+                            <div className="text-3xl font-black text-emerald-700">
+                              {Math.round(overallEntry[1])}%
+                            </div>
+                          </div>
+                          <div className="mt-3 h-3 w-full rounded-full bg-emerald-100/70">
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-amber-500 to-orange-500"
+                              style={{ width: `${overallEntry[1]}%` }}
+                            />
+                          </div>
+                        </motion.div>
+                      )}
+                    </>
+                  );
                 })()}
               </div>
             </motion.div>
@@ -839,7 +892,7 @@ const SchoolAdminDashboard = () => {
                   Top Performers
                 </h3>
                 <button
-                  onClick={() => navigate("/school/admin/students")}
+                  onClick={() => navigate("/school/admin/top-performers")}
                   className="text-yellow-600 hover:text-yellow-700 font-semibold text-sm flex items-center gap-1"
                 >
                   View All <ArrowRight className="w-3 h-3" />
@@ -904,7 +957,7 @@ const SchoolAdminDashboard = () => {
                     <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-gray-900 truncate">{student.name || 'Student'}</p>
-                      <p className="text-xs text-red-600">Grade {student.grade || 10} • {student.wellbeingFlags?.length || 0} flags</p>
+                      <p className="text-xs text-red-600">Grade {student.grade || 10} • {student.riskSignals ?? 0} signals</p>
                     </div>
                     <Eye className="w-4 h-4 text-red-600 flex-shrink-0" />
                   </motion.div>
@@ -917,7 +970,7 @@ const SchoolAdminDashboard = () => {
                 )}
               </div>
               <button
-                onClick={() => navigate("/school/admin/students?status=flagged")}
+                onClick={() => navigate("/school/admin/students?status=at-risk")}
                 className="w-full mt-4 py-3 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl font-bold hover:shadow-lg transition-all"
               >
                 View All At-Risk Students
