@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   Users, Search, Grid, List, Eye, BookOpen, Plus, X, 
@@ -31,6 +32,15 @@ const SchoolAdminClasses = () => {
   const [showAddStudentModal, setShowAddStudentModal] = useState(false);
   const [showAddTeacherModal, setShowAddTeacherModal] = useState(false);
   const [selectedClass, setSelectedClass] = useState(null);
+  const gradeOptions = useMemo(() => {
+    const set = new Set();
+    classes.forEach((cls) => {
+      if (cls.classNumber !== undefined && cls.classNumber !== null) {
+        set.add(Number(cls.classNumber));
+      }
+    });
+    return Array.from(set).sort((a, b) => a - b);
+  }, [classes]);
 
   // Form states
   const [newClass, setNewClass] = useState({
@@ -117,6 +127,16 @@ const SchoolAdminClasses = () => {
       console.error('Error fetching class details:', error);
       toast.error('Failed to load class details');
     }
+  };
+
+  const formatAcademicYear = (value) => {
+    if (!value) return 'N/A';
+    const year = Number(value);
+    if (Number.isFinite(year) && String(value).length === 4) {
+      const nextYear = String((year + 1) % 100).padStart(2, '0');
+      return `${year}-${nextYear}`;
+    }
+    return value;
   };
 
   const handleAddSection = () => {
@@ -232,7 +252,7 @@ const SchoolAdminClasses = () => {
 
       <div className="max-w-7xl mx-auto px-6 -mt-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -283,22 +303,6 @@ const SchoolAdminClasses = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="bg-white rounded-xl shadow-lg border-2 border-gray-100 p-4"
-          >
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <BookOpen className="w-6 h-6 text-purple-600" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">Subjects</p>
-                <p className="text-2xl font-black text-gray-900">{stats.totalSubjects || 0}</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Search & Filters */}
@@ -326,7 +330,7 @@ const SchoolAdminClasses = () => {
                 className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:outline-none bg-white font-semibold"
               >
                 <option value="all">All Grades</option>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(grade => (
+                {gradeOptions.map((grade) => (
                   <option key={grade} value={grade}>Class {grade}</option>
                 ))}
               </select>
@@ -410,15 +414,17 @@ const SchoolAdminClasses = () => {
                     <p className="text-lg font-black text-green-600">{classItem.totalStudents || 0}</p>
                   </div>
                   <div className="text-center p-2 rounded-lg bg-purple-50">
-                    <p className="text-xs text-gray-600">Subjects</p>
-                    <p className="text-lg font-black text-purple-600">{classItem.subjects?.length || 0}</p>
+                    <p className="text-xs text-gray-600">Teachers</p>
+                    <p className="text-lg font-black text-purple-600">
+                      {classItem.sections?.filter((section) => section.classTeacher).length || 0}
+                    </p>
                   </div>
                 </div>
 
                 <div className="text-sm text-gray-600 mb-4">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <span>Academic Year: {classItem.academicYear}</span>
+                    <span>Academic Year: {formatAcademicYear(classItem.academicYear)}</span>
                   </div>
                 </div>
 
@@ -440,7 +446,7 @@ const SchoolAdminClasses = () => {
                   <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Stream</th>
                   <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Sections</th>
                   <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Students</th>
-                  <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Subjects</th>
+                  <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Teachers</th>
                   <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Academic Year</th>
                   <th className="text-left py-4 px-6 text-sm font-bold text-gray-700">Actions</th>
                 </tr>
@@ -458,8 +464,12 @@ const SchoolAdminClasses = () => {
                     <td className="py-4 px-6 text-sm font-semibold text-gray-900">{classItem.stream || '-'}</td>
                     <td className="py-4 px-6 text-sm font-bold text-gray-900">{classItem.sections?.length || 0}</td>
                     <td className="py-4 px-6 text-sm font-semibold text-gray-900">{classItem.totalStudents || 0}</td>
-                    <td className="py-4 px-6 text-sm font-semibold text-gray-900">{classItem.subjects?.length || 0}</td>
-                    <td className="py-4 px-6 text-sm text-gray-600">{classItem.academicYear}</td>
+                    <td className="py-4 px-6 text-sm font-semibold text-gray-900">
+                      {classItem.sections?.filter((section) => section.classTeacher).length || 0}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-600">
+                      {formatAcademicYear(classItem.academicYear)}
+                    </td>
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-2">
                         <button

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   BarChart3, TrendingUp, Users, Award, Trophy, Target, Calendar, Download,
   Filter, ChevronDown, AlertCircle, CheckCircle, Zap, Brain, Heart, Sparkles,
-  Globe, Shield, BookOpen, Activity, ArrowRight, Building2, Eye, Flag, X
+  Globe, Shield, BookOpen, Activity, ArrowRight, Eye, Flag, X
 } from 'lucide-react';
 import { Line, Doughnut, Bar, Radar } from 'react-chartjs-2';
 import {
@@ -28,12 +28,12 @@ const SchoolAdminAnalytics = () => {
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
   const [wellbeingCases, setWellbeingCases] = useState({});
   const [leaderboard, setLeaderboard] = useState([]);
+  const [classes, setClasses] = useState([]);
   const [selectedTimeRange, setSelectedTimeRange] = useState('month');
-  const [selectedCampus, setSelectedCampus] = useState('all');
-  const [campuses, setCampuses] = useState([]);
   const [studentAdoption, setStudentAdoption] = useState({});
   const [teacherStats, setTeacherStats] = useState({});
   const [selectedGrade, setSelectedGrade] = useState('all');
+  const [exportFormat, setExportFormat] = useState('pdf');
   const [engagementTrend, setEngagementTrend] = useState([]);
   const [performanceByGrade, setPerformanceByGrade] = useState([]);
   const [showStudentModal, setShowStudentModal] = useState(false);
@@ -41,7 +41,7 @@ const SchoolAdminAnalytics = () => {
 
   useEffect(() => {
     fetchAnalyticsData();
-  }, [selectedTimeRange, selectedCampus, selectedGrade]);
+  }, [selectedTimeRange, selectedGrade]);
 
   // Realtime analytics updates
   useEffect(() => {
@@ -127,19 +127,18 @@ const SchoolAdminAnalytics = () => {
   const fetchAnalyticsData = async (showLoading = true) => {
     try {
       if (showLoading) setLoading(true);
-      const campusParam = selectedCampus !== 'all' ? `?campusId=${selectedCampus}` : '';
-      const gradeParam = selectedGrade !== 'all' ? (campusParam ? `&grade=${selectedGrade}` : `?grade=${selectedGrade}`) : '';
+      const gradeParam = selectedGrade !== 'all' ? `?grade=${selectedGrade}` : '';
       
       const [
         masteryRes, atRiskRes, wellbeingRes, leaderboardRes,
-        campusesRes, adoptionRes, teacherRes, engagementRes, performanceRes
+        classesRes, adoptionRes, teacherRes, engagementRes, performanceRes
       ] = await Promise.all([
-        api.get(`/api/school/admin/analytics/pillar-mastery${campusParam}${gradeParam}`),
-        api.get('/api/school/admin/students?status=flagged&limit=10'),
+        api.get(`/api/school/admin/analytics/pillar-mastery${gradeParam}`),
+        api.get('/api/school/admin/students?status=at-risk&limit=10'),
         api.get('/api/school/admin/analytics/wellbeing-cases'),
         api.get('/api/school/admin/top-performers?limit=8'),
-        api.get('/api/school/admin/campuses'),
-        api.get(`/api/school/admin/analytics/student-adoption${campusParam}`),
+        api.get('/api/school/admin/classes'),
+        api.get(`/api/school/admin/analytics/student-adoption${gradeParam}`),
         api.get('/api/school/admin/analytics/teacher-adoption'),
         api.get('/api/school/admin/analytics/engagement-trend'),
         api.get('/api/school/admin/analytics/performance-by-grade'),
@@ -149,7 +148,7 @@ const SchoolAdminAnalytics = () => {
       setStudentsAtRisk(atRiskRes.data.students || []);
       setWellbeingCases(wellbeingRes.data || {});
       setLeaderboard(leaderboardRes.data.students || []);
-      setCampuses(campusesRes.data.campuses || []);
+      setClasses(classesRes.data.classes || []);
       setStudentAdoption(adoptionRes.data || {});
       setTeacherStats(teacherRes.data || {});
       setEngagementTrend(engagementRes.data.trend || []);
@@ -166,31 +165,56 @@ const SchoolAdminAnalytics = () => {
 
   const handleExportReport = async () => {
     try {
-      toast.loading('Generating report...');
+      toast.loading('Generating report...', { id: 'export' });
       const params = new URLSearchParams();
-      if (selectedCampus !== 'all') params.append('campusId', selectedCampus);
       if (selectedGrade !== 'all') params.append('grade', selectedGrade);
       params.append('timeRange', selectedTimeRange);
-      params.append('format', 'csv');
-      
-      const response = await api.get(`/api/school/admin/analytics/export?${params}`, {
-        responseType: 'blob'
-      });
-      
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `analytics-report-${Date.now()}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-      toast.dismiss();
-      toast.success('Report exported successfully!');
+      params.append('format', exportFormat);
+
+      if (exportFormat === 'pdf') {
+        const response = await api.get(`/api/school/admin/analytics/export?${params}`, {
+          responseType: 'blob'
+        });
+
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `school-analytics-${new Date().toISOString().split('T')[0]}.pdf`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      } else if (exportFormat === 'json') {
+        const response = await api.get(`/api/school/admin/analytics/export?${params}`);
+        const jsonStr = JSON.stringify(response.data, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `school-analytics-${new Date().toISOString().split('T')[0]}.json`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      } else {
+        const response = await api.get(`/api/school/admin/analytics/export?${params}`, {
+          responseType: 'blob'
+        });
+
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `school-analytics-${Date.now()}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      }
+
+      toast.success('Report exported successfully!', { id: 'export' });
     } catch (error) {
-      toast.dismiss();
       console.error('Error exporting report:', error);
-      toast.error('Failed to export report');
+      toast.error('Failed to export report', { id: 'export' });
     }
   };
 
@@ -209,12 +233,31 @@ const SchoolAdminAnalytics = () => {
   const getPillarChartData = () => {
     const pillars = pillarMastery.averages?.pillars || pillarMastery.pillars || pillarMastery;
     const pillarNames = {
-      uvls: 'Understanding Values & Life Skills',
+      finance: 'Financial Literacy',
+      brain: 'Brain Health',
+      uvls: 'UVLS (Life Skills & Values)',
       dcos: 'Digital Citizenship & Online Safety',
-      moral: 'Moral & Spiritual Education',
-      ehe: 'Environmental & Health Education',
-      crgc: 'Cultural Roots & Global Citizenship'
+      moral: 'Moral Values',
+      ai: 'AI for All',
+      'health-male': 'Health - Male',
+      'health-female': 'Health - Female',
+      ehe: 'Entrepreneurship & Higher Education',
+      crgc: 'Civic Responsibility & Global Citizenship',
+      sustainability: 'Sustainability'
     };
+    const pillarOrder = [
+      'finance',
+      'brain',
+      'uvls',
+      'dcos',
+      'moral',
+      'ai',
+      'health-male',
+      'health-female',
+      'ehe',
+      'crgc',
+      'sustainability'
+    ];
 
     const labels = [];
     const data = [];
@@ -223,13 +266,20 @@ const SchoolAdminAnalytics = () => {
       'rgba(16, 185, 129, 0.8)',
       'rgba(139, 92, 246, 0.8)',
       'rgba(236, 72, 153, 0.8)',
-      'rgba(251, 146, 60, 0.8)'
+      'rgba(251, 146, 60, 0.8)',
+      'rgba(14, 165, 233, 0.8)',
+      'rgba(234, 179, 8, 0.8)',
+      'rgba(168, 85, 247, 0.8)',
+      'rgba(34, 197, 94, 0.8)',
+      'rgba(248, 113, 113, 0.8)',
+      'rgba(100, 116, 139, 0.8)'
     ];
 
     if (typeof pillars === 'object' && !Array.isArray(pillars)) {
-      Object.entries(pillars).forEach(([key, value]) => {
-        if (typeof value === 'number' && pillarNames[key]) {
-          labels.push(pillarNames[key]);
+      pillarOrder.forEach((key) => {
+        const value = pillars[key];
+        if (typeof value === 'number') {
+          labels.push(pillarNames[key] || key);
           data.push(value);
         }
       });
@@ -240,12 +290,22 @@ const SchoolAdminAnalytics = () => {
       datasets: [{
         label: 'Pillar Mastery (%)',
         data,
-        backgroundColor: backgroundColors.slice(0, data.length),
-        borderColor: backgroundColors.slice(0, data.length).map(c => c.replace('0.8', '1')),
+        backgroundColor: data.map((_, idx) => backgroundColors[idx % backgroundColors.length]),
+        borderColor: data.map((_, idx) => backgroundColors[idx % backgroundColors.length].replace('0.8', '1')),
         borderWidth: 2,
       }]
     };
   };
+
+  const gradeOptions = useMemo(() => {
+    const gradeSet = new Set();
+    (classes || []).forEach((cls) => {
+      if (cls.classNumber !== undefined && cls.classNumber !== null) {
+        gradeSet.add(Number(cls.classNumber));
+      }
+    });
+    return Array.from(gradeSet).sort((a, b) => a - b);
+  }, [classes]);
 
   // Wellbeing Cases Chart Data
   const getWellbeingChartData = () => {
@@ -479,22 +539,6 @@ const SchoolAdminAnalytics = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-gray-600" />
-              <select
-                value={selectedCampus}
-                onChange={(e) => setSelectedCampus(e.target.value)}
-                className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none bg-white font-semibold"
-              >
-                <option value="all">All Campuses</option>
-                {campuses.map((campus) => (
-                  <option key={campus.campusId} value={campus.campusId}>
-                    {campus.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex items-center gap-2">
               <Filter className="w-5 h-5 text-gray-600" />
               <select
                 value={selectedGrade}
@@ -502,24 +546,37 @@ const SchoolAdminAnalytics = () => {
                 className="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none bg-white font-semibold"
               >
                 <option value="all">All Grades</option>
-                {[6, 7, 8, 9, 10, 11, 12].map(grade => (
+                {gradeOptions.map((grade) => (
                   <option key={grade} value={grade}>Grade {grade}</option>
                 ))}
               </select>
             </div>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={handleExportReport}
             className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
           >
             <Download className="w-4 h-4" />
             Export Report
-          </button>
+            <select
+              value={exportFormat}
+              onChange={(e) => setExportFormat(e.target.value)}
+              onClick={(e) => e.stopPropagation()}
+              className="rounded-full bg-white/20 text-white text-xs px-3 py-1 border border-white/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/40"
+              aria-label="Export format"
+            >
+              <option value="pdf" className="text-slate-900">PDF</option>
+              <option value="csv" className="text-slate-900">CSV</option>
+              <option value="json" className="text-slate-900">JSON</option>
+            </select>
+          </motion.button>
         </motion.div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -578,30 +635,10 @@ const SchoolAdminAnalytics = () => {
             <p className="text-xs text-gray-500 mt-1">{teacherStats.dau || 0} daily / {teacherStats.mau || 0} monthly</p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-red-500 to-pink-600">
-                <AlertCircle className="w-6 h-6 text-white" />
-              </div>
-              <span className={`text-xs font-bold px-2 py-1 rounded ${
-                (wellbeingCases.open || 0) > 10 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-              }`}>
-                {(wellbeingCases.open || 0) > 10 ? 'High' : 'Normal'}
-              </span>
-            </div>
-            <p className="text-sm font-medium text-gray-600">Wellbeing Cases</p>
-            <p className="text-3xl font-black text-gray-900">{wellbeingCases.total || 0}</p>
-            <p className="text-xs text-gray-500 mt-1">{wellbeingCases.open || 0} open, {wellbeingCases.resolved || 0} resolved</p>
-          </motion.div>
         </div>
 
         {/* Charts Row 1 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-8">
           {/* Pillar Mastery Breakdown */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -618,28 +655,10 @@ const SchoolAdminAnalytics = () => {
               <Bar data={getPillarChartData()} options={chartOptions} />
             </div>
           </motion.div>
-
-          {/* Wellbeing Cases Breakdown */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                <Heart className="w-5 h-5 text-red-600" />
-                Wellbeing Cases
-              </h3>
-            </div>
-            <div className="h-64">
-              <Doughnut data={getWellbeingChartData()} options={chartOptions} />
-            </div>
-          </motion.div>
         </div>
 
         {/* Charts Row 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-8">
           {/* Engagement Trend */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -690,7 +709,7 @@ const SchoolAdminAnalytics = () => {
                 Top Performers
               </h3>
               <button
-                onClick={() => navigate('/school/admin/students')}
+                onClick={() => navigate('/school/admin/top-performers')}
                 className="text-sm font-semibold text-purple-600 hover:text-purple-700 flex items-center gap-1"
               >
                 View All
@@ -698,7 +717,7 @@ const SchoolAdminAnalytics = () => {
               </button>
             </div>
             <div className="space-y-3">
-              {leaderboard.slice(0, 8).map((student, idx) => (
+              {leaderboard.slice(0, 5).map((student, idx) => (
                 <motion.div
                   key={student._id || idx}
                   initial={{ opacity: 0, x: -20 }}
@@ -736,7 +755,7 @@ const SchoolAdminAnalytics = () => {
                 Students at Risk ({studentsAtRisk.length})
               </h3>
               <button
-                onClick={() => navigate('/school/admin/students?status=flagged')}
+                onClick={() => navigate('/school/admin/students?status=at-risk')}
                 className="text-sm font-semibold text-red-600 hover:text-red-700 flex items-center gap-1"
               >
                 View All
@@ -744,7 +763,7 @@ const SchoolAdminAnalytics = () => {
               </button>
             </div>
             <div className="space-y-3">
-              {studentsAtRisk.slice(0, 8).map((student, idx) => (
+              {studentsAtRisk.slice(0, 5).map((student, idx) => (
                 <motion.div
                   key={student._id || idx}
                   initial={{ opacity: 0, x: -20 }}

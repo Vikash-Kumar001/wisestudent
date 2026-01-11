@@ -6,6 +6,7 @@ import User from "../models/User.js";
 import Wallet from "../models/Wallet.js";
 import UserProgress from "../models/UserProgress.js";
 import UnifiedGameProgress from "../models/UnifiedGameProgress.js";
+import GameProgress from "../models/GameProgress.js";
 import Transaction from "../models/Transaction.js";
 import MoodLog from "../models/MoodLog.js";
 import ActivityLog from "../models/ActivityLog.js";

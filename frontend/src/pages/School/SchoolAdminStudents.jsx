@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Users, Search, Filter, Grid, List, Flag, ChevronDown, Download, Eye,
   BookOpen, TrendingUp, Zap, Coins, Star, Activity, MessageSquare, FileText,
@@ -17,6 +18,8 @@ import { useSocket } from '../../context/SocketContext';
 import { usePermissions, PermissionGuard } from '../../hooks/usePermissions';
 
 const SchoolAdminStudents = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -58,7 +61,9 @@ const SchoolAdminStudents = () => {
       if (showLoading) setLoading(true);
       const params = new URLSearchParams();
       if (selectedClass !== 'all') params.append('classId', selectedClass);
-      if (filterStatus !== 'all') params.append('status', filterStatus);
+      if (filterStatus !== 'all' && filterStatus !== 'top-performers') {
+        params.append('status', filterStatus);
+      }
 
       const [studentsRes, statsRes] = await Promise.all([
         api.get(`/api/school/admin/students?${params}`),
@@ -76,6 +81,27 @@ const SchoolAdminStudents = () => {
       if (showLoading) setLoading(false);
     }
   }, [selectedClass, filterStatus]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const statusParam = params.get('status');
+    if (statusParam) {
+      setFilterStatus(statusParam);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const currentParam = params.get('status') || 'all';
+    if (currentParam === filterStatus) return;
+    if (filterStatus === 'all') {
+      params.delete('status');
+    } else {
+      params.set('status', filterStatus);
+    }
+    const search = params.toString();
+    navigate({ search: search ? `?${search}` : '' }, { replace: true });
+  }, [filterStatus, location.search, navigate]);
 
   useEffect(() => {
     fetchClasses();
@@ -326,8 +352,18 @@ const SchoolAdminStudents = () => {
     student.phone?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const statusFilteredStudents = filterStatus === 'all'
+    ? filteredStudents
+    : filteredStudents.filter((student) => {
+        if (filterStatus === 'active') return student.isActive;
+        if (filterStatus === 'inactive') return !student.isActive;
+        if (filterStatus === 'flagged') return Boolean(student.flagged);
+        if (filterStatus === 'at-risk') return Boolean(student.highRisk);
+        return true;
+      });
+
   // Group filtered students by class
-  const groupedStudents = groupStudentsByClass(filteredStudents);
+  const groupedStudents = groupStudentsByClass(statusFilteredStudents);
   
   // Filter by selected class if not 'all'
   const displayGroups = selectedClass === 'all' 
@@ -395,7 +431,7 @@ const SchoolAdminStudents = () => {
               Student Management
             </h1>
             <p className="text-lg text-white/90">
-              {filteredStudents.length} students • {stats.active || 0} active • {displayGroups.length} {displayGroups.length === 1 ? 'class' : 'classes'}
+              {statusFilteredStudents.length} students • {stats.active || 0} active • {displayGroups.length} {displayGroups.length === 1 ? 'class' : 'classes'}
             </p>
           </Motion.div>
         </div>
@@ -514,6 +550,7 @@ const SchoolAdminStudents = () => {
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
                 <option value="flagged">Flagged</option>
+                <option value="at-risk">At Risk</option>
               </select>
 
               <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
@@ -678,9 +715,9 @@ const SchoolAdminStudents = () => {
                                     <h3 className="font-bold text-gray-900 text-sm truncate">{student.name || 'Student'}</h3>
                                     <p className="text-xs text-gray-600 truncate">{student.email || 'N/A'}</p>
                                   </div>
-                                  {student.wellbeingFlags?.length > 0 && (
+                                  {(student.highRisk || student.flagged) && (
                                     <div className="flex-shrink-0">
-                                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Flagged for counselor attention"></div>
+                                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Student requires attention"></div>
                                     </div>
                                   )}
                                 </div>
@@ -710,31 +747,31 @@ const SchoolAdminStudents = () => {
                                       )}
                                     </div>
                                   </div>
-                                  <div className="flex items-center gap-2">
-                                    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold ${
-                                      student.wellbeingFlags?.length > 0 
-                                        ? 'bg-red-50 text-red-700 border border-red-200' 
-                                        : student.isActive 
-                                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                                        : 'bg-gray-50 text-gray-700 border border-gray-200'
-                                    }`}>
-                                      {student.wellbeingFlags?.length > 0 ? (
-                                        <>
-                                          <Flag className="w-3 h-3" />
-                                          Flagged
-                                        </>
-                                      ) : student.isActive ? (
-                                        <>
-                                          <CheckCircle className="w-3 h-3" />
-                                          Active
-                                        </>
-                                      ) : (
-                                        <>
-                                          <AlertCircle className="w-3 h-3" />
-                                          Inactive
-                                        </>
-                                      )}
-                                    </span>
+                                  <div className="flex flex-wrap gap-2">
+                                    {!student.isActive && (
+                                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-gray-50 text-gray-700 border border-gray-200">
+                                        <AlertCircle className="w-3 h-3" />
+                                        Inactive
+                                      </span>
+                                    )}
+                                    {student.isActive && (
+                                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-green-50 text-green-700 border border-green-200">
+                                        <CheckCircle className="w-3 h-3" />
+                                        Active
+                                      </span>
+                                    )}
+                                    {student.flagged && (
+                                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
+                                        <Flag className="w-3 h-3" />
+                                        Flagged
+                                      </span>
+                                    )}
+                                    {student.highRisk && (
+                                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+                                        <AlertCircle className="w-3 h-3" />
+                                        At Risk
+                                      </span>
+                                    )}
                                   </div>
                                 </div>
 
@@ -1023,9 +1060,9 @@ const SchoolAdminStudents = () => {
                                           <p className="text-xs text-gray-600 truncate">{student.email || 'N/A'}</p>
                                         </div>
                                       </div>
-                                      {student.wellbeingFlags?.length > 0 && (
+                                      {(student.highRisk || student.flagged) && (
                                         <div className="flex-shrink-0">
-                                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Flagged for counselor attention"></div>
+                                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" title="Student requires attention"></div>
                                         </div>
                                       )}
                                     </div>
@@ -1065,30 +1102,32 @@ const SchoolAdminStudents = () => {
                                     )}
                                   </td>
                                   <td className="py-4 px-6">
-                                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold ${
-                                      student.wellbeingFlags?.length > 0 
-                                        ? 'bg-red-100 text-red-700 border border-red-200' 
-                                        : student.isActive 
-                                        ? 'bg-green-100 text-green-700 border border-green-200' 
-                                        : 'bg-gray-100 text-gray-700 border border-gray-200'
-                                    }`}>
-                                      {student.wellbeingFlags?.length > 0 ? (
-                                        <>
-                                          <Flag className="w-3.5 h-3.5" />
-                                          Flagged
-                                        </>
-                                      ) : student.isActive ? (
-                                        <>
-                                          <CheckCircle className="w-3.5 h-3.5" />
-                                          Active
-                                        </>
-                                      ) : (
-                                        <>
+                                    <div className="flex flex-wrap gap-2">
+                                      {!student.isActive && (
+                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200">
                                           <AlertCircle className="w-3.5 h-3.5" />
                                           Inactive
-                                        </>
+                                        </span>
                                       )}
-                                    </span>
+                                      {student.isActive && (
+                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+                                          <CheckCircle className="w-3.5 h-3.5" />
+                                          Active
+                                        </span>
+                                      )}
+                                      {student.flagged && (
+                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-red-100 text-red-700 border border-red-200">
+                                          <Flag className="w-3.5 h-3.5" />
+                                          Flagged
+                                        </span>
+                                      )}
+                                      {student.highRisk && (
+                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-100 text-rose-700 border border-rose-200">
+                                          <AlertCircle className="w-3.5 h-3.5" />
+                                          At Risk
+                                        </span>
+                                      )}
+                                    </div>
                                   </td>
                                   <td className="py-4 px-6">
                                     <div className="flex items-center gap-2">
@@ -1205,7 +1244,7 @@ const SchoolAdminStudents = () => {
           </div>
         )}
 
-        {displayGroups.length === 0 && filteredStudents.length === 0 && !loading && (
+        {displayGroups.length === 0 && statusFilteredStudents.length === 0 && !loading && (
           <Motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

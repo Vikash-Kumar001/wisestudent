@@ -137,6 +137,7 @@ import AnnouncementManagement from "./pages/School/AnnouncementManagement";
 import Announcements from "./pages/School/Announcements";
 import SchoolAdminAnalytics from "./pages/School/SchoolAdminAnalytics";
 import SchoolAdminStudents from "./pages/School/SchoolAdminStudents";
+import SchoolAdminTopPerformers from "./pages/School/SchoolAdminTopPerformers";
 import SchoolAdminTeachers from "./pages/School/SchoolAdminTeachers";
 import SchoolAdminClasses from "./pages/School/SchoolAdminClasses";
 import SchoolAdminStaff from "./pages/School/SchoolAdminStaff";
@@ -607,6 +608,14 @@ const App = () => {
             element={
               <ProtectedRoute roles={["school_admin"]}>
                 <SchoolAdminStudents />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/school/admin/top-performers"
+            element={
+              <ProtectedRoute roles={["school_admin"]}>
+                <SchoolAdminTopPerformers />
               </ProtectedRoute>
             }
           />
