@@ -90,20 +90,23 @@ api.interceptors.request.use(
       try {
         const parts = token.split(".");
         if (parts.length === 3) {
-          // Check if token is expired (basic check)
+          // Check if token is expired (basic check) - but still send it
+          // Let the backend handle expiration and return proper error
           try {
             const payload = JSON.parse(atob(parts[1]));
             const currentTime = Date.now() / 1000;
             
             if (payload.exp && payload.exp < currentTime) {
-              console.warn("⚠️ Token expired. Removing...");
-              localStorage.removeItem("finmen_token");
-              return config;
+              console.warn("⚠️ Token expired. Will let backend handle it.");
+              // Don't remove token here - let backend return 401, then response interceptor will handle it
             }
           } catch {
-            console.warn("⚠️ Could not parse token payload");
+            // If we can't parse, still try to send it - backend will validate
+            console.warn("⚠️ Could not parse token payload, sending anyway");
           }
           
+          // Always add token to header if it exists (even if expired)
+          // Backend will return proper error if token is invalid
           config.headers.Authorization = `Bearer ${token}`;
           
           // Only log in development

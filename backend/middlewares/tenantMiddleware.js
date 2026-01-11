@@ -5,9 +5,20 @@ import Organization from "../models/Organization.js";
 // Middleware to extract and validate tenant information
 export const extractTenant = async (req, res, next) => {
   try {
-    const token = req.headers.authorization?.split(" ")[1] || req.cookies.finmen_token;
+    // Try to get token from Authorization header first, then cookies
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1] || req.cookies?.finmen_token;
     
     if (!token) {
+      // Log for debugging (only in development)
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('No token found:', {
+          hasAuthHeader: !!authHeader,
+          hasCookies: !!req.cookies?.finmen_token,
+          url: req.url,
+          method: req.method
+        });
+      }
       return res.status(401).json({ message: "Authentication required" });
     }
 
@@ -49,7 +60,17 @@ export const extractTenant = async (req, res, next) => {
     next();
   } catch (error) {
     console.error("Tenant middleware error:", error);
-    return res.status(401).json({ message: "Invalid token" });
+    
+    // Provide more specific error messages
+    if (error.name === 'JsonWebTokenError') {
+      return res.status(401).json({ message: "Invalid token" });
+    } else if (error.name === 'TokenExpiredError') {
+      return res.status(401).json({ message: "Token expired" });
+    } else if (error.name === 'NotBeforeError') {
+      return res.status(401).json({ message: "Token not active" });
+    }
+    
+    return res.status(401).json({ message: "Authentication failed" });
   }
 };
 

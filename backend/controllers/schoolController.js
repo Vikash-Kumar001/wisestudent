@@ -1791,6 +1791,9 @@ export const getParentAnnouncements = async (req, res) => {
 export const getAllStudentsForTeacher = async (req, res) => {
   try {
     const { tenantId, user, isLegacyUser } = req;
+    const { limit, minimal } = req.query;
+    const limitNum = limit ? Math.min(parseInt(limit, 10) || 100, 200) : 100;
+    const isMinimal = minimal === 'true' || minimal === true;
 
     // First get the classes assigned to this teacher
     const assignedClasses = await SchoolClass.find({
@@ -1809,11 +1812,18 @@ export const getAllStudentsForTeacher = async (req, res) => {
     }
 
     // Get students from teacher's classes
-    const schoolStudents = await SchoolStudent.find({
+    const schoolStudentsQuery = SchoolStudent.find({
       tenantId,
       classId: { $in: classIds }
-    })
-      .populate('userId', 'name email avatar role tenantId orgId createdAt')
+    });
+
+    // Apply limit if specified
+    if (limitNum) {
+      schoolStudentsQuery.limit(limitNum);
+    }
+
+    const schoolStudents = await schoolStudentsQuery
+      .populate('userId', isMinimal ? 'name email avatar role' : 'name email avatar role tenantId orgId createdAt')
       .lean()
       .catch(err => {
         console.error('SchoolStudent query error:', err);
@@ -1823,6 +1833,27 @@ export const getAllStudentsForTeacher = async (req, res) => {
     const students = schoolStudents
       .map(ss => ss.userId)
       .filter(Boolean);
+
+    // If minimal mode, return simplified data
+    if (isMinimal) {
+      const minimalStudents = schoolStudents.map((schoolStudent, index) => {
+        const student = schoolStudent.userId;
+        if (!student || !student._id) return null;
+
+        return {
+          _id: student._id,
+          name: student.name,
+          email: student.email,
+          avatar: student.avatar,
+          role: student.role
+        };
+      }).filter(Boolean);
+
+      return res.json({
+        students: minimalStudents,
+        classes: []
+      });
+    }
 
     // Get additional data for each student (enriched like getClassStudents)
     const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
