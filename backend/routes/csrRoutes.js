@@ -2,6 +2,8 @@ import express from "express";
 import { requireAuth } from "../middlewares/requireAuth.js";
 import { requireCSR } from "../middlewares/requireAuth.js";
 import ImpactMetrics from "../models/ImpactMetrics.js";
+import Organization from "../models/Organization.js";
+import SchoolStudent from "../models/School/SchoolStudent.js";
 import User from "../models/User.js";
 import GameProgress from "../models/GameProgress.js";
 import MoodLog from "../models/MoodLog.js";
@@ -156,6 +158,163 @@ router.get("/regional", async (req, res) => {
   } catch (error) {
     console.error("Error fetching regional data:", error);
     res.status(500).json({ message: "Failed to fetch regional breakdown" });
+  }
+});
+
+// Get schools directory for CSR users
+router.get("/schools", async (req, res) => {
+  try {
+    const { search = "", includeInactive = "false" } = req.query;
+    const query = { type: "school" };
+    const showInactive = includeInactive === "true" || includeInactive === true;
+    if (!showInactive) {
+      query.isActive = true;
+    }
+
+    if (search.trim()) {
+      const term = search.trim();
+      const escaped = term
+        .split("")
+        .map((char) => (/[\\^$*+?.()|[\]{}]/.test(char) ? `\\${char}` : char))
+        .join("");
+      const pattern = escaped
+        .split("")
+        .map((char) => `${char}\\s*`)
+        .join("");
+      const regex = { $regex: pattern, $options: "i" };
+      query.$or = [
+        { name: regex },
+        { "settings.address.street": regex },
+        { "settings.address.city": regex },
+        { "settings.address.state": regex },
+        { "settings.address.pincode": regex },
+        { "settings.address.country": regex },
+      ];
+    }
+
+    const schools = await Organization.find(query).lean();
+    if (!schools.length) {
+      return res.json({ schools: [], count: 0 });
+    }
+
+    const orgIds = schools.map((school) => school._id);
+
+    const studentAggregation = await SchoolStudent.aggregate([
+      {
+        $match: {
+          orgId: { $in: orgIds },
+          isActive: true,
+        },
+      },
+      {
+        $group: {
+          _id: "$orgId",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+
+    const studentCounts = {};
+    studentAggregation.forEach((row) => {
+      studentCounts[row._id.toString()] = row.count;
+    });
+
+    const teacherAggregation = await User.aggregate([
+      {
+        $match: {
+          orgId: { $in: orgIds },
+          role: "school_teacher",
+        },
+      },
+      {
+        $group: {
+          _id: "$orgId",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+
+    const teacherCounts = {};
+    teacherAggregation.forEach((row) => {
+      teacherCounts[row._id.toString()] = row.count;
+    });
+
+    const formatAddress = (address) => {
+      if (!address) return "Address not available";
+      const seenSegments = new Set();
+      const segments = [];
+      const addValue = (value) => {
+        if (!value) return;
+        value
+          .split(",")
+          .map((segment) => segment.trim())
+          .filter(Boolean)
+          .forEach((segment) => {
+            const normalized = segment.toLowerCase();
+            if (!seenSegments.has(normalized)) {
+              seenSegments.add(normalized);
+              segments.push(segment);
+            }
+          });
+      };
+
+      addValue(address.street);
+      addValue(address.city);
+      addValue(address.state);
+      addValue(address.pincode);
+      addValue(address.country);
+
+      return segments.length ? segments.join(", ") : "Address not available";
+    };
+
+    const msInDay = 24 * 60 * 60 * 1000;
+    const formatRelationshipLabel = (createdAt) => {
+      if (!createdAt) return "Relationship details pending";
+      const start = new Date(createdAt);
+      const now = new Date();
+      if (isNaN(start.getTime())) return "Relationship details pending";
+      const diffDays = Math.max(0, Math.floor((now - start) / msInDay));
+      if (diffDays === 0) return "Onboarded today";
+      if (diffDays < 30) {
+        return `Onboarded ${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
+      }
+      const monthsTotal = Math.floor(diffDays / 30);
+      const years = Math.floor(monthsTotal / 12);
+      const months = monthsTotal % 12;
+      const parts = [];
+      if (years) parts.push(`${years} year${years === 1 ? "" : "s"}`);
+      if (months) parts.push(`${months} month${months === 1 ? "" : "s"}`);
+      return parts.length > 0
+        ? `With WiseStudent for ${parts.join(", ")}`
+        : `With WiseStudent for ${monthsTotal} month${monthsTotal === 1 ? "" : "s"}`;
+    };
+
+    const schoolData = schools.map((school) => {
+      const key = school._id.toString();
+      return {
+        id: key,
+        tenantId: school.tenantId,
+        name: school.name,
+        address: formatAddress(school.settings?.address),
+        relationshipStatus: formatRelationshipLabel(school?.createdAt || school?.updatedAt),
+        totalStudents: studentCounts[key] || 0,
+        totalTeachers: teacherCounts[key] || 0,
+        isActive: Boolean(school.isActive),
+        campuses: (school.campuses || []).map((campus) => ({
+          id: campus.campusId || campus._id,
+          name: campus.name,
+          location: campus.location,
+          studentCount: campus.studentCount || 0,
+          teacherCount: campus.teacherCount || 0,
+        })),
+        updatedAt: school.updatedAt,
+      };
+    });
+
+    res.json({ schools: schoolData, count: schoolData.length });
+  } catch (error) {
+    console.error("Error fetching CSR schools directory:", error);
+    res.status(500).json({ message: "Failed to fetch schools directory" });
   }
 });
 

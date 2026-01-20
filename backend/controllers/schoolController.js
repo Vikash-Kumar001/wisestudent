@@ -4282,54 +4282,61 @@ export const exportTeacherAnalytics = async (req, res) => {
       classId: { $in: classIds }
     }).populate('userId', '_id').lean()).map(ss => ss.userId?._id).filter(Boolean) : [];
 
-    // Get mastery data
-    const gameProgress = studentIds.length > 0 ? await UnifiedGameProgress.find({
-      userId: { $in: studentIds },
-      updatedAt: { $gte: startDate }
-    }).lean() : [];
+    const captureControllerOutput = (controllerFn) => {
+      return new Promise((resolve, reject) => {
+        let settled = false;
+        let statusCode = 200;
 
-    const mapGameTypeToPillar = (gameType) => {
-      switch (gameType) {
-        case 'finance':
-        case 'financial':
-          return 'Financial Literacy';
-        case 'brain':
-        case 'mental':
-          return 'Brain Health';
-        case 'uvls':
-          return 'UVLS';
-        case 'dcos':
-          return 'Digital Citizenship & Online Safety';
-        case 'moral':
-          return 'Moral Values';
-        case 'ai':
-          return 'AI for All';
-        case 'health-male':
-          return 'Health - Male';
-        case 'health-female':
-          return 'Health - Female';
-        case 'ehe':
-          return 'Entrepreneurship & Higher Education';
-        case 'crgc':
-        case 'civic-responsibility':
-          return 'Civic Responsibility & Global Citizenship';
-        case 'sustainability':
-          return 'Sustainability';
-        default:
-          return 'General Education';
+        const fakeRes = {
+          status(code) {
+            statusCode = code;
+            return this;
+          },
+          json(payload) {
+            if (settled) return this;
+            settled = true;
+            if (statusCode >= 400) {
+              return reject(new Error(payload?.message || payload || 'Controller error'));
+            }
+            resolve(payload);
+            return this;
+          },
+          send(payload) {
+            if (settled) return this;
+            settled = true;
+            if (statusCode >= 400) {
+              return reject(new Error(payload || 'Controller send error'));
+            }
+            resolve(payload);
+            return this;
+          }
+        };
+
+        Promise.resolve(controllerFn(req, fakeRes)).catch((error) => {
+          if (!settled) {
+            settled = true;
+            reject(error);
+          }
+        });
+      });
+    };
+
+    const fetchControllerData = async (controllerFn, fallback) => {
+      try {
+        const result = await captureControllerOutput(controllerFn);
+        return result ?? fallback;
+      } catch (error) {
+        console.error(`Error fetching ${controllerFn.name}:`, error);
+        return fallback;
       }
     };
 
-    const getProgressPercent = (game) => {
-      if (game?.fullyCompleted) return 100;
-      if (game?.totalLevels > 0) {
-        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
-      }
-      if (game?.maxScore > 0) {
-        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
-      }
-      return 0;
-    };
+    const [masteryResult, riskResult, engagementResult, leaderboardResult] = await Promise.all([
+      fetchControllerData(getClassMasteryByPillar, {}),
+      fetchControllerData(getStudentsAtRisk, { students: [] }),
+      fetchControllerData(getSessionEngagement, { games: 0, lessons: 0, overall: 0 }),
+      fetchControllerData(getLeaderboard, { leaderboard: [] })
+    ]);
 
     const pillarNames = [
       'Financial Literacy',
@@ -4345,109 +4352,24 @@ export const exportTeacherAnalytics = async (req, res) => {
       'Sustainability'
     ];
 
-    const pillarTotals = pillarNames.reduce((acc, pillar) => {
-      acc[pillar] = { total: 0, count: 0 };
-      return acc;
-    }, {});
-
-    (gameProgress || []).forEach((game) => {
-      const pillar = mapGameTypeToPillar(game.gameType);
-      const progress = getProgressPercent(game);
-      if (!pillarTotals[pillar]) {
-        pillarTotals[pillar] = { total: 0, count: 0 };
-      }
-      pillarTotals[pillar].total += progress;
-      pillarTotals[pillar].count += 1;
-    });
-
     const masteryData = pillarNames.reduce((acc, pillar) => {
-      const data = pillarTotals[pillar];
-      acc[pillar] = data && data.count > 0 ? Math.round(data.total / data.count) : 0;
+      acc[pillar] = masteryResult?.[pillar] ?? 0;
       return acc;
     }, {});
 
-    // Get students at risk
-    const schoolStudents = classIds.length > 0 ? await SchoolStudent.find({
-      tenantId,
-      classId: { $in: classIds }
-    }).populate('userId', '_id name avatar').lean() : [];
-
-    const atRiskStudents = [];
-    for (const schoolStudent of schoolStudents) {
-      const student = schoolStudent.userId;
-      if (!student) continue;
-
-      const [recentActivities, recentMoods] = await Promise.all([
-        ActivityLog.find({ userId: student._id, createdAt: { $gte: startDate } }).lean(),
-        MoodLog.find({ userId: student._id, createdAt: { $gte: startDate } }).lean()
-      ]);
-
-      const totalMinutes = recentActivities.reduce((sum, log) => sum + (log.duration || 0), 0);
-      const avgMood = recentMoods.length > 0
-        ? recentMoods.reduce((sum, log) => sum + (log.score || 3), 0) / recentMoods.length
-        : 3;
-
-      if (totalMinutes < 30) {
-        atRiskStudents.push({
-          _id: student._id,
-          name: student.name,
-          avatar: student.avatar,
-          reason: 'Low engagement',
-          riskLevel: 'High',
-          metric: `${totalMinutes}min/${timeRange}`
-        });
-      } else if (avgMood < 2.5) {
-        atRiskStudents.push({
-          _id: student._id,
-          name: student.name,
-          avatar: student.avatar,
-          reason: 'Low mood pattern',
-          riskLevel: 'Medium',
-          metric: `Avg mood: ${avgMood.toFixed(1)}`
-        });
-      }
-    }
-
-    // Get engagement data
-    const activeGameUsers = studentIds.length > 0 ? await UnifiedGameProgress.distinct('userId', {
-      userId: { $in: studentIds },
-      lastPlayedAt: { $gte: startDate }
-    }) : [];
+    const studentsAtRisk = riskResult?.students || [];
+    const engagementData = {
+      games: engagementResult?.games ?? 0,
+      lessons: engagementResult?.lessons ?? 0,
+      overall: engagementResult?.overall ?? 0
+    };
+    const leaderboardData = leaderboardResult?.leaderboard || [];
 
     const totalStudents = studentIds.length;
-    const gamesPercent = totalStudents > 0
-      ? Math.round((activeGameUsers.length / totalStudents) * 100)
+    const totalClasses = assignedClasses.length;
+    const averageMastery = pillarNames.length > 0
+      ? Math.round(pillarNames.reduce((sum, key) => sum + (masteryData[key] || 0), 0) / pillarNames.length)
       : 0;
-
-    const engagementData = {
-      games: gamesPercent,
-      lessons: 0,
-      overall: gamesPercent
-    };
-
-    // Get leaderboard
-    const leaderboardData = [];
-    if (studentIds.length > 0) {
-      const students = schoolStudents.map(ss => ss.userId).filter(Boolean);
-      const leaderboardPromises = students.map(async (student) => {
-        const [progress, wallet] = await Promise.all([
-          UserProgress.findOne({ userId: student._id }).lean(),
-          Wallet.findOne({ userId: student._id }).lean()
-        ]);
-        return {
-          _id: student._id,
-          name: student.name,
-          avatar: student.avatar,
-          class: 'N/A',
-          totalXP: progress?.xp || 0,
-          level: progress?.level || 1,
-          healCoins: wallet?.balance || 0,
-          streak: progress?.streak || 0
-        };
-      });
-      const leaderboardResults = await Promise.all(leaderboardPromises);
-      leaderboardData.push(...leaderboardResults.sort((a, b) => b.totalXP - a.totalXP).slice(0, 5));
-    }
 
     const reportData = {
       generatedAt: new Date().toISOString(),
@@ -4460,16 +4382,14 @@ export const exportTeacherAnalytics = async (req, res) => {
         stream: c.stream
       })),
       mastery: masteryData,
-      studentsAtRisk: atRiskStudents,
+      studentsAtRisk,
       engagement: engagementData,
       leaderboard: leaderboardData,
       summary: {
-        totalClasses: assignedClasses.length,
-        totalStudents: leaderboardData.length,
-        averageMastery: Object.values(masteryData).length > 0
-          ? Math.round(Object.values(masteryData).reduce((a, b) => a + b, 0) / Object.values(masteryData).length)
-          : 0,
-        studentsAtRiskCount: atRiskStudents.length,
+        totalClasses,
+        totalStudents,
+        averageMastery,
+        studentsAtRiskCount: studentsAtRisk.length,
         engagementRate: engagementData.overall || 0
       }
     };

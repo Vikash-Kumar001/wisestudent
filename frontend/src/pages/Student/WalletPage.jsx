@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import api from "../../utils/api";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,7 +33,7 @@ import { toast } from 'react-hot-toast';
 import { createPortal } from "react-dom";
 import { useAuth } from "../../hooks/useAuth";
 
-const HealCoinIcon = ({ className = "w-5 h-5" }) => (
+const HealCoinIcon = ({ className = "w-6 h-6 sm:w-7 sm:h-7" }) => (
     <img
         src="/healcoin.png"
         alt="HealCoin"
@@ -619,7 +620,7 @@ const WalletPage = () => {
                                 <div className="text-2xl sm:text-3xl md:text-4xl font-black text-green-600 mb-1 sm:mb-2">
                                     {showBalance ? (
                                         <span className="inline-flex items-center gap-2">
-                                            <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            <HealCoinIcon className="w-7 h-7 sm:w-8 sm:h-8" />
                                             {wallet.balance?.toLocaleString() || '0'}
                                         </span>
                                     ) : (
@@ -660,8 +661,8 @@ const WalletPage = () => {
                                     <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
                                 </div>
                                 <div className="text-2xl sm:text-3xl md:text-4xl font-black text-purple-600 mb-1 sm:mb-2">
-                                    <span className="inline-flex items-center gap-2">
-                                        <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            <span className="inline-flex items-center gap-2">
+                                                <HealCoinIcon className="w-7 h-7 sm:w-8 sm:h-8" />
                                         {wallet.nextMilestone?.toLocaleString() || '100'}
                                     </span>
                                 </div>
@@ -752,7 +753,7 @@ const WalletPage = () => {
                                     </div>
                                     <div className="text-2xl sm:text-3xl font-black">
                                         <span className="inline-flex items-center gap-2">
-                                            <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            <HealCoinIcon className="w-7 h-7 sm:w-8 sm:h-8" />
                                             {Math.floor((wallet.balance || 0) * 0.3).toLocaleString()}
                                         </span>
                                     </div>
@@ -966,7 +967,7 @@ const WalletPage = () => {
                                                 <div className="bg-gradient-to-br from-green-100 via-emerald-100 to-lime-50 border border-green-200 rounded-2xl p-4 shadow-inner flex flex-col">
                                                     <span className="text-xs font-semibold uppercase tracking-wide text-green-600 mb-2">Current HealCoins</span>
                                                     <div className="flex items-center gap-2 text-2xl font-black text-gray-900">
-                                                        <HealCoinIcon className="w-6 h-6" />
+                                                        <HealCoinIcon className="w-8 h-8" />
                                                         {wallet.balance?.toLocaleString() || '0'}
                                                     </div>
                                                     <p className="text-xs text-gray-500 mt-1">Your accumulated wellness currency</p>

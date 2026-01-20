@@ -3,7 +3,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Home, BarChart3, Target, Zap, DollarSign, FileText,
-  CheckCircle, Gift, Calendar, Bell, Menu, X, ChevronRight, Calculator, LogOut, User, Settings
+  CheckCircle, Gift, Calendar, Bell, Menu, X, ChevronRight, Calculator, LogOut, User, Settings, School
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthUtils';
 
@@ -21,6 +21,7 @@ const CSRSidebar = () => {
         { icon: BarChart3, label: 'Executive', path: '/csr/executive', color: 'purple' },
         { icon: Target, label: 'Overview', path: '/csr/overview', color: 'indigo' },
         { icon: Zap, label: 'Campaigns', path: '/csr/campaigns', color: 'orange' },
+        { icon: School, label: 'Schools', path: '/csr/schools', color: 'emerald' },
       ]
     },
     {

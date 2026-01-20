@@ -128,6 +128,7 @@ import CSRROICalculator from "./pages/CSR/CSRROICalculator";
 import CSRAlerts from "./pages/CSR/CSRAlerts";
 import CSRProfile from "./pages/CSR/CSRProfile";
 import CSRSettings from "./pages/CSR/CSRSettings";
+import CSRSchools from "./pages/CSR/CSRSchools";
 import CSRLayout from "./layouts/CSRLayout";
 
 // Multi-Tenant Pages
@@ -388,6 +389,7 @@ const App = () => {
       
       // CSR routes
       if (pathname === "/csr" || pathname === "/csr/overview") return "CSR Overview";
+      if (pathname === "/csr/schools") return "CSR Schools";
       if (pathname === "/csr/dashboard") return "CSR Dashboard";
       if (pathname === "/csr/campaigns") return "CSR Campaigns";
       if (pathname === "/csr/campaign-wizard") return "Campaign Wizard";
@@ -1746,6 +1748,16 @@ const App = () => {
               <ProtectedRoute roles={["csr"]}>
                 <CSRLayout>
                 <CSROverview />
+                </CSRLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/csr/schools"
+            element={
+              <ProtectedRoute roles={["csr"]}>
+                <CSRLayout>
+                  <CSRSchools />
                 </CSRLayout>
               </ProtectedRoute>
             }
