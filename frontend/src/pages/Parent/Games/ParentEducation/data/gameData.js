@@ -509,8 +509,8 @@ export const parentEducationGameData = [
     estimatedTime: '12 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-36'
   },
   {
@@ -562,11 +562,11 @@ export const parentEducationGameData = [
     gameIndex: 40,
     calmCoins: 0,
     replayCost: 0,
-    estimatedTime: '5 min',
-    difficulty: 'beginner',
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
     isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-40'
   },
@@ -706,8 +706,8 @@ export const parentEducationGameData = [
     estimatedTime: '0 min',
     difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
     isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-50'
   },
@@ -721,8 +721,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-51'
   },
   {
@@ -735,8 +735,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-52'
   },
   {
@@ -749,8 +749,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-53'
   },
   {
@@ -763,8 +763,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-54'
   },
   {
@@ -805,8 +805,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-57'
   },
   {
@@ -819,8 +819,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-58'
   },
   {
@@ -833,8 +833,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-59'
   },
   {
@@ -842,13 +842,13 @@ export const parentEducationGameData = [
     title: 'Resilient Parent Badge',
     description: 'Recognize parents who recover and grow through challenges',
     gameIndex: 60,
-    calmCoins: getCalmCoinsForGame(60),  // 5 CalmCoins
-    replayCost: getReplayCostForGame(60), // 2 CalmCoins
-    estimatedTime: '5 min',
-    difficulty: 'intermediate',
+    calmCoins: 0,  // Badge games don't award coins
+    replayCost: 0, // Badge games can't be replayed
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
     isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-60'
   },
@@ -876,8 +876,8 @@ export const parentEducationGameData = [
     estimatedTime: '25 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 6,
-    totalLevels: 6,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-62'
   },
   {
@@ -918,8 +918,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-65'
   },
   {
@@ -932,8 +932,8 @@ export const parentEducationGameData = [
     estimatedTime: '18 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-66'
   },
   {
@@ -946,8 +946,8 @@ export const parentEducationGameData = [
     estimatedTime: '30 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 7,
-    totalLevels: 7,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-67'
   },
   {
@@ -974,22 +974,23 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-69'
   },
   {
     id: 'parent-education-70',
-    title: 'Peaceful Communicator Badge Collector',
+    title: 'Peaceful Communicator Badge',
     description: 'Reward parents who maintain emotional clarity and respect in dialogue',
     gameIndex: 70,
-    calmCoins: getCalmCoinsForGame(70),  // 0 CalmCoins (badge game)
-    replayCost: getReplayCostForGame(70), // 0 CalmCoins
-    estimatedTime: '5 min',
-    difficulty: 'intermediate',
+    calmCoins: 0,  // Badge games don't award coins
+    replayCost: 0, // Badge games can't be replayed
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
+    isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-70'
   },
   {
@@ -1002,8 +1003,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-71'
   },
   {
@@ -1030,8 +1031,8 @@ export const parentEducationGameData = [
     estimatedTime: '30 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-73'
   },
   {
@@ -1044,8 +1045,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-74'
   },
   {
@@ -1058,8 +1059,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-75'
   },
   {
@@ -1072,8 +1073,8 @@ export const parentEducationGameData = [
     estimatedTime: '25 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-76'
   },
   {
@@ -1086,8 +1087,8 @@ export const parentEducationGameData = [
     estimatedTime: 'Varies',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-77'
   },
   {
@@ -1100,8 +1101,8 @@ export const parentEducationGameData = [
     estimatedTime: 'Varies',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-78'
   },
   {
@@ -1114,22 +1115,23 @@ export const parentEducationGameData = [
     estimatedTime: '30 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 7,
-    totalLevels: 7,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-79'
   },
   {
     id: 'parent-education-80',
-    title: 'Connected Parent Badge Collector',
+    title: 'Connected Parent Badge',
     description: 'Celebrate consistent efforts to nurture supportive relationships',
     gameIndex: 80,
-    calmCoins: getCalmCoinsForGame(80),  // 0 CalmCoins (badge game)
-    replayCost: getReplayCostForGame(80), // 0 CalmCoins
-    estimatedTime: '5 min',
-    difficulty: 'intermediate',
+    calmCoins: 0,  // Badge games don't award coins
+    replayCost: 0, // Badge games can't be replayed
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
+    isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-80'
   },
   {
@@ -1142,8 +1144,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-81'
   },
   {
@@ -1156,8 +1158,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-82'
   },
   {
@@ -1170,8 +1172,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-83'
   },
   {
@@ -1184,8 +1186,8 @@ export const parentEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-84'
   },
   {
@@ -1198,8 +1200,8 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-85'
   },
   {
@@ -1212,8 +1214,8 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-86'
   },
   {
@@ -1226,8 +1228,8 @@ export const parentEducationGameData = [
     estimatedTime: '25 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-87'
   },
   {
@@ -1240,8 +1242,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-88'
   },
   {
@@ -1254,22 +1256,23 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-89'
   },
   {
     id: 'parent-education-90',
-    title: 'Purposeful Parent Badge Collector',
+    title: 'Purposeful Parent Badge',
     description: 'Celebrate parents who raise families guided by love and intention',
     gameIndex: 90,
-    calmCoins: getCalmCoinsForGame(90),  // 0 CalmCoins (badge game)
-    replayCost: getReplayCostForGame(90), // 0 CalmCoins
-    estimatedTime: '5 min',
-    difficulty: 'intermediate',
+    calmCoins: 0,  // Badge games don't award coins
+    replayCost: 0, // Badge games can't be replayed
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 0,
+    totalLevels: 0,
+    isBadgeGame: true,
     path: '/parent/games/parent-education/parent-education-90'
   },
   {
@@ -1282,8 +1285,8 @@ export const parentEducationGameData = [
     estimatedTime: '25 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 7,
-    totalLevels: 7,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-91'
   },
   {
@@ -1296,8 +1299,8 @@ export const parentEducationGameData = [
     estimatedTime: '65 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-92'
   },
   {
@@ -1310,8 +1313,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-93'
   },
   {
@@ -1324,8 +1327,8 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-94'
   },
   {
@@ -1338,8 +1341,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-95'
   },
   {
@@ -1352,8 +1355,8 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 4,
-    totalLevels: 4,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-96'
   },
   {
@@ -1366,8 +1369,8 @@ export const parentEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-97'
   },
   {
@@ -1380,8 +1383,8 @@ export const parentEducationGameData = [
     estimatedTime: '7 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-98'
   },
   {
@@ -1394,8 +1397,8 @@ export const parentEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/parent/games/parent-education/parent-education-99'
   },
   {
@@ -1403,14 +1406,15 @@ export const parentEducationGameData = [
     title: 'Self-Care Champion Badge',
     description: 'Reward parents who consistently model self-care and digital discipline',
     gameIndex: 100,
-    calmCoins: getCalmCoinsForGame(98),  // 5 CalmCoins
-    replayCost: getReplayCostForGame(98), // 2 CalmCoins
-    estimatedTime: '5 min',
-    difficulty: 'beginner',
+    calmCoins: 0,  // Badge games don't award coins
+    replayCost: 0, // Badge games can't be replayed
+    estimatedTime: '0 min',
+    difficulty: 'achievement',
     category: 'parent-education',
-    totalQuestions: 1,
-    totalLevels: 1,
-    path: '/parent/games/parent-education/parent-education-98'
+    totalQuestions: 0,
+    totalLevels: 0,
+    isBadgeGame: true,
+    path: '/parent/games/parent-education/parent-education-100'
   },
   // More games will be added here later
 ];

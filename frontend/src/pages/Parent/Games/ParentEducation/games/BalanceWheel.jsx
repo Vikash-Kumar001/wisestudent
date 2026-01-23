@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ParentGameShell from "../../ParentGameShell";
 import { getParentEducationGameById } from "../data/gameData";
-import { Sliders, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { Heart, Briefcase, Moon, User, RotateCcw, Trophy, Clock, Star, Play, CheckCircle, AlertTriangle } from "lucide-react";
 
 const BalanceWheel = () => {
   const location = useLocation();
@@ -16,176 +16,257 @@ const BalanceWheel = () => {
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
   const totalLevels = gameData?.totalQuestions || 5;
   
-  const [currentScenario, setCurrentScenario] = useState(0);
-  const [ratings, setRatings] = useState({});
-  const [showPattern, setShowPattern] = useState(false);
+  const [currentLevel, setCurrentLevel] = useState(0);
+  const [choicesMade, setChoicesMade] = useState({});
+  const [levelScores, setLevelScores] = useState([]);
+  const [showFeedback, setShowFeedback] = useState(false);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
+  const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [selectedChoice, setSelectedChoice] = useState(null);
 
-  // Life zones for the balance wheel
-  const zones = [
-    { id: 'work', label: 'Work', icon: '💼', color: 'from-blue-500 to-cyan-500', bgColor: 'bg-blue-50', borderColor: 'border-blue-300', hexFrom: '#3b82f6', hexTo: '#06b6d4', hexBorder: '#93c5fd' },
-    { id: 'rest', label: 'Rest', icon: '😴', color: 'from-purple-500 to-indigo-500', bgColor: 'bg-purple-50', borderColor: 'border-purple-300', hexFrom: '#a855f7', hexTo: '#6366f1', hexBorder: '#c4b5fd' },
-    { id: 'family', label: 'Family', icon: '👨‍👩‍👧‍👦', color: 'from-pink-500 to-rose-500', bgColor: 'bg-pink-50', borderColor: 'border-pink-300', hexFrom: '#ec4899', hexTo: '#f43f5e', hexBorder: '#fbcfe8' },
-    { id: 'self', label: 'Self', icon: '🧘', color: 'from-green-500 to-emerald-500', bgColor: 'bg-green-50', borderColor: 'border-green-300', hexFrom: '#22c55e', hexTo: '#10b981', hexBorder: '#86efac' }
+  // Life domains with icons and colors
+  const domains = [
+    { id: 'family', label: 'Family', emoji: '👨‍👩‍👧‍👦', color: 'from-pink-500 to-rose-500', bgColor: 'bg-pink-50', borderColor: 'border-pink-300', hexFrom: '#ec4899', hexTo: '#f43f5e' },
+    { id: 'work', label: 'Work', emoji: '💼', color: 'from-blue-500 to-cyan-500', bgColor: 'bg-blue-50', borderColor: 'border-blue-300', hexFrom: '#3b82f6', hexTo: '#06b6d4' },
+    { id: 'rest', label: 'Rest', emoji: '😴', color: 'from-purple-500 to-indigo-500', bgColor: 'bg-purple-50', borderColor: 'border-purple-300', hexFrom: '#a855f7', hexTo: '#6366f1' },
+    { id: 'self', label: 'Self', emoji: '🧘', color: 'from-green-500 to-emerald-500', bgColor: 'bg-green-50', borderColor: 'border-green-300', hexFrom: '#22c55e', hexTo: '#10b981' }
   ];
 
-  // Scenarios with different life situations
-  const scenarios = [
+  // 5 Levels with different parenting scenarios and choices
+  const levels = [
     {
       id: 1,
-      title: "Busy Work Week",
-      description: "You've had a particularly demanding work week with tight deadlines. Rate your current satisfaction (1-10) in each life zone.",
-      context: "Work has been consuming most of your time and energy. You've been skipping lunch breaks, staying late, and bringing work stress home.",
-      idealBalance: { work: 7, rest: 6, family: 6, self: 6 }, // Ideal range: 6-8
-      parentTip: "If one section is too low, don't aim for perfection—restore gently. Small adjustments in rest or self-care can make a big difference even when work is demanding.",
-      explanation: "When work dominates (7-10), it often pulls from rest (4-6) and self (4-6). The key is to acknowledge this imbalance and make gentle shifts—like a 15-minute walk or a phone call to family—rather than trying to overhaul everything at once."
+      title: "The Busy Week Challenge",
+      description: "You have an important work deadline this week, but your child is sick and your partner is traveling. What's your priority strategy?",
+      context: "This week you have a critical project due at work, but your 6-year-old has come down with a fever and needs constant care. Your partner is away on business. You feel pulled in multiple directions.",
+      choices: [
+        {
+          id: 'work-first',
+          title: "Focus on work during the day, give extra attention to child in evenings",
+          impact: { family: 7, work: 9, rest: 3, self: 2 },
+          explanation: "This prioritizes work but ensures your child still feels cared for. However, you'll be exhausted.",
+          isOptimal: false
+        },
+        
+        {
+          id: 'delegate',
+          title: "Call your neighbor to help watch the child while you work",
+          impact: { family: 5, work: 8, rest: 4, self: 4 },
+          explanation: "This balances both needs but may make your child feel abandoned.",
+          isOptimal: false
+        },
+        {
+          id: 'family-first',
+          title: "Take the day off work to care for your child, catch up later",
+          impact: { family: 10, work: 4, rest: 5, self: 3 },
+          explanation: "This ensures your child feels secure and cared for, though it may stress your work deadline.",
+          isOptimal: true
+        },
+      ],
+      parentTip: "During crisis periods, perfect balance isn't possible. Focus on meeting essential needs in each domain rather than ideal amounts.",
+      explanation: "When facing a crisis like a sick child, the key is recognizing that balance looks different. It's about meeting minimum viable needs in each area rather than maintaining your usual distribution."
     },
     {
       id: 2,
-      title: "Exhausted Parent",
-      description: "You've been taking care of everyone else's needs. How satisfied are you in each zone right now?",
-      context: "The kids have been sick, family needs have been high, and you've been putting everyone else first. You feel drained but haven't prioritized your own needs.",
-      idealBalance: { work: 5, rest: 4, family: 7, self: 3 }, // Family high, self low
-      parentTip: "Self-care isn't selfish—it's necessary. When self is below 4, everything else suffers. Even 10 minutes of 'you time' can shift the entire wheel.",
-      explanation: "When family satisfaction is high but self is very low (1-3), you're likely experiencing burnout. Notice how low self-care affects your capacity to enjoy family time. Small acts of self-care restore your ability to be present."
+      title: "The Weekend Warrior Dilemma",
+      description: "You're trying to catch up on household chores, spend quality time with family, and rest. What's your weekend strategy?",
+      context: "Saturday morning arrives and you have a long list: grocery shopping, laundry, kid's soccer game, meal prep, and your own rest. You want to make everyone happy but feel overwhelmed by competing priorities.",
+      choices: [
+        {
+          id: 'everything',
+          title: "Try to do everything - wake up early and tackle the whole list",
+          impact: { family: 6, work: 0, rest: 2, self: 1 },
+          explanation: "This leaves you exhausted and may not give quality time to anyone.",
+          isOptimal: false
+        },
+        {
+          id: 'family-focus',
+          title: "Prioritize the soccer game and family time, do chores when kids nap",
+          impact: { family: 9, work: 0, rest: 6, self: 5 },
+          explanation: "This gives your child quality attention and lets you rest, but chores may pile up.",
+          isOptimal: true
+        },
+        {
+          id: 'delegate-chores',
+          title: "Ask older kids to help with chores while you prepare for next week",
+          impact: { family: 7, work: 2, rest: 4, self: 4 },
+          explanation: "This teaches responsibility to kids but may create stress during family time.",
+          isOptimal: false
+        }
+      ],
+      parentTip: "Weekends don't need to be perfect. Choose a few priorities and let go of the rest. It's better to do a few things well than everything poorly.",
+      explanation: "Weekend balance is about intentionality. Rather than trying to do everything, identify what truly matters most and allocate resources accordingly."
     },
     {
       id: 3,
-      title: "Post-Vacation Reality",
-      description: "You just returned from a vacation. Rate how balanced you feel across these zones now.",
-      context: "Vacation was restful, but coming back to work and family responsibilities feels overwhelming. You're trying to catch up on everything.",
-      idealBalance: { work: 3, rest: 8, family: 8, self: 7 }, // Rest and family high, work low
-      parentTip: "Balance doesn't mean everything is equal—it means nothing is completely depleted. If one zone (like work) is temporarily low after rest, that's okay. The wheel shifts over time.",
-      explanation: "After rest and family time, work satisfaction may drop (2-5) as you adjust back to routine. This is natural. The goal isn't to keep all zones at 8, but to prevent any zone from staying below 3 for too long."
+      title: "The Burnout Recovery",
+      description: "After months of overwork, you realize you need to rebuild your energy and relationships. How do you start?",
+      context: "You've been working 60+ hours a week for months. Your relationship with your spouse feels strained, you're exhausted, and your children seem distant. You know you need to make changes but aren't sure where to start.",
+      choices: [
+        {
+          id: 'boundary-setting',
+          title: "Set strict work boundaries - no emails after 7pm, weekends off",
+          impact: { family: 7, work: 6, rest: 7, self: 6 },
+          explanation: "This gradually improves balance without extreme measures.",
+          isOptimal: true
+        },
+        {
+          id: 'quit-job',
+          title: "Quit your job immediately to focus on family and health",
+          impact: { family: 8, work: 0, rest: 9, self: 8 },
+          explanation: "This solves the immediate problem but creates financial stress.",
+          isOptimal: false
+        },
+        
+        {
+          id: 'support-system',
+          title: "Hire help for household tasks to free up energy for relationships",
+          impact: { family: 8, work: 5, rest: 6, self: 7 },
+          explanation: "This provides relief but requires financial investment.",
+          isOptimal: false
+        }
+      ],
+      parentTip: "Recovery from burnout requires intentional investment in rest and relationships. It's not selfish—it's necessary for sustainable parenting.",
+      explanation: "When recovering from burnout, you need to temporarily over-invest in rest and relationships to rebuild your baseline. This is an investment in your future capacity."
     },
     {
       id: 4,
-      title: "Weekend Overwhelm",
-      description: "It's Sunday evening and you're preparing for another week. How balanced do you feel?",
-      context: "You spent the weekend handling chores, family activities, and trying to rest, but it feels like nothing got enough attention. You're anxious about the week ahead.",
-      idealBalance: { work: 4, rest: 5, family: 6, self: 4 }, // All moderate, none thriving
-      parentTip: "When everything feels 'medium,' the wheel may look balanced but it's not satisfying. Look for one zone to intentionally elevate—even slightly—to create momentum.",
-      explanation: "When all zones are between 4-6, nothing feels terrible but nothing feels good either. This is the 'treading water' pattern. Choose ONE zone to intentionally boost (even by 1 point) rather than trying to fix everything at once."
+      title: "The Seasonal Shift",
+      description: "School starts and routines change. How do you adapt your family's balance to the new schedule?",
+      context: "Back-to-school season is here. New schedules, homework routines, after-school activities, and work travel all collide. You need to find a new equilibrium that works for everyone.",
+      choices: [
+        {
+          id: 'maintain-routine',
+          title: "Stick to your current routine and expect everyone to adjust",
+          impact: { family: 4, work: 7, rest: 3, self: 2 },
+          explanation: "This maintains your work schedule but ignores the new family needs.",
+          isOptimal: false
+        },
+        {
+          id: 'family-meeting',
+          title: "Hold a family meeting to create new routines together",
+          impact: { family: 9, work: 6, rest: 6, self: 5 },
+          explanation: "This ensures buy-in from all family members and creates realistic expectations.",
+          isOptimal: true
+        },
+        {
+          id: 'simplify',
+          title: "Cut back on after-school activities to reduce complexity",
+          impact: { family: 7, work: 6, rest: 7, self: 6 },
+          explanation: "This reduces stress but may disappoint your children.",
+          isOptimal: false
+        }
+      ],
+      parentTip: "Transitions require temporary over-attention to adjustment. Give yourself grace as you establish new rhythms.",
+      explanation: "Seasonal transitions are natural times to reassess and rebalance. Expect it to take time to find the new equilibrium."
     },
     {
       id: 5,
-      title: "Seeking Harmony",
-      description: "Imagine your ideal balanced life. Rate where you'd like to be in each zone.",
-      context: "You're reflecting on what balance means to you. Not perfection, but a sustainable rhythm where all zones get attention without any being completely neglected.",
-      idealBalance: { work: 7, rest: 7, family: 8, self: 6 }, // Balanced but realistic
-      parentTip: "True balance is flexible, not fixed. Some weeks work is 8 and self is 5. Other weeks self is 8 and work is 5. The wheel rotates—what matters is that over time, no zone stays empty.",
-      explanation: "Ideal balance isn't all zones at 10. It's a sustainable pattern where each zone gets enough attention to maintain your well-being. Work might be 6-8, rest 6-8, family 7-9, self 5-7. This is realistic and maintainable."
+      title: "The Long-term Vision",
+      description: "Plan your ideal sustainable balance for the next year. What does thriving look like for your family?",
+      context: "Looking ahead to the next year, you want to create a sustainable lifestyle that allows you to thrive in all areas. What would that look like in practice?",
+      choices: [
+        {
+          id: 'perfection',
+          title: "Aim for equal time in all areas every day",
+          impact: { family: 6, work: 6, rest: 6, self: 6 },
+          explanation: "This is unrealistic and will lead to disappointment when disrupted.",
+          isOptimal: false
+        },
+        
+        {
+          id: 'seasonal-approach',
+          title: "Accept that balance varies by season and life stage",
+          impact: { family: 8, work: 6, rest: 8, self: 6 },
+          explanation: "This provides realistic expectations for different periods.",
+          isOptimal: false
+        },
+        {
+          id: 'flexible-balance',
+          title: "Create flexible weekly goals that average out over time",
+          impact: { family: 7, work: 7, rest: 7, self: 7 },
+          explanation: "This allows for daily variations while maintaining overall balance.",
+          isOptimal: true
+        },
+      ],
+      parentTip: "Sustainable balance isn't a destination—it's a practice of continuous adjustment. Build in regular check-ins to assess and rebalance.",
+      explanation: "Long-term balance requires systems and practices, not just intentions. Think about the routines and boundaries that will sustain your desired balance over time."
     }
   ];
 
-  const currentScenarioData = scenarios[currentScenario];
+  const currentLevelData = levels[currentLevel];
 
-  // Initialize ratings for current scenario
-  const initializeRatings = () => {
-    if (!ratings[currentScenario]) {
-      const initial = {};
-      zones.forEach(zone => {
-        initial[zone.id] = 5; // Start at middle (5)
-      });
-      setRatings(prev => ({ ...prev, [currentScenario]: initial }));
-    }
-  };
-
-  React.useEffect(() => {
-    initializeRatings();
-  }, [currentScenario]);
-
-  const handleRatingChange = (zoneId, value) => {
-    setRatings(prev => ({
+  const handleChoice = (choiceId) => {
+    if (choicesMade[currentLevel]) return; // Already made a choice
+    
+    setChoicesMade(prev => ({
       ...prev,
-      [currentScenario]: {
-        ...prev[currentScenario],
-        [zoneId]: parseInt(value)
-      }
+      [currentLevel]: choiceId
     }));
-    setShowPattern(false);
-  };
-
-  const calculateBalanceScore = () => {
-    const currentRatings = ratings[currentScenario] || {};
-    const ideal = currentScenarioData.idealBalance;
     
-    // Calculate how close the ratings are to the ideal (allowing flexibility)
-    let correctZones = 0;
-    zones.forEach(zone => {
-      const userRating = currentRatings[zone.id] || 5;
-      const idealRating = ideal[zone.id];
-      // Allow ±2 points from ideal to be considered correct
-      if (Math.abs(userRating - idealRating) <= 2) {
-        correctZones++;
-      }
-    });
+    setSelectedChoice(choiceId);
     
-    return correctZones;
-  };
-
-  const getBalancePattern = () => {
-    const currentRatings = ratings[currentScenario] || {};
-    const pattern = zones.map(zone => ({
-      zone: zone.label,
-      value: currentRatings[zone.id] || 5,
-      color: zone.color,
-      icon: zone.icon
-    }));
-    return pattern;
-  };
-
-  const getBalanceInsight = () => {
-    const currentRatings = ratings[currentScenario] || {};
-    const values = Object.values(currentRatings);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const avg = values.reduce((a, b) => a + b, 0) / values.length;
-    const range = max - min;
-
-    if (range <= 2 && avg >= 6) {
-      return { type: 'balanced', message: "This looks well-balanced! All zones are in a healthy range." };
-    } else if (range > 4) {
-      return { type: 'unbalanced', message: "There's a significant imbalance. Notice which zones are very low—these need gentle attention." };
-    } else if (avg < 4) {
-      return { type: 'low', message: "Overall satisfaction is low across zones. This might indicate burnout or overwhelm." };
-    } else {
-      return { type: 'moderate', message: "Moderate balance—nothing is critically low, but there's room for improvement." };
-    }
-  };
-
-  const handleShowPattern = () => {
-    setShowPattern(true);
-  };
-
-  const handleNext = () => {
-    const balanceScore = calculateBalanceScore();
-    const newScore = score + balanceScore;
+    // Find the selected choice
+    const selected = currentLevelData.choices.find(c => c.id === choiceId);
+    
+    // Calculate score: 1 point if optimal choice was made
+    const levelScore = selected.isOptimal ? 1 : 0;
+    const newLevelScores = [...levelScores];
+    newLevelScores[currentLevel] = levelScore;
+    setLevelScores(newLevelScores);
+    
+    const newScore = score + levelScore;
     setScore(newScore);
-
-    if (currentScenario < scenarios.length - 1) {
-      setCurrentScenario(currentScenario + 1);
-      setShowPattern(false);
-    } else {
-      setShowGameOver(true);
-    }
+    
+    setShowFeedback(true);
+    
+    // Show level complete for a moment
+    setTimeout(() => {
+      setShowFeedback(false);
+      setShowLevelComplete(true);
+      
+      setTimeout(() => {
+        setShowLevelComplete(false);
+        if (currentLevel < levels.length - 1) {
+          setCurrentLevel(currentLevel + 1);
+          setSelectedChoice(null);
+        } else {
+          setShowGameOver(true);
+        }
+      }, 2000);
+    }, 4000);
   };
 
-  const getScoreEmoji = (value) => {
-    if (value <= 3) return '😔';
-    if (value <= 5) return '😐';
-    if (value <= 7) return '🙂';
-    if (value <= 8) return '😊';
-    return '😄';
+  const getImpactColor = (value) => {
+    if (value >= 7) return 'text-green-600';
+    if (value >= 5) return 'text-yellow-600';
+    return 'text-red-600';
   };
 
-  const drawWheel = () => {
-    const currentRatings = ratings[currentScenario] || {};
+  const getImpactEmoji = (value) => {
+    if (value >= 7) return '😊';
+    if (value >= 5) return '😐';
+    return '😔';
+  };
+
+  const drawBalanceWheel = () => {
+    // Get the impact of the selected choice
+    const choiceId = choicesMade[currentLevel];
+    const selectedChoice = currentLevelData.choices.find(c => c.id === choiceId);
+    const impact = selectedChoice ? selectedChoice.impact : { family: 5, work: 5, rest: 5, self: 5 };
+    
     const centerX = 150;
     const centerY = 150;
     const radius = 100;
-    const angles = [0, 90, 180, 270]; // 4 zones: 0° (top), 90° (right), 180° (bottom), 270° (left)
+    const angles = [0, 90, 180, 270]; // 4 domains: 0° (top), 90° (right), 180° (bottom), 270° (left)
+    
+    // Normalize impacts to fit in the circle (max 10 for visualization)
+    const maxImpact = Math.max(...Object.values(impact), 1);
+    const normalized = {};
+    Object.keys(impact).forEach(key => {
+      normalized[key] = (impact[key] / maxImpact) * 10 || 0;
+    });
     
     return (
       <svg width="300" height="300" className="mx-auto">
@@ -200,9 +281,9 @@ const BalanceWheel = () => {
           opacity="0.3"
         />
         
-        {/* Draw segments for each zone */}
-        {zones.map((zone, index) => {
-          const value = currentRatings[zone.id] || 5;
+        {/* Draw segments for each domain */}
+        {domains.map((domain, index) => {
+          const value = normalized[domain.id] || 0;
           const angle = angles[index];
           const angleRad = (angle - 90) * (Math.PI / 180); // Start from top
           const segmentRadius = radius * (value / 10);
@@ -226,18 +307,18 @@ const BalanceWheel = () => {
           ].join(' ');
           
           return (
-            <g key={zone.id}>
+            <g key={domain.id}>
               {/* Segment fill based on value */}
               <path
                 d={pathData}
-                fill={`url(#gradient-${zone.id})`}
+                fill={`url(#gradient-${domain.id})`}
                 opacity={0.3 + (value / 10) * 0.4}
               />
               {/* Segment border */}
               <path
                 d={pathData}
                 fill="none"
-                stroke={zone.hexBorder}
+                stroke={domain.hexFrom}
                 strokeWidth="2"
                 opacity="0.5"
               />
@@ -247,10 +328,10 @@ const BalanceWheel = () => {
                 y1={centerY}
                 x2={centerX + Math.cos(angleRad) * segmentRadius}
                 y2={centerY + Math.sin(angleRad) * segmentRadius}
-                stroke={zone.hexTo}
+                stroke={domain.hexTo}
                 strokeWidth="3"
               />
-              {/* Zone label and value */}
+              {/* Domain label and value */}
               <text
                 x={centerX + Math.cos(angleRad) * (radius + 25)}
                 y={centerY + Math.sin(angleRad) * (radius + 25)}
@@ -258,8 +339,8 @@ const BalanceWheel = () => {
                 dominantBaseline="middle"
                 className="text-xs font-semibold fill-gray-700"
               >
-                <tspan x={centerX + Math.cos(angleRad) * (radius + 25)} dy="-5">{zone.icon}</tspan>
-                <tspan x={centerX + Math.cos(angleRad) * (radius + 25)} dy="15">{value}/10</tspan>
+                <tspan x={centerX + Math.cos(angleRad) * (radius + 25)} dy="-5">{domain.emoji}</tspan>
+                <tspan x={centerX + Math.cos(angleRad) * (radius + 25)} dy="15">{impact[domain.id] || 0}</tspan>
               </text>
             </g>
           );
@@ -268,12 +349,12 @@ const BalanceWheel = () => {
         {/* Center point */}
         <circle cx={centerX} cy={centerY} r="4" fill="#6b7280" />
         
-        {/* Gradients for each zone */}
+        {/* Gradients for each domain */}
         <defs>
-          {zones.map(zone => (
-            <linearGradient key={zone.id} id={`gradient-${zone.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={zone.hexFrom} />
-              <stop offset="100%" stopColor={zone.hexTo} />
+          {domains.map(domain => (
+            <linearGradient key={domain.id} id={`gradient-${domain.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={domain.hexFrom} />
+              <stop offset="100%" stopColor={domain.hexTo} />
             </linearGradient>
           ))}
         </defs>
@@ -293,22 +374,41 @@ const BalanceWheel = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= totalLevels * 3} // At least 3 zones correct per scenario
+        allAnswersCorrect={score === totalLevels} // Perfect score: 5/5 levels completed correctly
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="w-full max-w-4xl mx-auto px-4 py-8"
         >
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-            <div className="text-6xl mb-4">⚖️</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Balance Assessment Complete!</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              You've explored how different life situations affect your balance wheel. Remember: balance isn't perfection—it's awareness and gentle adjustments.
+          <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 rounded-3xl shadow-xl p-8 text-center border-4 border-indigo-200">
+            <div className="text-6xl mb-4">🏆</div>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Balance Mastery Achieved!</h2>
+            <p className="text-xl text-gray-700 mb-6">
+              You scored <span className="font-bold text-indigo-600 text-2xl">{score}</span> out of <span className="font-bold text-purple-600">{totalLevels}</span> optimal choices!
             </p>
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border-2 border-blue-200">
-              <p className="text-gray-700 font-medium">
-                <strong>💡 Parent Tip:</strong> Check your balance wheel regularly. If one section is too low, don't aim for perfection—restore gently. Small, consistent adjustments create lasting balance.
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-green-200">
+                <div className="text-4xl mb-3">🌟</div>
+                <h3 className="text-lg font-bold text-green-700 mb-2">Your Success</h3>
+                <p className="text-gray-700">
+                  You've demonstrated excellent understanding of work-life balance principles for parents. Each scenario required thoughtful consideration of competing priorities.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-200">
+                <div className="text-4xl mb-3">💡</div>
+                <h3 className="text-lg font-bold text-blue-700 mb-2">Key Insight</h3>
+                <p className="text-gray-700">
+                  Balance isn't static—it's a dynamic practice of adjusting priorities based on changing circumstances while maintaining core wellbeing.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
+              <p className="text-lg text-amber-800 font-medium">
+                <strong>💡 Master Parent Tip:</strong> Remember that balance is a practice, not a destination. Regular check-ins with yourself and your family will help you maintain sustainable rhythms over time.
               </p>
             </div>
           </div>
@@ -317,20 +417,32 @@ const BalanceWheel = () => {
     );
   }
 
-  const currentRatings = ratings[currentScenario] || {};
-  const balanceInsight = getBalancePattern().length > 0 ? getBalanceInsight() : null;
+  const choiceMade = choicesMade[currentLevel];
+  
+  // Calculate feedback for the current level
+  let levelFeedback = null;
+  if (showFeedback) {
+    const choiceId = choicesMade[currentLevel];
+    const selectedChoice = currentLevelData.choices.find(c => c.id === choiceId);
+    
+    levelFeedback = {
+      choice: selectedChoice,
+      isOptimal: selectedChoice?.isOptimal
+    };
+  }
 
   return (
     <ParentGameShell
       title={gameData?.title || "The Balance Wheel"}
-      subtitle={`Scenario ${currentScenario + 1} of ${totalLevels}: ${currentScenarioData.title}`}
+      subtitle={`Level ${currentLevel + 1} of ${totalLevels}: ${currentLevelData.title}`}
       showGameOver={false}
       score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={currentScenario + 1}
+      currentLevel={currentLevel + 1}
+      progress={(currentLevel / totalLevels) * 100}
     >
       <div className="w-full max-w-5xl mx-auto px-4 py-6">
         <motion.div
@@ -338,146 +450,148 @@ const BalanceWheel = () => {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
         >
-          {/* Scenario Context */}
+          {/* Level Context */}
           <div className="mb-6">
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">{currentScenarioData.title}</h3>
-            <p className="text-gray-600 mb-2">{currentScenarioData.description}</p>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-3">
-              <p className="text-sm text-blue-800">{currentScenarioData.context}</p>
+            <h3 className="text-2xl font-bold text-gray-800 mb-3 flex items-center gap-2">
+              <Star className="w-6 h-6 text-indigo-600" />
+              {currentLevelData.title}
+            </h3>
+            <p className="text-gray-700 mb-3 text-lg font-medium">{currentLevelData.description}</p>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-5 mb-4">
+              <h4 className="font-bold text-blue-800 mb-2 flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Situation:
+              </h4>
+              <p className="text-blue-700">{currentLevelData.context}</p>
             </div>
           </div>
 
           {/* Balance Wheel Visualization */}
           <div className="mb-8">
             <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border-2 border-gray-200">
-              <h4 className="text-lg font-semibold text-gray-700 mb-4 text-center">Your Balance Wheel</h4>
-              <div className="flex justify-center mb-6">
-                {drawWheel()}
+              <h4 className="text-lg font-semibold text-gray-700 mb-4 text-center flex items-center justify-center gap-2">
+                <RotateCcw className="w-5 h-5" />
+                Impact of Your Choice
+              </h4>
+              <div className="flex justify-center mb-4">
+                {drawBalanceWheel()}
+              </div>
+              
+              <div className="text-center text-sm text-gray-600">
+                <p>Visual representation of how your choice affects each life domain</p>
               </div>
             </div>
           </div>
 
-          {/* Sliders for each zone */}
-          <div className="space-y-6 mb-6">
-            {zones.map((zone, index) => {
-              const value = currentRatings[zone.id] || 5;
+          {/* Choices */}
+          <div className="space-y-4 mb-6">
+            {currentLevelData.choices.map((choice, index) => {
+              const isSelected = selectedChoice === choice.id;
+              const isChosen = choicesMade[currentLevel] === choice.id;
+              
               return (
                 <motion.div
-                  key={zone.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  key={choice.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`${zone.bgColor} border-2 ${zone.borderColor} rounded-xl p-4`}
+                  className={`p-5 rounded-xl border-2 cursor-pointer transition-all ${isSelected ? 'border-indigo-400 bg-indigo-50 shadow-md' : 'border-gray-200 bg-white'} ${choiceMade ? 'cursor-default' : 'hover:shadow-md'}`}
+                  onClick={() => !choiceMade && handleChoice(choice.id)}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{zone.icon}</span>
-                      <span className="text-lg font-semibold text-gray-700">{zone.label}</span>
+                  <div className="flex items-start gap-4">
+                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${isChosen ? 'bg-green-500 text-white' : 'bg-gray-200'}`}>
+                      {isChosen ? <CheckCircle className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl">{getScoreEmoji(value)}</span>
-                      <span className="text-2xl font-bold text-gray-800 w-12 text-center">{value}/10</span>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-gray-800 mb-2">{choice.title}</h4>
+                      
+                      {/* Impact indicators */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+                        {domains.map(domain => (
+                          <div key={domain.id} className="text-center p-2 rounded-lg bg-gray-50">
+                            <div className="text-lg">{domain.emoji}</div>
+                            <div className="text-xs font-medium text-gray-600">{domain.label}</div>
+                            <div className={`font-bold ${getImpactColor(choice.impact[domain.id])}`}>
+                              {getImpactEmoji(choice.impact[domain.id])} {choice.impact[domain.id]}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <p className="text-sm text-gray-600 mt-3">{choice.explanation}</p>
                     </div>
-                  </div>
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={value}
-                    onChange={(e) => handleRatingChange(zone.id, e.target.value)}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                    style={{
-                      background: `linear-gradient(to right, ${zone.hexFrom} 0%, ${zone.hexFrom} ${(value - 1) * 11.11}%, #e5e7eb ${(value - 1) * 11.11}%, #e5e7eb 100%)`
-                    }}
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>Very Low</span>
-                    <span>Moderate</span>
-                    <span>Very High</span>
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Balance Pattern Analysis */}
-          {showPattern && balanceInsight && (
+          {/* Feedback Display */}
+          {showFeedback && levelFeedback && (
             <AnimatePresence>
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6"
+                className={`rounded-xl p-6 border-2 mb-6 ${levelFeedback.isOptimal ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-200' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200'}`}
               >
                 <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Sliders className="w-5 h-5 text-indigo-600" />
-                  Balance Pattern Analysis
+                  <Trophy className="w-5 h-5" />
+                  Choice Feedback
                 </h4>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                  {getBalancePattern().map((item, index) => {
-                    const trend = item.value > 6 ? 'up' : item.value < 4 ? 'down' : 'neutral';
-                    return (
-                      <div key={index} className="bg-white rounded-lg p-3 text-center border border-gray-200">
-                        <div className="text-2xl mb-1">{item.icon}</div>
-                        <div className="text-sm font-medium text-gray-600">{item.zone}</div>
-                        <div className="flex items-center justify-center gap-1 mt-1">
-                          {trend === 'up' && <TrendingUp className="w-4 h-4 text-green-500" />}
-                          {trend === 'down' && <TrendingDown className="w-4 h-4 text-red-500" />}
-                          {trend === 'neutral' && <Minus className="w-4 h-4 text-gray-400" />}
-                          <span className={`text-lg font-bold ${trend === 'up' ? 'text-green-600' : trend === 'down' ? 'text-red-600' : 'text-gray-600'}`}>
-                            {item.value}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
+                <div className={`rounded-lg p-4 mb-4 ${levelFeedback.isOptimal ? 'bg-green-100 border border-green-300' : 'bg-amber-100 border border-amber-300'}`}>
+                  <p className={`font-bold ${levelFeedback.isOptimal ? 'text-green-800' : 'text-amber-800'}`}>
+                    {levelFeedback.isOptimal ? (
+                      <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /> Optimal Choice! This strategy will help maintain balance.</span>
+                    ) : (
+                      <span className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> This choice has some drawbacks. Consider alternative approaches.</span>
+                    )}
+                  </p>
                 </div>
 
-                <div className="bg-white rounded-lg p-4 border border-indigo-100">
-                  <p className="text-gray-700 mb-3">
-                    <strong>Insight:</strong> {balanceInsight.message}
-                  </p>
-                  <p className="text-sm text-gray-600">{currentScenarioData.explanation}</p>
+                <div className="bg-white rounded-lg p-4 border border-gray-200">
+                  <p className="text-sm text-gray-700">{currentLevelData.explanation}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
           )}
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleShowPattern}
-              disabled={showPattern}
-              className="flex-1 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-            >
-              <Sliders className="w-5 h-5" />
-              View Balance Pattern
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleNext}
-              disabled={!showPattern}
-              className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {currentScenario < scenarios.length - 1 ? 'Next Scenario' : 'Complete Assessment'}
-            </motion.button>
-          </div>
-
           {/* Parent Tip */}
-          {showPattern && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200"
-            >
-              <p className="text-sm text-amber-800">
-                <strong>💡 Parent Tip:</strong> {currentScenarioData.parentTip}
-              </p>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200"
+          >
+            <p className="text-sm text-amber-800">
+              <strong>💡 Parent Tip:</strong> {currentLevelData.parentTip}
+            </p>
+          </motion.div>
+          
+          {/* Level Complete Animation */}
+          {showLevelComplete && (
+            <AnimatePresence>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+              >
+                <div className="bg-white rounded-2xl p-8 text-center shadow-2xl max-w-md w-full mx-4">
+                  <div className="text-6xl mb-4">✅</div>
+                  
+                  <p className="text-gray-600 mb-4">Preparing next challenge...</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: '100%' }}
+                      transition={{ duration: 2 }}
+                      className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           )}
         </motion.div>
       </div>

@@ -300,6 +300,8 @@ app.use('/uploads', express.static(path.resolve(__dirname, './uploads')));
   app.use("/api/wallet", walletRoutes);
   app.use("/api/student", studentRoutes);
   app.use("/api/activity", activityRoutes);
+  app.use("/api/user", userRoutes);
+  app.use("/api/parent", parentRoutes);
   
   // Multi-tenant Routes
 app.use("/api/company", companyRoutes);

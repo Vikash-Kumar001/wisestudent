@@ -57,11 +57,7 @@ const QualityOverQuantity = () => {
         result: "In just 5 minutes of full presence, child feels deeply connected. Quality of attention matters more than quantity of time."
       },
       reflections: [
-        {
-          id: 'quality',
-          text: "Quality of presence matters more than quantity of time. Five minutes of full attention beats 45 minutes of distraction.",
-          isCorrect: true
-        },
+        
         {
           id: 'quantity',
           text: "Spending more time together automatically creates better connection, even if you're distracted.",
@@ -71,7 +67,12 @@ const QualityOverQuantity = () => {
           id: 'technology',
           text: "Technology and multitasking don't affect the quality of time spent with children.",
           isCorrect: false
-        }
+        },
+        {
+          id: 'quality',
+          text: "Quality of presence matters more than quantity of time. Five minutes of full attention beats 45 minutes of distraction.",
+          isCorrect: true
+        },
       ],
       insight: "Emotional presence outweighs time length. When you're fully present—even for just 5 minutes—your child feels seen, heard, and valued. Distracted hours together can't replace a few minutes of genuine eye contact and attention.",
       parentTip: "A few calm minutes of eye contact can reset your child's day. Try putting your phone away for the first 5 minutes after school pickup. Those 5 minutes of presence create more connection than hours of distracted time."
@@ -157,15 +158,16 @@ const QualityOverQuantity = () => {
         result: "Just 15 minutes of screen-free, present dinner creates more connection than an hour of distracted time. Quality matters."
       },
       reflections: [
-        {
-          id: 'attention',
-          text: "Fifteen minutes of full attention and eye contact create more connection than an hour of distracted presence.",
-          isCorrect: true
-        },
+       
         {
           id: 'time',
           text: "The more time you spend together, the better the connection, regardless of presence quality.",
           isCorrect: false
+        },
+         {
+          id: 'attention',
+          text: "Fifteen minutes of full attention and eye contact create more connection than an hour of distracted presence.",
+          isCorrect: true
         },
         {
           id: 'technology',
@@ -254,11 +256,7 @@ const QualityOverQuantity = () => {
         result: "Quality of presence transforms brief moments into meaningful connections. Children feel loved and secure from short, present interactions."
       },
       reflections: [
-        {
-          id: 'principle',
-          text: "The principle is clear: emotional presence outweighs time length. A few minutes of eye contact and full attention create more connection than hours of distracted time.",
-          isCorrect: true
-        },
+        
         {
           id: 'quantity',
           text: "Parents need to spend long hours with children to create connection—there's no substitute for quantity of time.",
@@ -268,7 +266,12 @@ const QualityOverQuantity = () => {
           id: 'perfect',
           text: "Perfect presence every moment is required—there's no value in brief moments of quality connection.",
           isCorrect: false
-        }
+        },
+        {
+          id: 'principle',
+          text: "The principle is clear: emotional presence outweighs time length. A few minutes of eye contact and full attention create more connection than hours of distracted time.",
+          isCorrect: true
+        },
       ],
       insight: "Quality over quantity is the foundation of meaningful connection. You don't need to spend all day with your children—you need to be fully present for the time you do spend. A few calm minutes of eye contact can reset your child's day and create the connection they need.",
       parentTip: "A few calm minutes of eye contact can reset your child's day. You don't need perfect presence all the time—just intentional, present moments. Those moments of quality connection are what children remember and what creates lasting bonds."

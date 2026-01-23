@@ -5,7 +5,7 @@ import { getParentEducationGameById } from "../data/gameData";
 import parentGameCompletionService from "../../../../../services/parentGameCompletionService";
 import parentBadgeService from "../../../../../services/parentBadgeService";
 import api from "../../../../../utils/api";
-import { Award, CheckCircle, Lock, MessageCircle, Heart } from "lucide-react";
+import { Award, CheckCircle, Lock, Sparkles, MessageCircle } from "lucide-react";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
@@ -162,15 +162,15 @@ const PeacefulCommunicatorBadgeCollector = () => {
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
+        gameData={gameData}
+        totalLevels={0}
         totalCoins={0}
-        currentLevel={1}
+        currentLevel={0}
       >
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading...</p>
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 text-lg">Loading badge information...</p>
           </div>
         </div>
       </ParentGameShell>
@@ -181,119 +181,89 @@ const PeacefulCommunicatorBadgeCollector = () => {
     return (
       <ParentGameShell
         title={gameData?.title || "Peaceful Communicator Badge"}
-        subtitle="Complete All Communication Activities to Unlock"
+        subtitle="Locked - Complete all communication activities to unlock"
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
+        gameData={gameData}
+        totalLevels={0}
         totalCoins={0}
-        currentLevel={1}
+        currentLevel={0}
       >
-        <div className="w-full max-w-4xl mx-auto px-4 py-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-xl p-8"
-          >
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
-              <Lock className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                Master All Communication Practices to Unlock
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gray-200 mb-4">
+                <Lock className="w-12 h-12 text-gray-400" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                Badge Locked
               </h2>
-              <p className="text-gray-600">
-                Complete all 5 communication activities to earn the Peaceful Communicator Badge.
+              <p className="text-lg text-gray-600">
+                Complete all 5 communication activities to unlock this badge
               </p>
             </div>
 
-            <div className="space-y-4 mb-6">
+            {/* Games Status List */}
+            <div className="space-y-3 mb-6">
               {gamesStatus.map((game, index) => (
                 <motion.div
                   key={game.gameId}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`flex items-center justify-between p-4 rounded-lg border-2 ${
+                  className={`flex items-center justify-between p-4 rounded-xl border-2 ${
                     game.completed
-                      ? 'bg-green-50 border-green-300'
+                      ? 'bg-green-50 border-green-200'
                       : 'bg-gray-50 border-gray-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{gameIcons[game.gameId] || '🎮'}</span>
+                    <span className="text-2xl">{gameIcons[game.gameId] || '📋'}</span>
+                    {game.completed ? (
+                      <CheckCircle className="w-6 h-6 text-green-600" />
+                    ) : (
+                      <div className="w-6 h-6 rounded-full border-2 border-gray-400"></div>
+                    )}
                     <span className={`font-medium ${
                       game.completed ? 'text-green-800' : 'text-gray-600'
                     }`}>
-                      {game.name}
+                      {index + 1}. {game.name}
                     </span>
                   </div>
-                  {game.completed ? (
-                    <CheckCircle className="w-6 h-6 text-green-600" />
-                  ) : (
-                    <Lock className="w-6 h-6 text-gray-400" />
-                  )}
+                  <span className={`text-sm font-semibold ${
+                    game.completed ? 'text-green-600' : 'text-gray-400'
+                  }`}>
+                    {game.completed ? 'Completed' : 'Not Completed'}
+                  </span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200">
-              <p className="text-gray-700 font-medium text-center">
-                <strong>💡 Parent Tip:</strong> Wear your badge of calm proudly—communication builds culture. Complete these communication practices to unlock the Peaceful Communicator Badge and celebrate your commitment to maintaining emotional clarity and respect in dialogue.
-              </p>
+            {/* Progress Bar */}
+            <div className="mb-6">
+              <div className="flex justify-between text-sm text-gray-600 mb-2">
+                <span>Progress</span>
+                <span>{gamesStatus.filter(g => g.completed).length} / 5 communication activities completed</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ 
+                    width: `${(gamesStatus.filter(g => g.completed).length / 5) * 100}%`
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-gradient-to-r from-blue-500 to-indigo-500 h-4 rounded-full"
+                ></motion.div>
+              </div>
             </div>
-          </motion.div>
-        </div>
-      </ParentGameShell>
-    );
-  }
 
-  if (badgeCollected) {
-    return (
-      <ParentGameShell
-        title={gameData?.title || "Peaceful Communicator Badge"}
-        subtitle="Badge Collected!"
-        showGameOver={false}
-        score={0}
-        gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
-        totalCoins={0}
-        currentLevel={1}
-      >
-        <div className="w-full max-w-4xl mx-auto px-4 py-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-xl p-8 text-center"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="text-8xl mb-6"
-            >
-              💬
-            </motion.div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Peaceful Communicator Badge Collected!
-            </h2>
-            <p className="text-xl text-blue-600 font-semibold mb-6">
-              "Your calm words heal hearts."
-            </p>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
-              <p className="text-gray-700 font-medium">
-                <strong>💡 Parent Tip:</strong> Wear your badge of calm proudly—communication builds culture. Your commitment to maintaining emotional clarity and respect in dialogue creates a foundation of peace that transforms how your family communicates and connects.
+            <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 text-center">
+              <p className="text-sm text-blue-700">
+                Complete all 5 communication activities to earn the Peaceful Communicator Badge!
               </p>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/parent/games/parent-education')}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              Return to Games
-            </motion.button>
-          </motion.div>
+          </div>
         </div>
       </ParentGameShell>
     );
@@ -302,124 +272,151 @@ const PeacefulCommunicatorBadgeCollector = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Peaceful Communicator Badge"}
-      subtitle="Collect Your Badge"
+      subtitle="Celebrate consistent peaceful communication and emotional clarity"
       showGameOver={false}
       score={0}
       gameId={gameId}
-      gameType="parent-education"
-      totalLevels={1}
+      gameData={gameData}
+      totalLevels={0}
       totalCoins={0}
-      currentLevel={1}
+      currentLevel={0}
     >
-      <div className="w-full max-w-4xl mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl p-8"
-        >
-          <div className="text-center mb-8">
+      <div className="w-full max-w-4xl mx-auto px-4">
+        {badgeCollected ? (
+          // Badge Already Collected
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="text-7xl mb-4"
+              className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-6"
             >
-              💬
+              <MessageCircle className="w-16 h-16 text-white" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Congratulations!
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Peaceful Communicator Badge
             </h2>
-            <p className="text-xl text-gray-600 mb-2">
-              You have successfully completed all communication activities!
-            </p>
-            <p className="text-lg text-blue-600 font-semibold mb-6">
+            <p className="text-2xl text-blue-600 font-medium italic mb-6">
               "Your calm words heal hearts."
             </p>
-          </div>
-
-          <div className="space-y-4 mb-8">
-            {gamesStatus.map((game, index) => (
-              <motion.div
-                key={game.gameId}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-center justify-between p-4 rounded-lg bg-green-50 border-2 border-green-300"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{gameIcons[game.gameId] || '🎮'}</span>
-                  <span className="font-medium text-green-800">
-                    {game.name}
-                  </span>
-                </div>
-                <CheckCircle className="w-6 h-6 text-green-600" />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
-            <p className="text-gray-700 font-medium text-center">
-              <strong>💡 Parent Tip:</strong> Wear your badge of calm proudly—communication builds culture. By completing these communication practices, you're not just earning a badge—you're creating a foundation of peace that transforms how your family communicates and connects every day.
-            </p>
-          </div>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowCollectionModal(true)}
-            disabled={isCollecting}
-            className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-          >
-            <Award className="w-6 h-6" />
-            {isCollecting ? 'Collecting Badge...' : 'Collect Badge'}
-          </motion.button>
-        </motion.div>
-      </div>
-
-      {/* Collection Modal */}
-      {showCollectionModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full"
-          >
-            <div className="text-center mb-6">
-              <div className="text-6xl mb-4">💬</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                Collect Peaceful Communicator Badge?
-              </h3>
-              <p className="text-gray-600">
-                You've completed all 5 communication activities. Ready to collect your badge?
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
+              <p className="text-gray-700 text-lg">
+                Congratulations! You have successfully completed all communication activities and earned the Peaceful Communicator Badge.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleCollectBadge}
-                disabled={isCollecting}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isCollecting ? 'Collecting...' : 'Yes, Collect Badge'}
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowCollectionModal(false)}
-                disabled={isCollecting}
-                className="w-full bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Cancel
-              </motion.button>
+            {/* Completed Games List */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Completed Communication Activities:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {gamesStatus.map((game) => (
+                  <div
+                    key={game.gameId}
+                    className="flex items-center gap-3 p-3 bg-white rounded-lg border border-blue-200"
+                  >
+                    <span className="text-xl">{gameIcons[game.gameId] || '✅'}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">{game.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </motion.div>
-        </div>
-      )}
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p className="text-sm text-amber-800">
+                <strong>💡 Parent Tip:</strong> Wear your badge of calm proudly—communication builds culture. 
+                Your commitment to maintaining emotional clarity and respect in dialogue creates a foundation of peace that transforms how your family communicates and connects.
+              </p>
+            </div>
+          </div>
+        ) : (
+          // Badge Ready to Collect
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-6"
+              >
+                <Sparkles className="w-16 h-16 text-white" />
+              </motion.div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                All Communication Activities Completed!
+              </h2>
+              <p className="text-lg text-gray-600 mb-4">
+                You've successfully completed all 5 communication activities
+              </p>
+            </div>
+
+            {/* Completed Games List */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Completed Communication Activities:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {gamesStatus.map((game) => (
+                  <motion.div
+                    key={game.gameId}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: gamesStatus.indexOf(game) * 0.1 }}
+                    className="flex items-center gap-3 p-3 bg-white rounded-lg border-2 border-blue-200"
+                  >
+                    <span className="text-xl">{gameIcons[game.gameId] || '✅'}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">{game.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Badge Preview */}
+            <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-8 border-2 border-blue-300 mb-6 text-center">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-4">
+                <MessageCircle className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                Peaceful Communicator Badge
+              </h3>
+              <p className="text-xl text-blue-700 font-medium italic mb-4">
+                "Your calm words heal hearts."
+              </p>
+              <p className="text-gray-600">
+                This badge recognizes your consistent practice of peaceful communication, emotional clarity, and respectful dialogue.
+              </p>
+            </div>
+
+            {/* Collect Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleCollectBadge}
+              disabled={isCollecting}
+              className="w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isCollecting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <span>Collecting Badge...</span>
+                </>
+              ) : (
+                <>
+                  <Award className="w-5 h-5" />
+                  <span>Collect Badge</span>
+                </>
+              )}
+            </motion.button>
+
+            <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
+              <p className="text-sm text-amber-800">
+                <strong>💡 Parent Tip:</strong> Wear your badge of calm proudly—communication builds culture. 
+                Your commitment to maintaining emotional clarity and respect in dialogue creates a foundation of peace that transforms how your family communicates and connects.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
     </ParentGameShell>
   );
 };
 
 export default PeacefulCommunicatorBadgeCollector;
-

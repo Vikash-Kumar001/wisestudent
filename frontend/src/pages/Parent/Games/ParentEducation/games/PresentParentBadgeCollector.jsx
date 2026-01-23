@@ -5,7 +5,7 @@ import { getParentEducationGameById } from "../data/gameData";
 import parentGameCompletionService from "../../../../../services/parentGameCompletionService";
 import parentBadgeService from "../../../../../services/parentBadgeService";
 import api from "../../../../../utils/api";
-import { Award, CheckCircle, Lock, Sparkles, Eye, Clock } from "lucide-react";
+import { Award, CheckCircle, Lock, Sparkles, Eye } from "lucide-react";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
@@ -162,146 +162,105 @@ const PresentParentBadgeCollector = () => {
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
+        gameData={gameData}
+        totalLevels={0}
         totalCoins={0}
-        currentLevel={1}
+        currentLevel={0}
       >
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading...</p>
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 text-lg">Loading badge information...</p>
           </div>
         </div>
       </ParentGameShell>
     );
   }
 
-  if (badgeCollected) {
-    return (
-      <ParentGameShell
-        title={gameData?.title || "Present Parent Badge"}
-        subtitle="Badge Collected!"
-        showGameOver={true}
-        score={1}
-        gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
-        totalCoins={0}
-        currentLevel={1}
-        allAnswersCorrect={true}
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-4xl mx-auto px-4 py-8"
-        >
-          <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-200">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-              className="text-8xl mb-6"
-            >
-              👁️
-            </motion.div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Present Parent Badge</h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-2xl text-indigo-700 font-semibold mb-8"
-            >
-              Your time is love made visible.
-            </motion.p>
-            <div className="bg-white rounded-xl p-6 mb-6">
-              <p className="text-lg text-gray-700 mb-4">
-                You've successfully completed all presence and balance activities, demonstrating your commitment to being fully present with your family.
-              </p>
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                <p className="text-sm text-amber-800">
-                  <strong>💡 Parent Tip:</strong> Let your family celebrate your badge—togetherness is contagious. Share this achievement with your children and let them see that you value presence over distractions. Your commitment to being present teaches them that they matter, and that time together is precious.
-                </p>
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center justify-center gap-2 text-indigo-600"
-            >
-              <Sparkles className="w-5 h-5" />
-              <span className="font-semibold">Badge Collected Successfully!</span>
-            </motion.div>
-          </div>
-        </motion.div>
-      </ParentGameShell>
-    );
-  }
-
   if (!allCompleted) {
-    const completedCount = gamesStatus.filter(s => s.completed).length;
     return (
       <ParentGameShell
         title={gameData?.title || "Present Parent Badge"}
-        subtitle="Complete All Activities to Unlock"
+        subtitle="Locked - Complete all presence and balance activities to unlock"
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameType="parent-education"
-        totalLevels={1}
+        gameData={gameData}
+        totalLevels={0}
         totalCoins={0}
-        currentLevel={1}
+        currentLevel={0}
       >
-        <div className="w-full max-w-4xl mx-auto px-4 py-8">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg p-8 border-2 border-gray-300">
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
-              <Lock className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Present Parent Badge</h2>
-              <p className="text-lg text-gray-600 mb-2">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gray-200 mb-4">
+                <Lock className="w-12 h-12 text-gray-400" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                Badge Locked
+              </h2>
+              <p className="text-lg text-gray-600">
                 Complete all 5 presence and balance activities to unlock this badge
               </p>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                <p className="text-sm text-blue-800">
-                  <strong>Progress:</strong> {completedCount} of 5 activities completed
-                </p>
-              </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Required Activities:</h3>
-              {gamesStatus.map((status, index) => (
+            {/* Games Status List */}
+            <div className="space-y-3 mb-6">
+              {gamesStatus.map((game, index) => (
                 <motion.div
-                  key={status.gameId}
+                  key={game.gameId}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   className={`flex items-center justify-between p-4 rounded-xl border-2 ${
-                    status.completed
-                      ? 'bg-green-50 border-green-300'
-                      : 'bg-white border-gray-200'
+                    game.completed
+                      ? 'bg-green-50 border-green-200'
+                      : 'bg-gray-50 border-gray-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-3xl">{gameIcons[status.gameId]}</span>
-                    <div>
-                      <p className={`font-medium ${status.completed ? 'text-green-800' : 'text-gray-700'}`}>
-                        {status.name}
-                      </p>
-                    </div>
+                    <span className="text-2xl">{gameIcons[game.gameId] || '📋'}</span>
+                    {game.completed ? (
+                      <CheckCircle className="w-6 h-6 text-green-600" />
+                    ) : (
+                      <div className="w-6 h-6 rounded-full border-2 border-gray-400"></div>
+                    )}
+                    <span className={`font-medium ${
+                      game.completed ? 'text-green-800' : 'text-gray-600'
+                    }`}>
+                      {index + 1}. {game.name}
+                    </span>
                   </div>
-                  {status.completed ? (
-                    <CheckCircle className="w-6 h-6 text-green-600" />
-                  ) : (
-                    <Lock className="w-6 h-6 text-gray-400" />
-                  )}
+                  <span className={`text-sm font-semibold ${
+                    game.completed ? 'text-green-600' : 'text-gray-400'
+                  }`}>
+                    {game.completed ? 'Completed' : 'Not Completed'}
+                  </span>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-8 bg-amber-50 border border-amber-200 rounded-lg p-4">
-              <p className="text-sm text-amber-800">
-                <strong>💡 Parent Tip:</strong> Complete all presence and balance activities to unlock this badge. These activities help you create clear boundaries between work and family, practice mindful presence, and prioritize quality time together.
+            {/* Progress Bar */}
+            <div className="mb-6">
+              <div className="flex justify-between text-sm text-gray-600 mb-2">
+                <span>Progress</span>
+                <span>{gamesStatus.filter(g => g.completed).length} / 5 presence and balance activities completed</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ 
+                    width: `${(gamesStatus.filter(g => g.completed).length / 5) * 100}%`
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 h-4 rounded-full"
+                ></motion.div>
+              </div>
+            </div>
+
+            <div className="bg-green-50 rounded-xl p-4 border border-green-200 text-center">
+              <p className="text-sm text-green-700">
+                Complete all 5 presence and balance activities to earn the Present Parent Badge!
               </p>
             </div>
           </div>
@@ -313,127 +272,153 @@ const PresentParentBadgeCollector = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Present Parent Badge"}
-      subtitle="Congratulations!"
+      subtitle="Celebrate consistent family presence and balance habits"
       showGameOver={false}
       score={0}
       gameId={gameId}
-      gameType="parent-education"
-      totalLevels={1}
+      gameData={gameData}
+      totalLevels={0}
       totalCoins={0}
-      currentLevel={1}
+      currentLevel={0}
     >
-      <div className="w-full max-w-4xl mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8 border-2 border-blue-300"
-        >
-          <div className="text-center mb-8">
+      <div className="w-full max-w-4xl mx-auto px-4">
+        {badgeCollected ? (
+          // Badge Already Collected
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="text-8xl mb-6"
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-6"
             >
-              👁️
+              <Eye className="w-16 h-16 text-white" />
             </motion.div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Present Parent Badge</h2>
-            <p className="text-xl text-gray-600 mb-2">Congratulations!</p>
-            <p className="text-2xl text-indigo-700 font-semibold mb-6">
-              You have successfully completed all presence and balance activities!
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Present Parent Badge
+            </h2>
+            <p className="text-2xl text-blue-600 font-medium italic mb-6">
+              "Your time is love made visible."
             </p>
-          </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
+              <p className="text-gray-700 text-lg">
+                Congratulations! You have successfully completed all presence and balance activities and earned the Present Parent Badge.
+              </p>
+            </div>
 
-          <div className="bg-white rounded-xl p-6 mb-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-              <Award className="w-6 h-6 text-indigo-600" />
-              Completed Activities:
-            </h3>
-            <div className="space-y-3">
-              {gamesStatus.map((status, index) => (
-                <motion.div
-                  key={status.gameId}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{gameIcons[status.gameId]}</span>
-                    <span className="font-medium text-green-800">{status.name}</span>
+            {/* Completed Games List */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Completed Presence and Balance Activities:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {gamesStatus.map((game) => (
+                  <div
+                    key={game.gameId}
+                    className="flex items-center gap-3 p-3 bg-white rounded-lg border border-blue-200"
+                  >
+                    <span className="text-xl">{gameIcons[game.gameId] || '✅'}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">{game.name}</span>
                   </div>
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                </motion.div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p className="text-sm text-amber-800">
+                <strong>💡 Parent Tip:</strong> Let your family celebrate your badge—togetherness is contagious. 
+                Share this achievement with your children and let them see that you value presence over distractions. 
+                Your commitment to being present teaches them that they matter, and that time together is precious.
+              </p>
             </div>
           </div>
+        ) : (
+          // Badge Ready to Collect
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-6"
+              >
+                <Sparkles className="w-16 h-16 text-white" />
+              </motion.div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                All Presence and Balance Activities Completed!
+              </h2>
+              <p className="text-lg text-gray-600 mb-4">
+                You've successfully completed all 5 presence and balance activities
+              </p>
+            </div>
 
-          <div className="bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl p-6 mb-6 border-2 border-indigo-300">
-            <p className="text-2xl font-bold text-center text-indigo-900 mb-2">
-              Your time is love made visible.
-            </p>
-            <p className="text-center text-gray-700">
-              You've demonstrated your commitment to being fully present with your family, creating boundaries, and prioritizing quality time together.
-            </p>
-          </div>
+            {/* Completed Games List */}
+            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Completed Presence and Balance Activities:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {gamesStatus.map((game) => (
+                  <motion.div
+                    key={game.gameId}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: gamesStatus.indexOf(game) * 0.1 }}
+                    className="flex items-center gap-3 p-3 bg-white rounded-lg border-2 border-blue-200"
+                  >
+                    <span className="text-xl">{gameIcons[game.gameId] || '✅'}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">{game.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-          {!showCollectionModal ? (
+            {/* Badge Preview */}
+            <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-8 border-2 border-blue-300 mb-6 text-center">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 via-indigo-400 to-purple-400 mb-4">
+                <Eye className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                Present Parent Badge
+              </h3>
+              <p className="text-xl text-blue-700 font-medium italic mb-4">
+                "Your time is love made visible."
+              </p>
+              <p className="text-gray-600">
+                This badge recognizes your consistent practice of family presence, work-life balance, and mindful parenting.
+              </p>
+            </div>
+
+            {/* Collect Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setShowCollectionModal(true)}
-              className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3"
+              onClick={handleCollectBadge}
+              disabled={isCollecting}
+              className="w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              <Award className="w-6 h-6" />
-              Collect Badge
+              {isCollecting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <span>Collecting Badge...</span>
+                </>
+              ) : (
+                <>
+                  <Award className="w-5 h-5" />
+                  <span>Collect Badge</span>
+                </>
+              )}
             </motion.button>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl p-6 border-2 border-indigo-300"
-            >
-              <p className="text-center text-gray-700 mb-4">
-                Are you ready to collect your Present Parent Badge?
-              </p>
-              <div className="flex gap-4">
-                <button
-                  onClick={() => setShowCollectionModal(false)}
-                  className="flex-1 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleCollectBadge}
-                  disabled={isCollecting}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {isCollecting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      Collecting...
-                    </>
-                  ) : (
-                    <>
-                      <Award className="w-5 h-5" />
-                      Collect Now
-                    </>
-                  )}
-                </button>
-              </div>
-            </motion.div>
-          )}
 
-          <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <p className="text-sm text-amber-800">
-              <strong>💡 Parent Tip:</strong> Let your family celebrate your badge—togetherness is contagious. Share this achievement with your children and let them see that you value presence over distractions. Your commitment to being present teaches them that they matter, and that time together is precious.
-            </p>
+            <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
+              <p className="text-sm text-amber-800">
+                <strong>💡 Parent Tip:</strong> Let your family celebrate your badge—togetherness is contagious. 
+                Share this achievement with your children and let them see that you value presence over distractions. 
+                Your commitment to being present teaches them that they matter, and that time together is precious.
+              </p>
+            </div>
           </div>
-        </motion.div>
+        )}
       </div>
     </ParentGameShell>
   );
 };
 
 export default PresentParentBadgeCollector;
-

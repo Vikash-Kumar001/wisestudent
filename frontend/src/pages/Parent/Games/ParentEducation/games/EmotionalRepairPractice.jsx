@@ -62,12 +62,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'admit',
           options: [
-            {
-              id: 'good',
-              text: "I'm sorry. I lost my temper earlier, and that was my fault. I was frustrated, but that's not an excuse for how I treated you. I shouldn't have raised my voice or said those things.",
-              score: 25,
-              explanation: "This clearly admits fault without excuses. It takes full responsibility."
-            },
+            
             {
               id: 'partial',
               text: "I'm sorry I got upset. I was just really frustrated because you weren't getting it, and I had a long day.",
@@ -79,23 +74,30 @@ const EmotionalRepairPractice = () => {
               text: "Look, I'm sorry, but you need to understand that homework needs to get done. I was frustrated, okay?",
               score: 0,
               explanation: "This doesn't really admit fault. It focuses on the child's responsibility and makes the apology conditional."
-            }
+            },
+            {
+              id: 'good',
+              text: "I'm sorry. I lost my temper earlier, and that was my fault. I was frustrated, but that's not an excuse for how I treated you. ",
+              score: 25,
+              explanation: "This clearly admits fault without excuses. It takes full responsibility."
+            },
           ]
         },
         {
           step: 'acknowledge',
           options: [
-            {
-              id: 'good',
-              text: "I know my words and actions hurt you. I can see you're upset, and I'm so sorry that I made you feel like you're a burden or that you're not good enough. That must have felt really scary and sad.",
-              score: 25,
-              explanation: "This deeply acknowledges their emotional experience and validates their feelings without minimizing."
-            },
+            
             {
               id: 'partial',
               text: "I know you're probably feeling bad about this. It's okay, we all get frustrated sometimes.",
               score: 10,
               explanation: "This acknowledges some feeling but is vague and minimizes with 'we all get frustrated.'"
+            },
+            {
+              id: 'good',
+              text: "I know my words and actions hurt you. I can see you're upset, and I'm so sorry.",
+              score: 25,
+              explanation: "This deeply acknowledges their emotional experience and validates their feelings without minimizing."
             },
             {
               id: 'poor',
@@ -164,17 +166,18 @@ const EmotionalRepairPractice = () => {
         {
           step: 'admit',
           options: [
-            {
-              id: 'good',
-              text: "I'm sorry I snapped at you this morning. I was stressed about being late, but that doesn't make it okay for me to treat you that way. I shouldn't have grabbed your things or spoken to you that harshly.",
-              score: 25,
-              explanation: "Clear admission of fault, takes responsibility for specific actions."
-            },
+            
             {
               id: 'partial',
               text: "I'm sorry I got upset. Mornings are just really stressful when we're running late.",
               score: 10,
               explanation: "Admits some fault but focuses on circumstances rather than taking full responsibility."
+            },
+            {
+              id: 'good',
+              text: "I'm sorry I snapped at you this morning. I was stressed about being late, but that doesn't make it okay for me to treat you that way.",
+              score: 25,
+              explanation: "Clear admission of fault, takes responsibility for specific actions."
             },
             {
               id: 'poor',
@@ -210,12 +213,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'hug',
           options: [
-            {
-              id: 'good',
-              text: "Can we have a hug? You're not a problem, and you're not disappointing me. I love you, and I want you to feel safe and calm, especially in the mornings.",
-              score: 25,
-              explanation: "Offers comfort and directly addresses their fears and insecurities."
-            },
+            
             {
               id: 'partial',
               text: "Come here, let's hug. It's okay, we're fine now.",
@@ -227,23 +225,30 @@ const EmotionalRepairPractice = () => {
               text: "Alright, I said I'm sorry. Can we just move on?",
               score: 0,
               explanation: "No genuine comfort or reassurance offered."
-            }
+            },
+            {
+              id: 'good',
+              text: "Can we have a hug? You're not a problem, and you're not disappointing me.",
+              score: 25,
+              explanation: "Offers comfort and directly addresses their fears and insecurities."
+            },
           ]
         },
         {
           step: 'heal',
           options: [
-            {
-              id: 'good',
-              text: "Let's work together to make mornings better. I'll try to stay calmer, and we can find ways to help things go smoother. Maybe we can prepare more the night before. What ideas do you have?",
-              score: 25,
-              explanation: "Creates collaborative solution, shows commitment to change, involves child."
-            },
+           
             {
               id: 'partial',
               text: "I'll try to be more patient. Maybe we should both wake up a bit earlier so we're not rushed.",
               score: 10,
               explanation: "Acknowledges need for change but doesn't fully involve child in solution."
+            },
+             {
+              id: 'good',
+              text: "Let's work together to make mornings better. I'll try to stay calmer, and we can find ways to help things go smoother.",
+              score: 25,
+              explanation: "Creates collaborative solution, shows commitment to change, involves child."
             },
             {
               id: 'poor',
@@ -266,12 +271,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'admit',
           options: [
-            {
-              id: 'good',
-              text: "I'm sorry I yelled and sent you to your rooms without listening. I was overwhelmed and frustrated, but that's not an excuse. I should have helped you work through the problem instead of just reacting angrily.",
-              score: 25,
-              explanation: "Takes full responsibility, admits specific wrong actions, doesn't make excuses."
-            },
+            
             {
               id: 'partial',
               text: "I'm sorry I got so upset. I was trying to work and the fighting was just too much. I should have handled it better.",
@@ -283,7 +283,13 @@ const EmotionalRepairPractice = () => {
               text: "I'm sorry, but you two were fighting and being loud. I had to do something.",
               score: 0,
               explanation: "Justifies actions rather than taking responsibility."
-            }
+            },
+            {
+              id: 'good',
+              text: "I'm sorry I yelled and sent you to your rooms without listening. I was overwhelmed and frustrated, but that's not an excuse.",
+              score: 25,
+              explanation: "Takes full responsibility, admits specific wrong actions, doesn't make excuses."
+            },
           ]
         },
         {
@@ -291,7 +297,7 @@ const EmotionalRepairPractice = () => {
           options: [
             {
               id: 'good',
-              text: "I know it must have felt really unfair to both of you when I didn't listen to your side of things. I can see you're both upset—one of you is crying and one is angry—and I'm sorry I made you feel unheard and scared.",
+              text: "I know it must have felt really unfair to both of you when I didn't listen to your side of things. ",
               score: 25,
               explanation: "Deeply acknowledges each child's experience and validates their feelings."
             },
@@ -335,12 +341,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'heal',
           options: [
-            {
-              id: 'good',
-              text: "I want to do better. Next time there's a conflict, I'll take a moment to calm down, then I'll listen to both of you and help you work through it together. No more yelling or sending you away. Let's practice this—can you tell me what happened earlier?",
-              score: 25,
-              explanation: "Creates specific plan, commits to change, offers to repair the original situation."
-            },
+            
             {
               id: 'partial',
               text: "I'll try to listen better next time and not react so quickly. We all need to work on handling conflicts better.",
@@ -352,7 +353,13 @@ const EmotionalRepairPractice = () => {
               text: "Just try not to fight so much, and I'll try not to get so frustrated. Deal?",
               score: 0,
               explanation: "Shifts responsibility to children, doesn't create meaningful change."
-            }
+            },
+            {
+              id: 'good',
+              text: "I want to do better. Next time there's a conflict, I'll take a moment to calm down, then I'll listen to both of you and help you work through it together. No more yelling or sending you away. Let's practice this—can you tell me what happened earlier?",
+              score: 25,
+              explanation: "Creates specific plan, commits to change, offers to repair the original situation."
+            },
           ]
         }
       ],
@@ -391,12 +398,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'acknowledge',
           options: [
-            {
-              id: 'good',
-              text: "I can see you're still feeling hurt from what I said. Those words must have made you feel like you're a problem or that you're always disappointing me. I can see you've been sad and distant today, and I'm so sorry I made you feel that way.",
-              score: 25,
-              explanation: "Deeply acknowledges their emotional state and validates their experience."
-            },
+            
             {
               id: 'partial',
               text: "I know you're probably still upset about last night. I shouldn't have said those things.",
@@ -408,23 +410,30 @@ const EmotionalRepairPractice = () => {
               text: "Come on, you know I didn't mean it. Let's just forget about it.",
               score: 0,
               explanation: "Dismisses their feelings and wants to move on without processing."
-            }
+            },
+            {
+              id: 'good',
+              text: "I can see you're still feeling hurt from what I said. Those words must have made you feel like you're a problem or that you're always disappointing me. I can see you've been sad and distant today, and I'm so sorry I made you feel that way.",
+              score: 25,
+              explanation: "Deeply acknowledges their emotional state and validates their experience."
+            },
           ]
         },
         {
           step: 'hug',
           options: [
-            {
-              id: 'good',
-              text: "Can I give you a hug? You're not difficult, and you're not a problem. I love you exactly as you are. I want you to know that your feelings matter, and I'm sorry I made you feel like they don't.",
-              score: 25,
-              explanation: "Offers comfort and directly counters the harmful words, validates their worth."
-            },
+            
             {
               id: 'partial',
               text: "Come here, let's hug. I'm sorry about last night. It's okay now.",
               score: 10,
               explanation: "Offers comfort but doesn't fully address the specific hurt."
+            },
+            {
+              id: 'good',
+              text: "Can I give you a hug? You're not difficult, and you're not a problem. I love you exactly as you are. I want you to know that your feelings matter, and I'm sorry I made you feel like they don't.",
+              score: 25,
+              explanation: "Offers comfort and directly counters the harmful words, validates their worth."
             },
             {
               id: 'poor',
@@ -437,12 +446,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'heal',
           options: [
-            {
-              id: 'good',
-              text: "I want to understand what makes bedtime hard for you and find ways to make it better. Maybe we can create a calmer bedtime routine together. And I'll work on staying patient and kind, even when I'm tired. What would help you feel better at bedtime?",
-              score: 25,
-              explanation: "Shows commitment to understanding and change, involves child in creating solutions."
-            },
+            
             {
               id: 'partial',
               text: "I'll try to be more patient at bedtime. Let's both work on making bedtime smoother.",
@@ -454,7 +458,13 @@ const EmotionalRepairPractice = () => {
               text: "Just try to be better at bedtime, and I'll try not to get so frustrated.",
               score: 0,
               explanation: "Puts responsibility on child, doesn't create meaningful change plan."
-            }
+            },
+            {
+              id: 'good',
+              text: "I want to understand what makes bedtime hard for you and find ways to make it better. Maybe we can create a calmer bedtime routine together. ",
+              score: 25,
+              explanation: "Shows commitment to understanding and change, involves child in creating solutions."
+            },
           ]
         }
       ],
@@ -470,12 +480,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'admit',
           options: [
-            {
-              id: 'good',
-              text: "I'm sorry I dismissed your feelings earlier when you tried to tell me what was bothering you. I was distracted and busy, but that's not an excuse. Your feelings matter, and I should have listened. I was wrong to say it wasn't a big deal.",
-              score: 25,
-              explanation: "Takes full responsibility, admits dismissing their feelings, doesn't make excuses."
-            },
+            
             {
               id: 'partial',
               text: "I'm sorry I wasn't really listening earlier. I was just really busy with something else.",
@@ -487,23 +492,30 @@ const EmotionalRepairPractice = () => {
               text: "I'm sorry, but you know I was busy. You can't expect me to drop everything all the time.",
               score: 0,
               explanation: "Justifies the dismissal rather than taking responsibility."
-            }
+            },
+            {
+              id: 'good',
+              text: "I'm sorry I dismissed your feelings earlier when you tried to tell me what was bothering you.",
+              score: 25,
+              explanation: "Takes full responsibility, admits dismissing their feelings, doesn't make excuses."
+            },
           ]
         },
         {
           step: 'acknowledge',
           options: [
-            {
-              id: 'good',
-              text: "I can see you're hurt and withdrawn. When I dismissed your feelings, I must have made you feel like what you feel doesn't matter to me, like you're not important. That must have felt really lonely and hurtful, and I'm so sorry.",
-              score: 25,
-              explanation: "Deeply acknowledges their emotional experience and validates their hurt."
-            },
+            
             {
               id: 'partial',
               text: "I know you're probably still upset about earlier. I should have listened better.",
               score: 10,
               explanation: "Acknowledges some feeling but is less specific about the emotional impact."
+            },
+            {
+              id: 'good',
+              text: "I can see you're hurt and withdrawn. When I dismissed your feelings, I must have made you feel like what you feel doesn't matter to me, like you're not important. That must have felt really lonely and hurtful, and I'm so sorry.",
+              score: 25,
+              explanation: "Deeply acknowledges their emotional experience and validates their hurt."
             },
             {
               id: 'poor',
@@ -539,12 +551,7 @@ const EmotionalRepairPractice = () => {
         {
           step: 'heal',
           options: [
-            {
-              id: 'good',
-              text: "I want to do better. When you need to talk, I'll stop what I'm doing and really listen. Your feelings are always important, even when I'm busy. Can you tell me now what you were trying to share earlier? I'm ready to listen.",
-              score: 25,
-              explanation: "Creates commitment to change, validates ongoing importance of feelings, offers to repair by listening now."
-            },
+            
             {
               id: 'partial',
               text: "I'll try to listen better when you want to talk. I know your feelings matter.",
@@ -556,7 +563,13 @@ const EmotionalRepairPractice = () => {
               text: "Just try to tell me when I'm not so busy next time, okay?",
               score: 0,
               explanation: "Shifts responsibility to child rather than taking ownership."
-            }
+            },
+            {
+              id: 'good',
+              text: "I want to do better. When you need to talk, I'll stop what I'm doing and really listen. Your feelings are always important, even when I'm busy. Can you tell me now what you were trying to share earlier? I'm ready to listen.",
+              score: 25,
+              explanation: "Creates commitment to change, validates ongoing importance of feelings, offers to repair by listening now."
+            },
           ]
         }
       ],
@@ -761,9 +774,9 @@ const EmotionalRepairPractice = () => {
                             onClick={() => handleStepChoice(stepData.step, option.id)}
                             className={`p-4 rounded-lg border-2 text-left transition-all ${
                               option.id === 'good'
-                                ? 'border-green-300 bg-green-50 hover:bg-green-100 hover:shadow-md'
+                                ? 'border-red-300 bg-red-50 hover:bg-red-100 hover:shadow-md'
                                 : option.id === 'partial'
-                                ? 'border-yellow-300 bg-yellow-50 hover:bg-yellow-100 hover:shadow-md'
+                                ? 'border-red-300 bg-red-50 hover:bg-red-100 hover:shadow-md'
                                 : 'border-red-300 bg-red-50 hover:bg-red-100 hover:shadow-md'
                             }`}
                           >
@@ -774,11 +787,11 @@ const EmotionalRepairPractice = () => {
                                 option.id === 'partial' ? 'text-yellow-700' :
                                 'text-red-700'
                               }`}>
-                                {option.id === 'good' ? '✓ Strong' :
-                                 option.id === 'partial' ? '○ Moderate' :
-                                 '✗ Weak'}
+                                {option.id === 'good' ? '' :
+                                 option.id === 'partial' ? '' :
+                                 ''}
                               </span>
-                              <span className="text-xs text-gray-600">+{option.score} pts</span>
+                              
                             </div>
                           </motion.button>
                         ))}

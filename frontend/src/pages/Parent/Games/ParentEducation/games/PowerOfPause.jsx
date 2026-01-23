@@ -54,11 +54,7 @@ const PowerOfPause = () => {
       reflection: {
         question: "What changed when you paused?",
         options: [
-          {
-            id: 'control',
-            text: "Pausing gave you control over your reaction, allowing a thoughtful response instead of an emotional outburst.",
-            isCorrect: true
-          },
+          
           {
             id: 'time',
             text: "Nothing really changed—the outcome would have been the same either way.",
@@ -68,7 +64,12 @@ const PowerOfPause = () => {
             id: 'avoid',
             text: "Pausing helped you avoid the situation entirely.",
             isCorrect: false
-          }
+          },
+          {
+            id: 'control',
+            text: "Pausing gave you control over your reaction, allowing a thoughtful response instead of an emotional outburst.",
+            isCorrect: true
+          },
         ],
         insight: "The pause button—your deep breath—is your power to choose response over reaction. In that 5 seconds, you transform from reactive parent to responsive parent."
       },
@@ -97,15 +98,16 @@ const PowerOfPause = () => {
       reflection: {
         question: "How did pausing change the energy?",
         options: [
-          {
-            id: 'energy',
-            text: "Pausing shifted the energy from punishment to learning, from shame to responsibility, from fear to safety.",
-            isCorrect: true
-          },
+          
           {
             id: 'delay',
             text: "Pausing just delayed the same negative outcome.",
             isCorrect: false
+          },
+          {
+            id: 'energy',
+            text: "Pausing shifted the energy from punishment to learning, from shame to responsibility, from fear to safety.",
+            isCorrect: true
           },
           {
             id: 'ignore',
@@ -183,11 +185,7 @@ const PowerOfPause = () => {
       reflection: {
         question: "How does pausing help with defiance?",
         options: [
-          {
-            id: 'avoid',
-            text: "Pausing helps you avoid power struggles by responding thoughtfully instead of reacting defensively, maintaining authority through calm.",
-            isCorrect: true
-          },
+          
           {
             id: 'weak',
             text: "Pausing makes you look weak and loses your authority.",
@@ -197,7 +195,12 @@ const PowerOfPause = () => {
             id: 'ignore',
             text: "Pausing means you let your child get away with defiance.",
             isCorrect: false
-          }
+          },
+          {
+            id: 'avoid',
+            text: "Pausing helps you avoid power struggles by responding thoughtfully instead of reacting defensively, maintaining authority through calm.",
+            isCorrect: true
+          },
         ],
         insight: "True authority comes from calm, not control. Your pause shows strength, not weakness. You maintain your boundaries while preserving connection. That's real power."
       },

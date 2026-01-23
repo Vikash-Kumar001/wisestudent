@@ -29,14 +29,14 @@ const SharedMealChallenge = () => {
     { id: 'dinner', label: 'Dinner', icon: '🌙', time: 'Evening', lucideIcon: Moon, color: 'from-indigo-500 to-purple-600', bgColor: 'bg-indigo-50', borderColor: 'border-indigo-300' }
   ];
 
-  // 3 days of challenge
+  // 5 days of challenge
   const challengeDays = [
     {
       id: 1,
       dayNumber: 1,
       title: "Day 1: Starting the Challenge",
       description: "Begin your shared meal challenge. Log at least one shared meal today with a gratitude moment.",
-      context: "Today marks the start of your 3-day shared meal challenge. Focus on being present during at least one meal together.",
+      context: "Today marks the start of your 5-day shared meal challenge. Focus on being present during at least one meal together.",
       parentTip: "Keep mealtime screen-free; food and laughter recharge everyone. Even one shared meal a day makes a difference.",
       goal: "Log at least 1 shared meal"
     },
@@ -52,8 +52,26 @@ const SharedMealChallenge = () => {
     {
       id: 3,
       dayNumber: 3,
-      title: "Day 3: Reflecting on Connection",
-      description: "Complete your 3-day challenge. Log your final shared meal and prepare for reflection.",
+      title: "Day 3: Strengthening Connections",
+      description: "Continue strengthening your shared meal practice. Aim for at least one shared meal with gratitude.",
+      context: "Halfway through the challenge! Notice how shared meals are becoming a stronger part of your routine.",
+      parentTip: "Remember, shared meals don't have to be elaborate. Simple, intentional time together builds strong family bonds.",
+      goal: "Log at least 1 shared meal"
+    },
+    {
+      id: 4,
+      dayNumber: 4,
+      title: "Day 4: Maintaining Momentum",
+      description: "Maintain your shared meal momentum. Aim for at least one shared meal with gratitude.",
+      context: "You're approaching the end of your challenge. See how your family mealtime feels different now compared to day one.",
+      parentTip: "As habits form, notice how mealtime becomes a natural place for connection and sharing.",
+      goal: "Log at least 1 shared meal"
+    },
+    {
+      id: 5,
+      dayNumber: 5,
+      title: "Day 5: Reflecting on Connection",
+      description: "Complete your 5-day challenge. Log your final shared meal and prepare for reflection.",
       context: "This is your final day of the challenge. Reflect on what you've noticed about connection during shared meals.",
       parentTip: "After this challenge, notice how shared meals feel different when they're intentional. Food and laughter truly recharge everyone.",
       goal: "Log at least 1 shared meal"
@@ -98,7 +116,7 @@ const SharedMealChallenge = () => {
       if (currentDay < challengeDays.length - 1) {
         setCurrentDay(currentDay + 1);
       } else {
-        // All 3 days complete - show reflection
+        // All 5 days complete - show reflection
         setShowReflection(true);
       }
     }
@@ -121,11 +139,11 @@ const SharedMealChallenge = () => {
       });
     });
 
-    let reflection = `Over the past 3 days, you logged ${totalShared} shared meal${totalShared !== 1 ? 's' : ''} with your family.\n\n`;
+    let reflection = `Over the past 5 days, you logged ${totalShared} shared meal${totalShared !== 1 ? 's' : ''} with your family.\n\n`;
     
-    if (totalShared >= 3) {
+    if (totalShared >= 5) {
       reflection += "Excellent! You've consistently prioritized shared meals and family connection.\n\n";
-    } else if (totalShared >= 2) {
+    } else if (totalShared >= 3) {
       reflection += "Great effort! You've made shared meals a priority. Consider building on this practice.\n\n";
     } else {
       reflection += "You've started the practice of shared meals. Every shared meal creates connection—build on this foundation.\n\n";
@@ -155,8 +173,6 @@ const SharedMealChallenge = () => {
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentLevel={totalLevels}
-        allAnswersCorrect={score >= 2} // At least 2 out of 3 days completed
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -167,7 +183,7 @@ const SharedMealChallenge = () => {
             <div className="text-6xl mb-4">🍽️</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Shared Meal Challenge Complete!</h2>
             <p className="text-lg text-gray-600 mb-6">
-              You've completed 3 days of shared meal practice. Remember: keep mealtime screen-free; food and laughter recharge everyone.
+              You've completed 5 days of shared meal practice. Remember: keep mealtime screen-free; food and laughter recharge everyone.
             </p>
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-2 border-orange-200">
               <p className="text-gray-700 font-medium">
@@ -191,7 +207,7 @@ const SharedMealChallenge = () => {
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentLevel={totalLevels}
+        currentLevel={score}
       >
         <div className="w-full max-w-5xl mx-auto px-4 py-6">
           <motion.div
@@ -200,14 +216,14 @@ const SharedMealChallenge = () => {
             className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
           >
             <div className="mb-6">
-              <h3 className="text-3xl font-bold text-gray-800 mb-3 text-center">3-Day Challenge Reflection</h3>
+              <h3 className="text-3xl font-bold text-gray-800 mb-3 text-center">5-Day Challenge Reflection</h3>
               <p className="text-center text-gray-600 mb-6">
                 Reflect on your shared meal experience
               </p>
             </div>
 
             {/* Summary Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
               {challengeDays.map((day, index) => {
                 const sharedCount = getSharedMealsCount(index);
                 return (
@@ -301,7 +317,7 @@ const SharedMealChallenge = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Shared Meal Challenge"}
-      subtitle={`Day ${currentDay + 1} of 3: ${currentDayData.title}`}
+      subtitle={`Day ${currentDay + 1} of 5: ${currentDayData.title}`}
       showGameOver={false}
       score={score}
       gameId={gameId}
@@ -329,6 +345,9 @@ const SharedMealChallenge = () => {
           <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-amber-800 font-medium">
               <strong>📋 Instructions:</strong> Log your meals below. Mark which meals were shared with family, and add a gratitude moment ("One good thing about today..."). Goal: <strong>{currentDayData.goal}</strong>
+            </p>
+            <p className="text-xs text-amber-700 mt-2">
+              <strong>Progress:</strong> Day {currentDay + 1} of 5 • Score: {score}/5
             </p>
           </div>
 
@@ -415,9 +434,9 @@ const SharedMealChallenge = () => {
               <div className="text-3xl font-bold text-indigo-600">{sharedCount}</div>
             </div>
 
-            {/* 3-Day Overview */}
+            {/* 5-Day Overview */}
             <div className="bg-white rounded-lg p-4 border border-indigo-100">
-              <p className="text-sm font-semibold text-gray-700 mb-2">3-Day Challenge Progress:</p>
+              <p className="text-sm font-semibold text-gray-700 mb-2">5-Day Challenge Progress:</p>
               <div className="flex gap-2">
                 {challengeDays.map((day, index) => {
                   const daySharedCount = getSharedMealsCount(index);
@@ -440,7 +459,7 @@ const SharedMealChallenge = () => {
                 })}
               </div>
               <p className="text-xs text-gray-600 mt-2 text-center">
-                Total shared meals: {getTotalSharedMeals()} / 3 days
+                Total shared meals: {getTotalSharedMeals()} / 5 days
               </p>
             </div>
 

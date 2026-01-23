@@ -42,7 +42,7 @@ const FamilyTimePlanner = () => {
       title: "Busy Work Week",
       description: "Plan family time around a demanding work schedule. Schedule at least 3 quality family moments this week.",
       context: "You have meetings, deadlines, and work commitments throughout the week. Finding time for family feels challenging, but it's crucial.",
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      days: ['Monday', 'Wednesday', 'Friday'],
       parentTip: "Protect these times like meetings—nothing is more productive than presence. Even 30 minutes of planned family time creates connection that hours of distracted time cannot.",
       challenge: "Plan around work commitments while ensuring family moments happen regularly."
     },
@@ -51,7 +51,7 @@ const FamilyTimePlanner = () => {
       title: "School Activities Week",
       description: "Balance your child's school activities with intentional family time. Schedule meaningful moments.",
       context: "Your child has sports practice, homework, and school projects. It's easy to let family time slip in a busy schedule.",
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      days: ['Tuesday', 'Thursday', 'Saturday'],
       parentTip: "Schedule family time first, then work around it. When it's in the calendar, it's protected. Even 20 minutes of undivided attention beats a whole evening of being in the same room but distracted.",
       challenge: "Create family time despite a packed schedule."
     },
@@ -60,7 +60,7 @@ const FamilyTimePlanner = () => {
       title: "Holiday Preparation Week",
       description: "Plan family moments during a busy holiday preparation week. Don't let logistics overshadow connection.",
       context: "You're preparing for a holiday, shopping, cooking, and organizing. It's easy to get caught up in tasks and miss family moments.",
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      days: ['Monday', 'Wednesday', 'Sunday'],
       parentTip: "Include children in holiday preparations as family time. Baking together, decorating together—these are the moments children remember, not the perfect decorations.",
       challenge: "Transform holiday tasks into family connection time."
     },
@@ -69,7 +69,7 @@ const FamilyTimePlanner = () => {
       title: "Weekend Planning",
       description: "Plan a weekend full of intentional family moments. Make the weekend count.",
       context: "Weekends can slip away with chores, errands, and recovery from the week. Plan specific family activities.",
-      days: ['Saturday', 'Sunday'],
+      days: ['Saturday', 'Sunday','Monday'],
       parentTip: "Weekend planning prevents the 'Where did the weekend go?' feeling. Even one planned family outing plus regular meals together creates lasting memories.",
       challenge: "Maximize weekend time for family connection."
     },
@@ -78,7 +78,7 @@ const FamilyTimePlanner = () => {
       title: "Maintaining Consistency",
       description: "Create a sustainable weekly family time plan. Build habits that last.",
       context: "This is about creating a rhythm—regular family times that become part of your routine, not special occasions.",
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      days: ['Tuesday', 'Thursday', 'Sunday'],
       parentTip: "Consistency beats perfection. Three 30-minute family times per week are better than one perfect day. Protect these times like work meetings—they're non-negotiable.",
       challenge: "Build a sustainable pattern of family connection."
     }
@@ -153,12 +153,8 @@ const FamilyTimePlanner = () => {
     const total = getTotalPlannedTimes();
     if (total >= 3) {
       setPlanSaved(true);
-      // Award points based on number of planned times
-      if (total >= 5) {
-        setScore(prev => prev + 1);
-      } else if (total >= 3) {
-        setScore(prev => prev + 0.5);
-      }
+      // Award 1 point for completing this scenario
+      setScore(prev => prev + 1);
     }
   };
 
@@ -193,7 +189,7 @@ const FamilyTimePlanner = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= totalLevels * 0.8} // At least 80% of weeks well-planned
+        allAnswersCorrect={score >= totalLevels} // Complete all scenarios
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
