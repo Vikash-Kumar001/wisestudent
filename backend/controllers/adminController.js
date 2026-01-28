@@ -1,8 +1,238 @@
 import mongoose from 'mongoose';
 import Organization from '../models/Organization.js';
 import User from '../models/User.js';
+import UserSubscription from '../models/UserSubscription.js';
+import Subscription from '../models/Subscription.js';
 import ActivityLog from '../models/ActivityLog.js';
 import Company from '../models/Company.js';
+import SchoolClass from '../models/School/SchoolClass.js';
+import SchoolStudent from '../models/School/SchoolStudent.js';
+
+const PLAN_FEATURES = {
+  free: {
+    fullAccess: false,
+    parentDashboard: false,
+    advancedAnalytics: false,
+    certificates: false,
+    wiseClubAccess: false,
+    inavoraAccess: false,
+    gamesPerPillar: 5,
+    totalGames: 50,
+  },
+  student_premium: {
+    fullAccess: true,
+    parentDashboard: false,
+    advancedAnalytics: true,
+    certificates: true,
+    wiseClubAccess: true,
+    inavoraAccess: true,
+    gamesPerPillar: -1,
+    totalGames: 2200,
+  },
+  student_parent_premium_pro: {
+    fullAccess: true,
+    parentDashboard: true,
+    advancedAnalytics: true,
+    certificates: true,
+    wiseClubAccess: true,
+    inavoraAccess: true,
+    gamesPerPillar: -1,
+    totalGames: 2200,
+  },
+  educational_institutions_premium: {
+    fullAccess: true,
+    parentDashboard: true,
+    advancedAnalytics: true,
+    certificates: true,
+    wiseClubAccess: true,
+    inavoraAccess: true,
+    gamesPerPillar: -1,
+    totalGames: 2200,
+  },
+};
+
+const escapeRegExp = (value = "") =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const dedupeAddressString = (value) => {
+  if (!value) return "";
+  const segments = value
+    .split(",")
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+  const seen = new Set();
+  const deduped = [];
+  for (const segment of segments) {
+    if (!seen.has(segment)) {
+      seen.add(segment);
+      deduped.push(segment);
+    }
+  }
+  return deduped.join(", ");
+};
+
+const buildAddressString = (address) => {
+  if (!address) return "";
+  if (typeof address === "string") {
+    return address;
+  }
+
+  if (
+    address.street &&
+    (address.street.includes(",") || address.street.length > 50)
+  ) {
+    return dedupeAddressString(address.street);
+  }
+
+  const parts = [
+    address.street,
+    address.city,
+    address.state,
+    address.pincode,
+    address.country,
+  ].filter(Boolean);
+
+  return dedupeAddressString(parts.join(", "));
+};
+
+const PLAN_LABELS = {
+  free: "Free Plan",
+  student_premium: "Student Premium",
+  student_parent_premium_pro: "Student + Parent Premium Pro",
+  educational_institutions_premium: "School Plan",
+};
+
+const PLAN_METADATA = {
+  free: {
+    planType: "free",
+    displayName: "Free Plan",
+    amount: 0,
+    features: PLAN_FEATURES.free,
+  },
+  student_premium: {
+    planType: "student_premium",
+    displayName: "Student Premium",
+    amount: 0,
+    features: PLAN_FEATURES.student_premium,
+  },
+  student_parent_premium_pro: {
+    planType: "student_parent_premium_pro",
+    displayName: "Student + Parent Premium Pro",
+    amount: 0,
+    features: PLAN_FEATURES.student_parent_premium_pro,
+  },
+  educational_institutions_premium: {
+    planType: "educational_institutions_premium",
+    displayName: "Educational Institutions Premium Plan",
+    amount: 0,
+    features: PLAN_FEATURES.educational_institutions_premium,
+  },
+};
+
+const getActiveSchoolSubscription = async (organization) => {
+  if (!organization) return null;
+  const filters = [];
+  if (organization._id) filters.push({ orgId: organization._id });
+  if (organization.tenantId) filters.push({ tenantId: organization.tenantId });
+  if (!filters.length) return null;
+
+  const subscription = await Subscription.findOne({
+    $or: filters,
+    status: "active",
+  })
+    .sort({ updatedAt: -1, startDate: -1 })
+    .lean();
+  return subscription;
+};
+
+const getCompanyAcademicLimit = (company, roleType) => {
+  if (!company?.academicInfo) return null;
+  if (roleType === "student") {
+    const totalStudents = Number(company.academicInfo.totalStudents);
+    if (Number.isFinite(totalStudents) && totalStudents > 0) {
+      return totalStudents;
+    }
+  }
+  if (roleType === "teacher") {
+    const totalTeachers = Number(company.academicInfo.totalTeachers);
+    if (Number.isFinite(totalTeachers) && totalTeachers > 0) {
+      return totalTeachers;
+    }
+  }
+  return null;
+};
+
+const getSchoolCapacityLimit = (organization, subscription, roleType) => {
+  const limitKeyMap = {
+    student: "maxStudents",
+    teacher: "maxTeachers",
+  };
+  const key = limitKeyMap[roleType];
+  if (!key) return null;
+
+  if (
+    subscription &&
+    subscription.limits &&
+    typeof subscription.limits[key] === "number" &&
+    subscription.limits[key] > 0
+  ) {
+    return subscription.limits[key];
+  }
+
+  if (
+    roleType === "student" &&
+    organization &&
+    typeof organization.maxUsers === "number" &&
+    organization.maxUsers > 0
+  ) {
+    return organization.maxUsers;
+  }
+
+  if (
+    roleType === "teacher" &&
+    organization &&
+    typeof organization.maxTeachers === "number" &&
+    organization.maxTeachers > 0
+  ) {
+    return organization.maxTeachers;
+  }
+
+  return null;
+};
+
+const ensureSchoolCapacity = async (organization, roleType, options = {}) => {
+  if (!organization || !organization._id) return;
+
+  const company =
+    options.company ||
+    (await Company.findOne({ organizations: organization._id }).lean());
+
+  const subscription =
+    options.subscription || (await getActiveSchoolSubscription(organization));
+  const planLimit = getSchoolCapacityLimit(organization, subscription, roleType);
+  const companyLimit = getCompanyAcademicLimit(company, roleType);
+  const limit = companyLimit ?? planLimit;
+  if (!limit) return;
+
+  const roleLookup = roleType === "student" ? "school_student" : "school_teacher";
+  const currentCount = await User.countDocuments({
+    orgId: organization._id,
+    role: roleLookup,
+  });
+
+  const userAlreadyAssigned =
+    options.user &&
+    options.user.orgId?.toString() === organization._id.toString() &&
+    options.user.role === roleLookup;
+
+  if (userAlreadyAssigned) return;
+
+  if (currentCount >= limit) {
+    throw new Error(
+      `Total ${roleType} limit reached for ${organization.name || "the school"}`
+    );
+  }
+};
 
 // Get schools onboarded/active per region
 export const getSchoolsByRegion = async (req, res) => {
@@ -755,36 +985,956 @@ export const getPlatformTelemetry = async (req, res) => {
   }
 };
 
-// 4. Marketplace Management
-export const getMarketplaceManagement = async (req, res) => {
-  try {
-    // Simulate marketplace data (in production, this would query a marketplace collection)
-    const modules = [
-      { id: '1', name: 'AI Math Tutor', type: 'inavora', status: 'active', downloads: 1250, rating: 4.8 },
-      { id: '2', name: 'Science Lab Simulator', type: 'inavora', status: 'pending', downloads: 0, rating: 0 },
-      { id: '3', name: 'Parent-Teacher Communication', type: 'third-party', status: 'pending', downloads: 0, rating: 0 },
-      { id: '4', name: 'Attendance Tracker Pro', type: 'third-party', status: 'approved', downloads: 890, rating: 4.5 },
-      { id: '5', name: 'Financial Literacy Game', type: 'inavora', status: 'active', downloads: 2150, rating: 4.9 }
-    ];
+const ALLOWED_ACCOUNT_ROLES = [
+  "admin",
+  "student",
+  "parent",
+  "csr",
+  "seller",
+  "school_admin",
+  "school_teacher",
+  "school_student",
+  "school_parent",
+  "school_accountant",
+  "school_librarian",
+  "school_transport_staff",
+  "teacher",
+];
 
-    const pendingCount = modules.filter(m => m.status === 'pending').length;
-    const totalDownloads = modules.reduce((sum, m) => sum + m.downloads, 0);
+export const getAdminAccounts = async (req, res) => {
+  try {
+    const categoryRaw = (req.query.category || "all").toString().toLowerCase();
+    const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+    const perPage = Math.min(200, Math.max(10, parseInt(req.query.perPage, 10) || 50));
+    const searchTerm = (req.query.search || "").trim();
+
+    const query = {};
+    switch (categoryRaw) {
+      case "schools":
+        query.role = "school_admin";
+        break;
+      case "students":
+        query.role = { $in: ["student", "school_student"] };
+        break;
+      case "teachers":
+        query.role = { $in: ["school_teacher", "teacher"] };
+        break;
+      case "parents":
+        query.role = "parent";
+        break;
+      case "csr":
+        query.role = "csr";
+        break;
+      case "all":
+      default:
+        query.role = { $in: ALLOWED_ACCOUNT_ROLES };
+        break;
+    }
+
+    if (!query.role && categoryRaw === "all") {
+      query.role = { $in: ALLOWED_ACCOUNT_ROLES };
+    }
+
+    if (searchTerm) {
+      const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+      query.$or = [
+        { fullName: regex },
+        { email: regex },
+        { phone: regex },
+        { name: regex },
+      ];
+    }
+
+      const [total, accounts] = await Promise.all([
+      User.countDocuments(query),
+      User.find(query)
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * perPage)
+        .limit(perPage)
+        .select("fullName name email role phone isVerified createdAt orgId tenantId linkedIds")
+        .populate("orgId", "name tenantId subscriptionId")
+        .lean(),
+      ]);
+
+    const accountIds = accounts.map(account => account._id).filter(Boolean);
+    const subscriptionLookup = {};
+    if (accountIds.length > 0) {
+      const subscriptionDocs = await UserSubscription.aggregate([
+        { $match: { userId: { $in: accountIds } } },
+        { $sort: { userId: 1, startDate: -1, createdAt: -1 } },
+        { $group: { _id: "$userId", doc: { $first: "$$ROOT" } } },
+      ]);
+
+      for (const record of subscriptionDocs) {
+        if (!record?._id) continue;
+        subscriptionLookup[record._id.toString()] = record.doc;
+      }
+    }
+
+    const orgIds = accounts
+      .map(account => account.orgId?._id)
+      .filter(Boolean)
+      .map(id => id.toString());
+    const orgObjectIds = orgIds.length
+      ? orgIds.map(id => new mongoose.Types.ObjectId(id))
+      : [];
+    const tenantIds = accounts
+      .map(account => account.tenantId)
+      .filter(Boolean);
+
+    const organizationSubscriptionQuery = [];
+    if (orgObjectIds.length > 0) {
+      organizationSubscriptionQuery.push({ orgId: { $in: orgObjectIds } });
+    }
+    if (tenantIds.length > 0) {
+      organizationSubscriptionQuery.push({ tenantId: { $in: tenantIds } });
+    }
+
+    const organizationSubscriptions = organizationSubscriptionQuery.length > 0
+      ? await Subscription.find({ $or: organizationSubscriptionQuery })
+          .sort({ updatedAt: -1, startDate: -1 })
+          .lean()
+      : [];
+
+    const organizationSubscriptionLookup = {
+      byOrgId: {},
+      byTenantId: {},
+    };
+
+    const parentChildIds = new Set();
+    const parentToChildMap = new Map();
+    accounts.forEach((account) => {
+      if (account.role === "parent" && Array.isArray(account.linkedIds?.childIds)) {
+        const childIds = account.linkedIds.childIds
+          .filter(Boolean)
+          .map((childId) => childId.toString());
+        if (childIds.length) {
+          parentToChildMap.set(account._id.toString(), childIds);
+          childIds.forEach((childId) => parentChildIds.add(childId));
+        }
+      }
+    });
+
+    const childLookup = new Map();
+    if (parentChildIds.size > 0) {
+      const childUsers = await User.find({ _id: { $in: Array.from(parentChildIds) } })
+        .select("role orgId tenantId")
+        .lean();
+      childUsers.forEach((child) => {
+        if (child?._id) {
+          childLookup.set(child._id.toString(), child);
+        }
+      });
+    }
+
+    for (const sub of organizationSubscriptions) {
+      if (sub.orgId) {
+        const key = sub.orgId.toString();
+        if (!organizationSubscriptionLookup.byOrgId[key]) {
+          organizationSubscriptionLookup.byOrgId[key] = sub;
+        }
+      }
+      if (sub.tenantId) {
+        const key = sub.tenantId.toString();
+        if (!organizationSubscriptionLookup.byTenantId[key]) {
+          organizationSubscriptionLookup.byTenantId[key] = sub;
+        }
+      }
+    }
+
+    const getPlanLabelFromSubscription = (subscription) => {
+      if (!subscription) return PLAN_LABELS.free;
+      const derived = subscription.planName
+        || PLAN_LABELS[subscription.planType]
+        || PLAN_LABELS.free;
+      return derived;
+    };
+
+    const getPlanInfoFromOrganizationSubscription = (account) => {
+      const orgKey = account.orgId?._id?.toString();
+      const tenantKey = account.tenantId;
+      let orgSub = null;
+      if (orgKey && organizationSubscriptionLookup.byOrgId[orgKey]) {
+        orgSub = organizationSubscriptionLookup.byOrgId[orgKey];
+      } else if (tenantKey && organizationSubscriptionLookup.byTenantId[tenantKey]) {
+        orgSub = organizationSubscriptionLookup.byTenantId[tenantKey];
+      }
+      if (!orgSub) return null;
+      const planType = orgSub.plan?.name || "free";
+      const planLabel = orgSub.plan?.displayName || PLAN_LABELS[planType] || PLAN_LABELS.free;
+      return {
+        planLabel,
+        planType,
+        subscription: orgSub,
+      };
+    };
+    const normalizedAccounts = accounts.map(account => {
+      const orgPlanInfo = getPlanInfoFromOrganizationSubscription(account);
+      const subscription = subscriptionLookup[account._id?.toString()];
+      const subscriptionIsSchool =
+        Boolean(subscription?.planType === "educational_institutions_premium") ||
+        Boolean(subscription?.metadata?.registrationType === "school") ||
+        Boolean(
+          subscription?.metadata?.orgId &&
+            account.orgId?._id &&
+            subscription.metadata.orgId.toString() === account.orgId._id.toString()
+        ) ||
+        Boolean(
+          subscription?.metadata?.tenantId &&
+            account.tenantId &&
+            subscription.metadata.tenantId.toString() === account.tenantId.toString()
+        );
+      const shouldUseOrgPlan = ["school_admin", "school_teacher", "school_parent"].includes(account.role);
+      let planLabel = null;
+      let planTypeKey = "free";
+
+      if (subscriptionIsSchool) {
+        planLabel = PLAN_LABELS.educational_institutions_premium;
+        planTypeKey = "educational_institutions_premium";
+      } else if (subscription) {
+        planLabel = getPlanLabelFromSubscription(subscription);
+        planTypeKey = subscription.planType || "free";
+      }
+
+      if (!planLabel && shouldUseOrgPlan && orgPlanInfo) {
+        planLabel = orgPlanInfo.planLabel;
+        planTypeKey = orgPlanInfo.planType;
+      } else if (!planLabel && orgPlanInfo) {
+        // fallback to organization plan if nothing else is set
+        planLabel = orgPlanInfo.planLabel;
+        planTypeKey = orgPlanInfo.planType;
+      }
+
+      const parentChildIdsForAccount = parentToChildMap.get(account._id?.toString()) || [];
+      const hasLinkedSchoolChild = parentChildIdsForAccount.some((childId) => {
+        const child = childLookup.get(childId);
+        return Boolean(
+          child &&
+            (child.role === "school_student" ||
+              child.orgId ||
+              child.tenantId)
+        );
+      });
+
+      if (hasLinkedSchoolChild) {
+        planLabel = PLAN_LABELS.educational_institutions_premium;
+        planTypeKey = "educational_institutions_premium";
+      }
+
+      return {
+        id: account._id,
+        name: account.fullName || account.name || "Unnamed",
+        email: account.email,
+        role: account.role,
+        phone: account.phone || null,
+        plan: planLabel,
+        planType: planTypeKey,
+        isVerified: account.isVerified || false,
+        createdAt: account.createdAt,
+        tenantId: account.tenantId || null,
+        organization: account.orgId
+          ? {
+              id: account.orgId._id,
+              name: account.orgId.name,
+              tenantId: account.orgId.tenantId,
+            }
+          : null,
+        planEndDate:
+          (subscription?.endDate && new Date(subscription.endDate).toISOString()) ||
+          (orgPlanInfo?.subscription?.endDate &&
+            new Date(orgPlanInfo.subscription.endDate).toISOString()) ||
+          null,
+        planStartDate:
+          (subscription?.startDate && new Date(subscription.startDate).toISOString()) ||
+          (orgPlanInfo?.subscription?.startDate &&
+            new Date(orgPlanInfo.subscription.startDate).toISOString()) ||
+          null,
+        planStatus: subscription?.status || orgPlanInfo?.subscription?.status || null,
+      };
+    });
 
     res.json({
       success: true,
       data: {
-        modules,
-        stats: {
-          totalModules: modules.length,
-          pendingApprovals: pendingCount,
-          activeModules: modules.filter(m => m.status === 'active').length,
-          totalDownloads
-        }
-      }
+        accounts: normalizedAccounts,
+        total,
+        page,
+        perPage,
+        category: categoryRaw,
+      },
     });
   } catch (error) {
-    console.error('Error fetching marketplace:', error);
-    res.status(500).json({ success: false, message: 'Error fetching marketplace' });
+    console.error("Error fetching admin accounts:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching admin accounts",
+      error: error.message,
+    });
+  }
+};
+
+export const deleteAdminAccount = async (req, res) => {
+  try {
+    const { userId } = req.params || {};
+    if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid user identifier",
+      });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Account not found",
+      });
+    }
+
+    await Promise.all([
+      UserSubscription.deleteMany({ userId }),
+      SchoolStudent.deleteMany({ userId }),
+      User.updateMany(
+        { "linkedIds.parentIds": user._id },
+        { $pull: { "linkedIds.parentIds": user._id } }
+      ),
+      User.updateMany(
+        { "linkedIds.childIds": user._id },
+        { $pull: { "linkedIds.childIds": user._id } }
+      ),
+      User.updateMany(
+        { "linkedIds.teacherIds": user._id },
+        { $pull: { "linkedIds.teacherIds": user._id } }
+      ),
+      User.updateMany(
+        { "linkedIds.studentIds": user._id },
+        { $pull: { "linkedIds.studentIds": user._id } }
+      ),
+    ]);
+
+    await User.deleteOne({ _id: user._id });
+
+    const io = req.app.get("io");
+    if (io) {
+      io.emit("admin:accounts:updated");
+      io.emit("admin:account:deleted", { userId: user._id.toString() });
+    }
+
+    return res.json({
+      success: true,
+      message: "Account deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting admin account:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to delete account",
+      error: error.message,
+    });
+  }
+};
+
+export const updateAdminAccountPlan = async (req, res) => {
+  try {
+    const { userId } = req.params || {};
+    const planTypeRaw = (req.body?.planType || "").toString().trim();
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        message: "Missing user identifier",
+      });
+    }
+
+    if (!planTypeRaw || !PLAN_METADATA[planTypeRaw]) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid plan selection",
+      });
+    }
+
+    const planDefinition = PLAN_METADATA[planTypeRaw];
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+    let userModified = false;
+    const wasParentAccount = ["parent", "school_parent"].includes(user.role);
+    const wasStudentAccount = user.role === "student";
+    const wasTeacherAccount = ["teacher", "school_teacher"].includes(user.role);
+
+    let schoolPlanOverrideDates = null;
+
+    if (planDefinition.planType === "educational_institutions_premium" && wasStudentAccount) {
+      const rawCode = (req.body?.schoolLinkingCode || "").toString().trim();
+      if (!rawCode) {
+        return res.status(400).json({
+          success: false,
+          message: "School linking code is required to upgrade a student.",
+        });
+      }
+
+      const normalizedCode = rawCode.toUpperCase();
+      let targetOrganization = await Organization.findOne({ linkingCode: normalizedCode });
+      if (!targetOrganization) {
+        targetOrganization = await Organization.findOne({ linkingCode: rawCode });
+      }
+      if (!targetOrganization) {
+        return res.status(404).json({
+          success: false,
+          message: "No school found for the provided linking code.",
+        });
+      }
+
+      const orgSubscription = await getActiveSchoolSubscription(targetOrganization);
+      schoolPlanOverrideDates = orgSubscription
+        ? {
+            startDate: orgSubscription.startDate,
+            endDate: orgSubscription.endDate,
+          }
+        : null;
+
+      try {
+        await ensureSchoolCapacity(targetOrganization, "student", {
+          user,
+          subscription: orgSubscription,
+        });
+      } catch (capacityError) {
+        return res.status(400).json({
+          success: false,
+          message: capacityError.message,
+        });
+      }
+
+      user.role = "school_student";
+      user.orgId = targetOrganization._id;
+      user.tenantId = targetOrganization.tenantId || null;
+      await user.save();
+
+      const classFilter = { userId: user._id };
+      if (targetOrganization.tenantId) {
+        classFilter.tenantId = targetOrganization.tenantId;
+      }
+      let schoolStudent = await SchoolStudent.findOne(classFilter);
+      if (!schoolStudent) {
+        const admissionNumber = `ADM${new Date().getFullYear()}${Date.now()
+          .toString()
+          .slice(-6)}`;
+        await SchoolStudent.create({
+          tenantId: targetOrganization.tenantId,
+          orgId: targetOrganization._id,
+          userId: user._id,
+          admissionNumber,
+          academicYear: new Date().getFullYear().toString(),
+        });
+      }
+    }
+
+    if (planDefinition.planType === "educational_institutions_premium" && wasTeacherAccount) {
+      const rawCode = (req.body?.schoolLinkingCode || "").toString().trim();
+      if (!rawCode) {
+        return res.status(400).json({
+          success: false,
+          message: "School linking code is required to upgrade a teacher.",
+        });
+      }
+
+      const normalizedCode = rawCode.toUpperCase();
+      let targetOrganization = await Organization.findOne({ linkingCode: normalizedCode });
+      if (!targetOrganization) {
+        targetOrganization = await Organization.findOne({ linkingCode: rawCode });
+      }
+      if (!targetOrganization) {
+        return res.status(404).json({
+          success: false,
+          message: "No school found for the provided linking code.",
+        });
+      }
+
+      const orgSubscription = await getActiveSchoolSubscription(targetOrganization);
+      schoolPlanOverrideDates = orgSubscription
+        ? {
+            startDate: orgSubscription.startDate,
+            endDate: orgSubscription.endDate,
+          }
+        : null;
+
+      try {
+        await ensureSchoolCapacity(targetOrganization, "teacher", {
+          user,
+          subscription: orgSubscription,
+        });
+      } catch (capacityError) {
+        return res.status(400).json({
+          success: false,
+          message: capacityError.message,
+        });
+      }
+
+      user.role = "school_teacher";
+      user.orgId = targetOrganization._id;
+      user.tenantId = targetOrganization.tenantId || null;
+      await user.save();
+    }
+
+    if (planDefinition.planType === "educational_institutions_premium" && wasParentAccount) {
+      const rawChildEmail = (req.body?.childEmail || "").toString().trim();
+      if (!rawChildEmail) {
+        return res.status(400).json({
+          success: false,
+          message: "Child email is required to upgrade a parent.",
+        });
+      }
+
+      const emailPattern = new RegExp(`^${escapeRegExp(rawChildEmail)}$`, "i");
+      const child = await User.findOne({
+        email: emailPattern,
+        role: { $in: ["student", "school_student"] },
+      })
+        .select("email role orgId tenantId linkedIds")
+        .populate("orgId", "tenantId");
+
+      if (!child) {
+        return res.status(404).json({
+          success: false,
+          message: "Child not found for the provided email.",
+        });
+      }
+
+      const childParentIds = Array.isArray(child.linkedIds?.parentIds)
+        ? child.linkedIds.parentIds
+            .filter(Boolean)
+            .map((entry) => entry.toString())
+        : [];
+      const alreadyLinkedWithRequester = childParentIds.some(
+        (parentId) => parentId === user._id.toString()
+      );
+      if (!alreadyLinkedWithRequester && childParentIds.length > 0) {
+        return res.status(400).json({
+          success: false,
+          message: "Child already linked with parent",
+        });
+      }
+
+      const targetOrgId = child.orgId?._id || child.orgId;
+      const targetTenantId = child.tenantId || child.orgId?.tenantId || null;
+      if (!targetOrgId && !targetTenantId) {
+        return res.status(400).json({
+          success: false,
+          message: "Child not linked to school",
+        });
+      }
+
+      if (user.role !== "school_parent") {
+        user.role = "school_parent";
+        userModified = true;
+      }
+      if (!user.orgId || user.orgId.toString() !== (targetOrgId?.toString() || "")) {
+        user.orgId = targetOrgId || undefined;
+        userModified = true;
+      }
+      if (user.tenantId !== targetTenantId) {
+        user.tenantId = targetTenantId;
+        userModified = true;
+      }
+
+      if (!user.linkedIds) {
+        user.linkedIds = {};
+      }
+      if (!Array.isArray(user.linkedIds.childIds)) {
+        user.linkedIds.childIds = [];
+      }
+      if (
+        !user.linkedIds.childIds.some(
+          (childId) => childId?.toString() === child._id.toString()
+        )
+      ) {
+        user.linkedIds.childIds.push(child._id);
+        userModified = true;
+      }
+
+      let childModified = false;
+      if (!child.linkedIds) {
+        child.linkedIds = {};
+      }
+      if (!Array.isArray(child.linkedIds.parentIds)) {
+        child.linkedIds.parentIds = [];
+      }
+      if (
+        !child.linkedIds.parentIds.some(
+          (parentId) => parentId?.toString() === user._id.toString()
+        )
+      ) {
+        child.linkedIds.parentIds.push(user._id);
+        childModified = true;
+      }
+
+      if (childModified) {
+        await child.save();
+      }
+    }
+
+    let subscription = await UserSubscription.findOne({ userId }).sort({ createdAt: -1 });
+    const metadataBase = {
+      ...(subscription?.metadata || {}),
+      adminOverride: true,
+      adminChangedAt: new Date(),
+    };
+    if (req.user?._id) {
+      metadataBase.adminChangedBy = req.user._id;
+    }
+    if (planDefinition.planType === "educational_institutions_premium") {
+      metadataBase.registrationType = "school";
+      if (user.orgId) {
+        metadataBase.orgId = user.orgId;
+      }
+      if (user.tenantId) {
+        metadataBase.tenantId = user.tenantId;
+      }
+    } else {
+      delete metadataBase.registrationType;
+      delete metadataBase.orgId;
+      delete metadataBase.tenantId;
+      if (["school_student", "school_teacher", "school_parent"].includes(user.role)) {
+        user.role = user.role === "school_teacher" ? "teacher" : "student";
+        user.orgId = undefined;
+        user.tenantId = undefined;
+        await SchoolStudent.deleteMany({ userId });
+        userModified = true;
+      }
+    }
+
+    const planFeatures = { ...(planDefinition.features || {}) };
+    const now = new Date();
+    const STANDARD_PLAN_DURATION_MS = 365 * 24 * 60 * 60 * 1000;
+
+    const applyPlanDates = () => {
+      subscription.startDate = now;
+      if (planDefinition.planType === "free") {
+        subscription.endDate = undefined;
+      } else {
+        subscription.endDate = new Date(now.getTime() + STANDARD_PLAN_DURATION_MS);
+      }
+    };
+
+    const applyOverrideDates = () => {
+      if (!schoolPlanOverrideDates?.endDate) return;
+      subscription.endDate = new Date(schoolPlanOverrideDates.endDate);
+      if (schoolPlanOverrideDates.startDate) {
+        subscription.startDate = new Date(schoolPlanOverrideDates.startDate);
+      }
+    };
+
+    if (userModified) {
+      await user.save();
+      userModified = false;
+    }
+
+    if (!subscription) {
+      subscription = new UserSubscription({
+        userId,
+        planType: planDefinition.planType,
+        planName: planDefinition.displayName,
+        amount: planDefinition.amount,
+        status: "active",
+        metadata: metadataBase,
+        features: planFeatures,
+        startDate: now,
+      });
+      applyPlanDates();
+      applyOverrideDates();
+    } else {
+      subscription.planType = planDefinition.planType;
+      subscription.planName = planDefinition.displayName;
+      subscription.amount = planDefinition.amount;
+      subscription.status = "active";
+      subscription.metadata = metadataBase;
+      subscription.features = planFeatures;
+      subscription.lastRenewedAt = new Date();
+      applyPlanDates();
+      applyOverrideDates();
+    }
+
+    await subscription.save();
+
+    const io = req.app.get('io');
+    if (io) {
+      const payload = {
+        ...subscription.toObject(),
+      };
+      io.to(userId.toString()).emit('subscription:activated', {
+        subscription: payload,
+      });
+      io.emit('subscription:activated', {
+        userId: userId.toString(),
+        subscription: payload,
+      });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        plan: planDefinition.displayName,
+        planType: planDefinition.planType,
+      },
+      message: "Plan updated successfully",
+    });
+  } catch (error) {
+    console.error("Error updating account plan:", error);
+    res.status(500).json({
+      success: false,
+      message: "Unable to update account plan",
+      error: error.message,
+    });
+  }
+};
+
+export const getAdminAccountDetails = async (req, res) => {
+  try {
+    const { userId } = req.params || {};
+    if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid user identifier",
+      });
+    }
+
+    const user = await User.findById(userId)
+      .select("fullName name email phone role gender dateOfBirth dob linkedIds orgId tenantId isVerified")
+      .populate({
+        path: "orgId",
+        select: "name tenantId settings.address settings.contactInfo linkingCode",
+      })
+      .lean();
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Account not found",
+      });
+    }
+
+    const parentIds = Array.isArray(user.linkedIds?.parentIds)
+      ? user.linkedIds.parentIds.filter(Boolean)
+      : [];
+
+    const childIds = Array.isArray(user.linkedIds?.childIds)
+      ? user.linkedIds.childIds.filter(Boolean)
+      : [];
+
+    const teacherIdStrings = new Set(
+      (Array.isArray(user.linkedIds?.teacherIds) ? user.linkedIds.teacherIds : [])
+        .filter(Boolean)
+        .map((entry) => entry.toString())
+    );
+
+    if (["student", "school_student"].includes(user.role)) {
+      try {
+        const studentFilter = { userId: user._id };
+        if (user.tenantId) {
+          studentFilter.tenantId = user.tenantId;
+        }
+        if (!studentFilter.tenantId) {
+          studentFilter.allowLegacy = true;
+        }
+
+        const schoolStudent = await SchoolStudent.findOne(studentFilter)
+          .select("classId section tenantId")
+          .lean();
+
+        if (schoolStudent?.classId) {
+          const tenantForLookup = schoolStudent.tenantId || user.tenantId;
+          const schoolClass = await SchoolClass.findOne({
+            _id: schoolStudent.classId,
+            tenantId: tenantForLookup,
+            ...(tenantForLookup ? {} : { allowLegacy: true }),
+          })
+            .select("sections.classTeacher")
+            .lean();
+
+          if (schoolClass?.sections?.length) {
+            const desiredSection = (schoolStudent.section || "").trim().toLowerCase();
+            const matchedSection =
+              schoolClass.sections.find(
+                (section) =>
+                  section?.name &&
+                  section.name.trim().toLowerCase() === desiredSection &&
+                  section.classTeacher
+              ) ||
+              schoolClass.sections.find((section) => section?.classTeacher);
+            const sectionTeacherId = matchedSection?.classTeacher;
+            if (sectionTeacherId) {
+              teacherIdStrings.add(sectionTeacherId.toString());
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error resolving school teacher for admin detail:", error);
+      }
+    }
+
+    const teacherIds = Array.from(teacherIdStrings)
+      .filter(Boolean)
+      .map((entry) =>
+        mongoose.Types.ObjectId.isValid(entry) ? new mongoose.Types.ObjectId(entry) : entry
+      );
+
+    const [parents, teachers, children] = await Promise.all([
+      parentIds.length > 0
+        ? User.find({ _id: { $in: parentIds } })
+            .select("fullName name email phone role orgId")
+            .populate("orgId", "name")
+            .lean()
+        : [],
+      teacherIds.length > 0
+        ? User.find({ _id: { $in: teacherIds } })
+            .select("fullName name email phone role orgId")
+            .populate("orgId", "name")
+            .lean()
+        : [],
+      childIds.length > 0
+        ? User.find({ _id: { $in: childIds } })
+            .select("fullName name email orgId")
+            .populate("orgId", "name")
+            .lean()
+        : [],
+    ]);
+
+    const formatPerson = (person) => ({
+      id: person._id,
+      name: person.fullName || person.name,
+      email: person.email,
+      phone: person.phone || null,
+      role: person.role,
+      schoolName: person.orgId?.name || null,
+    });
+
+    const formatChildren = (child) => ({
+      id: child._id,
+      name: child.fullName || child.name,
+      schoolName: child.orgId?.name || null,
+      email: child.email || null,
+    });
+
+    let schoolSummary = null;
+    if (user.orgId && user.role === "school_admin") {
+      const buildSchoolFilter = () => {
+        const clauses = [];
+        if (user.orgId?._id) {
+          clauses.push({ orgId: user.orgId._id });
+        }
+        if (user.tenantId) {
+          clauses.push({ tenantId: user.tenantId });
+        }
+        if (!clauses.length) {
+          return null;
+        }
+        return { $or: clauses };
+      };
+
+      const schoolFilter = buildSchoolFilter();
+      if (schoolFilter) {
+        const [schoolStudents, schoolParents, schoolTeachers] = await Promise.all([
+          User.countDocuments({
+            ...schoolFilter,
+            role: { $in: ["school_student", "student"] },
+          }),
+          User.countDocuments({
+            ...schoolFilter,
+            role: { $in: ["school_parent", "parent"] },
+          }),
+          User.countDocuments({
+            ...schoolFilter,
+            role: { $in: ["school_teacher", "teacher"] },
+          }),
+        ]);
+
+      schoolSummary = {
+        location: buildAddressString(user.orgId.settings?.address),
+        totalStudents: schoolStudents,
+        totalParents: schoolParents,
+          totalTeachers: schoolTeachers,
+        };
+      }
+    }
+
+    let parentDetails = null;
+    if (["parent", "school_parent"].includes(user.role)) {
+      parentDetails = {
+        linkedStudents: children.map((child) => ({
+          id: child._id,
+          name: child.fullName || child.name,
+          email: child.email || null,
+          schoolName: child.orgId?.name || null,
+        })),
+      };
+    }
+
+    let teacherStats = null;
+    if (["teacher", "school_teacher"].includes(user.role) && user.tenantId) {
+      const teacherClasses = await SchoolClass.find({
+        tenantId: user.tenantId,
+        "sections.classTeacher": user._id,
+      }).lean();
+      const totalClasses = teacherClasses.reduce((sum, doc) => {
+        return (
+          sum +
+          doc.sections.filter((sec) => sec.classTeacher?.toString() === user._id.toString()).length
+        );
+      }, 0);
+      const totalStudents = teacherClasses.reduce((sum, doc) => {
+        return (
+          sum +
+          doc.sections
+            .filter((sec) => sec.classTeacher?.toString() === user._id.toString())
+            .reduce((subSum, sec) => subSum + (sec.currentStrength || 0), 0)
+        );
+      }, 0);
+      teacherStats = {
+        totalClasses,
+        totalStudents,
+        schoolName: user.orgId?.name || null,
+      };
+    }
+
+    const shouldShowLinkingCode = user.role === "school_admin";
+    const payload = {
+      user: {
+        id: user._id,
+        name: user.fullName || user.name,
+        email: user.email,
+        phone: user.phone || null,
+        role: user.role,
+        dateOfBirth: user.dateOfBirth || user.dob || null,
+        gender: user.gender || null,
+        schoolName: user.orgId?.name || null,
+        isVerified: Boolean(user.isVerified),
+      },
+      parents: parents.map(formatPerson),
+      teachers: teachers.map(formatPerson),
+      children: children.map(formatChildren),
+      parentDetails,
+      teacherStats,
+      schoolSummary,
+      schoolLinkingCode:
+        shouldShowLinkingCode && user.orgId?.linkingCode
+          ? user.orgId?.linkingCode
+          : null,
+    };
+
+    return res.json({
+      success: true,
+      data: payload,
+    });
+  } catch (error) {
+    console.error("Error fetching account details:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch account details",
+      error: error.message,
+    });
   }
 };
 
@@ -1006,51 +2156,6 @@ export const createTenant = async (req, res) => {
   } catch (error) {
     console.error('Error creating tenant:', error);
     res.status(500).json({ success: false, message: 'Error creating tenant', error: error.message });
-  }
-};
-
-// 2. Marketplace Governance
-export const getMarketplaceGovernance = async (req, res) => {
-  try {
-    // Get marketplace modules with governance data
-    const modules = [
-      { 
-        id: '1', name: 'AI Math Tutor', type: 'inavora', status: 'pending_approval',
-        description: 'Advanced AI-powered math tutoring module', version: '2.1.0',
-        revenueShare: 70, downloads: 1250, rating: 4.8, createdAt: '2024-01-15',
-        metadata: { category: 'Education', targetAge: '10-18', languages: ['en', 'hi'] }
-      },
-      { 
-        id: '2', name: 'Science Lab Simulator', type: 'inavora', status: 'under_review',
-        description: 'Virtual laboratory experiments', version: '1.0.0',
-        revenueShare: 65, downloads: 0, rating: 0, createdAt: '2024-03-10',
-        metadata: { category: 'Science', targetAge: '12-18', languages: ['en'] }
-      },
-      { 
-        id: '3', name: 'Parent-Teacher Communication', type: 'third-party', status: 'pending_approval',
-        description: 'Integrated communication platform', version: '3.2.1',
-        revenueShare: 50, downloads: 0, rating: 0, createdAt: '2024-03-15',
-        metadata: { category: 'Communication', targetAge: 'all', languages: ['en', 'hi', 'te'] }
-      }
-    ];
-
-    const pendingReviews = modules.filter(m => m.status === 'pending_approval' || m.status === 'under_review');
-
-    res.json({
-      success: true,
-      data: {
-        modules,
-        pendingReviews,
-        stats: {
-          totalModules: modules.length,
-          pendingApprovals: pendingReviews.length,
-          totalRevenue: 125000 // Simulated
-        }
-      }
-    });
-  } catch (error) {
-    console.error('Error fetching marketplace governance:', error);
-    res.status(500).json({ success: false, message: 'Error fetching marketplace governance' });
   }
 };
 

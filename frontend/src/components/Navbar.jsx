@@ -65,6 +65,7 @@ const Navbar = () => {
 
     const hasSchoolAccess = Boolean(
         user?.role === "school_student" ||
+        user?.role === "school_parent" ||
         user?.school ||
         user?.schoolDetails ||
         user?.schoolId ||
@@ -72,13 +73,20 @@ const Navbar = () => {
         (typeof user?.tenantId === "string" && user.tenantId.startsWith("school_"))
     );
     const isIndividualStudent = user?.role === "student" && !hasSchoolAccess;
+    const isIndividualParent = user?.role === "parent" && !hasSchoolAccess;
 
     const handleDisabledNavClick = (label) => {
-        if ((user?.role === "school_student" || (user?.role === "student" && hasSchoolAccess)) && label === "Upgrade") {
+        if (
+            (user?.role === "school_student" ||
+                user?.role === "school_parent" ||
+                ((user?.role === "student" || user?.role === "parent") && hasSchoolAccess)) &&
+            label === "Upgrade"
+        ) {
             toast("School accounts can only upgrade through your school.");
             return;
         }
-        if (!isIndividualStudent) return;
+        if (user?.role === "student" && !isIndividualStudent) return;
+        if (user?.role === "parent" && !isIndividualParent) return;
         const itemName = label ? `${label} ` : "";
         toast(`${itemName}is available after you link to a school.`);
     };
@@ -98,13 +106,18 @@ const Navbar = () => {
         { icon: <Users className="w-5 h-5" />, label: "Children", onClick: () => navigate("/parent/children") },
         { icon: <Gamepad2 className="w-5 h-5" />, label: "Module", onClick: () => navigate("/parent/games") },
         { icon: <Bell className="w-5 h-5" />, label: "Announcements", onClick: () => navigate("/parent/announcements") },
-        { icon: <CreditCard className="w-5 h-5" />, label: "Upgrade", onClick: () => navigate("/parent/upgrade") }
+        {
+            icon: <CreditCard className="w-5 h-5" />,
+            label: "Upgrade",
+            onClick: () => navigate("/parent/upgrade"),
+            disabled: hasSchoolAccess,
+        }
     ] : user?.role === "admin" ? [
         { icon: <CheckCircle className="w-5 h-5" />, label: "Approvals", onClick: () => navigate("/admin/approvals") },
         { icon: <Building2 className="w-5 h-5" />, label: "Schools", onClick: () => navigate("/admin/schools") },
+        { icon: <Users className="w-5 h-5" />, label: "Individuals", onClick: () => navigate("/admin/individuals") },
         { icon: <AlertCircle className="w-5 h-5" />, label: "Incidents", onClick: () => navigate("/admin/incidents") },
         { icon: <Activity className="w-5 h-5" />, label: "Tracker", onClick: () => navigate("/admin/tracking") },
-        { icon: <BarChart3 className="w-5 h-5" />, label: "Marketplace", onClick: () => navigate("/admin/marketplace") },
         { icon: <FileText className="w-5 h-5" />, label: "Reports", onClick: () => navigate("/admin/reports") }
     ] : user?.role === "school_admin" ? [
         { icon: <Users className="w-5 h-5" />, label: "Students", onClick: () => navigate("/school/admin/students") },

@@ -9,12 +9,14 @@ import {
   getNetworkMap,
   getBenchmarksPanel,
   getPlatformTelemetry,
-  getMarketplaceManagement,
+  getAdminAccounts,
+  getAdminAccountDetails,
+  updateAdminAccountPlan,
+  deleteAdminAccount,
   getDataExportSandbox,
   getPolicyLegal,
   getSchoolOnboardingConsole,
   createTenant,
-  getMarketplaceGovernance,
   approveModule,
   getResearchSandbox,
   createResearchAgreement,
@@ -51,14 +53,16 @@ router.get('/privacy-compliance', getPrivacyCompliance);
 router.get('/network-map', getNetworkMap);
 router.get('/benchmarks-panel', getBenchmarksPanel);
 router.get('/platform-telemetry', getPlatformTelemetry);
-router.get('/marketplace', getMarketplaceManagement);
+router.get('/accounts', getAdminAccounts);
+router.get('/accounts/:userId', getAdminAccountDetails);
+router.patch('/accounts/:userId/plan', updateAdminAccountPlan);
+router.delete('/accounts/:userId', deleteAdminAccount);
 router.get('/data-export', getDataExportSandbox);
 router.get('/policy-legal', getPolicyLegal);
 
 // Advanced feature endpoints
 router.get('/school-onboarding', getSchoolOnboardingConsole);
 router.post('/create-tenant', createTenant);
-router.get('/marketplace-governance', getMarketplaceGovernance);
 router.post('/approve-module', approveModule);
 router.get('/research-sandbox', getResearchSandbox);
 router.post('/create-research-agreement', createResearchAgreement);

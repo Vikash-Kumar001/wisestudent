@@ -180,6 +180,15 @@ const PLAN_CONFIGS = {
   },
 };
 
+const ensurePlanFeatures = (subscriptionData = {}) => {
+  const planType = subscriptionData.planType || 'free';
+  const planConfig = PLAN_CONFIGS[planType] || PLAN_CONFIGS.free;
+  subscriptionData.features = {
+    ...(subscriptionData.features || {}),
+    ...(planConfig.features || {}),
+  };
+};
+
 // Create payment intent for subscription
 export const createSubscriptionPayment = async (req, res) => {
   try {
@@ -655,6 +664,7 @@ export const getCurrentSubscription = async (req, res) => {
 
     // Add computed fields for frontend
     const subscriptionData = subscription.toObject ? subscription.toObject() : subscription;
+    ensurePlanFeatures(subscriptionData);
     
     // If subscription status is pending, treat as cancelled - return free plan
     if (subscriptionData.status === 'pending') {

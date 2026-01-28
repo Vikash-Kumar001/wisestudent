@@ -19,6 +19,7 @@ import jwt from "jsonwebtoken";
 import { Server as SocketIOServer } from "socket.io";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import { setIoInstance } from "./utils/socketServer.js";
 
 // Load environment variables
 dotenv.config();
@@ -47,6 +48,7 @@ const io = new SocketIOServer(server, {
   },
 });
 app.set("io", io);
+setIoInstance(io);
 
 // Middleware
 app.use(express.json());
@@ -167,7 +169,6 @@ import globalStatsRoutes from "./routes/globalStatsRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import adminSchoolApprovalRoutes from "./routes/adminSchoolApprovalRoutes.js";
 import incidentRoutes from "./routes/incidentRoutes.js";
-import marketplaceRoutes from "./routes/marketplaceRoutes.js";
 import adminPaymentTrackerRoutes from "./routes/adminPaymentTrackerRoutes.js";
 import adminTrackingRoutes from "./routes/adminTrackingRoutes.js";
 import adminManagementRoutes from "./routes/adminManagementRoutes.js";
@@ -372,7 +373,6 @@ app.use('/api/admin/predictive', predictiveModelsRoutes);
 app.use('/api/admin/api-control', apiControlPlaneRoutes);
 app.use('/api/admin/platform', adminPlatformRoutes);
 app.use('/api/incidents', incidentRoutes);
-app.use('/api/marketplace', marketplaceRoutes);
 
 // Health Check
 app.get("/", (_, res) => {

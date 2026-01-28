@@ -217,7 +217,12 @@ schoolStudentSchema.pre("save", function(next) {
 
 // Ensure tenant isolation
 schoolStudentSchema.pre(/^find/, function() {
-  if (this.getQuery().tenantId) {
+  const query = this.getQuery();
+  if (query.tenantId) {
+    return;
+  }
+  if (query.allowLegacy) {
+    delete query.allowLegacy;
     return;
   }
   throw new Error("TenantId is required for all queries");

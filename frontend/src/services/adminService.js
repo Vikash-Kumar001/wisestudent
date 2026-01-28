@@ -95,12 +95,45 @@ export const fetchPlatformTelemetry = async () => {
   }
 };
 
-export const fetchMarketplaceManagement = async () => {
+export const fetchAdminAccounts = async ({ category = "all", page = 1, perPage = 50, search = "" } = {}) => {
   try {
-    const response = await api.get('/api/admin/marketplace');
+    const response = await api.get('/api/admin/accounts', {
+      params: { category, page, perPage, search }
+    });
     return response.data;
   } catch (error) {
-    console.error('Error fetching marketplace:', error);
+    console.error('Error fetching admin accounts:', error);
+    throw error;
+  }
+};
+
+export const updateAccountPlan = async (userId, planType, options = {}) => {
+  try {
+    const payload = { planType, ...options };
+    const response = await api.patch(`/api/admin/accounts/${userId}/plan`, payload);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating account plan:', error);
+    throw error;
+  }
+};
+
+export const deleteAccount = async (userId) => {
+  try {
+    const response = await api.delete(`/api/admin/accounts/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting account:', error);
+    throw error;
+  }
+};
+
+export const fetchAccountDetails = async (userId) => {
+  try {
+    const response = await api.get(`/api/admin/accounts/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching account details:', error);
     throw error;
   }
 };
@@ -141,16 +174,6 @@ export const createTenant = async (tenantData) => {
     return response.data;
   } catch (error) {
     console.error('Error creating tenant:', error);
-    throw error;
-  }
-};
-
-export const fetchMarketplaceGovernance = async () => {
-  try {
-    const response = await api.get('/api/admin/marketplace-governance');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching marketplace governance:', error);
     throw error;
   }
 };
@@ -215,16 +238,18 @@ export default {
   fetchNetworkMap,
   fetchBenchmarksPanel,
   fetchPlatformTelemetry,
-  fetchMarketplaceManagement,
+  fetchAdminAccounts,
   fetchDataExportSandbox,
   fetchPolicyLegal,
   fetchSchoolOnboarding,
   createTenant,
-  fetchMarketplaceGovernance,
   approveModule,
   fetchResearchSandbox,
   createResearchAgreement,
   fetchComplianceDashboard,
-  processDeletionRequest
+  processDeletionRequest,
+  updateAccountPlan,
+  deleteAccount,
+  fetchAccountDetails
 };
 

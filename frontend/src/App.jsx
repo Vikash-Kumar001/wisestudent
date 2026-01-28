@@ -72,7 +72,6 @@ import AdminSchoolApprovals from "./pages/Admin/AdminSchoolApprovals";
 import IncidentManagement from "./pages/Admin/IncidentManagement";
 import AdminTrackingDashboard from "./pages/Admin/AdminTrackingDashboard";
 import AdminPaymentTracker from "./pages/Admin/AdminPaymentTracker";
-import AdminMarketplace from "./pages/Admin/AdminMarketplace";
 import AdminProfile from "./pages/Admin/AdminProfile";
 import AdminReports from "./pages/Admin/AdminReports";
 import BehaviorAnalytics from "./pages/Admin/BehaviorAnalytics";
@@ -153,6 +152,7 @@ import SchoolAdminCompliance from "./pages/School/SchoolAdminCompliance";
 import SchoolAdminBilling from "./pages/School/SchoolAdminBilling";
 import SchoolAdminPaymentTracker from "./pages/School/SchoolAdminPaymentTracker";
 import AdminSchools from "./pages/Admin/AdminSchools";
+import AdminIndividuals from "./pages/Admin/AdminIndividuals";
 import AdminSchoolDetail from "./pages/Admin/AdminSchoolDetail";
 import SchoolAdminEmergency from "./pages/School/SchoolAdminEmergency";
 import SchoolAdminEvents from "./pages/School/SchoolAdminEvents";
@@ -352,11 +352,11 @@ const App = () => {
       if (pathname === "/admin/notifications") return "Notifications";
       if (pathname === "/admin/approvals") return "Approvals";
       if (pathname === "/admin/schools") return "Schools";
+      if (pathname === "/admin/individuals") return "Individuals";
       if (pathname.startsWith("/admin/schools/")) return "School Details";
       if (pathname === "/admin/incidents") return "Incident Management";
       if (pathname === "/admin/tracking") return "Tracking Dashboard";
       if (pathname === "/admin/payment-tracker") return "Payment Tracker";
-      if (pathname === "/admin/marketplace") return "Marketplace";
       if (pathname === "/admin/reports") return "Reports";
       if (pathname === "/admin/behavior-analytics") return "Behavior Analytics";
       if (pathname === "/admin/smart-insights") return "Smart Insights";
@@ -1417,6 +1417,14 @@ const App = () => {
             }
           />
           <Route
+            path="/admin/individuals"
+            element={
+              <ProtectedRoute roles={["admin"]}>
+                <AdminIndividuals />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin/schools/:schoolId"
             element={
               <ProtectedRoute roles={["admin"]}>
@@ -1445,14 +1453,6 @@ const App = () => {
             element={
               <ProtectedRoute roles={["admin"]}>
                 <AdminPaymentTracker />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/marketplace"
-            element={
-              <ProtectedRoute roles={["admin"]}>
-                <AdminMarketplace />
               </ProtectedRoute>
             }
           />

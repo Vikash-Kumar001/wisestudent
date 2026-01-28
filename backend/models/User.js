@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
+import { getIoInstance } from "../utils/socketServer.js";
 
 const userSchema = new mongoose.Schema(
   {
@@ -359,6 +360,8 @@ userSchema.statics.generateUniqueLinkingCode = async function(prefix = "LN", len
 };
 
 userSchema.pre("save", async function (next) {
+  this._wasNewUser = this.isNew;
+
   if (this.role === "admin" && !this.password) {
     return next(new Error("Password is required for admin accounts"));
   }
@@ -382,6 +385,22 @@ userSchema.pre("save", async function (next) {
   return next();
 });
 
+userSchema.post("save", function (doc) {
+  if (!this._wasNewUser) return;
+
+  const io = getIoInstance();
+  if (!io) return;
+
+  const payload = {
+    userId: doc._id,
+    role: doc.role,
+    fullName: doc.fullName,
+    email: doc.email,
+    createdAt: doc.createdAt,
+  };
+  io.emit("admin:accounts:updated", payload);
+});
+
 userSchema.virtual("canUseGoogleLogin").get(function () {
   return this.role === "student";
 });
@@ -396,3 +415,5 @@ userSchema.set('toObject', { virtuals: true });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 export default User;
+
+

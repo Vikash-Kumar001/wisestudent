@@ -1722,14 +1722,10 @@ export const getBatchGameProgress = async (req, res) => {
     // Match either normalized or original prefix
     const regex = new RegExp(`^(${escapedPrefix}|${escapedOriginal})-\\d+$`);
     
-    logger.debug(`ðŸ” Batch progress query - categoryPrefix: ${categoryPrefix}, normalizedPrefix: ${normalizedPrefix}, regex: ${regex}`);
-    
     const allProgress = await UnifiedGameProgress.find({
       userId,
       gameId: { $regex: regex }
     });
-    
-    logger.debug(`Found ${allProgress.length} progress records for prefix ${categoryPrefix} (normalized: ${normalizedPrefix})`);
     
     // Convert array to object keyed by gameId for easy frontend access
     const progressMap = {};
