@@ -107,8 +107,18 @@ export const AuthProvider = ({ children }) => {
                     }
                     break;
                 case "csr":
-                    // Removed approval check for CSR users - they should go directly to dashboard
-                    navigate("/csr/dashboard");
+                    // Check User.approvalStatus and redirect accordingly (same as sellers)
+                    if (!enhancedUser.isApproved) {
+                        if (userData.approvalStatus === "pending") {
+                            navigate("/csr/pending-approval");
+                        } else if (userData.approvalStatus === "rejected") {
+                            navigate("/csr/rejected");
+                        } else {
+                            navigate("/csr/pending-approval");
+                        }
+                    } else {
+                        navigate("/csr/overview");
+                    }
                     break;
                 case "student":
                 case "school_student":

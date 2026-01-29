@@ -51,10 +51,23 @@ const ProtectedRoute = ({ children, roles, requireApproved = false, otpOnly = fa
         if (import.meta.env.DEV) {
             console.warn(`🔒 ${user.role} not approved. Redirecting to pending approval.`);
         }
-        return <Navigate to="/pending-approval" state={{
-            message: `Your ${user.role} account is currently under review. You will be notified once approved.`,
-            user: { email: user.email }
-        }} replace />;
+        
+        // CSR users get CSR-specific pages
+        if (user.role === "csr") {
+            if (user.approvalStatus === "pending") {
+                return <Navigate to="/csr/pending-approval" replace />;
+            } else if (user.approvalStatus === "rejected") {
+                return <Navigate to="/csr/rejected" replace />;
+            } else {
+                return <Navigate to="/csr/pending-approval" replace />;
+            }
+        } else {
+            // Seller users get generic pending approval page
+            return <Navigate to="/pending-approval" state={{
+                message: `Your ${user.role} account is currently under review. You will be notified once approved.`,
+                user: { email: user.email }
+            }} replace />;
+        }
     }
 
     return children;

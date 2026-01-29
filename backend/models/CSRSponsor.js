@@ -76,10 +76,11 @@ const csrsponsorSchema = new mongoose.Schema(
       headquarters: { type: String },
       ndaSigned: { type: Boolean, default: false },
     },
+    // Business/operational status only (approval status comes from User.approvalStatus)
     status: {
       type: String,
-      enum: ["pending", "approved", "inactive", "revoked", "rejected"],
-      default: "pending",
+      enum: ["active", "inactive", "revoked"],
+      default: "active",
     },
     isActive: { type: Boolean, default: true },
     autoCreated: {
@@ -93,5 +94,19 @@ const csrsponsorSchema = new mongoose.Schema(
 
 csrsponsorSchema.index({ companyName: "text", email: 1 });
 csrsponsorSchema.index({ userId: 1, status: 1 });
+
+// Instance method to check if CSR is approved (for business logic)
+csrsponsorSchema.methods.isApproved = async function() {
+  const User = mongoose.model("User");
+  const user = await User.findById(this.userId).select("approvalStatus");
+  return user?.approvalStatus === "approved" && this.status === "active";
+};
+
+// Instance method to get approval status from User
+csrsponsorSchema.methods.getApprovalStatus = async function() {
+  const User = mongoose.model("User");
+  const user = await User.findById(this.userId).select("approvalStatus");
+  return user?.approvalStatus || "pending";
+};
 
 export default mongoose.model("CSRSponsor", csrsponsorSchema);

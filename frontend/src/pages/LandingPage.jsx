@@ -630,7 +630,7 @@ const LandingPage = () => {
       description: "Organizations contributing to student development and education",
       icon: <Target className="sm:size-12 size-8" />,
       color: "from-amber-500 to-orange-500",
-      action: () => navigate("/register-stakeholder"),
+      action: () => navigate("/register-csr"),
       buttonText: "Partner With Us",
     },
   ];

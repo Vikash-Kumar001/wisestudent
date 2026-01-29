@@ -139,18 +139,8 @@ const Navbar = () => {
         { icon: <Mail className="w-5 h-5" />, label: "Messages", onClick: () => navigate("/school-parent/messages") },
         { icon: <CreditCard className="w-5 h-5" />, label: "Payment Tracker", onClick: () => navigate("/school-parent/payment-tracker") }
     ] : user?.role === "csr" ? [
-        { icon: <Home className="w-5 h-5" />, label: "Dashboard", onClick: () => navigate("/csr/dashboard") },
-        { icon: <BarChart3 className="w-5 h-5" />, label: "Executive", onClick: () => navigate("/csr/executive") },
         { icon: <Target className="w-5 h-5" />, label: "Overview", onClick: () => navigate("/csr/overview") },
-        { icon: <Target className="w-5 h-5" />, label: "Campaigns", onClick: () => navigate("/csr/campaigns") },
-        { icon: <img src="/icons/icon.png" alt="WiseStudent logo" className="w-5 h-5 object-contain" />, label: "Wizard", onClick: () => navigate("/csr/campaign-wizard") },
-        { icon: <DollarSign className="w-5 h-5" />, label: "Financial", onClick: () => navigate("/csr/financial") },
         { icon: <FileText className="w-5 h-5" />, label: "Reports", onClick: () => navigate("/csr/reports") },
-        { icon: <CheckCircle className="w-5 h-5" />, label: "Approvals", onClick: () => navigate("/csr/approvals") },
-        { icon: <Gift className="w-5 h-5" />, label: "Budget", onClick: () => navigate("/csr/budget") },
-        { icon: <Target className="w-5 h-5" />, label: "Goals", onClick: () => navigate("/csr/goals") },
-        { icon: <Calendar className="w-5 h-5" />, label: "Compliance", onClick: () => navigate("/csr/compliance") },
-        { icon: <Bell className="w-5 h-5" />, label: "Alerts", onClick: () => navigate("/csr/alerts") }
     ] : [
         { icon: <Home className="w-5 h-5" />, label: "Dashboard", onClick: handleDashboardRedirect }
     ];

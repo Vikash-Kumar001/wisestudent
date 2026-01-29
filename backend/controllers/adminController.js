@@ -547,31 +547,25 @@ export const getAdminDashboard = async (req, res) => {
 async function getSchoolsByRegionData() {
   try {
     const schools = await Organization.find({ type: 'school' }).select('settings.address state isActive createdAt');
-    
-    console.log('Schools found:', schools.length);
-    
-    // If no schools found, return empty array
+
     if (!schools || schools.length === 0) {
-      console.log('No schools found in database');
       return { data: [] };
     }
-    
+
     const regionData = {};
     schools.forEach(school => {
       const region = school.settings?.address?.state || school.state || 'Unknown';
-      console.log(`Processing school: ${school.name || 'Unnamed'}, Region: ${region}`);
       if (!regionData[region]) {
         regionData[region] = { region, totalSchools: 0, activeSchools: 0, inactiveSchools: 0, recentOnboarding: 0 };
       }
       regionData[region].totalSchools++;
       if (school.isActive) regionData[region].activeSchools++;
       else regionData[region].inactiveSchools++;
-      
+
       const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
       if (school.createdAt >= thirtyDaysAgo) regionData[region].recentOnboarding++;
     });
-    
-    console.log('Region data:', Object.values(regionData));
+
     return { data: Object.values(regionData) };
   } catch (error) {
     console.error('Error in getSchoolsByRegionData:', error);

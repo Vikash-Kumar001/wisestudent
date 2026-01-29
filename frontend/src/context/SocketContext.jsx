@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
 import { io } from "socket.io-client";
+import toast from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 import { useLocation } from "react-router-dom";
 
@@ -24,6 +25,7 @@ export const SocketProvider = ({ children }) => {
         "/reset-password",
         // Google login route removed
         "/register-stakeholder",
+        "/register-csr",
         "/pending-approval",
         "/register-parent",
         "/register-teacher",
@@ -123,6 +125,17 @@ export const SocketProvider = ({ children }) => {
                     console.error("Error handling student profile update:", error);
                 }
             });
+
+            // Phase 8: Real-time CSR notifications (toast when CSR gets a new notification on any page)
+            if (user?.role === "csr") {
+                socket.on("csr:notification:new", (payload) => {
+                    try {
+                        if (payload?.title) toast.success(payload.title, { icon: "🔔" });
+                    } catch (e) {
+                        console.error("CSR notification toast error:", e);
+                    }
+                });
+            }
 
             socketRef.current = socket;
         }

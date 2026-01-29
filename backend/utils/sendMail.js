@@ -84,10 +84,7 @@ export const sendEmail = async ({ to, subject, text, html }) => {
     if (fromEmail !== 'onboarding@resend.dev' && !fromEmail.includes('@resend.dev')) {
       console.log(`ℹ️ Using custom domain: ${fromEmail}. Make sure it's verified in Resend.`);
     }
-    
-    // Log email configuration status
-    console.log(`📧 Using Resend API for email delivery - From: ${fromEmail}`);
-    
+
     const emailData = {
       from: `Wise Student <${fromEmail}>`,
       to: Array.isArray(to) ? to : [to],
@@ -96,17 +93,14 @@ export const sendEmail = async ({ to, subject, text, html }) => {
       ...(text && !html && { text }), // Include text version if no HTML
     };
 
-    console.log(`📧 Attempting to send email to ${Array.isArray(to) ? to.join(', ') : to} with subject: ${subject}`);
     const startTime = Date.now();
-    
-    // Send email with retry logic (will auto-fallback to default domain if needed)
     const data = await retryEmailSend(emailData);
-    
     const duration = Date.now() - startTime;
-    console.log(`✅ Email sent successfully to ${Array.isArray(to) ? to.join(', ') : to} via Resend`);
-    console.log(`📩 Message ID: ${data?.id || 'N/A'}`);
-    console.log(`⏱️ Email send duration: ${duration}ms`);
-    
+
+    if (process.env.DEBUG_EMAIL === '1') {
+      console.log(`📧 Email sent to ${Array.isArray(to) ? to.join(', ') : to} | Subject: ${subject} | ${duration}ms`);
+    }
+
     return data;
   } catch (err) {
     const errorMessage = err?.message || "Unknown error";

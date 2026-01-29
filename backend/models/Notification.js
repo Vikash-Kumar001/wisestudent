@@ -24,12 +24,19 @@ const notificationSchema = new mongoose.Schema(
         "redemption",
         "level_up",
         "report",
-        "general"
+        "general",
+        "csr_registered",
+        "checkpoint_acknowledged",
       ],
       default: "info",
     },
+    category: {
+      type: String,
+      enum: ["registration", "program", "checkpoint", "report", "general"],
+    },
     title: { type: String },
     message: { type: String, required: true },
+    link: { type: String },
     isRead: { type: Boolean, default: false },
     read: { type: Boolean, default: false }, // Alias for isRead
     metadata: {

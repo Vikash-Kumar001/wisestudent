@@ -9,8 +9,6 @@ export const createNotification = async (notificationData) => {
     if (typeof Notification !== 'undefined' && Notification) {
       return await Notification.create(notificationData);
     } else {
-      // Mock notification for development
-      console.log('📧 Notification created:', notificationData);
       return { success: true, data: notificationData };
     }
   } catch (error) {
@@ -25,9 +23,9 @@ export const createNotification = async (notificationData) => {
 export const sendEmailNotification = async (to, subject, body) => {
   try {
     // In production, integrate with email service (SendGrid, AWS SES, etc.)
-    console.log('📧 Email sent to:', to);
-    console.log('Subject:', subject);
-    console.log('Body:', body);
+    if (process.env.DEBUG_EMAIL === '1') {
+      console.log('📧 Email sent to:', to, 'Subject:', subject);
+    }
     return { success: true };
   } catch (error) {
     console.error('Error sending email:', error);
@@ -41,8 +39,9 @@ export const sendEmailNotification = async (to, subject, body) => {
 export const sendSMSNotification = async (phoneNumber, message) => {
   try {
     // In production, integrate with SMS service (Twilio, AWS SNS, etc.)
-    console.log('📱 SMS sent to:', phoneNumber);
-    console.log('Message:', message);
+    if (process.env.DEBUG_EMAIL === '1') {
+      console.log('📱 SMS sent to:', phoneNumber);
+    }
     return { success: true };
   } catch (error) {
     console.error('Error sending SMS:', error);
@@ -56,7 +55,9 @@ export const sendSMSNotification = async (phoneNumber, message) => {
 export const sendAlert = async (alertData) => {
   try {
     // In production, integrate with alerting service (PagerDuty, Slack, etc.)
-    console.log('🚨 Alert sent:', alertData);
+    if (process.env.DEBUG_EMAIL === '1') {
+      console.log('🚨 Alert sent:', alertData);
+    }
     return { success: true };
   } catch (error) {
     console.error('Error sending alert:', error);

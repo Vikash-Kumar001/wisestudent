@@ -97,7 +97,14 @@ const Login = () => {
                         navigate("/seller/dashboard");
                         break;
                     case "csr":
-                        navigate("/csr/dashboard");
+                        // Check User.approvalStatus and redirect accordingly (same as sellers)
+                        if (user.approvalStatus === "pending") {
+                            navigate("/csr/pending-approval");
+                        } else if (user.approvalStatus === "rejected") {
+                            navigate("/csr/rejected");
+                        } else {
+                            navigate("/csr/overview");
+                        }
                         break;
                     case "student":
                     case "school_student":
@@ -198,7 +205,14 @@ const Login = () => {
                     navigate("/seller/dashboard");
                     break;
                 case "csr":
-                    navigate("/csr/dashboard");
+                    // Check User.approvalStatus and redirect accordingly (same as sellers)
+                    if (user.approvalStatus === "pending") {
+                        navigate("/csr/pending-approval");
+                    } else if (user.approvalStatus === "rejected") {
+                        navigate("/csr/rejected");
+                    } else {
+                        navigate("/csr/overview");
+                    }
                     break;
                 case "student":
                 case "school_student":
@@ -213,11 +227,25 @@ const Login = () => {
             ) {
                 localStorage.setItem("verificationEmail", email);
                 navigate("/verify-email");
-            } else if (err.response?.data?.approvalStatus === "pending") {
-                setPendingModal({
-                    message: err.response?.data?.message || "Your account is currently under review. You will be able to log in once the admin approves it.",
-                    email,
-                });
+            } else if (err.response?.status === 403) {
+                // Handle pending/rejected approval status
+                const approvalStatus = err.response?.data?.approvalStatus;
+                const message = err.response?.data?.message || "Your account is currently under review.";
+                
+                // Check if this is a CSR user based on the error message or try to infer from email
+                // For CSR users, redirect to CSR-specific pages
+                if (approvalStatus === "pending" && message.toLowerCase().includes("csr")) {
+                    navigate("/csr/pending-approval");
+                } else if (approvalStatus === "rejected" && message.toLowerCase().includes("csr")) {
+                    navigate("/csr/rejected");
+                } else if (approvalStatus === "pending") {
+                    setPendingModal({
+                        message: message + " You will be able to log in once the admin approves it.",
+                        email,
+                    });
+                } else {
+                    setError(message);
+                }
             } else {
                 setError(err.response?.data?.message || "Something went wrong.");
             }

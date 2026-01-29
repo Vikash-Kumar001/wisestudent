@@ -138,23 +138,24 @@ import parentRoutes from "./routes/parentRoutes.js";
 import sellerRoutes from "./routes/sellerRoutes.js";
 import csrRoutes from "./routes/csrRoutes.js";
 import csrSponsorRoutes from "./routes/csrSponsorRoutes.js";
-import csrFundRoutes from "./routes/csrFundRoutes.js";
-import csrSponsorshipRoutes from "./routes/csrSponsorshipRoutes.js";
-import csrSchoolRoutes from "./routes/csrSchoolRoutes.js";
-import csrImpactRoutes from "./routes/csrImpactRoutes.js";
-import csrImpactReportRoutes from "./routes/csrImpactReportRoutes.js";
-import csrGalleryRoutes from "./routes/csrGalleryRoutes.js";
-import csrInvoiceRoutes from "./routes/csrInvoiceRoutes.js";
-import csrAuditRoutes from "./routes/csrAuditRoutes.js";
-import csrTestimonialRoutes from "./routes/csrTestimonialRoutes.js";
+import { registerCsrPublic } from "./controllers/csrSponsorController.js";
+// Old CSR routes - commented out (deprecated, no frontend usage)
+// import csrFundRoutes from "./routes/csrFundRoutes.js";
+// import csrSponsorshipRoutes from "./routes/csrSponsorshipRoutes.js";
+// import csrSchoolRoutes from "./routes/csrSchoolRoutes.js";
+// import csrImpactRoutes from "./routes/csrImpactRoutes.js";
+// import csrImpactReportRoutes from "./routes/csrImpactReportRoutes.js";
+// import csrGalleryRoutes from "./routes/csrGalleryRoutes.js";
+import csrTestimonialRoutes from "./routes/csrTestimonialRoutes.js"; // Still used by testimonialService
 import csrOverviewRoutes from "./routes/csrOverviewRoutes.js";
 import budgetTransactionRoutes from "./routes/budgetTransactionRoutes.js";
 import impactReportRoutes from "./routes/impactReportRoutes.js";
 import cobrandingLegalRoutes from "./routes/cobrandingLegalRoutes.js";
-import campaignWizardRoutes from "./routes/campaignWizardRoutes.js";
-import csrPaymentRoutes from "./routes/csrPaymentRoutes.js";
+// Old CSR routes - commented out (deprecated, no frontend usage)
+// import campaignWizardRoutes from "./routes/campaignWizardRoutes.js";
+// import csrPaymentRoutes from "./routes/csrPaymentRoutes.js";
 import invoiceRoutes from "./routes/invoiceRoutes.js";
-import csrReportRoutes from "./routes/csrReportRoutes.js";
+// import csrReportRoutes from "./routes/csrReportRoutes.js";
 import budgetTrackingRoutes from "./routes/budgetTrackingRoutes.js";
 import avatarRoutes from "./routes/avatarRoutes.js";
 import announcementRoutes from "./routes/announcementRoutes.js";
@@ -198,9 +199,10 @@ import slideElementRoutes from "./routes/slideElementRoutes.js";
 import presentationTemplateRoutes from "./routes/presentationTemplateRoutes.js";
 import adminCsrRoutes from "./routes/adminCsrRoutes.js";
 import adminCsrDepositRoutes from "./routes/adminCsrDepositRoutes.js";
-import adminCsrTestimonialRoutes from "./routes/adminCsrTestimonialRoutes.js";
-import adminCsrRefundRoutes from "./routes/adminCsrRefundRoutes.js";
-import csrRefundRoutes from "./routes/csrRefundRoutes.js";
+import adminProgramRoutes from "./routes/adminProgramRoutes.js";
+import csrProgramRoutes from "./routes/csrProgramRoutes.js";
+// Old CSR routes - commented out (deprecated, no frontend usage)
+// import csrRefundRoutes from "./routes/csrRefundRoutes.js";
 import schoolTestimonialRoutes from "./routes/schoolTestimonialRoutes.js";
 import schoolSponsorshipRoutes from "./routes/schoolSponsorshipRoutes.js";
 
@@ -321,26 +323,29 @@ app.use("/api", webhookRoutes); // Razorpay webhook at /api/webhook
   app.use("/api/presentations", slideElementRoutes);
   app.use("/api/presentation-templates", presentationTemplateRoutes);
   app.use("/api/notifications", notificationRoutes);
-  app.use("/api/csr/funds", csrFundRoutes);
-  app.use("/api/csr/funds/refund", csrRefundRoutes);
-  app.use("/api/csr/sponsorships", csrSponsorshipRoutes);
-  app.use("/api/csr/schools", csrSchoolRoutes);
-  app.use("/api/csr/impact", csrImpactRoutes);
-  app.use("/api/csr/reports", csrImpactReportRoutes);
-  app.use("/api/csr/gallery", csrGalleryRoutes);
-  app.use("/api/csr/testimonials", csrTestimonialRoutes);
-  app.use("/api/csr/invoices", csrInvoiceRoutes);
-  app.use("/api/csr/audit-log", csrAuditRoutes);
+  // Old CSR routes - kept for backward compatibility (may be deprecated)
+  // app.use("/api/csr/funds", csrFundRoutes);
+  // app.use("/api/csr/funds/refund", csrRefundRoutes);
+  // app.use("/api/csr/sponsorships", csrSponsorshipRoutes);
+  // app.use("/api/csr/schools", csrSchoolRoutes);
+  // app.use("/api/csr/impact", csrImpactRoutes);
+  // app.use("/api/csr/reports", csrImpactReportRoutes);
+  // app.use("/api/csr/gallery", csrGalleryRoutes);
+  app.use("/api/csr/testimonials", csrTestimonialRoutes); // Still used by testimonialService
+  // Public CSR self-registration (doc: POST /api/csr/register) — must be before /api/csr router
+  app.post("/api/csr/register", registerCsrPublic);
   app.use("/api/csr", csrSponsorRoutes);
   app.use("/api/csr", csrRoutes);
   app.use("/api/csr", impactReportRoutes);
   app.use("/api/csr", cobrandingLegalRoutes);
   app.use("/api/csr-overview", csrOverviewRoutes);
+  app.use('/api/csr', csrProgramRoutes);
   app.use('/api/budget', budgetTransactionRoutes);
-  app.use('/api/campaign-wizard', campaignWizardRoutes);
-app.use('/api/csr-financial', csrPaymentRoutes);
-app.use('/api/csr-financial', invoiceRoutes);
-app.use('/api/csr-reports', csrReportRoutes);
+  // Old CSR routes - deprecated (no frontend usage found)
+  // app.use('/api/campaign-wizard', campaignWizardRoutes);
+  // app.use('/api/csr-financial', csrPaymentRoutes);
+  // app.use('/api/csr-financial', invoiceRoutes);
+  // app.use('/api/csr-reports', csrReportRoutes);
   app.use('/api/budget-tracking', budgetTrackingRoutes);
   app.use('/api/avatar', avatarRoutes);
 app.use('/api/announcements', announcementRoutes);
@@ -359,10 +364,10 @@ app.use('/api/admin/smart-insights', smartInsightsRoutes);
 app.use('/api/admin/financial-console', financialConsoleRoutes);
   app.use('/api/admin/schools', adminSchoolsRoutes);
   app.use('/api/admin/support-desk', supportDeskRoutes);
-  app.use('/api/admin/csr', adminCsrRoutes);
-  app.use('/api/admin/csr/testimonials', adminCsrTestimonialRoutes);
+  // Register specific CSR routes BEFORE the general /api/admin/csr route to avoid route conflicts
   app.use('/api/admin/csr/deposits', adminCsrDepositRoutes);
-  app.use('/api/admin/csr/refunds', adminCsrRefundRoutes);
+  app.use('/api/admin/csr', adminCsrRoutes);
+  app.use('/api/admin/programs', adminProgramRoutes);
 app.use('/api/admin/lifecycle', userLifecycleRoutes);
 app.use('/api/admin/content-governance', contentGovernanceRoutes);
 app.use('/api/admin/audit-timeline', auditTimelineRoutes);

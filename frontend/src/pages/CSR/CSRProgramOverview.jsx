@@ -1,0 +1,387 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Users,
+  School,
+  MapPin,
+  Calendar,
+  CheckCircle,
+  FileText,
+  AlertCircle,
+  RefreshCw,
+  TrendingUp,
+} from "lucide-react";
+import toast from "react-hot-toast";
+import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
+import csrProgramService from "../../services/csr/programService";
+
+// Helper functions
+const formatDate = (date) => {
+  if (!date) return "N/A";
+  return new Date(date).toLocaleDateString("en-IN", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+const formatNumber = (num) => {
+  if (num === undefined || num === null) return "0";
+  return new Intl.NumberFormat("en-IN").format(num);
+};
+
+const formatStatus = (status) => {
+  if (!status) return "Unknown";
+  return status
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
+const getStatusColor = (status) => {
+  const colors = {
+    draft: "bg-slate-100 text-slate-700",
+    approved: "bg-blue-100 text-blue-700",
+    implementation_in_progress: "bg-amber-100 text-amber-700",
+    mid_program_review_completed: "bg-purple-100 text-purple-700",
+    completed: "bg-emerald-100 text-emerald-700",
+  };
+  return colors[status] || "bg-slate-100 text-slate-700";
+};
+
+const CSRProgramOverview = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState("");
+  const [data, setData] = useState(null);
+  const [acknowledging, setAcknowledging] = useState(false);
+
+  const fetchOverview = async (showToast = false) => {
+    if (!refreshing) setLoading(true);
+    setRefreshing(true);
+    setError("");
+    try {
+      // First get the list of programs to get the active program ID
+      const programsRes = await csrProgramService.getMyPrograms();
+      const programs = programsRes?.data || [];
+
+      if (programs.length === 0) {
+        // Redirect to no-program page if no programs assigned
+        navigate("/csr/no-program", { replace: true });
+        return;
+      }
+
+      // Get the first (active) program
+      const activeProgram = programs[0];
+      const overviewRes = await csrProgramService.getProgramOverview(activeProgram._id);
+      
+      if (overviewRes?.data) {
+        setData(overviewRes.data);
+        if (showToast) {
+          toast.success("Overview data refreshed");
+        }
+      } else {
+        setError("Failed to load program overview data");
+      }
+    } catch (err) {
+      console.error("Failed to load overview:", err);
+      const errorMessage = err?.response?.data?.message || "Failed to load program overview";
+      setError(errorMessage);
+      
+      // If it's a 404 or no programs error, redirect to no-program page
+      if (err?.response?.status === 404 || errorMessage.includes("No programs")) {
+        navigate("/csr/no-program", { replace: true });
+        return;
+      }
+      
+      if (showToast) {
+        toast.error(errorMessage);
+      }
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOverview();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleAcknowledge = async () => {
+    if (!data?.checkpoint?.current) return;
+
+    setAcknowledging(true);
+    try {
+      const programsRes = await csrProgramService.getMyPrograms();
+      const programs = programsRes?.data || [];
+      if (programs.length === 0) {
+        toast.error("No programs found");
+        return;
+      }
+
+      await csrProgramService.acknowledgeCheckpoint(
+        programs[0]._id,
+        data.checkpoint.current.checkpointNumber
+      );
+      toast.success("Checkpoint acknowledged successfully");
+      // Refresh overview data
+      await fetchOverview();
+    } catch (err) {
+      const errorMessage = err?.response?.data?.message || "Failed to acknowledge checkpoint";
+      toast.error(errorMessage);
+      console.error("Failed to acknowledge checkpoint:", err);
+    } finally {
+      setAcknowledging(false);
+    }
+  };
+
+  const handleRefresh = async () => {
+    await fetchOverview(true);
+  };
+
+  if (loading && !data) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="flex items-center gap-2 text-slate-500">
+          <RefreshCw className="w-5 h-5 animate-spin" />
+          <span>Loading program overview...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error && !data) {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 shadow-sm text-center">
+            <AlertCircle className="w-12 h-12 text-amber-500 mx-auto mb-3" />
+            <h2 className="text-lg font-semibold text-amber-900 mb-2">{error}</h2>
+            <p className="text-sm text-amber-700 mb-4">
+              Please contact support if you believe this is an error.
+            </p>
+            <div className="flex gap-2 justify-center">
+              <button
+                onClick={handleRefresh}
+                className="inline-flex items-center gap-2 rounded-xl border border-amber-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-amber-700 hover:bg-amber-50 transition-colors"
+              >
+                <RefreshCw className="w-4 h-4" />
+                Retry
+              </button>
+              <button
+                onClick={() => navigate("/csr/profile")}
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                View Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { program, csrPartner, checkpoint, metrics } = data || {};
+
+  return (
+    <div className="min-h-screen bg-slate-50">
+      <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
+        {/* HEADER */}
+        <header className="flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">CSR Dashboard</p>
+              <h1 className="text-3xl font-bold text-slate-900">Program Overview</h1>
+              <p className="text-sm text-slate-500 mt-1">
+                Monitor your program's progress and impact at a glance.
+              </p>
+            </div>
+            <button
+              onClick={handleRefresh}
+              disabled={refreshing}
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <RefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`} />
+              Refresh
+            </button>
+          </div>
+        </header>
+
+        {/* PROGRAM INFO CARD */}
+        <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+            <div className="space-y-3 flex-1">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">CSR Partner</p>
+              <h2 className="text-xl font-bold text-slate-900">
+                {csrPartner?.companyName || "N/A"}
+              </h2>
+              <h3 className="text-lg font-semibold text-indigo-600">{program?.name || "N/A"}</h3>
+              <p className="text-sm text-slate-600">
+                {program?.description || "No description available."}
+              </p>
+
+              {/* Duration & Geography */}
+              <div className="flex flex-wrap gap-4 pt-2">
+                {program?.duration?.startDate && (
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <Calendar className="w-4 h-4 text-indigo-500" />
+                    {formatDate(program.duration.startDate)} –{" "}
+                    {formatDate(program.duration.endDate)}
+                  </div>
+                )}
+                {program?.geography?.states && program.geography.states.length > 0 && (
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <MapPin className="w-4 h-4 text-indigo-500" />
+                    {program.geography.states.join(", ")}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* STATUS BADGE */}
+            {program?.status && (
+              <div className="flex-shrink-0">
+                <span
+                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide ${getStatusColor(
+                    program.status
+                  )}`}
+                >
+                  {formatStatus(program.status)}
+                </span>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* CHECKPOINT STATUS CARD (if checkpoint is ready) */}
+        {checkpoint?.canAcknowledge && checkpoint?.current && (
+          <motion.section
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-2xl border border-indigo-200 bg-indigo-50 p-6 shadow-sm"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-indigo-500">Action Required</p>
+                <h2 className="text-lg font-semibold text-indigo-900 mt-1">
+                  Checkpoint Ready: {checkpoint.current.label || `Checkpoint ${checkpoint.current.checkpointNumber}`}
+                </h2>
+                <p className="text-sm text-indigo-700 mt-1">
+                  Please review the current progress and acknowledge to proceed.
+                </p>
+              </div>
+              <button
+                onClick={handleAcknowledge}
+                disabled={acknowledging}
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {acknowledging ? (
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                ) : (
+                  <CheckCircle className="w-4 h-4" />
+                )}
+                {acknowledging ? "Processing..." : "Acknowledge"}
+              </button>
+            </div>
+          </motion.section>
+        )}
+
+        {/* SUMMARY METRICS - 3 CARDS */}
+        <section className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              label: "Students Covered",
+              value: metrics?.studentsOnboarded || 0,
+              icon: Users,
+              bgFrom: "from-indigo-50",
+              bgTo: "to-indigo-100",
+              iconColor: "text-indigo-600",
+            },
+            {
+              label: "Schools Implemented",
+              value: metrics?.schoolsImplemented || 0,
+              icon: School,
+              bgFrom: "from-purple-50",
+              bgTo: "to-purple-100",
+              iconColor: "text-purple-600",
+            },
+            {
+              label: "Regions Covered",
+              value: metrics?.regionsCovered || 0,
+              icon: MapPin,
+              bgFrom: "from-teal-50",
+              bgTo: "to-teal-100",
+              iconColor: "text-teal-600",
+            },
+          ].map((stat) => (
+            <article
+              key={stat.label}
+              className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow"
+            >
+              <div className={`p-3 rounded-xl bg-gradient-to-br ${stat.bgFrom} ${stat.bgTo}`}>
+                <stat.icon className={`w-5 h-5 ${stat.iconColor}`} />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs uppercase tracking-wide text-slate-400">{stat.label}</p>
+                <p className="text-2xl font-semibold text-slate-900">{formatNumber(stat.value)}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        {/* CHECKPOINT TIMELINE */}
+        {checkpoint && (
+          <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold text-slate-900">Program Progress</h2>
+              <span className="text-sm text-slate-500">
+                {checkpoint.completed || 0} of {checkpoint.total || 5} checkpoints completed
+              </span>
+            </div>
+
+            {/* Progress bar */}
+            <div className="h-2 bg-slate-100 rounded-full overflow-hidden mb-4">
+              <div
+                className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                style={{
+                  width: `${Math.min(((checkpoint.completed || 0) / (checkpoint.total || 5)) * 100, 100)}%`,
+                }}
+              />
+            </div>
+
+            {/* Checkpoint labels */}
+            <div className="flex justify-between text-xs text-slate-500">
+              <span>Program Approval</span>
+              <span>Onboarding</span>
+              <span>Mid-Program</span>
+              <span>Completion</span>
+            </div>
+          </section>
+        )}
+
+        {/* ACTION BUTTONS */}
+        <section className="flex flex-wrap gap-3 justify-end">
+          <button
+            onClick={() => navigate("/csr/reports")}
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-md hover:shadow-lg transition-all"
+          >
+            <FileText className="w-4 h-4" />
+            View Reports
+          </button>
+        </section>
+
+        {/* REFRESHING INDICATOR */}
+        {refreshing && data && (
+          <div className="fixed bottom-4 right-4 bg-white rounded-xl border border-slate-200 px-4 py-2 shadow-lg flex items-center gap-2">
+            <RefreshCw className="w-4 h-4 animate-spin text-indigo-600" />
+            <span className="text-xs text-slate-600">Refreshing...</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default CSRProgramOverview;

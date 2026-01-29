@@ -25,7 +25,7 @@ api.interceptors.response.use(
     // Handle authentication errors
     if (error.response?.status === 401) {
       const currentPath = window.location.pathname;
-      const publicPaths = ['/', '/institution-type', '/individual-account', '/register-stakeholder', '/register-parent', '/register-seller', '/register-teacher', '/school-registration', '/choose-account-type'];
+      const publicPaths = ['/', '/institution-type', '/individual-account', '/register-stakeholder', '/register-csr', '/register-parent', '/register-seller', '/register-teacher', '/school-registration', '/choose-account-type'];
       
       // Only logout/redirect for auth endpoint failures, not data endpoint failures
       // Data endpoints might return 401 for missing permissions, which shouldn't trigger logout
@@ -123,7 +123,7 @@ api.interceptors.request.use(
       }
     } else {
       // ✅ Added from stash - Only log warning for protected routes, not public pages
-      const publicPaths = ['/register-parent', '/register-stakeholder', '/register-seller', '/register-teacher', '/school-registration', '/login', '/'];
+      const publicPaths = ['/register-parent', '/register-stakeholder', '/register-csr', '/register-seller', '/register-teacher', '/school-registration', '/login', '/'];
       const currentPath = window.location.pathname;
       if (!publicPaths.some(path => currentPath.includes(path))) {
         console.warn("⚠️ No token found in localStorage");

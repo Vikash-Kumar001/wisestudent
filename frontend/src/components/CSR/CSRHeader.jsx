@@ -1,9 +1,10 @@
 import React from "react";
-import { ChevronDown, UserCircle } from "lucide-react";
+import { UserCircle } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
 import NotificationBell from "./NotificationBell";
+
 const CSRHeader = () => {
-  const { user, logoutUser } = useAuth();
+  const { user } = useAuth();
 
   return (
     <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 shadow-sm">
@@ -18,14 +19,6 @@ const CSRHeader = () => {
       </div>
       <div className="flex items-center gap-4">
         <NotificationBell />
-        <button
-          type="button"
-          onClick={logoutUser}
-          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 transition hover:border-slate-400"
-        >
-          <ChevronDown className="w-4 h-4" />
-          Logout
-        </button>
       </div>
     </header>
   );
