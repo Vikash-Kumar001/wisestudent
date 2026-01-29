@@ -1,4 +1,3 @@
-import CSRKPI from '../models/CSRKPI.js';
 import User from '../models/User.js';
 import Organization from '../models/Organization.js';
 import Campaign from '../models/Campaign.js';

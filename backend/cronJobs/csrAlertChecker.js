@@ -1,40 +1,34 @@
-import cron from 'node-cron';
-import { checkAndTriggerAlerts } from '../services/csrAlertService.js';
+// CSR Alert Checker - DISABLED
+// Alert system removed as part of CSR system cleanup
+// Old alert models (CSRAlert, CSRAlertRule) and service (csrAlertService) have been removed
 
-let ioInstance = null;
-let isRunning = false;
+// import cron from 'node-cron';
+// import { checkAndTriggerAlerts } from '../services/csrAlertService.js';
+
+// let ioInstance = null;
+// let isRunning = false;
 
 /**
  * Schedule CSR alert checking
- * Runs every 15 minutes to check for alert conditions
+ * DISABLED - Alert system removed
  */
 export const scheduleCSRAlertChecker = (io) => {
-  ioInstance = io;
+  // Alert system disabled - no-op
+  return;
   
-  // Run every 15 minutes
-  cron.schedule('*/15 * * * *', async () => {
-    if (isRunning) {
-      return;
-    }
-    
-    try {
-      isRunning = true;
-      await checkAndTriggerAlerts(ioInstance);
-    } catch (error) {
-      console.error('❌ Error in CSR alert checker:', error);
-    } finally {
-      isRunning = false;
-    }
-  });
-  
-  // Run immediately on startup (after a short delay to let server initialize)
-  setTimeout(async () => {
-    try {
-      await checkAndTriggerAlerts(ioInstance);
-    } catch (error) {
-      console.error('❌ Error in initial CSR alert check:', error);
-    }
-  }, 30000); // Wait 30 seconds after server starts
+  // OLD CODE (commented out):
+  // ioInstance = io;
+  // cron.schedule('*/15 * * * *', async () => {
+  //   if (isRunning) return;
+  //   try {
+  //     isRunning = true;
+  //     await checkAndTriggerAlerts(ioInstance);
+  //   } catch (error) {
+  //     console.error('❌ Error in CSR alert checker:', error);
+  //   } finally {
+  //     isRunning = false;
+  //   }
+  // });
 };
 
 export default scheduleCSRAlertChecker;

@@ -1,38 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useSocket } from '../../context/SocketContext';
 import {
   Shield, ShieldCheck, TrendingUp, Users, Building, Activity, Database,
-  AlertTriangle, CheckCircle, Globe, BarChart3, Zap,
-  FileText, Settings, Award, Network, Store, Scale,
+  AlertTriangle, CheckCircle, Globe, Zap,
+  FileText, Settings, Award, Store,
   MapPin, Clock, Server, Lock, Download, Plus, Bell,
   ArrowRight, Trophy, Target, Flame, Sparkles, Star, TrendingDown,
-  Brain, DollarSign, Headphones, History, MessageSquare, Wrench, Key
+  Brain, DollarSign, Headphones, History, MessageSquare, Wrench, Key,
+  Briefcase, Handshake, Receipt
 } from 'lucide-react';
 import api from '../../utils/api';
 import { toast } from 'react-hot-toast';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const { socket } = useSocket();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState(null);
   const [activeIncidents, setActiveIncidents] = useState([]);
+  const [csrStats, setCsrStats] = useState({
+    pendingPartners: 0,
+    totalPartners: 0,
+    activePrograms: 0,
+  });
 
   useEffect(() => {
     fetchDashboardData();
   }, []);
 
+  // Phase 8: Real-time admin CSR notifications (Socket.IO)
+  useEffect(() => {
+    const s = socket;
+    if (!s) return;
+    const onNewRegistration = () => {
+      fetchDashboardData();
+      toast.success('New CSR registration pending approval', { icon: '🔔' });
+    };
+    const onCheckpointAcknowledged = (data) => {
+      if (data?.csrPartnerName) {
+        toast.success(`${data.csrPartnerName} acknowledged a checkpoint`, { icon: '✓' });
+      }
+    };
+    s.on('admin:csr:new_registration', onNewRegistration);
+    s.on('admin:csr:checkpoint_acknowledged', onCheckpointAcknowledged);
+    return () => {
+      s.off('admin:csr:new_registration', onNewRegistration);
+      s.off('admin:csr:checkpoint_acknowledged', onCheckpointAcknowledged);
+    };
+  }, [socket]);
+
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
       
-      const [dashboardRes, incidentsRes] = await Promise.all([
+      const [dashboardRes, incidentsRes, csrPartnersRes] = await Promise.all([
         api.get('/api/admin/dashboard').catch(() => ({ data: { data: null } })),
-        api.get('/api/incidents?status=open').catch(() => ({ data: { data: [] } }))
+        api.get('/api/incidents?status=open').catch(() => ({ data: { data: [] } })),
+        api.get('/api/admin/csr?status=pending').catch(() => ({ data: { data: [] } }))
       ]);
 
       setStats(dashboardRes.data.data);
       setActiveIncidents(incidentsRes.data.data || []);
+      
+      // Update CSR stats
+      const pendingPartners = csrPartnersRes?.data?.data?.length || 0;
+      
+      setCsrStats({
+        pendingPartners,
+        totalPartners: stats?.csrPartners?.total || 0,
+        activePrograms: stats?.csrPrograms?.active || 0,
+      });
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
       toast.error('Failed to load dashboard data');
@@ -151,6 +190,18 @@ const AdminDashboard = () => {
             onClick={() => navigate('/admin/approvals')}
           />
           <QuickActionButton
+            label="CSR Partners"
+            icon={Handshake}
+            color="from-blue-500 to-indigo-600"
+            onClick={() => navigate('/admin/csr/partners')}
+          />
+          <QuickActionButton
+            label="CSR Programs"
+            icon={Briefcase}
+            color="from-indigo-500 to-purple-600"
+            onClick={() => navigate('/admin/programs')}
+          />
+          <QuickActionButton
             label="Financial Console"
             icon={DollarSign}
             color="from-green-500 to-emerald-600"
@@ -225,7 +276,7 @@ const AdminDashboard = () => {
         </motion.div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
           <StatCard
             title="Total Schools"
             value={stats?.schoolsByRegion?.reduce((sum, r) => sum + (r.totalSchools || 0), 0) || 0}
@@ -243,6 +294,24 @@ const AdminDashboard = () => {
             trend="+12%"
             subtitle="Across platform"
             onClick={() => navigate('/admin/dashboard')}
+          />
+          <StatCard
+            title="CSR Partners"
+            value={csrStats.totalPartners || '—'}
+            icon={Handshake}
+            color="from-indigo-500 to-purple-600"
+            trend={csrStats.pendingPartners > 0 ? `${csrStats.pendingPartners} pending` : ''}
+            subtitle={csrStats.pendingPartners > 0 ? 'Action required' : 'All approved'}
+            onClick={() => navigate('/admin/csr/partners')}
+          />
+          <StatCard
+            title="CSR Programs"
+            value={csrStats.activePrograms || '—'}
+            icon={Briefcase}
+            color="from-purple-500 to-pink-600"
+            trend={stats?.csrPrograms?.total ? `${stats.csrPrograms.total} total` : ''}
+            subtitle="Active programs"
+            onClick={() => navigate('/admin/programs')}
           />
           <StatCard
             title="Active Incidents"
@@ -450,110 +519,62 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* More Features Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          {/* Network Map */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <Network className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900">Network Map</h3>
+        {/* CSR Management Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className="mt-8 mb-6"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+              <Handshake className="w-6 h-6 text-white" />
             </div>
-            <p className="text-sm text-gray-600">Regional adoption heatmap and school distribution</p>
-          </motion.div>
+            <h2 className="text-2xl font-bold text-gray-900">CSR Management</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <motion.div
+              whileHover={{ y: -5, scale: 1.02 }}
+              onClick={() => navigate('/admin/csr/partners')}
+              className="bg-white rounded-xl shadow-lg border-2 border-blue-200 p-5 hover:shadow-xl hover:border-blue-400 transition-all cursor-pointer relative"
+            >
+              {csrStats.pendingPartners > 0 && (
+                <span className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  {csrStats.pendingPartners}
+                </span>
+              )}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-blue-100 rounded-lg">
+                  <Handshake className="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">Partners</h3>
+              </div>
+              <p className="text-sm text-gray-600 mb-2">Approve, manage CSR partners</p>
+              <div className="flex items-center gap-2 text-xs text-blue-600 font-semibold">
+                <span>View Partners</span>
+                <ArrowRight className="w-3 h-3" />
+              </div>
+            </motion.div>
 
-          {/* Benchmarks Panel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-amber-100 rounded-lg">
-                <BarChart3 className="w-6 h-6 text-amber-600" />
+            <motion.div
+              whileHover={{ y: -5, scale: 1.02 }}
+              onClick={() => navigate('/admin/programs')}
+              className="bg-white rounded-xl shadow-lg border-2 border-indigo-200 p-5 hover:shadow-xl hover:border-indigo-400 transition-all cursor-pointer"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-indigo-100 rounded-lg">
+                  <Briefcase className="w-5 h-5 text-indigo-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">Programs</h3>
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Benchmarks</h3>
-            </div>
-            <p className="text-sm text-gray-600">Compare school performance across the network</p>
-          </motion.div>
-
-          {/* Telemetry */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-cyan-100 rounded-lg">
-                <Activity className="w-6 h-6 text-cyan-600" />
+              <p className="text-sm text-gray-600 mb-2">Create & manage CSR programs</p>
+              <div className="flex items-center gap-2 text-xs text-indigo-600 font-semibold">
+                <span>Manage Programs</span>
+                <ArrowRight className="w-3 h-3" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Platform Telemetry</h3>
-            </div>
-            <p className="text-sm text-gray-600">Real-time APM and performance monitoring</p>
-          </motion.div>
-
-          {/* School Onboarding */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-teal-100 rounded-lg">
-                <Users className="w-6 h-6 text-teal-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900">School Onboarding</h3>
-            </div>
-            <p className="text-sm text-gray-600">Create tenants, manage trials, assign managers</p>
-          </motion.div>
-
-          {/* Data Export */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-indigo-100 rounded-lg">
-                <Database className="w-6 h-6 text-indigo-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900">Data Export</h3>
-            </div>
-            <p className="text-sm text-gray-600">Anonymized research sandbox and exports</p>
-          </motion.div>
-
-          {/* Policy & Legal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            onClick={() => navigate('/admin/dashboard')}
-            className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-indigo-300 transition-all cursor-pointer"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-rose-100 rounded-lg">
-                <Scale className="w-6 h-6 text-rose-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900">Policy & Legal</h3>
-            </div>
-            <p className="text-sm text-gray-600">Consent rates, deletion requests, legal holds</p>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

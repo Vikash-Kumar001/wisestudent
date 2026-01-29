@@ -204,6 +204,11 @@ router.post("/register-stakeholder", async (req, res) => {
       businessName, shopType,
       // CSR fields
       organization,
+      phone,
+      website,
+      registrationNumber,
+      industry,
+      address,
     } = req.body;
 
     if (!email || !password || !name || !role) {
@@ -251,6 +256,47 @@ router.post("/register-stakeholder", async (req, res) => {
     }
 
     const newUser = await User.create(userData);
+
+    // For CSR users, automatically create CSRSponsor document (for business data only)
+    if (role === "csr") {
+      try {
+        const CSRSponsor = (await import("../models/CSRSponsor.js")).default;
+        const { notifyAdminNewCSR } = await import("../cronJobs/csrNotificationUtils.js");
+        
+        const csrSponsorData = {
+          userId: newUser._id,
+          companyName: organization,
+          contactName: name,
+          email: normalizedEmail,
+          status: "active", // Business status (approval comes from User.approvalStatus)
+          autoCreated: false,
+        };
+
+        // Add optional CSR fields if provided
+        if (phone) csrSponsorData.phone = phone;
+        if (website) csrSponsorData.website = website;
+        if (registrationNumber) csrSponsorData.registrationNumber = registrationNumber;
+        if (industry) csrSponsorData.industry = industry;
+        if (address) {
+          csrSponsorData.address = {};
+          if (address.street) csrSponsorData.address.street = address.street;
+          if (address.city) csrSponsorData.address.city = address.city;
+          if (address.state) csrSponsorData.address.state = address.state;
+          if (address.postalCode) csrSponsorData.address.postalCode = address.postalCode;
+          if (address.country) csrSponsorData.address.country = address.country;
+        }
+
+        const csrSponsor = new CSRSponsor(csrSponsorData);
+        
+        await csrSponsor.save();
+        
+        // Notify admins about new CSR registration
+        await notifyAdminNewCSR(csrSponsor);
+      } catch (sponsorError) {
+        console.error("Error creating CSRSponsor during registration:", sponsorError);
+        // Don't fail registration if CSRSponsor creation fails, but log it
+      }
+    }
 
     const roleLabel = role.charAt(0).toUpperCase() + role.slice(1);
     const message = role === "parent"
@@ -332,6 +378,7 @@ router.get("/me", requireAuth, async (req, res) => {
         req.user.linkingCodeIssuedAt = user.linkingCodeIssuedAt;
       }
     }
+
     res.json(req.user);
   } catch (error) {
     console.error('Error in /me endpoint:', error);

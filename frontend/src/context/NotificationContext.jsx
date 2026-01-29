@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useSocket } from "./SocketContext";
 import { fetchMyNotifications } from "../services/notificationService"; // ✅ Correct import
+import { useAuth } from "./AuthUtils";
 
 const NotificationContext = createContext();
 
 export const NotificationProvider = ({ children }) => {
     const socket = useSocket();
+    const { user, loading } = useAuth();
     const [notifications, setNotifications] = useState([]);
     const [unreadCount, setUnreadCount] = useState(0);
 
@@ -35,6 +37,13 @@ export const NotificationProvider = ({ children }) => {
     }, [socket]);
 
     useEffect(() => {
+        // Only fetch notifications if user is authenticated
+        if (loading || !user) {
+            setNotifications([]);
+            setUnreadCount(0);
+            return;
+        }
+
         // Try to fetch notifications, but don't error if it fails
         fetchMyNotifications()
             .then((data) => {
@@ -45,7 +54,7 @@ export const NotificationProvider = ({ children }) => {
                 console.error("Failed to fetch notifications:", err);
                 setNotifications([]);
             });
-    }, []);
+    }, [user, loading]);
 
     return (
         <NotificationContext.Provider value={{ notifications, unreadCount, setNotifications }}>

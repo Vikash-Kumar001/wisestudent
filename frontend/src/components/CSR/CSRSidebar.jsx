@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  ArrowDownRight,
-  Bell,
-  Home,
-  BarChart3,
+  LayoutDashboard,
+  Users,
+  Activity,
   Target,
-  DollarSign,
+  School,
+  Award,
   FileText,
-  Image,
-  MessageSquare,
+  User,
+  Settings,
+  Bell,
+  BarChart3,
   Menu,
   X,
   ChevronRight,
-  Calculator,
   LogOut,
-  User,
-  Settings,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthUtils';
 
@@ -28,26 +27,26 @@ const CSRSidebar = () => {
   const { logoutUser } = useAuth();
 
   const navigationItems = [
-        {
-          section: 'Navigation',
-          items: [
-            { icon: Home, label: 'Dashboard', path: '/csr/dashboard', color: 'blue' },
-            { icon: Bell, label: 'Notifications', path: '/csr/notifications', color: 'rose' },
-            { icon: Target, label: 'Sponsorships', path: '/csr/sponsorships', color: 'purple' },
-            { icon: MessageSquare, label: 'Testimonials', path: '/csr/testimonials', color: 'pink' },
-            { icon: DollarSign, label: 'Funds', path: '/csr/funds', color: 'green' },
-            { icon: ArrowDownRight, label: 'Refunds', path: '/csr/funds/refund', color: 'emerald' },
-        { icon: FileText, label: 'Reports', path: '/csr/reports', color: 'teal' },
-        { icon: Image, label: 'Gallery', path: '/csr/gallery', color: 'purple' },
-        { icon: User, label: 'Profile', path: '/csr/profile', color: 'indigo' },
+    {
+      section: 'Navigation',
+      items: [
+        { icon: LayoutDashboard, label: 'Program Overview', path: '/csr/overview', color: 'blue' },
+        { icon: Users, label: 'Student Reach', path: '/csr/student-reach', color: 'purple' },
+        { icon: Activity, label: 'Engagement', path: '/csr/engagement', color: 'green' },
+        { icon: Target, label: 'Readiness Exposure', path: '/csr/readiness-exposure', color: 'orange' },
+        { icon: School, label: 'School Coverage', path: '/csr/schools', color: 'teal' },
+        { icon: Award, label: 'Recognition', path: '/csr/recognition', color: 'amber' },
+        { icon: FileText, label: 'Impact Reports', path: '/csr/reports', color: 'indigo' },
+        { icon: Bell, label: 'Notifications', path: '/csr/notifications', color: 'rose' },
+        { icon: User, label: 'Profile', path: '/csr/profile', color: 'pink' },
         { icon: Settings, label: 'Settings', path: '/csr/settings', color: 'slate' },
       ],
     },
   ];
 
   const isActive = (path) => {
-    if (path === '/csr/dashboard') {
-      return location.pathname === '/csr/dashboard';
+    if (path === '/csr/overview') {
+      return location.pathname === '/csr/overview' || location.pathname === '/csr' || location.pathname === '/csr/';
     }
     return location.pathname.startsWith(path);
   };

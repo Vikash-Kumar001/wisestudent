@@ -1,4 +1,5 @@
 import CSRSponsor from "../models/CSRSponsor.js";
+import CSRNotification from "../models/CSRNotification.js";
 import FundTransaction from "../models/FundTransaction.js";
 import Sponsorship from "../models/Sponsorship.js";
 import TaxReceipt from "../models/TaxReceipt.js";
@@ -80,6 +81,16 @@ export const registerSponsor = async (user, payload) => {
   }
 
   await sponsor.save();
+  
+  // Notify admins about new CSR registration
+  try {
+    const { notifyAdminNewCSR } = await import('../cronJobs/csrNotificationUtils.js');
+    await notifyAdminNewCSR(sponsor);
+  } catch (error) {
+    console.error('Failed to notify admins about new CSR registration:', error);
+    // Don't fail registration if notification fails
+  }
+  
   return sponsor.toObject();
 };
 
@@ -143,6 +154,103 @@ export const calculateImpactMetrics = async (filters = {}) => {
   };
 };
 
+/**
+ * List CSR notifications for the current user (doc alignment: GET /api/csr/notifications)
+ */
+export const listCsrNotifications = async (userId, options = {}) => {
+  const sponsor = await CSRSponsor.findOne({ userId });
+  if (!sponsor) return { notifications: [], unreadCount: 0 };
+
+  const { limit = 50 } = options;
+  const notifications = await CSRNotification.find({ sponsorId: sponsor._id })
+    .sort({ createdAt: -1 })
+    .limit(limit)
+    .lean();
+
+  const userIdStr = userId.toString();
+  const mapped = notifications.map((n) => {
+    const recipient = n.recipients?.find((r) => r.userId?.toString() === userIdStr);
+    return {
+      _id: n._id,
+      notificationId: n.notificationId,
+      type: n.type,
+      title: n.title,
+      message: n.message,
+      link: n.link,
+      category: n.category,
+      severity: n.severity,
+      createdAt: n.createdAt,
+      read: recipient?.read ?? false,
+      readAt: recipient?.readAt,
+    };
+  });
+
+  const unreadCount = mapped.filter((n) => !n.read).length;
+  return { notifications: mapped, unreadCount };
+};
+
+/**
+ * Mark a CSR notification as read (doc alignment: PUT /api/csr/notifications/:id/read)
+ */
+export const markCsrNotificationRead = async (notificationId, userId) => {
+  const sponsor = await CSRSponsor.findOne({ userId });
+  if (!sponsor) {
+    const error = new Error("CSR partner not found");
+    error.status = 404;
+    throw error;
+  }
+
+  const notification = await CSRNotification.findOne({
+    _id: notificationId,
+    sponsorId: sponsor._id,
+  });
+  if (!notification) {
+    const error = new Error("Notification not found");
+    error.status = 404;
+    throw error;
+  }
+
+  const userIdStr = userId.toString();
+  const recipients = notification.recipients || [];
+  for (let i = 0; i < recipients.length; i++) {
+    if (recipients[i].userId?.toString() === userIdStr) {
+      recipients[i].read = true;
+      recipients[i].readAt = new Date();
+      break;
+    }
+  }
+  await notification.save();
+
+  return notification.toObject();
+};
+
+/**
+ * Mark all CSR notifications as read for the current user
+ */
+export const markAllCsrNotificationsRead = async (userId) => {
+  const sponsor = await CSRSponsor.findOne({ userId });
+  if (!sponsor) return { updated: 0 };
+
+  const notifications = await CSRNotification.find({
+    sponsorId: sponsor._id,
+    recipients: { $elemMatch: { userId, read: false } },
+  });
+  const userIdStr = userId.toString();
+  let updated = 0;
+  for (const notification of notifications) {
+    for (let i = 0; i < (notification.recipients || []).length; i++) {
+      if (notification.recipients[i].userId?.toString() === userIdStr) {
+        notification.recipients[i].read = true;
+        notification.recipients[i].readAt = new Date();
+        updated++;
+        break;
+      }
+    }
+    await notification.save();
+  }
+  return { updated };
+};
+
 const csrSponsorService = {
   registerSponsor,
   getSponsorProfile,
@@ -150,6 +258,9 @@ const csrSponsorService = {
   getDashboardData,
   calculateImpactMetrics,
   findOrCreateSponsor,
+  listCsrNotifications,
+  markCsrNotificationRead,
+  markAllCsrNotificationsRead,
 };
 
 export default csrSponsorService;

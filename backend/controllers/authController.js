@@ -466,43 +466,28 @@ export const login = async (req, res) => {
     }
 
     const normalizedEmail = email.toLowerCase();
-    console.log('Login attempt for:', normalizedEmail);
-    
     const user = await User.findOne({ email: normalizedEmail });
 
     if (!user) {
-      console.log('User not found for email:', normalizedEmail);
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    console.log('User found:', {
-      id: user._id,
-      email: user.email,
-      role: user.role,
-      hasPassword: !!user.password,
-      passwordLength: user.password ? user.password.length : 0
-    });
-
     if (!user.password) {
-      console.log('No password set for user:', user.email);
       return res.status(400).json({
         message: "No password set for this account. Please reset your password.",
       });
     }
 
-    console.log('Comparing passwords...');
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log('Password match result:', isMatch);
-    
     if (!isMatch) {
-      console.log('Password mismatch for user:', user.email);
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
     // Email verification is no longer required for student login.
     // We allow login regardless of verification status.
 
-    // Approval status checks for parent and seller only (CSR users don't need approval)
+    // Approval status checks for parent, seller, and school_admin
+    // Note: CSR users with pending/rejected status are allowed to login to access their status pages
     if (["parent", "seller", "school_admin"].includes(user.role)) {
       if (user.approvalStatus === "pending") {
         return res.status(403).json({
@@ -517,6 +502,13 @@ export const login = async (req, res) => {
           approvalStatus: "rejected",
         });
       }
+    }
+
+    // CSR users: Allow login even if pending/rejected
+    // This allows them to access pending-approval/rejected pages
+    // The token will be generated and approvalStatus will be included in the response
+    if (user.role === 'csr') {
+      console.log('CSR account approval status:', user.approvalStatus || 'not set');
     }
 
     const token = generateToken(user._id);
@@ -668,7 +660,7 @@ export const login = async (req, res) => {
               approvalStatus: user.approvalStatus,
             },
             token, // Include token in response for frontend storage
-            loginReward
+            loginReward,
           });
       } else {
         // Regular login without reward
@@ -689,7 +681,7 @@ export const login = async (req, res) => {
               approvalStatus: user.approvalStatus,
             },
             token,
-            loginReward: null
+            loginReward: null,
           });
       }
     } else {
@@ -710,7 +702,7 @@ export const login = async (req, res) => {
             role: user.role,
             approvalStatus: user.approvalStatus,
           },
-          token // Include token in response for frontend storage
+          token, // Include token in response for frontend storage
         });
     }
   } catch (err) {
