@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const OFFICIAL_VS_FAKE_APPS_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: How do you identify a safer app? (A) Random download link or (B) Official app store + verified developer",
+    prompt: "Scenario: How do you identify a safer app?",
     options: [
       {
         id: "a",
@@ -105,13 +105,13 @@ const OFFICIAL_VS_FAKE_APPS_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "They always provide free apps",
         reflection: "Official stores contain both free and paid apps; cost doesn't indicate safety.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "b",
         label: "They have review processes and security checks for apps",
         reflection: "Yes! Official stores review apps and check for known security threats before listing them.",
         isCorrect: true,
@@ -137,19 +137,19 @@ const OFFICIAL_VS_FAKE_APPS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Search for the app name online and download from the first link",
         reflection: "The first search result may be a fake site hosting malicious apps.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Download any app with the company's logo",
         reflection: "Logos can be copied; official stores and verified developers are more reliable indicators.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Only download from official app stores and verify developer identity",
         reflection: "Excellent! This combination provides the best protection against fake financial apps.",
         isCorrect: true,
@@ -232,7 +232,7 @@ const OfficialVsFakeApps = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

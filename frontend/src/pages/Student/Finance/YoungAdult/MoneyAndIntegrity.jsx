@@ -49,19 +49,19 @@ const MONEY_AND_INTEGRITY_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "Wait to see if anyone notices before acting",
         reflection: "Waiting to see if anyone notices creates an ongoing ethical dilemma and potential legal risk. The longer you delay addressing the error, the more difficult it becomes to rectify the situation and the more damage it can do to your integrity and relationships.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Use the money for something important then return it",
         reflection: "Using money that isn't yours, even temporarily, is still unethical and can create complications if the error is discovered. The right approach is to address the error immediately and return all funds that don't belong to you.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "d",
         label: "Report the error and return the excess amount",
         reflection: "Exactly! Reporting errors and returning excess funds demonstrates integrity and builds trust. This action protects your reputation, maintains ethical standards, and often leads to positive recognition from the other party involved.",
         isCorrect: true,
@@ -81,13 +81,13 @@ const MONEY_AND_INTEGRITY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Try to minimize the ethical compromise",
         reflection: "Attempting to minimize ethical compromises still involves compromising your values and can lead to the same negative consequences as full compromise. It's better to maintain clear ethical boundaries and seek opportunities that fully align with your standards.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Decline and seek opportunities aligned with your values",
         reflection: "Exactly! Declining opportunities that conflict with your values protects your integrity and attracts opportunities that align with your principles. This approach builds a sustainable foundation for long-term success and personal satisfaction.",
         isCorrect: true,
@@ -113,19 +113,19 @@ const MONEY_AND_INTEGRITY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Avoid the topic to prevent conflict",
         reflection: "Avoiding financial disagreements can lead to unresolved issues that fester over time and potentially damage relationships more than addressing them directly. It's better to have honest conversations about financial matters to reach mutually acceptable solutions.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Let others decide to avoid responsibility",
         reflection: "Letting others decide financial matters that affect you can lead to unsatisfactory outcomes and ongoing resentment. It's important to participate in financial discussions and decisions while maintaining respect for others' perspectives and seeking mutually beneficial solutions.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Seek fair solutions that preserve relationships",
         reflection: "Exactly! Seeking fair solutions that preserve relationships demonstrates integrity and builds trust. This approach maintains valuable personal connections while ensuring that financial matters are handled ethically and equitably for all parties involved.",
         isCorrect: true,
@@ -138,13 +138,13 @@ const MONEY_AND_INTEGRITY_STAGES = [
     prompt: "What's the best approach to financial decision-making?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Consider long-term impact and ethical implications",
         reflection: "Exactly! Considering long-term impact and ethical implications leads to sustainable financial success and personal fulfillment. This approach builds a solid foundation for wealth creation while maintaining your integrity and contributing positively to your relationships and community.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Focus only on immediate financial benefits",
         reflection: "Focusing only on immediate financial benefits often leads to poor long-term outcomes and missed opportunities for sustainable wealth building. This approach can result in risky decisions that compromise your financial security and personal values.",
         isCorrect: false,

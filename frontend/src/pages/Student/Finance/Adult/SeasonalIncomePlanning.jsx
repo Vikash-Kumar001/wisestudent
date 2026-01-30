@@ -230,7 +230,7 @@ const SeasonalIncomePlanning = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true);
     } else {
       showCorrectAnswerFeedback(0, false);
     }

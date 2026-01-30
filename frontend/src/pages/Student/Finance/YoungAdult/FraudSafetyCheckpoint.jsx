@@ -42,13 +42,13 @@ const FRAUD_SAFETY_CHECKPOINT_STAGES = [
     prompt: "A caller claims to be from your bank and asks for your account password to 'verify your identity.' What's your response?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Hang up and call your bank using their official number",
         reflection: "Exactly! This is the correct response to suspected banking scams. Hang up immediately and contact your bank using the official customer service number on your bank statement or website. This ensures you're speaking with legitimate representatives.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Provide the password to verify your account",
         reflection: "Legitimate banks and financial institutions will never ask for your password over the phone. This is a classic social engineering scam designed to steal your account credentials. Providing passwords to unsolicited callers puts all your financial accounts at immediate risk.",
         isCorrect: false,
@@ -81,19 +81,19 @@ const FRAUD_SAFETY_CHECKPOINT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "The returns depend on market conditions",
         reflection: "While market conditions do affect investments, 'get rich quick' schemes typically ignore or downplay risks entirely. Legitimate investments always come with risk disclosures and realistic return expectations based on market analysis and historical performance data.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "You should invest small amounts to test it",
         reflection: "Investing even small amounts in 'get rich quick' schemes is risky. These are often designed to steal initial investments and then disappear, or they may be part of larger pyramid schemes that ultimately harm all participants except the organizers.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "It's likely a scam or misleading advertisement",
         reflection: "Exactly! 'Get rich quick' schemes are classic red flags for fraud. These offers often promise unrealistic returns with minimal risk or effort. They're designed to trick people into investing money or providing personal information that will be stolen.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const FRAUD_SAFETY_CHECKPOINT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Ask for the prize to be sent to a different address",
         reflection: "Changing the delivery address doesn't solve the fundamental problem of providing personal information to unknown parties. Scammers can use any address you provide, and sharing personal details still puts you at risk for identity theft and financial fraud.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Do not provide any personal information and report it",
         reflection: "Exactly! Never provide personal information for unsolicited prizes or offers. Report these attempts to the Federal Trade Commission (FTC) or your local consumer protection agency. This helps track scam patterns and protects others from similar attempts.",
         isCorrect: true,

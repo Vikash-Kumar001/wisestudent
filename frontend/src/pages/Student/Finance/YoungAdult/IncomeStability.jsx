@@ -18,19 +18,19 @@ const INCOME_STABILITY_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "To show off to friends",
         reflection: "While financial stability can provide confidence, using it primarily for social status can lead to poor financial decisions and unnecessary spending pressure.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "To avoid working hard",
         reflection: "Stable income typically results from consistent effort and smart financial management, not from avoiding work. It's about working smarter, not necessarily less.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "d",
         label: "For planning and saving safely",
         reflection: "Exactly! Stable income provides the foundation for consistent financial planning and secure savings, enabling long-term financial goals.",
         isCorrect: true,
@@ -50,13 +50,13 @@ const INCOME_STABILITY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Forces you to spend more",
         reflection: "Stable income gives you the flexibility to spend wisely, not necessarily more. It actually helps you avoid overspending by providing clear financial boundaries.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Allows for accurate monthly planning",
         reflection: "Perfect! Stable income enables you to create realistic budgets, set aside consistent savings, and plan for both short-term needs and long-term goals.",
         isCorrect: true,
@@ -106,13 +106,13 @@ const INCOME_STABILITY_STAGES = [
     prompt: "How should you use stable income for financial growth?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Invest in skills and future opportunities",
         reflection: "Excellent! Stable income provides the perfect opportunity to invest in yourself through education, skills, and other growth opportunities that can increase your earning potential.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Spend it all on immediate wants",
         reflection: "While enjoying your income is important, spending it all on immediate wants prevents you from building long-term financial security and growth.",
         isCorrect: false,
@@ -145,19 +145,19 @@ const INCOME_STABILITY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Spend without any thought",
         reflection: "While stable income provides some flexibility, thoughtful spending remains important for maintaining financial health and achieving long-term goals.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Stop caring about money",
         reflection: "Income stability should make you more, not less, financially conscious. It provides the opportunity to make strategic financial decisions that benefit your future.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Build long-term financial security",
         reflection: "Perfect! Income stability is the cornerstone of long-term financial security, enabling consistent saving, investing, and planning for future goals and retirement.",
         isCorrect: true,

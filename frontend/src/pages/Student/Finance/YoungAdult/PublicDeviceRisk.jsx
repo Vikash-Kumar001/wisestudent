@@ -49,19 +49,19 @@ const PUBLIC_DEVICE_RISK_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Limited browser compatibility",
         reflection: "Browser compatibility issues might affect functionality but don't pose a direct security threat to your financial data. The real risks come from malicious software and unauthorized access to your personal information.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "High usage fees",
         reflection: "Usage fees are a cost consideration, not a security risk. The primary security concerns with public computers involve data capture and unauthorized access to your financial information, not the cost of using the device.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Keyloggers and malware",
         reflection: "Exactly! Public computers often have keyloggers and malware installed that can capture your keystrokes, login credentials, and other sensitive information you enter, making them extremely dangerous for financial transactions.",
         isCorrect: true,
@@ -81,13 +81,13 @@ const PUBLIC_DEVICE_RISK_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Change passwords frequently",
         reflection: "Changing passwords frequently is good practice but doesn't address the immediate risk of using shared devices. If your credentials are captured while using a compromised device, changing passwords afterward won't help if the damage is already done.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Avoid banking on shared devices entirely",
         reflection: "Exactly! The safest approach is to avoid banking on shared devices entirely. Use your personal device or a trusted private computer to ensure your financial information remains secure from potential threats and unauthorized access.",
         isCorrect: true,
@@ -137,13 +137,13 @@ const PUBLIC_DEVICE_RISK_STAGES = [
     prompt: "Which scenario represents a common shared device security threat?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Keylogger capturing login credentials",
         reflection: "Exactly! Keyloggers are a common threat on shared devices that silently record every keystroke you make, including usernames, passwords, and other sensitive information entered during banking sessions.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Device runs out of battery",
         reflection: "A device running out of battery is an inconvenience but not a security threat. The real security concerns with shared devices involve malicious software and unauthorized access to your personal and financial information.",
         isCorrect: false,

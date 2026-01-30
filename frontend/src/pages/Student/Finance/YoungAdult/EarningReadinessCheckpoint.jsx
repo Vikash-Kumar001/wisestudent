@@ -18,19 +18,19 @@ const EARNING_READINESS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Avoiding work until it's perfect",
         reflection: "Perfect work rarely exists. Delaying action prevents learning, building experience, and demonstrating work ethic and responsibility.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Only considering high-paying positions",
         reflection: "Focusing solely on pay can miss important opportunities to build foundational skills and networks. Entry-level work is crucial for future income growth.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Matching skills to genuine market demand",
         reflection: "Exactly! Earning readiness involves understanding both your capabilities and authentic market opportunities that align with your skills and interests.",
         isCorrect: true,
@@ -50,13 +50,13 @@ const EARNING_READINESS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Imitate only what big names are doing",
         reflection: "Repeating celebrity techniques prevents recognition of growing opportunities. Track the future as well, but with added purpose through knowledge growth.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Build both transferable and field-specific abilities",
         reflection: "Perfect! Balancing field-specialized and versatile abilities boosts confidence while maintaining diverse professional appeal for future jobs.",
         isCorrect: true,
@@ -106,13 +106,13 @@ const EARNING_READINESS_STAGES = [
     prompt: "How do you handle early earning setbacks?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Analyze what went wrong and adjust approach",
         reflection: "Exactly! Analyzing setbacks helps identify areas for improvement and builds the resilience and adaptability needed for long-term earning success.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Blame external factors and give up",
         reflection: "Blaming external factors prevents learning from mistakes and building resilience. Setbacks are opportunities to improve skills and strategies.",
         isCorrect: false,

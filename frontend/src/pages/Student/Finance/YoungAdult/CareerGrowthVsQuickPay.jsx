@@ -11,13 +11,13 @@ const CAREER_GROWTH_STAGES = [
     prompt: "Which choice is wiser early on?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Learning with gradual income growth",
         reflection: "Exactly! Investing in learning and skill development early on creates a strong foundation for sustained career growth and higher future earnings.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Quick pay with no learning",
         reflection: "While quick pay might seem attractive, it often leads to stagnation and missed opportunities for skill development and long-term growth.",
         isCorrect: false,
@@ -50,19 +50,19 @@ const CAREER_GROWTH_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Only helps in the first job",
         reflection: "Early learning has long-lasting benefits that extend far beyond your first job, influencing your entire career trajectory and adaptability to market changes.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Makes you overqualified",
         reflection: "Being overqualified is rarely a problem. The skills and knowledge you gain make you more valuable and adaptable in the job market.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Multiplies future earning potential",
         reflection: "Perfect! The skills and knowledge gained early in your career compound over time, leading to exponential growth in opportunities and income.",
         isCorrect: true,
@@ -82,13 +82,13 @@ const CAREER_GROWTH_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Too much free time",
         reflection: "While some free time is valuable, too much without purposeful learning can lead to skill atrophy and reduced marketability.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Missed skill development and growth",
         reflection: "Exactly! Focusing only on immediate pay without learning can leave you behind as industries evolve and new skills become essential.",
         isCorrect: true,
@@ -138,13 +138,13 @@ const CAREER_GROWTH_STAGES = [
     prompt: "What's the long-term benefit of learning-focused choices?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Career resilience and adaptability",
         reflection: "Perfect! Continuous learning builds career resilience, making you adaptable to industry changes and better positioned for future opportunities.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Staying in the same position",
         reflection: "Learning-focused choices typically lead to advancement and new opportunities rather than stagnation in the same position.",
         isCorrect: false,

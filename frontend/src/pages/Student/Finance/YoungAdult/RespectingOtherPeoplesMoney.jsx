@@ -43,13 +43,13 @@ const RESPECTING_OTHER_PEOPLES_MONEY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Ask casually without specific details",
         reflection: "Casual borrowing requests without specifics can create misunderstandings and financial stress for your friend. They need clear information to make an informed decision about lending and to plan their own finances appropriately. Vague requests show disrespect for their financial situation.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Explain your situation and proposed repayment plan clearly",
         reflection: "Exactly! This respectful approach demonstrates that you value their money and the relationship. Clear communication about your needs, how much you require, when you'll repay, and what happens if difficulties arise shows maturity and respect for their financial situation and decision-making process.",
         isCorrect: true,
@@ -75,19 +75,19 @@ const RESPECTING_OTHER_PEOPLES_MONEY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Wait to see if they notice before saying anything",
         reflection: "Waiting for your friend to notice payment problems shows disrespect for their financial needs and creates unnecessary stress and damaged trust. They're planning around your expected repayment, so discovering later that you're struggling with payment obligations causes them both financial hardship and hurt feelings.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Blame unexpected circumstances for all payment delays",
         reflection: "Regularly blaming external circumstances for payment delays comes across as disrespectful of both your commitment and your friend's financial planning needs. Occasional honesty about exceptional problems demonstrates the thoughtful attitude toward lending relationships - genuine trouble situations acknowledged坦诚ly.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Communicate immediately and honestly about your situation",
         reflection: "Exactly! Respect preserves relationships. Prompt, honest communication when facing payment difficulties shows respect for your friend and often leads to understanding and workable solutions. Hiding the problem or making excuses typically damages relationships and trust much more than坦诚 discussions about financial hardship.",
         isCorrect: true,
@@ -138,25 +138,25 @@ const RESPECTING_OTHER_PEOPLES_MONEY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Act like it never happened to avoid awkwardness",
         reflection: "Pretending the borrowing never happened can actually create more awkwardness and show disrespect for their financial support. Acknowledging the help and expressing gratitude demonstrates maturity and appreciation for their trust and assistance, which strengthens rather than weakens the relationship.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Avoid discussing money matters with them in the future",
         reflection: "Avoiding money discussions entirely isn't necessary or healthy. Respectful, open communication about financial matters actually strengthens relationships by building trust and demonstrating maturity. The key is handling money discussions with appropriate seriousness and consideration for the other person's perspective.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Owe them a favor in return without specific commitment",
         reflection: "Vague notions of owing favors without specific commitments can create uncertainty and potential awkwardness. If you want to reciprocate their help, it's better to be specific about how and when you'll support them, rather than leaving it as an undefined obligation that may never be fulfilled.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Express genuine gratitude and follow through on commitments",
         reflection: "Exactly! Respect preserves relationships. Expressing genuine gratitude for their trust and financial support, then following through reliably on your commitments, demonstrates that you value both the money and the relationship. This approach builds trust and shows respect for their willingness to help.",
         isCorrect: true,

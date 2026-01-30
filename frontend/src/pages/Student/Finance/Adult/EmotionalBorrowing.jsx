@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const EMOTIONAL_BORROWING_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: Borrowing during emotional stress often leads to: (A) Good decisions or (B) Regret later",
+    prompt: "Scenario: Borrowing during emotional stress often leads to: ",
     options: [
       {
         id: "a",
@@ -18,19 +18,19 @@ const EMOTIONAL_BORROWING_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "No impact on decision quality",
         reflection: "Emotional stress significantly impacts decision-making quality, often leading to poor choices.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Always beneficial outcomes",
         reflection: "Borrowing during emotional stress rarely leads to beneficial outcomes due to impaired judgment.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Regret later",
         reflection: "Correct! Borrowing during emotional stress often leads to decisions that are regretted later.",
         isCorrect: true,
@@ -44,19 +44,19 @@ const EMOTIONAL_BORROWING_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Make the decision immediately while feeling motivated",
         reflection: "Making financial decisions during emotional stress often leads to regrettable choices.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Ask someone else to make the decision for you",
         reflection: "While getting advice is helpful, the decision should still be made thoughtfully when calm.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "c",
         label: "Postpone the decision until emotions settle",
         reflection: "Perfect! Waiting until you're calm helps ensure better financial decisions.",
         isCorrect: true,
@@ -76,13 +76,13 @@ const EMOTIONAL_BORROWING_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "It improves decision-making by adding urgency",
         reflection: "While urgency might seem helpful, stress typically impairs judgment rather than improving it.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "It impairs judgment and leads to impulsive choices",
         reflection: "Yes! Emotional stress often causes people to make impulsive financial decisions without proper consideration.",
         isCorrect: true,
@@ -139,25 +139,25 @@ const EMOTIONAL_BORROWING_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Borrow immediately to satisfy the emotional need",
         reflection: "Borrowing to satisfy emotional needs often leads to financial regret and stress.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Ignore the emotional aspect and just calculate numbers",
         reflection: "While calculations are important, acknowledging emotions and making decisions when calm is better.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Borrow more than needed to feel secure",
         reflection: "Borrowing more than needed during emotional stress is likely to create more financial insecurity.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Take time to cool down before deciding",
         reflection: "Excellent! Taking time to cool down helps ensure the decision is based on financial reality rather than emotion.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const EmotionalBorrowing = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

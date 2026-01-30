@@ -74,25 +74,25 @@ const FAIR_USE_OF_MONEY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Use credit cards to cover the difference",
         reflection: "Using credit cards to cover discretionary spending when funds are limited creates unnecessary debt and interest costs. This approach can lead to a cycle of debt that becomes increasingly difficult to manage and can compromise your ability to meet essential expenses.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Borrow from friends or family to maintain your lifestyle",
         reflection: "Borrowing from friends or family to maintain discretionary spending can strain relationships and create financial obligations that may be difficult to fulfill. This approach doesn't address the underlying budgeting issue and can lead to ongoing dependency on others for non-essential expenses.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Skip essential payments to fund your wants",
         reflection: "Skipping essential payments to fund discretionary spending creates serious financial and legal consequences. This approach can result in damaged credit, late fees, loss of housing or services, and long-term financial instability that far outweighs any short-term satisfaction from wants.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Postpone discretionary spending until you can afford it",
         reflection: "Exactly! Postponing discretionary spending when funds are limited demonstrates financial discipline and ensures essential needs are met. This approach builds good habits, prevents debt accumulation, and creates a sustainable path to enjoying wants without financial stress.",
         isCorrect: true,
@@ -106,19 +106,19 @@ const FAIR_USE_OF_MONEY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Strict budgeting prevents you from enjoying life now",
         reflection: "Responsible budgeting doesn't prevent enjoyment of life - it ensures that enjoyment is sustainable. By meeting essential needs first and then allocating reasonable amounts for wants, you can enjoy both immediate satisfaction and work toward meaningful long-term goals without financial stress.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "You should focus on goals only after all wants are satisfied",
         reflection: "Waiting to focus on goals until all wants are satisfied creates a cycle where goals are perpetually delayed. This approach often leads to insufficient progress on important objectives and can result in missed opportunities for building wealth and achieving financial security.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "c",
         label: "Consistent prioritization of needs over wants enables goal achievement",
         reflection: "Exactly! Misusing funds creates future problems. Consistent financial discipline in prioritizing needs over wants builds the stability and resources necessary to achieve long-term goals. This approach creates a foundation for wealth building, reduces financial stress, and opens opportunities for meaningful discretionary spending.",
         isCorrect: true,
@@ -138,13 +138,13 @@ const FAIR_USE_OF_MONEY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Spend it all on wants since it was unexpected",
         reflection: "Spending unexpected windfalls entirely on wants misses opportunities to address essential needs or build financial security. This approach can create regret when the windfall could have solved pressing problems or created long-term benefits, and may lead to financial instability when the money is gone.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Allocate portions to needs, savings, and reasonable wants",
         reflection: "Exactly! This balanced approach to windfalls ensures immediate needs are met, builds financial security through savings, and allows for some enjoyment of the unexpected gain. This strategy prevents the common mistake of spending windfalls entirely on wants while ignoring important financial priorities.",
         isCorrect: true,

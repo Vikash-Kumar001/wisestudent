@@ -8,29 +8,29 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const IGNORING_WARNING_SIGNS_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: Which is a warning sign? (A) Difficulty paying EMIs or (B) Comfortable repayment (reverse logic)",
+    prompt: "Scenario: Which is a warning sign? ",
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Comfortable repayment",
         reflection: "Actually, comfortable repayment is a positive sign, not a warning sign.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Paying EMIs on time regularly",
         reflection: "Regular on-time payments are a positive sign, not a warning sign.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Having surplus income after EMIs",
         reflection: "Surplus income after EMIs is a positive sign of good financial management.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Difficulty paying EMIs",
         reflection: "Correct! Difficulty paying EMIs is a clear warning sign that needs immediate attention.",
         isCorrect: true,
@@ -44,19 +44,19 @@ const IGNORING_WARNING_SIGNS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Ignore it hoping it resolves itself",
         reflection: "Ignoring warning signs typically leads to worsening financial problems.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Delay payments until next month",
         reflection: "Delaying payments can result in penalties and credit score damage.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Address the issue immediately",
         reflection: "Exactly! Early intervention can prevent bigger financial problems.",
         isCorrect: true,
@@ -76,13 +76,13 @@ const IGNORING_WARNING_SIGNS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Having money left after paying EMIs",
         reflection: "Having money left after EMIs is a positive sign, not a warning sign.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Struggling to meet other expenses after EMIs",
         reflection: "Yes! Struggling with other expenses after EMIs indicates potential repayment stress.",
         isCorrect: true,
@@ -139,25 +139,25 @@ const IGNORING_WARNING_SIGNS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Wait to see if they disappear on their own",
         reflection: "Waiting can allow minor issues to develop into major financial problems.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Deny that warning signs exist",
         reflection: "Denying warning signs prevents you from taking necessary corrective action.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Ignore them until they become critical issues",
         reflection: "Waiting until issues become critical makes them much harder to address.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Acknowledge them promptly and take corrective action",
         reflection: "Excellent! Prompt acknowledgment and action can prevent minor issues from becoming major problems.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const IgnoringWarningSigns = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

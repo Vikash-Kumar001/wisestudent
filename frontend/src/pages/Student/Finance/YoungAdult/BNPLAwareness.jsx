@@ -19,7 +19,6 @@ const BNPL_AWARENESS_STAGES = [
      
       {
         id: "instant-purchase",
-        id: "instant-purchase",
         label: "Instant purchase with no financial obligations",
         reflection: "BNPL creates financial obligations - you must repay the amount within the specified timeframe.",
         isCorrect: false,

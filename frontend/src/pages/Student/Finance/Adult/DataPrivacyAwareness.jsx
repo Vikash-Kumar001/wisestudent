@@ -8,16 +8,16 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const DATA_PRIVACY_AWARENESS_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: Why is data privacy important in loan apps? (A) It's not important or (B) Personal data can be misused",
+    prompt: "Scenario: Why is data privacy important in loan apps? ",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Personal data can be misused",
         reflection: "Correct! Personal data can be misused in numerous ways, causing long-term harm.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "It's not important",
         reflection: "Actually, data privacy is crucial as personal information can be misused for various purposes.",
         isCorrect: false,
@@ -44,25 +44,25 @@ const DATA_PRIVACY_AWARENESS_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "It helps improve app functionality",
         reflection: "While some data helps functionality, excessive data sharing poses privacy risks.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It speeds up loan approval processes",
         reflection: "Loan approval doesn't require extensive personal data beyond what's necessary.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "It reduces interest rates",
         reflection: "Interest rates aren't determined by the amount of personal data shared.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Data could be sold to third parties or used for harassment",
         reflection: "Exactly! Personal data can be misused for marketing, identity theft, or even harassment.",
         isCorrect: true,
@@ -76,19 +76,19 @@ const DATA_PRIVACY_AWARENESS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "It helps them provide better customer service",
         reflection: "Customer service doesn't require access to your personal contacts.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It helps them verify your identity faster",
         reflection: "Identity verification doesn't require access to your contacts list.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Contact data could be used for collection activities",
         reflection: "Yes! Lenders might use contact information to pressure you or reach out to your contacts.",
         isCorrect: true,
@@ -108,13 +108,13 @@ const DATA_PRIVACY_AWARENESS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "How quickly the app processes loans",
         reflection: "Processing speed doesn't determine the necessity of sharing personal data.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Whether the data requested is necessary for the loan process",
         reflection: "Perfect! Only share data that is genuinely required for the loan process.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const DataPrivacyAwareness = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

@@ -8,16 +8,16 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const INSTANT_LOAN_TEMPTATION_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: An app offers 'Instant loan in 5 minutes.' What should you do first? (A) Accept immediately or (B) Check legitimacy and terms",
+    prompt: "Scenario: An app offers 'Instant loan in 5 minutes.' What should you do first? ",
     options: [
        {
-        id: "b",
+        id: "a",
         label: "Check legitimacy and terms",
         reflection: "Correct! Verifying legitimacy and understanding terms is essential before any loan agreement.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Accept immediately",
         reflection: "Accepting immediately without checking details can lead to hidden risks and unfavorable terms.",
         isCorrect: false,
@@ -44,25 +44,25 @@ const INSTANT_LOAN_TEMPTATION_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "They are always government-approved",
         reflection: "Instant loans are not necessarily government-approved and may come from unregulated sources.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "They offer the best terms due to competition",
         reflection: "Fast loans don't necessarily offer the best terms; speed often comes with higher costs.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "They require extensive documentation",
         reflection: "Instant loans typically promise minimal documentation, not extensive paperwork.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "They often have hidden fees and high interest rates",
         reflection: "Exactly! Speed-focused lenders may hide costs that significantly increase the loan burden.",
         isCorrect: true,
@@ -76,19 +76,19 @@ const INSTANT_LOAN_TEMPTATION_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Focus on the speed of disbursement",
         reflection: "Speed is not a priority compared to verifying legitimacy and terms of the loan.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Check only the interest rate",
         reflection: "While interest rate matters, verifying legitimacy and all terms is more important than just the rate.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Verify the platform's license and regulatory compliance",
         reflection: "Perfect! Ensuring the platform is licensed and regulated protects you from fraudulent operators.",
         isCorrect: true,
@@ -108,13 +108,13 @@ const INSTANT_LOAN_TEMPTATION_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Faster loans are always safer",
         reflection: "Speed doesn't correlate with safety; fast loans can hide significant risks.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "b",
         label: "Speed often correlates with higher risk in digital lending",
         reflection: "Yes! Fast loans often come with less scrutiny and potentially hidden risks.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const InstantLoanTemptation = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }
@@ -270,7 +270,7 @@ const InstantLoanTemptation = () => {
       gameType="finance"
       showGameOver={showResult}
       showConfetti={showResult && hasPassed}
-      shouldSubmitGameCompletion={hasPassed}
+      shouldSubmitGameCompletion={true}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
     >

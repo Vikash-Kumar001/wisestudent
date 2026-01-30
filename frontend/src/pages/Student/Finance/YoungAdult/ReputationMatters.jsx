@@ -11,13 +11,13 @@ const REPUTATION_MATTERS_STAGES = [
     prompt: "Financial reputation affects:",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Jobs, credit, and trust",
         reflection: "Exactly! Reputation follows you for life. Financial reputation significantly impacts employment opportunities, credit approval and terms, rental agreements, insurance rates, and personal relationships. Your financial behavior creates a track record that influences how others perceive your reliability and responsibility, affecting opportunities and advantages throughout your life.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Nothing",
         reflection: "Financial reputation affects far more than just money - it impacts your ability to get jobs, credit, housing, and build trust in personal and professional relationships. A poor financial reputation can limit opportunities and create barriers throughout your life, while a good reputation opens doors and creates advantages in many areas beyond just financial transactions.",
         isCorrect: false,
@@ -44,13 +44,13 @@ const REPUTATION_MATTERS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Employers never consider financial background",
         reflection: "Many employers do consider financial background, particularly for roles involving money handling, financial decision-making, or positions where trust and reliability are crucial. Financial reputation serves as an indicator of character, responsibility, and potential risk management abilities that employers value in their workforce.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Many employers check credit and financial history during hiring",
         reflection: "Exactly! Reputation follows you for life. Many employers, especially for positions involving financial responsibility, check credit reports and financial history to assess reliability and trustworthiness. Poor financial management can signal potential issues with responsibility, attention to detail, and stress management that may affect job performance.",
         isCorrect: true,
@@ -76,25 +76,25 @@ const REPUTATION_MATTERS_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Lenders only care about current income",
         reflection: "While current income is important, lenders also heavily consider financial reputation including credit history, payment patterns, debt management, and overall financial behavior. Your reputation provides insight into your reliability as a borrower and helps lenders assess the risk of lending to you, directly affecting approval chances and terms offered.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Past financial mistakes don't matter if you're currently responsible",
         reflection: "While improving financial behavior is crucial, past financial mistakes do impact your reputation and lending prospects. Lenders review your complete financial history to assess risk and reliability. However, demonstrating consistent responsible behavior over time can gradually rebuild reputation and improve lending opportunities, though it may take time to fully recover from past issues.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Financial reputation only matters for large loans like mortgages",
         reflection: "Financial reputation affects all types of credit and lending, from credit cards and auto loans to personal loans and mortgages. Lenders across all categories use your financial reputation to assess risk and determine terms. Even small credit applications consider your payment history and financial behavior as indicators of future reliability.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Strong reputation leads to better rates and approval chances",
         reflection: "Exactly! Reputation follows you for life. A strong financial reputation, demonstrated through consistent on-time payments, responsible credit use, and prudent financial management, leads to better interest rates, higher credit limits, easier loan approvals, and more favorable terms from lenders who view you as a low-risk, reliable borrower.",
         isCorrect: true,
@@ -108,19 +108,19 @@ const REPUTATION_MATTERS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Financial reputation has no impact on personal relationships",
         reflection: "Financial reputation significantly impacts personal relationships as money matters are often intertwined with trust, planning, and shared responsibilities. How you manage finances affects your ability to meet commitments, handle emergencies, and make joint decisions, all of which influence the strength and stability of personal relationships with friends, family, and romantic partners.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Only matters for romantic partnerships",
         reflection: "Financial reputation affects various personal relationships beyond romantic partnerships, including friendships, family dynamics, and business relationships. Your financial behavior influences how others perceive your reliability, planning ability, and responsibility, affecting trust and willingness to engage in financial collaborations or support during difficult times.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Trust in financial matters affects overall relationship trust",
         reflection: "Exactly! Reputation follows you for life. Trust in financial matters often extends to trust in other areas of relationships. How you handle money, fulfill financial commitments, and manage financial stress affects how others perceive your reliability, responsibility, and ability to handle important life matters, influencing both personal and professional relationships significantly.",
         isCorrect: true,
@@ -140,13 +140,13 @@ const REPUTATION_MATTERS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Focus only on earning more money",
         reflection: "Simply earning more money doesn't automatically build a good financial reputation - how you manage and use that money matters more. Financial reputation is built through responsible behavior like timely payments, prudent spending, debt management, and demonstrating reliability in financial commitments, regardless of income level.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Consistently pay bills on time and manage debt responsibly",
         reflection: "Exactly! Reputation follows you for life. Building and maintaining a good financial reputation requires consistent, responsible financial behavior over time. This includes making payments on time, managing debt prudently, living within your means, monitoring your credit regularly, and demonstrating financial maturity through thoughtful decision-making and long-term planning.",
         isCorrect: true,

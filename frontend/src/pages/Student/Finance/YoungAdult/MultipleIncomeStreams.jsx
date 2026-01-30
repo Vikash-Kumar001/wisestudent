@@ -18,13 +18,13 @@ const MULTIPLE_INCOME_STREAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "They require no effort",
         reflection: "Income streams that require no effort are rare and often unsustainable. Legitimate multiple incomes still require work and management.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "They complement main skills",
         reflection: "Exactly! Multiple income streams work best when they complement and enhance your main skills, creating synergies and reducing risk.",
         isCorrect: true,
@@ -74,13 +74,13 @@ const MULTIPLE_INCOME_STREAMS_STAGES = [
     prompt: "What's the benefit of related income streams?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Shared skills and networks",
         reflection: "Exactly! Related income streams leverage your existing expertise, reducing the learning curve and allowing for better resource utilization.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "More time spent on each",
         reflection: "Related income streams often share skills, networks, and resources, which can actually make them more efficient to manage together.",
         isCorrect: false,
@@ -113,19 +113,19 @@ const MULTIPLE_INCOME_STREAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Quit your main job first",
         reflection: "Quitting your main job before establishing additional streams creates unnecessary financial risk and pressure.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Only pursue high-risk options",
         reflection: "High-risk options alone don't constitute a smart diversification strategy. Balance and gradual growth are more sustainable approaches.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Start with one, add gradually",
         reflection: "Excellent! Starting with one main income and gradually adding complementary streams allows for proper focus and sustainable growth.",
         isCorrect: true,
@@ -145,13 +145,13 @@ const MULTIPLE_INCOME_STREAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Equal time for each stream",
         reflection: "Equal time allocation isn't always optimal. Some streams may require more attention initially, while others can run more passively over time.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Strategic alignment and balance",
         reflection: "Perfect! Successful multiple income strategies involve strategic alignment with your skills and goals, plus proper balance to avoid burnout.",
         isCorrect: true,

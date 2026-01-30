@@ -18,19 +18,19 @@ const BORROWING_FREQUENCY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Good investment strategy",
         reflection: "While some borrowing can be strategic, frequent borrowing typically indicates financial mismanagement.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "No impact on financial health",
         reflection: "Frequent borrowing definitely impacts financial health by increasing debt obligations.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Poor financial planning",
         reflection: "Correct! Frequent borrowing often indicates poor financial planning and deeper financial issues.",
         isCorrect: true,
@@ -44,19 +44,19 @@ const BORROWING_FREQUENCY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Strong financial management",
         reflection: "Frequent borrowing usually indicates the opposite of strong financial management.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Successful investment strategy",
         reflection: "While some investments require borrowing, frequent borrowing often indicates mismanagement.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Poor financial planning and potential deeper issues",
         reflection: "Exactly! Frequent borrowing often signals underlying financial management problems.",
         isCorrect: true,
@@ -76,13 +76,13 @@ const BORROWING_FREQUENCY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Borrow regularly as part of financial strategy",
         reflection: "Regular borrowing is not a healthy financial strategy and indicates poor planning.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Borrow only occasionally and for genuine needs",
         reflection: "Perfect! Occasional borrowing for genuine needs is healthier than frequent borrowing.",
         isCorrect: true,
@@ -139,25 +139,25 @@ const BORROWING_FREQUENCY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Continue borrowing as it's working fine",
         reflection: "Continuing frequent borrowing without addressing the root cause is not advisable.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Borrow even more to consolidate debts",
         reflection: "Borrowing more to consolidate existing debt often creates a worse financial situation.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Change lenders frequently to avoid detection",
         reflection: "Avoiding detection doesn't solve the underlying problem of frequent borrowing.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Assess your financial planning and create a budget",
         reflection: "Excellent! Assessing your financial planning and creating a budget can help reduce frequent borrowing.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const BorrowingFrequency = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

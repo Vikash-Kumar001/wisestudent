@@ -74,25 +74,25 @@ const PAYING_WHAT_YOU_OWE_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Stop payments entirely until you're back on your feet",
         reflection: "Stopping payments entirely during hardship can severely damage your credit score, incur penalties, and strain relationships with creditors. While understandable during severe difficulties, this approach creates long-term financial consequences that make recovery more challenging.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Borrow more to cover existing debt payments",
         reflection: "Borrowing to cover existing debt payments creates a dangerous cycle that typically leads to deeper financial problems. This approach increases total debt burden and can result in overwhelming financial stress that's difficult to escape.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Hide your financial situation from creditors",
         reflection: "Hiding financial difficulties from creditors prevents access to available assistance programs and can lead to surprise collections actions, damaged credit, and lost opportunities for negotiated solutions that could ease your burden.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Communicate proactively with creditors about modified payment plans",
         reflection: "Exactly! Proactive communication with creditors during financial hardship demonstrates responsibility and often leads to workable solutions like temporary payment reductions, extensions, or hardship programs. This approach protects your credit and relationships with lenders.",
         isCorrect: true,
@@ -106,19 +106,19 @@ const PAYING_WHAT_YOU_OWE_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Debt repayment limits your financial freedom",
         reflection: "Responsible debt repayment actually enhances financial freedom by reducing interest costs, improving credit scores, and creating opportunities for better financial products. The discipline required for debt repayment builds habits that support broader financial success and flexibility.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "You should avoid all debt to achieve freedom",
         reflection: "While avoiding unnecessary debt is wise, some debt (like mortgages or student loans) can be valuable investments in your future. The key is managing debt responsibly rather than avoiding it entirely. Responsible debt use and repayment can actually accelerate your path to financial freedom.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Consistent repayment builds the foundation for financial freedom",
         reflection: "Exactly! Financial discipline reflects personal values. Consistently repaying debts builds credit history, reduces financial stress, and creates the stability needed for saving, investing, and pursuing financial goals. This disciplined approach is fundamental to achieving long-term financial freedom.",
         isCorrect: true,

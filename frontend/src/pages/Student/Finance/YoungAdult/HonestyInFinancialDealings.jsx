@@ -18,19 +18,19 @@ const HONESTY_IN_FINANCIAL_DEALINGS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Improved relationships",
         reflection: "Hiding information actually damages relationships rather than improving them. When deception is discovered, it creates mistrust, resentment, and damaged credibility that can be extremely difficult or impossible to repair, ultimately harming both personal and professional relationships.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "No significant impact",
         reflection: "Hiding financial information almost always has significant negative impacts. Even if the deception isn't immediately discovered, the stress of maintaining false information, the risk of exposure, and the ethical burden create ongoing negative effects that can influence decision-making and well-being.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Long-term consequences",
         reflection: "Exactly! Honesty protects future opportunities. Hiding information to gain benefits almost always leads to long-term negative consequences including damaged trust, lost reputation, legal issues, and missed opportunities. The immediate gains are typically outweighed by the lasting damage to relationships and future prospects.",
         isCorrect: true,
@@ -75,19 +75,19 @@ const HONESTY_IN_FINANCIAL_DEALINGS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Exaggerate your income to improve your chances",
         reflection: "Exaggerating income on financial applications is fraudulent and can lead to serious consequences including loan denial, legal action, damaged credit, and criminal charges. Even if successful initially, the deception will eventually be discovered, leading to much worse outcomes than honest disclosure would have produced.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Omit negative information that isn't specifically requested",
         reflection: "Omitting negative financial information that isn't specifically requested is still dishonest and can be considered fraud by omission. Financial institutions rely on complete and accurate information to make informed decisions. Dishonesty in applications can lead to legal consequences and severely damage your financial reputation.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Provide accurate information even if it might affect your approval",
         reflection: "Exactly! Honesty protects future opportunities. Providing accurate financial information on applications, even when it might affect approval chances, demonstrates integrity and builds trust with lenders and institutions. This approach creates a foundation for sustainable financial relationships and long-term success.",
         isCorrect: true,
@@ -107,13 +107,13 @@ const HONESTY_IN_FINANCIAL_DEALINGS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Limits your access to financial opportunities",
         reflection: "Honesty actually enhances rather than limits financial opportunities. While it might occasionally result in denied applications, it builds the trust and credibility necessary for better long-term opportunities. Dishonesty, on the other hand, creates barriers and closes doors to future prospects.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Builds trust and opens doors to better opportunities",
         reflection: "Exactly! Honesty protects future opportunities. Consistent honesty in financial dealings builds a reputation for reliability and integrity that opens doors to better financial products, favorable terms, and trusted relationships with lenders, employers, and business partners. This reputation becomes a valuable asset over time.",
         isCorrect: true,

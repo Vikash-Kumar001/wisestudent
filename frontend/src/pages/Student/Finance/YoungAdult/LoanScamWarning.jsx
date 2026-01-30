@@ -42,13 +42,13 @@ const LOAN_SCAM_WARNING_STAGES = [
     prompt: "Which is a common characteristic of loan scams?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Guarantee approval regardless of credit history",
         reflection: "Exactly! Guaranteeing loan approval regardless of credit history is a major red flag. Legitimate lenders assess creditworthiness and risk, and no reputable lender guarantees approval to everyone, especially those with poor credit histories.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Require credit checks",
         reflection: "Requiring credit checks is actually a standard practice for legitimate lenders to assess risk and determine loan terms. While scammers might skip this step, credit checks alone don't indicate a scam - they're part of responsible lending practices.",
         isCorrect: false,
@@ -81,19 +81,19 @@ const LOAN_SCAM_WARNING_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Read online reviews only",
         reflection: "Online reviews can provide some insight, but they're not sufficient for verification. Reviews can be fake or manipulated, and even legitimate businesses can have negative reviews. Official regulatory verification is much more reliable than online opinions alone.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Trust their professional appearance",
         reflection: "Professional appearance, including business cards, letterhead, or office setup, can be easily faked by scammers. Don't rely on surface-level professionalism as proof of legitimacy - always verify through official regulatory channels.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Verify through financial regulators",
         reflection: "Exactly! Checking with financial regulators like the RBI, state banking departments, or other official regulatory bodies is the most reliable way to verify a lender's legitimacy. Legitimate lenders are registered and regulated by these authorities.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const LOAN_SCAM_WARNING_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Ask for a small extension",
         reflection: "Asking for a small extension might temporarily缓解 the pressure, but it doesn't address the underlying concern about the lender's legitimacy. The key is to use any extra time to thoroughly verify the lender rather than just delaying your decision.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Take time to research and verify",
         reflection: "Exactly! Taking time to research and verify is the safest approach. Legitimate lenders understand that borrowing money is a serious decision and will give you time to verify their credentials and understand the terms without pressuring you to act immediately.",
         isCorrect: true,

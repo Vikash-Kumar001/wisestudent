@@ -49,13 +49,13 @@ const PHISHING_MESSAGE_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Use of your full name",
         reflection: "Using your full name doesn't make a message legitimate. Scammers can easily obtain personal information to make their messages appear more convincing.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Urgent action required immediately",
         reflection: "Perfect! Creating a sense of urgency is one of the most common phishing tactics. Legitimate organizations rarely demand immediate action through email.",
         isCorrect: true,
@@ -81,19 +81,19 @@ const PHISHING_MESSAGE_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Reply to the email asking for confirmation",
         reflection: "Replying to suspicious emails confirms to scammers that your email address is active and might lead to more targeted attacks or requests for personal information.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Search the message content online",
         reflection: "Searching the message content online might provide some information, but it's not a reliable verification method. Official channels are the safest way to verify.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Use official contact information",
         reflection: "Exactly! Always verify through official contact information found on the organization's official website or statements, not from the suspicious message itself.",
         isCorrect: true,
@@ -106,13 +106,13 @@ const PHISHING_MESSAGE_STAGES = [
     prompt: "What should you do if you accidentally clicked a phishing link?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Change passwords and monitor accounts",
         reflection: "Perfect! Immediately change passwords for affected accounts and monitor your financial accounts for unauthorized activity. Report the incident to relevant authorities.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Ignore it and hope nothing happens",
         reflection: "Ignoring a potential security breach can lead to serious consequences. Immediate action is necessary to protect your accounts and personal information.",
         isCorrect: false,

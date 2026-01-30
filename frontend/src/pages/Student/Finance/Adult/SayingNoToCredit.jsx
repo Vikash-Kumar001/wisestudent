@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const SAYING_NO_TO_CREDIT_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: Is it okay to reject a loan offer? (A) No or (B) Yes, if it's unnecessary or risky",
+    prompt: "Scenario: Is it okay to reject a loan offer? ",
     options: [
       {
         id: "a",
@@ -18,13 +18,13 @@ const SAYING_NO_TO_CREDIT_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "Only if the interest rate is too high",
         reflection: "While interest rate matters, there are other factors like necessity and risk that also matter.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "c",
         label: "Yes, if it's unnecessary or risky",
         reflection: "Correct! Rejecting loans that are unnecessary or pose financial risk is a sign of financial strength.",
         isCorrect: true,
@@ -44,13 +44,13 @@ const SAYING_NO_TO_CREDIT_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Financial weakness",
         reflection: "Rejecting unnecessary loans is actually a sign of financial strength, not weakness.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Financial discipline and strength",
         reflection: "Exactly! Rejecting unnecessary loans shows financial discipline and strength.",
         isCorrect: true,
@@ -107,25 +107,25 @@ const SAYING_NO_TO_CREDIT_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Saying no to credit harms financial health",
         reflection: "Saying no to unnecessary credit actually protects financial health, not harms it.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Saying no has no impact on financial health",
         reflection: "Being selective about credit has a significant positive impact on financial health.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Saying yes to credit always improves financial health",
         reflection: "Accepting credit without consideration can harm financial health.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Saying no to unnecessary credit protects financial health",
         reflection: "Perfect! Being selective about credit helps maintain financial stability and health.",
         isCorrect: true,
@@ -233,7 +233,7 @@ const SayingNoToCredit = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

@@ -8,16 +8,16 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const GUARANTEED_APPROVAL_CLAIM_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: An app promises 'Guaranteed approval, no checks.' What does this mean? (A) Helpful service or (B) High-risk lending trap",
+    prompt: "Scenario: An app promises 'Guaranteed approval, no checks.' What does this mean? ",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "High-risk lending trap",
         reflection: "Correct! No-check loans often come with harsh terms and can lead to financial exploitation.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Helpful service",
         reflection: "Actually, 'no checks' means they're not assessing your ability to repay, which can lead to problematic debt.",
         isCorrect: false,
@@ -44,25 +44,25 @@ const GUARANTEED_APPROVAL_CLAIM_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "It has better customer service",
         reflection: "Customer service quality isn't related to whether checks are performed or not.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It offers longer repayment periods",
         reflection: "Skipping checks doesn't necessarily mean longer repayment periods; it often means riskier terms.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "It provides more loan amount",
         reflection: "Without checks, lenders might offer less, not more, and terms are often harsher.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "It bypasses creditworthiness assessment, potentially leading to unaffordable debt",
         reflection: "Exactly! Without checking your ability to repay, you might take on debt you can't afford.",
         isCorrect: true,
@@ -76,19 +76,19 @@ const GUARANTEED_APPROVAL_CLAIM_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "To help people with poor credit",
         reflection: "While they claim to help, the terms are often exploitative rather than helpful.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "To promote financial wellness",
         reflection: "These loans typically exploit rather than promote financial wellness.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "To attract borrowers without proper vetting for profit",
         reflection: "Yes! These lenders often profit through high fees, interest, or harsh collection practices.",
         isCorrect: true,
@@ -108,13 +108,13 @@ const GUARANTEED_APPROVAL_CLAIM_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Accept them as they're quick and convenient",
         reflection: "Quick convenience often comes with hidden costs and exploitative terms.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "b",
         label: "Avoid them as they typically involve exploitative terms",
         reflection: "Perfect! These offers usually indicate predatory lending practices that should be avoided.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const GuaranteedApprovalClaim = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

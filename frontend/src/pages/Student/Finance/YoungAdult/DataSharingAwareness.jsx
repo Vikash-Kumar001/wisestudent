@@ -42,13 +42,13 @@ const DATA_SHARING_AWARENESS_STAGES = [
     prompt: "Which type of personal data is most sensitive to share online?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Bank account details",
         reflection: "Exactly! Bank account details are among the most sensitive types of personal data. Sharing this information online can lead to direct financial theft, unauthorized transactions, and complete account takeover. This information should never be shared except through secure, official channels.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Your favorite color",
         reflection: "While even seemingly harmless information like favorite colors can be used in social engineering attacks, it's generally considered low-risk compared to financial and identity information. However, it's still wise to be selective about what personal preferences you share publicly.",
         isCorrect: false,
@@ -81,19 +81,19 @@ const DATA_SHARING_AWARENESS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Share everything to build connections",
         reflection: "Sharing everything to build connections puts your personal and financial information at unnecessary risk. Genuine connections can be built without oversharing sensitive information. Focus on quality interactions rather than quantity of personal details shared.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Ignore data breach notifications",
         reflection: "Ignoring data breach notifications is dangerous because it prevents you from taking protective action. When a service you use experiences a breach, you should change passwords, monitor accounts for suspicious activity, and consider additional security measures to protect your information.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Review privacy settings regularly",
         reflection: "Exactly! Regularly reviewing privacy settings is a crucial practice for protecting your data online. Social media platforms and apps frequently change their privacy policies and settings, so staying informed and adjusting your settings helps maintain control over your personal information.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const DATA_SHARING_AWARENESS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Share the news on social media",
         reflection: "Sharing breach information on social media might alert others but can also provide scammers with information about your response. Focus first on securing your accounts, then consider sharing your experience through appropriate channels to help others without compromising your security.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Change passwords and monitor accounts",
         reflection: "Exactly! If you suspect your data has been compromised, immediately change passwords for affected accounts and monitor your financial accounts for unauthorized activity. Report the incident to relevant authorities and consider credit monitoring services for additional protection.",
         isCorrect: true,

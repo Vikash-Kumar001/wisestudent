@@ -43,25 +43,25 @@ const BORROWING_WITH_RESPONSIBILITY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Compare interest rates from different lenders",
         reflection: "While comparing interest rates is important, it should come after confirming you can afford the loan payments. The most attractive rate won't help if you can't manage the required payments, leading to default and financial damage.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Check what your friends are borrowing",
         reflection: "Your friends' borrowing decisions don't reflect your financial situation or needs. Making borrowing decisions based on others' choices can lead to inappropriate debt levels and financial strain that doesn't align with your personal circumstances.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Apply to multiple lenders simultaneously",
         reflection: "Applying to multiple lenders simultaneously can hurt your credit score and create confusion about your financial situation. It's better to research thoroughly first, then apply strategically to lenders that match your profile and needs.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Calculate if you can afford the payments",
         reflection: "Exactly! Responsible borrowing requires careful assessment of your ability to make regular payments without compromising your financial stability. This includes considering your income, existing obligations, and emergency fund needs.",
         isCorrect: true,
@@ -75,19 +75,19 @@ const BORROWING_WITH_RESPONSIBILITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Wait until the payment is officially late",
         reflection: "Waiting until a payment is officially late can result in penalties, damage to your credit score, and reduced options for resolving the situation. Lenders are more willing to work with borrowers who communicate proactively about potential difficulties.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Borrow from another source to cover the payment",
         reflection: "Borrowing to cover existing payments can create a dangerous cycle of debt that becomes increasingly difficult to manage. This approach often leads to greater financial stress and can damage multiple relationships and credit accounts.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Contact the lender immediately to discuss options",
         reflection: "Exactly! Proactive communication with your lender demonstrates responsibility and often leads to workable solutions like payment plans or temporary adjustments. This approach protects your relationship with the lender and your credit standing.",
         isCorrect: true,
@@ -107,13 +107,13 @@ const BORROWING_WITH_RESPONSIBILITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Getting the maximum amount possible",
         reflection: "Focusing on maximum borrowing amounts rather than appropriate amounts can lead to financial strain and damaged relationships. Healthy borrowing is about meeting genuine needs within sustainable limits, not maximizing debt.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Clear terms and mutual respect",
         reflection: "Exactly! Healthy borrowing relationships are built on clear, agreed-upon terms and mutual respect between borrower and lender. This includes transparent communication about expectations, realistic repayment schedules, and respect for both parties' financial situations.",
         isCorrect: true,

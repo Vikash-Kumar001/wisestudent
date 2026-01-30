@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const REPAYMENT_CAPACITY_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: Which EMI is risky? (A) EMI below 20–30% of income or (B) EMI above 50% of income",
+    prompt: "Scenario: Which EMI is risky? ",
     options: [
       {
         id: "a",
@@ -43,25 +43,25 @@ const REPAYMENT_CAPACITY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Between 40-50% of income",
         reflection: "EMIs in this range are quite risky and leave little room for other expenses.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "More than 50% of income",
         reflection: "EMIs above 50% are extremely risky and can lead to financial distress.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Any percentage is fine as long as you pay on time",
         reflection: "Percentage matters greatly for financial safety and ability to handle emergencies.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Less than 30% of income",
         reflection: "Exactly! Keeping EMIs below 30% of income provides financial stability and flexibility.",
         isCorrect: true,
@@ -75,19 +75,19 @@ const REPAYMENT_CAPACITY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Increases financial safety",
         reflection: "Actually, high EMIs decrease financial safety by limiting your ability to handle other expenses.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Has no impact on financial safety",
         reflection: "High EMIs significantly impact financial safety by consuming most of your income.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "c",
         label: "Reduces financial safety and flexibility",
         reflection: "Yes! High EMIs leave little room for other expenses and emergencies.",
         isCorrect: true,
@@ -107,13 +107,13 @@ const REPAYMENT_CAPACITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Income percentage doesn't matter for loan eligibility",
         reflection: "Income percentage is crucial for determining your ability to repay without financial stress.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "To ensure you can meet EMI obligations without compromising other needs",
         reflection: "Absolutely! This ensures financial stability and ability to handle other expenses.",
         isCorrect: true,
@@ -233,7 +233,7 @@ const RepaymentCapacityTest = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

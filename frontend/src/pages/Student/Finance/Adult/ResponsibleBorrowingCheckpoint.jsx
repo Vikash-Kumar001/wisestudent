@@ -42,13 +42,13 @@ const RESPONSIBLE_BORROWING_CHECKPOINT_STAGES = [
     prompt: "You're experiencing temporary financial stress. What should you do before considering a loan?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Review your budget and cut non-essential expenses first",
         reflection: "Exactly! Before borrowing, examine your expenses and see if adjustments can solve the temporary stress.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Immediately apply for multiple loans to cover expenses",
         reflection: "Applying for multiple loans during stress can lead to over-indebtedness and financial problems.",
         isCorrect: false,
@@ -81,19 +81,19 @@ const RESPONSIBLE_BORROWING_CHECKPOINT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Take half the loan amount to minimize risk",
         reflection: "Even partial borrowing for unverified opportunities carries significant risk.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Borrow more than suggested to maximize potential profits",
         reflection: "Increasing borrowed amounts amplifies potential losses if the opportunity doesn't work out.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Evaluate the business opportunity yourself before deciding",
         reflection: "Right! Evaluate any business opportunity based on your own analysis of risks and returns.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const RESPONSIBLE_BORROWING_CHECKPOINT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Take slightly more to have a buffer",
         reflection: "Taking more than needed still creates unnecessary debt obligations, even with a buffer rationale.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Take only the amount you actually need",
         reflection: "Perfect! Borrowing only what you need minimizes your debt obligation and interest costs.",
         isCorrect: true,
@@ -233,7 +233,7 @@ const ResponsibleBorrowingCheckpoint = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

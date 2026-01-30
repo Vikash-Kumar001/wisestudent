@@ -894,7 +894,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-26"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-rejection-reality",
+      path: "/student/finance/adults/loan-rejection-reality",
       index: 25,
       scenario: {
         setup:
@@ -931,7 +931,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-27"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-amount-decision",
+      path: "/student/finance/adults/loan-amount-decision",
       index: 26,
       scenario: {
         setup:
@@ -968,7 +968,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-28"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-is-not-income",
+      path: "/student/finance/adults/credit-is-not-income",
       index: 27,
       scenario: {
         setup:
@@ -1005,7 +1005,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-29"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/multiple-loans-risk",
+      path: "/student/finance/adults/multiple-loans-risk",
       index: 28,
       scenario: {
         setup:
@@ -1042,7 +1042,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-30"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-for-emergencies",
+      path: "/student/finance/adults/credit-for-emergencies",
       index: 29,
       scenario: {
         setup:
@@ -1079,7 +1079,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-31"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/trusting-loan-offers",
+      path: "/student/finance/adults/trusting-loan-offers",
       index: 30,
       scenario: {
         setup:
@@ -1116,7 +1116,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-32"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-understanding-checkpoint",
+      path: "/student/finance/adults/credit-understanding-checkpoint",
       index: 31,
       scenario: {
         setup:
@@ -1153,7 +1153,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-33"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/what-is-interest",
+      path: "/student/finance/adults/what-is-interest",
       index: 32,
       scenario: {
         setup:
@@ -1190,7 +1190,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-34"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/higher-loan-higher-cost",
+      path: "/student/finance/adults/higher-loan-higher-cost",
       index: 33,
       scenario: {
         setup:
@@ -1227,7 +1227,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-35"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emi-meaning",
+      path: "/student/finance/adults/emi-meaning",
       index: 34,
       scenario: {
         setup:
@@ -1264,7 +1264,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-36"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emi-vs-income",
+      path: "/student/finance/adults/emi-vs-income",
       index: 35,
       scenario: {
         setup:
@@ -1301,7 +1301,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-37"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/short-tenure-vs-long-tenure",
+      path: "/student/finance/adults/short-tenure-vs-long-tenure",
       index: 36,
       scenario: {
         setup:
@@ -1338,7 +1338,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-38"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/missed-emi-consequence",
+      path: "/student/finance/adults/missed-emi-consequence",
       index: 37,
       scenario: {
         setup:
@@ -1375,7 +1375,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-39"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/prepayment-awareness",
+      path: "/student/finance/adults/prepayment-awareness",
       index: 38,
       scenario: {
         setup:
@@ -1412,7 +1412,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-40"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/fixed-vs-variable-interest",
+      path: "/student/finance/adults/fixed-vs-variable-interest",
       index: 39,
       scenario: {
         setup:
@@ -1449,7 +1449,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-41"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/hidden-charges",
+      path: "/student/finance/adults/hidden-charges",
       index: 40,
       scenario: {
         setup:
@@ -1486,7 +1486,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-42"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emi-discipline",
+      path: "/student/finance/adults/emi-discipline",
       index: 41,
       scenario: {
         setup:
@@ -1523,7 +1523,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-43"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-restructuring-awareness",
+      path: "/student/finance/adults/loan-restructuring-awareness",
       index: 42,
       scenario: {
         setup:
@@ -1560,7 +1560,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-44"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/repayment-readiness-checkpoint",
+      path: "/student/finance/adults/repayment-readiness-checkpoint",
       index: 43,
       scenario: {
         setup:
@@ -1597,7 +1597,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-45"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/borrowing-as-last-option",
+      path: "/student/finance/adults/borrowing-as-last-option",
       index: 44,
       scenario: {
         setup:
@@ -1634,7 +1634,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-46"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/over-borrowing-risk",
+      path: "/student/finance/adults/over-borrowing-risk",
       index: 45,
       scenario: {
         setup:
@@ -1671,7 +1671,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-47"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-stacking-danger",
+      path: "/student/finance/adults/loan-stacking-danger",
       index: 46,
       scenario: {
         setup:
@@ -1708,7 +1708,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-48"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/borrowing-for-wants",
+      path: "/student/finance/adults/borrowing-for-wants",
       index: 47,
       scenario: {
         setup:
@@ -1745,7 +1745,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-49"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/income-stability-check",
+      path: "/student/finance/adults/income-stability-check",
       index: 48,
       scenario: {
         setup:
@@ -1782,7 +1782,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-50"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/peer-pressure-loans",
+      path: "/student/finance/adults/peer-pressure-loans",
       index: 49,
       scenario: {
         setup:
@@ -1819,7 +1819,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-51"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emergency-vs-lifestyle-loans",
+      path: "/student/finance/adults/emergency-vs-lifestyle-loans",
       index: 50,
       scenario: {
         setup:
@@ -1856,7 +1856,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-52"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/repayment-capacity-test",
+      path: "/student/finance/adults/repayment-capacity-test",
       index: 51,
       scenario: {
         setup:
@@ -1893,7 +1893,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-53"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/borrowing-frequency",
+      path: "/student/finance/adults/borrowing-frequency",
       index: 52,
       scenario: {
         setup:
@@ -1930,7 +1930,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-54"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-purpose-clarity",
+      path: "/student/finance/adults/loan-purpose-clarity",
       index: 53,
       scenario: {
         setup:
@@ -1967,7 +1967,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-55"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/ignoring-warning-signs",
+      path: "/student/finance/adults/ignoring-warning-signs",
       index: 54,
       scenario: {
         setup:
@@ -2004,7 +2004,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-56"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emotional-borrowing",
+      path: "/student/finance/adults/emotional-borrowing",
       index: 55,
       scenario: {
         setup:
@@ -2041,7 +2041,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-57"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/saying-no-to-credit",
+      path: "/student/finance/adults/saying-no-to-credit",
       index: 56,
       scenario: {
         setup:
@@ -2078,7 +2078,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-58"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/responsible-borrowing-checkpoint",
+      path: "/student/finance/adults/responsible-borrowing-checkpoint",
       index: 57,
       scenario: {
         setup:
@@ -2115,7 +2115,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-59"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/instant-loan-temptation",
+      path: "/student/finance/adults/instant-loan-temptation",
       index: 58,
       scenario: {
         setup:
@@ -2152,7 +2152,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-60"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/app-permission-check",
+      path: "/student/finance/adults/app-permission-check",
       index: 59,
       scenario: {
         setup:
@@ -2189,7 +2189,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-61"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/official-vs-fake-apps",
+      path: "/student/finance/adults/official-vs-fake-apps",
       index: 60,
       scenario: {
         setup:
@@ -2226,7 +2226,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-62"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/guaranteed-approval-claim",
+      path: "/student/finance/adults/guaranteed-approval-claim",
       index: 61,
       scenario: {
         setup:
@@ -2263,7 +2263,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-63"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/data-privacy-awareness",
+      path: "/student/finance/adults/data-privacy-awareness",
       index: 62,
       scenario: {
         setup:
@@ -2300,7 +2300,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-64"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/harassment-warning",
+      path: "/student/finance/adults/harassment-warning",
       index: 63,
       scenario: {
         setup:
@@ -2337,7 +2337,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-65"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/reading-terms-carefully",
+      path: "/student/finance/adults/reading-terms-carefully",
       index: 64,
       scenario: {
         setup:
@@ -2374,7 +2374,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-66"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/loan-app-reviews",
+      path: "/student/finance/adults/loan-app-reviews",
       index: 65,
       scenario: {
         setup:
@@ -2411,7 +2411,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-67"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/multiple-app-loans",
+      path: "/student/finance/adults/multiple-app-loans",
       index: 66,
       scenario: {
         setup:
@@ -2448,7 +2448,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-68"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/contact-sharing-risk",
+      path: "/student/finance/adults/contact-sharing-risk",
       index: 67,
       scenario: {
         setup:
@@ -2485,7 +2485,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-69"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/safe-exit-decision",
+      path: "/student/finance/adults/safe-exit-decision",
       index: 68,
       scenario: {
         setup:
@@ -2522,7 +2522,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-70"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/digital-safety-checkpoint",
+      path: "/student/finance/adults/digital-safety-checkpoint",
       index: 69,
       scenario: {
         setup:
@@ -2559,7 +2559,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-71"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/personal-vs-business-money",
+      path: "/student/finance/adults/personal-vs-business-money",
       index: 70,
       scenario: {
         setup:
@@ -2596,7 +2596,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-72"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/cash-flow-vs-profit",
+      path: "/student/finance/adults/cash-flow-vs-profit",
       index: 71,
       scenario: {
         setup:
@@ -2633,7 +2633,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-73"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/inventory-purchase-decision",
+      path: "/student/finance/adults/inventory-purchase-decision",
       index: 72,
       scenario: {
         setup:
@@ -2670,7 +2670,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-74"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-for-business-growth",
+      path: "/student/finance/adults/credit-for-business-growth",
       index: 73,
       scenario: {
         setup:
@@ -2707,7 +2707,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-75"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/daily-expense-tracking",
+      path: "/student/finance/adults/daily-expense-tracking",
       index: 74,
       scenario: {
         setup:
@@ -2744,7 +2744,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-76"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/seasonal-income-planning",
+      path: "/student/finance/adults/seasonal-income-planning",
       index: 75,
       scenario: {
         setup:
@@ -2781,7 +2781,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-77"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/supplier-credit-trap",
+      path: "/student/finance/adults/supplier-credit-trap",
       index: 76,
       scenario: {
         setup:
@@ -2818,7 +2818,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-78"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/mixing-business-loans",
+      path: "/student/finance/adults/mixing-business-loans",
       index: 77,
       scenario: {
         setup:
@@ -2855,7 +2855,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-79"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emergency-business-expenses",
+      path: "/student/finance/adults/emergency-business-expenses",
       index: 78,
       scenario: {
         setup:
@@ -2892,7 +2892,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-80"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/pricing-discipline",
+      path: "/student/finance/adults/pricing-discipline",
       index: 79,
       scenario: {
         setup:
@@ -2929,7 +2929,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-81"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-sales-risk",
+      path: "/student/finance/adults/credit-sales-risk",
       index: 80,
       scenario: {
         setup:
@@ -2966,7 +2966,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-82"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/business-finance-checkpoint",
+      path: "/student/finance/adults/business-finance-checkpoint",
       index: 81,
       scenario: {
         setup:
@@ -3003,7 +3003,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-83"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/what-is-financial-shock",
+      path: "/student/finance/adults/what-is-financial-shock",
       index: 82,
       scenario: {
         setup:
@@ -3040,7 +3040,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-84"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/first-response-to-emergency",
+      path: "/student/finance/adults/first-response-to-emergency",
       index: 83,
       scenario: {
         setup:
@@ -3077,7 +3077,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-85"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emergency-fund-purpose",
+      path: "/student/finance/adults/emergency-fund-purpose",
       index: 84,
       scenario: {
         setup:
@@ -3114,7 +3114,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-86"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/how-much-emergency-fund",
+      path: "/student/finance/adults/how-much-emergency-fund",
       index: 85,
       scenario: {
         setup:
@@ -3151,7 +3151,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-87"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/health-emergency-planning",
+      path: "/student/finance/adults/health-emergency-planning",
       index: 86,
       scenario: {
         setup:
@@ -3188,7 +3188,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-88"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/income-loss-scenario",
+      path: "/student/finance/adults/income-loss-scenario",
       index: 87,
       scenario: {
         setup:
@@ -3225,7 +3225,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-89"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/multiple-emergencies",
+      path: "/student/finance/adults/multiple-emergencies",
       index: 88,
       scenario: {
         setup:
@@ -3262,7 +3262,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-90"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/avoiding-panic-decisions",
+      path: "/student/finance/adults/avoiding-panic-decisions",
       index: 89,
       scenario: {
         setup:
@@ -3299,7 +3299,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-91"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emergency-credit-use",
+      path: "/student/finance/adults/emergency-credit-use",
       index: 90,
       scenario: {
         setup:
@@ -3336,7 +3336,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-92"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/emergency-preparedness-checkpoint",
+      path: "/student/finance/adults/emergency-preparedness-checkpoint",
       index: 91,
       scenario: {
         setup:
@@ -3368,7 +3368,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-93"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/short-term-vs-long-term-thinking",
+      path: "/student/finance/adults/short-term-vs-long-term-thinking",
       index: 92,
       scenario: {
         setup:
@@ -3405,7 +3405,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-94"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/credit-history-awareness",
+      path: "/student/finance/adults/credit-history-awareness",
       index: 93,
       scenario: {
         setup:
@@ -3442,7 +3442,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-95"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/formal-finance-trust",
+      path: "/student/finance/adults/formal-finance-trust",
       index: 94,
       scenario: {
         setup:
@@ -3479,7 +3479,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-96"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/gradual-financial-inclusion",
+      path: "/student/finance/adults/gradual-financial-inclusion",
       index: 95,
       scenario: {
         setup:
@@ -3516,7 +3516,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-97"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/behaviour-over-income",
+      path: "/student/finance/adults/behaviour-over-income",
       index: 96,
       scenario: {
         setup:
@@ -3553,7 +3553,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-98"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/learning-from-past-mistakes",
+      path: "/student/finance/adults/learning-from-past-mistakes",
       index: 97,
       scenario: {
         setup:
@@ -3590,7 +3590,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-99"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/financial-confidence",
+      path: "/student/finance/adults/financial-confidence",
       index: 98,
       scenario: {
         setup:
@@ -3627,7 +3627,7 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-100"] || false,
       isSpecial: true,
       reflective: true,
-      path: "/student/finance/young-adult/financial-inclusion-mastery-checkpoint",
+      path: "/student/finance/adults/financial-inclusion-mastery-checkpoint",
       index: 99,
       scenario: {
         setup:

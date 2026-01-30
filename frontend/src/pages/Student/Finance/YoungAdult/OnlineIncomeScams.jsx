@@ -18,19 +18,19 @@ const ONLINE_INCOME_SCAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Quick investment returns",
         reflection: "Promises of quick returns on investments are often associated with fraudulent schemes that can lead to significant financial losses.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "New technology opportunities",
         reflection: "While new technologies create real opportunities, they're rarely 'easy money'. Legitimate opportunities still require effort and due diligence.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Scam or exploitation",
         reflection: "Exactly! 'Easy money' claims are major red flags. Legitimate income opportunities require work, skills, and realistic expectations.",
         isCorrect: true,
@@ -81,13 +81,13 @@ const ONLINE_INCOME_SCAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Customer service chat",
         reflection: "Having customer service doesn't make an opportunity legitimate. Scammers often provide 'customer service' to appear trustworthy and pressure victims into compliance.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Requests for upfront payment",
         reflection: "Exactly! Requiring upfront payment for promised returns is a classic scam tactic. Legitimate businesses earn money through their services, not from upfront fees.",
         isCorrect: true,
@@ -106,13 +106,13 @@ const ONLINE_INCOME_SCAMS_STAGES = [
     prompt: "How can you protect yourself from online scams?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Verify company legitimacy",
         reflection: "Excellent! Verifying through official sources, business registration, professional contacts, and independent reviews is crucial for identifying legitimate opportunities.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Never share personal information",
         reflection: "While protecting personal information is important, some legitimate opportunities do require information sharing. The key is being selective about what you share and with whom.",
         isCorrect: false,
@@ -145,19 +145,19 @@ const ONLINE_INCOME_SCAMS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Success guarantees quick wealth",
         reflection: "Quick wealth guarantees are red flags. Even legitimate opportunities face market conditions, competition, and learning phases that affect results.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "You don't need to verify legitimacy",
         reflection: "Verification is essential for online opportunities. Without proper research, you're essentially gambling with your money and personal information.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Legitimate ones require real work and time",
         reflection: "Perfect! Genuine online income opportunities involve real effort, learning curves, and time investment. They reward persistence and skill development, not just signing up.",
         isCorrect: true,

@@ -18,19 +18,19 @@ const DIGITAL_RESPONSIBILITY_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Acceptable in emergencies",
         reflection: "Even in emergencies, using someone else's financial accounts without consent is legally problematic and can damage relationships. Proper emergency financial assistance involves clear communication, seeking permission when possible, or accessing legitimate emergency funds rather than unauthorized account access.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Okay with family members",
         reflection: "Family relationships don't override the need for consent when accessing financial accounts. Each person's financial autonomy should be respected, even among family. Proper financial assistance between family members involves open communication and agreed-upon arrangements rather than unauthorized access.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Wrong and illegal",
         reflection: "Exactly! Digital misuse has serious consequences. Using someone else's card or account without consent is wrong and illegal, constituting fraud, identity theft, or unauthorized access. These actions can result in criminal charges, civil liability, damaged relationships, and long-term financial and legal problems.",
         isCorrect: true,
@@ -75,25 +75,25 @@ const DIGITAL_RESPONSIBILITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Use them freely since you're family",
         reflection: "Family relationships don't eliminate the need for consent regarding financial accounts and devices. Each person's digital privacy and financial security should be respected. Assuming free access can lead to privacy violations, financial disputes, and damaged family relationships.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Ask for forgiveness rather than permission",
         reflection: "Asking for forgiveness after unauthorized use shows disrespect for others' digital privacy and financial security. This approach can damage trust, create financial complications, and strain relationships. Proper digital responsibility involves seeking permission before accessing others' accounts or devices.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Only avoid using them when you know others are watching",
         reflection: "Limiting unauthorized access based on observation rather than consent shows fundamentally flawed understanding of digital responsibility. Proper digital citizenship requires respecting others' privacy and financial security regardless of whether you're being monitored.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Use them only with explicit permission for specific purposes",
         reflection: "Exactly! Digital misuse has serious consequences. Using shared family accounts or devices with explicit permission for specific purposes maintains trust, respects boundaries, and prevents misunderstandings. Clear communication about access rights and limitations protects everyone's financial security and privacy.",
         isCorrect: true,
@@ -107,19 +107,19 @@ const DIGITAL_RESPONSIBILITY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Minor inconvenience for the account holder",
         reflection: "Unauthorized digital financial access typically causes significant problems for account holders including financial loss, compromised security, damaged credit, time spent resolving issues, and potential identity theft risks. The impact is usually far more serious than minor inconvenience, affecting both finances and peace of mind.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Just a learning experience with no real harm",
         reflection: "Unauthorized digital access is not a harmless learning experience - it's a violation with real consequences for both parties. The legal, financial, and relationship damage can be severe and long-lasting. Proper learning about digital responsibility involves authorized practice and education, not unauthorized access.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "c",
         label: "Legal charges, damaged relationships, and financial liability",
         reflection: "Exactly! Digital misuse has serious consequences. Unauthorized access to digital financial accounts can result in criminal charges (theft, fraud, identity theft), civil liability for damages, destroyed personal relationships, and long-term impacts on credit, employment opportunities, and financial reputation that can last years.",
         isCorrect: true,
@@ -139,13 +139,13 @@ const DIGITAL_RESPONSIBILITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Share passwords with trusted friends for convenience",
         reflection: "Sharing passwords, even with trusted friends, compromises digital security for both parties and creates potential legal and financial risks. Proper digital security involves maintaining individual account protection and using legitimate shared access methods when appropriate, rather than password sharing.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Protect your own accounts and respect others' digital boundaries",
         reflection: "Exactly! Digital misuse has serious consequences. Maintaining digital financial security involves protecting your own accounts through strong passwords, monitoring activity, and secure practices, while simultaneously respecting others' digital boundaries through consent, communication, and responsible behavior regarding their financial information and devices.",
         isCorrect: true,

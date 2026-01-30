@@ -18,19 +18,19 @@ const FAKE_JOB_OFFER_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Standard industry practice",
         reflection: "While some industries may have legitimate fees (like licensing), reputable employers typically cover these costs or pay them directly, not require upfront payment from applicants.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Sign of a competitive position",
         reflection: "High pay alone doesn't justify upfront fees. Legitimate high-paying positions are typically offered by established companies with clear hiring processes that don't involve applicant payments.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Likely scam",
         reflection: "Exactly! Legitimate jobs don't ask for money. This is one of the most common warning signs of employment scams designed to steal your money or personal information.",
         isCorrect: true,
@@ -50,13 +50,13 @@ const FAKE_JOB_OFFER_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Only send documents you can easily replace",
         reflection: "Even documents you can replace can be used for identity theft or fraudulent activities. It's better to verify the employer's legitimacy before sharing any sensitive information.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Verify the company's legitimacy first",
         reflection: "Perfect! Always research the company through official channels, check their business registration, and verify contact information before sharing any personal documents.",
         isCorrect: true,
@@ -106,13 +106,13 @@ const FAKE_JOB_OFFER_STAGES = [
     prompt: "How can you research a company's legitimacy?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Check business registration and reviews independently",
         reflection: "Perfect! Verify through official business registries, check reviews on multiple platforms, and look for consistent information across different sources to confirm legitimacy.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Trust their social media presence alone",
         reflection: "Social media profiles can be easily created and manipulated by scammers. They're not reliable indicators of a company's legitimacy on their own.",
         isCorrect: false,
@@ -145,19 +145,19 @@ const FAKE_JOB_OFFER_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "Only apply through job boards you trust",
         reflection: "While trusted job boards are generally safer, even reputable platforms can occasionally host fake listings. Always verify the company independently regardless of the platform.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Focus only on high-paying positions",
         reflection: "Focusing solely on high pay can make you vulnerable to scams that promise unrealistic compensation. Consider the legitimacy and fit of positions, not just the salary.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "d",
         label: "Research thoroughly and verify legitimacy",
         reflection: "Exactly! Taking time to research companies, verify their legitimacy, and understand the hiring process protects you from scams and helps you find genuine opportunities.",
         isCorrect: true,

@@ -42,13 +42,13 @@ const FAKE_PAYMENT_SCREENSHOT_STAGES = [
     prompt: "Which of the following should prompt you to verify payment immediately?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Screenshot of payment with no bank confirmation",
         reflection: "Exactly! A payment screenshot without bank confirmation is a major red flag. Screenshots can be easily faked, and the absence of official bank confirmation means the payment may not have actually gone through.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Notifications in digital payment mode",
         reflection: "Received digitally instantly transfers aren't real paid while still receive other receipts. It's important to confirm the payment status through official verification channels.",
         isCorrect: false,
@@ -75,25 +75,25 @@ const FAKE_PAYMENT_SCREENSHOT_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Ask the buyer to send another screenshot",
         reflection: "Asking for another screenshot doesn't solve the verification problem, as the new screenshot can also be fake. The issue is with relying on screenshots in general, not the number of screenshots provided.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Trust the buyer's word that they paid",
         reflection: "Trusting the buyer's word alone is risky, especially in online transactions where you can't physically verify the payment. Even honest buyers can make mistakes or have technical issues with their payments.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Wait for the buyer to complain about not receiving the item",
         reflection: "Waiting for complaints is a reactive approach that can lead to disputes and potential losses. Proactive verification of payment before shipping is always the safer and more professional approach.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "Check your bank app or payment platform",
         reflection: "Exactly! Checking your bank app, payment platform (like PayPal, Venmo, or your bank's mobile app) directly is the most reliable way to verify payment. These platforms provide real-time, official confirmation of transactions.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const FAKE_PAYMENT_SCREENSHOT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Accept the screenshot but ask for a small additional payment",
         reflection: "Asking for additional payment doesn't address the core issue of verifying the original payment. It can also create confusion and may not prevent losses if the initial payment was fake.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Request official bank confirmation before shipping",
         reflection: "Exactly! Requesting official bank confirmation before shipping is the safest approach. This protects you from potential scams and ensures you only ship items after receiving verified payment.",
         isCorrect: true,

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowLeft, Plus, Trash2, Edit2, Save, PieChart, DollarSign, 
-  ArrowDownCircle, ArrowUpCircle, TrendingUp, TrendingDown, 
+import { motion, AnimatePresence } from 'framer-motion'; //eslint-disable-line
+import {
+  ArrowLeft, Plus, Trash2, Edit2, Save, PieChart, DollarSign,
+  ArrowDownCircle, ArrowUpCircle, TrendingUp, TrendingDown,
   Target, AlertCircle, CheckCircle2, Info, Lightbulb, Wallet,
   CreditCard, Calendar, BarChart3, Sparkles, Zap, X, Check,
   Receipt, PiggyBank, Gift
@@ -48,18 +48,18 @@ const BudgetPlanner = () => {
     if (!user) return null;
     const dob = user.dateOfBirth || user.dob;
     if (!dob) return null;
-    
+
     const dobDate = typeof dob === 'string' ? new Date(dob) : new Date(dob);
     if (isNaN(dobDate.getTime())) return null;
-    
+
     const today = new Date();
     let age = today.getFullYear() - dobDate.getFullYear();
     const monthDiff = today.getMonth() - dobDate.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobDate.getDate())) {
       age--;
     }
-    
+
     return age;
   }, [user]);
 
@@ -171,7 +171,7 @@ const BudgetPlanner = () => {
       if (autoSaveTimer) {
         clearTimeout(autoSaveTimer);
       }
-      
+
       const timer = setTimeout(async () => {
         try {
           await saveBudgetData({ incomes, expenses });
@@ -183,14 +183,25 @@ const BudgetPlanner = () => {
           localStorage.setItem('budgetData', JSON.stringify({ incomes, expenses }));
         }
       }, 2000);
-      
+
       setAutoSaveTimer(timer);
-      
+
       return () => {
         if (timer) clearTimeout(timer);
       };
     }
-  }, [incomes, expenses, hasUnsavedChanges]);
+  }, [incomes, expenses, hasUnsavedChanges, autoSaveTimer]);
+
+  const getFrequencyMultiplier = (frequency, period) => {
+    const multipliers = {
+      weekly: { weekly: 1, monthly: 4.33, yearly: 52 },
+      'bi-weekly': { weekly: 0.5, monthly: 2.17, yearly: 26 },
+      monthly: { weekly: 0.23, monthly: 1, yearly: 12 },
+      quarterly: { weekly: 0.077, monthly: 0.33, yearly: 4 },
+      yearly: { weekly: 0.019, monthly: 0.083, yearly: 1 },
+    };
+    return multipliers[frequency]?.[period] || 1;
+  };
 
   // Calculate statistics
   const stats = useMemo(() => {
@@ -231,17 +242,6 @@ const BudgetPlanner = () => {
     };
   }, [incomes, expenses, budgetPeriod]);
 
-  const getFrequencyMultiplier = (frequency, period) => {
-    const multipliers = {
-      weekly: { weekly: 1, monthly: 4.33, yearly: 52 },
-      'bi-weekly': { weekly: 0.5, monthly: 2.17, yearly: 26 },
-      monthly: { weekly: 0.23, monthly: 1, yearly: 12 },
-      quarterly: { weekly: 0.077, monthly: 0.33, yearly: 4 },
-      yearly: { weekly: 0.019, monthly: 0.083, yearly: 1 },
-    };
-    return multipliers[frequency]?.[period] || 1;
-  };
-
   // Handle income
   const handleSaveIncome = () => {
     if (!newIncome.name || !newIncome.amount) {
@@ -260,8 +260,8 @@ const BudgetPlanner = () => {
       const incomeData = {
         ...newIncome,
         amount: amount,
-        createdAt: editingIncomeId 
-          ? incomes.find(i => i._id === editingIncomeId)?.createdAt 
+        createdAt: editingIncomeId
+          ? incomes.find(i => i._id === editingIncomeId)?.createdAt
           : new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       };
@@ -333,8 +333,8 @@ const BudgetPlanner = () => {
       const expenseData = {
         ...newExpense,
         amount: amount,
-        createdAt: editingExpenseId 
-          ? expenses.find(e => e._id === editingExpenseId)?.createdAt 
+        createdAt: editingExpenseId
+          ? expenses.find(e => e._id === editingExpenseId)?.createdAt
           : new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       };
@@ -396,7 +396,7 @@ const BudgetPlanner = () => {
       localStorage.setItem('budgetData', JSON.stringify({ incomes, expenses }));
       setHasUnsavedChanges(false);
       toast.success('Budget saved successfully! 💾');
-      
+
       logActivity({
         activityType: 'financial_action',
         description: 'Saved budget plan',
@@ -467,20 +467,18 @@ const BudgetPlanner = () => {
 
   if (loading) {
     return (
-      <div className={`min-h-screen bg-gradient-to-br ${
-        ageGroup === 'kids' ? 'from-pink-50 via-yellow-50 to-purple-50' :
+      <div className={`min-h-screen bg-gradient-to-br ${ageGroup === 'kids' ? 'from-pink-50 via-yellow-50 to-purple-50' :
         ageGroup === 'teens' ? 'from-blue-50 via-cyan-50 to-indigo-50' :
-        'from-gray-50 via-white to-slate-50'
-      } flex items-center justify-center`}>
+          'from-gray-50 via-white to-slate-50'
+        } flex items-center justify-center`}>
         <div className="text-center">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-            className={`w-16 h-16 border-4 ${
-              ageGroup === 'kids' ? 'border-pink-500' :
+            className={`w-16 h-16 border-4 ${ageGroup === 'kids' ? 'border-pink-500' :
               ageGroup === 'teens' ? 'border-blue-500' :
-              'border-green-500'
-            } border-t-transparent rounded-full mx-auto mb-4`}
+                'border-green-500'
+              } border-t-transparent rounded-full mx-auto mb-4`}
           />
           <p className="text-gray-600">Loading your budget...</p>
         </div>
@@ -489,11 +487,10 @@ const BudgetPlanner = () => {
   }
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${
-      ageGroup === 'kids' ? 'from-pink-50 via-yellow-50 to-purple-50' :
+    <div className={`min-h-screen bg-gradient-to-br ${ageGroup === 'kids' ? 'from-pink-50 via-yellow-50 to-purple-50' :
       ageGroup === 'teens' ? 'from-blue-50 via-cyan-50 to-indigo-50' :
-      'from-gray-50 via-white to-slate-50'
-    } p-4 sm:p-6 lg:p-8`}>
+        'from-gray-50 via-white to-slate-50'
+      } p-4 sm:p-6 lg:p-8`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -509,29 +506,27 @@ const BudgetPlanner = () => {
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Financial Literacy
           </button>
-          
+
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-black mb-2 ${
-                ageGroup === 'kids' ? 'bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent leading-tight' :
+              <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-black mb-2 ${ageGroup === 'kids' ? 'bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent leading-tight' :
                 ageGroup === 'teens' ? 'bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent leading-tight' :
-                'text-gray-900'
-              }`}>
+                  'text-gray-900'
+                }`}>
                 {ageGroup === 'kids' && '💰 '}
                 Budget Planner
                 {ageGroup === 'kids' && ' 💰'}
               </h1>
-              <p className={`text-lg ${
-                ageGroup === 'kids' ? 'text-purple-600' :
+              <p className={`text-lg ${ageGroup === 'kids' ? 'text-purple-600' :
                 ageGroup === 'teens' ? 'text-blue-600' :
-                'text-gray-600'
-              }`}>
+                  'text-gray-600'
+                }`}>
                 {ageGroup === 'kids' && "Plan your money! 🎯"}
                 {ageGroup === 'teens' && "Create and manage your personal budget"}
                 {ageGroup === 'adults' && "Plan your finances with precision and insight"}
               </p>
             </div>
-            
+
             {hasUnsavedChanges && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -582,26 +577,21 @@ const BudgetPlanner = () => {
 
           <motion.div
             whileHover={{ scale: 1.05, y: -5 }}
-            className={`bg-white rounded-2xl shadow-lg p-6 border-l-4 ${
-              stats.balance >= 0 ? 'border-green-500' : 'border-red-500'
-            }`}
+            className={`bg-white rounded-2xl shadow-lg p-6 border-l-4 ${stats.balance >= 0 ? 'border-green-500' : 'border-red-500'
+              }`}
           >
-            <div className={`p-3 rounded-xl mb-2 ${
-              stats.balance >= 0 ? 'bg-green-100' : 'bg-red-100'
-            }`}>
-              <DollarSign className={`w-6 h-6 ${
-                stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
-              }`} />
+            <div className={`p-3 rounded-xl mb-2 ${stats.balance >= 0 ? 'bg-green-100' : 'bg-red-100'
+              }`}>
+              <DollarSign className={`w-6 h-6 ${stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
+                }`} />
             </div>
             <p className="text-sm text-gray-500 mb-1">Balance</p>
-            <p className={`text-3xl font-black ${
-              stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
-            }`}>
+            <p className={`text-3xl font-black ${stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
+              }`}>
               ${stats.balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className={`text-xs mt-1 ${
-              stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
-            }`}>
+            <p className={`text-xs mt-1 ${stats.balance >= 0 ? 'text-green-600' : 'text-red-600'
+              }`}>
               {stats.balance >= 0 ? 'Surplus' : 'Deficit'}
             </p>
           </motion.div>
@@ -614,17 +604,16 @@ const BudgetPlanner = () => {
               <Target className="w-6 h-6 text-blue-600" />
             </div>
             <p className="text-sm text-gray-500 mb-1">Savings Rate</p>
-            <p className={`text-3xl font-black ${
-              stats.savingsRate >= 20 ? 'text-green-600' :
+            <p className={`text-3xl font-black ${stats.savingsRate >= 20 ? 'text-green-600' :
               stats.savingsRate >= 10 ? 'text-yellow-600' :
-              'text-red-600'
-            }`}>
+                'text-red-600'
+              }`}>
               {stats.savingsRate.toFixed(1)}%
             </p>
             <p className="text-xs text-gray-400 mt-1">
               {stats.savingsRate >= 20 ? 'Excellent! ⭐' :
-               stats.savingsRate >= 10 ? 'Good! 👍' :
-               'Needs improvement'}
+                stats.savingsRate >= 10 ? 'Good! 👍' :
+                  'Needs improvement'}
             </p>
           </motion.div>
         </motion.div>
@@ -670,45 +659,42 @@ const BudgetPlanner = () => {
           <div className="flex border-b border-gray-200 overflow-x-auto">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`px-6 py-4 font-black text-sm transition-all ${
-                activeTab === 'overview'
-                  ? ageGroup === 'kids'
-                    ? 'text-pink-600 border-b-4 border-pink-600'
-                    : ageGroup === 'teens'
+              className={`px-6 py-4 font-black text-sm transition-all ${activeTab === 'overview'
+                ? ageGroup === 'kids'
+                  ? 'text-pink-600 border-b-4 border-pink-600'
+                  : ageGroup === 'teens'
                     ? 'text-blue-600 border-b-4 border-blue-600'
                     : 'text-green-600 border-b-4 border-green-600'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+                : 'text-gray-500 hover:text-gray-700'
+                }`}
             >
               <BarChart3 className="w-5 h-5 inline mr-2" />
               Overview
             </button>
             <button
               onClick={() => setActiveTab('income')}
-              className={`px-6 py-4 font-black text-sm transition-all ${
-                activeTab === 'income'
-                  ? ageGroup === 'kids'
-                    ? 'text-pink-600 border-b-4 border-pink-600'
-                    : ageGroup === 'teens'
+              className={`px-6 py-4 font-black text-sm transition-all ${activeTab === 'income'
+                ? ageGroup === 'kids'
+                  ? 'text-pink-600 border-b-4 border-pink-600'
+                  : ageGroup === 'teens'
                     ? 'text-blue-600 border-b-4 border-blue-600'
                     : 'text-green-600 border-b-4 border-green-600'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+                : 'text-gray-500 hover:text-gray-700'
+                }`}
             >
               <ArrowDownCircle className="w-5 h-5 inline mr-2" />
               Income
             </button>
             <button
               onClick={() => setActiveTab('expenses')}
-              className={`px-6 py-4 font-black text-sm transition-all ${
-                activeTab === 'expenses'
-                  ? ageGroup === 'kids'
-                    ? 'text-pink-600 border-b-4 border-pink-600'
-                    : ageGroup === 'teens'
+              className={`px-6 py-4 font-black text-sm transition-all ${activeTab === 'expenses'
+                ? ageGroup === 'kids'
+                  ? 'text-pink-600 border-b-4 border-pink-600'
+                  : ageGroup === 'teens'
                     ? 'text-blue-600 border-b-4 border-blue-600'
                     : 'text-green-600 border-b-4 border-green-600'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+                : 'text-gray-500 hover:text-gray-700'
+                }`}
             >
               <ArrowUpCircle className="w-5 h-5 inline mr-2" />
               Expenses
@@ -738,8 +724,8 @@ const BudgetPlanner = () => {
                         {Object.entries(stats.categoryTotals)
                           .sort((a, b) => b[1] - a[1])
                           .map(([category, total]) => {
-                            const percentage = stats.totalExpenses > 0 
-                              ? (total / stats.totalExpenses * 100).toFixed(1) 
+                            const percentage = stats.totalExpenses > 0
+                              ? (total / stats.totalExpenses * 100).toFixed(1)
                               : 0;
                             const categoryIndex = config.expenseCategories.indexOf(category);
                             return (
@@ -761,17 +747,16 @@ const BudgetPlanner = () => {
                                     initial={{ width: 0 }}
                                     animate={{ width: `${percentage}%` }}
                                     transition={{ duration: 1, ease: "easeOut" }}
-                                    className={`h-full ${
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'red' ? 'bg-gradient-to-r from-red-500 to-red-400' :
+                                    className={`h-full ${categoryIndex >= 0 && config.colors[categoryIndex] === 'red' ? 'bg-gradient-to-r from-red-500 to-red-400' :
                                       categoryIndex >= 0 && config.colors[categoryIndex] === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'green' ? 'bg-gradient-to-r from-green-500 to-green-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'yellow' ? 'bg-gradient-to-r from-yellow-500 to-yellow-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'orange' ? 'bg-gradient-to-r from-orange-500 to-orange-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'pink' ? 'bg-gradient-to-r from-pink-500 to-pink-400' :
-                                      categoryIndex >= 0 && config.colors[categoryIndex] === 'emerald' ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' :
-                                      'bg-gradient-to-r from-indigo-500 to-indigo-400'
-                                    }`}
+                                        categoryIndex >= 0 && config.colors[categoryIndex] === 'green' ? 'bg-gradient-to-r from-green-500 to-green-400' :
+                                          categoryIndex >= 0 && config.colors[categoryIndex] === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-400' :
+                                            categoryIndex >= 0 && config.colors[categoryIndex] === 'yellow' ? 'bg-gradient-to-r from-yellow-500 to-yellow-400' :
+                                              categoryIndex >= 0 && config.colors[categoryIndex] === 'orange' ? 'bg-gradient-to-r from-orange-500 to-orange-400' :
+                                                categoryIndex >= 0 && config.colors[categoryIndex] === 'pink' ? 'bg-gradient-to-r from-pink-500 to-pink-400' :
+                                                  categoryIndex >= 0 && config.colors[categoryIndex] === 'emerald' ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' :
+                                                    'bg-gradient-to-r from-indigo-500 to-indigo-400'
+                                      }`}
                                   />
                                 </div>
                               </div>
@@ -792,11 +777,10 @@ const BudgetPlanner = () => {
                       <Lightbulb className="w-6 h-6 text-yellow-600" />
                       Budget Insights
                     </h2>
-                    <div className={`rounded-2xl p-6 mb-6 ${
-                      stats.balance >= 0
-                        ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200'
-                        : 'bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200'
-                    }`}>
+                    <div className={`rounded-2xl p-6 mb-6 ${stats.balance >= 0
+                      ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200'
+                      : 'bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200'
+                      }`}>
                       <div className="flex items-start gap-3 mb-4">
                         {stats.balance >= 0 ? (
                           <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
@@ -816,30 +800,28 @@ const BudgetPlanner = () => {
                       <div className="bg-white border-2 border-gray-200 rounded-xl p-4">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-sm font-bold text-gray-600">Expense Ratio</span>
-                          <span className={`font-black ${
-                            stats.expenseRatio <= 80 ? 'text-green-600' :
+                          <span className={`font-black ${stats.expenseRatio <= 80 ? 'text-green-600' :
                             stats.expenseRatio <= 95 ? 'text-yellow-600' :
-                            'text-red-600'
-                          }`}>
+                              'text-red-600'
+                            }`}>
                             {stats.expenseRatio.toFixed(1)}%
                           </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div
-                            className={`h-2 rounded-full ${
-                              stats.expenseRatio <= 80 ? 'bg-green-500' :
+                            className={`h-2 rounded-full ${stats.expenseRatio <= 80 ? 'bg-green-500' :
                               stats.expenseRatio <= 95 ? 'bg-yellow-500' :
-                              'bg-red-500'
-                            }`}
+                                'bg-red-500'
+                              }`}
                             style={{ width: `${Math.min(100, stats.expenseRatio)}%` }}
                           />
                         </div>
                         <p className="text-xs text-gray-500 mt-2">
-                          {stats.expenseRatio <= 80 
+                          {stats.expenseRatio <= 80
                             ? 'Great! You\'re spending less than 80% of income'
                             : stats.expenseRatio <= 95
-                            ? 'Good, but try to reduce expenses'
-                            : 'Warning: Spending exceeds 95% of income'}
+                              ? 'Good, but try to reduce expenses'
+                              : 'Warning: Spending exceeds 95% of income'}
                         </p>
                       </div>
 
@@ -855,11 +837,11 @@ const BudgetPlanner = () => {
                       <div className="bg-white border-2 border-gray-200 rounded-xl p-4">
                         <p className="text-sm font-bold text-gray-600 mb-2">Savings Recommendation</p>
                         <p className="text-sm text-gray-700">
-                          {ageGroup === 'kids' 
+                          {ageGroup === 'kids'
                             ? "Try to save at least 10% of your money! 🐷"
                             : ageGroup === 'teens'
-                            ? "Aim to save 20% of your income for future goals."
-                            : "Financial experts recommend saving 20-30% of income for long-term financial security."}
+                              ? "Aim to save 20% of your income for future goals."
+                              : "Financial experts recommend saving 20-30% of income for long-term financial security."}
                         </p>
                       </div>
                     </div>
@@ -887,15 +869,14 @@ const BudgetPlanner = () => {
                       resetIncomeForm();
                       setShowIncomeForm(!showIncomeForm);
                     }}
-                    className={`px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition-all ${
-                      showIncomeForm
-                        ? 'bg-gray-200 text-gray-700'
-                        : ageGroup === 'kids'
+                    className={`px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition-all ${showIncomeForm
+                      ? 'bg-gray-200 text-gray-700'
+                      : ageGroup === 'kids'
                         ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
                         : ageGroup === 'teens'
-                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                        : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
-                    }`}
+                          ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
+                          : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
+                      }`}
                   >
                     {showIncomeForm ? (
                       <>
@@ -997,13 +978,12 @@ const BudgetPlanner = () => {
                           </button>
                           <button
                             onClick={handleSaveIncome}
-                            className={`px-6 py-2 rounded-xl font-bold flex items-center gap-2 ${
-                              ageGroup === 'kids'
-                                ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
-                                : ageGroup === 'teens'
+                            className={`px-6 py-2 rounded-xl font-bold flex items-center gap-2 ${ageGroup === 'kids'
+                              ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                              : ageGroup === 'teens'
                                 ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
                                 : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
-                            }`}
+                              }`}
                           >
                             <Check className="w-4 h-4" />
                             {editingIncomeId ? 'Update' : 'Add Income'}
@@ -1021,7 +1001,7 @@ const BudgetPlanner = () => {
                       const amount = parseFloat(income.amount) || 0;
                       const multiplier = getFrequencyMultiplier(income.frequency || 'monthly', budgetPeriod);
                       const adjustedAmount = amount * multiplier;
-                      
+
                       return (
                         <motion.div
                           key={income._id || index}
@@ -1077,7 +1057,7 @@ const BudgetPlanner = () => {
                     <Wallet className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                     <h3 className="text-xl font-black text-gray-800 mb-2">No Income Sources Yet</h3>
                     <p className="text-gray-600 mb-6">
-                      {ageGroup === 'kids' 
+                      {ageGroup === 'kids'
                         ? "Add your allowance or gift money to start planning! 🎁"
                         : "Add your income sources to create a budget!"}
                     </p>
@@ -1086,13 +1066,12 @@ const BudgetPlanner = () => {
                         resetIncomeForm();
                         setShowIncomeForm(true);
                       }}
-                      className={`px-6 py-3 rounded-xl font-black inline-flex items-center gap-2 ${
-                        ageGroup === 'kids'
-                          ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
-                          : ageGroup === 'teens'
+                      className={`px-6 py-3 rounded-xl font-black inline-flex items-center gap-2 ${ageGroup === 'kids'
+                        ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                        : ageGroup === 'teens'
                           ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
                           : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
-                      }`}
+                        }`}
                     >
                       <Plus className="w-5 h-5" />
                       Add Your First Income
@@ -1121,15 +1100,14 @@ const BudgetPlanner = () => {
                       resetExpenseForm();
                       setShowExpenseForm(!showExpenseForm);
                     }}
-                    className={`px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition-all ${
-                      showExpenseForm
-                        ? 'bg-gray-200 text-gray-700'
-                        : ageGroup === 'kids'
+                    className={`px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition-all ${showExpenseForm
+                      ? 'bg-gray-200 text-gray-700'
+                      : ageGroup === 'kids'
                         ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
                         : ageGroup === 'teens'
-                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                        : 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
-                    }`}
+                          ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
+                          : 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
+                      }`}
                   >
                     {showExpenseForm ? (
                       <>
@@ -1248,13 +1226,12 @@ const BudgetPlanner = () => {
                           </button>
                           <button
                             onClick={handleSaveExpense}
-                            className={`px-6 py-2 rounded-xl font-bold flex items-center gap-2 ${
-                              ageGroup === 'kids'
-                                ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
-                                : ageGroup === 'teens'
+                            className={`px-6 py-2 rounded-xl font-bold flex items-center gap-2 ${ageGroup === 'kids'
+                              ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                              : ageGroup === 'teens'
                                 ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
                                 : 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
-                            }`}
+                              }`}
                           >
                             <Check className="w-4 h-4" />
                             {editingExpenseId ? 'Update' : 'Add Expense'}
@@ -1272,8 +1249,7 @@ const BudgetPlanner = () => {
                       const amount = parseFloat(expense.amount) || 0;
                       const multiplier = getFrequencyMultiplier(expense.frequency || 'monthly', budgetPeriod);
                       const adjustedAmount = amount * multiplier;
-                      const categoryIndex = config.expenseCategories.indexOf(expense.category);
-                      
+
                       return (
                         <motion.div
                           key={expense._id || index}
@@ -1332,7 +1308,7 @@ const BudgetPlanner = () => {
                     <Receipt className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                     <h3 className="text-xl font-black text-gray-800 mb-2">No Expenses Yet</h3>
                     <p className="text-gray-600 mb-6">
-                      {ageGroup === 'kids' 
+                      {ageGroup === 'kids'
                         ? "Add your expenses to see where your money goes! 💸"
                         : "Add your planned expenses to create a complete budget!"}
                     </p>
@@ -1341,13 +1317,12 @@ const BudgetPlanner = () => {
                         resetExpenseForm();
                         setShowExpenseForm(true);
                       }}
-                      className={`px-6 py-3 rounded-xl font-black inline-flex items-center gap-2 ${
-                        ageGroup === 'kids'
-                          ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
-                          : ageGroup === 'teens'
+                      className={`px-6 py-3 rounded-xl font-black inline-flex items-center gap-2 ${ageGroup === 'kids'
+                        ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                        : ageGroup === 'teens'
                           ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
                           : 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
-                      }`}
+                        }`}
                     >
                       <Plus className="w-5 h-5" />
                       Add Your First Expense
@@ -1369,13 +1344,12 @@ const BudgetPlanner = () => {
           >
             <button
               onClick={handleSaveBudget}
-              className={`px-8 py-4 rounded-xl font-black text-lg flex items-center gap-2 shadow-lg transition-all ${
-                ageGroup === 'kids'
-                  ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600'
-                  : ageGroup === 'teens'
+              className={`px-8 py-4 rounded-xl font-black text-lg flex items-center gap-2 shadow-lg transition-all ${ageGroup === 'kids'
+                ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600'
+                : ageGroup === 'teens'
                   ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600'
                   : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600'
-              }`}
+                }`}
             >
               <Save className="w-6 h-6" />
               Save Budget

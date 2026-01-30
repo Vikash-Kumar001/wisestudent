@@ -11,13 +11,13 @@ const FAKE_CUSTOMER_SUPPORT_STAGES = [
     prompt: "You find a support number in a random comment section. Is it safe?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "No, use official sources only",
         reflection: "Exactly! Fake support numbers steal data. Always use official support channels like the company's official website, app, or verified customer service numbers. Random comment sections are breeding grounds for fake support scams.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Yes",
         reflection: "Using a support number found in random comment sections is extremely risky. These numbers are often fake and lead to scammers who will try to steal your personal information, passwords, or money under the guise of helping you.",
         isCorrect: false,
@@ -50,19 +50,19 @@ const FAKE_CUSTOMER_SUPPORT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Incorrect advice",
         reflection: "While fake support may provide incorrect advice, this is more of an inconvenience than a major security risk. The primary concern is that scammers use fake support to gain access to your accounts and personal information for fraudulent purposes.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Language barriers",
         reflection: "Language barriers might make communication difficult, but they don't pose the same security threat as fake support numbers. The real danger is that scammers use these numbers to steal your data and money, regardless of language proficiency.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Data theft and financial loss",
         reflection: "Exactly! The main risk of fake customer support is data theft and financial loss. Scammers posing as support agents will try to obtain your personal information, passwords, account details, and ultimately steal your money or identity.",
         isCorrect: true,
@@ -82,13 +82,13 @@ const FAKE_CUSTOMER_SUPPORT_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "Ask other users online",
         reflection: "Asking other users online isn't a reliable verification method. Other users might also be victims of the same scam, or scammers might be posing as helpful users to spread fake support numbers. Always verify through official company sources.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "c",
         label: "Verify through the company's official website",
         reflection: "Exactly! Verifying through the company's official website is the most reliable way to confirm a customer support number's legitimacy. Official websites provide verified contact information that scammers can't easily replicate or manipulate.",
         isCorrect: true,
@@ -138,13 +138,13 @@ const FAKE_CUSTOMER_SUPPORT_STAGES = [
     prompt: "Which scenario indicates a potential fake support scam?",
     options: [
        {
-        id: "b",
+        id: "a",
         label: "Number found in YouTube comments",
         reflection: "Exactly! Numbers found in YouTube comments are a common source of fake support scams. Scammers post fake support numbers in comments sections, hoping viewers will call them when they need help, then attempt to steal personal information or money.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Support number from official app",
         reflection: "A support number from an official app is generally legitimate. Official apps are controlled by the company and provide verified contact information. This represents proper customer service channels, not a scam.",
         isCorrect: false,

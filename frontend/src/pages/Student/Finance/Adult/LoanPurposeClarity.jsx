@@ -74,25 +74,25 @@ const LOAN_PURPOSE_CLARITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "It guarantees higher returns",
         reflection: "Unclear purpose doesn't guarantee higher returns - it increases risk of fund misallocation.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It simplifies the repayment process",
         reflection: "Unclear purpose doesn't simplify repayment - it may actually complicate it due to misused funds.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "It reduces the loan amount",
         reflection: "Unclear purpose doesn't directly reduce the loan amount but can lead to improper fund usage.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "d",
         label: "It may lead to misuse of funds",
         reflection: "Yes! Unclear purpose can result in funds being diverted to unintended uses, reducing loan success.",
         isCorrect: true,
@@ -106,19 +106,19 @@ const LOAN_PURPOSE_CLARITY_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "It eliminates the need for repayment planning",
         reflection: "Clear purpose doesn't eliminate repayment planning - it actually supports better planning.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It allows skipping payments when needed",
         reflection: "Clear purpose doesn't allow skipping payments - it helps ensure funds are used productively.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "c",
         label: "It ensures the loan generates the expected value or benefit",
         reflection: "Perfect! When funds are used as intended, they're more likely to generate expected returns, aiding repayment.",
         isCorrect: true,
@@ -138,13 +138,13 @@ const LOAN_PURPOSE_CLARITY_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Keep it general so you can use funds flexibly",
         reflection: "General purposes may lead to fund misallocation - specific purposes improve loan success.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Clearly define specific use and expected outcomes",
         reflection: "Excellent! Specific definition with expected outcomes helps ensure funds are used productively.",
         isCorrect: true,
@@ -233,7 +233,7 @@ const LoanPurposeClarity = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

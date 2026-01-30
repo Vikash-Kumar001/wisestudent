@@ -1461,7 +1461,8 @@ const GameCategoryPage = () => {
     (ageGroup === "kids" ||
       ageGroup === "teens" ||
       ageGroup === "teen" ||
-      ageGroup === "young-adult")
+      ageGroup === "young-adult" ||
+      ageGroup === "adults")
     ) {
       if (!isGameUnlocked(game.index)) {
         toast.error("Complete the previous game first to unlock this game!", {
@@ -1527,7 +1528,6 @@ const GameCategoryPage = () => {
       const nextGame = games.find(g => g.index === game.index + 1 && g.isSpecial && g.path);
       const nextGamePath = nextGame ? nextGame.path : null;
       const nextGameId = nextGame ? nextGame.id : null;
-      
       // Pass coinsPerLevel, totalCoins, totalXp, replay status, and next game path via navigation state
       navigate(game.path, { 
         state: { 

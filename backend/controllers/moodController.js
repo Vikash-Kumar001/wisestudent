@@ -78,7 +78,7 @@ export const logMood = async (req, res) => {
     await XPLog.create({
       userId,
       xp: XP_REWARD,
-      reason: 'mood_tracking',
+      reason: 'mood_checkin',
       description: 'Mood logged',
       date: new Date()
     });

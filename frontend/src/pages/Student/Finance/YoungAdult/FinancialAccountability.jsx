@@ -72,29 +72,30 @@ const FINANCIAL_ACCOUNTABILITY_STAGES = [
     id: 3,
     prompt: "How should you approach a financial mistake that affects others?",
     options: [
+     
       {
         id: "a",
-        label: "Acknowledge your role and work collaboratively on solutions",
-        reflection: "Exactly! Accountability builds maturity. Acknowledging your contribution to a financial mistake and working collaboratively with affected parties demonstrates integrity and leadership. This approach builds trust, strengthens relationships, and often leads to creative solutions that benefit everyone involved while maintaining financial responsibility.",
-        isCorrect: true,
-      },
-      {
-        id: "b",
         label: "Minimize your involvement to protect your reputation",
         reflection: "Minimizing involvement in financial mistakes that affect others damages trust and relationships. While protecting your reputation is important, true financial maturity involves taking appropriate responsibility for your actions. Honest acknowledgment of mistakes, even when uncomfortable, builds stronger, more trusting financial relationships.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Blame external factors beyond anyone's control",
         reflection: "Blaming external factors for financial mistakes that affect others avoids accountability and learning opportunities. While external factors may contribute to problems, responsible financial behavior involves examining all contributing factors including personal decisions and actions. This comprehensive approach leads to better solutions and prevents similar issues.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Let others handle the problem since you're not the only one involved",
         reflection: "Avoiding responsibility for financial mistakes that affect others demonstrates poor leadership and financial maturity. Even when multiple parties are involved, taking ownership of your specific role and contributions shows integrity and often inspires others to do the same. Collaborative problem-solving requires individual accountability from all participants.",
         isCorrect: false,
+      },
+       {
+        id: "d",
+        label: "Acknowledge your role and work collaboratively on solutions",
+        reflection: "Exactly! Accountability builds maturity. Acknowledging your contribution to a financial mistake and working collaboratively with affected parties demonstrates integrity and leadership. This approach builds trust, strengthens relationships, and often leads to creative solutions that benefit everyone involved while maintaining financial responsibility.",
+        isCorrect: true,
       },
     ],
     reward: 20,
@@ -103,23 +104,24 @@ const FINANCIAL_ACCOUNTABILITY_STAGES = [
     id: 4,
     prompt: "What's the long-term benefit of accepting financial responsibility for mistakes?",
     options: [
+      
       {
         id: "a",
-        label: "Builds trust, credibility, and future opportunities",
-        reflection: "Exactly! Accountability builds maturity. Accepting financial responsibility for mistakes builds trust and credibility with financial institutions, employers, business partners, and personal relationships. This reputation for integrity opens doors to better financial opportunities, favorable terms, and stronger professional and personal relationships built on mutual respect and trust.",
-        isCorrect: true,
-      },
-      {
-        id: "b",
         label: "Avoids short-term embarrassment and conflict",
         reflection: "Avoiding short-term embarrassment by not accepting financial responsibility often leads to much larger long-term problems. The temporary relief of avoiding accountability typically results in damaged relationships, lost opportunities, and a reputation for unreliability. True financial maturity involves facing short-term discomfort for long-term benefits.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Protects you from potential legal consequences",
         reflection: "While accepting responsibility for financial mistakes may seem risky, it often reduces legal consequences through demonstrated good faith and cooperation. Hiding or denying responsibility typically escalates legal issues and damages relationships. Responsible acknowledgment of mistakes, combined with proactive correction efforts, usually results in more favorable legal and financial outcomes.",
         isCorrect: false,
+      },
+      {
+        id: "c",
+        label: "Builds trust, credibility, and future opportunities",
+        reflection: "Exactly! Accountability builds maturity. Accepting financial responsibility for mistakes builds trust and credibility with financial institutions, employers, business partners, and personal relationships. This reputation for integrity opens doors to better financial opportunities, favorable terms, and stronger professional and personal relationships built on mutual respect and trust.",
+        isCorrect: true,
       },
       {
         id: "d",
@@ -134,17 +136,18 @@ const FINANCIAL_ACCOUNTABILITY_STAGES = [
     id: 5,
     prompt: "What's the best practice for preventing financial mistakes through accountability?",
     options: [
+     
       {
         id: "a",
-        label: "Implement personal checks and regularly review your financial processes",
-        reflection: "Exactly! Accountability builds maturity. Implementing personal checks and regularly reviewing financial processes demonstrates proactive responsibility and prevents mistakes before they occur. This systematic approach involves creating accountability measures, seeking feedback, and continuously improving financial management practices to build long-term financial stability and success.",
-        isCorrect: true,
-      },
-      {
-        id: "b",
         label: "Rely on others to catch your errors and point them out",
         reflection: "Relying on others to catch financial errors demonstrates poor personal accountability and creates dependency. While feedback from others is valuable, responsible financial management requires developing your own error-checking skills and systems. Building personal accountability prevents mistakes and develops the financial maturity needed for long-term success.",
         isCorrect: false,
+      },
+       {
+        id: "b",
+        label: "Implement personal checks and regularly review your financial processes",
+        reflection: "Exactly! Accountability builds maturity. Implementing personal checks and regularly reviewing financial processes demonstrates proactive responsibility and prevents mistakes before they occur. This systematic approach involves creating accountability measures, seeking feedback, and continuously improving financial management practices to build long-term financial stability and success.",
+        isCorrect: true,
       },
       {
         id: "c",

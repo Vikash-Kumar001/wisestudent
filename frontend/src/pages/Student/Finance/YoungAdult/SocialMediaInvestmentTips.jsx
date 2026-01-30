@@ -42,13 +42,13 @@ const SOCIAL_MEDIA_INVESTMENT_TIPS_STAGES = [
     prompt: "What should you be most cautious about with social media investment tips?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Hidden risks and lack of regulation",
         reflection: "Perfect! Social media investment tips often lack proper disclosure of risks, may not be regulated, and can be biased or misleading. The informal nature of social media makes it easy for important information to be omitted or misrepresented.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "The influencer's communication style",
         reflection: "While communication style can be important, it's not the primary concern with social media investment tips. The content and legitimacy of the advice itself should be your main focus when evaluating investment suggestions.",
         isCorrect: false,
@@ -75,13 +75,13 @@ const SOCIAL_MEDIA_INVESTMENT_TIPS_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "See if their tips have worked for others",
         reflection: "Past performance or testimonials from others don't guarantee future results or the legitimacy of advice. Individual experiences can be cherry-picked or fabricated, making them unreliable indicators of advice quality.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Check if they have professional certifications",
         reflection: "Exactly! Look for proper financial certifications, regulatory registrations, and professional credentials. Legitimate financial advisors will have verifiable qualifications and be registered with appropriate regulatory bodies.",
         isCorrect: true,
@@ -113,19 +113,19 @@ const SOCIAL_MEDIA_INVESTMENT_TIPS_STAGES = [
       },
      
       {
-        id: "c",
+        id: "b",
         label: "They explain the investment strategy clearly",
         reflection: "Clear explanations of investment strategies are generally positive, as they help you understand what you're investing in. However, clarity alone doesn't guarantee the legitimacy or suitability of the advice.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "They have a professional-looking profile",
         reflection: "Professional appearance can be easily faked and doesn't indicate the quality or legitimacy of financial advice. Focus on credentials, track record, and proper risk disclosure rather than surface-level presentation.",
         isCorrect: false,
       },
        {
-        id: "b",
+        id: "d",
         label: "Promises of guaranteed returns",
         reflection: "Exactly! Promises of guaranteed returns are a major red flag in investing. All investments carry risk, and anyone claiming guaranteed returns is either misleading or running a scam. Legitimate financial advice acknowledges and explains risks.",
         isCorrect: true,
@@ -145,13 +145,13 @@ const SOCIAL_MEDIA_INVESTMENT_TIPS_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Follow advice from multiple influencers",
         reflection: "Following advice from multiple influencers doesn't necessarily improve the quality of your decisions. If multiple influencers are promoting the same poor ideas or scams, you're still making risky choices. Quality research is better than quantity of sources.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Use it as a research starting point",
         reflection: "Perfect! Social media can be a useful source of investment ideas and market awareness, but it should always be your starting point for further research, not the end of your decision-making process. Verify information through multiple reliable sources.",
         isCorrect: true,

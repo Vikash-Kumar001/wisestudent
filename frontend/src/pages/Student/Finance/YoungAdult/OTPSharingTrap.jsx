@@ -42,13 +42,13 @@ const OTP_SHARING_TRAP_STAGES = [
     prompt: "What's the primary purpose of an OTP?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "To protect accounts from misuse",
         reflection: "Perfect! OTPs are one-time passwords designed specifically to protect your accounts from unauthorized access and misuse. They add an extra layer of security that only you should have access to.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "To verify your identity for support",
         reflection: "While OTPs do verify identity, their primary purpose is to protect your account from unauthorized access. They're a security measure, not a tool for customer support verification.",
         isCorrect: false,
@@ -81,19 +81,19 @@ const OTP_SHARING_TRAP_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Share it but change passwords afterward",
         reflection: "Changing passwords after sharing your OTP is too late - the damage is already done. Once someone has your OTP, they can access your account and potentially change passwords themselves, locking you out.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Ignore all OTP requests completely",
         reflection: "While you should be cautious, legitimate services do send OTPs for valid transactions. The key is to verify the source and purpose through official channels, not ignore all requests entirely.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Verify through official channels first",
         reflection: "Exactly! If you receive an unexpected OTP request, always verify through official channels like calling the bank's official customer service number or visiting their official website to confirm the request.",
         isCorrect: true,
@@ -113,13 +113,13 @@ const OTP_SHARING_TRAP_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Share the OTP with your family for advice",
         reflection: "Sharing the OTP with family members, while well-intentioned, doesn't address the security breach and might expose them to the same risks if the OTP is still active or if accounts are compromised.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "c",
         label: "Change passwords and contact support immediately",
         reflection: "Perfect! If you suspect OTP fraud, immediately change your passwords for affected accounts and contact official support through verified channels to report the incident and secure your accounts.",
         isCorrect: true,

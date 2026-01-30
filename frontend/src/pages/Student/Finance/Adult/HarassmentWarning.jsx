@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const HARASSMENT_WARNING_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: What should you do if a lender threatens or harasses you? (A) Stay silent or (B) Seek help and report",
+    prompt: "Scenario: What should you do if a lender threatens or harasses you? ",
     options: [
       {
         id: "a",
@@ -18,19 +18,19 @@ const HARASSMENT_WARNING_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Pay immediately to stop the harassment",
         reflection: "Paying under duress doesn't address the harassment and may encourage more aggressive tactics.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Ignore the messages and hope it stops",
         reflection: "Ignoring harassment doesn't address the issue and allows it to potentially escalate.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Seek help and report",
         reflection: "Correct! Reporting harassment is important for stopping it and protecting your rights.",
         isCorrect: true,
@@ -44,19 +44,19 @@ const HARASSMENT_WARNING_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "It helps improve the lender's customer service",
         reflection: "Documentation is for your protection, not to improve the lender's service.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "It speeds up the loan approval process",
         reflection: "Documenting harassment doesn't affect loan approval processes.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Documentation provides evidence for legal action",
         reflection: "Exactly! Recording incidents helps authorities take appropriate action against offenders.",
         isCorrect: true,
@@ -76,13 +76,13 @@ const HARASSMENT_WARNING_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "The lender's customer service department",
         reflection: "Reporting to the same organization that's harassing you is unlikely to resolve the issue.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Financial regulators, consumer protection agencies, or law enforcement",
         reflection: "Yes! These organizations have authority to address lender misconduct and harassment.",
         isCorrect: true,
@@ -139,25 +139,25 @@ const HARASSMENT_WARNING_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "Pay the debt immediately to stop the contact",
         reflection: "Paying under pressure doesn't address the illegal contact and may encourage more.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Tell your family/friends not to answer calls",
         reflection: "While this might reduce contact, the harassment continues and should be reported.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Change your phone number and ignore it",
         reflection: "Avoiding the issue doesn't address the illegal behavior; reporting is necessary.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Report the violation as this is often prohibited",
         reflection: "Correct! Contacting third parties about your debt is often illegal and should be reported.",
         isCorrect: true,
@@ -234,7 +234,7 @@ const HarassmentWarning = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

@@ -8,7 +8,7 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const APP_PERMISSION_CHECK_STAGES = [
   {
     id: 1,
-    prompt: "Scenario: A loan app asks access to contacts and photos. Is this safe? (A) Yes or (B) No, it's a red flag",
+    prompt: "Scenario: A loan app asks access to contacts and photos. Is this safe?",
     options: [
       {
         id: "a",
@@ -74,25 +74,25 @@ const APP_PERMISSION_CHECK_STAGES = [
     options: [
      
       {
-        id: "b",
+        id: "a",
         label: "To verify your identity through facial recognition",
         reflection: "While identity verification might be needed, it's typically done with official documents, not personal photos.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "To assess your financial status from your lifestyle",
         reflection: "Assessing financial status from photos is not a standard practice for legitimate lenders.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "To personalize your loan experience",
         reflection: "Personalizing loan experience doesn't require access to your personal photos.",
         isCorrect: false,
       },
        {
-        id: "a",
+        id: "d",
         label: "Legitimate apps typically don't need access to personal photos",
         reflection: "That's right! Legitimate lending apps don't require access to personal photos for their core functions.",
         isCorrect: true,
@@ -106,19 +106,19 @@ const APP_PERMISSION_CHECK_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Grant the permissions if you urgently need the loan",
         reflection: "Granting excessive permissions can lead to privacy violations and harassment later.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Grant the permissions temporarily",
         reflection: "There's no concept of temporary permission grants in most systems, and it's still risky.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Deny the permissions and look for alternative lenders",
         reflection: "Perfect! Denying excessive permissions and finding reputable lenders is the safest approach.",
         isCorrect: true,
@@ -232,7 +232,7 @@ const AppPermissionCheck = () => {
     }
     
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(currentStageData.reward, true);
+      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
     } else {
       showCorrectAnswerFeedback(0, false);
     }

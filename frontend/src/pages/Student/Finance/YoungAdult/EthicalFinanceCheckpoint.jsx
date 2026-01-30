@@ -18,19 +18,19 @@ const ETHICAL_FINANCE_CHECKPOINT_STAGES = [
       },
       
       {
-        id: "c",
+        id: "b",
         label: "Take only the cash since cards can be canceled",
         reflection: "Taking any money from a found wallet is theft, regardless of whether cards can be replaced. The ethical approach requires returning all items intact. This demonstrates understanding that financial ethics apply to all forms of value, not just easily replaceable items, and builds the character needed for responsible financial decision-making.",
         isCorrect: false,
       },
       {
-        id: "d",
+        id: "c",
         label: "Ignore it and walk away",
         reflection: "While ignoring found property avoids legal risk, it doesn't help the owner who may face financial loss and stress. The ethical choice involves making reasonable efforts to return lost property, demonstrating the empathy and responsibility that characterize mature financial behavior and contribute to a trustworthy community.",
         isCorrect: false,
       },
       {
-        id: "b",
+        id: "d",
         label: "Return everything to the owner or turn it into authorities",
         reflection: "Exactly! You are financially responsible, ethical, and ready for adult life. Returning found property demonstrates the integrity and respect for others that forms the foundation of ethical financial behavior. This choice shows you understand that financial responsibility extends beyond personal gain to include respect for others' property and wellbeing.",
         isCorrect: true,
@@ -43,13 +43,13 @@ const ETHICAL_FINANCE_CHECKPOINT_STAGES = [
     prompt: "Your friend asks to borrow your credit card for an emergency purchase. What should you do?",
     options: [
       {
-        id: "b",
+        id: "a",
         label: "Suggest alternative help like a loan or calling family",
         reflection: "Exactly! You are financially responsible, ethical, and ready for adult life. Suggesting alternatives like a personal loan with clear terms or contacting family demonstrates understanding of financial boundaries and responsibility. This approach protects both parties' financial security while still offering meaningful support in a crisis.",
         isCorrect: true,
       },
       {
-        id: "a",
+        id: "b",
         label: "Lend it with clear terms about repayment",
         reflection: "Lending your credit card, even to friends, creates significant financial and legal risks. Credit cards are personal financial tools with serious implications for your credit score, liability, and financial security. The ethical choice involves protecting both your financial wellbeing and your friend's best interests by suggesting alternative solutions.",
         isCorrect: false,
@@ -76,19 +76,19 @@ const ETHICAL_FINANCE_CHECKPOINT_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Keep quiet and pay the lower amount",
         reflection: "Keeping quiet about billing errors that benefit you is financially dishonest and unethical. This behavior damages your character and can harm the business, potentially affecting employees and other customers. Ethical financial behavior requires honesty even when it's personally costly, as integrity builds the trust necessary for long-term financial relationships.",
         isCorrect: false,
       },
       {
-        id: "c",
+        id: "b",
         label: "Wait to see if they notice before saying anything",
         reflection: "Waiting to see if others notice billing errors before correcting them shows poor financial ethics and character. The ethical choice involves immediate honesty and correction, demonstrating the integrity that builds trust in financial relationships. Delaying correction can damage your reputation and create complications if the error is later discovered.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "c",
         label: "Pay the correct amount and inform the cashier",
         reflection: "Exactly! You are financially responsible, ethical, and ready for adult life. Correcting billing errors in your favor demonstrates the integrity and honesty that build trust in financial relationships. This behavior shows you understand that financial responsibility includes treating others fairly, even when it costs you personally, which is essential for long-term financial success.",
         isCorrect: true,
@@ -108,13 +108,13 @@ const ETHICAL_FINANCE_CHECKPOINT_STAGES = [
     options: [
       
       {
-        id: "b",
+        id: "a",
         label: "Co-sign without discussing the risks to protect their feelings",
         reflection: "Co-signing without discussing risks is financially irresponsible and potentially harmful to both parties. Ethical financial behavior requires honest communication about potential consequences, including impact on your credit and financial security. This approach shows respect for both your financial wellbeing and the importance of making informed decisions together.",
         isCorrect: false,
       },
       {
-        id: "a",
+        id: "b",
         label: "Co-sign after honest discussion about risks and consequences",
         reflection: "Exactly! You are financially responsible, ethical, and ready for adult life. Co-signing after honest discussion about risks and consequences demonstrates mature financial decision-making that balances family support with personal responsibility. This approach shows you understand the serious implications of co-signing while still being willing to help family when appropriate safeguards are in place.",
         isCorrect: true,
