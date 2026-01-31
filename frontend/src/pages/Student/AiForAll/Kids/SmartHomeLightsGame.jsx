@@ -218,7 +218,7 @@ const SmartHomeLightsGame = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={49}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

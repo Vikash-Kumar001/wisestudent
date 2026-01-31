@@ -76,7 +76,7 @@ const AIEverywhereQuiz = () => {
         },
         
       ],
-      explanation: "Absolutely correct! AI is EVERYWHERE:\n\n📱 Your Phone: Face unlock, voice assistants, predictive text\n🎬 Entertainment: Netflix, YouTube, Spotify recommendations\n🛒 Shopping: Amazon, online stores, personalized ads\n🚗 Transportation: GPS navigation, self-driving cars\n🏥 Healthcare: Disease diagnosis, drug discovery\n🎮 Gaming: Smart NPCs, procedural generation\n🏠 Home: Smart devices, thermostats, security\n💬 Communication: Email filters, translation, chatbots\n📸 Photos: Face recognition, filters, image enhancement\n🔍 Search: Google, Bing use AI to understand your queries\n\nAI is integrated into almost every aspect of modern life!"
+      explanation: "AI is EVERYWHERE:\n\n📱 Your Phone: Face unlock, voice assistants, predictive text\n🎬 Entertainment: Netflix, YouTube, Spotify recommendations\n🛒 Shopping: Amazon, online stores, personalized ads\n🚗 Transportation: GPS navigation, self-driving cars\n🏥 Healthcare: Disease diagnosis, drug discovery\n🎮 Gaming: Smart NPCs, procedural generation\n🏠 Home: Smart devices, thermostats, security\n💬 Communication: Email filters, translation, chatbots\n📸 Photos: Face recognition, filters, image enhancement\n🔍 Search: Google, Bing use AI to understand your queries\n\nAI is integrated into almost every aspect of modern life!"
     },
     {
       id: 2,
@@ -213,7 +213,7 @@ const AIEverywhereQuiz = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 8000 : 8000);
   };
 
   const currentQuestionData = questions[currentQuestion];

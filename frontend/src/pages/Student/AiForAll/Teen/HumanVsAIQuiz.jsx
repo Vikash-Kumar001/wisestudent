@@ -76,7 +76,7 @@ const HumanVsAIQuiz = () => {
         }
       ],
       explanation:
-        "Yes! Google Translate uses AI (Neural Machine Translation) to understand and translate languages accurately.",
+        " Google Translate uses AI (Neural Machine Translation) to understand and translate languages accurately.",
     },
     {
       id: 2,
@@ -103,7 +103,7 @@ const HumanVsAIQuiz = () => {
         }
       ],
       explanation:
-        "Correct! AI uses facial recognition algorithms to detect and identify people in photos and videos.",
+        " AI uses facial recognition algorithms to detect and identify people in photos and videos.",
     },
     {
       id: 3,
@@ -130,7 +130,7 @@ const HumanVsAIQuiz = () => {
         }
       ],
       explanation:
-        "Right! ChatGPT is an AI because it can understand and generate human-like language responses.",
+        " ChatGPT is an AI because it can understand and generate human-like language responses.",
     },
     {
       id: 4,
@@ -157,7 +157,7 @@ const HumanVsAIQuiz = () => {
         }
       ],
       explanation:
-        "Yes! Self-driving cars use AI to analyze surroundings, detect objects, and make driving decisions.",
+        " Self-driving cars use AI to analyze surroundings, detect objects, and make driving decisions.",
     },
     {
       id: 5,
@@ -184,7 +184,7 @@ const HumanVsAIQuiz = () => {
         }
       ],
       explanation:
-        "Correct! A paper notebook doesn't use AI - it's just for writing manually.",
+        " A paper notebook doesn't use AI - it's just for writing manually.",
     }
   ];
 
@@ -215,7 +215,7 @@ const HumanVsAIQuiz = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 5000 : 5000);
   };
 
   const currentQuestionData = questions[currentQuestion];

@@ -212,7 +212,7 @@ const SimulationTeenFight = () => {
       score={coins} // Use coins for score
       gameId="civic-responsibility-teens-48"
       gameType="civic-responsibility"
-      totalLevels={50}
+      totalLevels={5}
       currentLevel={48}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

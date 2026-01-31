@@ -120,7 +120,7 @@ const QuizOnFoodGroups = () => {
       score={finalScore}
       gameId="health-female-kids-12"
       gameType="health-female"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={12}
       showConfetti={gameFinished || showAnswerConfetti}
       backPath="/games/health-female/kids"

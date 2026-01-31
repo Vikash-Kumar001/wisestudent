@@ -198,7 +198,7 @@ const PubertyStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-21"
       gameType="health-female"
-      totalLevels={30}
+      totalLevels={5}
       currentLevel={21}
       showConfetti={showResult}
       flashPoints={flashPoints}

@@ -24,12 +24,7 @@ const CollegeStory61 = () => {
       id: 1,
       text: "After school, some students go to college. What is college for?",
       options: [
-        {
-          id: "a",
-          text: "Learning advanced subjects",
-          emoji: "📚",
-          isCorrect: true
-        },
+      
         {
           id: "b",
           text: "Only playing games",
@@ -41,7 +36,13 @@ const CollegeStory61 = () => {
           text: "Just hanging out with friends",
           emoji: "👥",
           isCorrect: false
-        }
+        },
+          {
+          id: "a",
+          text: "Learning advanced subjects",
+          emoji: "📚",
+          isCorrect: true
+        },
       ]
     },
     {
@@ -72,17 +73,18 @@ const CollegeStory61 = () => {
       id: 3,
       text: "Why do students go to college?",
       options: [
-        {
-          id: "a",
-          text: "To gain specialized knowledge",
-          emoji: "🧠",
-          isCorrect: true
-        },
+        
         {
           id: "b",
           text: "To avoid working",
           emoji: "😴",
           isCorrect: false
+        },
+        {
+          id: "a",
+          text: "To gain specialized knowledge",
+          emoji: "🧠",
+          isCorrect: true
         },
         {
           id: "c",
@@ -121,6 +123,12 @@ const CollegeStory61 = () => {
       id: 5,
       text: "What is the benefit of college education?",
       options: [
+        {
+          id: "a",
+          text: "Better career opportunities",
+          emoji: "💼",
+          isCorrect: true
+        },
         
         {
           id: "b",
@@ -128,12 +136,7 @@ const CollegeStory61 = () => {
           emoji: "🍕",
           isCorrect: false
         },
-        {
-          id: "a",
-          text: "Better career opportunities",
-          emoji: "💼",
-          isCorrect: true
-        },
+        
         {
           id: "c",
           text: "No need to study anymore",

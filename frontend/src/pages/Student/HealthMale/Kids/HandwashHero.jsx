@@ -207,7 +207,7 @@ const HandwashHero = () => {
       title="Handwash Hero"
       subtitle={showResult ? "Hero Training Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
       currentLevel={1}
-      totalLevels={10}
+      totalLevels={5}
       coinsPerLevel={coinsPerLevel}
       onNext={handleNext}
       nextEnabled={false}

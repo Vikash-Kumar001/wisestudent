@@ -75,7 +75,7 @@ const AIVsToolsQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Correct! A microwave is a tool, not AI. AI involves systems that learn, adapt, and make intelligent decisions, unlike simple automated devices. 🤖❌"
+      explanation: " A microwave is a tool, not AI. AI involves systems that learn, adapt, and make intelligent decisions, unlike simple automated devices. 🤖❌"
     },
     {
       id: 2,
@@ -101,7 +101,7 @@ const AIVsToolsQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Right! A calculator follows fixed mathematical rules and doesn't learn or adapt, so it's not AI. AI systems can improve their performance over time. 🧮"
+      explanation: " A calculator follows fixed mathematical rules and doesn't learn or adapt, so it's not AI. AI systems can improve their performance over time. 🧮"
     },
     {
       id: 3,
@@ -127,7 +127,7 @@ const AIVsToolsQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Exactly! Siri uses natural language processing and machine learning to understand and respond to voice commands, making it an AI system. 🗣️"
+      explanation: " Siri uses natural language processing and machine learning to understand and respond to voice commands, making it an AI system. 🗣️"
     },
     {
       id: 4,
@@ -153,7 +153,7 @@ const AIVsToolsQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Correct! A basic thermostat simply follows programmed rules to control temperature. While smart thermostats may use AI, traditional ones are not AI systems. 🌡️"
+      explanation: " A basic thermostat simply follows programmed rules to control temperature. While smart thermostats may use AI, traditional ones are not AI systems. 🌡️"
     },
     {
       id: 5,
@@ -179,7 +179,7 @@ const AIVsToolsQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Absolutely! Self-driving cars use computer vision, sensor fusion, and machine learning to navigate roads, making them complex AI systems. 🚗"
+      explanation: " Self-driving cars use computer vision, sensor fusion, and machine learning to navigate roads, making them complex AI systems. 🚗"
     }
   ];
 
@@ -210,7 +210,7 @@ const AIVsToolsQuiz = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 5000 : 5000);
   };
 
   const currentQuestionData = questions[currentQuestion];

@@ -216,7 +216,7 @@ const WeeklyMealsSimulation = () => {
       totalXp={totalXp}
       gameId="health-female-teen-18"
       gameType="health-female"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={18}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

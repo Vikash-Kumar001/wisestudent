@@ -199,7 +199,7 @@ const RoutineStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-91"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={1}
       showConfetti={showResult}
       flashPoints={flashPoints}

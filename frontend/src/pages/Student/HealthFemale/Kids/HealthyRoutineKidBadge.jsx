@@ -204,7 +204,7 @@ const HealthyRoutineKidBadge = () => {
         setAnswered(false);
         setSelectedOptionIndex(null);
       }
-    }, 2000);
+    }, 8000);
   };
 
   const handleRetry = () => {

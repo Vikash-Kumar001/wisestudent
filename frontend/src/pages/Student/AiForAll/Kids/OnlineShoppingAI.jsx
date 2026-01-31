@@ -199,7 +199,7 @@ const OnlineShoppingAI = () => {
       
       gameId="ai-kids-40"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={40}
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

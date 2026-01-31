@@ -100,7 +100,7 @@ const MatchAIUses = () => {
       
       gameId="ai-kids-23"
       gameType="ai"
-      totalLevels={100}
+      totalLevels={5}
       currentLevel={23}
       showConfetti={showResult && score >= 4}
       flashPoints={flashPoints}

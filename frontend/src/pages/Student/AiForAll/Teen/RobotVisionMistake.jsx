@@ -76,7 +76,7 @@ const RobotVisionMistake = () => {
           isCorrect: false
         }
       ],
-      explanation: "Correct! When AI makes mistakes, we need to correct them with proper labels. This helps the system learn the difference between similar-looking objects. Human oversight is crucial for training accurate computer vision systems."
+      explanation: "When AI makes mistakes, we need to correct them with proper labels. This helps the system learn the difference between similar-looking objects. Human oversight is crucial for training accurate computer vision systems."
     },
     {
       id: 2,
@@ -212,7 +212,7 @@ const RobotVisionMistake = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 8000 : 8000);
   };
 
   const currentQuestionData = questions[currentQuestion];

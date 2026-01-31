@@ -210,7 +210,7 @@ const SimulationTeenStartup = () => {
       totalXp={totalXp}
       gameId="ehe-teen-88"
       gameType="ehe"
-      totalLevels={90}
+      totalLevels={5}
       currentLevel={88}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

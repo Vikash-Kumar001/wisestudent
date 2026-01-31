@@ -75,7 +75,7 @@ const TrueFalseAIQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "False! A calculator is automation, not AI. AI learns and adapts, while a calculator only follows pre-programmed rules. AI can improve over time!"
+      explanation: " A calculator is automation, not AI. AI learns and adapts, while a calculator only follows pre-programmed rules. AI can improve over time!"
     },
     {
       id: 2,
@@ -101,7 +101,7 @@ const TrueFalseAIQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Yes! AI can compose music by analyzing patterns in existing songs and generating new melodies. However, AI-composed music may lack the emotional depth and creativity that comes from human experience and intention."
+      explanation: "AI can compose music by analyzing patterns in existing songs and generating new melodies. However, AI-composed music may lack the emotional depth and creativity that comes from human experience and intention."
     },
     {
       id: 3,
@@ -153,7 +153,7 @@ const TrueFalseAIQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "Yes, AI can recognize emotions through various methods including facial expression analysis, voice tone detection, and text sentiment analysis. However, AI may misinterpret complex or subtle emotions that humans understand intuitively."
+      explanation: "AI can recognize emotions through various methods including facial expression analysis, voice tone detection, and text sentiment analysis. However, AI may misinterpret complex or subtle emotions that humans understand intuitively."
     },
     {
       id: 5,
@@ -179,7 +179,7 @@ const TrueFalseAIQuiz = () => {
           isCorrect: false
         }
       ],
-      explanation: "No, AI doesn't always make fair decisions. AI systems can perpetuate biases present in their training data, leading to unfair outcomes for certain groups. This is why AI ethics and diverse development teams are crucial."
+      explanation: "AI doesn't always make fair decisions. AI systems can perpetuate biases present in their training data, leading to unfair outcomes for certain groups. This is why AI ethics and diverse development teams are crucial."
     }
   ];
 

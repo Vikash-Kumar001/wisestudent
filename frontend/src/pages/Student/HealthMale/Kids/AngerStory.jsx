@@ -188,7 +188,7 @@ const AngerStory = () => {
       nextGamePathProp="/student/health-male/kids/reflex-emotion-alert"
       nextGameIdProp="health-male-kids-59"
       gameType="health-male"
-      totalLevels={60}
+      totalLevels={5}
       currentLevel={58}
       showConfetti={showResult && score >= 3}
       flashPoints={flashPoints}

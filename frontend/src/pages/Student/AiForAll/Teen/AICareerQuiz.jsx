@@ -210,7 +210,7 @@ const AICareerQuiz = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 10000 : 10000);
   };
 
   const currentQuestionData = questions[currentQuestion];

@@ -168,7 +168,7 @@ const DebateNeedsVsWants = () => {
         setSelectedPosition(null);
         setAnswered(false);
       }
-    }, 2000);
+    }, 8000);
   };
 
   const currentTopic = debateTopics[currentRound];

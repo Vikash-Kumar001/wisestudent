@@ -200,7 +200,7 @@ const SportsEnergyStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-15"
       gameType="health-female"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={15}
       showConfetti={showResult}
       flashPoints={flashPoints}

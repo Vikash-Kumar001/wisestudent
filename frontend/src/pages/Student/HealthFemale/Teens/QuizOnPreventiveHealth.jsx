@@ -212,7 +212,7 @@ const QuizOnPreventiveHealth = () => {
       totalXp={totalXp}
       gameId="health-female-teen-72"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={2}
       showConfetti={gameFinished}
       backPath="/games/health-female/teens"

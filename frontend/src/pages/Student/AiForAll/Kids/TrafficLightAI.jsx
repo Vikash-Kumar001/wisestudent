@@ -61,9 +61,9 @@ const TrafficLightAI = () => {
       emoji: "🟡",
       question: "What does a yellow light tell drivers and AI systems?",
       choices: [
-        { id: 1, text: "Prepare to stop", emoji: "⚠️", isCorrect: true },
         { id: 2, text: "Drive faster", emoji: "💨", isCorrect: false },
         { id: 3, text: "Take a photo", emoji: "📸", isCorrect: false },
+        { id: 1, text: "Prepare to stop", emoji: "⚠️", isCorrect: true },
       ],
     },
     {
@@ -72,8 +72,8 @@ const TrafficLightAI = () => {
       emoji: "🤖",
       question: "What helps AI make smart decisions about traffic lights?",
       choices: [
-        { id: 1, text: "Machine learning from examples", emoji: "🧠", isCorrect: true },
         { id: 2, text: "Magic powers", emoji: "✨", isCorrect: false },
+        { id: 1, text: "Machine learning from examples", emoji: "🧠", isCorrect: true },
         { id: 3, text: "Guessing game", emoji: "🎲", isCorrect: false },
       ],
     },

@@ -106,7 +106,7 @@ const StartupIdeaStoryy = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, 1500);
+    }, 5000);
   };
 
   const handleNext = () => {

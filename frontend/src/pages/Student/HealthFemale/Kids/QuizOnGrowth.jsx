@@ -119,7 +119,7 @@ const QuizOnGrowth = () => {
       score={finalScore}
       gameId="health-female-kids-22"
       gameType="health-female"
-      totalLevels={90}
+      totalLevels={5}
       currentLevel={81}
       showConfetti={gameFinished}
       backPath="/games/health-female/kids"

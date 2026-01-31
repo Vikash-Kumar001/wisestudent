@@ -209,7 +209,7 @@ const SimulationTeenShop = () => {
       totalXp={totalXp}
       gameId="ehe-teen-28"
       gameType="ehe"
-      totalLevels={30}
+      totalLevels={5}
       currentLevel={28}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

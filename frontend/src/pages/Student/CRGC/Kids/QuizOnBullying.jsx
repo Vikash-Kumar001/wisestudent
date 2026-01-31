@@ -193,7 +193,7 @@ const QuizOnBullying = () => {
       score={finalScore}
       gameId="civic-responsibility-kids-32"
       gameType="civic-responsibility"
-      totalLevels={40}
+      totalLevels={5}
       currentLevel={32}
       showConfetti={gameFinished}
       backPath="/games/civic-responsibility/kids"

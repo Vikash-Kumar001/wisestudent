@@ -206,7 +206,7 @@ const AIOrNotQuiz = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={21}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

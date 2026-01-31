@@ -20,20 +20,20 @@ const HygieneToolsPuzzle = () => {
   
   // Hygiene Tools (left side) - 5 items
   const tools = [
-    { id: 1, name: "Sanitary Pad", emoji: "🩸", hint: "Absorbent product for menstrual flow" },
-    { id: 2, name: "Soap", emoji: "🧼", hint: "Cleansing agent for body hygiene" },
-    { id: 3, name: "Face Wash", emoji: "🧴", hint: "Cleanser for facial skin" },
-    { id: 4, name: "Deodorant", emoji: "🌸", hint: "Product for reducing body odor" },
-    { id: 5, name: "Comb", emoji: "🪮", hint: "Tool for grooming hair" }
+    { id: 1, name: "Sanitary Pad", emoji: "🩸",  },
+    { id: 2, name: "Soap", emoji: "🧼", },
+    { id: 3, name: "Face Wash", emoji: "🧴",  },
+    { id: 4, name: "Deodorant", emoji: "🌸", },
+    { id: 5, name: "Comb", emoji: "🪮",  }
   ];
   
   // Purposes (right side) - 5 items (shuffled order)
   const purposes = [
-    { id: 3, text: "Cleans facial skin and prevents acne", hint: "Specifically for face care" },
-    { id: 5, text: "Organizes and styles hair", hint: "For grooming hair strands" },
-    { id: 1, text: "Manages menstrual blood flow", hint: "Used during periods" },
-    { id: 4, text: "Reduces underarm body odor", hint: "Applied to prevent smells" },
-    { id: 2, text: "Cleanses body and removes germs", hint: "For general hygiene" }
+    { id: 3, text: "Cleans facial skin and prevents acne", },
+    { id: 5, text: "Organizes and styles hair" },
+    { id: 1, text: "Manages menstrual blood flow" },
+    { id: 4, text: "Reduces underarm body odor" },
+    { id: 2, text: "Cleanses body and removes germs" }
   ];
   
   // Correct matches

@@ -242,7 +242,7 @@ const QuizOnLifelongLearning = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 8000 : 8000);
   };
 
   const currentQuestionData = questions[currentQuestion];

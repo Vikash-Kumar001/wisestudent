@@ -142,7 +142,7 @@ const SimulationStressfulDay = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, 1500);
+    }, 5000);
   };
 
   // Log when game completes and update location state with nextGameId

@@ -190,7 +190,7 @@ const QuizOnPuberty = () => {
       totalXp={totalXp}
       gameId="health-female-teen-22"
       gameType="health-female"
-      totalLevels={30}
+      totalLevels={5}
       currentLevel={22}
       showConfetti={gameFinished || showAnswerConfetti}
       flashPoints={flashPoints}

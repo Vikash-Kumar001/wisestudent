@@ -136,7 +136,7 @@ const ReflexDailyCheck = () => {
         score={score}
         gameId={gameId}
         gameType="health-female"
-        totalLevels={100}
+        totalLevels={5}
         currentLevel={39}
         showConfetti={true}
         backPath="/games/health-female/kids"

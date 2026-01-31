@@ -209,7 +209,7 @@ const SmartCityTrafficGame = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={46}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

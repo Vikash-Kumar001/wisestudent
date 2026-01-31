@@ -209,7 +209,7 @@ const RobotHonestyStory = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={77}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

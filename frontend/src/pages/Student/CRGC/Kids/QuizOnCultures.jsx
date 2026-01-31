@@ -198,7 +198,7 @@ const QuizOnCultures = () => {
       score={finalScore}
       gameId="civic-responsibility-kids-82"
       gameType="civic-responsibility"
-      totalLevels={90}
+      totalLevels={5}
       currentLevel={82}
       showConfetti={gameFinished || showAnswerConfetti}
       backPath="/games/civic-responsibility/kids"

@@ -213,7 +213,7 @@ const AIMedicineStory = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={95}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

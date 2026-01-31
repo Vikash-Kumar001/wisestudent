@@ -9,6 +9,21 @@ const ROUND_TIME = 10;
 const ReflexSmartHygiene = () => {
   const navigate = useNavigate();
 
+  // Set correct location.state values on component mount
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.history?.replaceState) {
+      const currentState = window.history.state || {};
+      window.history.replaceState({
+        ...currentState,
+        totalLevels: TOTAL_ROUNDS,
+        maxScore: TOTAL_ROUNDS,
+        coinsPerLevel: coinsPerLevel,
+        totalCoins: totalCoins,
+        totalXp: totalXp
+      }, '');
+    }
+  }, []);
+
   // Get game data from game category folder (source of truth)
   const gameId = "health-male-teen-3";
 
@@ -17,7 +32,25 @@ const ReflexSmartHygiene = () => {
   const totalCoins = 5;
   const totalXp = 10;
 
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback: originalShowFeedback, resetFeedback } = useGameFeedback();
+
+  // Wrapper function to ensure exactly 1 point is shown for correct answers
+  const showCorrectAnswerFeedback = (points, withConfetti) => {
+    // Temporarily override the global multiplier to ensure 1 point display
+    const originalMultiplier = typeof window !== "undefined" ? window.__flashPointsMultiplier : undefined;
+    if (typeof window !== "undefined") {
+      window.__flashPointsMultiplier = 1;
+    }
+    
+    originalShowFeedback(points, withConfetti);
+    
+    // Restore original multiplier after animation
+    setTimeout(() => {
+      if (typeof window !== "undefined" && originalMultiplier !== undefined) {
+        window.__flashPointsMultiplier = originalMultiplier;
+      }
+    }, 1100); // Longer than the 1000ms animation timeout
+  };
 
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [score, setScore] = useState(0);
@@ -162,6 +195,16 @@ const ReflexSmartHygiene = () => {
     setScore(0);
     setCurrentRound(1);
     resetFeedback();
+    
+    // Debug: Log the values being passed to GameShell
+    console.log('ReflexSmartHygiene values:', {
+      TOTAL_ROUNDS,
+      coinsPerLevel,
+      totalCoins,
+      totalXp,
+      maxScore: TOTAL_ROUNDS,
+      totalLevels: TOTAL_ROUNDS
+    });
   };
 
   const handleAnswer = (option) => {
@@ -212,6 +255,7 @@ const ReflexSmartHygiene = () => {
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
       maxScore={TOTAL_ROUNDS}
+      totalLevels={TOTAL_ROUNDS}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}

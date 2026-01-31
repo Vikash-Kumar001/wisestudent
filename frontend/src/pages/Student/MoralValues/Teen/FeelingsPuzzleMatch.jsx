@@ -35,7 +35,7 @@ const FeelingsPuzzleMatch = () => {
     { id: 6, name: "Embarrassment", emoji: "😰",  },
     { id: 7, name: "Sorrow", emoji: "😔",  },
     { id: 8, name: "Fury", emoji: "😡",  },
-    { id: 9, name: "Anxiety", emoji: "😰",  },
+    { id: 9, name: "Anxiety", emoji: "😕",  },
   ];
 
   const correctMatches = [

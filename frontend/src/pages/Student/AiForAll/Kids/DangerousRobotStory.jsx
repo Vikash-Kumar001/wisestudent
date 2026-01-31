@@ -208,7 +208,7 @@ const DangerousRobotStory = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={96}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

@@ -220,7 +220,7 @@ const TrainAIWithSounds = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={100}
+      totalLevels={5}
       currentLevel={64}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

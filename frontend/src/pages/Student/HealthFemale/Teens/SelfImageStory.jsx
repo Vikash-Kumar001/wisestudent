@@ -197,7 +197,7 @@ const SelfImageStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-61"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={1}
       showConfetti={showResult}
       flashPoints={flashPoints}

@@ -206,7 +206,7 @@ const FeedbackMattersStory = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={71}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

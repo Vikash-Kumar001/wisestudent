@@ -1,24 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
-// Create a custom wrapper for GameShell to fix the isFullCompletion issue
-import GameShellBase from "../../Finance/GameShell";
+import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
-
-// Custom GameShell wrapper that fixes the isFullCompletion issue
-const GameShell = (props) => {
-  // We need to override the GameOverModal to fix the isFullCompletion reference
-  // Since we can't modify the base component, we'll handle this at the prop level
-  
-  return (
-    <GameShellBase
-      {...props}
-      // We're not actually changing the GameShell here since the issue is internal
-      // The real fix would require modifying GameShell.jsx, but we'll try a different approach
-      nextGamePathProp="/student/civic-responsibility/kids/poster-helping-hands"
-      nextGameIdProp="civic-responsibility-kids-56"
-    />
-  );
-};
 
 const FoodStory = () => {
   const navigate = useNavigate();
@@ -208,7 +191,7 @@ const FoodStory = () => {
   const getCurrentQuestion = () => questions[currentQuestion];
 
   return (
-    <GameShellBase
+    <GameShell
       title="Food Story"
       score={coins}
       subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
@@ -226,7 +209,9 @@ const FoodStory = () => {
       maxScore={questions.length}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
-      totalXp={totalXp}>
+      totalXp={totalXp}
+      nextGamePathProp="/student/civic-responsibility/kids/poster-helping-hands"
+      nextGameIdProp="civic-responsibility-kids-56">
       <div className="min-h-[calc(100vh-200px)] flex flex-col justify-center max-w-4xl mx-auto px-4 py-4">
         {!showResult ? (
           <div className="space-y-4 md:space-y-6">
@@ -255,45 +240,13 @@ const FoodStory = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 text-center flex-1 flex flex-col justify-center">
-            {finalScore >= 3 ? (
-              <div>
-                <div className="text-4xl md:text-5xl mb-4">🥪</div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Kindness Champion!</h3>
-                <p className="text-white/90 text-base md:text-lg mb-4">
-                  You got {finalScore} out of {questions.length} questions correct!
-                  You understand how to show kindness through sharing!
-                </p>
-                <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 md:py-3 px-4 md:px-6 rounded-full inline-flex items-center gap-2 mb-4 text-sm md:text-base">
-                  <span>+{coins} Coins</span>
-                </div>
-                <p className="text-white/80 text-sm md:text-base">
-                  Great job! You know how to be kind and generous to others!
-                </p>
-              </div>
-            ) : (
-              <div>
-                <div className="text-4xl md:text-5xl mb-4">😔</div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Keep Learning!</h3>
-                <p className="text-white/90 text-base md:text-lg mb-4">
-                  You got {finalScore} out of {questions.length} questions correct.
-                  Remember, sharing with others is a wonderful way to show kindness!
-                </p>
-                <button
-                  onClick={handleTryAgain}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-full font-bold transition-all mb-4 text-sm md:text-base"
-                >
-                  Try Again
-                </button>
-                <p className="text-white/80 text-xs md:text-sm">
-                  Try to choose the option that shows how to be kind and generous.
-                </p>
-              </div>
-            )}
+          <div className="text-center">
+            <p className="text-white text-lg mb-4">Game Complete! Showing results...</p>
+            <div className="text-white text-base">Final Score: {finalScore}/{questions.length}</div>
           </div>
         )}
       </div>
-    </GameShellBase>
+    </GameShell>
   );
 };
 

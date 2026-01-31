@@ -125,7 +125,7 @@ const NutritionProBadge = () => {
         setAnswered(false);
         setSelectedOptionIndex(null);
       }
-    }, 2000);
+    }, 5000);
   };
 
   const handleRetry = () => {

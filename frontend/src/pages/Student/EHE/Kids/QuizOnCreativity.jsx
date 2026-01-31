@@ -185,6 +185,13 @@ const QuizOnCreativity = () => {
       text: "Why is creativity important in entrepreneurship?",
       emoji: "🚀",
       options: [
+         {
+          id: "a",
+          text: "To find unique solutions and opportunities",
+          emoji: "🎯",
+          isCorrect: true,
+          feedback: "Exactly! Creative thinking helps entrepreneurs spot gaps and develop innovative offerings."
+        },
         {
           id: "c",
           text: "To avoid all risks",
@@ -199,13 +206,7 @@ const QuizOnCreativity = () => {
           isCorrect: false,
           feedback: "Not quite. Successful entrepreneurs often collaborate and delegate."
         },
-        {
-          id: "a",
-          text: "To find unique solutions and opportunities",
-          emoji: "🎯",
-          isCorrect: true,
-          feedback: "Exactly! Creative thinking helps entrepreneurs spot gaps and develop innovative offerings."
-        }
+       
       ],
       feedback: {
         correct: "Entrepreneurial creativity drives competitive advantage and market disruption.",
@@ -241,7 +242,7 @@ const QuizOnCreativity = () => {
       } else {
         setLevelCompleted(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 8000 : 8000);
   };
 
   const currentQuestionData = questions[currentQuestion];

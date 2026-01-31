@@ -179,7 +179,7 @@ const QuizMaleReproductiveBasicsTeen = () => {
       score={choices.filter(c => c.isCorrect).length * 3}
       gameId="health-male-teen-32"
       gameType="health-male"
-      totalLevels={100}
+      totalLevels={5}
       currentLevel={32}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

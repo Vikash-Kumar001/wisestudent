@@ -205,7 +205,7 @@ const BadgeGoodBorrower = () => {
         setAnswered(false);
         setSelectedAnswer(null);
       }
-    }, 2000);
+    }, 8000);
   };
 
   const handleTryAgain = () => {

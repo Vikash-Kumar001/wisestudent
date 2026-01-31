@@ -178,7 +178,7 @@ const BadgeUpcycleChampionKid = () => {
         setAnswered(false);
         setSelectedOptionIndex(null);
       }
-    }, 2000);
+    }, 8000);
   };
 
   const finalScore = score;

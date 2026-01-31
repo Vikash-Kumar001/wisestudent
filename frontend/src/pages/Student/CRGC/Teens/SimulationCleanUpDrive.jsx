@@ -213,7 +213,7 @@ const SimulationCleanUpDrive = () => {
       score={coins} // Use coins for score
       gameId="civic-responsibility-teens-58"
       gameType="civic-responsibility"
-      totalLevels={60}
+      totalLevels={5}
       currentLevel={58}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

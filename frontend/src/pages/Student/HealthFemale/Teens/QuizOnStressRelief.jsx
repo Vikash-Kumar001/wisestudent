@@ -187,7 +187,7 @@ const QuizOnStressRelief = () => {
       totalXp={totalXp}
       gameId="health-female-teen-52"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={2}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

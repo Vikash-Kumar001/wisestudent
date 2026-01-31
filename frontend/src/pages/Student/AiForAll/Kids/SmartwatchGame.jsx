@@ -203,7 +203,7 @@ const SmartwatchGame = () => {
       
       gameId="ai-kids-39"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={39}
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

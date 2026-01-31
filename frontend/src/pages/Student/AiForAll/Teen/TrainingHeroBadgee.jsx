@@ -52,7 +52,7 @@ const TrainingHeroBadgee = () => {
         }
       ],
       feedback: {
-        correct: "Exactly! The ultimate goal is generalization - making accurate predictions on unseen data!",
+        correct: "The ultimate goal is generalization - making accurate predictions on unseen data!",
         wrong: "While complexity and computational resources are considerations, the primary goal is predictive accuracy on new data."
       }
     },
@@ -83,7 +83,7 @@ const TrainingHeroBadgee = () => {
         }
       ],
       feedback: {
-        correct: "Correct! Diversity and representation in training data are key to reducing algorithmic bias!",
+        correct: "Diversity and representation in training data are key to reducing algorithmic bias!",
         wrong: "Simply removing sensitive attributes doesn't eliminate bias; diverse, representative data is more effective."
       }
     },
@@ -115,7 +115,7 @@ const TrainingHeroBadgee = () => {
         }
       ],
       feedback: {
-        correct: "Right! Cross-validation helps assess model generalization and prevents overfitting!",
+        correct: "Cross-validation helps assess model generalization and prevents overfitting!",
         wrong: "Cross-validation evaluates model performance on multiple data subsets to ensure robust generalization."
       }
     },
@@ -147,7 +147,7 @@ const TrainingHeroBadgee = () => {
         },
       ],
       feedback: {
-        correct: "Perfect! Preprocessing cleans data, handles missing values, and ensures consistency for better training!",
+        correct: "Preprocessing cleans data, handles missing values, and ensures consistency for better training!",
         wrong: "Preprocessing focuses on data quality and consistency, which directly impacts model performance."
       }
     },
@@ -179,7 +179,7 @@ const TrainingHeroBadgee = () => {
         }
       ],
       feedback: {
-        correct: "Exactly! A confusion matrix displays prediction accuracy by comparing predicted vs actual classifications!",
+        correct: "A confusion matrix displays prediction accuracy by comparing predicted vs actual classifications!",
         wrong: "A confusion matrix is a table used to evaluate classification model performance by showing prediction results."
       }
     },
@@ -207,7 +207,7 @@ const TrainingHeroBadgee = () => {
         setAnswered(false);
         setSelectedAnswer(null);
       }
-    }, 2000);
+    }, 5000);
   };
 
   const handleTryAgain = () => {

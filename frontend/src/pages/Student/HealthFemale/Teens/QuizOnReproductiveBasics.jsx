@@ -187,7 +187,7 @@ const QuizOnReproductiveBasics = () => {
       totalXp={totalXp}
       gameId="health-female-teen-32"
       gameType="health-female"
-      totalLevels={40}
+      totalLevels={5}
       currentLevel={32}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

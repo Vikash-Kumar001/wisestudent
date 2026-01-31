@@ -9,15 +9,32 @@ const SimulationWaterConservationPlan = () => {
   const location = useLocation();
   const gameData = getGameDataById("sustainability-teens-53");
   const gameId = gameData?.id || "sustainability-teens-53";
-  // Hardcode rewards to align with rule: 1 coin per question, 5 total coins, 10 total XP
-  const coinsPerLevel = 1;
-  const totalCoins = 5;
-  const totalXp = 10;
+  // Hardcode rewards: 3 coins per question, 15 total coins, 10 total XP
+  const coinsPerLevel = 3;
+  const totalCoins = 15;
+  const totalXp = 30;
   const [currentScenario, setCurrentScenario] = useState(0);
   const [choices, setChoices] = useState([]);
   const [gameFinished, setGameFinished] = useState(false);
   const [coins, setCoins] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0); // Track number of correct answers for score
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  // Set global window variables for useGameFeedback
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.__flashTotalCoins = totalCoins;
+      window.__flashQuestionCount = questions.length;
+      window.__flashPointsMultiplier = coinsPerLevel;
+      
+      return () => {
+        // Clean up on unmount
+        window.__flashTotalCoins = null;
+        window.__flashQuestionCount = null;
+        window.__flashPointsMultiplier = 1;
+      };
+    }
+  }, [totalCoins, coinsPerLevel]);
 
   // Find next game path and ID if not provided in location.state
   const { nextGamePath, nextGameId } = useMemo(() => {
@@ -46,7 +63,7 @@ const SimulationWaterConservationPlan = () => {
   // Log when game completes and update location state with nextGameId
   useEffect(() => {
     if (gameFinished) {
-      console.log(`🎮 Simulation: Water Conservation Plan game completed! Score: ${coins}, gameId: ${gameId}, nextGamePath: ${nextGamePath}, nextGameId: ${nextGameId}`);
+      console.log(`🎮 Simulation: Water Conservation Plan game completed! Score: ${correctAnswers}/5, Coins: ${coins}, gameId: ${gameId}, nextGamePath: ${nextGamePath}, nextGameId: ${nextGameId}`);
       if (nextGameId && window.history && window.history.replaceState) {
         const currentState = window.history.state || {};
         window.history.replaceState({
@@ -55,7 +72,7 @@ const SimulationWaterConservationPlan = () => {
         }, '');
       }
     }
-  }, [gameFinished, coins, gameId, nextGamePath, nextGameId]);
+  }, [gameFinished, correctAnswers, coins, gameId, nextGamePath, nextGameId]);
 
   const questions = [
     {
@@ -115,8 +132,12 @@ const SimulationWaterConservationPlan = () => {
     const isCorrect = selectedOption.isCorrect;
 
     if (isCorrect) {
-      showCorrectAnswerFeedback(1, true);
-      setCoins(prev => prev + 1); // Increment coins when correct
+      setCoins(prev => prev + 3); // Increment coins when correct (3 coins per question)
+      setCorrectAnswers(prev => prev + 1); // Increment correct answers count
+      // Show feedback after state updates
+      setTimeout(() => {
+        showCorrectAnswerFeedback(1, true);
+      }, 50);
     }
 
     setChoices([...choices, { scenario: currentScenario, optionId, isCorrect }]);
@@ -132,12 +153,38 @@ const SimulationWaterConservationPlan = () => {
 
   const currentQuestionData = questions[currentScenario];
 
+  // Debug logging
+  useEffect(() => {
+    console.log('🎮 SimulationWaterConservationPlan debug:', {
+      correctAnswers,
+      coins,
+      coinsPerLevel,
+      totalCoins,
+      questionsLength: 5,
+      gameFinished
+    });
+  }, [correctAnswers, coins, coinsPerLevel, totalCoins, gameFinished]);
+
+  // Debug: Log GameShell props
+  useEffect(() => {
+    if (gameFinished) {
+      console.log('🎮 GameShell props:', {
+        score: correctAnswers,
+        maxScore: questions.length,
+        coinsPerLevel,
+        totalCoins,
+        totalXp,
+        totalLevels: questions.length
+      });
+    }
+  }, [gameFinished, correctAnswers, coinsPerLevel, totalCoins, totalXp]);
+
   return (
     <GameShell
       title="Simulation: Water Conservation Plan"
       subtitle={`Scenario ${currentScenario + 1} of ${questions.length}`}
       showGameOver={gameFinished}
-      score={coins}
+      score={correctAnswers}
       gameId={gameId}
       gameType="sustainability"
       flashPoints={flashPoints}
@@ -146,6 +193,7 @@ const SimulationWaterConservationPlan = () => {
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
+      totalLevels={questions.length}
       nextGamePath={nextGamePath}
       nextGameId={nextGameId}
     

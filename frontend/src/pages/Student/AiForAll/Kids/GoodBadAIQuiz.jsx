@@ -205,7 +205,7 @@ const GoodBadAIQuiz = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={76}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

@@ -207,7 +207,7 @@ const DirtyShirtStory = () => {
       title="Dirty Shirt Story"
       subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
       currentLevel={8}
-      totalLevels={10}
+      totalLevels={5}
       coinsPerLevel={coinsPerLevel}
       onNext={handleNext}
       nextEnabled={false}

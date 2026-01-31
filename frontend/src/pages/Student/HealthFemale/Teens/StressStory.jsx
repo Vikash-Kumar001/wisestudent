@@ -203,7 +203,7 @@ const StressStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-51"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={1}
       showConfetti={showResult}
       flashPoints={flashPoints}

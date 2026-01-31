@@ -209,7 +209,7 @@ const SimulationTeenCareerFair = () => {
       totalXp={totalXp}
       gameId="ehe-teen-78"
       gameType="ehe"
-      totalLevels={80}
+      totalLevels={5}
       currentLevel={78}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

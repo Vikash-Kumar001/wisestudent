@@ -167,7 +167,7 @@ const ShavingDebateTeen = () => {
             } else {
                 setGameFinished(true);
             }
-        }, 1500);
+        }, 5000);
     };
 
     const handleNext = () => {

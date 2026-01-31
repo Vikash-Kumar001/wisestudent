@@ -208,7 +208,7 @@ const SimulationSchoolScenario = () => {
       totalXp={totalXp}
       gameId="health-female-teen-38"
       gameType="health-female"
-      totalLevels={40}
+      totalLevels={5}
       currentLevel={38}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

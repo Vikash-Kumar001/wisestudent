@@ -193,7 +193,7 @@ const QuizOnVolunteering = () => {
       score={finalScore}
       gameId="civic-responsibility-teens-52"
       gameType="civic-responsibility"
-      totalLevels={60}
+      totalLevels={5}
       currentLevel={52}
       showConfetti={gameFinished}
       backPath="/games/civic-responsibility/teens"

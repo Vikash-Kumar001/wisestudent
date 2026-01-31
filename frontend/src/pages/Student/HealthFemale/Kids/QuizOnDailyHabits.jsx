@@ -118,7 +118,7 @@ const QuizOnDailyHabits = () => {
       score={finalScore}
       gameId="health-female-kids-32"
       gameType="health-female"
-      totalLevels={100}
+      totalLevels={5}
       currentLevel={32}
       showConfetti={gameFinished}
       backPath="/games/health-female/kids"

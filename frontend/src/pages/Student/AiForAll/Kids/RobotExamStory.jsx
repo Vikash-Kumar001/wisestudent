@@ -206,7 +206,7 @@ const RobotExamStory = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={65}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

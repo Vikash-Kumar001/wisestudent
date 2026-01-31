@@ -189,7 +189,7 @@ const BullyStory = () => {
       nextGamePathProp="/student/health-male/kids/power-of-no-poster"
       nextGameIdProp="health-male-kids-66"
       gameType="health-male"
-      totalLevels={70}
+      totalLevels={5}
       currentLevel={65}
       showConfetti={showResult && score >= 3}
       flashPoints={flashPoints}

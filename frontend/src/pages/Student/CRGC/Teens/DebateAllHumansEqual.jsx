@@ -101,7 +101,7 @@ const DebateAllHumansEqual = () => {
       } else {
         setGameFinished(true);
       }
-    }, 2000);
+    }, 8000);
   };
 
   const handleNext = () => {
@@ -194,13 +194,6 @@ const DebateAllHumansEqual = () => {
               const showCorrect = showFeedback && isCorrect;
               const showIncorrect = showFeedback && isSelected && !isCorrect;
               
-              // Add emojis for each option like in the reference game
-              const optionEmojis = {
-                a: "✅",
-                b: "❌",
-                c: "⚠️"
-              };
-              
               return (
                 <button
                   key={option.id}
@@ -211,7 +204,7 @@ const DebateAllHumansEqual = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <div className="text-2xl mr-4">{optionEmojis[option.id] || '❓'}</div>
+                   
                     <div>
                       <h3 className="font-bold text-xl mb-1">{option.text}</h3>
                     </div>

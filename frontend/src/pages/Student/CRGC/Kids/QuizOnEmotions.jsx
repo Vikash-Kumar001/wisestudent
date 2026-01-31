@@ -195,7 +195,7 @@ const QuizOnEmotions = () => {
       score={finalScore}
       gameId="civic-responsibility-kids-42"
       gameType="civic-responsibility"
-      totalLevels={50}
+      totalLevels={5}
       currentLevel={42}
       showConfetti={gameFinished}
       backPath="/games/civic-responsibility/kids"

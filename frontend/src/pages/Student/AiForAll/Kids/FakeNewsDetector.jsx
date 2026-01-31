@@ -198,7 +198,7 @@ const FakeNewsDetector = () => {
       
       gameId="ai-kids-83"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={83}
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

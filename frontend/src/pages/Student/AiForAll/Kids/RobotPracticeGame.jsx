@@ -200,7 +200,7 @@ const RobotPracticeGame = () => {
       
       gameId="ai-kids-73"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={73} // Update the current level appropriately
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

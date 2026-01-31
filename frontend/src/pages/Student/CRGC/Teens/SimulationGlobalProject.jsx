@@ -213,7 +213,7 @@ const SimulationGlobalProject = () => {
       score={coins} // Use coins for score
       gameId="civic-responsibility-teens-88"
       gameType="civic-responsibility"
-      totalLevels={90}
+      totalLevels={5}
       currentLevel={88}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

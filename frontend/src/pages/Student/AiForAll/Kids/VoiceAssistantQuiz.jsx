@@ -206,7 +206,7 @@ const VoiceAssistantQuiz = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={28}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

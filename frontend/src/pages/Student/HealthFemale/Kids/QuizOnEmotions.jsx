@@ -119,7 +119,7 @@ const QuizOnEmotions = () => {
       score={finalScore}
       gameId="health-female-kids-52"
       gameType="health-female"
-      totalLevels={60}
+      totalLevels={5}
       currentLevel={52}
       showConfetti={gameFinished}
       backPath="/games/health-female/kids"

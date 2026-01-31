@@ -187,7 +187,7 @@ const BadgePeerProtectorTeen = () => {
         setAnswered(false);
         setSelectedAnswer(null);
       }
-    }, 2000);
+    }, 5000);
   };
 
   const handleTryAgain = () => {

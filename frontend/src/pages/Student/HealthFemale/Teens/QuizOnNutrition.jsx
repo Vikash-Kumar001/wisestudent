@@ -21,7 +21,7 @@ const QuizOnNutrition = () => {
     {
       id: 1,
       text: "Which combination best supports healthy skin and energy?",
-      emoji: "🍎",
+      emoji: "🥗",
       options: [
         {
           id: "a",
@@ -49,7 +49,7 @@ const QuizOnNutrition = () => {
     {
       id: 2,
       text: "Which nutrient is most important for building strong bones?",
-      emoji: "🥛",
+      emoji: "🦴",
       options: [
         {
           id: "a",
@@ -105,7 +105,7 @@ const QuizOnNutrition = () => {
     {
       id: 4,
       text: "Which food group provides the most energy for daily activities?",
-      emoji: "🍚",
+      emoji: "💪",
       options: [
         {
           id: "a",
@@ -133,7 +133,7 @@ const QuizOnNutrition = () => {
     {
       id: 5,
       text: "Why are proteins important for teen girls?",
-      emoji: "🧬",
+      emoji: "👧",
       options: [
         {
           id: "a",
@@ -210,7 +210,7 @@ const QuizOnNutrition = () => {
       totalXp={totalXp}
       gameId="health-female-teen-12"
       gameType="health-female"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={12}
       showConfetti={gameFinished}
       backPath="/games/health-female/teens"

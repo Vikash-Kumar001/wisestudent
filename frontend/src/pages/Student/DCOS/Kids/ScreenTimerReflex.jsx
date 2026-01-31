@@ -56,10 +56,10 @@ const ScreenTimerReflex = () => {
       question: "The timer buzzes while you're listening to songs. What should you do?",
       correctAnswer: "Take a short break",
       options: [
-        { text: "Take a short break", isCorrect: true, emoji: "☕" },
         { text: "Increase timer limit", isCorrect: false, emoji: "⏫" },
         { text: "Ignore the reminder", isCorrect: false, emoji: "🙉" },
-        { text: "Turn off the timer", isCorrect: false, emoji: "🔧" }
+        { text: "Turn off the timer", isCorrect: false, emoji: "🔧" },
+        { text: "Take a short break", isCorrect: true, emoji: "☕" },
       ]
     },
     {
@@ -67,9 +67,9 @@ const ScreenTimerReflex = () => {
       question: "Your reflex test app shows 'Screen limit crossed'. What should you do?",
       correctAnswer: "Pause and do something offline",
       options: [
-        { text: "Pause and do something offline", isCorrect: true, emoji: "🌳" },
         { text: "Continue gaming anyway", isCorrect: false, emoji: "💥" },
         { text: "Disable screen limit", isCorrect: false, emoji: "🔧" },
+        { text: "Pause and do something offline", isCorrect: true, emoji: "🌳" },
         { text: "Ignore the warning", isCorrect: false, emoji: "😴" }
       ]
     },

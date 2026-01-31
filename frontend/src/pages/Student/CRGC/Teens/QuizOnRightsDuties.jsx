@@ -196,7 +196,7 @@ const QuizOnRightsDuties = () => {
       score={finalScore}
       gameId="civic-responsibility-teens-72"
       gameType="civic-responsibility"
-      totalLevels={80}
+      totalLevels={5}
       currentLevel={72}
       showConfetti={gameFinished}
       backPath="/games/civic-responsibility/teens"

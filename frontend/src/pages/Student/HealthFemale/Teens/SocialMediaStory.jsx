@@ -197,7 +197,7 @@ const SocialMediaStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-65"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={5}
       showConfetti={showResult}
       flashPoints={flashPoints}

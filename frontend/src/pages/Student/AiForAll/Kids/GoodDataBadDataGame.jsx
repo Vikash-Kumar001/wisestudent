@@ -202,7 +202,7 @@ const GoodDataBadDataGame = () => {
       
       gameId={gameId}
       gameType="ai"
-      totalLevels={100}
+      totalLevels={5}
       currentLevel={89}
       showConfetti={showResult && finalScore >= 3}
       flashPoints={flashPoints}

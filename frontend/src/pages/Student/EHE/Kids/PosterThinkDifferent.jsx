@@ -20,9 +20,9 @@ const PosterThinkDifferent = () => {
     {
       question: 'Which poster would best show "Small Beginnings"?',
       choices: [
-        { text: "Poster showing every big change starts with a small idea 🌱", correct: true },
         { text: "Poster showing big changes happen instantly ⚡", correct: false },
         { text: "Poster showing small ideas don't matter 🚫", correct: false },
+        { text: "Poster showing every big change starts with a small idea 🌱", correct: true },
       ],
     },
     {
@@ -37,15 +37,15 @@ const PosterThinkDifferent = () => {
       question: 'Which poster would best show "Question Everything"?',
       choices: [
         { text: "Poster showing never questioning authority 🤫", correct: false },
-        { text: "Poster showing challenge assumptions to find better solutions ❓", correct: true },
         { text: "Poster showing questioning is disrespectful 🙅", correct: false },
+        { text: "Poster showing challenge assumptions to find better solutions ❓", correct: true },
       ],
     },
     {
       question: 'Which poster would best show "Embrace Failure"?',
       choices: [
-        { text: "Poster showing mistakes are stepping stones to success 💥", correct: true },
         { text: "Poster showing failure means you're worthless ❌", correct: false },
+        { text: "Poster showing mistakes are stepping stones to success 💥", correct: true },
         { text: "Poster showing avoiding all risks is better 🛡️", correct: false },
       ],
     },

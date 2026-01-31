@@ -213,7 +213,7 @@ const SimulationPeerTestSubstance = () => {
       totalXp={totalXp}
       gameId="health-female-teen-88"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={8}
       showConfetti={gameFinished}
       flashPoints={flashPoints}

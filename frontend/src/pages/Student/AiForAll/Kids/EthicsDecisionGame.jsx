@@ -198,7 +198,7 @@ const EthicsDecisionGame = () => {
       
       gameId="ai-kids-94"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={94}
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

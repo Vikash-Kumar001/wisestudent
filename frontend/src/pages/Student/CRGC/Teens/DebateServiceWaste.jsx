@@ -101,7 +101,7 @@ const DebateServiceWaste = () => {
       } else {
         setGameFinished(true);
       }
-    }, 2000);
+    }, 5000);
   };
 
   const handleNext = () => {

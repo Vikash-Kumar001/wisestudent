@@ -197,7 +197,7 @@ const SpecialistStory = () => {
       showGameOver={showResult}
       gameId="health-female-teen-75"
       gameType="health-female"
-      totalLevels={10}
+      totalLevels={5}
       currentLevel={5}
       showConfetti={showResult}
       flashPoints={flashPoints}

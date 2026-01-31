@@ -199,7 +199,7 @@ const RobotLearningBar = () => {
       
       gameId="ai-kids-68"
       gameType="ai"
-      totalLevels={20}
+      totalLevels={5}
       currentLevel={68}
       showConfetti={showResult && accuracy >= 70}
       flashPoints={flashPoints}

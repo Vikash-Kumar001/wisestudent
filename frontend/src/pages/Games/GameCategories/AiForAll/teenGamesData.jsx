@@ -444,7 +444,7 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         },
         {
           id: "ai-teen-31",
-          title: "Ai Doctor Quizz",
+          title: "Ai Doctor Quiz",
           description: "Decide if AI can detect diseases from X-rays",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
