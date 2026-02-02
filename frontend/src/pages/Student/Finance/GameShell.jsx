@@ -219,6 +219,16 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
   const [isUnlockingReplay, setIsUnlockingReplay] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const sequenceNextGame = useMemo(() => {
+    const sequence = location.state?.gameSequence;
+    const currentId = location.state?.currentGameId;
+    if (!sequence?.length || !currentId) return null;
+    const currentIndex = sequence.findIndex((entry) => entry.id === currentId);
+    if (currentIndex >= 0 && currentIndex < sequence.length - 1) {
+      return sequence[currentIndex + 1];
+    }
+    return null;
+  }, [location.state?.gameSequence, location.state?.currentGameId]);
   const { wallet, refreshWallet, setWallet } = useWallet();
   const questionCount = totalLevels || location.state?.totalLevels || 5; // default to 5 questions if not provided
   const displayTotal = questionCount;
@@ -583,9 +593,13 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
             <button
               onClick={async () => {
                 // Get nextGamePath from prop or location.state
-                const resolvedNextGamePath = nextGamePath || location.state?.nextGamePath;
+                const resolvedNextGamePath =
+                  nextGamePath ||
+                  location.state?.nextGamePath ||
+                  sequenceNextGame?.path ||
+                  null;
 
-                if (!resolvedNextGamePath) {
+               if (!resolvedNextGamePath) {
                   // No next game, just close (go back to game cards)
                   // Wait a moment to ensure game completion event has been dispatched and state updated
                   await new Promise(resolve => setTimeout(resolve, 300));
@@ -593,9 +607,14 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
                   return;
                 }
 
+                let resolvedNextGameId = null;
                 try {
                   // Get next game ID from prop or location.state (passed from GameCategoryPage)
-                  const resolvedNextGameId = nextGameId || location.state?.nextGameId || null;
+                  resolvedNextGameId =
+                    nextGameId ||
+                    location.state?.nextGameId ||
+                    sequenceNextGame?.id ||
+                    null;
 
                   console.log('🎮 Continue button - Next game info:', {
                     resolvedNextGamePath,
@@ -635,6 +654,7 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
                   const returnPath = location.state?.returnPath || '/games';
                   console.log('🎮 Navigating to next game:', resolvedNextGamePath);
 
+                  const sequence = location.state?.gameSequence || null;
                   navigate(resolvedNextGamePath, {
                     state: {
                       returnPath: returnPath,
@@ -643,12 +663,15 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
                       totalXp: location.state?.totalXp || null,
                       maxScore: location.state?.maxScore || null,
                       isReplay: isReplay,
+                      gameSequence: sequence,
+                      currentGameId: resolvedNextGameId,
                     }
                   });
                 } catch (error) {
-                  console.error('Failed to check game status:', error);
-                  // On error, allow navigation (fallback behavior)
+  console.error('Failed to check game status:', error);
+  // On error, allow navigation (fallback behavior)
                   const returnPath = location.state?.returnPath || '/games';
+                  const sequence = location.state?.gameSequence || null;
                   navigate(resolvedNextGamePath, {
                     state: {
                       returnPath: returnPath,
@@ -656,6 +679,8 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
                       totalCoins: location.state?.totalCoins || null,
                       totalXp: location.state?.totalXp || null,
                       maxScore: location.state?.maxScore || null,
+                      gameSequence: sequence,
+                      currentGameId: resolvedNextGameId,
                     }
                   });
                 }

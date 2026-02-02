@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"; // eslint-disable-line no-unused-vars
 import {
@@ -243,12 +243,12 @@ const GameCategoryPage = () => {
         // Get category prefix for batch API call (e.g., "finance-kids")
         const categoryPrefix = getCategoryPrefix(category, ageGroup);
         
-        console.log(`📦 Loading batch game progress for: ${categoryPrefix}`);
+        console.log(`?? Loading batch game progress for: ${categoryPrefix}`);
         
         // Make single batch API call to get all progress for this category
         const progressMap = (await gameCompletionService.getBatchGameProgress(categoryPrefix)) || {};
 
-        console.log(`✅ Loaded progress for ${Object.keys(progressMap).length} games`);
+        console.log(`? Loaded progress for ${Object.keys(progressMap).length} games`);
         setModuleProgressMap(progressMap);
         
         // Process the batch response into status and progressData
@@ -302,10 +302,10 @@ const GameCategoryPage = () => {
         setGameCompletionStatus(status);
         setGameProgressData(progressData);
         
-        console.log(`✅ Game completion status updated for ${Object.keys(status).length} games`);
+        console.log(`? Game completion status updated for ${Object.keys(status).length} games`);
         // Log specific game status for debugging
         if (status['dcos-teen-1'] !== undefined) {
-          console.log(`🔍 dcos-teen-1 completion status:`, {
+          console.log(`?? dcos-teen-1 completion status:`, {
             completed: status['dcos-teen-1'],
             progressData: progressData['dcos-teen-1'],
             allDcosTeen1Keys: Object.keys(status).filter(k => k.includes('dcos-teen-1')),
@@ -313,7 +313,7 @@ const GameCategoryPage = () => {
             statusType: typeof status['dcos-teen-1']
           });
         } else {
-          console.log(`⚠️ dcos-teen-1 NOT FOUND in status object. Available keys:`, Object.keys(status).filter(k => k.includes('dcos-teen')).slice(0, 10));
+          console.log(`?? dcos-teen-1 NOT FOUND in status object. Available keys:`, Object.keys(status).filter(k => k.includes('dcos-teen')).slice(0, 10));
         }
       } else {
         // For categories that don't use batch API, clear status
@@ -338,7 +338,7 @@ const GameCategoryPage = () => {
     // Listen for game completion events from GameShell (custom window event)
     const handleGameCompleted = (event) => {
       const { gameId, fullyCompleted } = event?.detail || {};
-      console.log('🎮 Game completed window event received:', { gameId, fullyCompleted, detail: event?.detail, category, ageGroup });
+      console.log('?? Game completed window event received:', { gameId, fullyCompleted, detail: event?.detail, category, ageGroup });
       
       if (
         (category === "financial-literacy" ||
@@ -361,27 +361,27 @@ const GameCategoryPage = () => {
           ageGroup === "carbon-and-climate" ||
           ageGroup === "water-and-energy")
       ) {
-        console.log('✅ Category and ageGroup match, processing completion');
+        console.log('? Category and ageGroup match, processing completion');
         // Immediately update the game completion status for instant UI feedback
         if (gameId && fullyCompleted !== false) {
-          console.log(`✅ Immediately marking game ${gameId} as completed`);
+          console.log(`? Immediately marking game ${gameId} as completed`);
           setGameCompletionStatus(prev => {
             const updated = {
               ...prev,
               [gameId]: true
             };
-            console.log('📝 Updated gameCompletionStatus:', updated);
+            console.log('?? Updated gameCompletionStatus:', updated);
             return updated;
           });
         } else {
-          console.warn('⚠️ Game completion event received but gameId missing or fullyCompleted is false:', { gameId, fullyCompleted });
+          console.warn('?? Game completion event received but gameId missing or fullyCompleted is false:', { gameId, fullyCompleted });
         }
         
         // Reload game completion status and progress when a game is completed
         // This will update stats automatically since stats depend on gameProgressData
         // Add a small delay to ensure backend has saved the changes
         setTimeout(() => {
-          console.log('🔄 Reloading game completion status after delay');
+          console.log('?? Reloading game completion status after delay');
           loadGameCompletionStatus();
         }, 500);
         
@@ -390,7 +390,7 @@ const GameCategoryPage = () => {
           refreshWallet();
         }
       } else {
-        console.log('⚠️ Game completion event received but category/ageGroup mismatch:', { category, ageGroup, gameId });
+        console.log('?? Game completion event received but category/ageGroup mismatch:', { category, ageGroup, gameId });
       }
     };
 
@@ -399,7 +399,7 @@ const GameCategoryPage = () => {
     // Listen for game replayed event from GameShell
     const handleGameReplayedEvent = async (event) => {
       const { gameId, replayUnlocked } = event.detail;
-      console.log('🎮 Game replayed event received:', { gameId, replayUnlocked });
+      console.log('?? Game replayed event received:', { gameId, replayUnlocked });
       
       // Immediately update the state to reflect locked status
       if (gameId && replayUnlocked === false) {
@@ -407,7 +407,7 @@ const GameCategoryPage = () => {
         setReplayableGames(prev => {
           const newSet = new Set(prev);
           newSet.delete(gameId);
-          console.log('🔒 Removed game from replayable set:', gameId, 'New set:', Array.from(newSet));
+          console.log('?? Removed game from replayable set:', gameId, 'New set:', Array.from(newSet));
           return newSet;
         });
         
@@ -423,7 +423,7 @@ const GameCategoryPage = () => {
               replayUnlocked: false
             }
           };
-          console.log('🔒 Updated progress data for game:', gameId, updated[gameId]);
+          console.log('?? Updated progress data for game:', gameId, updated[gameId]);
           return updated;
         });
       }
@@ -431,15 +431,15 @@ const GameCategoryPage = () => {
       // Reload game completion status from backend to ensure consistency
       // Add a delay to ensure backend has saved the changes
       setTimeout(async () => {
-        console.log('🔄 Reloading game completion status after replay...');
+        console.log('?? Reloading game completion status after replay...');
         await loadGameCompletionStatus();
-        console.log('✅ Game completion status reloaded');
+        console.log('? Game completion status reloaded');
         
         // Double-check the game is locked by fetching its progress directly
         if (gameId) {
           try {
             const progressResponse = await gameCompletionService.getGameProgress(gameId);
-            console.log('🔍 Direct progress check after reload:', {
+            console.log('?? Direct progress check after reload:', {
               gameId,
               replayUnlocked: progressResponse?.replayUnlocked,
               fullyCompleted: progressResponse?.fullyCompleted
@@ -471,12 +471,12 @@ const GameCategoryPage = () => {
 
     // Listen for wallet updates and replay events from socket
     const handleWalletUpdate = (data) => {
-      console.log('💰 Wallet updated via socket in GameCategoryPage:', data);
+      console.log('?? Wallet updated via socket in GameCategoryPage:', data);
       
       // Update wallet balance directly from socket data for immediate UI update
       if (data?.balance !== undefined || data?.newBalance !== undefined) {
         const newBalance = data.balance || data.newBalance;
-        console.log('💰 Updating wallet balance to:', newBalance);
+        console.log('?? Updating wallet balance to:', newBalance);
         if (setWallet) {
           setWallet(prev => {
             const updatedWallet = prev ? {
@@ -486,7 +486,7 @@ const GameCategoryPage = () => {
               balance: newBalance,
               userId: user?._id || user?.id
             };
-            console.log('💰 Wallet state updated:', updatedWallet);
+            console.log('?? Wallet state updated:', updatedWallet);
             return updatedWallet;
           });
         }
@@ -502,7 +502,7 @@ const GameCategoryPage = () => {
 
     const handleGameReplayedSocket = (data) => {
       // Reload game completion status when a game is replayed via socket
-      console.log('🎮 Game replayed via socket, reloading status:', data);
+      console.log('?? Game replayed via socket, reloading status:', data);
       loadGameCompletionStatus();
       
       // Update replayable games set - remove the game since it's locked again
@@ -517,7 +517,7 @@ const GameCategoryPage = () => {
 
     // Listen for game completion events from socket for real-time updates
     const handleGameCompletedSocket = (data) => {
-      console.log('🎮 Game completed via socket, updating stats in real-time:', data);
+      console.log('?? Game completed via socket, updating stats in real-time:', data);
       
       const { gameId, coinsEarned } = data || {};
       
@@ -947,6 +947,136 @@ const GameCategoryPage = () => {
   };
 
   const [games, setGames] = useState([]);
+  const specialGameSequence = useMemo(() => {
+    if (!games?.length) return [];
+    return games
+      .filter((g) => g.isSpecial && g.path)
+      .sort((a, b) => (a.index ?? 0) - (b.index ?? 0))
+      .map((g) => ({ id: g.id, path: g.path }));
+  }, [games]);
+  const realGameSequence = useMemo(() => {
+    if (category === "financial-literacy") {
+      if (ageGroup === "kids") return getFinanceKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getFinanceTeenGames(gameCompletionStatus);
+      if (ageGroup === "young-adult")
+        return getFinanceYoungAdultGames(gameCompletionStatus);
+      if (ageGroup === "adults") return getFinanceAdultGames(gameCompletionStatus);
+    }
+
+    if (category === "brain-health") {
+      if (ageGroup === "kids") return getBrainKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getBrainTeenGames(gameCompletionStatus);
+      if (ageGroup === "young-adult")
+        return getBrainYoungAdultGames(gameCompletionStatus);
+      if (ageGroup === "adults") return getBrainAdultGames(gameCompletionStatus);
+    }
+
+    if (category === "uvls") {
+      if (ageGroup === "kids") return getUvlsKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getUvlsTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "digital-citizenship") {
+      if (ageGroup === "kids") return getDcosKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getDcosTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "moral-values") {
+      if (ageGroup === "kids") return getMoralKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getMoralTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "ai-for-all") {
+      if (ageGroup === "kids") return getAiKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getAiTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "ehe") {
+      if (ageGroup === "kids") return getEheKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getEheTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "civic-responsibility") {
+      if (ageGroup === "kids") return getCrgcKidsGames(gameCompletionStatus);
+      if (ageGroup === "teens" || ageGroup === "teen")
+        return getCrgcTeensGames(gameCompletionStatus);
+    }
+
+    if (category === "health-male") {
+      if (ageGroup === "kids") return getHealthMaleKidsGames(gameCompletionStatus);
+      if (ageGroup === "teen" || ageGroup === "teens")
+        return getHealthMaleTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "health-female") {
+      if (ageGroup === "kids") return getHealthFemaleKidsGames(gameCompletionStatus);
+      if (ageGroup === "teen" || ageGroup === "teens")
+        return getHealthFemaleTeenGames(gameCompletionStatus);
+    }
+
+    if (category === "sustainability") {
+      if (ageGroup === "kids") return getSustainabilityKidsGames(gameCompletionStatus);
+      if (ageGroup === "teen" || ageGroup === "teens")
+        return getSustainabilityTeenGames(gameCompletionStatus);
+    }
+
+    return [];
+  }, [
+    category,
+    ageGroup,
+    gameCompletionStatus,
+    getFinanceKidsGames,
+    getFinanceTeenGames,
+    getFinanceYoungAdultGames,
+    getFinanceAdultGames,
+    getBrainKidsGames,
+    getBrainTeenGames,
+    getBrainYoungAdultGames,
+    getBrainAdultGames,
+    getUvlsKidsGames,
+    getUvlsTeenGames,
+    getDcosKidsGames,
+    getDcosTeenGames,
+    getMoralKidsGames,
+    getMoralTeenGames,
+    getAiKidsGames,
+    getAiTeenGames,
+    getEheKidsGames,
+    getEheTeenGames,
+    getCrgcKidsGames,
+    getCrgcTeensGames,
+    getHealthMaleKidsGames,
+    getHealthMaleTeenGames,
+    getHealthFemaleKidsGames,
+    getHealthFemaleTeenGames,
+    getSustainabilityKidsGames,
+    getSustainabilityTeenGames,
+  ]);
+
+  const findNextSpecialGame = useCallback(
+    (currentIndex) => {
+      if (realGameSequence?.length) {
+        const currentPosition = realGameSequence.findIndex(
+          (g) => g.index === currentIndex
+        );
+        if (
+          currentPosition >= 0 &&
+          currentPosition < realGameSequence.length - 1
+        ) {
+          return realGameSequence[currentPosition + 1];
+        }
+      }
+      return games.find((g) => g.index > currentIndex && g.isSpecial && g.path);
+    },
+    [games, realGameSequence]
+  );
   const [categoryStats, setCategoryStats] = useState({
     totalGames: 0,
     completedGames: 0,
@@ -1045,7 +1175,7 @@ const GameCategoryPage = () => {
       
       // Additional validation: log if there's a mismatch
       if (completedGames > totalGames) {
-        console.warn(`⚠️ Completed games (${completedGames}) exceeds total games (${totalGames}). This should not happen.`);
+        console.warn(`?? Completed games (${completedGames}) exceeds total games (${totalGames}). This should not happen.`);
       }
 
       setCategoryStats({
@@ -1248,7 +1378,7 @@ const GameCategoryPage = () => {
           
           // Debug logging for unlocking issues
           if (idx === 1) {
-            console.log('🔍 Checking unlock for game at index 1:', {
+            console.log('?? Checking unlock for game at index 1:', {
               gameId: g.id,
               gameTitle: g.title,
               prevGameId,
@@ -1261,7 +1391,7 @@ const GameCategoryPage = () => {
             });
           }
           if (idx === 44 && !unlocked) {
-            console.log('🔒 Game not unlocked:', {
+            console.log('?? Game not unlocked:', {
               gameId: g.id,
               gameTitle: g.title,
               prevGameId,
@@ -1314,7 +1444,7 @@ const GameCategoryPage = () => {
           inline: 'nearest'
         });
 
-        console.log('✅ Scrolled to current game:', currentGame.title, 'at index', currentGameIndex);
+        console.log('? Scrolled to current game:', currentGame.title, 'at index', currentGameIndex);
       } else {
         // Retry once if element not found (cards might still be rendering)
         setTimeout(() => {
@@ -1326,7 +1456,7 @@ const GameCategoryPage = () => {
               block: 'center',
               inline: 'nearest'
             });
-            console.log('✅ Scrolled to current game (retry):', currentGame.title);
+            console.log('? Scrolled to current game (retry):', currentGame.title);
           }
         }, 500);
       }
@@ -1430,7 +1560,7 @@ const GameCategoryPage = () => {
         {
           duration: 4000,
           position: "bottom-center",
-          icon: "🔒",
+          icon: "??",
         }
       );
       return;
@@ -1440,10 +1570,15 @@ const GameCategoryPage = () => {
       toast.error(requirements || "This section is locked.", {
         duration: 4000,
         position: "bottom-center",
-        icon: "🔒",
+        icon: "??",
       });
       return;
     }
+
+    const sequenceState = {
+      gameSequence: specialGameSequence,
+      currentGameId: game.id,
+    };
 
     // Check if game is unlocked for sequential play (for finance, brain health, UVLS, DCOS, Moral Values, AI For All, EHE, CRGC, Health Male, Health Female, Sustainability, and kids and teens games)
     if (
@@ -1468,7 +1603,7 @@ const GameCategoryPage = () => {
         toast.error("Complete the previous game first to unlock this game!", {
           duration: 4000,
           position: "bottom-center",
-          icon: "🔒",
+          icon: "??",
         });
         return;
       }
@@ -1494,9 +1629,10 @@ const GameCategoryPage = () => {
                 badgeImage: game.badgeImage || null,
                 isBadgeGame: game.isBadgeGame || false,
                 isReplay: true,
-                returnPath: location.pathname,
-                nextGamePath: nextGamePath, // Path to next game for Continue button
-                nextGameId: nextGameId, // Next game ID for status checking
+            returnPath: location.pathname,
+            nextGamePath: nextGamePath, // Path to next game for Continue button
+            nextGameId: nextGameId, // Next game ID for status checking
+            ...sequenceState,
               } 
             });
             return;
@@ -1508,7 +1644,7 @@ const GameCategoryPage = () => {
           {
             duration: 4000,
             position: "bottom-center",
-            icon: "🔒",
+            icon: "??",
           }
         );
         return;
@@ -1542,6 +1678,7 @@ const GameCategoryPage = () => {
           returnPath: location.pathname,
           nextGamePath: nextGamePath, // Path to next game for Continue button
           nextGameId: nextGameId, // Next game ID for status checking
+          ...sequenceState,
         } 
       });
       return;
@@ -1551,7 +1688,7 @@ const GameCategoryPage = () => {
     toast.success(`Starting ${game.title}...`, {
       duration: 2000,
       position: "bottom-center",
-      icon: "🎮",
+      icon: "??",
     });
 
     // Simulate game completion for demo
@@ -1562,7 +1699,7 @@ const GameCategoryPage = () => {
         {
           duration: 3000,
           position: "bottom-center",
-          icon: "🏆",
+          icon: "??",
         }
       );
     }, 1000);
@@ -1585,7 +1722,7 @@ const GameCategoryPage = () => {
         {
           duration: 5000,
           position: "bottom-center",
-          icon: "🔒",
+          icon: "??",
         }
       );
       return;
@@ -1598,7 +1735,7 @@ const GameCategoryPage = () => {
         {
           duration: 4000,
           position: "bottom-center",
-          icon: "💰",
+          icon: "??",
         }
       );
       return;
@@ -1620,7 +1757,7 @@ const GameCategoryPage = () => {
     setShowReplayConfirmModal(false);
 
     try {
-      console.log('🔓 Attempting to unlock replay for game:', {
+      console.log('?? Attempting to unlock replay for game:', {
         gameId: game.id,
         gameTitle: game.title,
         walletBalance: wallet?.balance,
@@ -1628,7 +1765,7 @@ const GameCategoryPage = () => {
       });
       
       const response = await api.post(`/api/game/unlock-replay/${game.id}`);
-      console.log('✅ Unlock replay response:', response.data);
+      console.log('? Unlock replay response:', response.data);
       
       if (response.data.replayUnlocked) {
         // Update replayable games
@@ -1654,7 +1791,7 @@ const GameCategoryPage = () => {
         toast.success(response.data.message || 'Replay unlocked! Opening game...', {
           duration: 2000,
           position: "bottom-center",
-          icon: "🎮",
+          icon: "??",
         });
 
         // Navigate to the game after a short delay
@@ -1682,16 +1819,17 @@ const GameCategoryPage = () => {
                 returnPath: location.pathname,
                 nextGamePath: nextGamePath,
                 nextGameId: nextGameId,
+                ...sequenceState,
               } 
             });
           }, 500); // Small delay to let toast show
         }
       } else {
-        console.warn('⚠️ Response did not indicate replay was unlocked:', response.data);
+        console.warn('?? Response did not indicate replay was unlocked:', response.data);
         toast.error('Failed to unlock replay. Please try again.', {
           duration: 4000,
           position: "bottom-center",
-          icon: "❌",
+          icon: "?",
         });
       }
     } catch (error) {
@@ -1707,7 +1845,7 @@ const GameCategoryPage = () => {
       toast.error(errorMessage, {
         duration: 5000,
         position: "bottom-center",
-        icon: "❌",
+        icon: "?",
       });
     } finally {
       setProcessingReplay(false);
@@ -2266,7 +2404,7 @@ const GameCategoryPage = () => {
                       transition={{ duration: 1.5, repeat: Infinity }}
                       className="ml-2 text-sm font-normal"
                     >
-                      ✨ Active
+                      ? Active
                     </motion.span>
                   )}
                 </h3>
@@ -2410,7 +2548,7 @@ const GameCategoryPage = () => {
                 {isFullyCompleted && isSubscriptionLocked && (
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <p className="text-xs text-amber-600 text-center font-medium">
-                      🔒 Replay not available. Upgrade to premium to access this game.
+                      ?? Replay not available. Upgrade to premium to access this game.
                     </p>
                   </div>
                 )}

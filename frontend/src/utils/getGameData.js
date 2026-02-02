@@ -42,7 +42,7 @@ export const getGameDataById = (gameId) => {
     return null;
   }
 
-  const match = gameId.match(/^(.*)-(kids|teens|teen|young-adult|adult|adults)-(\d+)$/);
+  const match = gameId.match(/^(.*?)-(kids|teens|teen|young-adult|adult|adults)-(\d+)$/);
   if (!match) {
     console.warn('Invalid gameId format:', gameId);
     return null;

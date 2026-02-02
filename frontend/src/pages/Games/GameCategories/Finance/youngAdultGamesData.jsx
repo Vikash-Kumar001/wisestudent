@@ -352,6 +352,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/independence-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Financially Independent Starter",
+      badgeImage: "/badges/finance/young-adult/FinanciallyIndependentStarter.png",
       index: 9,
       scenario: {
         setup:
@@ -722,6 +725,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/smart-spending-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Smart Spender",
+      badgeImage: "/badges/finance/young-adult/SmartSpender.png",
       index: 19,
       scenario: {
         setup:
@@ -1092,6 +1098,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/budgeting-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Budget Ready",
+      badgeImage: "/badges/finance/young-adult/BudgetReady.png",
       index: 29,
       scenario: {
         setup:
@@ -1462,6 +1471,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/needs-vs-wants-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Needs vs Wants Master",
+      badgeImage: "/badges/finance/young-adult/NeedsvsWantsMaster.png",
       index: 39,
       scenario: {
         setup:
@@ -1832,6 +1844,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/digital-money-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Digital Money Smart",
+      badgeImage: "/badges/finance/young-adult/DigitalMoneySmart.png",
       index: 49,
       scenario: {
         setup:
@@ -2202,6 +2217,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/first-credit-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: First Credit Ready",
+      badgeImage: "/badges/finance/young-adult/FirstCreditReady.png",
       index: 59,
       scenario: {
         setup:
@@ -2572,6 +2590,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/growth-basics-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Growth Ready",
+      badgeImage: "/badges/finance/young-adult/GrowthReady.png",
       index: 69,
       scenario: {
         setup:
@@ -2942,6 +2963,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/earning-readiness-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Earning Ready",
+      badgeImage: "/badges/finance/young-adult/EarningReady.png",
       index: 79,
       scenario: {
         setup:
@@ -3312,6 +3336,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/fraud-safety-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Fraud Safe",
+      badgeImage: "/badges/finance/young-adult/FraudSafe.png",
       index: 89,
       scenario: {
         setup:
@@ -3682,6 +3709,9 @@ export const getFinanceYoungAdultGames = (gameCompletionStatus) => {
       isSpecial: true,
       reflective: true,
       path: "/student/finance/young-adult/ethical-finance-checkpoint",
+      isBadgeGame: true,
+      badgeName: "Badge: Ethical & Responsible Young Adult",
+      badgeImage: "/badges/finance/young-adult/Ethical&ResponsibleYoungAdult.png",
       index: 99,
       scenario: {
         setup:

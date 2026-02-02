@@ -334,6 +334,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-10"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Financially Aware Adult",
+      badgeImage: "/badges/finance/adult/FinanciallyAwareAdult.png",
       path: "/student/finance/adults/financial-discipline-checkpoint",
       index: 9,
       scenario: {
@@ -684,6 +687,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-20"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Digitally Banked Adult",
+      badgeImage: "/badges/finance/adult/DigitallyBankedAdult.png",
       path: "/student/finance/adults/banking-readiness-checkpoint",
       index: 19,
       scenario: {
@@ -1116,6 +1122,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-32"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Credit Aware Adult",
+      badgeImage: "/badges/finance/adult/CreditAwareAdult.png",
       path: "/student/finance/adults/credit-understanding-checkpoint",
       index: 31,
       scenario: {
@@ -1560,6 +1569,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-44"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Repayment Ready Adult",
+      badgeImage: "/badges/finance/adult/RepaymentReadyAdult.png",
       path: "/student/finance/adults/repayment-readiness-checkpoint",
       index: 43,
       scenario: {
@@ -2078,6 +2090,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-58"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Responsible Borrower",
+      badgeImage: "/badges/finance/adult/ResponsibleBorrower.png",
       path: "/student/finance/adults/responsible-borrowing-checkpoint",
       index: 57,
       scenario: {
@@ -2522,6 +2537,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-70"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Digital Credit Safe",
+      badgeImage: "/badges/finance/adult/DigitalCreditSafe.png",
       path: "/student/finance/adults/digital-safety-checkpoint",
       index: 69,
       scenario: {
@@ -2966,6 +2984,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-82"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Small Business Finance Ready",
+      badgeImage: "/badges/finance/adult/SmallBusinessFinanceReady.png",
       path: "/student/finance/adults/business-finance-checkpoint",
       index: 81,
       scenario: {
@@ -3336,6 +3357,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-92"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Financially Resilient Adult",
+      badgeImage: "/badges/finance/adult/FinanciallyResilientAdult.png",
       path: "/student/finance/adults/emergency-preparedness-checkpoint",
       index: 91,
       scenario: {
@@ -3627,6 +3651,9 @@ export const getFinanceAdultGames = (gameCompletionStatus) => {
       completed: gameCompletionStatus["finance-adults-100"] || false,
       isSpecial: true,
       reflective: true,
+      isBadgeGame: true,
+      badgeName: "Badge: Financially Included Adult",
+      badgeImage: "/badges/finance/adult/FinanciallyIncludedAdult.png",
       path: "/student/finance/adults/financial-inclusion-mastery-checkpoint",
       index: 99,
       scenario: {
