@@ -154,15 +154,23 @@ export const calculateImpactMetrics = async (filters = {}) => {
   };
 };
 
+/** Notifications older than this are excluded from list and deleted by cron (7 days) */
+const CSR_NOTIFICATION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
 /**
  * List CSR notifications for the current user (doc alignment: GET /api/csr/notifications)
+ * Only returns notifications from the last 7 days; older ones are auto-deleted.
  */
 export const listCsrNotifications = async (userId, options = {}) => {
   const sponsor = await CSRSponsor.findOne({ userId });
   if (!sponsor) return { notifications: [], unreadCount: 0 };
 
   const { limit = 50 } = options;
-  const notifications = await CSRNotification.find({ sponsorId: sponsor._id })
+  const since = new Date(Date.now() - CSR_NOTIFICATION_TTL_MS);
+  const notifications = await CSRNotification.find({
+    sponsorId: sponsor._id,
+    createdAt: { $gte: since },
+  })
     .sort({ createdAt: -1 })
     .limit(limit)
     .lean();

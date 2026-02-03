@@ -15,9 +15,6 @@ const formatNumber = (num) => {
   return new Intl.NumberFormat("en-IN").format(num);
 };
 
-const DEFAULT_HELPER_TEXT =
-  "Recognition is provided based on participation and completion. Individual recipient details are not displayed for privacy.";
-
 const CSRRecognition = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -121,7 +118,6 @@ const CSRRecognition = () => {
     100,
     Math.max(0, Number(data?.completionBasedRecognition) || 0)
   );
-  const helperText = data?.helperText || DEFAULT_HELPER_TEXT;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -151,88 +147,85 @@ const CSRRecognition = () => {
           </div>
         </header>
 
-        {/* METRIC CARDS */}
+        {/* METRIC CARDS — order: 1 Badges, 2 Completion %, 3 Certificates, 4 Kits */}
         <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100">
-              <Award className="w-5 h-5 text-blue-600" />
-            </div>
-            <div className="flex-1">
-              <p className="text-xs uppercase tracking-wide text-slate-400">
-                Certificate Issued
-              </p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">
-                {formatNumber(data?.certificatesIssued)}
-              </p>
-              <p className="text-xs text-slate-500 mt-2">
-                Module certificates (all games in a pillar-module completed)
-              </p>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-amber-50 to-amber-100">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 shrink-0">
               <Award className="w-5 h-5 text-amber-600" />
             </div>
-            <div className="flex-1">
-              <p className="text-xs uppercase tracking-wide text-slate-400">
-                Badges Issued
-              </p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">
-                {formatNumber(data?.badgesIssued)}
-              </p>
-              <p className="text-xs text-slate-500 mt-2">
-                Badges earned by students from pillar games
-              </p>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100">
-              <Gift className="w-5 h-5 text-purple-600" />
-            </div>
-            <div className="flex-1">
-              <p className="text-xs uppercase tracking-wide text-slate-400">
-                Kits in progress
-              </p>
-              <p className="text-2xl font-bold text-slate-900 mt-1">
-                {formatNumber(data?.recognitionKitsInProgress)}
-              </p>
-              <p className="text-xs text-slate-500 mt-2">
-                Physical recognition kits in progress
-              </p>
-            </div>
-          </article>
-
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100">
-                <CheckCircle className="w-5 h-5 text-emerald-600" />
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="min-h-[2.25rem] flex items-end">
+                <p className="text-xs uppercase tracking-wide text-slate-400">
+                  Badges Issued
+                </p>
               </div>
-              <div className="flex-1">
+              <div className="min-h-[2.5rem] flex items-end mt-1">
+                <p className="text-2xl font-bold text-slate-900">
+                  {formatNumber(data?.badgesIssued)}
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 shrink-0">
+              <CheckCircle className="w-5 h-5 text-emerald-600" />
+            </div>
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="min-h-[2.25rem] flex items-end">
                 <p className="text-xs uppercase tracking-wide text-slate-400">
                   Completion Recognition
                 </p>
-                <p className="text-2xl font-bold text-slate-900 mt-1">
-                  {completionPct}%
-                </p>
+              </div>
+              <div className="min-h-[2.5rem] flex items-end mt-1">
+                  <p className="text-2xl font-bold text-slate-900">
+                    {completionPct}%
+                  </p>
+                </div>
                 <div className="mt-3 h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-500"
                     style={{ width: `${completionPct}%` }}
                   />
                 </div>
+            </div>
+          </article>
+
+          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 shrink-0">
+              <Award className="w-5 h-5 text-blue-600" />
+            </div>
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="min-h-[2.25rem] flex items-end">
+                <p className="text-xs uppercase tracking-wide text-slate-400">
+                  Certificate Issued
+                </p>
+              </div>
+              <div className="min-h-[2.5rem] flex items-end mt-1">
+                <p className="text-2xl font-bold text-slate-900">
+                  {formatNumber(data?.certificatesIssued)}
+                </p>
               </div>
             </div>
           </article>
-        </section>
 
-        {/* HELPER TEXT */}
-        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-          <div className="flex items-center gap-3">
-            <AlertCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
-            <p className="text-sm text-slate-600">{helperText}</p>
-          </div>
+          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 shrink-0">
+              <Gift className="w-5 h-5 text-purple-600" />
+            </div>
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="min-h-[2.25rem] flex items-end">
+                <p className="text-xs uppercase tracking-wide text-slate-400">
+                  Kits in progress
+                </p>
+              </div>
+              <div className="min-h-[2.5rem] flex items-end mt-1">
+                <p className="text-2xl font-bold text-slate-900">
+                  {formatNumber(data?.recognitionKitsInProgress)}
+                </p>
+              </div>
+            </div>
+          </article>
         </section>
 
         {/* BADGES BY PILLAR */}

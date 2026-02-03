@@ -27,6 +27,8 @@ const notificationSchema = new mongoose.Schema(
         "general",
         "csr_registered",
         "checkpoint_acknowledged",
+        "incident_alert",
+        "privacy_incident",
       ],
       default: "info",
     },

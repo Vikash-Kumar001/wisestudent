@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Users,
@@ -7,6 +7,7 @@ import {
   UserX,
   RefreshCw,
   AlertCircle,
+  TrendingUp,
 } from "lucide-react";
 import {
   LineChart,
@@ -16,6 +17,10 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
 } from "recharts";
 import toast from "react-hot-toast";
 import csrProgramService from "../../services/csr/programService";
@@ -79,6 +84,28 @@ const CSRStudentReach = () => {
 
   const handleRefresh = () => fetchData(true);
 
+  const timeline = Array.isArray(data?.timeline) ? data.timeline : [];
+  const totalOnboarded = Number(data?.totalOnboarded) || 0;
+  const activeStudents = Number(data?.activeStudents) || 0;
+  const inactiveCount = Math.max(0, totalOnboarded - activeStudents);
+
+  const timelineWithCumulative = useMemo(() => {
+    if (timeline.length === 0) return [];
+    let cum = 0;
+    return timeline.map((t) => {
+      cum += t.count || 0;
+      return { ...t, cumulative: cum };
+    });
+  }, [timeline]);
+
+  const activeVsInactiveData = useMemo(() => {
+    if (totalOnboarded === 0) return [];
+    return [
+      { name: "Active", value: activeStudents, fill: "#10b981" },
+      { name: "Inactive / Dropped", value: inactiveCount, fill: "#f43f5e" },
+    ].filter((d) => d.value > 0);
+  }, [totalOnboarded, activeStudents, inactiveCount]);
+
   if (loading && !data) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
@@ -124,19 +151,21 @@ const CSRStudentReach = () => {
   const activePct = Math.min(100, Math.max(0, Number(data?.activePercentage) || 0));
   const completionPct = Math.min(100, Math.max(0, Number(data?.completionRate) || 0));
   const dropoffPct = Math.min(100, Math.max(0, Number(data?.dropoffRate) || 0));
-  const timeline = Array.isArray(data?.timeline) ? data.timeline : [];
 
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
         {/* HEADER */}
         <header className="flex flex-col gap-2">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-3">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                 Student Metrics
               </p>
-              <h1 className="text-3xl font-bold text-slate-900">Student Reach</h1>
+              <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                <Users className="w-7 h-7 text-indigo-600" />
+                Student Reach
+              </h1>
               <p className="text-sm text-slate-500 mt-1">
                 Track onboarded students, activity, and completion across your program.
               </p>
@@ -152,88 +181,125 @@ const CSRStudentReach = () => {
           </div>
         </header>
 
-        {/* METRIC CARDS */}
+        {/* METRIC CARDS — consistent layout: label top, icon pill, value aligned */}
         <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100">
-              <Users className="w-5 h-5 text-indigo-600" />
+          <article className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">Total Onboarded</span>
+              <div className="p-2 rounded-lg bg-indigo-100 text-indigo-600">
+                <Users className="w-4 h-4" />
+              </div>
             </div>
-            <div className="flex-1">
-              <p className="text-xs uppercase tracking-wide text-slate-400">
-                Total Onboarded
-              </p>
-              <p className="text-2xl font-semibold text-slate-900">
-                {formatNumber(data?.totalOnboarded)}
-              </p>
+            <div className="min-h-[2.5rem] flex items-end">
+              <p className="text-2xl font-bold text-slate-900">{formatNumber(data?.totalOnboarded)}</p>
             </div>
           </article>
 
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100">
-                <UserCheck className="w-5 h-5 text-emerald-600" />
+          <article className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">Active Students</span>
+              <div className="p-2 rounded-lg bg-emerald-100 text-emerald-600">
+                <UserCheck className="w-4 h-4" />
               </div>
-              <div className="flex-1">
-                <p className="text-xs uppercase tracking-wide text-slate-400">
-                  Active Students
-                </p>
-                <p className="text-2xl font-semibold text-slate-900">{activePct}%</p>
-                <div className="mt-2 h-2 bg-slate-100 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-500"
-                    style={{ width: `${activePct}%` }}
-                  />
-                </div>
-              </div>
+            </div>
+            <div className="min-h-[2.5rem] flex items-end">
+              <p className="text-2xl font-bold text-slate-900">{formatNumber(activeStudents)}</p>
+            </div>
+            <div className="min-h-[1.25rem] flex items-end mt-1">
+              <p className="text-xs text-slate-500">{activePct}% of total</p>
+            </div>
+            <div className="mt-2 h-2 bg-slate-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-500"
+                style={{ width: `${activePct}%` }}
+              />
             </div>
           </article>
 
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
+          <article className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">Completion Rate</span>
+              <div className="p-2 rounded-lg bg-blue-100 text-blue-600">
+                <CheckCircle className="w-4 h-4" />
               </div>
-              <div className="flex-1">
-                <p className="text-xs uppercase tracking-wide text-slate-400">
-                  Completion Rate
-                </p>
-                <p className="text-2xl font-semibold text-slate-900">{completionPct}%</p>
-                <div className="mt-2 h-2 bg-slate-100 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-500"
-                    style={{ width: `${completionPct}%` }}
-                  />
-                </div>
-              </div>
+            </div>
+            <div className="min-h-[2.5rem] flex items-end">
+              <p className="text-2xl font-bold text-slate-900">{completionPct}%</p>
+            </div>
+            <div className="min-h-[1.25rem] mt-1" />
+            <div className="mt-2 h-2 bg-slate-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-500"
+                style={{ width: `${completionPct}%` }}
+              />
             </div>
           </article>
 
-          <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-rose-50 to-rose-100">
-              <UserX className="w-5 h-5 text-rose-600" />
+          <article className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">Drop-off Rate</span>
+              <div className="p-2 rounded-lg bg-rose-100 text-rose-600">
+                <UserX className="w-4 h-4" />
+              </div>
             </div>
-            <div className="flex-1">
-              <p className="text-xs uppercase tracking-wide text-slate-400">
-                Drop-off Rate
-              </p>
-              <p className="text-2xl font-semibold text-slate-900">{dropoffPct}%</p>
+            <div className="min-h-[2.5rem] flex items-end">
+              <p className="text-2xl font-bold text-slate-900">{dropoffPct}%</p>
             </div>
           </article>
         </section>
 
+        {/* ACTIVE VS INACTIVE BREAKDOWN */}
+        {activeVsInactiveData.length > 0 && (
+          <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp className="w-5 h-5 text-indigo-600" />
+              <h2 className="text-lg font-semibold text-slate-900">Reach Breakdown</h2>
+            </div>
+            <p className="text-sm text-slate-500 mb-4">
+              Active students vs inactive or dropped from the program
+            </p>
+            <div className="h-64 max-w-sm mx-auto">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={activeVsInactiveData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={56}
+                    outerRadius={88}
+                    paddingAngle={2}
+                    dataKey="value"
+                    nameKey="name"
+                  >
+                    {activeVsInactiveData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{ borderRadius: "12px", border: "1px solid #e2e8f0" }}
+                    formatter={(value) => [formatNumber(value), ""]}
+                  />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </section>
+        )}
+
         {/* TIMELINE CHART */}
         <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-          <div className="mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <Users className="w-5 h-5 text-indigo-600" />
             <h2 className="text-lg font-semibold text-slate-900">
               Students Onboarded Over Time
             </h2>
-            <p className="text-xs text-slate-500">Monthly onboarding trend</p>
           </div>
+          <p className="text-xs text-slate-500 mb-4">Monthly new onboarded and cumulative total</p>
 
           <div className="h-80">
             {timeline.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={timeline}>
+                <LineChart data={timelineWithCumulative} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                   <XAxis
                     dataKey="period"
@@ -250,13 +316,26 @@ const CSRStudentReach = () => {
                       border: "1px solid #e2e8f0",
                       boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
                     }}
-                    formatter={(value) => [formatNumber(value), "Onboarded"]}
-                    labelFormatter={(label) => `Period: ${label}`}
+                    content={({ active, payload, label }) => {
+                      if (!active || !payload?.length) return null;
+                      const point = payload[0]?.payload || {};
+                      return (
+                        <div className="bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
+                          <p className="text-xs font-semibold text-slate-500 mb-1.5">{label}</p>
+                          <p className="text-sm text-slate-700">
+                            New: <span className="font-semibold text-indigo-600">{formatNumber(point.count)}</span>
+                          </p>
+                          <p className="text-sm text-slate-700">
+                            Cumulative: <span className="font-semibold text-emerald-600">{formatNumber(point.cumulative)}</span>
+                          </p>
+                        </div>
+                      );
+                    }}
                   />
                   <Line
                     type="monotone"
                     dataKey="count"
-                    name="Onboarded"
+                    name="New this period"
                     stroke="#6366f1"
                     strokeWidth={3}
                     dot={{ fill: "#6366f1", strokeWidth: 2 }}

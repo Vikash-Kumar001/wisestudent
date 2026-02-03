@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AlertTriangle,
@@ -19,6 +19,8 @@ import {
   Leaf,
   RefreshCw,
   AlertCircle,
+  CheckCircle,
+  BarChart3,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import csrProgramService from "../../services/csr/programService";
@@ -61,48 +63,60 @@ const getTrendIcon = (trend) => {
   }
 };
 
-const PillarIndicator = ({ pillar }) => {
+const getLevelIconBg = (level) => {
+  switch ((level || "").toLowerCase()) {
+    case "high":
+      return "bg-emerald-100 text-emerald-700";
+    case "medium":
+      return "bg-amber-100 text-amber-700";
+    case "low":
+      return "bg-slate-100 text-slate-600";
+    default:
+      return "bg-slate-100 text-slate-400";
+  }
+};
+
+const PillarRow = ({ pillar, isLast }) => {
   const hasData = pillar?.hasData === true && pillar?.level != null;
   const level = (pillar?.level || "").toLowerCase();
   const colors = getLevelColor(hasData ? level : "");
   const levelWidth =
     level === "high" ? "100%" : level === "medium" ? "66%" : level === "low" ? "33%" : "0%";
   const Icon = pillarIcons[pillar?.id] || Target;
+  const iconBg = getLevelIconBg(hasData ? level : "");
 
   return (
-    <article className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex items-start justify-between">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50">
-            <Icon className="w-5 h-5 text-indigo-600" />
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">
-              {pillar?.name || pillar?.id || "—"}
-            </h3>
-            <p className="text-xs text-slate-500">Exposure Level</p>
-          </div>
+    <div
+      className={`flex flex-col gap-3 py-4 ${!isLast ? "border-b border-slate-100" : ""}`}
+    >
+      <div className="flex items-center gap-4">
+        <div
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${iconBg}`}
+        >
+          <Icon className="h-5 w-5" />
         </div>
-        <div className="flex items-center gap-1">
-          {hasData ? getTrendIcon(pillar?.trend) : null}
+        <div className="min-w-0 flex-1">
+          <h3 className="text-sm font-semibold text-slate-900 leading-tight">
+            {pillar?.name || pillar?.id || "—"}
+          </h3>
+          <p className="text-xs text-slate-500 mt-0.5">Exposure level</p>
         </div>
-      </div>
-      <div className="mt-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex shrink-0 items-center gap-2">
+          {hasData && getTrendIcon(pillar?.trend)}
           <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold uppercase ${colors.bg} ${colors.text}`}
+            className={`inline-flex px-2.5 py-1 rounded-lg text-xs font-semibold uppercase tracking-wide ${colors.bg} ${colors.text}`}
           >
-            {hasData ? level : "No data yet"}
+            {hasData ? level : "No data"}
           </span>
         </div>
-        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-          <div
-            className={`h-full ${colors.bar} rounded-full transition-all duration-500`}
-            style={{ width: levelWidth }}
-          />
-        </div>
       </div>
-    </article>
+      <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+        <div
+          className={`h-full ${colors.bar} rounded-full transition-all duration-500`}
+          style={{ width: levelWidth }}
+        />
+      </div>
+    </div>
   );
 };
 
@@ -166,6 +180,15 @@ const CSRReadinessExposure = () => {
 
   const handleRefresh = () => fetchData(true);
 
+  const pillars = Array.isArray(data?.pillars) ? data.pillars : [];
+  const levelCounts = useMemo(() => {
+    const high = pillars.filter((p) => (p?.level || "").toLowerCase() === "high").length;
+    const medium = pillars.filter((p) => (p?.level || "").toLowerCase() === "medium").length;
+    const low = pillars.filter((p) => (p?.level || "").toLowerCase() === "low").length;
+    const withData = pillars.filter((p) => p?.hasData === true && p?.level != null).length;
+    return { high, medium, low, withData, total: pillars.length };
+  }, [pillars]);
+
   if (loading && !data) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
@@ -208,7 +231,6 @@ const CSRReadinessExposure = () => {
     );
   }
 
-  const pillars = Array.isArray(data?.pillars) ? data.pillars : [];
   const disclaimer = data?.disclaimer || DEFAULT_DISCLAIMER;
 
   return (
@@ -216,16 +238,17 @@ const CSRReadinessExposure = () => {
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
         {/* HEADER */}
         <header className="flex flex-col gap-2">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-3">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                 Exposure Metrics
               </p>
-              <h1 className="text-3xl font-bold text-slate-900">
+              <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                <Target className="w-7 h-7 text-indigo-600" />
                 Readiness Exposure
               </h1>
               <p className="text-sm text-slate-500 mt-1">
-                What type of exposure students received through the program.
+                Exposure students received across readiness pillars.
               </p>
             </div>
             <button
@@ -239,41 +262,80 @@ const CSRReadinessExposure = () => {
           </div>
         </header>
 
-        {/* DISCLAIMER */}
-        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-6 shadow-sm">
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-xl bg-amber-100">
-              <AlertTriangle className="w-5 h-5 text-amber-600" />
+        {/* SUMMARY STRIP */}
+        {pillars.length > 0 && (
+          <section className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-indigo-600" />
+                <span className="text-sm font-semibold text-slate-700">Exposure summary</span>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  {levelCounts.high} High
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
+                  {levelCounts.medium} Medium
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 text-xs font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-slate-400" />
+                  {levelCounts.low} Low
+                </span>
+                <span className="text-xs text-slate-500 pl-1">
+                  {levelCounts.withData} of {levelCounts.total} pillars with data
+                </span>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-amber-900">
-                Important Disclaimer
+          </section>
+        )}
+
+        {/* DISCLAIMER */}
+        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+          <div className="flex items-start gap-3">
+            <div className="p-2 rounded-lg bg-amber-100 shrink-0">
+              <AlertTriangle className="w-4 h-4 text-amber-600" />
+            </div>
+            <div className="min-w-0">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+                Disclaimer
               </h3>
-              <p className="text-sm text-amber-800 mt-1">{disclaimer}</p>
+              <p className="text-sm text-slate-600 mt-1 leading-relaxed">{disclaimer}</p>
             </div>
           </div>
         </section>
 
         {/* PILLARS GRID */}
-        <section className="grid gap-4 md:grid-cols-2">
-          {pillars.length > 0 ? (
-            pillars.map((pillar, index) => (
-              <PillarIndicator
-                key={pillar?.id ?? pillar?.name ?? `pillar-${index}`}
-                pillar={pillar}
-              />
-            ))
-          ) : (
-            <div className="md:col-span-2 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
-              <Target className="w-12 h-12 mx-auto mb-3 text-slate-300" />
-              <p className="text-sm font-medium text-slate-600">
-                No readiness exposure data yet
-              </p>
-              <p className="text-xs text-slate-500 mt-1">
-                Pillar exposure levels will appear here as program data is collected.
-              </p>
-            </div>
-          )}
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-1 h-6 rounded-full bg-indigo-500" />
+            <Target className="w-5 h-5 text-indigo-600" />
+            <h2 className="text-lg font-semibold text-slate-900">Exposure by pillar</h2>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            {pillars.length > 0 ? (
+              <div className="px-5">
+                {pillars.map((pillar, index) => (
+                  <PillarRow
+                    key={pillar?.id ?? pillar?.name ?? `pillar-${index}`}
+                    pillar={pillar}
+                    isLast={index === pillars.length - 1}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-emerald-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-slate-900">No exposure data yet</h3>
+                <p className="text-sm text-slate-500 mt-2 max-w-sm mx-auto">
+                  Pillar exposure levels will appear here as program data is collected.
+                </p>
+              </div>
+            )}
+          </div>
         </section>
 
         {refreshing && data && (

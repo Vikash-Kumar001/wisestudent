@@ -10,9 +10,26 @@ import {
   AlertCircle,
   RefreshCw,
   TrendingUp,
+  BarChart3,
+  Target,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
+import { motion } from "framer-motion";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+  RadialBarChart,
+  RadialBar,
+} from "recharts";
 import csrProgramService from "../../services/csr/programService";
 
 // Helper functions
@@ -331,32 +348,155 @@ const CSRProgramOverview = () => {
           ))}
         </section>
 
-        {/* CHECKPOINT TIMELINE */}
+        {/* PROGRAM REACH CHART */}
+        <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <BarChart3 className="w-5 h-5 text-indigo-600" />
+            <h2 className="text-lg font-semibold text-slate-900">Program Reach at a Glance</h2>
+          </div>
+          <div className="h-64 sm:h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={[
+                  { name: "Students Covered", value: metrics?.studentsOnboarded || 0, fill: "#6366f1" },
+                  { name: "Schools", value: metrics?.schoolsImplemented || 0, fill: "#8b5cf6" },
+                  { name: "Regions", value: metrics?.regionsCovered || 0, fill: "#14b8a6" },
+                ]}
+                layout="vertical"
+                margin={{ top: 8, right: 24, left: 80, bottom: 8 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
+                <XAxis type="number" tick={{ fontSize: 12, fill: "#64748b" }} />
+                <YAxis type="category" dataKey="name" width={75} tick={{ fontSize: 12, fill: "#475569" }} />
+                <Tooltip
+                  contentStyle={{ borderRadius: "12px", border: "1px solid #e2e8f0" }}
+                  formatter={(value) => [formatNumber(value), ""]}
+                  labelFormatter={(label) => label}
+                />
+                <Bar dataKey="value" radius={[0, 6, 6, 0]} maxBarSize={48}>
+                  {[
+                    { name: "Students Covered", value: metrics?.studentsOnboarded || 0, fill: "#6366f1" },
+                    { name: "Schools", value: metrics?.schoolsImplemented || 0, fill: "#8b5cf6" },
+                    { name: "Regions", value: metrics?.regionsCovered || 0, fill: "#14b8a6" },
+                  ].map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+
+        {/* REACH DISTRIBUTION DONUT */}
+        {(metrics?.studentsOnboarded > 0 || metrics?.schoolsImplemented > 0 || metrics?.regionsCovered > 0) && (
+          <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp className="w-5 h-5 text-emerald-600" />
+              <h2 className="text-lg font-semibold text-slate-900">Reach Distribution</h2>
+            </div>
+            <div className="h-64 sm:h-72 max-w-xs mx-auto">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: "Students", value: metrics?.studentsOnboarded || 0, fill: "#6366f1" },
+                      { name: "Schools", value: metrics?.schoolsImplemented || 0, fill: "#8b5cf6" },
+                      { name: "Regions", value: metrics?.regionsCovered || 0, fill: "#14b8a6" },
+                    ].filter((d) => d.value > 0)}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={90}
+                    paddingAngle={2}
+                    dataKey="value"
+                    nameKey="name"
+                  >
+                    {[
+                      { name: "Students", value: metrics?.studentsOnboarded || 0, fill: "#6366f1" },
+                      { name: "Schools", value: metrics?.schoolsImplemented || 0, fill: "#8b5cf6" },
+                      { name: "Regions", value: metrics?.regionsCovered || 0, fill: "#14b8a6" },
+                    ]
+                      .filter((d) => d.value > 0)
+                      .map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                      ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{ borderRadius: "12px", border: "1px solid #e2e8f0" }}
+                    formatter={(value) => [formatNumber(value), ""]}
+                  />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </section>
+        )}
+
+        {/* CHECKPOINT TIMELINE & RADIAL PROGRESS */}
         {checkpoint && (
           <section className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2 mb-4">
+              <Target className="w-5 h-5 text-indigo-600" />
               <h2 className="text-lg font-semibold text-slate-900">Program Progress</h2>
-              <span className="text-sm text-slate-500">
-                {checkpoint.completed || 0} of {checkpoint.total || 5} checkpoints completed
-              </span>
             </div>
 
-            {/* Progress bar */}
-            <div className="h-2 bg-slate-100 rounded-full overflow-hidden mb-4">
-              <div
-                className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
-                style={{
-                  width: `${Math.min(((checkpoint.completed || 0) / (checkpoint.total || 5)) * 100, 100)}%`,
-                }}
-              />
-            </div>
+            <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+              {/* Radial progress */}
+              <div className="w-44 h-44 shrink-0">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadialBarChart
+                    innerRadius="70%"
+                    outerRadius="100%"
+                    data={[
+                      {
+                        name: "Completed",
+                        value: Math.min(
+                          100,
+                          Math.round(((checkpoint.completed || 0) / (checkpoint.total || 5)) * 100)
+                        ),
+                        fill: "#6366f1",
+                      },
+                    ]}
+                    startAngle={90}
+                    endAngle={-270}
+                  >
+                    <RadialBar background dataKey="value" cornerRadius={8} />
+                    <text
+                      x="50%"
+                      y="50%"
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-2xl font-bold fill-slate-900"
+                    >
+                      {checkpoint.completed || 0}/{checkpoint.total || 5}
+                    </text>
+                  </RadialBarChart>
+                </ResponsiveContainer>
+                <p className="text-center text-xs text-slate-500 mt-1">Checkpoints done</p>
+              </div>
 
-            {/* Checkpoint labels */}
-            <div className="flex justify-between text-xs text-slate-500">
-              <span>Program Approval</span>
-              <span>Onboarding</span>
-              <span>Mid-Program</span>
-              <span>Completion</span>
+              <div className="flex-1 min-w-0 w-full">
+                {/* Progress bar */}
+                <div className="h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
+                  <div
+                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${Math.min(((checkpoint.completed || 0) / (checkpoint.total || 5)) * 100, 100)}%`,
+                    }}
+                  />
+                </div>
+                <p className="text-sm text-slate-600 mb-4">
+                  <span className="font-semibold text-slate-900">{checkpoint.completed || 0}</span> of{" "}
+                  <span className="font-semibold text-slate-900">{checkpoint.total || 5}</span> checkpoints
+                  completed
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
+                  <span>Program Approval</span>
+                  <span>Onboarding</span>
+                  <span>Mid-Program</span>
+                  <span>Completion</span>
+                </div>
+              </div>
             </div>
           </section>
         )}

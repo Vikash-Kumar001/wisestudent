@@ -220,6 +220,7 @@ import User from "./models/User.js";
 import { errorHandler } from "./middlewares/errorMiddleware.js";
 import { scheduleWeeklyReports } from "./cronJobs/reportScheduler.js";
 import { startNotificationTTL } from "./cronJobs/notificationTTL.js";
+import { startCsrNotificationTTL } from "./cronJobs/csrNotificationTTL.js";
 
 // Socket Handlers
 import { setupWalletSocket } from "./socketHandlers/walletSocket.js";
@@ -453,6 +454,9 @@ server.listen(PORT, () => {
   // Start real-time notification TTL cleanup (15 days)
   const ttlSeconds = parseInt(process.env.NOTIFICATION_TTL_SECONDS || "1296000", 10);
   startNotificationTTL(io, { ttlSeconds, intervalSeconds: 3600 });
+
+  // CSR notifications: auto-delete after 7 days
+  startCsrNotificationTTL({ intervalSeconds: 3600 });
 });
 
 export default app;

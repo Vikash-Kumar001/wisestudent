@@ -1,3 +1,5 @@
+import path from "path";
+import fs from "fs";
 import mongoose from "mongoose";
 import PDFDocument from "pdfkit";
 import ExcelJS from "exceljs";
@@ -312,13 +314,30 @@ const addDisclaimer = (doc) => {
     );
 };
 
+/** Ensure space on current page; add new page if needed (PDFKit). */
+const ensureSpace = (doc, minLines = 8) => {
+  const lineHeight = 14;
+  if (doc.y + minLines * lineHeight > 700) {
+    doc.addPage();
+    doc.y = 50;
+  }
+};
+
+/** Get pillar level by id from pillars array. */
+const getPillarLevel = (pillars, id) => {
+  const p = (pillars || []).find((x) => x.id === id);
+  if (!p?.hasData || p.level == null) return null;
+  const level = String(p.level).toLowerCase();
+  return level.charAt(0).toUpperCase() + level.slice(1);
+};
+
 /**
- * Generate Impact Summary PDF
+ * Generate Impact Summary PDF — WISESTUDENT IMPACT & READINESS SUMMARY REPORT (CSR-Supported Student Readiness Program).
+ * Structure: Cover, Program Overview, Objectives, Reach & Access, Engagement, Readiness Exposure, School Snapshot, Recognition, Ethical Safeguards, Impact Statement, Conclusion.
  * @param {String} programId - Program ID
  * @returns {Promise<Buffer>} PDF buffer
  */
 export const generateImpactSummaryPDF = async (programId) => {
-  // Fetch program data
   const program = await Program.findById(programId).populate("csrPartnerId");
   if (!program) {
     throw new Error("Program not found");
@@ -335,10 +354,30 @@ export const generateImpactSummaryPDF = async (programId) => {
     reportMetrics.totalStudents > 0
       ? reportMetrics.totalStudents
       : (metrics?.studentReach?.totalOnboarded ?? 0);
-  const activeStudents =
-    reportMetrics.totalStudents > 0
-      ? reportMetrics.totalStudents
-      : (metrics?.studentReach?.activeStudents ?? 0);
+  const totalSchools = reportMetrics.totalSchools ?? 0;
+  const activePct =
+    totalStudents > 0
+      ? (metrics?.studentReach?.activePercentage ?? 100)
+      : (metrics?.studentReach?.activePercentage ?? 0);
+  const completionRate = metrics?.studentReach?.completionRate ?? 0;
+  const rec = recognitionMetrics || {};
+  const pillars = readinessExposure?.pillars ?? [];
+  const disclaimerText = readinessExposure?.disclaimer ?? READINESS_EXPOSURE_DISCLAIMER;
+
+  const programDuration =
+    program.duration?.startDate && program.duration?.endDate
+      ? `${formatDate(program.duration.startDate)} – ${formatDate(program.duration.endDate)}`
+      : "—";
+  const geographicCoverage =
+    program.scope?.geography?.states?.length > 0
+      ? program.scope.geography.states.join(", ")
+      : "—";
+  const engagementTrend = metrics?.engagement?.engagementTrend || "Stable";
+  const avgSessions = metrics?.engagement?.averageSessionsPerStudent ?? "—";
+
+  const decisionLevel = getPillarLevel(pillars, "uvls") || getPillarLevel(pillars, "moralValues") || "—";
+  const financialLevel = getPillarLevel(pillars, "financialLiteracy") || "—";
+  const pressureLevel = getPillarLevel(pillars, "brainHealth") || "—";
 
   return new Promise((resolve, reject) => {
     try {
@@ -352,209 +391,293 @@ export const generateImpactSummaryPDF = async (programId) => {
       doc.on("end", () => resolve(Buffer.concat(buffers)));
       doc.on("error", reject);
 
-      // PAGE 1: Cover Page
-      doc.fontSize(24).font("Helvetica-Bold").fillColor("#6366f1");
-      doc.text("CSR Impact Summary Report", 50, 100, { align: "center" });
+      const body = (text, opts = {}) => {
+        ensureSpaceSection(doc, 2);
+        doc.fontSize(10).font("Helvetica").fillColor("#475569");
+        doc.text(text, 50, doc.y, { width: 500, lineGap: 3, ...opts });
+        doc.moveDown(0.5);
+      };
 
-      doc.moveDown(2);
-      doc.fontSize(18).fillColor("#1e293b");
-      doc.text(program.name || "Program Report", 50, doc.y, { align: "center" });
+      const sectionTitle = (num, title) => {
+        ensureSpaceSection(doc, 4);
+        if (num > 1) doc.moveDown(2); // space between sections
+        doc.fontSize(14).font("Helvetica-Bold").fillColor("#1e293b");
+        doc.text(`${num}. ${title}`, 50, doc.y);
+        doc.moveDown(0.8);
+      };
 
-      doc.moveDown(1);
-      doc.fontSize(12).fillColor("#64748b");
-      doc.text(
-        `CSR Partner: ${program.csrPartnerId?.companyName || "N/A"}`,
-        50,
-        doc.y,
-        { align: "center" }
-      );
+      // ————— Cover Page (first page only): Magorix header image + report content on same page —————
+      const headerDir = path.join(process.cwd(), "uploads", "csr");
+      const headerPath = [
+        path.join(headerDir, "header.png"),
+        path.join(headerDir, "header.jpg"),
+        path.join(headerDir, "cover.png"),
+      ].find((p) => fs.existsSync(p));
+      const layoutPath = [
+        path.join(headerDir, "layout2.png"),
+        path.join(headerDir, "layout.png"),
+      ].find((p) => fs.existsSync(p));
+      const contentWidth = 495; // A4 minus margins
+      let coverStartY = 50;
 
-      doc.moveDown(0.5);
-      doc.text(
-        `Period: ${formatDate(program.duration?.startDate)} - ${formatDate(program.duration?.endDate)}`,
-        50,
-        doc.y,
-        { align: "center" }
-      );
+      const drawSectionLayout = () => {
+        if (layoutPath) {
+          try {
+            doc.image(layoutPath, 0, 0, { width: 595.28, height: 841.89 });
+          } catch (e) {
+            console.warn("[Impact Summary] Layout image could not be embedded:", e?.message);
+          }
+        }
+      };
+      const ensureSpaceSection = (d, minLines = 8) => {
+        const lineHeight = 14;
+        if (d.y + minLines * lineHeight > 700) {
+          d.addPage();
+          drawSectionLayout();
+          d.y = 50;
+        }
+      };
 
-      doc.moveDown(2);
-      doc.fontSize(10).fillColor("#94a3b8");
-      doc.text(
-        `Generated on: ${formatDate(new Date())}`,
-        50,
-        doc.y,
-        { align: "center" }
-      );
+      if (headerPath) {
+        try {
+          doc.image(headerPath, 50, 50, { width: contentWidth });
+          coverStartY = 50 + 155; // content just below the header
+        } catch (imgErr) {
+          console.warn("[Impact Summary] Header image could not be embedded:", imgErr.message);
+        }
+      }
 
-      // PAGE 2: Program Overview
-      doc.addPage();
-      createHeader(doc, "Program Overview");
+      doc.y = coverStartY;
+      doc.moveDown(0.8);
+      doc.fontSize(18).font("Helvetica-Bold").fillColor("#1e293b");
+      doc.text("WISESTUDENT – IMPACT & READINESS SUMMARY", 50, doc.y, {
+        align: "center",
+        width: contentWidth,
+      });
+      doc.moveDown(0.2);
+      doc.text("REPORT", 50, doc.y, { align: "center", width: contentWidth });
+      doc.moveDown(0.4);
+      doc.fontSize(10).font("Helvetica").fillColor("#64748b");
+      doc.text("(CSR-Supported Student Readiness Program)", 50, doc.y, {
+        align: "center",
+        width: contentWidth,
+      });
+      doc.moveDown(1.5);
 
       doc.fontSize(11).font("Helvetica").fillColor("#1e293b");
-      doc.text("Program Objective:", 50, doc.y);
-      doc.font("Helvetica-Bold");
-      doc.text(program.description || "No description provided", 50, doc.y + 5, {
-        width: 500,
-        lineGap: 3,
+      doc.text("Cover Page", 50, doc.y);
+      doc.moveDown(0.8);
+
+      const coverLines = [
+        ["Program Name:", "WiseStudent Student Readiness Initiative"],
+        ["CSR Partner:", program.csrPartnerId?.companyName || "—"],
+        ["Implementation Partner:", "WiseStudent (Magorix Private Limited)"],
+        ["Program Duration:", programDuration],
+        ["Geographic Coverage:", geographicCoverage],
+        ["Report Date:", formatDate(new Date())],
+      ];
+      coverLines.forEach(([label, value]) => {
+        const y = doc.y;
+        doc.font("Helvetica").fillColor("#64748b").text(label, 50, y);
+        doc.font("Helvetica-Bold").fillColor("#1e293b").text(String(value), 220, y, { width: 330 });
+        doc.y = y + 16;
       });
 
-      doc.moveDown(1);
-      doc.font("Helvetica").text("Target Group:", 50, doc.y);
-      doc.font("Helvetica-Bold");
-      const targetGroup = [
-        program.scope?.geography?.states?.length > 0
-          ? `States: ${program.scope.geography.states.join(", ")}`
-          : "",
-        program.scope?.schoolCategory?.length > 0
-          ? `School Categories: ${program.scope.schoolCategory.map(cat => cat.charAt(0).toUpperCase() + cat.slice(1).replace(/_/g, " ")).join(", ")}`
-          : "",
-        program.scope?.targetStudentCount
-          ? `Target Students: ${formatNumber(program.scope.targetStudentCount)}`
-          : "",
-      ]
-        .filter(Boolean)
-        .join("\n");
-      doc.text(targetGroup || "Not specified", 50, doc.y + 5, {
-        width: 500,
-        lineGap: 3,
-      });
-
-      doc.moveDown(1);
-      doc.font("Helvetica").text("Delivery Model:", 50, doc.y);
-      doc.font("Helvetica-Bold");
-      doc.text("WiseStudent Platform - Digital Learning & Readiness", 50, doc.y + 5);
-
-      // PAGE 3: Reach & Engagement
+      // ————— Section pages: use layout.png (all sections except first/cover page) —————
       doc.addPage();
-      createHeader(doc, "Reach & Engagement Metrics");
+      drawSectionLayout();
+      doc.y = 50;
+      sectionTitle(1, "Program Overview");
+      body(
+        "The WiseStudent Student Readiness Initiative is a school-integrated program designed to support students in developing awareness around real-life decision-making, financial understanding, and handling everyday pressures."
+      );
+      body(
+        "The program is delivered digitally through participating schools in a structured, non-disruptive manner and does not interfere with academic instruction. WiseStudent acts as the technology and implementation partner, while schools retain oversight of student participation. CSR partners provide governance support and funding for program delivery."
+      );
+      body(
+        "The initiative focuses on readiness exposure, not assessment or evaluation, and is designed to be safe, scalable, and suitable for student-focused CSR engagement."
+      );
 
-      {
-        const reachData = [
-          ["Metric", "Value"],
-          ["Total Students Onboarded", formatNumber(totalStudents)],
-          ["Active Students", formatNumber(activeStudents)],
-          ["Active Percentage", `${totalStudents > 0 ? 100 : (metrics?.studentReach?.activePercentage ?? 0)}%`],
-          ["Completion Rate", `${metrics?.studentReach?.completionRate ?? 0}%`],
-        ];
-
-        let startY = doc.y;
-        doc.fontSize(10);
-        reachData.forEach((row, index) => {
-          const y = startY + index * 20;
-          doc.font(index === 0 ? "Helvetica-Bold" : "Helvetica").fillColor(index === 0 ? "#1e293b" : "#475569");
-          doc.text(row[0], 50, y);
-          doc.text(row[1], 350, y, { align: "right" });
-        });
-
-        doc.moveDown(2);
-      }
-
-      if (metrics?.engagement) {
-        createHeader(doc, "Engagement Metrics");
-        const engagementData = [
-          ["Average Sessions per Student", formatNumber(metrics.engagement.averageSessionsPerStudent)],
-          ["Participation Rate", `${metrics.engagement.participationRate || 0}%`],
-          ["Engagement Trend", metrics.engagement.engagementTrend || "Stable"],
-        ];
-
-        let startY = doc.y;
-        doc.fontSize(10);
-        engagementData.forEach((row) => {
-          const y = startY;
-          doc.font("Helvetica").fillColor("#475569");
-          doc.text(row[0], 50, y);
-          doc.text(row[1], 350, y, { align: "right" });
-          startY += 20;
-        });
-      }
-
-      // PAGE 4: Recognition (Certificate issued, Badges, Kits in progress)
-      doc.addPage();
-      createHeader(doc, "Recognition Metrics");
-
-      {
-        const rec = recognitionMetrics || {};
-        const recognitionData = [
-          ["Metric", "Value"],
-          ["Certificates issued", formatNumber(rec.certificatesIssued)],
-          ["Badges issued", formatNumber(rec.badgesIssued)],
-          ["Kits in progress", formatNumber(rec.recognitionKitsInProgress)],
-          ["Completion recognition (%)", `${rec.completionBasedRecognition ?? 0}%`],
-        ];
-        let startY = doc.y;
-        doc.fontSize(10);
-        recognitionData.forEach((row, index) => {
-          const y = startY + index * 20;
-          doc.font(index === 0 ? "Helvetica-Bold" : "Helvetica").fillColor(index === 0 ? "#1e293b" : "#475569");
-          doc.text(row[0], 50, y);
-          doc.text(row[1], 350, y, { align: "right" });
-        });
-        doc.moveDown(1);
-        doc.font("Helvetica").fontSize(9).fillColor("#64748b");
-        doc.text(
-          "Certificates issued and kits in progress are updated when Super Admin marks delivery. Badges are earned from pillar games.",
-          50,
-          doc.y,
-          { width: 500, lineGap: 3 }
-        );
-        doc.moveDown(2);
-      }
-
-      // PAGE 5: Readiness Exposure (pillars from constants/readinessPillars.js — single source of truth)
-      doc.addPage();
-      createHeader(doc, "Readiness Exposure");
-
-      const pillars = readinessExposure?.pillars ?? [];
-      const disclaimerText = readinessExposure?.disclaimer ?? READINESS_EXPOSURE_DISCLAIMER;
-
-      if (pillars.length > 0) {
-        let startY = doc.y;
-        doc.fontSize(10);
-
-        pillars.forEach((pillar, index) => {
-          if (startY > 700) {
-            doc.addPage();
-            createHeader(doc, "Readiness Exposure (continued)");
-            startY = doc.y;
-          }
-
-          const level = pillar.hasData && pillar.level ? String(pillar.level) : "No data yet";
-          const trend = pillar.hasData ? (pillar.trend || "stable") : "—";
-
-          doc.font("Helvetica-Bold").fillColor("#1e293b");
-          doc.text(`${index + 1}. ${pillar.name || pillar.id || "—"}`, 50, startY);
-          doc.font("Helvetica").fillColor("#64748b");
-          doc.text(`   Exposure Level: ${level} | Trend: ${trend}`, 70, startY + 14);
-          startY += 36;
-        });
-        doc.moveDown(0.5);
-      } else {
-        doc.font("Helvetica").fontSize(10).fillColor("#64748b");
-        doc.text(
-          "No readiness exposure data yet. Pillar exposure levels will appear here as program data is collected.",
-          50,
-          doc.y,
-          { width: 500, lineGap: 3 }
-        );
-      }
-
-      // Same disclaimer as CSR Readiness Exposure page
-      doc.addPage();
-      doc
-        .fontSize(10)
-        .font("Helvetica-Bold")
-        .fillColor("#92400e")
-        .text("Important Disclaimer", 50, doc.y, { align: "left" });
+      // ————— 2. Program Objectives —————
+      sectionTitle(2, "Program Objectives");
+      doc.fontSize(10).font("Helvetica").fillColor("#475569");
+      doc.text("The key objectives of the program are:", 50, doc.y);
       doc.moveDown(0.3);
+      [
+        "To provide structured exposure to real-life decision-making scenarios",
+        "To build early awareness around financial responsibility",
+        "To help students recognise and manage everyday academic and personal pressures",
+        "To support schools in offering life-readiness support without additional teaching burden",
+      ].forEach((bullet) => {
+        doc.text(`• ${bullet}`, 60, doc.y, { width: 480, lineGap: 2 });
+        doc.moveDown(0.2);
+      });
+
+      // ————— 3. Reach & Access Summary —————
+      sectionTitle(3, "Reach & Access Summary");
+      doc.font("Helvetica").fillColor("#475569");
+      doc.text(`Total Students Covered: ${formatNumber(totalStudents)}`, 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text(`Total Schools Implemented: ${formatNumber(totalSchools)}`, 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text(`Regions / Districts Covered: ${geographicCoverage}`, 50, doc.y);
+      doc.moveDown(0.6);
+      doc.text("Participation Indicators", 50, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Active Participation Rate: ${formatNumber(activePct)} %`, 60, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Program Completion Rate: ${formatNumber(completionRate)} %`, 60, doc.y);
+      doc.moveDown(0.5);
+      doc.fontSize(9).fillColor("#64748b").text("All participation data is presented in aggregate form.", 50, doc.y);
+      doc.moveDown(0.5);
+
+      // ————— 4. Engagement Overview —————
+      sectionTitle(4, "Engagement Overview");
+      body(
+        "The program tracked overall student participation and consistency throughout the implementation period."
+      );
+      doc.font("Helvetica").fillColor("#475569").text("Key Engagement Indicators", 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text(`• Average Engagement Sessions per Student: ${formatNumber(avgSessions)}`, 60, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Overall Engagement Trend: ${engagementTrend}`, 60, doc.y);
+      doc.moveDown(0.4);
+      doc.text(
+        "Engagement Observation (Auto-generated):",
+        50,
+        doc.y
+      );
+      doc.moveDown(0.2);
+      doc
+        .font("Helvetica")
+        .text(
+          '"Student engagement remained consistent across the program duration, indicating sustained participation without academic disruption."',
+          60,
+          doc.y,
+          { width: 480, lineGap: 2 }
+        );
+      doc.moveDown(0.5);
+
+      // ————— 5. Readiness Exposure Summary —————
+      sectionTitle(5, "Readiness Exposure Summary");
+      body(
+        "WiseStudent measures exposure to readiness concepts, not performance or outcomes. These indicators reflect the type of structured scenarios students were exposed to during the program."
+      );
+      doc.font("Helvetica").fillColor("#475569").text("Aggregate Readiness Exposure", 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text(`• Decision Awareness Exposure: ${decisionLevel}`, 60, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Financial Awareness Exposure: ${financialLevel}`, 60, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Pressure Handling Exposure: ${pressureLevel}`, 60, doc.y);
+      doc.moveDown(0.5);
+      doc.fontSize(9).fillColor("#64748b").text(disclaimerText, 50, doc.y, { width: 500, lineGap: 2 });
+      doc.moveDown(0.5);
+
+      // ————— 6. School Implementation Snapshot —————
+      sectionTitle(6, "School Implementation Snapshot");
+      body(
+        "The program was implemented across multiple schools under a controlled and school-led deployment model."
+      );
+      doc.font("Helvetica").fillColor("#475569").text("Implementation Highlights", 50, doc.y);
+      doc.moveDown(0.2);
+      [
+        "Schools onboarded in line with planned timelines",
+        "Program delivered without academic disruption",
+        "No additional instructional burden placed on teachers",
+        "Schools retained full administrative oversight",
+      ].forEach((bullet) => {
+        doc.text(`• ${bullet}`, 60, doc.y, { width: 480 });
+        doc.moveDown(0.2);
+      });
+      doc.moveDown(0.2);
       doc
         .fontSize(9)
-        .font("Helvetica")
-        .fillColor("#78350f")
-        .text(disclaimerText, 50, doc.y, {
-          align: "left",
+        .fillColor("#64748b")
+        .text("Detailed school-wise information is provided separately in the School Coverage Report.", 50, doc.y, {
           width: 500,
-          lineGap: 2,
         });
+      doc.moveDown(0.5);
+
+      // ————— 7. Recognition & Completion —————
+      sectionTitle(7, "Recognition & Completion");
+      body(
+        "Students who completed the program received participation-based recognition."
+      );
+      doc.font("Helvetica").fillColor("#475569").text("Recognition Summary", 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text(`• Certificates Issued: ${formatNumber(rec.certificatesIssued)}`, 60, doc.y);
+      doc.moveDown(0.2);
+      doc.text(`• Recognition Kits Dispatched: ${formatNumber(rec.recognitionKitsInProgress)}`, 60, doc.y);
+      doc.moveDown(0.5);
+      doc
+        .fontSize(9)
+        .fillColor("#64748b")
+        .text("Recognition was designed to acknowledge participation and encourage continued engagement.", 50, doc.y, {
+          width: 500,
+        });
+      doc.moveDown(0.5);
+
+      // ————— 8. Ethical & Safety Safeguards —————
+      sectionTitle(8, "Ethical & Safety Safeguards");
+      body(
+        "The program was delivered in alignment with ethical standards appropriate for student-focused CSR initiatives."
+      );
+      [
+        "No sensitive personal data collected",
+        "No individual student profiling or labelling",
+        "No mental health diagnosis or counselling",
+        "All insights reported in aggregate form",
+        "Program delivered through schools with oversight",
+      ].forEach((bullet) => {
+        doc.text(`• ${bullet}`, 60, doc.y, { width: 480 });
+        doc.moveDown(0.2);
+      });
+      doc.moveDown(0.2);
+      doc
+        .fontSize(9)
+        .fillColor("#64748b")
+        .text("A detailed Compliance & Safeguards Summary is available as a separate document.", 50, doc.y, {
+          width: 500,
+        });
+      doc.moveDown(0.5);
+
+      // ————— 9. Overall Impact Statement —————
+      sectionTitle(9, "Overall Impact Statement");
+      body(
+        "This CSR-supported initiative enabled structured life-readiness exposure for students across participating schools. The program successfully delivered awareness around decision-making, financial responsibility, and everyday pressure handling in a safe, school-controlled environment."
+      );
+      body(
+        "The initiative demonstrates how scalable, non-intrusive platforms can support student readiness as part of broader education and inclusion efforts."
+      );
+
+      // ————— 10. Conclusion —————
+      sectionTitle(10, "Conclusion");
+      body(
+        "WiseStudent remains committed to responsible, ethical, and transparent delivery of student readiness programs. This report is intended to support CSR reporting, audit reference, and governance review."
+      );
+      doc.moveDown(1);
+      const issuedByY = doc.y;
+      doc.font("Helvetica").fillColor("#64748b").text("Issued by:", 50, doc.y);
+      doc.moveDown(0.3);
+      doc.text("WiseStudent (Magorix Private Limited)", 60, doc.y);
+      doc.text("Designation: Authorized Signatory", 60, doc.y + 14);
+      doc.text(`Date: ${formatDate(new Date())}`, 60, doc.y + 28);
+
+      // Platform stamp (Magorix / Director) on the right of "Issued by" and Date block
+      const stampDir = path.join(process.cwd(), "uploads", "csr");
+      const stampPath = [path.join(stampDir, "stamp.png"), path.join(stampDir, "stamp.jpg")].find((p) =>
+        fs.existsSync(p)
+      );
+      if (stampPath) {
+        try {
+          const stampWidth = 230;
+          const stampX = 310; // right of "Issued by" / Date text (text ends ~280)
+          doc.image(stampPath, stampX, issuedByY, { width: stampWidth });
+        } catch (imgErr) {
+          console.warn("[Impact Summary] Stamp image could not be embedded:", imgErr.message);
+        }
+      }
 
       doc.end();
     } catch (error) {

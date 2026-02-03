@@ -911,7 +911,6 @@ export const getRecognition = async (req, res) => {
         recognitionKitsInProgress,
         completionBasedRecognition,
         badgesByPillar,
-        helperText: "Certificates and kits are linked (1 certificate = 1 kit in progress). Mark delivered is automatic when Super Admin marks certificate delivered.",
       },
     });
   } catch (error) {

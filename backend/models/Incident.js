@@ -27,8 +27,8 @@ const incidentSchema = new mongoose.Schema(
     },
     ticketNumber: {
       type: String,
-      unique: true,
-      required: true
+      unique: true
+      // Auto-generated in pre-save hook when not provided
     },
     // SLA-specific fields
     slaMetrics: {

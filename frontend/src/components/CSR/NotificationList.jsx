@@ -17,6 +17,9 @@ const TYPE_FILTERS = [
   "general",
 ];
 
+/** Maximum notifications to keep in state and display (prevents unbounded growth) */
+const MAX_NOTIFICATIONS = 50;
+
 const NotificationList = () => {
   const { socket } = useSocket();
   const [notifications, setNotifications] = useState([]);
@@ -30,9 +33,9 @@ const NotificationList = () => {
     setLoading(true);
     setError("");
     try {
-      const payload = await csrNotificationService.list({ limit: 50 });
+      const payload = await csrNotificationService.list({ limit: MAX_NOTIFICATIONS });
       const raw = payload?.notifications || payload?.data || (Array.isArray(payload) ? payload : []);
-      const list = raw.map((n) => ({ ...n, isRead: n.read ?? n.isRead }));
+      const list = raw.map((n) => ({ ...n, isRead: n.read ?? n.isRead })).slice(0, MAX_NOTIFICATIONS);
       setNotifications(list);
       setUnreadCount(payload?.unreadCount ?? list.filter((x) => !x.isRead).length);
       if (showToast && list.length > 0) {
@@ -70,13 +73,13 @@ const NotificationList = () => {
     return () => clearInterval(interval);
   }, [loadUnreadCount]);
 
-  // Phase 8: Real-time CSR notifications (Socket.IO)
+  // Real-time: on new notification, refresh list (capped to MAX_NOTIFICATIONS) and unread count
   useEffect(() => {
     const s = socket;
-    if (!s) return;
+    if (!s?.on) return;
     const handler = () => {
-      fetchNotifications(false);
       loadUnreadCount();
+      fetchNotifications(false);
       toast.success("New notification");
     };
     s.on("csr:notification:new", handler);
@@ -153,13 +156,15 @@ const NotificationList = () => {
   );
 
   const displayedNotifications = useMemo(() => {
+    let list;
     if (filter === "all") {
-      return notifications;
+      list = notifications;
+    } else if (filter === "unread") {
+      list = notifications.filter((item) => !item.isRead);
+    } else {
+      list = notifications.filter((item) => item.type === filter);
     }
-    if (filter === "unread") {
-      return notifications.filter((item) => !item.isRead);
-    }
-    return notifications.filter((item) => item.type === filter);
+    return list.slice(0, MAX_NOTIFICATIONS);
   }, [filter, notifications]);
 
   return (
@@ -176,6 +181,9 @@ const NotificationList = () => {
                   {unreadCount} unread notification{unreadCount !== 1 ? "s" : ""}
                 </p>
               )}
+              <p className="text-xs text-slate-500 mt-0.5">
+                Notifications are automatically deleted after 7 days.
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -231,8 +239,8 @@ const NotificationList = () => {
         </div>
       )}
 
-      {/* NOTIFICATIONS LIST */}
-      <section className="space-y-3">
+      {/* NOTIFICATIONS LIST — fixed max height so the page doesn't grow unbounded */}
+      <section className="flex flex-col min-h-0">
         {loading && notifications.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm">
             <div className="flex items-center justify-center gap-2 text-slate-500">
@@ -262,23 +270,30 @@ const NotificationList = () => {
           </div>
         ) : (
           <>
+            {notifications.length >= MAX_NOTIFICATIONS && (
+              <p className="text-xs text-slate-500 mb-2">
+                Showing latest {MAX_NOTIFICATIONS} notifications
+              </p>
+            )}
             {loading && (
-              <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm">
+              <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm mb-3">
                 <div className="flex items-center gap-2 text-slate-500">
                   <RefreshCw className="h-4 w-4 animate-spin" />
                   <span className="text-xs">Refreshing...</span>
                 </div>
               </div>
             )}
-            {displayedNotifications.map((notification) => (
-              <NotificationItem
-                key={notification._id}
-                notification={notification}
-                showActions
-                onMarkRead={handleMarkRead}
-                onDelete={handleDelete}
-              />
-            ))}
+            <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+              {displayedNotifications.map((notification) => (
+                <NotificationItem
+                  key={notification._id}
+                  notification={notification}
+                  showActions
+                  onMarkRead={handleMarkRead}
+                  onDelete={handleDelete}
+                />
+              ))}
+            </div>
           </>
         )}
       </section>
