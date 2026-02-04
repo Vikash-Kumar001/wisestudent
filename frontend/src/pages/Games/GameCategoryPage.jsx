@@ -176,7 +176,7 @@ const GameCategoryPage = () => {
   const getCategoryTitle = (categoryName) => {
     const titleMap = {
       "financial-literacy": "Financial Literacy",
-      "brain-health": "Brain Health",
+      "brain-health": "Brain & Mental Health",
       uvls: "UVLS (Life Skills & Values)",
 
       "digital-citizenship": "Digital Citizenship & Online Safety",

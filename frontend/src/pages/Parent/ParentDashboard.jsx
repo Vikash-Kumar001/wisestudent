@@ -682,6 +682,8 @@ const QuickStatCard = ({ icon: Icon, label, value, suffix = '', gradient }) => {
 
 // Digital Twin Growth Card Component
 export const DigitalTwinGrowthCard = ({ digitalTwinData, skillsDistribution }) => {
+    const formatGrowthPillarLabel = (pillar) =>
+      pillar === "Brain Health" ? "Brain & Mental Health" : pillar;
     const pillarColors = {
       'Financial Literacy': '#22c55e',
       'Brain Health': '#3b82f6',
@@ -715,9 +717,9 @@ export const DigitalTwinGrowthCard = ({ digitalTwinData, skillsDistribution }) =
       return true;
     });
     const byPillar = skillsDistribution?.byPillar || null;
-    const entries = byPillar
+      const entries = byPillar
       ? filteredOrder.map((pillar) => ({
-          label: pillar,
+          label: formatGrowthPillarLabel(pillar),
           value: Number(byPillar[pillar]) || 0,
           color: pillarColors[pillar] || '#94a3b8'
         }))
@@ -820,6 +822,9 @@ export const DigitalTwinGrowthCard = ({ digitalTwinData, skillsDistribution }) =
 
 // Skills Distribution Card Component
 export const SkillsDistributionCard = ({ skillsDistribution }) => {
+    const formatSkillsPillarLabel = (pillar) =>
+      pillar === "Brain Health" ? "Brain & Mental Health" : pillar;
+
     const pillarColors = {
       'Financial Literacy': '#22c55e',
       'Brain Health': '#3b82f6',
@@ -862,7 +867,7 @@ export const SkillsDistributionCard = ({ skillsDistribution }) => {
       return true;
     });
     const entries = filteredOrder.map((pillar) => ({
-      label: pillar,
+      label: formatSkillsPillarLabel(pillar),
       value: Number(rawPillars?.[pillar]) || 0,
       color: pillarColors[pillar] || '#94a3b8'
     }));

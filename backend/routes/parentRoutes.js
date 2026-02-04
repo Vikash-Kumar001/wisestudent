@@ -134,7 +134,10 @@ const buildParentAnalyticsPdf = (analytics, options = {}) =>
         y += rows * (cardHeight + rowGap);
       };
 
-      const pillarStyles = {
+  const formatPdfPillarLabel = (label) =>
+    label === "Brain Health" ? "Brain & Mental Health" : label;
+
+  const pillarStyles = {
         "Financial Literacy": { short: "FL", color: "#2563EB" },
         "Brain Health": { short: "BH", color: "#16A34A" },
         UVLS: { short: "UV", color: "#F97316" },
@@ -156,7 +159,7 @@ const buildParentAnalyticsPdf = (analytics, options = {}) =>
         const iconY = y + 6;
         doc.circle(iconX + 10, iconY + 10, 10).fill(style.color);
         doc.fillColor("white").font("Helvetica-Bold").fontSize(8).text(style.short, iconX + 3, iconY + 6);
-        doc.fillColor(colors.text).font("Helvetica-Bold").fontSize(10).text(label, iconX + 28, y + 4);
+        doc.fillColor(colors.text).font("Helvetica-Bold").fontSize(10).text(formatPdfPillarLabel(label), iconX + 28, y + 4);
         doc.fillColor(colors.subText).font("Helvetica").fontSize(9).text(`${value}%`, pageWidth - marginX - 28, y + 4, { align: "right" });
         const barY = y + 20;
         const barX = iconX + 28;
