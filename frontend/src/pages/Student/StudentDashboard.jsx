@@ -118,6 +118,19 @@ export default function StudentDashboard() {
     const [dismissedRecommendations, setDismissedRecommendations] = useState(new Set()); // Track dismissed recommendation IDs
     const [leaderboardData, setLeaderboardData] = useState(null);
     const [achievementTimeline, setAchievementTimeline] = useState(null);
+    const [lightboxBadge, setLightboxBadge] = useState(null);
+
+    useEffect(() => {
+        if (lightboxBadge) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [lightboxBadge]);
     const [dailyActions, setDailyActions] = useState(null);
     const [newAchievementIds, setNewAchievementIds] = useState(new Set());
     const [sponsorBadge, setSponsorBadge] = useState(null);
@@ -3153,12 +3166,21 @@ export default function StudentDashboard() {
                             transition={{ duration: 0.6, delay: 0.8 }}
                             className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-6 shadow-xl border-2 border-blue-200"
                         >
-                            <h2 className="text-2xl font-black text-gray-800 mb-4 flex items-center gap-2">
-                                <Medal className="w-7 h-7 text-blue-600" />
-                                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                    Recent Achievements
-                                </span>
-                            </h2>
+                            <div className="flex items-center justify-between mb-4">
+                                <h2 className="text-2xl font-black text-gray-800 flex items-center gap-2">
+                                    <Medal className="w-7 h-7 text-blue-600" />
+                                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                        Recent Achievements
+                                    </span>
+                                </h2>
+                                <button
+                                    onClick={() => navigate("/student/achievements")}
+                                    className="p-1.5 hover:bg-blue-100 rounded-full transition-colors"
+                                    aria-label="View all achievements"
+                                >
+                                    <ChevronRight className="w-5 h-5 text-blue-600" />
+                                </button>
+                            </div>
                             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                                 {achievementTimeline.achievements.length > 0 ? (
                                     achievementTimeline.achievements.map((achievement, index) => {
@@ -3183,6 +3205,7 @@ export default function StudentDashboard() {
                                                 className={`flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-md hover:shadow-xl transition-all border ${
                                                     isNew ? 'border-yellow-400 border-2 shadow-yellow-200' : 'border-white/50'
                                                 } group relative overflow-hidden`}
+                                                onClick={() => setLightboxBadge(achievement)}
                                             >
                                                 {achievement.badgeImage ? (
                                                     <img
@@ -3232,6 +3255,35 @@ export default function StudentDashboard() {
                                         {achievementTimeline.totalAchievements} total achievements earned! 🎉
                                     </p>
                                             </div>
+                            )}
+                            {lightboxBadge && (
+                                <div
+                                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+                                    onClick={() => setLightboxBadge(null)}
+                                >
+                                    <button
+                                        onClick={() => setLightboxBadge(null)}
+                                        className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/80 flex items-center justify-center hover:bg-white transition"
+                                    >
+                                        ×
+                                    </button>
+                                    <div
+                                        onClick={(event) => event.stopPropagation()}
+                                        className="relative h-full w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden"
+                                    >
+                                        {lightboxBadge.badgeImage ? (
+                                            <img
+                                                src={lightboxBadge.badgeImage}
+                                                alt={lightboxBadge.badgeName || "Badge"}
+                                                className="h-full w-full object-contain"
+                                            />
+                                        ) : (
+                                            <div className="h-full w-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-3xl font-bold">
+                                                ✪
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             )}
                         </motion.div>
                     )}

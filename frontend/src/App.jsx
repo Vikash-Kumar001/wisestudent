@@ -20,6 +20,7 @@ import TeacherRegister from "./pages/Auth/TeacherRegister";
 import AccountTypeSelection from "./pages/Auth/AccountTypeSelection";
 
 // Student Pages
+import StudentAchievements from "./pages/Student/StudentAchievements";
 import StudentDashboard from "./pages/Student/StudentDashboard";
 import StudentActivity from "./pages/Student/StudentActivity";
 import AssignmentAttempt from "./pages/Student/AssignmentAttempt";
@@ -1009,6 +1010,14 @@ const App = () => {
             element={
               <ProtectedRoute roles={["student", "school_student"]}>
                 <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/student/achievements"
+            element={
+              <ProtectedRoute roles={["student", "school_student"]}>
+                <StudentAchievements />
               </ProtectedRoute>
             }
           />
