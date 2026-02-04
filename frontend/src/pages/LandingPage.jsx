@@ -371,7 +371,7 @@ const LandingPage = () => {
     },
     {
       icon: <Brain className="w-8 h-8" />,
-      title: "Mental Health",
+      title: "Brain & Mental Health",
       description: "Balanced, resilient, and emotionally strong.",
       color: "from-purple-500 to-pink-500",
       details: {

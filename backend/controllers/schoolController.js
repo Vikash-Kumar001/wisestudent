@@ -3657,6 +3657,9 @@ const buildTeacherAnalyticsPdf = (reportData, options = {}) => {
         y += rows * (cardHeight + rowGap);
       };
 
+      const formatPdfPillarLabel = (label) =>
+        label === "Brain Health" ? "Brain & Mental Health" : label;
+
       const pillarStyles = {
         'Financial Literacy': { short: 'FL', color: '#2563EB' },
         'Brain Health': { short: 'BH', color: '#16A34A' },
@@ -3679,7 +3682,7 @@ const buildTeacherAnalyticsPdf = (reportData, options = {}) => {
         const iconY = y + 6;
         doc.circle(iconX + 10, iconY + 10, 10).fill(style.color);
         doc.fillColor('white').font('Helvetica-Bold').fontSize(8).text(style.short, iconX + 3, iconY + 6);
-        doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(10).text(label, iconX + 28, y + 4);
+        doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(10).text(formatPdfPillarLabel(label), iconX + 28, y + 4);
         doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text(`${value}%`, pageWidth - marginX - 28, y + 4, { align: 'right' });
         const barY = y + 20;
         const barX = iconX + 28;
@@ -4412,6 +4415,9 @@ export const exportTeacherAnalytics = async (req, res) => {
       return res.status(200).json(reportData);
     } else {
       // CSV format
+      const formatCsvPillarLabel = (label) =>
+        label === "Brain Health" ? "Brain & Mental Health" : label;
+
       const csv = `Teacher Analytics Report
 Generated: ${new Date().toLocaleString()}
 Time Range: ${timeRange}
@@ -4425,7 +4431,7 @@ Students At Risk: ${reportData.summary.studentsAtRiskCount}
 Engagement Rate: ${reportData.summary.engagementRate}%
 
 === Pillar Mastery ===
-${Object.entries(reportData.mastery).map(([pillar, percentage]) => `${pillar},${percentage}%`).join('\n')}
+ ${Object.entries(reportData.mastery).map(([pillar, percentage]) => `${formatCsvPillarLabel(pillar)},${percentage}%`).join('\n')}
 
 === Students At Risk ===
 Name,Reason,Risk Level,Metric

@@ -58,7 +58,6 @@ import {
 import { useAuth } from "../../hooks/useAuth";
 import { useWallet } from "../../context/WalletContext";
 import { useSubscription } from "../../context/SubscriptionContext";
-import { fetchStudentAchievements } from "../../services/studentService";
 import { logActivity } from "../../services/activityService";
 import UpgradePrompt from "../../components/UpgradePrompt";
 import { 
@@ -77,7 +76,6 @@ import {
     fetchDailyActions
 } from "../../services/dashboardService";
 import { toast } from "react-hot-toast";
-import { mockFeatures } from "../../data/mockFeatures";
 import schoolSponsorshipService from "../../services/schoolSponsorshipService";
 import { useSocket } from '../../context/SocketContext';
 import api from "../../utils/api";
@@ -94,7 +92,6 @@ export default function StudentDashboard() {
     const socket = socketContext?.socket || null;
     const [showUpgradeModal, setShowUpgradeModal] = useState(false);
     const [upgradeFeature, setUpgradeFeature] = useState(null);
-    const [featureCards, setFeatureCards] = useState([]);
     const [achievements, setAchievements] = useState([]);
     // eslint-disable-next-line no-unused-vars
     const [notifications, setNotifications] = useState([]);
@@ -118,7 +115,6 @@ export default function StudentDashboard() {
     const [moodTimeline, setMoodTimeline] = useState(null);
     const [recommendations, setRecommendations] = useState(null);
     const [recommendationsLoading, setRecommendationsLoading] = useState(false);
-    const [recommendationsLastUpdated, setRecommendationsLastUpdated] = useState(null);
     const [dismissedRecommendations, setDismissedRecommendations] = useState(new Set()); // Track dismissed recommendation IDs
     const [leaderboardData, setLeaderboardData] = useState(null);
     const [achievementTimeline, setAchievementTimeline] = useState(null);
@@ -232,11 +228,6 @@ export default function StudentDashboard() {
         }
     }, [user]);
     
-    // Set feature cards immediately (no API call needed)
-    useEffect(() => {
-        setFeatureCards(mockFeatures);
-    }, []);
-
     useEffect(() => {
         let mounted = true;
         const loadBadge = async () => {
@@ -413,7 +404,6 @@ export default function StudentDashboard() {
             setActivityHeatmap(heatmapData);
             setMoodTimeline(timelineData);
             setRecommendations(recommendationsData);
-            setRecommendationsLastUpdated(new Date());
             setAchievementTimeline(achievementsData);
             setDailyActions(dailyActionsData);
             
@@ -429,7 +419,6 @@ export default function StudentDashboard() {
             setRecommendationsLoading(true);
             const recommendationsData = await fetchRecommendations();
             setRecommendations(recommendationsData);
-            setRecommendationsLastUpdated(new Date());
             toast.success("Recommendations updated!", {
                 duration: 2000,
                 position: "bottom-center",
@@ -952,8 +941,8 @@ export default function StudentDashboard() {
                     : achievement.ageGroup || "Unknown";
 
                 // Show professional toast notification
-                toast.success(
-                    (t) => (
+                    toast.success(
+                        () => (
                         <div className="flex items-center gap-3">
                             <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shadow-lg overflow-hidden">
                                 {achievement.badgeImage ? (
@@ -1130,6 +1119,11 @@ export default function StudentDashboard() {
 
     // Filter categories based on user gender
     const userGender = user?.gender?.toLowerCase();
+    const getCategoryDisplayLabel = (category) =>
+        category?.key === "wellness" ? "Brain & Mental Health" : category?.label;
+
+    const getPillarDisplayLabel = (pillarName) =>
+        pillarName === "Brain Health" ? "Brain & Mental Health" : pillarName;
     const categories = allCategories.filter((category) => {
         // Hide Health - Female for male users
         if (userGender === 'male' && category.label === 'Health - Female') {
@@ -1145,16 +1139,6 @@ export default function StudentDashboard() {
         }
         return true;
     });
-
-    // Show all cards on dashboard (excluding special game categories)
-    // Memoize to prevent unnecessary recalculations
-    const filteredCards = React.useMemo(() => {
-        return featureCards.filter((card) => 
-            !(card.title === "Kids Games" || 
-              card.title === "Teen Games" || 
-              card.title === "Adult Games")
-        );
-    }, [featureCards]);
 
     const progressPercentage = (stats.xp / stats.nextLevelXp) * 100;
 
@@ -1400,6 +1384,7 @@ export default function StudentDashboard() {
                                     .replace(/\s+/g, '-')
                                     .replace(/[()&]/g, '')
                                     .replace(/--+/g, '-');
+                                const displayLabel = getCategoryDisplayLabel(category);
 
                                 return (
                                     <motion.button
@@ -1408,7 +1393,7 @@ export default function StudentDashboard() {
                                             // Log category navigation
                                             logActivity({
                                                 activityType: "navigation",
-                                                description: `Navigated to category: ${category.label}`,
+                                            description: `Navigated to category: ${displayLabel}`,
                                                 metadata: {
                                                     category: category.key,
                                                     categoryLabel: category.label,
@@ -1447,7 +1432,7 @@ export default function StudentDashboard() {
                                         />
                                         
                                         <span className="relative z-10 drop-shadow-sm">
-                                            {category.label}
+                                            {displayLabel}
                                         </span>
                                     </motion.button>
                                 );
@@ -1835,7 +1820,9 @@ export default function StudentDashboard() {
                                             }
                                             return true;
                                         })
-                                        .map((pillar, index) => (
+                                        .map((pillar, index) => {
+                                            const pillarLabel = getPillarDisplayLabel(pillar.pillar);
+                                            return (
                                         <motion.div
                                             key={index}
                                             initial={{ x: -20, opacity: 0 }}
@@ -1847,7 +1834,7 @@ export default function StudentDashboard() {
                                                 <div className="flex items-center gap-2">
                                                     <span className="text-xl">{pillar.icon}</span>
                                                     <span className="text-sm font-semibold text-gray-800">
-                                                        {pillar.pillar}
+                                                        {pillarLabel}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-1">
@@ -1881,7 +1868,8 @@ export default function StudentDashboard() {
                                                 />
                                             </div>
                                         </motion.div>
-                        ))}
+                                    );
+                                })}
                     </div>
                 </motion.div>
 
@@ -2295,6 +2283,7 @@ export default function StudentDashboard() {
                                     return true;
                                 })
                                 .map((pillar, index) => {
+                                const pillarLabel = getPillarDisplayLabel(pillar.pillar);
                                 const colorSchemes = [
                                     { 
                                         gradient: 'from-purple-400 to-pink-400',
@@ -2531,7 +2520,7 @@ export default function StudentDashboard() {
                                                         WebkitBoxOrient: 'vertical',
                                                         overflow: 'hidden'
                                                     }}>
-                                                        {pillar.pillar}
+                                                        {pillarLabel}
                                                     </p>
                                                     {(pillar.locked || pillar.accessMode === 'locked' || pillar.upgradeRequired) && (
                                                         <Lock className="w-4 h-4 text-white" />
@@ -2556,7 +2545,7 @@ export default function StudentDashboard() {
                                             
                                             {/* Hover Tooltip */}
                                             <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 text-white text-xs rounded-xl px-4 py-3 whitespace-nowrap z-50 shadow-2xl pointer-events-none">
-                                                <div className="font-bold mb-1">{pillar.pillar}</div>
+                                                <div className="font-bold mb-1">{pillarLabel}</div>
                                                 <div className="text-gray-300">
                                                     📊 {pillar.mastery}% Mastery
                                                 </div>

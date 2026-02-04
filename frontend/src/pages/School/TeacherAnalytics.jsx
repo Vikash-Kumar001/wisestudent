@@ -43,13 +43,15 @@ const TeacherAnalytics = () => {
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
   const [sessionEngagement, setSessionEngagement] = useState({});
   const [leaderboard, setLeaderboard] = useState([]);
-  const [selectedTimeRange, setSelectedTimeRange] = useState("week");
+  const [selectedTimeRange, setSelectedTimeRange] = useState("all");
   const [selectedClass, setSelectedClass] = useState("all");
   const [exportFormat, setExportFormat] = useState("pdf");
   const [classes, setClasses] = useState([]);
   const [showInviteStudents, setShowInviteStudents] = useState(false);
   const [showNewAssignment, setShowNewAssignment] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const getAnalyticsPillarLabel = (pillarName) =>
+    pillarName === "Brain Health" ? "Brain & Mental Health" : pillarName;
 
   useEffect(() => {
     fetchAnalyticsData();
@@ -308,6 +310,7 @@ const TeacherAnalytics = () => {
                 onChange={(e) => setSelectedTimeRange(e.target.value)}
                 className="px-4 py-2 border border-slate-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none bg-white font-medium"
               >
+                <option value="all">All Time</option>
                 <option value="week">This Week</option>
                 <option value="month">This Month</option>
                 <option value="semester">This Semester</option>
@@ -384,7 +387,7 @@ const TeacherAnalytics = () => {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{pillarIcons[pillar] || "📚"}</span>
-                        <span className="text-sm font-bold text-slate-900">{pillar}</span>
+                        <span className="text-sm font-bold text-slate-900">{getAnalyticsPillarLabel(pillar)}</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <span className="text-base font-bold text-slate-900">{percentage}%</span>

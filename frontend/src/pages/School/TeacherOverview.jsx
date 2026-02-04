@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
@@ -34,11 +34,9 @@ const TeacherOverview = () => {
   const [stats, setStats] = useState({});
   const [classes, setClasses] = useState([]);
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
-  const [leaderboard, setLeaderboard] = useState([]);
   const [pendingTasks, setPendingTasks] = useState([]);
   const [teacherProfile, setTeacherProfile] = useState(null);
   const [classMastery, setClassMastery] = useState({});
-  const [sessionEngagement, setSessionEngagement] = useState({});
   const [recentActivities, setRecentActivities] = useState([]);
   const [showInviteStudents, setShowInviteStudents] = useState(false);
   const [selectedClassForInvite, setSelectedClassForInvite] = useState(null);
@@ -54,91 +52,7 @@ const TeacherOverview = () => {
   const [refreshingActivities, setRefreshingActivities] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  // Check teacher access on mount and when socket connects
-  useEffect(() => {
-    checkTeacherAccess();
-  }, []);
-
-  // Listen for real-time access updates
-  useEffect(() => {
-    if (!socket) return;
-
-    const handleAccessUpdate = (data) => {
-      if (data) {
-        setHasAccess(data.hasAccess === true);
-        if (data.hasAccess === true) {
-          setShowExpiredModal(false);
-          toast.success('Access restored! Your school has renewed its subscription.', {
-            duration: 5000,
-            icon: '🎉'
-          });
-          fetchDashboardData();
-        } else {
-          setShowExpiredModal(true);
-          toast.warning('Your school\'s subscription has expired. Access restricted.', {
-            duration: 5000,
-            icon: '⚠️'
-          });
-        }
-      }
-    };
-
-    const handleActivityUpdate = (data) => {
-      if (data && data.type === 'student_activity') {
-        fetchRecentActivities();
-      }
-    };
-
-    const handleTaskUpdate = (data) => {
-      if (data) {
-        fetchDashboardData();
-      }
-    };
-
-    socket.on('teacher:access:updated', handleAccessUpdate);
-    socket.on('teacher:activity:update', handleActivityUpdate);
-    socket.on('teacher:task:update', handleTaskUpdate);
-    socket.on('assignment:submitted', handleTaskUpdate);
-
-    return () => {
-      socket.off('teacher:access:updated', handleAccessUpdate);
-      socket.off('teacher:activity:update', handleActivityUpdate);
-      socket.off('teacher:task:update', handleTaskUpdate);
-      socket.off('assignment:submitted', handleTaskUpdate);
-    };
-  }, [socket]);
-
-  const checkTeacherAccess = async () => {
-    try {
-      setAccessLoading(true);
-      const response = await api.get('/api/school/teacher/access');
-      if (response.data.success) {
-        const accessData = response.data;
-        setHasAccess(accessData.hasAccess === true);
-        setAccessInfo(accessData);
-        
-        if (!accessData.hasAccess) {
-          setShowExpiredModal(true);
-          setLoading(false);
-        }
-      }
-    } catch (error) {
-      console.error('Error checking teacher access:', error);
-      setHasAccess(false);
-      setShowExpiredModal(true);
-      setLoading(false);
-    } finally {
-      setAccessLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (hasAccess && !accessLoading) {
-      fetchDashboardData();
-    }
-  }, [hasAccess, accessLoading]);
-
-  const formatRelativeTime = (date) => {
+  const formatRelativeTime = useCallback((date) => {
     if (!date) return "just now";
     const value = new Date(date).getTime();
     if (Number.isNaN(value)) {
@@ -157,9 +71,19 @@ const TeacherOverview = () => {
     if (weeks < 4) return `${weeks} week${weeks > 1 ? "s" : ""} ago`;
     const months = Math.floor(days / 30);
     return `${months} month${months > 1 ? "s" : ""} ago`;
+  }, []);
+
+  const getClassMasteryDisplayLabel = (pillarName) =>
+    pillarName === "Brain Health" ? "Brain & Mental Health" : pillarName;
+
+  const resolveStudentId = (student) => {
+    if (!student) return null;
+    if (student._id) return student._id;
+    if (student.userId && student.userId._id) return student.userId._id;
+    return null;
   };
 
-  const fetchRecentActivities = async (showLoading = false) => {
+  const fetchRecentActivities = useCallback(async (showLoading = false) => {
     try {
       if (showLoading) setRefreshingActivities(true);
       
@@ -175,8 +99,16 @@ const TeacherOverview = () => {
       }
 
       const activities = [];
-      const studentIds = students.map(s => s._id || s.userId?._id).filter(Boolean).slice(0, 3); // Limit to 3 students for faster loading
-      const studentMap = new Map(students.map(s => [(s._id || s.userId?._id).toString(), s.name || "Student"]));
+      const studentEntries = students
+        .map((student) => {
+          const id = resolveStudentId(student);
+          if (!id) return null;
+          return [id.toString(), student.name || "Student"];
+        })
+        .filter(Boolean);
+
+      const studentIds = studentEntries.map(([id]) => id).slice(0, 3); // Limit to 3 students for faster loading
+      const studentMap = new Map(studentEntries);
 
       // Fetch activity logs in parallel but with timeout to prevent blocking
       const activityPromises = studentIds.map(async (studentId) => {
@@ -265,9 +197,9 @@ const TeacherOverview = () => {
     } finally {
       if (showLoading) setRefreshingActivities(false);
     }
-  };
+  }, [formatRelativeTime]);
 
-  const fetchDashboardData = async (showLoading = true, showToast = false) => {
+  const fetchDashboardData = useCallback(async (showLoading = true, showToast = false) => {
     try {
       if (showLoading) setLoading(true);
       if (showToast) setRefreshing(true);
@@ -276,11 +208,9 @@ const TeacherOverview = () => {
         statsRes,
         classesRes,
         atRiskRes,
-        leaderboardRes,
         pendingRes,
         profileRes,
         masteryRes,
-        engagementRes,
       ] = await Promise.all([
         api.get("/api/school/teacher/stats").catch((err) => {
           console.error("Error fetching stats:", err);
@@ -294,10 +224,6 @@ const TeacherOverview = () => {
           console.error("Error fetching at-risk students:", err);
           return { data: { students: [] } };
         }),
-        api.get("/api/school/teacher/leaderboard").catch((err) => {
-          console.error("Error fetching leaderboard:", err);
-          return { data: { leaderboard: [] } };
-        }),
         api.get("/api/school/teacher/pending-tasks").catch((err) => {
           console.error("Error fetching pending tasks:", err);
           return { data: { tasks: [] } };
@@ -307,25 +233,15 @@ const TeacherOverview = () => {
           console.error("Error fetching class mastery:", err);
           return { data: {} };
         }),
-        api.get("/api/school/teacher/session-engagement").catch((err) => {
-          console.error("Error fetching session engagement:", err);
-          return { data: {} };
-        }),
       ]);
 
       setStats(statsRes.data || {});
       const classesData = classesRes.data?.classes || [];
       setClasses(classesData);
       setStudentsAtRisk(atRiskRes.data?.students || []);
-      setLeaderboard(leaderboardRes.data?.leaderboard || []);
       setPendingTasks(pendingRes.data?.tasks || []);
       setTeacherProfile(profileRes.data);
       setClassMastery(masteryRes.data || {});
-      setSessionEngagement(engagementRes.data || {
-        games: 0,
-        lessons: 0,
-        overall: 0
-      });
       
       setLastUpdated(new Date());
       
@@ -344,13 +260,101 @@ const TeacherOverview = () => {
       if (showLoading) setLoading(false);
       if (showToast) setRefreshing(false);
     }
+  }, [fetchRecentActivities]);
+
+
+
+  // Check teacher access on mount and when socket connects
+  useEffect(() => {
+    checkTeacherAccess();
+  }, []);
+
+  // Listen for real-time access updates
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleAccessUpdate = (data) => {
+      if (data) {
+        setHasAccess(data.hasAccess === true);
+        if (data.hasAccess === true) {
+          setShowExpiredModal(false);
+          toast.success('Access restored! Your school has renewed its subscription.', {
+            duration: 5000,
+            icon: '🎉'
+          });
+          fetchDashboardData();
+        } else {
+          setShowExpiredModal(true);
+          toast.warning('Your school\'s subscription has expired. Access restricted.', {
+            duration: 5000,
+            icon: '⚠️'
+          });
+        }
+      }
+    };
+
+    const handleActivityUpdate = (data) => {
+      if (data && data.type === 'student_activity') {
+        fetchRecentActivities();
+      }
+    };
+
+    const handleTaskUpdate = (data) => {
+      if (data) {
+        fetchDashboardData();
+      }
+    };
+
+    socket.on('teacher:access:updated', handleAccessUpdate);
+    socket.on('teacher:activity:update', handleActivityUpdate);
+    socket.on('teacher:task:update', handleTaskUpdate);
+    socket.on('assignment:submitted', handleTaskUpdate);
+
+    return () => {
+      socket.off('teacher:access:updated', handleAccessUpdate);
+      socket.off('teacher:activity:update', handleActivityUpdate);
+      socket.off('teacher:task:update', handleTaskUpdate);
+      socket.off('assignment:submitted', handleTaskUpdate);
+    };
+  }, [socket, fetchDashboardData, fetchRecentActivities]);
+
+  const checkTeacherAccess = async () => {
+    try {
+      setAccessLoading(true);
+      const response = await api.get('/api/school/teacher/access');
+      if (response.data.success) {
+        const accessData = response.data;
+        setHasAccess(accessData.hasAccess === true);
+        setAccessInfo(accessData);
+        
+        if (!accessData.hasAccess) {
+          setShowExpiredModal(true);
+          setLoading(false);
+        }
+      }
+    } catch (error) {
+      console.error('Error checking teacher access:', error);
+      setHasAccess(false);
+      setShowExpiredModal(true);
+      setLoading(false);
+    } finally {
+      setAccessLoading(false);
+    }
   };
+
+  useEffect(() => {
+    if (hasAccess && !accessLoading) {
+      fetchDashboardData();
+    }
+  }, [hasAccess, accessLoading, fetchDashboardData]);
 
   const handleRefresh = () => {
     fetchDashboardData(true, true);
   };
 
-  const StatCard = ({ title, value, icon: Icon, gradient, trend, onClick, subtitle }) => (
+  const StatCard = ({ title, value, icon, gradient, trend, onClick, subtitle }) => {
+    const IconComponent = icon;
+    return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -363,7 +367,7 @@ const TeacherOverview = () => {
       <div className="p-6">
       <div className="flex items-center justify-between mb-4">
           <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} shadow-md`}>
-            <Icon className="w-6 h-6 text-white" />
+            <IconComponent className="w-6 h-6 text-white" />
         </div>
         {trend && (
             <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-50 border border-emerald-200">
@@ -379,7 +383,8 @@ const TeacherOverview = () => {
         </div>
       </div>
     </motion.div>
-  );
+    );
+  };
 
   const handleOpenInviteStudents = (classInfo) => {
     const fallbackClass = classInfo || classes[0];
@@ -706,7 +711,7 @@ const TeacherOverview = () => {
                     transition={{ delay: idx * 0.05 }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-semibold text-slate-700">{pillar}</span>
+                        <span className="text-sm font-semibold text-slate-700">{getClassMasteryDisplayLabel(pillar)}</span>
                         <span className="text-sm font-bold text-slate-900">{percentage}%</span>
                     </div>
                       <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">

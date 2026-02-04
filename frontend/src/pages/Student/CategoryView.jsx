@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -48,6 +48,13 @@ export default function CategoryView() {
         { key: "sustainability", label: "Sustainability", color: "from-green-500 to-emerald-500" },
         { key: "challenges", label: "Challenges", color: "from-violet-500 to-purple-500" },
     ];
+
+    const getCategoryDisplayLabel = (category) => {
+        if (category?.key === "wellness") {
+            return "Brain & Mental Health";
+        }
+        return category?.label;
+    };
 
     useEffect(() => {
         // Convert slug back to category
@@ -112,7 +119,7 @@ export default function CategoryView() {
                 filtered = filtered.filter((card) => allowedTitles.includes(card.title));
             }
 
-            // Special handling for Sustainability category
+    // Special handling for Sustainability category
             // Show Kids, Teen, Adult Module cards + main Sustainability game + core sustainability topics
             if (category.key === 'sustainability' && categorySlug === 'sustainability') {
                 const allowedTitles = [
@@ -151,6 +158,8 @@ export default function CategoryView() {
         
         setLoading(false);
     }, [categorySlug, navigate]);
+
+    const categoryDisplayLabel = useMemo(() => getCategoryDisplayLabel(categoryInfo), [categoryInfo]);
 
     // Prevent background scrolling when modal is open
     useEffect(() => {
@@ -279,13 +288,13 @@ export default function CategoryView() {
 
     const allowedModuleLabels = getAccessibleModuleLabels(restrictedUserAge);
     const formattedAllowedModules = formatModuleList(allowedModuleLabels);
-    const encouragementContent = allowedModuleLabels.length > 0 ? (
-        <>
-            We encourage you to explore our <strong>{formattedAllowedModules}</strong> section{allowedModuleLabels.length > 1 ? "s" : ""}{categoryInfo ? ` in ${categoryInfo.label}` : ""}, which are specifically tailored to your age group and offer engaging, educational experiences designed to support your learning journey.
-        </>
-    ) : (
-        <>We encourage you to explore other modules{categoryInfo ? ` in ${categoryInfo.label}` : ""}.</>
-    );
+        const encouragementContent = allowedModuleLabels.length > 0 ? (
+            <>
+                We encourage you to explore our <strong>{formattedAllowedModules}</strong> section{allowedModuleLabels.length > 1 ? "s" : ""}{categoryInfo ? ` in ${categoryDisplayLabel}` : ""}, which are specifically tailored to your age group and offer engaging, educational experiences designed to support your learning journey.
+            </>
+        ) : (
+            <>We encourage you to explore other modules{categoryInfo ? ` in ${categoryDisplayLabel}` : ""}.</>
+        );
     const explorationButtonLabel = allowedModuleLabels.length > 0
         ? `Explore ${formattedAllowedModules}`
         : "Explore available modules";
@@ -359,7 +368,7 @@ export default function CategoryView() {
                             whileHover={{ scale: 1.05 }}
                         >
                             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black flex items-center gap-3">
-                                <span>{categoryInfo.label}</span>
+                                <span>{categoryDisplayLabel}</span>
                                 <Sparkles className="w-8 h-8" />
                             </h1>
                         </motion.div>
@@ -563,7 +572,7 @@ export default function CategoryView() {
                                         This content will be available soon.
                                     </p>
                                     <p className="text-gray-500 text-sm">
-                                        Stay tuned for updates and new features in {categoryInfo?.label || 'this category'}.
+                                        Stay tuned for updates and new features in {categoryDisplayLabel || 'this category'}.
                                     </p>
                                 </div>
                                 <p className="text-gray-700 text-base leading-relaxed">
@@ -638,7 +647,7 @@ export default function CategoryView() {
                                             <>
                                                 <p className="text-gray-700 text-base leading-relaxed mb-3">
                                                     Thank you for your interest in accessing our {detail.label} content
-                                                    {categoryInfo ? ` in ${categoryInfo.label}` : ""}. We appreciate your enthusiasm for learning!
+                                                    {categoryInfo ? ` in ${categoryDisplayLabel}` : ""}. We appreciate your enthusiasm for learning!
                                                 </p>
                                                 <p className="text-gray-700 text-base leading-relaxed mb-3">
                                                     <strong className="text-red-600">Age Requirement:</strong> {detail.requirement}
