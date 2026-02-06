@@ -854,18 +854,132 @@ export const generateSchoolCoverageExcel = async (programId) => {
     alignment: { vertical: "middle", horizontal: "right" },
   };
 
+  // Company Information Styles with colors
+  const companyNameStyle = {
+    font: { bold: true, size: 12, color: { argb: "FFFFFFFF" } },
+    fill: { type: "pattern", pattern: "solid", fgColor: { argb: "FF6366F1" } },
+    alignment: { vertical: "middle", horizontal: "left" },
+    border: {
+      top: { style: "thin", color: { argb: "FF4F46E5" } },
+      bottom: { style: "thin", color: { argb: "FF4F46E5" } },
+      left: { style: "thin", color: { argb: "FF4F46E5" } },
+      right: { style: "thin", color: { argb: "FF4F46E5" } },
+    },
+  };
+
+  const companyOfficeStyle = {
+    font: { bold: true, size: 10, color: { argb: "FF1E293B" } },
+    fill: { type: "pattern", pattern: "solid", fgColor: { argb: "FFE0E7FF" } },
+    alignment: { vertical: "middle", horizontal: "left" },
+    border: {
+      top: { style: "thin", color: { argb: "FFC7D2FE" } },
+      bottom: { style: "thin", color: { argb: "FFC7D2FE" } },
+      left: { style: "thin", color: { argb: "FFC7D2FE" } },
+      right: { style: "thin", color: { argb: "FFC7D2FE" } },
+    },
+  };
+
+  const companyContactStyle = {
+    font: { size: 10, color: { argb: "FF475569" } },
+    fill: { type: "pattern", pattern: "solid", fgColor: { argb: "FFF8FAFC" } },
+    alignment: { vertical: "middle", horizontal: "left" },
+    border: {
+      top: { style: "thin", color: { argb: "FFE2E8F0" } },
+      bottom: { style: "thin", color: { argb: "FFE2E8F0" } },
+      left: { style: "thin", color: { argb: "FFE2E8F0" } },
+      right: { style: "thin", color: { argb: "FFE2E8F0" } },
+    },
+  };
+
+  const companyLegalStyle = {
+    font: { size: 9, color: { argb: "FF64748B" } },
+    fill: { type: "pattern", pattern: "solid", fgColor: { argb: "FFF1F5F9" } },
+    alignment: { vertical: "middle", horizontal: "left" },
+    border: {
+      top: { style: "thin", color: { argb: "FFE2E8F0" } },
+      bottom: { style: "thin", color: { argb: "FFE2E8F0" } },
+      left: { style: "thin", color: { argb: "FFE2E8F0" } },
+      right: { style: "thin", color: { argb: "FFE2E8F0" } },
+    },
+  };
+
+  // Helper function to add company details header to any sheet
+  const addCompanyHeader = (sheet, startRow = 1, numColumns = 2) => {
+    let rowNum = startRow;
+    const lastCol = String.fromCharCode(64 + numColumns); // A, B, C, etc.
+
+    // Company Name - Indigo background with white text
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "Magorix- Private Limited";
+    sheet.getCell(`A${rowNum}`).style = companyNameStyle;
+    sheet.getRow(rowNum).height = 24;
+    rowNum++;
+
+    // Main Office - Light indigo background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "Main Office: Chennai & Bangalore";
+    sheet.getCell(`A${rowNum}`).style = companyOfficeStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // Reg Office - Light indigo background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "Reg Office: Trichy";
+    sheet.getCell(`A${rowNum}`).style = companyOfficeStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // Phone - Light gray background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "0091-90434 11110";
+    sheet.getCell(`A${rowNum}`).style = companyContactStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // Website - Light gray background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "www.wisestudent.org";
+    sheet.getCell(`A${rowNum}`).style = companyContactStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // Email - Light gray background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "support@wisestudent.org";
+    sheet.getCell(`A${rowNum}`).style = companyContactStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // CIN and PAN - Very light gray background
+    sheet.mergeCells(`A${rowNum}:${lastCol}${rowNum}`);
+    sheet.getCell(`A${rowNum}`).value = "CIN: U85500TN2025PTC182784 | PAN: AATCM6615P";
+    sheet.getCell(`A${rowNum}`).style = companyLegalStyle;
+    sheet.getRow(rowNum).height = 20;
+    rowNum++;
+
+    // Spacing
+    rowNum++;
+    sheet.getRow(rowNum).height = 10;
+
+    return rowNum + 1; // Return next row number
+  };
+
   // Sheet 1: Program Summary
   const summarySheet = workbook.addWorksheet("Program Summary");
   summarySheet.getColumn(1).width = 28;
   summarySheet.getColumn(2).width = 45;
 
-  // Title
-  summarySheet.mergeCells("A1:B1");
-  summarySheet.getCell("A1").value = "SCHOOL COVERAGE REPORT";
-  summarySheet.getCell("A1").style = titleStyle;
-  summarySheet.getRow(1).height = 25;
+  let rowNum = addCompanyHeader(summarySheet, 1, 2);
 
-  summarySheet.getRow(3).height = 5; // Spacing
+  // Title
+  rowNum++;
+  summarySheet.mergeCells(`A${rowNum}:B${rowNum}`);
+  summarySheet.getCell(`A${rowNum}`).value = "SCHOOL COVERAGE REPORT";
+  summarySheet.getCell(`A${rowNum}`).style = titleStyle;
+  summarySheet.getRow(rowNum).height = 25;
+
+  rowNum++;
+  summarySheet.getRow(rowNum).height = 5; // Spacing
 
   // Program metadata
   const summaryData = [
@@ -880,7 +994,6 @@ export const generateSchoolCoverageExcel = async (programId) => {
     ["Total Students:", formatNumber(totalStudentsSum)],
   ];
 
-  let rowNum = 4;
   summaryData.forEach(([label, value]) => {
     if (label && value !== undefined) {
       summarySheet.getCell(`A${rowNum}`).value = label;
@@ -929,8 +1042,20 @@ export const generateSchoolCoverageExcel = async (programId) => {
     { header: "Program Status", key: "status", width: 18 },
   ];
 
+  // Add company header
+  let schoolRowNum = addCompanyHeader(schoolSheet, 1, 6);
+
+  // Title
+  schoolSheet.mergeCells(`A${schoolRowNum}:F${schoolRowNum}`);
+  schoolSheet.getCell(`A${schoolRowNum}`).value = "SCHOOL COVERAGE";
+  schoolSheet.getCell(`A${schoolRowNum}`).style = titleStyle;
+  schoolSheet.getRow(schoolRowNum).height = 25;
+  schoolRowNum++;
+  schoolSheet.getRow(schoolRowNum).height = 5;
+  schoolRowNum++;
+
   // Header row
-  schoolSheet.getRow(1).values = [
+  schoolSheet.getRow(schoolRowNum).values = [
     "School Name",
     "District / City",
     "State",
@@ -938,15 +1063,16 @@ export const generateSchoolCoverageExcel = async (programId) => {
     "Students Covered",
     "Program Status",
   ];
-  schoolSheet.getRow(1).eachCell((cell) => {
+  schoolSheet.getRow(schoolRowNum).eachCell((cell) => {
     cell.style = headerStyle;
   });
-  schoolSheet.getRow(1).height = 25;
+  schoolSheet.getRow(schoolRowNum).height = 25;
 
-  // Freeze header row
-  schoolSheet.views = [{ state: "frozen", ySplit: 1 }];
+  // Freeze header row (accounting for company header)
+  schoolSheet.views = [{ state: "frozen", ySplit: schoolRowNum }];
 
   // Data rows
+  schoolRowNum++;
   programSchools.forEach((ps) => {
     const school = ps.schoolId || {};
     const schoolName = school.name || school.schoolName || "N/A";
@@ -987,15 +1113,27 @@ export const generateSchoolCoverageExcel = async (programId) => {
     { header: "Students", key: "students", width: 18 },
   ];
 
+  // Add company header
+  let districtRowNum = addCompanyHeader(districtSheet, 1, 3);
+
+  // Title
+  districtSheet.mergeCells(`A${districtRowNum}:C${districtRowNum}`);
+  districtSheet.getCell(`A${districtRowNum}`).value = "SUMMARY BY DISTRICT";
+  districtSheet.getCell(`A${districtRowNum}`).style = titleStyle;
+  districtSheet.getRow(districtRowNum).height = 25;
+  districtRowNum++;
+  districtSheet.getRow(districtRowNum).height = 5;
+  districtRowNum++;
+
   // Header row
-  districtSheet.getRow(1).values = ["District", "Schools", "Students"];
-  districtSheet.getRow(1).eachCell((cell) => {
+  districtSheet.getRow(districtRowNum).values = ["District", "Schools", "Students"];
+  districtSheet.getRow(districtRowNum).eachCell((cell) => {
     cell.style = headerStyle;
   });
-  districtSheet.getRow(1).height = 25;
+  districtSheet.getRow(districtRowNum).height = 25;
 
-  // Freeze header row
-  districtSheet.views = [{ state: "frozen", ySplit: 1 }];
+  // Freeze header row (accounting for company header)
+  districtSheet.views = [{ state: "frozen", ySplit: districtRowNum }];
 
   const districtMap = {};
   programSchools.forEach((ps) => {
@@ -1008,6 +1146,7 @@ export const generateSchoolCoverageExcel = async (programId) => {
     districtMap[district].students += studentCount(ps);
   });
 
+  districtRowNum++;
   Object.entries(districtMap)
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([district, data]) => {
