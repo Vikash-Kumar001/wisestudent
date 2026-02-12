@@ -3,10 +3,6 @@ import rateLimit from "express-rate-limit";
 const baseConfig = {
   standardHeaders: true,
   legacyHeaders: false,
-  validate: {
-    trustProxy: false,
-    xForwardedForHeader: false,
-  },
 };
 
 export const apiLimiter = rateLimit({
