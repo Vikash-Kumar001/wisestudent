@@ -187,7 +187,7 @@ const BadgeJusticeTeen = () => {
         setAnswered(false);
         setSelectedAnswer(null);
       }
-    }, 5000);
+    }, 8000);
   };
 
   const handleTryAgain = () => {

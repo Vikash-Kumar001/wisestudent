@@ -147,7 +147,7 @@ const DisciplineEqualsFreedomDebate = () => {
       } else {
         setGameFinished(true);
       }
-    }, 5000);
+    }, 8000);
   };
 
   const getCurrentQuestion = () => questions[currentQuestion];

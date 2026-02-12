@@ -96,13 +96,6 @@ const OverworkingPattern = () => {
     }
   }, [skillUnlocked, score]);
 
-  const Section = ({ title, children }) => (
-    <div className="bg-white/10 rounded-3xl p-6 border border-white/20">
-      <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
-      <div className="text-white/90 text-sm">{children}</div>
-    </div>
-  );
-
   return (
     <GameShell
       title="Overworking Pattern"
@@ -255,5 +248,12 @@ const OverworkingPattern = () => {
     </GameShell>
   );
 };
+
+const Section = ({ title, children }) => (
+  <div className="bg-white/10 rounded-3xl p-6 border border-white/20">
+    <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+    <div className="text-white/90 text-sm">{children}</div>
+  </div>
+);
 
 export default OverworkingPattern;

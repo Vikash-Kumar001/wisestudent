@@ -93,6 +93,11 @@ const NutritionSmartBadge = () => {
       question: "Which of these is a 'smart' snack for your brain?",
       options: [
         { 
+          text: "Fish and Nuts", 
+          emoji: "🐟", 
+          isCorrect: true
+        },
+        { 
           text: "Chips", 
           emoji: "🍟", 
           isCorrect: false
@@ -107,11 +112,7 @@ const NutritionSmartBadge = () => {
           emoji: "🍫", 
           isCorrect: false
         },
-        { 
-          text: "Fish and Nuts", 
-          emoji: "🐟", 
-          isCorrect: true
-        }
+        
       ],
       feedback: {
         correct: "Great! Omega-3s in fish and nuts feed your brain!",
@@ -133,16 +134,17 @@ const NutritionSmartBadge = () => {
           emoji: "💧", 
           isCorrect: false
         },
+         { 
+          text: "All of the above", 
+          emoji: "👍", 
+          isCorrect: true
+        },
         { 
           text: "Less calories", 
           emoji: "📉", 
           isCorrect: false
         },
-        { 
-          text: "All of the above", 
-          emoji: "👍", 
-          isCorrect: true
-        }
+       
       ],
       feedback: {
         correct: "Exactly! Water hydrates without sugar crashes!",

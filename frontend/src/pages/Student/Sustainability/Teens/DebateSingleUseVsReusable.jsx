@@ -206,7 +206,7 @@ const DebateSingleUseVsReusable = () => {
       } else {
         setGameFinished(true);
       }
-    }, 5000);
+    }, 8000);
   };
 
   const currentQuestionData = questions[currentQuestionIndex];

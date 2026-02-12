@@ -24,67 +24,73 @@ const ReflexCollegeAwareness = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      concept: "Study in College",
-      emoji: "🏫",
-      correctAnswer: "Correct college concept",
-      options: [
-        { text: "Correct college concept", isCorrect: true },
-        { text: "College = Shopping Mall", isCorrect: false },
-        { text: "Only Playing Games", isCorrect: false },
-        { text: "Avoid Studying", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      concept: "Learning New Subjects",
-      emoji: "📚",
-      correctAnswer: "Correct college concept",
-      options: [
-        { text: "Only Playing Games", isCorrect: false },
-        { text: "Correct college concept", isCorrect: true },
-        { text: "Get Free Money", isCorrect: false },
-        { text: "No Need to Work", isCorrect: false }
-      ]
-    },
-    {
-      id: 3,
-      concept: "Earn a Degree",
-      emoji: "🎓",
-      correctAnswer: "Correct college concept",
-      options: [
-        { text: "Correct college concept", isCorrect: true },
-        { text: "Get Free Money", isCorrect: false },
-        { text: "College = Shopping Mall", isCorrect: false },
-        { text: "No Need to Work", isCorrect: false }
-      ]
-    },
-    {
-      id: 4,
-      concept: "Develop Skills",
-      emoji: "🧠",
-      correctAnswer: "Correct college concept",
-      options: [
-        { text: "Avoid Studying", isCorrect: false },
-        { text: "Correct college concept", isCorrect: true },
-        { text: "College = Shopping Mall", isCorrect: false },
-        { text: "Only Playing Games", isCorrect: false }
-      ]
-    },
-    {
-      id: 5,
-      concept: "Better Career Options",
-      emoji: "💼",
-      correctAnswer: "Correct college concept",
-      options: [
-        { text: "No Need to Work", isCorrect: false },
-        { text: "Get Free Money", isCorrect: false },
-        { text: "Avoid Studying", isCorrect: false },
-        { text: "Correct college concept", isCorrect: true },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    concept: "Study in College",
+    emoji: "🏫",
+    question: "What do students mainly do in college?",
+    correctAnswer: "Attend classes and study",
+    options: [
+      { text: "Shop all day", isCorrect: false },
+      { text: "Attend classes and study", isCorrect: true },
+      { text: "Play games only", isCorrect: false },
+      { text: "Sleep and relax", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    concept: "Learning New Subjects",
+    emoji: "📚",
+    question: "Why do students learn many subjects in college?",
+    correctAnswer: "To gain knowledge and skills",
+    options: [
+      { text: "To gain knowledge and skills", isCorrect: true },
+      { text: "To get free money", isCorrect: false },
+      { text: "So they don’t have to work", isCorrect: false },
+      { text: "Only to pass time", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    concept: "Earn a Degree",
+    emoji: "🎓",
+    question: "What does a college degree show?",
+    correctAnswer: "You completed higher studies",
+    options: [
+      { text: "You never studied", isCorrect: false },
+      { text: "You are very rich", isCorrect: false },
+      { text: "You don’t need skills", isCorrect: false },
+      { text: "You completed higher studies", isCorrect: true },
+    ]
+  },
+  {
+    id: 4,
+    concept: "Develop Skills",
+    emoji: "🧠",
+    question: "Which skill can students build in college?",
+    correctAnswer: "Problem solving and thinking",
+    options: [
+      { text: "Avoiding responsibility", isCorrect: false },
+      { text: "Only watching videos", isCorrect: false },
+      { text: "Problem solving and thinking", isCorrect: true },
+      { text: "Not listening to anyone", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    concept: "Better Career Options",
+    emoji: "💼",
+    question: "How can college help in the future?",
+    correctAnswer: "It opens more career choices",
+    options: [
+      { text: "No need to work ever", isCorrect: false },
+      { text: "It opens more career choices", isCorrect: true },
+      { text: "Money comes without effort", isCorrect: false },
+      { text: "No learning needed", isCorrect: false }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

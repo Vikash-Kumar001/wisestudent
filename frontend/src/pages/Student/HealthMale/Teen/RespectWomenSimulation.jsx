@@ -267,7 +267,7 @@ const RespectWomenSimulation = () => {
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
           <div className="flex justify-between items-center mb-4">
             <span className="text-white/80">Scenario {currentScenario + 1}/{scenarios.length}</span>
-            <span className="text-yellow-400 font-bold">Score: {coins}</span>
+            <span className="text-yellow-400 font-bold">Coins: {coins}</span>
           </div>
 
         

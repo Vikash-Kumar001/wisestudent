@@ -90,7 +90,7 @@ const ReflexConsciousConsumer = () => {
       text: "Which consumer habit saves resources?",
       options: [
         { id: 'a', text: " Buying in bulk unnecessarily", emoji: "🛒", isCorrect: false },
-        { id: 'b', text: " Choosing products with recycled materials", emoji: "♻️", isCorrect: true },
+        { id: 'b', text: " Choosing products with recycled materials", emoji: "🗳️", isCorrect: true },
         { id: 'c', text: " Frequent single-item purchases", emoji: "🛍️", isCorrect: false },
         { id: 'd', text: " Disposable item preference", emoji: "🗑️", isCorrect: false }
       ]
@@ -101,7 +101,7 @@ const ReflexConsciousConsumer = () => {
       options: [
         { id: 'a', text: " Throwing everything in trash", emoji: "🗑️", isCorrect: false },
         { id: 'b', text: " Keeping all packaging", emoji: "📦", isCorrect: false },
-        { id: 'c', text: " Sorting for recycling", emoji: "♻️", isCorrect: true },
+        { id: 'c', text: " Sorting for recycling", emoji: "🤏", isCorrect: true },
         { id: 'd', text: " Burning waste", emoji: "🔥", isCorrect: false }
       ]
     },

@@ -139,7 +139,7 @@ const QuizOnWaterSystems = () => {
         setSelectedOption(null);
         setShowFeedback(false);
       }
-    }, option.isCorrect ? 1000 : 800);
+    }, option.isCorrect ? 3000 : 3000);
   };
 
   const handleTryAgain = () => {

@@ -89,13 +89,7 @@ const QuizOnFutureJobs = () => {
       text: "What does a Data Scientist do?",
       emoji: "📊",
       options: [
-        {
-          id: "a",
-          text: "Analyze complex data",
-          emoji: "📈",
-          isCorrect: true,
-          feedback: "Great! Data Scientists analyze large datasets to extract meaningful insights."
-        },
+        
         {
           id: "b",
           text: "Only play games",
@@ -109,7 +103,14 @@ const QuizOnFutureJobs = () => {
           emoji: "💃",
           isCorrect: false,
           feedback: "Not quite. That would be a dance instructor, not a Data Scientist."
-        }
+        },
+        {
+          id: "a",
+          text: "Analyze complex data",
+          emoji: "📈",
+          isCorrect: true,
+          feedback: "Great! Data Scientists analyze large datasets to extract meaningful insights."
+        },
       ],
       feedback: {
         correct: "Data Scientists analyze complex datasets to find patterns and insights that inform decisions.",

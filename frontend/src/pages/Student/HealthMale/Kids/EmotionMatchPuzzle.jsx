@@ -34,11 +34,11 @@ const EmotionMatchPuzzle = () => {
 
   // Expressions (right side) - 5 items
   const expressions = [
-    { id: 3, name: "Frown", emoji: "😞", description: "Downward mouth curve" },
-    { id: 5, name: "Open Mouth", emoji: "😮", description: "Eyes and mouth wide" },
-    { id: 1, name: "Big Smile", emoji: "😄", description: "Cheerful facial display" },
-    { id: 4, name: "Wide Eyes", emoji: "😱", description: "Fearful eye expression" },
-    { id: 2, name: "Tearful", emoji: "😭", description: "Crying with tears" }
+    { id: 3, name: "Frown", emoji: "😞" },
+    { id: 5, name: "Open Mouth", emoji: "😮" },
+    { id: 1, name: "Big Smile", emoji: "😄" },
+    { id: 4, name: "Wide Eyes", emoji: "😱" },
+    { id: 2, name: "Tearful", emoji: "😭" }
   ];
 
   // Correct matches

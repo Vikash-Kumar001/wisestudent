@@ -185,7 +185,7 @@ const SimulationWildlifeConservationProject = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
             <div className="flex justify-between items-center mb-4">
               <span className="text-white/80">Scenario {currentScenario + 1}/{questions.length}</span>
-              <span className="text-yellow-400 font-bold">Score: {coins}</span>
+              <span className="text-yellow-400 font-bold">Coins: {coins}</span>
             </div>
             <p className="text-white text-lg mb-6">{currentQuestionData.text}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -53,7 +53,7 @@ const PuzzleFoodChainImpact = () => {
   // Foods (left side) - 5 items
   const foods = [
     { id: 1, name: "Organic Vegetables", emoji: "🥬",  },
-    { id: 2, name: "Imported Beef", emoji: "🥩",  },
+    { id: 2, name: "Imported Meat", emoji: "🥩",  },
     { id: 3, name: "Processed Snacks", emoji: "🍪",  },
     { id: 4, name: "Seasonal Fruits", emoji: "🍎",  },
     { id: 5, name: "Factory Farmed Fish", emoji: "🐟",  }

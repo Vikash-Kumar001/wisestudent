@@ -101,7 +101,7 @@ const DebateOneWorld = () => {
       } else {
         setGameFinished(true);
       }
-    }, 5000);
+    }, 8000);
   };
 
   const handleNext = () => {

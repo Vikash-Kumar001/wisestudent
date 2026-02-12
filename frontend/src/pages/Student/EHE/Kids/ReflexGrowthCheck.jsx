@@ -24,67 +24,73 @@ const ReflexGrowthCheck = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      action: "Try New Skills",
-      emoji: "🌱",
-      correctAnswer: "Good for personal growth",
-      options: [
-        { text: "Stop Exploring", isCorrect: false },
-        { text: "Good for personal growth", isCorrect: true },
-        { text: "Stop Learning", isCorrect: false },
-        { text: "Resist Change", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      action: "Learn Continuously",
-      emoji: "📚",
-      correctAnswer: "Good for personal growth",
-      options: [
-        { text: "Stop Learning", isCorrect: false },
-        { text: "Good for personal growth", isCorrect: true },
-        { text: "Avoid Difficulties", isCorrect: false },
-        { text: "Ignore Advice", isCorrect: false }
-      ]
-    },
-    {
-      id: 3,
-      action: "Face Challenges",
-      emoji: "💪",
-      correctAnswer: "Good for personal growth",
-      options: [
-        { text: "Good for personal growth", isCorrect: true },
-        { text: "Avoid Difficulties", isCorrect: false },
-        { text: "Stop Exploring", isCorrect: false },
-        { text: "Resist Change", isCorrect: false }
-      ]
-    },
-    {
-      id: 4,
-      action: "Seek Feedback",
-      emoji: "👥",
-      correctAnswer: "Good for personal growth",
-      options: [
-        { text: "Ignore Advice", isCorrect: false },
-        { text: "Stop Exploring", isCorrect: false },
-        { text: "Stop Learning", isCorrect: false },
-        { text: "Good for personal growth", isCorrect: true },
-      ]
-    },
-    {
-      id: 5,
-      action: "Adapt and Change",
-      emoji: "🔄",
-      correctAnswer: "Good for personal growth",
-      options: [
-        { text: "Resist Change", isCorrect: false },
-        { text: "Stop Learning", isCorrect: false },
-        { text: "Good for personal growth", isCorrect: true },
-        { text: "Avoid Difficulties", isCorrect: false }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    action: "Try New Skills",
+    emoji: "🌱",
+    question: "You see a new activity at school that you've never tried before. What should you do?",
+    correctAnswer: "Give it a try and learn",
+    options: [
+      { text: "Say I can't do it", isCorrect: false },
+      { text: "Avoid it forever", isCorrect: false },
+      { text: "Wait for others to do it", isCorrect: false },
+      { text: "Give it a try and learn", isCorrect: true },
+    ]
+  },
+  {
+    id: 2,
+    action: "Learn Continuously",
+    emoji: "📚",
+    question: "You don't understand a topic in class. What is the best next step?",
+    correctAnswer: "Practice and ask questions",
+    options: [
+      { text: "Stop paying attention", isCorrect: false },
+      { text: "Give up completely", isCorrect: false },
+      { text: "Practice and ask questions", isCorrect: true },
+      { text: "Ignore the lesson", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    action: "Face Challenges",
+    emoji: "💪",
+    question: "Your first attempt at something didn't work. What should you do?",
+    correctAnswer: "Try again with effort",
+    options: [
+      { text: "Quit immediately", isCorrect: false },
+      { text: "Try again with effort", isCorrect: true },
+      { text: "Blame others", isCorrect: false },
+      { text: "Never try again", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    action: "Seek Feedback",
+    emoji: "👥",
+    question: "Your teacher gives you suggestions to improve. What should you do?",
+    correctAnswer: "Listen and improve",
+    options: [
+      { text: "Listen and improve", isCorrect: true },
+      { text: "Ignore the advice", isCorrect: false },
+      { text: "Get angry", isCorrect: false },
+      { text: "Stop trying", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    action: "Adapt and Change",
+    emoji: "🔄",
+    question: "A plan you made is not working. What is the smart move?",
+    correctAnswer: "Change the plan and continue",
+    options: [
+      { text: "Stick to it even if it fails", isCorrect: false },
+      { text: "Give up the goal", isCorrect: false },
+      { text: "Do nothing", isCorrect: false },
+      { text: "Change the plan and continue", isCorrect: true },
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

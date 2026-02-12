@@ -231,7 +231,7 @@ const QuizOnRecycling = () => {
           showAnswerConfetti();
         }
       }
-    }, option.isCorrect ? 1000 : 800);
+    }, option.isCorrect ? 3000 : 3000);
   };
 
   return (

@@ -49,17 +49,18 @@ const GrowingTallerStory = () => {
       text: "To grow tall and strong, you need...",
       options: [
         {
-          id: "a",
-          text: "Magic beans",
-          emoji: "🌱",
-          isCorrect: false
-        },
-        {
           id: "b",
           text: "Healthy food and sleep",
           emoji: "🥗",
           isCorrect: true
         },
+        {
+          id: "a",
+          text: "Magic beans",
+          emoji: "🌱",
+          isCorrect: false
+        },
+        
         {
           id: "c",
           text: "To hang upside down",
@@ -78,18 +79,19 @@ const GrowingTallerStory = () => {
           emoji: "🤖",
           isCorrect: false
         },
+        
+        {
+          id: "c",
+          text: "Only on Mars",
+          emoji: "👽",
+          isCorrect: false
+        },
         {
           id: "b",
           text: "No, everyone grows differently",
           emoji: "👭",
           isCorrect: true
         },
-        {
-          id: "c",
-          text: "Only on Mars",
-          emoji: "👽",
-          isCorrect: false
-        }
       ]
     },
     {

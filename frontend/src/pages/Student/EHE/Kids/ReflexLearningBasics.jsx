@@ -24,67 +24,68 @@ const ReflexLearningBasics = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      action: "Ask Questions",
-      emoji: "❓",
-      correctAnswer: "Good for learning",
-      options: [
-        { text: "Good for learning", isCorrect: true },
-        { text: "Stay Silent", isCorrect: false },
-        { text: "Ignore Books", isCorrect: false },
-        { text: "Forget Everything", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      action: "Read Books",
-      emoji: "📚",
-      correctAnswer: "Good for learning",
-      options: [
-        { text: "Ignore Books", isCorrect: false },
-        { text: "Accept Everything", isCorrect: false },
-        { text: "Never Talk to Anyone", isCorrect: false },
-        { text: "Good for learning", isCorrect: true },
-      ]
-    },
-    {
-      id: 3,
-      action: "Think Critically",
-      emoji: "🧠",
-      correctAnswer: "Good for learning",
-      options: [
-        { text: "Good for learning", isCorrect: true },
-        { text: "Accept Everything", isCorrect: false },
-        { text: "Stay Silent", isCorrect: false },
-        { text: "Forget Everything", isCorrect: false }
-      ]
-    },
-    {
-      id: 4,
-      action: "Take Notes",
-      emoji: "✍️",
-      correctAnswer: "Good for learning",
-      options: [
-        { text: "Forget Everything", isCorrect: false },
-        { text: "Stay Silent", isCorrect: false },
-        { text: "Ignore Books", isCorrect: false },
-        { text: "Good for learning", isCorrect: true },
-      ]
-    },
-    {
-      id: 5,
-      action: "Discuss with Others",
-      emoji: "👥",
-      correctAnswer: "Good for learning",
-      options: [
-        { text: "Never Talk to Anyone", isCorrect: false },
-        { text: "Good for learning", isCorrect: true },
-        { text: "Accept Everything", isCorrect: false },
-        { text: "Ignore Books", isCorrect: false }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    action: "You don’t understand a topic in class",
+    emoji: "❓",
+    correctAnswer: "Ask the teacher",
+    options: [
+      { text: "Stay confused quietly", isCorrect: false },
+      { text: "Ask the teacher", isCorrect: true },
+      { text: "Copy without understanding", isCorrect: false },
+      { text: "Stop paying attention", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    action: "You want to learn how a business works",
+    emoji: "📚",
+    correctAnswer: "Read a simple book or story",
+    options: [
+      { text: "Read a simple book or story", isCorrect: true },
+      { text: "Wait for someone else to tell you", isCorrect: false },
+      { text: "Ignore the idea", isCorrect: false },
+      { text: "Guess without learning", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    action: "You get pocket money and want to use it wisely",
+    emoji: "🪙",
+    correctAnswer: "Plan how to spend or save",
+    options: [
+      { text: "Spend everything immediately", isCorrect: false },
+      { text: "Lose the money", isCorrect: false },
+      { text: "Give it away without thinking", isCorrect: false },
+      { text: "Plan how to spend or save", isCorrect: true },
+    ]
+  },
+  {
+    id: 4,
+    action: "You learn something new in class",
+    emoji: "✍️",
+    correctAnswer: "Write short notes or draw",
+    options: [
+      { text: "Forget it after class", isCorrect: false },
+      { text: "Close the notebook", isCorrect: false },
+      { text: "Write short notes or draw", isCorrect: true },
+      { text: "Wait till exams only", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    action: "Your friend has a different idea for a project",
+    emoji: "👥",
+    correctAnswer: "Listen and discuss together",
+    options: [
+      { text: "Reject the idea immediately", isCorrect: false },
+      { text: "Listen and discuss together", isCorrect: true },
+      { text: "Ignore your friend", isCorrect: false },
+      { text: "Argue without listening", isCorrect: false }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

@@ -98,7 +98,7 @@ const QuizOnDailyHabits = () => {
       } else {
         setGameFinished(true);
       }
-    }, isCorrect ? 1000 : 800);
+    }, isCorrect ? 3000 : 3000);
   };
 
   const handleNext = () => {

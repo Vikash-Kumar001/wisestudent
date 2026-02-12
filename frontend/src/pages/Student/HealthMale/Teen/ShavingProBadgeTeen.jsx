@@ -203,7 +203,7 @@ const ShavingProBadgeTeen = () => {
                         </div>
                         <div className="flex justify-between items-center mb-4">
                             <span className="text-white/80">Challenge {currentLevel} of 5</span>
-                            <span className="text-yellow-400 font-bold">Score: {coins}</span>
+                            <span className="text-yellow-400 font-bold">Coins: {coins}</span>
                         </div>
 
                         <h3 className="text-2xl font-bold mb-2">{currentLevelData.title}</h3>

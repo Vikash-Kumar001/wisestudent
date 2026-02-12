@@ -92,7 +92,7 @@ const JournalOfInnovation = () => {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
                 <span className="text-white/80">Entry {currentStage + 1}/{stages.length}</span>
-                <span className="text-yellow-400 font-bold">Coins: {score}</span>
+                <span className="text-yellow-400 font-bold">Score: {score}</span>
               </div>
               
               <h3 className="text-xl font-bold text-white mb-4">Innovation Journal</h3>

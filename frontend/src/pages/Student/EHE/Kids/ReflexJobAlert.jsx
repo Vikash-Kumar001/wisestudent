@@ -24,67 +24,73 @@ const ReflexJobAlert = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      concept: "Space Careers",
-      emoji: "🚀",
-      correctAnswer: "Real career concept",
-      options: [
-        { text: "Time Travel Jobs", isCorrect: false },
-        { text: "Magic Jobs", isCorrect: false },
-        { text: "Real career concept", isCorrect: true },
-        { text: "Fake Science Jobs", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      concept: "AI Engineering",
-      emoji: "🤖",
-      correctAnswer: "Real career concept",
-      options: [
-        { text: "Magic Jobs", isCorrect: false },
-        { text: "Real career concept", isCorrect: true },
-        { text: "Pollution Jobs", isCorrect: false },
-        { text: "Computer Repair Only", isCorrect: false }
-      ]
-    },
-    {
-      id: 3,
-      concept: "Environmental Science",
-      emoji: "🌍",
-      correctAnswer: "Real career concept",
-      options: [
-        { text: "Pollution Jobs", isCorrect: false },
-        { text: "Real career concept", isCorrect: true },
-        { text: "Time Travel Jobs", isCorrect: false },
-        { text: "Fake Science Jobs", isCorrect: false }
-      ]
-    },
-    {
-      id: 4,
-      concept: "Cybersecurity",
-      emoji: "💻",
-      correctAnswer: "Real career concept",
-      options: [
-        { text: "Real career concept", isCorrect: true },
-        { text: "Computer Repair Only", isCorrect: false },
-        { text: "Time Travel Jobs", isCorrect: false },
-        { text: "Magic Jobs", isCorrect: false }
-      ]
-    },
-    {
-      id: 5,
-      concept: "Biotechnology",
-      emoji: "🧬",
-      correctAnswer: "Real career concept",
-      options: [
-        { text: "Fake Science Jobs", isCorrect: false },
-        { text: "Pollution Jobs", isCorrect: false },
-        { text: "Real career concept", isCorrect: true },
-        { text: "Magic Jobs", isCorrect: false }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    concept: "Space Careers",
+    emoji: "🚀",
+    question: "Which job really works with space and rockets?",
+    correctAnswer: "Astronaut or Space Engineer",
+    options: [
+      { text: "Time Travel Guide", isCorrect: false },
+      { text: "Alien Talker", isCorrect: false },
+      { text: "Astronaut or Space Engineer", isCorrect: true },
+      { text: "Magic Rocket Rider", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    concept: "AI Engineering",
+    emoji: "🤖",
+    question: "Who creates smart computer programs and robots?",
+    correctAnswer: "AI Engineer",
+    options: [
+      { text: "Robot Magician", isCorrect: false },
+      { text: "Video Game Cheater", isCorrect: false },
+      { text: "Computer Cleaner", isCorrect: false },
+      { text: "AI Engineer", isCorrect: true },
+    ]
+  },
+  {
+    id: 3,
+    concept: "Environmental Science",
+    emoji: "🌍",
+    question: "Who works to protect nature and the Earth?",
+    correctAnswer: "Environmental Scientist",
+    options: [
+      { text: "Environmental Scientist", isCorrect: true },
+      { text: "Trash Creator", isCorrect: false },
+      { text: "Pollution Spreader", isCorrect: false },
+      { text: "Weather Wizard", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    concept: "Cybersecurity",
+    emoji: "💻",
+    question: "Who keeps computers safe from hackers?",
+    correctAnswer: "Cybersecurity Expert",
+    options: [
+      { text: "Password Thief", isCorrect: false },
+      { text: "Cybersecurity Expert", isCorrect: true },
+      { text: "Internet Prankster", isCorrect: false },
+      { text: "Computer Breaker", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    concept: "Biotechnology",
+    emoji: "🧬",
+    question: "Which job uses science to help doctors and farmers?",
+    correctAnswer: "Biotechnology Scientist",
+    options: [
+      { text: "Potion Maker", isCorrect: false },
+      { text: "Magic Healer", isCorrect: false },
+      { text: "Biotechnology Scientist", isCorrect: true },
+      { text: "Animal Talker", isCorrect: false }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;
