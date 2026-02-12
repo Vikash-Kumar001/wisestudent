@@ -47,6 +47,9 @@ const allowedOrigins = process.env.CLIENT_URL
 const app = express();
 const server = http.createServer(app);
 
+// Trust proxy - required for rate limiting behind reverse proxy/load balancer
+app.set('trust proxy', true);
+
 // Set up Socket.IO with CORS
 const io = new SocketIOServer(server, {
   cors: {
