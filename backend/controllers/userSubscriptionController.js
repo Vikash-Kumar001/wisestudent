@@ -44,7 +44,7 @@ const YEAR_IN_MS = 365 * 24 * 60 * 60 * 1000;
 const RENEWAL_WINDOW_DAYS = 45;
 
 const normalizeContext = (context, userRole) => {
-  const allowed = ['student', 'parent', 'admin', 'system'];
+  const allowed = ['student', 'parent', 'admin', 'school_admin', 'system'];
   if (context && allowed.includes(context)) {
     return context;
   }
