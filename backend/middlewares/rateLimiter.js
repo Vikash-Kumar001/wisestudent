@@ -1,33 +1,36 @@
-import rateLimit from 'express-rate-limit';
+import rateLimit from "express-rate-limit";
 
-// General API rate limit: 100 requests per minute per IP
+const baseConfig = {
+  standardHeaders: true,
+  legacyHeaders: false,
+  validate: {
+    trustProxy: false,
+    xForwardedForHeader: false,
+  },
+};
+
 export const apiLimiter = rateLimit({
-  windowMs: 60 * 1000,       // 1 minute
+  ...baseConfig,
+  windowMs: 60 * 1000,
   max: 100,
   message: {
     success: false,
-    error: 'Too many requests, please try again later.',
+    error: "Too many requests, please try again later.",
   },
-  standardHeaders: true,     // RateLimit-* headers
-  legacyHeaders: false,
 });
 
-// Stricter limit for auth endpoints
 export const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,  // 15 minutes
+  ...baseConfig,
+  windowMs: 15 * 60 * 1000,
   max: 20,
   message: {
     success: false,
-    error: 'Too many login attempts, please try again after 15 minutes.',
+    error: "Too many login attempts, please try again after 15 minutes.",
   },
-  standardHeaders: true,
-  legacyHeaders: false,
 });
 
-// Relaxed limit for read-heavy endpoints (optional)
 export const readLimiter = rateLimit({
+  ...baseConfig,
   windowMs: 60 * 1000,
   max: 300,
-  standardHeaders: true,
-  legacyHeaders: false,
 });
