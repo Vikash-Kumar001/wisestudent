@@ -1,1 +1,1 @@
-web: npm start
+web: npx pm2 start ecosystem.config.cjs --env production --no-daemon

@@ -6,6 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
+    "start:cluster": "pm2 start ecosystem.config.cjs --env production",
+    "stop:cluster": "pm2 stop wisestudent-api",
+    "restart:cluster": "pm2 restart wisestudent-api --env production",
+    "logs:cluster": "pm2 logs wisestudent-api",
     "dev": "nodemon server.js",
     "migrate-avatars": "node scripts/generateAvatarsForExistingUsers.js"
   },
@@ -20,6 +24,7 @@
     "dotenv": "^16.3.1",
     "exceljs": "^4.4.0",
     "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
     "google-auth-library": "^10.5.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
@@ -28,6 +33,7 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.2",
     "pdfkit": "^0.17.2",
+    "pm2": "^6.0.14",
     "razorpay": "^2.9.6",
     "resend": "^6.5.2",
     "socket.io": "^4.8.1",
